@@ -233,6 +233,7 @@ Please update the wiki if you do come across any out of date information.
 
 ### [[Binding configurations|Samples-Binding-Config]]
 *  [[Comfo Air Binding | Samples-Comfo-Air-Binding]]
+*  [[Ecobee Examples|Ecobee-Examples]]
 *  [[Nest Binding (new)|Nest-Binding-Example]]
 *  [[Nest Thermostat|Sample-nest-thermostate]]
 *  [[Rollershutter Bindings|Rollershutter-Bindings]]
