@@ -41,6 +41,7 @@
 * [[db4o Persistence|db4o-Persistence]]
 * [[Exec Persistence|Exec-Persistence]]
 * [[InfluxDB Persistence|InfluxDB-Persistence]]
+* [[JDBC Persistence|JDBC-Persistence]]
 * [[JPA Persistence|JPA-Persistence]]
 * [[Logging Persistence|Logging-Persistence]]
 * [[mapdb Persistence|mapdb-Persistence]]
