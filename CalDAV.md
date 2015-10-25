@@ -1,7 +1,8 @@
 This binding can be used to connect through the CalDAV Interface to calendars.
 First of all you need to add the org.openhab.io.caldav-version.jar to the addons folder.
 
-**Currently the binding can just be loaded from here because the Pull-Request is not merged. **
+**Currently the binding can just be loaded from here because the Pull-Request is not merged.**
+
 [v09.10.2015](http://speedy.sh/qHKZJ/caldav-2015-10-09.zip)
 
 [v25.10.2015](http://speedy.sh/K3X4h/caldav-2015-10-25.zip)
