@@ -19,9 +19,9 @@ _**Note:** This Binding is available in 1.7 and later releases._
 
 ## Binding Configuration
 
-In order to use this binding, you will have to register as a [Nest Developer](https://nest.com/developer/) and [Register a new client](https://developer.nest.com/clients/new).  Make sure to grant all the permissions you intend to use.  At this point, you will have your `nest:client_id` and `nest:client_secret`.
+In order to use this binding, you will have to register as a [Nest Developer](https://developer.nest.com/) and [Register a new product](https://developer.nest.com/products/new).  Make sure to grant all the permissions you intend to use.  At this point, you will have your `nest:client_id` (**Product ID**) and `nest:client_secret` (**Product Secret**).
 
-Once you've created your [client](https://developer.nest.com/clients) as above, paste the Authorization URL into a new tab in your browser.  This will have you login to your normal Nest account, and will then present the `nest:pin_code`.  Prepare to copy and paste your values for `nest:client_id`, `nest:client_secret` and `nest:pin_code` in order to configure the binding.
+Once you've created your [product](https://developer.nest.com/products) as above, paste the **Authorization URL** into a new tab in your browser.  This will have you login to your normal Nest account, and will then present the `nest:pin_code`.  Prepare to copy and paste your values for `nest:client_id`, `nest:client_secret` and `nest:pin_code` in order to configure the binding.
 
 Edit the file `openhab.cfg` located in `${openhab_home}/configurations/`.  Paste all three of these values into your `openhab.cfg` file like so (using _your_ values):
 
@@ -30,19 +30,21 @@ Edit the file `openhab.cfg` located in `${openhab_home}/configurations/`.  Paste
     # Data refresh interval in ms (optional, defaults to 60000)
     # nest:refresh=60000
 
-    # the Client ID for the client you created (replace with your own)
+    # the Product ID for the product you created (replace with your own)
     nest:client_id=e5cc5558-ec55-4c55-8555-4b95555f4979
 
-    # the Client Secret for the client you created (replace with your own)
+    # the Product Secret for the product you created (replace with your own)
     nest:client_secret=ZZo28toiuoiurok4WjUya1Bnc
 
     # the PIN code that was generated when you authorized your account to allow
-    # this client
+    # this product
     nest:pin_code=2JTXXXJL
 
 An optional _refresh interval_ setting may also be specified, via the `nest:refresh` parameter, and defaults to a polling rate of one call per every 60000ms (one minute).
 
 :warning: Setting the _refresh interval_ aggressively may cause you to hit [data rate limits](https://developer.nest.com/documentation/cloud/data-rate-limits).  Nest Documentation recommends the `nest:refresh` not be set lower than 60000.
+
+ > To avoid errors, we recommend you limit requests to one call per minute, maximum.
 
     nest:refresh=60000
 
@@ -242,4 +244,3 @@ Number NestCondo_temp "Condo Temperature [%.1f °F]" {nest="=[thermostats(Dining
 ### openHAB 1.8.0
 
 * Added support for monitoring and turning on or off streaming from your Nest Cams. ([#3232](https://github.com/openhab/openhab/pull/3232))
-
