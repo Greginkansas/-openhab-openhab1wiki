@@ -1559,7 +1559,7 @@ And react on commands for this item in a rule:
  	Light.sendCommand(hue + ",100,100")
  end
 ```
-A rule, which reacts flexible on natural soken sentences:
+A rule, which reacts flexible on natural spoken sentences:
 ```
 rule "Voice control"
 when
@@ -1582,13 +1582,6 @@ then
         if(txt.contains("aus")) sendCommand(DeckenlichtWohnzimmerSchalten, OFF) else
         if(txt.contains("stop")) sendCommand(DeckenlichtWohnzimmerSchalten, OFF)
 
-//Esszimmer
-    } else if(txt.contains("ess")) {
-        if(txt.contains("ein")) sendCommand(DeckenlichtEsszimmerSchalten, ON) else
-        if(txt.contains("start")) sendCommand(DeckenlichtEsszimmerSchalten, ON) else
-        if(txt.contains("an")) sendCommand(DeckenlichtEsszimmerSchalten, ON) else
-        if(txt.contains("aus")) sendCommand(DeckenlichtEsszimmerSchalten, OFF) else
-        if(txt.contains("stop")) sendCommand(DeckenlichtEsszimmerSchalten, OFF)
 //Küche
     } else if(txt.contains("küche")) {
         if(txt.contains("ambiente") || txt.contains("boden")) {
@@ -1603,15 +1596,6 @@ then
             if(txt.contains("an")) sendCommand(DeckenlichtKueche, ON) else
             if(txt.contains("aus")) sendCommand(DeckenlichtKueche, OFF) else
             if(txt.contains("stop")) sendCommand(DeckenlichtKueche, OFF)
-        }
-//Schlafzimmer
-    } else if(txt.contains("schlafzimmer")) {
-        if(txt.contains("ambiente") || txt.contains("boden")) {
-            if(txt.contains("ein") || txt.contains("start") || txt.contains("an")) sendCommand(LEDSchlafzimmerSchalten, ON) else
-            if(txt.contains("aus") || txt.contains("stop")) sendCommand(LEDSchlafzimmerSchalten, OFF) 
-        } else if(txt.contains("licht") || txt.contains("decke") || txt.contains("leuchte")) {
-            if(txt.contains("ein") || txt.contains("start") || txt.contains("an")) sendCommand(DeckenlichtSchlafzimmerSchalten, ON) else
-            if(txt.contains("aus") || txt.contains("stop")) sendCommand(DeckenlichtSchlafzimmerSchalten, OFF) 
         }
 //Bad
     } else if(txt.contains("bad")) {
