@@ -1559,7 +1559,146 @@ And react on commands for this item in a rule:
  	Light.sendCommand(hue + ",100,100")
  end
 ```
+A rule, which reacts flexible on natural soken sentences:
+```
+rule "Voice control"
+when
+    Item VoiceCommand received command
+then
+    val txt = receivedCommand.toString.toLowerCase
+//Wohnzimmer
+    if(txt.contains("front") || txt.contains("fernseh")) {
+        if(txt.contains("ein")) sendCommand(WandlichtWohnzimmerFront, ON) else 
+        if(txt.contains("start")) sendCommand(WandlichtWohnzimmerFront, INCREASE) else
+        if(txt.contains("an")) sendCommand(WandlichtWohnzimmerFront, ON) else
+        if(txt.contains("aus")) sendCommand(WandlichtWohnzimmerFront, OFF) else
+        if(txt.contains("stop")) sendCommand(WandlichtWohnzimmerFront, STOP) else
+        if(txt.contains("heller")) sendCommand(WandlichtWohnzimmerFront, INCREASE) else
+        if(txt.contains("dunkler")) sendCommand(WandlichtWohnzimmerFront, DECREASE) 
+    }  else if(txt.contains("decke")) {
+        if(txt.contains("ein")) sendCommand(DeckenlichtWohnzimmerSchalten, ON) else
+        if(txt.contains("start")) sendCommand(DeckenlichtWohnzimmerSchalten, ON) else
+        if(txt.contains("an")) sendCommand(DeckenlichtWohnzimmerSchalten, ON) else
+        if(txt.contains("aus")) sendCommand(DeckenlichtWohnzimmerSchalten, OFF) else
+        if(txt.contains("stop")) sendCommand(DeckenlichtWohnzimmerSchalten, OFF)
 
+//Esszimmer
+    } else if(txt.contains("ess")) {
+        if(txt.contains("ein")) sendCommand(DeckenlichtEsszimmerSchalten, ON) else
+        if(txt.contains("start")) sendCommand(DeckenlichtEsszimmerSchalten, ON) else
+        if(txt.contains("an")) sendCommand(DeckenlichtEsszimmerSchalten, ON) else
+        if(txt.contains("aus")) sendCommand(DeckenlichtEsszimmerSchalten, OFF) else
+        if(txt.contains("stop")) sendCommand(DeckenlichtEsszimmerSchalten, OFF)
+//Küche
+    } else if(txt.contains("küche")) {
+        if(txt.contains("ambiente") || txt.contains("boden")) {
+            if(txt.contains("ein")) sendCommand(LEDKuecheSchalten, ON) else
+            if(txt.contains("start")) sendCommand(LEDKuecheSchalten, ON) else
+            if(txt.contains("an")) sendCommand(LEDKuecheSchalten, ON) else
+            if(txt.contains("aus")) sendCommand(LEDKuecheSchalten, OFF) else
+            if(txt.contains("stop")) sendCommand(LEDKuecheSchalten, OFF)
+        } else if(txt.contains("licht") || txt.contains("decke") || txt.contains("leuchte")) {
+            if(txt.contains("ein")) sendCommand(DeckenlichtKueche, ON) else
+            if(txt.contains("start")) sendCommand(DeckenlichtKueche, ON) else
+            if(txt.contains("an")) sendCommand(DeckenlichtKueche, ON) else
+            if(txt.contains("aus")) sendCommand(DeckenlichtKueche, OFF) else
+            if(txt.contains("stop")) sendCommand(DeckenlichtKueche, OFF)
+        }
+//Schlafzimmer
+    } else if(txt.contains("schlafzimmer")) {
+        if(txt.contains("ambiente") || txt.contains("boden")) {
+            if(txt.contains("ein") || txt.contains("start") || txt.contains("an")) sendCommand(LEDSchlafzimmerSchalten, ON) else
+            if(txt.contains("aus") || txt.contains("stop")) sendCommand(LEDSchlafzimmerSchalten, OFF) 
+        } else if(txt.contains("licht") || txt.contains("decke") || txt.contains("leuchte")) {
+            if(txt.contains("ein") || txt.contains("start") || txt.contains("an")) sendCommand(DeckenlichtSchlafzimmerSchalten, ON) else
+            if(txt.contains("aus") || txt.contains("stop")) sendCommand(DeckenlichtSchlafzimmerSchalten, OFF) 
+        }
+//Bad
+    } else if(txt.contains("bad")) {
+        if(txt.contains("wanne")) {
+            if(txt.contains("ein") || txt.contains("start") || txt.contains("an")) sendCommand(WannenlichtBad, ON) else
+            if(txt.contains("aus") || txt.contains("stop")) sendCommand(WannenlichtBad, OFF) 
+        } else if(txt.contains("decke")) {
+            if(txt.contains("ein") || txt.contains("start") || txt.contains("an")) sendCommand(DeckenlichtBad, ON) else
+            if(txt.contains("aus") || txt.contains("stop")) sendCommand(DeckenlichtBad, OFF) 
+        }
+//Galerie
+    }  else if(txt.contains("galerie")) {
+        if(txt.contains("licht")) {
+            if(txt.contains("ein")) sendCommand(DeckenlichtGalerie, ON) else
+            if(txt.contains("start")) sendCommand(DeckenlichtGalerie, INCREASE) else
+            if(txt.contains("an")) sendCommand(DeckenlichtGalerie, ON) else
+            if(txt.contains("aus")) sendCommand(DeckenlichtGalerie, OFF) else
+            if(txt.contains("stop")) sendCommand(DeckenlichtGalerie, STOP) else
+            if(txt.contains("heller")) sendCommand(DeckenlichtGalerie, INCREASE) else
+            if(txt.contains("dunkler")) sendCommand(DeckenlichtGalerie, DECREASE) 
+        } else if(txt.contains("drucker")) {
+            if(txt.contains("ein")) sendCommand(DruckerSchalten, ON) else
+            if(txt.contains("an")) sendCommand(DruckerSchalten, ON) else
+            if(txt.contains("aus")) sendCommand(DruckerSchalten, OFF) 
+        }
+
+//Rollo    
+    } else if(txt.contains("rollo") || txt.contains("jalousie")) {
+        if(txt.contains("hoch") || txt.contains("auf") || txt.contains("öffnen")) {
+            if(txt.contains("wohnzimmer")) sendCommand(RolloWZgemeinsam, UP) else
+            if(txt.contains("bad")) sendCommand(RolloBad, UP) else
+            if(txt.contains("küche")) sendCommand(RolloKueche, UP) else
+            if(txt.contains("galerie")) sendCommand(RolloGalerie, UP) else {
+                sendCommand(RolloWZgemeinsam, UP)
+                sendCommand(RolloSZBADGZgemeinsam, UP)
+            }
+        } else if(txt.contains("runter") || txt.contains("ab") || txt.contains("schließen")) {
+            if(txt.contains("wohnzimmer")) sendCommand(RolloWZgemeinsam, DOWN) else
+            if(txt.contains("bad")) sendCommand(RolloBad, DOWN) else
+            if(txt.contains("küche")) sendCommand(RolloKueche, DOWN) else
+            if(txt.contains("galerie")) sendCommand(RolloGalerie, DOWN) else {
+                sendCommand(RolloWZgemeinsam, DOWN)
+                sendCommand(RolloSZBADGZgemeinsam, DOWN)
+            }
+        }  else if(txt.contains("stop")) {
+            if(txt.contains("wohnzimmer")) sendCommand(RolloWZgemeinsam, STOP) else
+            if(txt.contains("bad")) sendCommand(RolloBad, STOP) else
+            if(txt.contains("küche")) sendCommand(RolloKueche, STOP) else
+            if(txt.contains("galerie")) sendCommand(RolloGalerie, STOP) else {
+                sendCommand(RolloWZgemeinsam, STOP)
+                sendCommand(RolloSZBADGZgemeinsam, STOP)
+            }
+        }
+    } else if(txt.contains("markise")) {
+        if(txt.contains("hoch") || txt.contains("auf") || txt.contains("öffnen")) sendCommand(Markise, UP) else
+        if(txt.contains("runter") || txt.contains("ab") || txt.contains("schließen")) sendCommand(Markise, DOWN) else
+        if(txt.contains("stop")) sendCommand(Markise, STOP)
+            
+    //Musik    
+    } else if(txt.contains("musik")) {
+        if(txt.contains("ein") || txt.contains("an") ||txt.contains("start")) {
+            if(txt.contains("wohnzimmer")) sendCommand(sq_wohnen_power, ON) else
+            if(txt.contains("gästezimmer")) sendCommand(sq_gaeste_power, ON) else
+            if(txt.contains("schlafzimmer")) sendCommand(sq_schlafen_power, ON) else
+            if(txt.contains("galerie")) sendCommand(sq_galerie_power, ON) else
+            if(txt.contains("bad")) sendCommand(MusikBadSchalten, ON) else
+//            if(txt.contains("wc")) sendCommand(MusikWCSchalten, ON) else
+            if(txt.contains("balkon")) sendCommand(MusikBalkonSchalten, ON) else {
+                sendCommand(sq_wohnen_power, ON)
+            }
+ 
+        } else if(txt.contains("aus") || txt.contains("stop")) {
+            if(txt.contains("wohnzimmer")) sendCommand(sq_wohnen_power, OFF) else
+            if(txt.contains("gästezimmer")) sendCommand(sq_gaeste_power, OFF) else
+            if(txt.contains("schlafzimmer")) sendCommand(sq_schlafen_power, OFF) else
+            if(txt.contains("galerie")) sendCommand(sq_galerie_power, OFF) else
+            if(txt.contains("bad")) sendCommand(MusikBadSchalten, OFF) else
+//            if(txt.contains("wc")) sendCommand(MusikWCSchalten, OFF) else
+            if(txt.contains("balkon")) sendCommand(MusikBalkonSchalten, OFF) else {
+                sendCommand(sq_wohnen_power, OFF)
+                sendCommand(sq_schlafen_power, OFF)
+            }
+ 
+        }
+   
+end
+```
 ### Add Humidex calculation for your Feels Like Temperature value
 
 I think we can do the same with Heat index for US, but for the moment this is the european version, it works perfectly with Netatmo but it should be ok for any weather/climate technology.
