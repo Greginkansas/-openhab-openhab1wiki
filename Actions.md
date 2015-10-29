@@ -150,11 +150,13 @@ Parameters in _italics_ are optional, in which case each unused parameter must b
 
 ### Mail Actions
 
-This add-on provides SMTP services (please check openhab_default.cfg for required configuration settings):
-- `sendMail(String to, String subject, String message)`: Sends an email via SMTP, ```to``` parameter can contain a semicolon separated list of email addresses.
-- `sendMail(String to, String subject, String message, String attachmentUrl)`: Sends an email with attachment via SMTP, ```to``` parameter can contain a semicolon separated list of email addresses.
-- `sendMail(String to, String subject, String message, List<String> attachmentUrlList)`: Sends an email with one or more attachments via SMTP, ```to``` parameter can contain a semicolon separated list of email addresses.  Example:
+This add-on provides SMTP services. Please check openhab_default.cfg for required configuration settings. The `to` paremeter can contain a semicolon separated list of email addresses.
+- `sendMail(String to, String subject, String message)`: Sends an email via SMTP.
+- `sendMail(String to, String subject, String message, String attachmentUrl)`: Sends an email with attachment via SMTP.
+- `sendMail(String to, String subject, String message, List<String> attachmentUrlList)`: Sends an email with one or more attachments via SMTP *(available as of openHAB 1.8)*.  Example:
 ```
+import java.util.List
+...
 val List<String> attachmentUrlList = newArrayList(
   "http://some.web/site/snap.jpg&param=value",
   "http://192.168.1.100/data.txt",
