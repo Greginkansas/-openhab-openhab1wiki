@@ -103,7 +103,7 @@ void loop()
 
 === Load the sketch on your ESP8266 WiFi SoC ===
 
-In this case we use the ESP8266 as a SoC and not simply as a transceiver, so Souliss is loaded directly on the module and isn't required any other microcontroller. You need to install the [[ESP8266 cores|https://github.com/souliss/souliss/wiki/Supported%20Hardware]] in your Arduino IDE.
+In this case we use the ESP8266 as a SoC and not simply as a transceiver, so Souliss is loaded directly on the module and doesn't require any other microcontroller. You need to install the [[ESP8266 cores|https://github.com/souliss/souliss/wiki/Supported%20Hardware]] in your Arduino IDE.
 
 Compared to the previous example, you only need to change the configuration files to specify that you are now using an ESP8266 and the relevant WiFi library.
 
