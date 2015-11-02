@@ -163,5 +163,5 @@ this reads counter 1 low word
 
 When using a float32 value you must use [%f] in item description.
 
-`      Number MyCounter "My Counter [%f] (All) {modbus="slave5:0"}`
+`      Number MyCounter "My Counter [%f]" (All) {modbus="slave5:0"}`
  
