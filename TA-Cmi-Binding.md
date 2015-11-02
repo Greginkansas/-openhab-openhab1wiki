@@ -1,4 +1,6 @@
-# How to use the TA Cmi binding
+_**Note:** This Binding is available in 1.8 SNAPSHOT and later releases._
+
+## Introduction
 
 This binding makes use of the CAN over Ethernet feature of the CMI from Technische Alternative. Since I only have the new UVR16x2, it has only been tested with this controller.
 
@@ -6,6 +8,7 @@ The binding currently supports the following functions:
 * Receive data from analog outputs defined in TAPPS2
 * Receive data from digital outputs defined in TAPPS2
 * Send ON/OFF to digital inputs defined in TAPPS2
+* Send DecimalType values to analog inputs defined in TAPPS 2
 
 The configuration consists of the following steps:
 
@@ -17,7 +20,6 @@ The configuration consists of the following steps:
 
 
 ## Copy the binding into your addons folder
-
 
 Simply copy the jar file into your addons directory.
 
@@ -33,7 +35,7 @@ tacmi:refresh=20
 tacmi:cmiAddress=10.10.10.10
 ```
 
-The refresh interval should be very small. The execute method of the binding blocks waits for new messages coming in for 10 seconds. If nothing has been received then the method is being restarted after the refresh interval has passed. If new data has been received then the first message is processed and the method is being restarted after the interval has passed. Messages are being processed one by one. Therefore, if you receive multiple message from the CMI, which is most likely the case, it always waits for the time configured in the refresh interval, before it processes the next one.
+The refresh interval should be very small. The execute method of the binding blocks for new messages coming in for 10 seconds. If nothing has been received then the method is being restarted after the refresh interval has passed. If new data has been received then the first message is processed and the method is being restarted after the interval has passed. Messages are being processed one by one. Therefore, if you receive multiple message from the CMI, which is most likely the case, it always waits for the time configured in the refresh interval, before it processes the next one.
 The CMI uses port 5441 for sending and receiving UDP packets.
 
 ## Configure CAN outputs in TAPPS2
