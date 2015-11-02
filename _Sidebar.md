@@ -179,6 +179,7 @@
 * [[Squeezebox Binding|Squeezebox-Binding]]
 * [[Swegon ventilation Binding|Swegon-Ventilation-Binding]]
 * [[System Info Binding|Systeminfo-Binding]]
+* [[TA CMI Binding|TA Cmi Binding]]
 * [[TCP/UDP Binding|TCP-Binding]]
 * [[Tellstick Binding|Tellstick-Binding]]
 * [[TinkerForge Binding|Tinkerforge-Binding]]
