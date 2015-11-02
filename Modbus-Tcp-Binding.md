@@ -107,6 +107,13 @@ the moxa manual ist not right clear in this case
     modbus:tcp.slave4.length=2
     modbus:tcp.slave4.type=holding
 
+    modbus:tcp.slave5.connection=192.168.6.181:502
+    modbus:tcp.slave5.id=1
+    modbus:tcp.slave5.start=10
+    modbus:tcp.slave5.length=2
+    modbus:tcp.slave5.type=input
+    modbus:tcp.slave5.valuetype=float32
+
 here we use the same modbus gateway with ip 192.168.6.180 twice 
 on different modbus address ranges and modbus functions
 
@@ -153,4 +160,7 @@ this reads counter 1 high word
 
       Number MyCounterL "My Counter low [%d]" (All) {modbus="slave3:1"}
 this reads counter 1 low word
+
+When using a float32 value you must use [%f] in item description.
+      Number MyCounter "My Counter [%f] (All) {modbus="slave5:0"}
  
