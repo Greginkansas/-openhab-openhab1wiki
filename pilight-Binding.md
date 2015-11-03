@@ -13,9 +13,9 @@ There are some differences between version 1.6 and 1.7 of this binding:
 | openHAB version | Supported pilight version | Supported Items
 |-----------------|-----------------|-----------------|
 | 1.6 | 5.0 | Switch, Dimmer, String, Number
-| 1.7 | 6.0 | Switch, Dimmer, Contact, String, Number
+| 1.7 | >= 6.0 | Switch, Dimmer, Contact, String, Number
 
-In openHAB 1.6, pilight version 5 is supported. In the latest version of openHAB (1.7), only **pilight 6.0** is supported. Make sure you're running the right version of pilight, since the API between those two versions is quite different. 
+In openHAB 1.6, pilight version 5 is supported. In the latest version of openHAB (1.7), only pilight versions 6 and later supported. Make sure you're running the right version of pilight, since the API between those two versions is quite different. 
 
 ### Installation 
 
