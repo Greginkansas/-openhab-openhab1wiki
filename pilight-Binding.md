@@ -6,7 +6,7 @@ This page describes the pilight binding, which allows openhab to communicate wit
 
 > pilight is a free open source full fledge domotica solution that runs on a Raspberry Pi, HummingBoard, BananaPi, Radxa, but also on *BSD and various linuxes (tested on Arch, Ubuntu and Debian). It's open source and freely available for anyone. pilight works with a great deal of devices and is frequency independent. Therefor, it can control devices working at 315Mhz, 433Mhz, 868Mhz etc. Support for these devices are dependent on community, because we as developers don't own them all.
 
-pilight is a cheap way to control 'Click On Click Off' devices. You can do this for example by using a Raspberry Pi and a cheap 433Mhz transceiver off eBay, plus an optional band pass filter.
+pilight is a cheap way to control 'Click On Click Off' devices. It started as an application for the Raspberry Pi (using the GPIO interface) but it's also possible now to connect it to any other PC using an Arduino Nano. You will need a cheap 433Mhz transceiver in both cases. See the [Pilight manual](http://manual.pilight.org/en/electronics-wiring) for more information.
 
 There are some differences between version 1.6 and 1.7 of this binding:
 
