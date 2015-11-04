@@ -32,6 +32,24 @@ NOTE: On Linux, should the RFXCOM device be added to the `dialout` group, you ma
 
 The `rfxcom:setMode` value is optional. Set mode command can be used to configure RFXCOM controller to listening to various receiver protocols. This is very useful because the receiver will become more sensitive when only the required protocols are enabled. You can use the RFXmngr application to get the valid configuration command. Command must be a 28 characters (14 bytes) hexadecimal string.  You can also use this to get the Device Ids needed below.
 
+## Finding the correct values
+
+If you want to add cheap devices like PT2622 remotes, contacts, sensors or wireless outlets and don't know the correct values, you can start OpenHAB in debug mode, press the buttons on the original remote or act on the sensor.
+
+To pair the entry-level wireless remote outlets (Elro, Intertechno, Intertek, Pollin, ...) you can do the following:
+
+- Enable Lighting4 protocol using the RFXMgr or `setMode`
+- Run OpenHAB in debug mode
+- Press a button on the original remote controller (here I press `A ON`) and read the DeviceId `Id` and the pulse width `Pulse` from the output:
+
+`21:35:20.096 [DEBUG] [.b.r.internal.RFXComConnection:148  ] - Data received:`
+`- Packet type = LIGHTING4`
+`- Id = 1285`
+`- Command = ON`
+`- Pulse = 318`
+
+- You can use these values to configure your binding (see below) to receive or send with this data.
+
 ## Item Binding Configuration
 
 In order to bind an item to RFXCOM device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items). The syntax of the binding configuration strings accepted is the following:
@@ -46,6 +64,9 @@ where `DeviceID` is a valid wireless device identifier in decimal (**not hexadec
 
 - Lighting2 formats: `SensorId.UnitCode`
     e.g. 636602.1 or 636602.0 for group functions
+
+- Lighting4 formats: `SensorId`
+    e.g. 1285 for a PT2622 remote (House 11111, Device D)
 
 - Lighting5 format: `SensorId.UnitCode`
     e.g. 636602.1
