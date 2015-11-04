@@ -288,6 +288,15 @@ ${forecast(0):temperature.minMax(%.0f)}
 // request parameter
 ${param:iconset}
 ```
+
+**Unit conversion**  
+this PR required: https://github.com/openhab/openhab/pull/3385
+```
+${weather:temperature.current[fahrenheit]} 
+${weather:temperature.current(%.1f)[fahrenheit]} 
+${weather:wind.speed[mph]} 
+```
+
 See `example.html` in the layouts folder. You can download the weather-data folder in the [download section](#download).
 
 **Using the layout file:**  
