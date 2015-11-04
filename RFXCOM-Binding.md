@@ -34,7 +34,7 @@ The `rfxcom:setMode` value is optional. Set mode command can be used to configur
 
 ## Finding the correct values
 
-If you want to add cheap devices like PT2622 remotes, contacts, sensors or wireless outlets and don't know the correct values, you can start OpenHAB in debug mode, press the buttons on the original remote or act on the sensor.
+If you want to add cheap 433 MHz devices like PT2622 remotes, contacts, sensors or wireless outlets and don't know the correct values, you can start OpenHAB in debug mode, press the buttons on the original remote or act on the sensor.
 
 To pair the entry-level wireless remote outlets (Elro, Intertechno, Intertek, Pollin, ...) you can do the following:
 
@@ -100,6 +100,10 @@ Examples, how to configure your items:
     Switch swMotion { rfxcom="<4541155:Motion" }
     Number MSensor_Bat { rfxcom="<4541155:BatteryLevel" }
 
+    LIGHTING4.PT2262  example
+    Switch swWallController { rfxcom="<1285:Command" } // receive wireless wall switch
+    Switch pCoffeeMachine { rfxcom=">1285.315:LIGHTING4.PT2262:Command" } // control wireless outlet
+
     THERMOSTAT1  example
     Number RFXTemp_Living { rfxcom=<30515:Temperature" 
     Number RFXTemp_LivingSP { rfxcom="<30515:SetPoint" }
@@ -136,6 +140,7 @@ Examples, how to configure your items:
   <tr><td>LIGHTING2.AC</td><td>working</td><td>Command, DimmingLevel</td></tr>
   <tr><td>LIGHTING2.HOME_EASY_EU</td><td>working</td><td>Command,DimmingLevel</td></tr>
   <tr><td>LIGHTING2.ANSLUT</td><td>Untested</td><td></td></tr>
+  <tr><td>LIGHTING4.PT2262</td><td>working</td><td>Command</td></tr>
   <tr><td>LIGHTING5.LIGHTWAVERF</td><td>working</td><td>Command, DimmingLevel</td></tr>
   <tr><td>LIGHTING6.BLYSS</td><td>working</td><td>Command</td></tr>
   <tr><td>CURTAIN1.HARRISON</td><td>Harrison curtain rail, e.g. Neta 12</td><td>Shutter</td></tr>
