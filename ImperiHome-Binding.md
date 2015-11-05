@@ -1,5 +1,7 @@
 # ImperiHome Binding
 
+*Looking for MAINTAINER. Revenz is inactive and not reachable*
+
 **Please Note:** 
 This binding is in alpha stage; currently available for download via the [OpenHAB-Forum](https://groups.google.com/d/msg/openhab/TWrvCd1fens/mO83ymI772sJ).
 
