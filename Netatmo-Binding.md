@@ -61,12 +61,12 @@ split the rest into three parts of two characters and append with a colon as del
 For example your serial number "h00bcdc" should end up as "02:00:00:00:bc:dc".
 
 ### Indoor
-Example item for the **indoor sensor**:
+Example item for the **indoor module**:
 ```
 Number Netatmo_Indoor_CO2 "Carbon dioxide [%d ppm]" {netatmo="00:00:00:00:00:00#Co2"}
 ```
 
-**Supported are:**
+**Supported types for the indoor module:**
 * Temperature
 * Humidity
 * Co2
@@ -99,12 +99,12 @@ Number Netatmo_Indoor_CO2 "Carbon dioxide [%d ppm]" {netatmo="00:00:00:00:00:00#
 * date_max_co2
 
 ### Outdoor
-Example item for the **outdoor sensor** (first id is the main module, second id is the outdoor module):
+Example item for the **outdoor module** (first id is the main module, second id is the outdoor module):
 ```
 Number Netatmo_Outdoor_Temperature "Outdoor temperature [%.1f °C]" {netatmo="00:00:00:00:00:00#00:00:00:00:00:00#Temperature"}
 ```
 
-**Supported are for the outdoor modules:**
+**Supported types for the outdoor module:**
 * Temperature
 * Humidity
 * RfStatus
@@ -119,9 +119,36 @@ Number Netatmo_Outdoor_Temperature "Outdoor temperature [%.1f °C]" {netatmo="00
 * max_hum
 * date_max_hum
 
-The **rain gauge** supports Rain: (What a surprise!)
+### Rain
+Example item for the **rain gauge** (first id is the main module, second id is the rain module):
 ```
-Number Netatmo_Rain_Gauge "Rain [%.1f mm]" {netatmo="00:00:00:00:00:00#00:00:00:00:00:00#Rain"}
+Number Netatmo_Rain_Current "Rain [%.1f mm]" {netatmo="00:00:00:00:00:00#00:00:00:00:00:00#Rain"}
+```
+**Supported types for the rain guage:**
+* Rain
+* Humidity
+* RfStatus
+* sum_rain
+
+###Min, Max and Sum Types
+Types that contain **_min**, **_max**, or **_sum** are for a specific time frame, with a default of 1 day. Possible time frames are:
+* 30min
+* 1hour
+* 3hours
+* 1day
+* 1week
+* 1month
+
+The types that contain **_date** will only work with the ranges **1day**, **1week**, and **1month**.
+
+Example items with different time frames:
+```
+Number   Netatmo_Indoor_Max_Temp_Today       "Indoor Maximum Temperature Today [%.2f C]"      (Netatmo)  {netatmo="00:00:00:00:00:00#max_temp"}
+Number   Netatmo_Indoor_Max_Temp_This_Week   "Indoor Maximum Temperature This Week [%.2f C]"  (Netatmo)  {netatmo="00:00:00:00:00:00#max_temp,1week"}
+Number   Netatmo_Indoor_Max_Temp_This_Month  "Indoor Maximum Temperature This Month [%.2f C]" (Netatmo)  {netatmo="00:00:00:00:00:00#max_temp,1month"}
+Number   Netatmo_Rain_Today                  "Rain Today [%.02f mm]"                          (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:be#sum_rain"}
+Number   Netatmo_Rain_Week                   "Rain This Week [%.02f mm]"                      (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:be#sum_rain,1week""}
+Number   Netatmo_Rain_Month                  "Rain This Month [%.02f mm]"                     (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:be#sum_rain,1month""}
 ```
   
 ## Example items
