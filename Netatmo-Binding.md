@@ -77,6 +77,26 @@ Number Netatmo_Indoor_CO2 "Carbon dioxide [%d ppm]" {netatmo="00:00:00:00:00:00#
 * Latitude
 * Longitude
 * TimeStamp
+* min_temp
+* date_min_temp
+* max_temp
+* date_max_temp
+* min_hum
+* date_min_hum
+* max_hum
+* date_max_hum
+* min_pressure
+* date_min_pressure
+* max_pressure
+* date_max_pressure
+* min_noise
+* date_min_noise
+* max_noise
+* date_max_noise
+* min_co2
+* date_min_co2
+* max_co2
+* date_max_co2
 
 ### Outdoor
 Example item for the **outdoor sensor** (first id is the main module, second id is the outdoor module):
@@ -90,6 +110,14 @@ Number Netatmo_Outdoor_Temperature "Outdoor temperature [%.1f °C]" {netatmo="00
 * RfStatus
 * BatteryVP
 * TimeStamp
+* min_temp
+* date_min_temp
+* max_temp
+* date_max_temp
+* min_hum
+* date_min_hum
+* max_hum
+* date_max_hum
 
 The **rain gauge** supports Rain: (What a surprise!)
 ```
@@ -99,22 +127,53 @@ Number Netatmo_Rain_Gauge "Rain [%.1f mm]" {netatmo="00:00:00:00:00:00#00:00:00:
 ## Example items
 Example item configration:
 ```
-Number Netatmo_Indoor_Temperature     "Indoor Temperature [%.2f C]"     (Netatmo)  {netatmo="00:00:00:00:00:00#Temperature"}
-Number Netatmo_Indoor_Humidity        "Indoor Humidity [%d %%]"         (Netatmo)  {netatmo="00:00:00:00:00:00#Humidity"}
-Number Netatmo_Indoor_CO2             "Indoor Carbon dioxide [%d ppm]"  (Netatmo)  {netatmo="00:00:00:00:00:00#Co2"}
-Number Netatmo_Indoor_Pressure        "Indoor Pressure [%.2f mbar]"     (Netatmo)  {netatmo="00:00:00:00:00:00#Pressure"}
-Number Netatmo_Indoor_Noise           "Indoor Noise [%d db]"            (Netatmo)  {netatmo="00:00:00:00:00:00#Noise"}
-Number Netatmo_Indoor_wifi            "Indoor Wifi status [%d / 4]"     (Netatmo)  {netatmo="00:00:00:00:00:00#Wifistatus"}
-Number Netatmo_Indoor_altitude        "Indoor Altitude [%f]"            (Netatmo)  {netatmo="00:00:00:00:00:00#Altitude"}
-Number Netatmo_Indoor_latitude        "Indoor Latitude [%.6f]"          (Netatmo)  {netatmo="00:00:00:00:00:00#Latitude"}
-Number Netatmo_Indoor_longitude       "Indoor Longitude [%.6f]"         (Netatmo)  {netatmo="00:00:00:00:00:00#Longitude"}
-Number Netatmo_Outdoor_Temperature    "Outdoor Temperature [%.2f °C]"   (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Temperature"}
-Number Netatmo_Outdoor_Humidity       "Outdoor Humidity [%.2f %%]"      (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Humidity"}
-Number Netatmo_Outdoor_Rfstatus       "Outdoor RF status [%d / 5]"      (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Rfstatus"}
-Number Netatmo_Outdoor_Batteryvp      "Outdoor battery status [%d %%]"  (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Batteryvp"}
-Number Netatmo_Rain_Gauge             "Rain [%.02f mm]"                 (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:00#Rain"}
-Number Netatmo_Rain_Rfstatus          "Rain RF Status [%d / 5]"         (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:00#Rfstatus"}
-Number Netatmo_Rain_Batteryvp         "Rain battery status [%d %%]"     (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:00#Batteryvp"}
+Number   Netatmo_Indoor_Temperature    "Indoor Temperature [%.2f C]"                       (Netatmo)  {netatmo="00:00:00:00:00:00#Temperature"}
+Number   Netatmo_Indoor_Humidity       "Indoor Humidity [%d %%]"                           (Netatmo)  {netatmo="00:00:00:00:00:00#Humidity"}
+Number   Netatmo_Indoor_CO2            "Indoor Carbon dioxide [%d ppm]"                    (Netatmo)  {netatmo="00:00:00:00:00:00#Co2"}
+Number   Netatmo_Indoor_Pressure       "Indoor Pressure [%.2f mbar]"                       (Netatmo)  {netatmo="00:00:00:00:00:00#Pressure"}
+Number   Netatmo_Indoor_Noise          "Indoor Noise [%d db]"                              (Netatmo)  {netatmo="00:00:00:00:00:00#Noise"}
+Number   Netatmo_Indoor_wifi           "Indoor Wifi status [%d / 4]"                       (Netatmo)  {netatmo="00:00:00:00:00:00#Wifistatus"}
+Number   Netatmo_Indoor_altitude       "Indoor Altitude [%f]"                              (Netatmo)  {netatmo="00:00:00:00:00:00#Altitude"}
+Number   Netatmo_Indoor_latitude       "Indoor Latitude [%.6f]"                            (Netatmo)  {netatmo="00:00:00:00:00:00#Latitude"}
+Number   Netatmo_Indoor_longitude      "Indoor Longitude [%.6f]"                           (Netatmo)  {netatmo="00:00:00:00:00:00#Longitude"}
+Number   Netatmo_Indoor_Min_Temp       "Indoor Mininum Temperature Today [%.2f C]"         (Netatmo)  {netatmo="00:00:00:00:00:00#min_temp"}
+DateTime Netatmo_Indoor_Min_Temp_Date  "Indoor Mininum Temperature Today [%1$tD %1$tr]"    (Netatmo)  {netatmo="00:00:00:00:00:00#date_min_temp"}
+Number   Netatmo_Indoor_Max_Temp       "Indoor Maximum Temperature Today [%.2f C]"         (Netatmo)  {netatmo="00:00:00:00:00:00#max_temp"}
+DateTime Netatmo_Indoor_Max_Temp_Date  "Indoor Maximum Temperature Today [%1$tD %1$tr]"    (Netatmo)  {netatmo="00:00:00:00:00:00#date_max_temp"}
+Number   Netatmo_Indoor_Min_Hum        "Indoor Mininum Humidity Today [%d %%]"             (Netatmo)  {netatmo="00:00:00:00:00:00#min_hum"}
+DateTime Netatmo_Indoor_Min_Hum_Date   "Indoor Mininum Humidity Today [%1$tD %1$tr]"       (Netatmo)  {netatmo="00:00:00:00:00:00#date_min_hum"}
+Number   Netatmo_Indoor_Max_Hum        "Indoor Maximum Humidity Today [%d %%]"             (Netatmo)  {netatmo="00:00:00:00:00:00#max_hum"}
+DateTime Netatmo_Indoor_Max_Hum_Date   "Indoor Maximum Humidity Today [%1$tD %1$tr]"       (Netatmo)  {netatmo="00:00:00:00:00:00#date_max_hum"}
+Number   Netatmo_Indoor_Min_Press      "Indoor Mininum Pressure Today [%.2f mbar]"         (Netatmo)  {netatmo="00:00:00:00:00:00#min_pressure"}
+DateTime Netatmo_Indoor_Min_Temp_Press "Indoor Mininum Pressure Today [%1$tD %1$tr]"       (Netatmo)  {netatmo="00:00:00:00:00:00#date_min_pressure"}
+Number   Netatmo_Indoor_Max_Press      "Indoor Maxinum Pressure Today [%.2f mbar]"         (Netatmo)  {netatmo="00:00:00:00:00:00#max_pressure"}
+DateTime Netatmo_Indoor_Max_Temp_Press "Indoor Maxinum Pressure Today [%1$tD %1$tr]"       (Netatmo)  {netatmo="00:00:00:00:00:00#date_max_pressure"}
+Number   Netatmo_Indoor_Min_Noise      "Indoor Mininum Noise Today [%d db]"                (Netatmo)  {netatmo="00:00:00:00:00:00#min_noise"}
+DateTime Netatmo_Indoor_Min_Noise_Date "Indoor Mininum Noise Today [%1$tD %1$tr]"          (Netatmo)  {netatmo="00:00:00:00:00:00#date_min_noise"}
+Number   Netatmo_Indoor_Max_Noise      "Indoor Maxinum Noise Today [%d db]"                (Netatmo)  {netatmo="00:00:00:00:00:00#max_noise"}
+DateTime Netatmo_Indoor_Max_Noise_Date "Indoor Maxinum Noise Today [%1$tD %1$tr]"          (Netatmo)  {netatmo="00:00:00:00:00:00#date_max_noise"}
+Number   Netatmo_Indoor_Min_CO2        "Indoor Mininum Carbon Dioxide Today [%d ppm]"      (Netatmo)  {netatmo="00:00:00:00:00:00#min_co2"}
+DateTime Netatmo_Indoor_Min_CO2_Date   "Indoor Mininum Carbon Dioxide Today [%1$tD %1$tr]" (Netatmo)  {netatmo="00:00:00:00:00:00#date_min_co2"}
+Number   Netatmo_Indoor_Max_CO2        "Indoor Maxinum Carbon Dioxide Today [%d ppm]"      (Netatmo)  {netatmo="00:00:00:00:00:00#max_co2"}
+DateTime Netatmo_Indoor_Max_CO2_Date   "Indoor Maxinum Carbon Dioxide Today [%1$tD %1$tr]" (Netatmo)  {netatmo="00:00:00:00:00:00#date_max_co2"}
+
+Number   Netatmo_Outdoor_Temperature   "Outdoor Temperature [%.2f °C]"                     (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Temperature"}
+Number   Netatmo_Outdoor_Humidity      "Outdoor Humidity [%.2f %%]"                        (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Humidity"}
+Number   Netatmo_Outdoor_Rfstatus      "Outdoor RF status [%d / 5]"                        (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Rfstatus"}
+Number   Netatmo_Outdoor_Batteryvp     "Outdoor battery status [%d %%]"                    (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Batteryvp"}
+Number   Netatmo_Outdoor_Min_Temp      "Outdoor Mininum Temperature Today [%.2f C]"        (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#min_temp"}
+DateTime Netatmo_Outdoor_Min_Temp_Date "Outdoor Mininum Temperature Today [%1$tD %1$tr]"   (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#date_min_temp"}
+Number   Netatmo_Outdoor_Max_Temp      "Outdoor Maximum Temperature Today [%.2f C]"        (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#max_temp"}
+DateTime Netatmo_Outdoor_Max_Temp_Date "Outdoor Maximum Temperature Today [%1$tD %1$tr]"   (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#date_max_temp"}
+Number   Netatmo_Outdoor_Min_Hum       "Outdoor Mininum Humidity Today [%d %%]"            (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#min_hum"}
+DateTime Netatmo_Outdoor_Min_Hum_Date  "Outdoor Mininum Humidity Today [%1$tD %1$tr]"      (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#date_min_hum"}
+Number   Netatmo_Outdoor_Max_Hum       "Outdoor Maximum Humidity Today [%d %%]"            (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#max_hum"}
+DateTime Netatmo_Outdoor_Max_Hum_Date  "Outdoor Maximum Humidity Today [%1$tD %1$tr]"      (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#date_max_hum"}
+
+Number   Netatmo_Rain_Current          "Rain Current [%.02f mm]"                           (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:be#Rain"}
+Number   Netatmo_Rain_Rfstatus         "Rain RF Status [%d / 5]"                           (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:be#Rfstatus"}
+Number   Netatmo_Rain_Batteryvp        "Rain battery status [%d %%]"                       (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:be#Batteryvp"}
+Number   Netatmo_Rain_Today            "Rain Today [%.02f mm]"                             (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:be#sum_rain"}
 ```
 
 ## Example rules
