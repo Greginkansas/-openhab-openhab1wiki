@@ -108,10 +108,10 @@ Below you can see the structure of the outbound mqtt configuration string.  Outb
   <tr><td>transformation</td><td>Rule defining how to create the message content. Transformations are defined in the format of TRANSFORMATION_NAME(transformation_function).  Allowed values are 'default' or any of the transformers provided in the org.openhab.core.transform bundle. Custom transformations can be contributed directly to the transform bundle by making the Transformation available through Declarative Services. Any other value than the above types will be interpreted as static text, in which case this text is used as the message content.</td></tr>
 </table>
 
-When the message content for an outbound message is created, the following variables are always replaced with their respective value:
+When the message content for an outbound message is created, the following variables are replaced with their respective value:
 - ${itemName} : name of the item which triggered the sending
-- ${state}    : current state of the item
-- ${command}  : command which triggered the sending of the message
+- ${state}    : current state of the item (only for type 'state')
+- ${command}  : command which triggered the sending of the message (only for type 'command')
 
 ### Example Outbound Configurations
 
