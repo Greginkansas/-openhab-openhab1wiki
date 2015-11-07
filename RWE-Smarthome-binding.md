@@ -28,7 +28,7 @@ rwesmarthome:password=mysecretpassword
 Simply enter the hostname or IP address of your RWE Smarthome Central (SHC) as well as the corresponding username and password.
 
 # General item binding configuration
-All items use the format `{rwe="id=<logical-device-id>,param=<parameter>"}`, where `<logical-device-id>` is a unique number for each logical device (e.g. `2951a048-1d21-5caf-d866-b63bc00280f4`) and `<param>` the desired parameter of the device.
+All items use the format `{rwe="id=<logical-device-id>,param=<parameter>"}`, where `<logical-device-id>` is a unique number for each logical device (e.g. `2951a048-1d21-5caf-d866-b63bc00280f4`) and `<parameter>` the desired parameter of the device. A thermostat for example has a 'settemperature' and a 'operationmodeauto' to choose from.
 
 As the id's are internal numbers and not visible in the RWE software, the binding **outputs a list of found devices including the supported parameters to the OpenHAB console/logfile**. For the ease of use and a quick startup, it even outputs an example item-config for each item, which can easily be copied into the *.items config file.
 
