@@ -34,6 +34,10 @@ String	mqttHtcOneBattery			"Patrik's HTC One Battery [%s%%]"		<battery>	(Phone, 
 For each person you'ld like to show on the map you'll need to have latitude and longitude data available. A rule can be used to parse the data received:
 
 ```Xtend
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.*
+import org.openhab.model.script.actions.*
+
 rule "MqttPostionParsePatrik"
   when 
     Item mqttPositionPatrikRaw changed
