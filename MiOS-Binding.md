@@ -17,12 +17,14 @@ Original code was used from the XBMC Binding, and then heavily modified. Snippet
 # Releases
 
 * 1.6 - First release
+* 1.8 - Extend the MiOS Item Generator for the common use-cases.
 
 # Configuration
  * [MiOS Unit configuration](MiOS-Binding#mios-unit-configuration)
  * [Transformations](MiOS-Binding#mios-transformations)
  * [Logger](MiOS-Binding#logger)
  * [Item configuration (Reading)](MiOS-Binding#mios-item-configuration)
+    * [MiOS - Item Generator](MiOS-Binding#item-generation--mios-item-generator)
     * [MiOS - Device Binding](MiOS-Binding#item--mios-device-binding---values-reading)
     * [MiOS - Scene Binding](MiOS-Binding#item--mios-scene-binding---values-reading)
     * [MiOS - System Binding](MiOS-Binding#item--mios-system-binding)
@@ -162,7 +164,9 @@ In many cases, only a subset of these parameters need to be specified/used, with
 
 The sections below describe the types of things that can be bound, in addition to the transformations that are permitted, and any default transformations that may be applied for you.
 
-A script has been written that will automatically generate a starting point for an items file dealing with MiOS devices - see [here](https://github.com/openhab/openhab/tree/master/bundles/binding/org.openhab.binding.mios/examples/scripts).
+### Item Generation : MiOS Item Generator
+
+A script has been written that automatically generates a starting point for an openHAB Items file dealing with MiOS devices - see [here](https://github.com/openhab/openhab/tree/master/bundles/binding/org.openhab.binding.mios/examples/scripts).
 
 [Back to Table of Contents](MiOS-Binding#configuration)
 
@@ -221,7 +225,7 @@ The _serviceAliases_ are built into the MiOS Binding and may be expanded over ti
 |`urn:upnp-org:serviceId:HouseStatus1`|`HouseStatus1`,`HouseStatus`|
 |`urn:upnp-org:serviceId:ContentDirectory`|`ContentDirectory`|
 |`urn:upnp-org:serviceId:AudioIn`|`AudioIn`|
-
+|`urn:upnp-org:serviceId:ZoneGroupTopology`|`ZoneGroupTopology`|
 
 
 | _MiCasaVerde_ UPnP Service Id | Aliases |
@@ -239,12 +243,14 @@ The _serviceAliases_ are built into the MiOS Binding and may be expanded over ti
 |`urn:micasaverde-com:serviceId:DoorLock1`|`DoorLock1`,`DoorLock`|
 |`urn:micasaverde-com:serviceId:AlarmPartition2`|`AlarmPartition2`,`Alarm`|
 |`urn:micasaverde-com:serviceId:Camera1`|`Camera1`,`Camera`|
-
+|`urn:micasaverde-com:serviceId:MiosUpdater1`|`MiosUpdater1`,`MiosUpdater`|
+|`urn:micasaverde-com:serviceId:HouseModes1`|`HouseModes1`,`HouseModes`|
 
 
 | _Plugin-specific_ UPnP Service Id | Aliases |
 |---------------------------------|-------|
 |`urn:cd-jackson-com:serviceId:SystemMonitor`|`SystemMonitor`|
+|`urn:cd-jackson-com:serviceId:Config`|`CDJConfig`|
 |`urn:garrettwp-com:serviceId:WPSwitch1`|`WPSwitch1`,`WPSwitch`|
 |`urn:watou-com:serviceId:Nest1`|`Nest1`,`Nest`|
 |`urn:watou-com:serviceId:NestStructure1`|`NestStructure1`,`NestStructure`|
@@ -254,6 +260,14 @@ The _serviceAliases_ are built into the MiOS Binding and may be expanded over ti
 |`urn:demo-paradox-com:serviceId:ParadoxSecurityEVO1`|`ParadoxSecurityEVO1`,`Paradox`|
 |`urn:macrho-com:serviceId:LiftMasterOpener1`|`LiftMasterOpener1`,`LiftMaster`|
 |`urn:directv-com:serviceId:DVR1`|`DirecTVDVR1`,`DirecTV`|
+|`urn:futzle-com:serviceId:UPnPProxy1`|`UPnPProxy1`,`UPnPProxy`|
+|`urn:rfxcom-com:serviceId:rfxtrx1`|`RfxtrxNew`|
+|`upnp-rfxcom-com:serviceId:rfxtrx1`|`Rfxtrx`|
+|`urn:upnp-arduino-cc:serviceId:arduinonode1`|`ArduinoNode1`,`ArduinoNode`|
+|`urn:upnp-arduino-cc:serviceId:arduino1`|`Arduino1`,`Arduino`|
+|`urn:akbooer-com:serviceId:DataYours1`|`DataYours1`,`DataYours`|
+|`urn:richardgreen:serviceId:VeraAlert1`|`VeraAlert1`,`VeraAlert`|
+|`urn:upnp-org:serviceId:VSwitch1`|`VSwitch1`,`VSwitch`|
 
 [Back to Table of Contents](MiOS-Binding#configuration)
 
