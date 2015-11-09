@@ -169,6 +169,7 @@ ping.checkVitality("google.com", 80, 100)
 * Rule
 * Command
 * ChangedEventTrigger
+* UpdatedEventTrigger
 * CommandEventTrigger
 * Event
 * EventTrigger
