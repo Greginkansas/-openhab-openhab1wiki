@@ -131,7 +131,7 @@ end
 
 _Available as of openHAB 1.8_
 
-The Ecobee Action bundle provides actions such as setting and clearing program holds, sending a text message to the thermostat's display, renaming a remote wireless sensor, and other functions that cannot be performed by setting object properties.  Read the [Ecobee function API documentation](https://www.ecobee.com/home/developer/api/documentation/v1/functions/using-functions.shtml) to be sure you know the rules for calling these actions.
+The Ecobee Action bundle provides actions such as setting and clearing program holds, sending a text message to the thermostat's display, renaming a remote wireless sensor, and other functions that cannot be performed by setting object properties.  The Action bundle requires that the [[Ecobee Binding|Ecobee-Binding]] is also installed in your `addons` folder.  Read the [Ecobee function API documentation](https://www.ecobee.com/home/developer/api/documentation/v1/functions/using-functions.shtml) to be sure you know the rules for calling these actions.
 
 Parameters in _italics_ are optional, in which case each unused parameter must be replaced with `null`.  
 
