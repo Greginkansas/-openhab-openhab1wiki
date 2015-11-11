@@ -128,6 +128,7 @@
 * [[jointSPACE-Binding|jointSPACE-Binding]]
 * [[KNX Binding|KNX-Binding]]
 * [[Koubachi Binding|Koubachi-Binding]]
+* [[LCN Binding|LCN-Binding]]
 * [[LightwaveRF Binding|LightwaveRF-Binding]]
 * [[Leviton/HAI Omnilink Binding|Omnilink-Binding]]
 * [[Lg TV Binding|Lg-TV]]
