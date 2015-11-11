@@ -65,6 +65,22 @@ Valid types are
 <tr><td>ENERGY_CURRENT_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0</td>
 </table>
 
+## Force WiFi Link to register your device
+
+Occasionally (perhaps only on the older models?), the WiFi Link will fail to ask you to confirm a new registration, regardless of the setting in openhab.cfg.
+
+If this is the case you'll get an error like this in openhab.log
+
+```
+Error converting message: 200,ERR,1,"Not yet registered. Send !F*p to register"
+```
+
+To force the WiFi Link to register your new device paste this into a shell, making sure to set the IP address of the WiFi Link correctly. Then head over to the WiFi Link so you can press 'OK'.
+
+```
+echo -ne '001,!F*p|' | nc -w1 -u 192.168.x.xx 9760
+```
+
 ## Radiator Valve Polling 
 
 This binding will receive updates from the Radiator Valves whenever they are sent. However if you want a consistent update then you can add a poll_time to send a poll message at regular intervals. 
