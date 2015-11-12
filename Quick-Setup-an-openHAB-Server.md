@@ -8,6 +8,7 @@ Though it does have a bit of a learning curve, it is worth the time and effort r
 * [Home Automation for Geeks](https://www.youtube.com/watch?v=Wb5q2cvkU-U)
 * [FLOSS Weekly 312: openHAB](http://www.youtube.com/watch?v=uM-nPPnctCg)
 * [Playlist of conference talks on openHAB and Eclipse SmartHome](https://www.youtube.com/playlist?list=PLGlxCdrGUagxkwMBuQf4kUUTiBPzfHum1)
+
 ##### Community 
 * [Official community](https://community.openhab.org)
 * [Google Groups, a massive (read only) archive full of years of questions & answers, with many still being relevant today](https://groups.google.com/forum/#!forum/openhab)
