@@ -5,10 +5,9 @@ __openHAB is a highly configurable and very versatile [Home Automation](https://
 Though it does have a bit of a learning curve, it is worth the time and effort required. Whilst it can be very quick to setup if you know what you are doing. It is recommended you browse this wiki, [visit the community forum](https://community.openhab.org) and watch a talk or two to get a good idea of what you will be installing before you actually do.
 
 ##### Talks on You Tube
-* [Home Automation using OpenHAB with Eli Ben-Shoshan](http://www.youtube.com/watch?v=GDfEO7vZy1g)
-* [FLOSS Weekly 312: openHAB](http://www.youtube.com/watch?v=uM-nPPnctCg)
 * [Home Automation for Geeks](https://www.youtube.com/watch?v=Wb5q2cvkU-U)
-
+* [FLOSS Weekly 312: openHAB](http://www.youtube.com/watch?v=uM-nPPnctCg)
+* [Playlist of conference talks on openHAB and Eclipse SmartHome](https://www.youtube.com/playlist?list=PLGlxCdrGUagxkwMBuQf4kUUTiBPzfHum1)
 ##### Community 
 * [Official community](https://community.openhab.org)
 * [Google Groups, a massive (read only) archive full of years of questions & answers, with many still being relevant today](https://groups.google.com/forum/#!forum/openhab)
