@@ -22,7 +22,7 @@ Original code was used from the XBMC Binding, and then heavily modified. Snippet
 # Configuration
  * [MiOS Unit configuration](MiOS-Binding#mios-unit-configuration)
  * [Transformations](MiOS-Binding#mios-transformations)
- * [Logger](MiOS-Binding#logger)
+ * [Logging/Logger](MiOS-Binding#logger)
  * [Item configuration (Reading)](MiOS-Binding#mios-item-configuration)
     * [MiOS - Item Generator](MiOS-Binding#item-generation--mios-item-generator)
     * [MiOS - Device Binding](MiOS-Binding#item--mios-device-binding---values-reading)
@@ -97,10 +97,22 @@ and placed into your openHAB installation under the directory:
 Especially during setup of the binding the log information can provide you valuable information. Therefore it is recommended to configure logging.
 
 There are two configuration files to configure the log subsystem of openHAB:
- * \configurations\logback.xml
- * \configurations\logback_debug.xml (if you start in debug mode)
+ * `configurations/logback.xml`
+ * `configurations/logback_debug.xml` (if you start in debug mode)
 
-To simplify analysis and to keep things structured we'll use a dedicated logfile for this demo configuration.
+### Simple TRACE configuration
+If you need to obtain TRACE level diagnostics, the following can be added to your logback configuration file.  
+
+Any MiOS Binding Trace output will be intermingled with your regular openHAB logs:
+
+```xml
+        ...
+        <logger name="org.openhab.binding.mios" level="TRACE" />
+        ...
+```
+
+### Advanced Log configuration
+To simplify analysis and to keep things structured you can also configure a dedicated logfile.
 
 ```xml
     <!-- log appender to be used for MIOS binding -->
