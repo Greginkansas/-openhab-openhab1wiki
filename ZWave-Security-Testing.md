@@ -45,7 +45,7 @@ Many zwave devices communicate of a basic radio protocol which can be intercepte
 1. Stop the openhab server.  You will now add the device to the items config file.  For example, door lock would require 3 new entries: 1) control the lock, 2) show the current state (requesting a lock/unlock doesn't mean it worked, and someone can manually lock/unlock at any time, so it's critical to NOT rely on the state of the switch), and 3) show battery status. For example: 
 `Switch Door_Lock "Front door lock control" <none> (GF_Office) {zwave="3:command=door_lock"}`
 `Contact Door_Basic "Front door lock status [%s]" <lock> (GF_Office) {zwave="3:command=door_lock,refresh_interval=20"}`
-`Number Door_Corridor_Battery "Front door lock battery level [%d %%]" (GF_Office) { zwave="3:command=battery" }`
+`Number Door_Corridor_Battery "Front door lock battery level [%d %%]" (GF_Office) { zwave="3:command=battery,refresh_interval=43200" }`
 Be sure to replace # above with the id of your door lock from the secure pairing session
 1. start openhab, wait for everything to initialize and check the logs for errors
 1. Try the switch and wait 10 seconds.  If you hear the lock turn, great!  If not, the switch may have been in the wrong position to begin with, so try it again and wait 10 seconds
