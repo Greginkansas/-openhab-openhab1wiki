@@ -1,38 +1,116 @@
-Documentation of the RFXCOM binding Bundle
+# Intro to the RFXCOM device
 
-## Introduction
+The RFXtrx433 device is a very versatile transceiver that can send and receive information to and from a wide number of compatible devices from different brands and manufacturers. 
 
-Binding should be compatible at least with RFXtrx433 USB 433.92MHz transceiver, which contains both receiver and transmitter functions. 
+Supports RF 433 Mhz protocols like: HomeEasy, Cresta, X10, La Crosse, OWL, CoCo ([KlikAanKlikUit](http://www.klikaanklikuit.nl)), PT2262, Oregon e.o.
 
-Supports RF 433 Mhz protocols like: HomeEasy, Cresta, X10, La Crosse, OWL, CoCo ([KlikAanKlikUit](http://www.klikaanklikuit.nl)), PT2262, Oregon e.o. <br>
-See further information from http://www.rfxcom.com
+**Suitable for receiving this example 433.92MHz sensors**
 
-RFXCOM binding support currently Blinds1, Control, Current, Curtain1, Energy, Humidity, Interface, Lighting1, Lighting2, Lighting4, Lighting5, Lighting6, Factory, Interface, Rain, Rfy, Security1, TemperatureHumidity, Temperature, Thermostat1, Transmitter, Wind packet types. 
+* Cent-a-meter, Electrisave, OWL ampere and power meters,
+Alecto, Cresta, Fine Offset, Hideki, LaCrosse, Oregon, Rubicson, TFA, Viking weather sensors,
+* Avidsen, Chacon, NEXA, Flamingo, Blyss, Proove smoke detectors,
+* Atlantic Meiantech, Visonic, X10 alarm sensors,
+* Oregon scales,
+* Maverick BBQ Rubicson sensors
+* Chacon, Home Easy, COCO, NEXA, X10 remote controls.
+
+**And suitable for controlling eg 433.92MHz these devices:**
+
+* ANSLUT, BBSB, Blyss, Brennestuhl, Chacon, COCO, DI.O, ELRO, Energenie, Eurodomest, HomeEasy, Pulse, Inter Techno, K ambrook, COCO, LightwaveRF, Livolo, Mercury, NEXA, Phenix, Proove, risingsun, Sartano, Siemens , X10, XDOM dimmers / switches,
+* Byron SX, Select Plus doorbell,
+* A-OK, Bofu, Ematronic, Hasta, RAEX, Rohrmotor24,  Roller Trol, Somfy, Yooda shutter / awning motors,
+* Harrison, Forest curtain motors,
+* Kingpin, Media Mount, Proluxx projection,
+* Avidsen, Chacon, NEXA, Flamingo, Blyss, Proove smoke alarms with  siren,
+* Mertik Maxitrol fireplace,
+* Aoke relay,
+* TRC02 RGB, MDREMOTE LED strip controller,
+* Smartwares radiator valve.
+
+See RFXtrx User Guide for the complete list of supported sensors and devices [http://www.rfxcom.com](http://www.rfxcom.com) and firmware update announcements.
+
+
+**Whilst the range of supported devices is impressive, not all of them are compatible with the binding for openHAB yet**
+
+## The RFXCOM Binding
+
+The binding should be compatible at least with RFXtrx433 USB 433.92MHz transceiver, which contains both receiver and transmitter functions.
+
+### RFXCOM binding currently supports:
+
+Blinds1, Control, Current, Curtain1, Energy, Humidity, Interface, Lighting1, Lighting2, Lighting4, Lighting5, Lighting6, Factory, Interface, Rain, Rfy, Security1, TemperatureHumidity, Temperature, Thermostat1, Transmitter, Wind packet types.
 
 For installation of the binding, please see Wiki page [[Bindings]].
+
+----
 
 ## Binding Configuration
 
 First of all you need to configure the following values in the openhab.cfg file (in the folder '${openhab_home}/configurations').
 
-    ############################### RFXCOM Binding #########################################
-    
+    ############## RFXCOM Binding ###################
+
     # Serial port of RFXCOM interface
     # Valid values are e.g. COM1 for Windows and /dev/ttyS0 or /dev/ttyUSB0 for Linux
     rfxcom:serialPort=
-    
-    # Set mode command for controller (optional)
-    # E.g. rfxcom:setMode=0D000000035300000C2F00000000 
-    rfxcom:setMode=
 
-The `rfxcom:serialPort` value is the identification of the serial port on the host system where RFXCOM controller is connected, e.g. 
-"COM1" on Windows,"/dev/ttyS0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.
+    # Set mode command for controller (optional)
+    # E.g. rfxcom:setMode=0D000000035300000C2F00000000
+    # rfxcom:setMode=
+
+#### rfxcom:serialPort
+
+The `rfxcom:serialPort` value is the identification of the serial port on the host system where RFXCOM controller is connected, e.g. `COM1` on Windows,`/dev/ttyS0` on Linux or `/dev/tty.PL2303-0000103D` on Mac.
 
 NOTE: On Linux, should the RFXCOM device be added to the `dialout` group, you may get an error stating the the serial port cannot be opened when the RfxCom plugin tries to load.  You can get around this by adding the `openhab` user to the `dialout` group like this: `usermod -a -G dialout openhab`.
 
-The `rfxcom:setMode` value is optional. Set mode command can be used to configure RFXCOM controller to listening to various receiver protocols. This is very useful because the receiver will become more sensitive when only the required protocols are enabled. You can use the RFXmngr application to get the valid configuration command. Command must be a 28 characters (14 bytes) hexadecimal string.  You can also use this to get the Device Ids needed below.
+Also on Linux you may have issues with the USB if using two serial USB devices e.g. RFXcom and ZWave. See the wiki page for more on symlinking the USB ports [[symlinks]]
 
-## Finding the correct values
+#### rfxcom:setMode
+
+The `rfxcom:setMode` value is optional. Set mode command can be used to configure RFXCOM controller to listening to various receiver protocols. This is very useful because the receiver will become more sensitive when only the required protocols are enabled.
+
+You can use the RFXmngr application [found in the Downloads section of the RFXcom website (windows is required)](http://www.rfxcom.com/) to get the valid configuration command. Command must be a 28 characters (14 bytes) hexadecimal string.  You can also use RFXmngr to get the Device Ids needed to bind each item to openHAB.
+
+## Item Binding Configuration
+
+In order to bind an item to RFXCOM device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items). The syntax of the binding configuration strings accepted is the following:
+
+    in:  rfxcom="<DeviceId:ValueSelector"
+    out: rfxcom=">DeviceId:PacketType.SubType:ValueSelector"
+
+### Getting the correct Decimal DeviceID number
+
+A common mistake when setting up this binding, is to use the wrong format for the DeviceID.
+
+DeviceID is a valid wireless device identifier number in decimal format.
+
+RFXmngr and the openHAB logback outputs may display something like this example from a HomeEasy wireless wall switch.
+
+```
+Packet Length   = 0B
+Packettype      = Lighting2
+Subtype         = AC
+Id              = 00130FE2
+Unitcode        = 11
+Command         = Off
+Dim level       = 0%
+```
+
+You wouldn't be forgiven for thinking the id is **00130FE2** but this is not the Id you need.
+
+This is the correct Id but it is in the wrong Hexadecimal format. You need to convert to Decimal, a Google search for `HEX to DEC` will provide many online tools to do this [binaryhexconverter.com](http://www.binaryhexconverter.com/hex-to-decimal-converter) is one. You simply put the HEX `00130FE2` in the correct field and press convert.
+
+Use the converted Decimal number (easy to identify as it won't contain any letters) as the DeviceID.
+
+So continuing with the above example. The displayed Id in HEX was `00130FE2` this is converted into DEC `1249250`. Also for this packettype (Lighting2) you need to join the Unitcode `11` to the DeviceId, so final the binding for the item is:
+
+```
+Switch    Wall_Switch_FF_Office    {rfxcom="<1249250.11:Command"}
+```
+
+
+## Finding the correct values for your item bindings
 
 If you want to add cheap 433 MHz devices like PT2622 remotes, contacts, sensors or wireless outlets and don't know the correct values, you can start OpenHAB in debug mode, press the buttons on the original remote or act on the sensor.
 
@@ -42,89 +120,105 @@ To pair the entry-level wireless remote outlets (Elro, Intertechno, Intertek, Po
 - Run OpenHAB in debug mode
 - Press a button on the original remote controller (here I press `A ON`) and read the DeviceId `Id` and the pulse width `Pulse` from the output:
 
-`21:35:20.096 [DEBUG] [.b.r.internal.RFXComConnection:148  ] - Data received:`
-`- Packet type = LIGHTING4`
-`- Id = 1285`
-`- Command = ON`
-`- Pulse = 318`
+```text
+21:35:20.096 [DEBUG] [.b.r.internal.RFXComConnection:148  ] - Data received:
+- Packet type = LIGHTING4
+- Id = 1285
+- Command = ON
+- Pulse = 318
+```
 
-- You can use these values to configure your binding (see below) to receive or send with this data.
+You can use these values to configure the binding to receive and send data.
 
-## Item Binding Configuration
+Alternately add the following to your `logback.xml` file to only see the RFXcom logs.
 
-In order to bind an item to RFXCOM device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items). The syntax of the binding configuration strings accepted is the following:
-
-    in:  rfxcom="<DeviceId:ValueSelector"
-    out: rfxcom=">DeviceId:PacketType.SubType:ValueSelector"
-
-where `DeviceID` is a valid wireless device identifier in decimal (**not hexadecimal !**).
-
-- Lighting1 format: `SensorId.UnitCode`
-    e.g. B.1, B.2 or B.0 for group functions
-
-- Lighting2 formats: `SensorId.UnitCode`
-    e.g. 636602.1 or 636602.0 for group functions
-
-- Lighting4 formats: `SensorId`
-    e.g. 1285 for a PT2622 remote (House 11111, Device D)
-
-- Lighting5 format: `SensorId.UnitCode`
-    e.g. 636602.1
-
-- Lighting6 format: `SensorId.GroupCode.UnitCode `
-    e.g. 257.B.1, 64343.B.2 or 636602.H.5 
-
-- Curtain1 format: `SensorId.UnitCode`
-    e.g. P.1 see RFXCOM documentation
-
-- TemperatureHumidity, Current, Energy,... format: `SensorId`
-    e.g. 2561
-
-Examples, how to configure your items:
-
-    Weather Station Example
-    Number OutdoorTemperature { rfxcom="<2561:Temperature" }
-    Number OutdoorHumidity { rfxcom="<2561:Humidity" }
-    Number RainRate	{ rfxcom="<30464:RainRate" }
-    Number WindSpeed	{ rfxcom="<19968:WindSpeed" }
-
-    Switch Btn1 { rfxcom="<636602.1:Command" }
-    Number Btn1SignalLevel { rfxcom="<636602.1:SignalLevel" }
-    Dimmer Btn1DimLevel { rfxcom="<636602.1:DimmingLevel" }
-    String Btn2RawData { rfxcom="<636602.2:RawData" }
-    Switch ChristmasTreeLights { rfxcom">636602.1:LIGHTING2.AC:Command" }
-    Rollershutter CurtainDownstairs { rfxcom=">P.1:CURTAIN1.HARRISON:Shutter" }
-    Rollershutter ShutterBedroom { rfxcom=">1.0.0.1:RFY.RFY:Shutter" }
-    
-    SECURITY1.X10_SECURITY_MOTION  example
-    Switch swMotion { rfxcom="<4541155:Motion" }
-    Number MSensor_Bat { rfxcom="<4541155:BatteryLevel" }
-
-    LIGHTING4.PT2262  example
-    Switch swWallController { rfxcom="<1285:Command" } // receive wireless wall switch
-    Switch pCoffeeMachine { rfxcom=">1285.315:LIGHTING4.PT2262:Command" } // control wireless outlet
-
-    THERMOSTAT1  example
-    Number RFXTemp_Living { rfxcom=<30515:Temperature" 
-    Number RFXTemp_LivingSP { rfxcom="<30515:SetPoint" }
-    Contact RFXTemp_LivingRoom_Stat { rfxcom="<30515:Contact" }     	
-
-    LIGHTWAVERF example
-    Switch Light1 { rfxcom=">3155730.3:LIGHTING5.LIGHTWAVERF:Command"}
-    Dimmer Light2 "Light2 [%d %%]" { rfxcom=">3155730.4:LIGHTING5.LIGHTWAVERF:DimmingLevel"  }
-
-    LIGHTWAVERF Mood Switch example
-    Number Button_MoodSwitch { rfxcom="<15942554.16:Mood" }
-
-    OWL CM160 Energy Monitor example
-    Number Owl_InstantAmps { rfxcom="<63689:InstantAmps"}
-    Number Owl_TotalAmpHours { rfxcom="<63689:TotalAmpHours"  }
-
-    OWL CM113 Energy Monitor example
-    Number Owl_Amps { rfxcom="<35072:Channel2Amps" }
+    <logger name="org.openhab.binding.rfxcom" level="DEBUG" />
 
 
-`PacketType.SubType` specify packet and sub type information ...
+----
+## Device specific PacketType syntaxes
+
+| Packet  | Format | Examples  |
+| :------------- | :------------- | -------------: |
+| Lighting1  | `SensorId.UnitCode` | **B.1** or **B.2** or **B.0** <sup>1</sup> |
+| Lighting2 | `SensorId.UnitCode` | **636602.1** or **636602.0**  <sup>1</sup> |
+| Lighting4 | `SensorId` | **1285** |
+| Lighting5 | `SensorId.UnitCode` | **636602.1** |
+| Lighting6 | `SensorId.GroupCode.UnitCode` | **257.B.1** or **64343.B.2** or **636602.H.5** |
+| Curtain1 | `SensorId.UnitCode` | **P.1** <sup>2</sup>|
+| TemperatureHumidity, Current, Energy etc | `SensorId.UnitCode` | **2561**|
+
+<sup>1</sup> Where "0" would control all items on device,
+<sup>2</sup> See the RFXcom documents/manual for more information
+
+----
+
+## Item configuration examples
+
+**Weather Station**
+```java
+Number OutdoorTemperature { rfxcom="<2561:Temperature" }
+Number OutdoorHumidity { rfxcom="<2561:Humidity" }
+Number RainRate { rfxcom="<30464:RainRate" }
+Number WindSpeed    { rfxcom="<19968:WindSpeed" }
+```
+
+**Switches**
+```java
+Switch Btn1 { rfxcom="<636602.1:Command" }
+Number Btn1SignalLevel { rfxcom="<636602.1:SignalLevel" }
+Dimmer Btn1DimLevel { rfxcom="<636602.1:DimmingLevel" }
+String Btn2RawData { rfxcom="<636602.2:RawData" }
+Switch ChristmasTreeLights { rfxcom">636602.1:LIGHTING2.AC:Command" }
+Rollershutter CurtainDownstairs { rfxcom=">P.1:CURTAIN1.HARRISON:Shutter" }
+Rollershutter ShutterBedroom { rfxcom=">1.0.0.1:RFY.RFY:Shutter" }
+```
+
+**SECURITY1.X10_SECURITY_MOTION**
+```java
+Switch swMotion { rfxcom="<4541155:Motion" }
+Number MSensor_Bat { rfxcom="<4541155:BatteryLevel" }
+```
+**LIGHTING4.PT2262**
+```java
+Switch swWallController { rfxcom="<1285:Command" } // receive wireless wall switch
+Switch pCoffeeMachine { rfxcom=">1285.315:LIGHTING4.PT2262:Command" } // control wireless outlet
+```
+
+**THERMOSTAT1**
+```java
+Number RFXTemp_Living { rfxcom="<30515:Temperature" }
+Number RFXTemp_LivingSP { rfxcom="<30515:SetPoint" }
+Contact RFXTemp_LivingRoom_Stat { rfxcom="<30515:Contact" }
+```
+
+**LIGHTWAVERF**
+```java
+Switch Light1 { rfxcom=">3155730.3:LIGHTING5.LIGHTWAVERF:Command"}
+Dimmer Light2 "Light2 [%d %%]" { rfxcom=">3155730.4:LIGHTING5.LIGHTWAVERF:DimmingLevel"  }
+```
+
+**LIGHTWAVERF Mood Switch**
+```java
+Number Button_MoodSwitch { rfxcom="<15942554.16:Mood" }
+```
+
+**OWL CM160 Energy Monitor**
+```java
+Number Owl_InstantAmps { rfxcom="<63689:InstantAmps"}
+Number Owl_TotalAmpHours { rfxcom="<63689:TotalAmpHours"  }
+```
+
+**OWL CM113 Energy Monitor**
+```java
+Number Owl_Amps { rfxcom="<35072:Channel2Amps" }
+```
+
+----
+
+
+
+## Specifics for PacketTypes and SubTypes  (PacketType.SubType)
 
 <table>
   <tr><td><b>PacketType.SubType</b></td><td><b>Description</b></td><td><b>ValueSelector</b></td></tr>
