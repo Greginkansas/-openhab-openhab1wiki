@@ -3,11 +3,12 @@ Documentation of the Frontier Silicon Radio binding for Internet Radios based on
 ## Introduction
 
 This binding has been developed and tested with the [Hama IR110](https://de.hama.com/00054823/hama-internetradio-ir110) and [Medion MD87180](https://www.medion.com/de/service/start/_product.php?msn=50047825&gid=00) internet radios. 
-The [MEDION® P85040 (MD 86988)](http://medion.scene7.com/is/image/Medion/50046868_PIC-Q?$m$) is also supported. 
+The [MEDION® P85040 (MD 86988)](http://medion.scene7.com/is/image/Medion/50046868_PIC-Q?$m$) and the [Pinell Supersound II](http://www.pinell.no/en/products/pinell-supersound-ii-white//) are also supported.
 
 [<img src="http://internetradio.medion.com/images/md87180_small.jpg" alt="MEDION LIFE P85044 (MD 87180)" height="160">](http://internetradio.medion.com/)
 [<img src="https://de.hama.com/bilder/00054/abb/00054823abb.jpg" alt="Hama Internetradio IR110" height="180">](https://de.hama.com/00054823/hama-internetradio-ir110)
 [<img src="http://internetradio.medion.com/images/md86988_small.jpg" alt="MEDION LIFE P85040 (MD 86988)" height="160">](http://internetradio.medion.com/)
+[<img src="http://www.pinell.no/sitefiles/site8/shop/pinell-supersound-ii-white3.jpg" alt="Pinell Supersound II" height="100">](http://pinell.no/en/)
 
 You can easily check if your IP radio is supported:
 
@@ -77,13 +78,14 @@ A list of all properties and their possible item types is given below:
 
 The *radio mode* property is just a number that specifies the radio mode which may differ for each radio. This is why there is no fixed mapping implemented. For radios listed above, the mapping is as follows (please [add your radio mapping](Frontier-Silicon-Radio-Binding/_edit), if it differs!):
 
-| radio mode | Hama IR110 | Medion MD87180 |Medion MD 86988
-| --- | --- | --- | --- |
-| 0 | Internet Radio | Internet Radio | Internet Radio
-| 1 | Spotify | Music Player (USB, LAN) | Music Player
-| 2 | Player | DAB Radio | FM Radio
-| 3 | AUX in | FM Radio | AUX in
-| 4 | - | AUX in | - 
+| radio mode | Hama IR110 | Medion MD87180 |Medion MD 86988|Pinell Supersound II
+| --- | --- | --- | --- | --- 
+| 0 | Internet Radio | Internet Radio | Internet Radio | Internet Radio
+| 1 | Spotify | Music Player (USB, LAN) | Music Player | Spotify
+| 2 | Player | DAB Radio | FM Radio | Player
+| 3 | AUX in | FM Radio | AUX in | DAB Radio
+| 4 | - | AUX in | - | FM Radio
+| 5 | - | - | - | AUX in
 
 
 ## Example
