@@ -27,6 +27,10 @@ rwesmarthome:password=mysecretpassword
 
 Simply enter the hostname or IP address of your RWE Smarthome Central (SHC) as well as the corresponding username and password.
 
+**Important:**
+The binding only runs with TLSv1, which is default until java 1.7. If you use java 1.8, you have to add `-Djdk.tls.client.protocols=TLSv1` to the java command in your start.sh/start.bat file.
+
+
 # General item binding configuration
 All items use the format `{rwe="id=<logical-device-id>,param=<parameter>"}`, where `<logical-device-id>` is a unique number for each logical device (e.g. `2951a048-1d21-5caf-d866-b63bc00280f4`) and `<parameter>` the desired parameter of the device. A thermostat for example has a 'settemperature' and a 'operationmodeauto' to choose from.
 
