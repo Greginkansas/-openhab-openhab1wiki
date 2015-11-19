@@ -184,7 +184,7 @@ This will introduce a Switch item with an associated rule that will send the Pla
 
 ### Example of how to set the volume  in the rules script
 
-sendCommand(XBMC_Volume, "50" )
+`sendCommand(XBMC_Volume, "50" )`
 
 ## Example of Screensaver.State
 
