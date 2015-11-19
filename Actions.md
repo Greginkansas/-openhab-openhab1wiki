@@ -91,6 +91,7 @@ Example:
 - `createTimer(AbstractInstant instant, Procedure procedure)`: Schedules a block of code (a closure) for future execution.
 - `executeCommandLine(String commandLine)`: Executes a command on the command line
 - `executeCommandLine(String commandLine, int timeout)`: Executes a command on the command line with a timeout
+- `transform(String type, String function, String value)`: Applies a transformation of a given type with some function to a value.  Returns the transformed value, or the original value if the transformation failed.  See [[Transformations]] for available transformations and their usage.
 
 [Table of Contents](#table-of-contents)
 
