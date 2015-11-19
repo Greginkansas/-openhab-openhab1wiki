@@ -130,7 +130,7 @@ Number Netatmo_Rain_Current "Rain [%.1f mm]" {netatmo="00:00:00:00:00:00#00:00:0
 * RfStatus
 * sum_rain
 
-###Min, Max and Sum Types
+###Min, Max and Sum Types (Since 1.8)
 Types that contain **_min**, **_max**, or **_sum** are for a specific time frame, with a default of 1 day. Possible time frames are:
 * 30min
 * 1hour
