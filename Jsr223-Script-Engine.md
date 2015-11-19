@@ -386,6 +386,30 @@ var ohExample = new Rule(){
     }
 };
 
+// E X A M P L E   T O   G E T   A L L   I T E M S
+var autoOffRule = new Rule() {
+    getEventTrigger: function() {
+        return [
+            new TimerTrigger("0/15 * * * * ?")
+        ];
+    }, 
+    execute: function(event) {
+        oh.logDebug("execute"+__LINE__,"autoOffRule");
+		var allItems = ir.getItems();
+        for each(var nextItem in allItems) {
+            if (nextItem.getState() == OnOffType.ON) {
+                var dt = DateTime.now().minusMinutes(5);
+                print(" #### 1. nextItem changedSince:" + pe.changedSince(nextItem, dt));
+                if (!(pe.changedSince(nextItem, dt))) {
+                    print(" #### 2. Do something with " + nextItem.getName());
+                }
+            }else{
+                print(" #### 3. nextItem Name: " + nextItem.getName());
+            }
+        }
+    }
+};
+
 // H E L P E R S 
 var getRanTemp = function(){
 	return randomIntFromInterval(-20,40);
