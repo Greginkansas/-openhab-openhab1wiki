@@ -182,6 +182,10 @@ This will introduce a Switch item with an associated rule that will send the Pla
 
     Slider item=XBMC_Volume step=10
 
+### Example of how to set the volume  in the rules script
+
+sendCommand(XBMC_Volume, "50" )
+
 ## Example of Screensaver.State
 
 ### Item
