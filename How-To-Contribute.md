@@ -19,7 +19,7 @@ The remainder of this page will give you the details of how to contribute more s
 
 The simplest way of contributing is probably to report bugs. You can do so using the [Issue Tracker](https://github.com/openhab/openhab/issues?state=open). 
 
-If you are in doubt whether it is a bug or not, you can also first refer to [the forum](http://groups.google.com/group/openhab) instead of entering a bug report.
+If you are in doubt whether it is a bug or not, you can also first refer to [the forum](https://community.openhab.org) instead of entering a bug report.
 
 The same is true if you intend to implement/contribute a new feature. Please always first discuss your idea in the group as this will ensure a clear project direction and avoid the situation that different people unknowingly work on the same feature.
 
