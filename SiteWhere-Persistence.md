@@ -11,11 +11,11 @@ for a step-by-step walkthrough.
 ### Configuring SiteWhere
 Both SiteWhere and openHAB by default run on port 8080, so the port will need to be changed if both are running on the same machine. To change the port for SiteWhere, open the **conf/server.xml** file and look for the following:
 
-...
+```
 <Connector port="8080" protocol="HTTP/1.1"
     connectionTimeout="20000"
     redirectPort="8443" />
-...
+```
 
 Change the port to another value such as 9090.
 
