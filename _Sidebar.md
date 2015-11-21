@@ -51,6 +51,7 @@
 * [[MySQL Persistence|MySQL-Persistence]]
 * [[rrd4j Persistence|rrd4j-Persistence]]
 * [[Sen.Se Persistence|Sense-Persistence]]
+* [[SiteWhere Persistence|SiteWhere-Persistence]]
 
 ***
 
