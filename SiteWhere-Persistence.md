@@ -25,8 +25,24 @@ on the topic where SiteWhere is listening.
 
 ## Configuring openHAB
 The default values configured in the openHAB SiteWhere persistence plugin will work with no changes
-if using the default SiteWhere tenant configuration. The following configuration values may be specified
-to change the default behavior:
+if using the default SiteWhere tenant configuration. The default values are shown below:
+
+```
+############################ SiteWhere Persistence Service #############################
+#
+# Unique hardware id of device that will receive events.
+# sitewhere:defaultHardwareId=123-OPENHAB-777908324
+#
+# Device specification token used if device is not already registered.
+# sitewhere:specificationToken=5a95f3f2-96f0-47f9-b98d-f5c081d01948
+#
+# MQTT broker hostname SiteWhere is listening to. 
+# sitewhere:mqttHost=localhost
+#
+# MQTT broker port SiteWhere is listening to. 
+# sitewhere:mqttPort=1883
+```
+The following configuration values may be specified to change the default behavior:
 
 * **defaultHardwareId** - provides an association between the openHAB instance and a SiteWhere device. 
 Once connected, if no device exists in SiteWhere with the given hardware id, a new openHAB virtual device 
