@@ -21,11 +21,22 @@ Change the port to another value such as 9090.
 
 No configuration is necessary for SiteWhere to listen for events on the MQTT transport if using the default
 tenant configuration. The SiteWhere agent used by the persistence plugin is configured to send MQTT messages
-on the topic SiteWhere listens on.
+on the topic where SiteWhere is listening.
 
 ## Configuring openHAB
 The default values configured in the openHAB SiteWhere persistence plugin will work with no changes
 if using the default SiteWhere tenant configuration. The following configuration values may be specified
 to change the default behavior:
 
-* **defaultHardwareId** - provides an association between the openHAB instance and a SiteWhere device. Once connected, if no device exists in SiteWhere with the given hardware id, a new openHAB virtual device will be registered under that id. All data sent from the openHAB instance will be recorded under the virtual device. If more than one openHAB instance is connecting to SiteWhere, different hardware ids should be used for each instance. SiteWhere can scale to support thousands or even millions of openHAB instances running concurrently.
+* **defaultHardwareId** - provides an association between the openHAB instance and a SiteWhere device. 
+Once connected, if no device exists in SiteWhere with the given hardware id, a new openHAB virtual device 
+will be registered under that id. All data sent from the openHAB instance will be recorded under the virtual 
+device. If more than one openHAB instance is connecting to SiteWhere, different hardware ids should be used 
+for each instance. SiteWhere can scale to support thousands or even millions of openHAB instances running 
+concurrently.
+* **specificationToken** - indicates the device specification to be used if a new device needs to be registered 
+with SiteWhere (if the hardware id does not exist). The default value corresponds to the *openHAB Virtual Device*
+specification included with the SiteWhere sample data. This specification includes the device commands used
+to trigger events on the openHAB bus from SiteWhere.
+* **mqttHost** - the host name for the MQTT broker SiteWhere is listening to.
+* **mqttPort** - the port number for the MQTT broker SiteWhere is listening to.
