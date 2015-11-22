@@ -9,6 +9,7 @@ tested Receivers:
 * V473
 * V475
 * V477
+* V479
 * V575
 * V675
 * V773
@@ -17,6 +18,7 @@ tested Receivers:
 * RX-A2020
 * RX-A810
 * HTR-4065
+
 
 please add sucessfully tested receivers!
 
