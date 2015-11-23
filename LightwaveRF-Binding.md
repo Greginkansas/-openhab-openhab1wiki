@@ -53,8 +53,8 @@ Valid types are
 
 <table>
 <tr><td><b>LightwaveRF Type</b></td><td><b>OpenhabType/b></td><td><b>Read/Write</b></td><td><b>Devices</b></td><td><b>From Version</b></td></tr>
-<tr><td>DIMMER</td><td>Dimmer</td><td>Read</td><td>Dimmer</td><td>1.7.0</td>
-<tr><td>SWITCH</td><td>Switch</td><td>Read</td><td>Switch</td><td>1.7.0</td>
+<tr><td>DIMMER</td><td>Dimmer</td><td>Read/Write</td><td>Dimmer</td><td>1.7.0</td>
+<tr><td>SWITCH</td><td>Switch</td><td>Read/Write</td><td>Switch</td><td>1.7.0</td>
 <tr><td>UPDATETIME</td><td>DateTime</td><td>Read</td><td>Energy Monitor, Radiator Valves</td><td>1.8.0 (was called HEATING_UPDATETIME in 1.7.0)</td>
 <tr><td>SIGNAL</td><td>Number</td><td>Read</td><td>Energy Monitor, Radiator Valves</td><td>1.8.0 (was called HEATING_SIGNAL in 1.7.0)</td>
 <tr><td>HEATING_CURRENT_TEMP</td><td>Number</td><td>Read</td><td>Radiator Valves</td><td>1.7.0</td>
