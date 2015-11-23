@@ -37,6 +37,8 @@ Once you have done this you need to find out some identifiers to allow the devic
 <tr><td>Dimmer</td><td>RoomId and DeviceId</td>
 <tr><td>Radiator Valve</td><td>RoomId and Serial Number</td>
 <tr><td>Energy Monitor</td><td>Serial Number</td>
+<tr><td>Relay</td><td>RoomId and DeviceId</td>
+<tr><td>WifiLink</td><td>Serial set to "wifilink"</td>
 </table>
 
 To do this sniff your network using something like wireshark whilst sending commands using the smartphone application. You should see messages like "100,!R1D3F1"
@@ -63,6 +65,13 @@ Valid types are
 <tr><td>ENERGY_TODAY_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0</td>
 <tr><td>ENERGY_MAX_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0</td>
 <tr><td>ENERGY_CURRENT_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0</td>
+<tr><td>RELAY</td><td>Number (-1 Close, 0 Stop, 1 Open)</td><td>Read/Write</td><td>Relay</td><td>1.8.0</td>
+<tr><td>WIFILINK_IP</td><td>String</td><td>Read</td><td>Wifi Link</td><td>1.8.0</td>
+<tr><td>WIFILINK_DUSK_TIME</td><td>DateTime</td><td>Read</td><td>Wifi Link</td><td>1.8.0</td>
+<tr><td>WIFILINK_DAWN_TIME</td><td>DateTime</td><td>Read</td><td>Wifi Link</td><td>1.8.0</td>
+<tr><td>WIFILINK_UPTIME</td><td>Number</td><td>Read</td><td>Wifi Link</td><td>1.8.0</td>
+<tr><td>WIFILINK_LONGITUDE</td><td>String</td><td>Read</td><td>Wifi Link</td><td>1.8.0</td>
+<tr><td>WIFILINK_LATITUDE</td><td>String</td><td>Read</td><td>Wifi Link</td><td>1.8.0</td>
 </table>
 
 ## Force WiFi Link to register your device
