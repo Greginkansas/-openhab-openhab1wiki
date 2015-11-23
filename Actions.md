@@ -279,7 +279,7 @@ The Telegram action allows sending formatted messages to Telegram clients ([http
 
 #### Sample openhab.cfg:
 In openhab.cfg both *Bot authentication tokens* and *chatIds* must be defined.
-Multiple bots and chats can be defined as targets (one Bot can manage multiple chats, you do not need one Bot per chat).
+Multiple bots and chats can be defined as targets.
 
 Example:
 
