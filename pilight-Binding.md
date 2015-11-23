@@ -26,7 +26,7 @@ In openHAB 1.6, pilight version 5 is supported. In the latest version of openHAB
 
 ### Configuration openhab.cfg
 
-This binding supports multiple pilight instances. You must set the .host and .port values. 
+This binding supports multiple pilight instances. You must set the .host and .port values. In pilight, you must explicitly configure this "port" or otherwise a random port will be used and the binding will not be able to connect. 
 
 ```
 #
