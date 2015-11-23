@@ -27,6 +27,7 @@ Since openHAB 1.3.0, not all actions are part of the core runtime distribution a
   * [Prowl](#prowl-actions)
   * [Pushover](#pushover-actions)
   * [Squeezebox](#squeezebox-action)
+  * [Telegram](#telegram-action)
   * [TinkerForge](#tinkerforge-actions)
   * [Twitter](#twitter-actions)
   * [Weather](#weather-actions)
@@ -272,6 +273,64 @@ Interact directly with your Squeezebox devices from within rules and scripts. In
 See the [[Squeezebox Action]] page for more details.
 
 [Table of Contents](#table-of-contents)
+
+### Telegram action
+The Telegram action allows sending formatted messages to Telegram clients ([https://telegram.org]()), by using the Telegram Bot API.
+
+#### Sample openhab.cfg:
+In openhab.cfg both *Bot authentication tokens* and *chatIds* must be defined.
+Multiple bots and chats can be defined as targets.
+
+Example:
+
+```
+telegram:bots=bot1,bot2
+
+telegram:bot1.chatId=22334455
+telegram:bot1.token=xxxxxxxxxxx
+
+telegram:bot2.chatId=654321
+telegram:bot2.token=yyyyyyyyyyy
+```
+It this example two bots can be used (`bot1` and `bot2`).
+
+For each destination chat, the authentication token and the chat id must be defined using
+
+```
+telegram:<bot name>.chatId=<chat id>
+telegram:<bot name>.token=<authentication token>
+```
+
+#### Sample action usage in .rules to send telegram to chat
+
+```
+rule "Send telegram with Fixed Message"
+when
+	Item Foo changed
+then
+	sendTelegram("bot1", "item Foo changed")
+end
+```
+
+```
+rule "Send telegram with Formatted Message"
+when
+	Item Foo changed
+then
+	sendTelegram("bot1", "item Foo changed to %s and number is %.1f", Foo.state.toString, 23.56)
+end
+```
+
+#### How to get the Bot authentication token and the chatId
+As described in the Telegram Bot API, this is the manual procedure needed in order to get the necessary information.
+
+1. Create the Bot and get the Token
+	* On a Telegram client open a chat with BotFather.
+	* write `/newbot` to BotFather, fill all the needed information, write down the token. This is the authentication token needed.
+2. Create the destination chat and get the chatId
+	* Open a new chat with your new Bot and post a message on the chat
+	* Open a browser and invoke `https://api.telegram.org/bot<token>/getUpdates` (where `<token>` is the authentication token previously obtained)
+	* Look at the JSON result and write down the value of `result[0].message.from.id`. That is the chatId.
 
 ### TinkerForge Actions
 
