@@ -126,6 +126,7 @@
 * [[Insteon Hub Binding|Insteon-Hub-Binding]]
 * [[Insteon PLM Binding|Insteon-PLM-Binding]]
 * [[IRtrans Binding|Ir-Trans-Binding]]
+* [[IPX800 Binding|IPX800-Binding]]
 * [[jointSPACE-Binding|jointSPACE-Binding]]
 * [[KNX Binding|KNX-Binding]]
 * [[Koubachi Binding|Koubachi-Binding]]
