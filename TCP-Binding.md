@@ -2,6 +2,11 @@ Documentation of the TCP & UDP binding Bundle
 
 ## Introduction
 
+TCPBinding provides basic support for TCP based ASCII protocols. It sends and receives 
+data as ASCII strings. Data sent out is padded with a CR/LF. This should be sufficient for many
+home automation devices that take simple ASCII based control commands, or that send back
+text based status messages.
+
 The TCP part of the binding has a built-in mechanism to keep connections to remote hosts alive, and will reset connections at regular intervals to overcome the limitation of "stalled" connections or remote hosts.
 
 The TCP & UDP binding bundle acts as a network client or as a network server.
@@ -26,7 +31,7 @@ where `<command>` is the openHAB command. For String Items `<command>`: can be o
 
 where `<ip address>` is the hostname or ip address in dotted notation of the remote host
 
-and where `<transformationrule>` that will be applied to the `<command>` received, before the resulting string is to be sent to the remote host. For String Items the received value of the Item will be passed on to the `<transformationrule>`. When data is received from the remote host, then the Item will be updated with the `<command>` in so far that the result of the  `<transformationrule>` applied on the incoming data is valid for the given Item. String items will be updated "as is" using the result of the  `<transformationrule>`. 
+and where `<transformationrule>` that will be applied to the `<command>` received, before the resulting string is to be sent to the remote host. For String Items the received value of the Item will be passed on to the `<transformationrule>`. When data is received from the remote host, then the Item will be updated with the `<command>` if the result of the  `<transformationrule>` applied to the incoming data is valid for the given Item. String items will be updated "as is" using the result of the  `<transformationrule>`. 
 
 ##Configuration Parameters
 
