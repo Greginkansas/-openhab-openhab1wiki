@@ -274,7 +274,8 @@ See the [[Squeezebox Action]] page for more details.
 
 [Table of Contents](#table-of-contents)
 
-### Telegram action
+### Telegram Action
+
 The Telegram action allows sending formatted messages to Telegram clients ([https://telegram.org]()), by using the Telegram Bot API.
 
 #### Sample openhab.cfg:
@@ -331,6 +332,8 @@ As described in the Telegram Bot API, this is the manual procedure needed in ord
 	* Open a new chat with your new Bot and post a message on the chat
 	* Open a browser and invoke `https://api.telegram.org/bot<token>/getUpdates` (where `<token>` is the authentication token previously obtained)
 	* Look at the JSON result and write down the value of `result[0].message.from.id`. That is the chatId.
+
+[Table of Contents](#table-of-contents)
 
 ### TinkerForge Actions
 
