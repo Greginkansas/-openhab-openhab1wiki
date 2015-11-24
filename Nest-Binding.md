@@ -19,7 +19,7 @@ _**Note:** This Binding is available in 1.7 and later releases._
 
 ## Binding Configuration
 
-In order to use this binding, you will have to register as a [Nest Developer](https://developer.nest.com/) and [Register a new product](https://developer.nest.com/products/new).  Make sure to grant all the permissions you intend to use.  At this point, you will have your `nest:client_id` (**Product ID**) and `nest:client_secret` (**Product Secret**).
+In order to use this binding, you will have to register as a [Nest Developer](https://developer.nest.com/) and [Register a new product](https://developer.nest.com/products/new).  Make sure to grant all the permissions you intend to use, and leave the **Redirect URI** field **blank** for PIN-based authorization.  At this point, you will have your `nest:client_id` (**Product ID**) and `nest:client_secret` (**Product Secret**).
 
 Once you've created your [product](https://developer.nest.com/products) as above, paste the **Authorization URL** into a new tab in your browser.  This will have you login to your normal Nest account, and will then present the `nest:pin_code`.  Prepare to copy and paste your values for `nest:client_id`, `nest:client_secret` and `nest:pin_code` in order to configure the binding.
 
