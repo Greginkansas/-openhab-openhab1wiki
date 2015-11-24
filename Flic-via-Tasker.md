@@ -72,21 +72,29 @@ end
 
 ##configure your android device##
 ###Flic app###
-Install the Flic app and connect and name your Flic devices.
+Install the Flic app and connect your Flic devices.
+Call them "Flic01" to "Flic0.." for this guide.
 
 ###Tasker###
 Install the Tasker app on your android device.
 
-You can [import](https://www.youtube.com/watch?v=5CCUapaRF3U)this Tasker project via an xml file ([download XML](https://drive.google.com/file/d/0B88Qoo5yy7A7T2lFa1Z3TUhtZk0/view?usp=sharing)).
+You can [import](https://www.youtube.com/watch?v=5CCUapaRF3U) this Tasker project via an xml file ([download XML](https://drive.google.com/file/d/0B88Qoo5yy7A7T2lFa1Z3TUhtZk0/view?usp=sharing)).
 
-Or you can create the profiles and Tasks manually.
+Use the global variables %OHSERVER and OHPORT to specify the openHAB server.
+This way you can easily change the openHAB IP or port for all tasks at once.
 
-I am using the global variables %OHSERVER and OHPORT to specify my openHAB server.
-This way I can easily change the openHAB IP or port for all my tasks at once.
+###profile###
+If you have the Flic app installed there will be a tasker plugin available when you add a new profile and select "event".
+Click on "Configuration" and select the FlicButton and the Type (of Action) you want to trigger on.
+
+###tasks###
+The tasks use local variables to define the number of each FlicButton (%flic_nr), the action (%flic_action) and the state (%flic_state) you want to put the item in.
+
+You can clone the first task and just change the value of these variables to create the next task. (e.g. substitute "click" for "hold" or "01" for "02").
+
+If the task gets executed it sends an HTTP GET request to the REST API of the openHAB server and the rule will print a line in the log to show the command was received.
 
 
-
-
-
+##without Android/Tasker##
 btw: There might be a linux library in the works, so you can connect the buttons directly to your openHAB server via a bluetooth dongle.
 http://www.hardill.me.uk/wordpress/2015/10/10/flic-io-button-finally-arrived/#comment-109834
