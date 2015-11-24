@@ -275,6 +275,7 @@ Please update the wiki if you do come across any out of date information.
 * [[Usecase examples|Usecase-examples]]
 * [[B-Control Manager|Example-to-use-B-Control-Energy-Manager-with-openHAB]]
 * [[Spell checking for foreign languages|Spell-checking-for-foreign-languages]]
+* [[Flic via Tasker|Flic-via-Tasker]]
 
 ### Scripts
 
