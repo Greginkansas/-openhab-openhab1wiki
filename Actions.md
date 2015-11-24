@@ -276,7 +276,7 @@ See the [[Squeezebox Action]] page for more details.
 
 ### Telegram Action
 
-The Telegram action allows sending formatted messages to Telegram clients ([https://telegram.org]()), by using the Telegram Bot API.
+The Telegram action allows sending formatted messages to Telegram clients ([https://telegram.org](https://telegram.org)), by using the Telegram Bot API.
 
 #### Sample openhab.cfg:
 In openhab.cfg both *Bot authentication tokens* and *chatIds* must be defined.
