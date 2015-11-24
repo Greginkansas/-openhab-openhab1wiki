@@ -2,7 +2,7 @@ Documentation of the TCP & UDP binding Bundle
 
 ## Introduction
 
-TCPBinding provides basic support for TCP based ASCII protocols. It sends and receives 
+The TCPBinding provides basic support for TCP based ASCII protocols. It sends and receives 
 data as ASCII strings. Data sent out is padded with a CR/LF. This should be sufficient for many
 home automation devices that take simple ASCII based control commands, or that send back
 text based status messages.
