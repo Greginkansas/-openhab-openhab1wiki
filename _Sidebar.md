@@ -171,6 +171,7 @@
 * [[Primare Binding|Primare-binding]]
 * [[Pulseaudio Binding|Pulseaudio-Binding]]
 * [[RFXCOM Binding|RFXCOM-Binding]]
+* [[RWE Smarthome Binding|RWE-Smarthome-Binding]]
 * [[Sager WeatherCaster Binding|SagerWeatherCaster-Binding]]
 * [[Samsung AC Binding|Samsung-AC-binding]]
 * [[Samsung TV Binding|Samsung-TV-Binding]]
