@@ -10,10 +10,12 @@ The format of the binding configuration is simple and looks like this:
 
     serial="<port>@<baudrate>" 
     serial="<port>@<baudrate>,REGEX(<regular expression>)" 
+    serial="<port>@<baudrate>,BASE64 
 
 * where `<port>` is the identification of the serial port on the host system, e.g. "COM1" on Windows, "/dev/ttyS0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.
 * where `<baudrate>` is the baud rate of the port. Backward compability is given, as if no baud rate is specified  the serial binding defaults to 9600 bauds.
 * where `REGEX(<regular expression>)` allows to parses for special strings or numbers in the serial stream. This is based on the [RegEx Service](https://github.com/openhab/openhab/wiki/Transformations#regex-transformation-service). This is optional and new in version 1.8. 
+* where `BASE64` enables the Base64 mode. With this mode all data received on the serial port is saved in Base64 format. In this mode also all data that is sent to the serial port has to be Base64 encoded. (This was implemented because some serial devices are using bytes that are not supported by the rest interface) Base64 can be decoded in the rules by importing `javax.xml.bind.DatatypeConverter` and then decoding the value like this: `DatatypeConverter::parseBase64Binary(ITEM.state.toString)` For encoding use the `printBase64Binary` method of the DatatypeConverter. This is optional and new in version 1.8. 
 
 Switch items with this binding will receive an ON-OFF update on the bus, when ever data becomes available on the serial interface (or simply by short-cutting pins 2 and 7 on the RS-232 interface)
 
