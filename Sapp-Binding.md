@@ -97,6 +97,7 @@ Switch item syntax:
 
 ##### Switch Example
 In this example we control the status of module 60 Output 1 and we control it using Virtual 2001 bit 1 and we send 1 on ON and 1 on OFF command.
+The Virtual 2001 is autoreset type on master program.
 
 ```
 Switch LightDinner  "Dinner Light" (gLight) { sapp="home:O:60:1/home:V:2001:1:1:1" }
@@ -104,7 +105,7 @@ Switch LightDinner  "Dinner Light" (gLight) { sapp="home:O:60:1/home:V:2001:1:1:
 
 ***How to start and stop polling using a switch item***
 
-There is a special switch that can stop and start polling in order to write the Master without stopping openhab sw.
+There is a special switch that can stop and start polling in order to write the Master without stopping Openhab sw.
 
 `Switch PollerSwitch "PollerSwitch" { sapp="P" }`
 
@@ -122,6 +123,12 @@ In this example we control the status of module 12 Input 7.
 ```
 Contact ContactWindowsBath "Bath Window" { sapp="home:I:12:7" }
 ```
+The contact status is by default inverted, so NC contact for is OPEN and NO is CLOSED. To invert the status just add :0 at the end of the string just like the example:
+
+```
+Contact ContactWindowsBath "Bath Window" { sapp="home:I:12:7:0" }
+```
+  
 #### Number
 
 Number item syntax:
