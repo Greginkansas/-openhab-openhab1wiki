@@ -127,8 +127,23 @@ Number Netatmo_Rain_Current "Rain [%.1f mm]" {netatmo="00:00:00:00:00:00#00:00:0
 **Supported types for the rain guage:**
 * Rain
 * Humidity
-* RfStatus
 * sum_rain
+* RfStatus
+* BatteryVP
+
+### Wind (Since 1.8)
+Example item for the **wind module** (first id is the main module, second id is the wind module):
+```
+Number Netatmo_Wind_Strength "Wind Strength [%.0f KPH]" {netatmo="00:00:00:00:00:00#00:00:00:00:00:00#WindStrength"}
+```
+**Supported types for the wind module:**
+* WindStrength
+* WindAngle
+* GustStrength
+* GustAngle
+* date_max_gust
+* RfStatus
+* BatteryVP
 
 ###Min, Max and Sum Types (Since 1.8)
 Types that contain **_min**, **_max**, or **_sum** are for a specific time frame, with a default of 1 day. Possible time frames are:
@@ -198,9 +213,18 @@ Number   Netatmo_Outdoor_Max_Hum       "Outdoor Maximum Humidity Today [%d %%]" 
 DateTime Netatmo_Outdoor_Max_Hum_Date  "Outdoor Maximum Humidity Today [%1$tD %1$tr]"      (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#date_max_hum"}
 
 Number   Netatmo_Rain_Current          "Rain Current [%.02f mm]"                           (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:be#Rain"}
+Number   Netatmo_Rain_Today            "Rain Today [%.02f mm]"                             (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:be#sum_rain"}
 Number   Netatmo_Rain_Rfstatus         "Rain RF Status [%d / 5]"                           (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:be#Rfstatus"}
 Number   Netatmo_Rain_Batteryvp        "Rain battery status [%d %%]"                       (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:be#Batteryvp"}
-Number   Netatmo_Rain_Today            "Rain Today [%.02f mm]"                             (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:be#sum_rain"}
+
+Number   Netatmo_Wind_Strength         "Wind Strength [%.0f KPH]"                          (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#WindStrength"}
+Number   Netatmo_Wind_Wind_Angle       "Wind Angle [%d°]"                                  (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#WindAngle"}
+Number   Netatmo_Wind_Gust_Strength    "Wind Strength [%.0f KPH]"                          (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#GustStrength"}
+Number   Netatmo_Wind_Gust_Angle       "Wind Angle [%d°]"                                  (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#GustAngle"}
+DateTime Netatmo_Wind_Max_Gust_Date    "Date Max Gust [%1$tD %1$tr]"                       (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#date_max_gust"}
+Number   Netatmo_Wind_Rfstatus         "Wind RF Status [%d / 5]"                           (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#Rfstatus"}
+Number   Netatmo_Wind_Batteryvp        "Wind battery status [%d %%]"                       (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#Batteryvp"}
+
 ```
 
 ## Example rules
