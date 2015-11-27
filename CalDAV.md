@@ -8,7 +8,7 @@ First of all you need to add the org.openhab.io.caldav-version.jar to the addons
 [v25.10.2015](http://speedy.sh/K3X4h/caldav-2015-10-25.zip)
 changes: Events has been send multiple times, reduced to one for every change; use sendCommand instead of postUpdate
 
-**Binding is merged and will be available in 1.8.0. Until 1.8.0 is release it can be loaded from the build agent.**
+**Binding is merged and will be available in 1.8.0. Until 1.8.0 is not released it can be loaded from the build agent.**
 
 
 openhab.cfg
