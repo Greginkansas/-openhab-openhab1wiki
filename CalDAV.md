@@ -1,13 +1,14 @@
 This binding can be used to connect through the CalDAV Interface to calendars.
 First of all you need to add the org.openhab.io.caldav-version.jar to the addons folder.
 
-**Currently the binding can just be loaded from here because the Pull-Request is not merged.**
+**Old releases**
 
 [v09.10.2015](http://speedy.sh/qHKZJ/caldav-2015-10-09.zip)
 
 [v25.10.2015](http://speedy.sh/K3X4h/caldav-2015-10-25.zip)
 changes: Events has been send multiple times, reduced to one for every change; use sendCommand instead of postUpdate
 
+**Binding is merged and will be available in 1.8.0. Until 1.8.0 is release it can be loaded from the build agent.**
 
 
 openhab.cfg
@@ -28,7 +29,7 @@ openhab.cfg
 ***
 
 # CalDAV Command
-Binding file: org.openhab.binding.caldav-version.jar
+Binding file: org.openhab.binding.caldav-command-version.jar
 
 Used to execute commands through an event, triggered at the start or the end of an event.
 The event summary is free selectable. The event description must fullfill special syntax.
@@ -56,7 +57,7 @@ openhab.cfg
 ***
 
 # CalDAV Personal
-Binding file: org.openhab.binding.caldav-presence-version.jar
+Binding file: org.openhab.binding.caldav-personal-version.jar
 
 * Used to detect presence through calendar events.
 * Used to show upcoming/active events in openhab.
@@ -87,6 +88,13 @@ Binding file: org.openhab.binding.caldav-presence-version.jar
 * `<logger name="org.openhab.binding.caldav_personal" level="TRACE"/>`
 * `<logger name="org.openhab.binding.caldav_presence" level="TRACE"/>`
 * `<logger name="org.openhab.io.caldav" level="TRACE"/>`
+
+# Tested calDAV Servers
+As far as i know are these
+* ownCloud (reference implementation)
+* baikal
+* google (performance issue, because the timestamp of files is not correct)
+* (zafira?)
 
 # Example configuration
 
