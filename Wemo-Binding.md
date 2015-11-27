@@ -43,10 +43,10 @@ The following channel types are possible for Insight switch devices:
 
 Examples, how to configure your items in your items file:
 
-    Switch Socket1               {wemo="Socket-1-0-12345678"}
-	Switch Insight1              {wemo="Insight-1-0-87654321"}
-	Number Insight_currentPower  {wemo="Insight-1-0-87654321;currentPower"}
-	Number Insight_onToday       {wemo="Insight-1-0-87654321;onToday"}
-	Number Insight_onTotal       {wemo="Insight-1-0-87654321;onTotal"}
-	Contact Motion1              {wemo="Sensor-1-0-56437891"}
+    Switch Socket1                                           {wemo="Socket-1-0-12345678"}
+	Switch Insight1                                      {wemo="Insight-1-0-87654321"}
+	Number Insight_currentPower  "Current Power [%.0f]"  {wemo="Insight-1-0-87654321;currentPower"}
+	Number Insight_onToday       "On Today [%.0f]"       {wemo="Insight-1-0-87654321;onToday"}
+	Number Insight_onTotal       "On Today [%.0f]"       {wemo="Insight-1-0-87654321;onTotal"}
+	Contact Motion1                                      {wemo="Sensor-1-0-56437891"}
 
