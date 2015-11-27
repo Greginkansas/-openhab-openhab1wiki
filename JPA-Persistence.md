@@ -58,6 +58,13 @@ jpa:password=     # the database username password for connection
 The binding will create one table "historic_item" where all item states are stored.
 The item state as such is stored as a string representation.
 
+## Notes for openHAB 1.8+
+In openHAB 1.8 the binding has been modified in that now only the embedded Derby driver is included.
+Drivers for other databases must be installed manually. This is a trivial process. Normally JDBC database drivers are packaged as OSGi bundles and can just be dropped into the 'addons' folder of openHAB.
+This has the advantage that users can update their drivers as needed.
+
+If a database driver is not an OSGi bundle the below technique can be used to extend the openHAB classpath.
+
 ## Adding support for other JPA supported databases
 Other database drivers can be added by expanding the openhab classpath.
 Use the following classpath setup in start.sh / start_debug.sh of openhab:
