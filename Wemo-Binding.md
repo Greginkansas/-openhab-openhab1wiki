@@ -19,7 +19,7 @@ In order to bind an item to the device, you need to provide configuration settin
     wemo="<friendlyName>"
 
 The friendlyName is given to your device during initial setup with your Android or IOS device.
-If not sure about the friendlyNames of your devices, take a look in your openhab.log. The discovered devices are listed.
+You can find the friendlyNames of your devices in your openhab.log. The discovered devices are listed.
 
 Examples, how to configure your items in your items file:
 
@@ -34,7 +34,7 @@ In order to bind an item to the device, you need to provide configuration settin
     wemo="<UDN>;[<channel-type>]"
 
 
-If you are not shure about your WeMo devices UDN, have a look into openHAB logfile. The Binding lists all discovered WeMo devices at start.
+You can find your WeMo devices' UDN in your openHAB logfile. The Binding lists all discovered WeMo devices at start.
 
 The channel type of your item definition is **optional**, it will default to channel type "**state**".
 The following channel types are possible for Insight switch devices:
