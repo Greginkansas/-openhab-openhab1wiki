@@ -145,6 +145,37 @@ Number Netatmo_Wind_Strength "Wind Strength [%.0f KPH]" {netatmo="00:00:00:00:00
 * RfStatus
 * BatteryVP
 
+Types **WindStrength**, **WindAngle**, **GustStrength**, **GustAngle** are for a specific time frame, and default to the latest measurement. Other possible time frames are:
+* 30min
+* 1hour
+* 3hours
+* 1day
+* 1week
+* 1month
+
+The  type **date_max_gust** is also for a specific time frame, and defaults to 1 day. It will only work with the ranges **1day**, **1week**, and **1month**.
+
+Example items with different time frames:
+
+```
+Number   Netatmo_Wind_Strength_Current        "Wind Strength [%.0f KPH]"     (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#WindStrength"}
+Number   Netatmo_Wind_Wind_Angle_Current      "Wind Angle [%d°]"             (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#WindAngle"}
+Number   Netatmo_Wind_Gust_Strength_Current   "Wind Strength [%.0f KPH]"     (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#GustStrength"}
+Number   Netatmo_Wind_Gust_Angle_Current      "Wind Angle [%d°]"             (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#GustAngle"}
+
+Number   Netatmo_Wind_Strength_Today          "Wind Strength [%.0f KPH]"     (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#WindStrength,1day"}
+Number   Netatmo_Wind_Wind_Angle_Today        "Wind Angle [%d°]"             (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#WindAngle,1day"}
+Number   Netatmo_Wind_Gust_Strength_Today     "Wind Strength [%.0f KPH]"     (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#GustStrength,1day"}
+Number   Netatmo_Wind_Gust_Angle_Today        "Wind Angle [%d°]"             (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#GustAngle,1day"}
+DateTime Netatmo_Wind_Max_Gust_Date_Today     "Date Max Gust [%1$tD %1$tr]"  (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#date_max_gust"}
+
+Number   Netatmo_Wind_Strength_Month          "Wind Strength [%.0f KPH]"     (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#WindStrength,1month"}
+Number   Netatmo_Wind_Wind_Angle_Month        "Wind Angle [%d°]"             (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#WindAngle,1month"}
+Number   Netatmo_Wind_Gust_Strength_Month     "Wind Strength [%.0f KPH]"     (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#GustStrength,1month"}
+Number   Netatmo_Wind_Gust_Angle_Month        "Wind Angle [%d°]"             (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#GustAngle,1month"}
+DateTime Netatmo_Wind_Max_Gust_Date_Month     "Date Max Gust [%1$tD %1$tr]"  (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#date_max_gust,1month"}
+```
+
 ###Min, Max and Sum Types (Since 1.8)
 Types that contain **_min**, **_max**, or **_sum** are for a specific time frame, with a default of 1 day. Possible time frames are:
 * 30min
