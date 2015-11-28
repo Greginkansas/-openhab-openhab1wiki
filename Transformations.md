@@ -73,7 +73,21 @@ Calling it in a rule :
 `var Number r = transform("SCALE", "uvindex.scale", WuUvIndex.state.toString)`
 
 ### RegEx transformation service
-tbd ...
+
+The Regex transformation service matches a string against a regular expression with at least one capturing group. The first capturing group becomes the result of the transformation. Note that the provided regular expression will be anchored at the beginning and end of the string ("^" and "$" will be added around the provided expression).
+
+Example item configuration:
+
+Returns the string.<br>
+`http="<[http://example.com/var/value:60000:REGEX((.*)]" }`
+
+Extract a integer (e.g., "Result: 123" ==> "123")<br>
+`http="<[http://example.com/var/value:60000:REGEX(.*?([0-9]+).*]" }`
+
+
+Example in rules:
+
+`transform("REGEX", "STATUS=(.*)", "STATUS=OK")`
 
 ### XPath transformation service
 tbd ...
