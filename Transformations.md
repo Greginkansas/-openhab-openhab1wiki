@@ -14,6 +14,10 @@ Example in rules:
 
 The program must either be in the executable search path of the openHAB server or an absolute path can be used.
 
+Debugging:
+
+Turn on DEBUG logging for package `org.openhab.io.net.exec` in `logback.xml`.
+
 ### Java Script transformation service
 OpenHab supports transformation scripts written in Javascript. 
 
