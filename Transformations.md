@@ -1,7 +1,18 @@
 Overview of available transformation services
 
 ### Exec transformation service
-tbd ...
+
+The Exec transformation service will pass a value to an external program. The output of the program is used as the transformed value. A placeholder of `%s` is used to pass the value to be transformed to the external program.
+
+Example item configuration:
+
+`http="<[http://example.com/var/value:60000:EXEC(/absolute/path/to/my/program %s)]" }`
+
+Example in rules:
+
+`transform("EXEC", "/absolute/path/to/my/program %s", "foo bar baz")`
+
+The program must either be in the executable search path of the openHAB server or an absolute path can be used.
 
 ### Java Script transformation service
 OpenHab supports transformation scripts written in Javascript. 
