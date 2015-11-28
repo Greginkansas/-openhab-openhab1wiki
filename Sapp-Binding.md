@@ -8,6 +8,8 @@ The Sapp binding polls the bus in an configurable interval and support sapp over
 
 For installation of the binding, please see Wiki page [Binding](https://github.com/openhab/openhab/wiki/Bindings)
 
+**_This binding is available from 1.8.0 snapshot_**
+
 ## Details
 
 ### Binding Configuration in openhab.conf
@@ -65,6 +67,9 @@ These values are accepted in order to get the status
 * **`H`**: The high byte value
 * **`L`**: The low byte value
 * **`1-16`**: The single bit value
+* **`+`**: Signed word, -32768 to 32767 
+* **`H+`**: Signed high byte, -128 to 127
+* **`L+`**: Signed low byte, -128 to 127
 
 ***Control address type***
 
@@ -84,6 +89,9 @@ These values are accepted in order to control the status
 * **`H`**: The high byte value
 * **`L`**: The low byte value
 * **`1-16`**: The single bit value
+* **`+`**: Signed word, -32768 to 32767 
+* **`H+`**: Signed high byte, -128 to 127
+* **`L+`**: Signed low byte, -128 to 127
 
 The sapp binding support the following items and their use is listed here:
 
