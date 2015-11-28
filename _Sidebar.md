@@ -276,6 +276,7 @@ Please update the wiki if you do come across any out of date information.
 * [[B-Control Manager|Example-to-use-B-Control-Energy-Manager-with-openHAB]]
 * [[Spell checking for foreign languages|Spell-checking-for-foreign-languages]]
 * [[Flic via Tasker|Flic-via-Tasker]]
+* [[Chromecast via castnow|Chromecast-via-castnow]]
 
 ### Scripts
 
