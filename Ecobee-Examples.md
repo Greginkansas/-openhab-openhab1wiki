@@ -45,9 +45,9 @@ sitemap ecobee label="Ecobee"
     Switch item=hvacMode label="HVAC Mode" mappings=[heat=Heat,cool=Cool,auto=Auto,off=Off]
     Text item=currentClimateRef
     Switch item=desiredComf mappings=[sleep=Sleep,wakeup=Wake,home=Home,away=Away,smart6=Gym,resume=Resume]
-    Setpoint item=desiredTemp label="Temp [%.1f °F]" minValue="50" maxValue="80" step="1" visibility=[hvacMode==heat,hvacMode==cool]
-    Setpoint item=desiredHeat label="Heat [%.1f °F]" minValue="50" maxValue="80" step="1" visibility=[hvacMode==auto]
-    Setpoint item=desiredCool label="Cool [%.1f °F]" minValue="50" maxValue="80" step="1" visibility=[hvacMode==auto]
+    Setpoint item=desiredTemp label="Temp [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[hvacMode==heat,hvacMode==cool]
+    Setpoint item=desiredHeat label="Heat [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[hvacMode==auto]
+    Setpoint item=desiredCool label="Cool [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[hvacMode==auto]
   }
 
   Frame label="Dining Room Sensors" {
@@ -97,8 +97,8 @@ then
   switch hvacMode.state.toString {
     case "heat" : desiredHeat.sendCommand(receivedCommand)
     case "cool" : desiredCool.sendCommand(receivedCommand)
-    case "auto" ,
-    case "off"  : logWarn("TempHold", "in " + hvacMode.state.toString + " mode, single setpoint ignored")
+    case "auto" : logWarn("TempHold", "in auto mode, single setpoint ignored")
+    case "off"  : logWarn("TempHold", "in off mode, single setpoint ignored")
   }
 end
 
