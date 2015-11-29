@@ -119,6 +119,7 @@ The following code will display a map based on your home location; and auto zoom
                             icon      : 'http://maps.google.com/mapfiles/kml/pal2/icon10.png',
                             title     : "Ehrendingen"
                         })
+            google.maps.event.addListener(map, 'tilesloaded', function(evt) { updateZoom(); });
         } // end of function - startup
         
         function updateZoom() {
@@ -154,7 +155,6 @@ The following code will display a map based on your home location; and auto zoom
                             icon      : 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
                             title     : "Patrik"
                         })
-                        updateZoom();
                         ////////////////////////////////////////////////////////////////////////
                      }
                 })
@@ -179,7 +179,6 @@ The following code will display a map based on your home location; and auto zoom
                             icon      : 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
                             title     : "Karin"
                         })
-                        updateZoom();
                         ////////////////////////////////////////////////////////////////////////
                      }
                 })
