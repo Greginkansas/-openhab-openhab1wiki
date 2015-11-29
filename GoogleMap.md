@@ -138,13 +138,13 @@ The following code will display a map based on your home location; and auto zoom
         
         $(function() {
             $.ajax({
-              url     : "http://192.168.10.100:8080/rest/items/mqttPatrikLatitude/state",
+              url     : "../rest/items/mqttPatrikLatitude/state",
               data    : { },
               success : function( data ) {
                  var Latitude = data;
  
                  $.ajax({
-                     url     : "http://192.168.10.100:8080/rest/items/mqttPatrikLongitude/state",
+                     url     : "../rest/items/mqttPatrikLongitude/state",
                      data    : { },
                      success : function( data ) {
                         var Longitude = data;
@@ -162,13 +162,13 @@ The following code will display a map based on your home location; and auto zoom
               
             }); // end of $.ajax - Patrik
             $.ajax({
-              url     : "http://192.168.10.100:8080/rest/items/mqttKarinLatitude/state",
+              url     : "../rest/items/mqttKarinLatitude/state",
               data    : { },
               success : function( data ) {
                  var Latitude = data;
                  
                  $.ajax({
-                     url     : "http://192.168.10.100:8080/rest/items/mqttKarinLongitude/state",
+                     url     : "../rest/items/mqttKarinLongitude/state",
                      data    : { },
                      success : function( data ) {
                         var Longitude = data;
