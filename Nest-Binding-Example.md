@@ -46,9 +46,9 @@ sitemap nest label="Nest"
     Switch item=dining_room_hvac_mode mappings=[heat="Heat",cool="Cool","heat-cool"="Auto",off="Off"]
     Text item=dining_room_away_temperature_low_f visibility=[home_away=="away",home_away=="auto-away"]
     Text item=dining_room_away_temperature_high_f visibility=[home_away=="away",home_away=="auto-away"]
-    Setpoint item=dining_room_target_temperature_f label="Target Temperature [%.1f °F]" minValue="45" maxValue="70" step="1" visibility=[dining_room_hvac_mode=="heat",dining_room_hvac_mode=="cool"]
-    Setpoint item=dining_room_target_temperature_low_f label="Minimum Temperature [%.1f °F]" minValue="50" maxValue="80" step="1" visibility=[dining_room_hvac_mode=="heat-cool"]
-    Setpoint item=dining_room_target_temperature_high_f label="Maximum Temperature [%.1f °F]" minValue="50" maxValue="80" step="1" visibility=[dining_room_hvac_mode=="heat-cool"]
+    Setpoint item=dining_room_target_temperature_f label="Target Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[dining_room_hvac_mode=="heat",dining_room_hvac_mode=="cool"]
+    Setpoint item=dining_room_target_temperature_low_f label="Minimum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[dining_room_hvac_mode=="heat-cool"]
+    Setpoint item=dining_room_target_temperature_high_f label="Maximum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[dining_room_hvac_mode=="heat-cool"]
     Text item=dining_room_last_connection
   }
   Frame label="Basement Nest Protect" {
