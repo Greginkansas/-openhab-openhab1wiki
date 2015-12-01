@@ -180,7 +180,7 @@ Here are some examples of valid binding configuration strings, as you would defi
 	String isRegistered     "isRegistered [%s]"                                    { ecobee="<[123456789012#isRegistered]" }
 	String modelNumber      "modelNumber [%s]"                                     { ecobee="<[123456789012#modelNumber]" }
 	String brand            "brand [%s]"                                           { ecobee="<[123456789012#brand]" } // as of openHAB 1.8
-	String features         "features [%s]"                                        { ecobee="<[123456789012#features]" }
+	String features         "features [%s]"                                        { ecobee="<[123456789012#features]" } // as of openHAB 1.8
 	DateTime lastModified   "lastModified [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"   { ecobee="<[123456789012#lastModified]" }
 	DateTime thermostatTime "thermostatTime [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { ecobee="<[123456789012#thermostatTime]" }
 	DateTime utcTime        "utcTime [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"        { ecobee="<[123456789012#utcTime]" }
