@@ -119,7 +119,7 @@ After you have installed the binding JAR in your `addons` directory, configured 
 	#########################################################################################
 	# Ecobee-Integration: U S E R   I N T E R A C T I O N   R E Q U I R E D !!
 	# 1. Login to www.ecobee.com using your 'DEFAULT_USER' account
-	# 2. Enter the PIN 'gxvg' in My Apps within the next 9 minutes.
+	# 2. Enter the PIN 'gxvg' in My Apps within the next 3599 seconds.
 	# NOTE: Any API attempts will fail in the meantime.
 	#########################################################################################
 
@@ -179,6 +179,8 @@ Here are some examples of valid binding configuration strings, as you would defi
 	String thermostatRev    "thermostatRev [%s]"                                   { ecobee="<[123456789012#thermostatRev]" }
 	String isRegistered     "isRegistered [%s]"                                    { ecobee="<[123456789012#isRegistered]" }
 	String modelNumber      "modelNumber [%s]"                                     { ecobee="<[123456789012#modelNumber]" }
+	String brand            "brand [%s]"                                           { ecobee="<[123456789012#brand]" } // as of openHAB 1.8
+	String features         "features [%s]"                                        { ecobee="<[123456789012#features]" }
 	DateTime lastModified   "lastModified [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"   { ecobee="<[123456789012#lastModified]" }
 	DateTime thermostatTime "thermostatTime [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { ecobee="<[123456789012#thermostatTime]" }
 	DateTime utcTime        "utcTime [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"        { ecobee="<[123456789012#utcTime]" }
