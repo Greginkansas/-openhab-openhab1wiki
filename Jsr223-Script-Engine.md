@@ -5,7 +5,11 @@
 This addon allows the usage of different scripting languages as basis for rules. It was tested with the Jython-Scripting-Runtime and all examples rely on this scripting language. Feel free to contribute to this wiki, if you are using another language like JRuby.
 
 ## Installation
-The package needs to be installed to addons like any other addon [openhab]/addons. But by default it comes only with build-in Nashorn-Engine for JavaScript (\*.js) as scripting language. Feel free to use another scripting language like Jython (\*.py). Put all your scripts in the [openhab]/scripts directory.
+The package needs to be installed to addons like any other addon [openhab]/addons. By default it comes with build-in Nashorn-Engine for JavaScript (\*.js) as scripting language. Feel free to use another scripting language like Jython (\*.py). Put all your scripts in the [openhab]/scripts directory.
+
+**Requirements, using Nashorn-Engine for JavaScript**
+- Use openHAB >= Version 1.8.0
+- For loading Java classes with Nashorn you need to start openHab with the for java 8 preferred class-loader. Therefore add the ````-Dorg.osgi.framework.bundle.parent=ext```` parameter to your start.sh or start.bat.
 
 
 ### Jython-Installation
