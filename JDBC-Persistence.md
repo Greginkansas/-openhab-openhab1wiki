@@ -98,7 +98,7 @@ jdbc:password=test
 ############################ JDBC Persistence Service ##################################
 #
 # required database url like 'jdbc:<service>:<host>[:<port>;<attributes>]'
-jdbc:url=jdbc:postgresql://192.168.0.1:5432/testPostgresql
+jdbc:url=jdbc:mysql://192.168.0.1:3306/testMysql
 #
 # required database user
 jdbc:user=test
