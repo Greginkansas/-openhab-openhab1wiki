@@ -140,69 +140,76 @@ when
 	Item weckerZeitStunde changed or 
 	Item weckerZeitMinute changed
 then
+  // If the UI to change the Alarm time is clicked several times the code below
+  // is subject to race conditions. Therefore we make sure that all events 
+  // are processed one after the other.
   lock1.lock()
   try {
+    var String msg = ""
     
-  var String msg = ""
-  var stunde = weckerZeitStunde.state as DecimalType
-  var minute = weckerZeitMinute.state as DecimalType
+    // Copy the Alarm-Time from the UI to local variables
+    var stunde = weckerZeitStunde.state as DecimalType
+    var minute = weckerZeitMinute.state as DecimalType
   
-  if (stunde < 10) { msg = "0" } 
-  msg = msg + weckerZeitStunde.state.format("%d") + ":"
+    // Combine the hour and minutes to one string to be displayed in the 
+    // user interface
+    if (stunde < 10) { msg = "0" } 
+    msg = msg + weckerZeitStunde.state.format("%d") + ":"
     
-  if (minute < 10) { msg = msg + "0" }
-  msg = msg + weckerZeitMinute.state.format("%d")
-  postUpdate(weckerZeitMessage,msg)
+    if (minute < 10) { msg = msg + "0" }
+    msg = msg + weckerZeitMinute.state.format("%d")
+    postUpdate(weckerZeitMessage,msg)
   
-  var int weckzeit1
-  weckzeit1 = (weckerZeitStunde.state as DecimalType).intValue * 60 + 
-              (weckerZeitMinute.state as DecimalType).intValue
-  weckzeit1 = weckzeit1.intValue
+    // calculate the alarm time [min]
+    var int weckzeit1
+    weckzeit1 = (weckerZeitStunde.state as DecimalType).intValue * 60 + 
+                (weckerZeitMinute.state as DecimalType).intValue
+    weckzeit1 = weckzeit1.intValue
   
-  var int jetzt1
-  jetzt1 = now.getMinuteOfDay
-  jetzt1 = jetzt1.intValue
-  
-  var int delta1
-  if (timer1 != null) {
-    timer1.cancel
-    timer1 = null
-  }
-  
-  delta1 = (weckzeit1 - jetzt1)
-  delta1 = delta1.intValue
-  
-  if (jetzt1 > weckzeit1) { delta1 = delta1 + 1440 }
+    // calculate current time [min]
+    var int jetzt1
+    jetzt1 = now.getMinuteOfDay
+    jetzt1 = jetzt1.intValue
+
+    // calculate the difference between the requested alarm time and 
+    // current time (again in minutes)  
+    var int delta1
+    delta1 = (weckzeit1 - jetzt1)
+    delta1 = delta1.intValue
     
-  timer1 = createTimer(now.plusMinutes(delta1)) [|
-  	var Number day = now.getDayOfWeek
-  	if (((day == 1) && (weckerMontag.state == ON))     ||
-   		((day == 2) && (weckerDienstag.state == ON))   ||
-   		((day == 3) && (weckerMittwoch.state == ON))   ||
-   		((day == 4) && (weckerDonnerstag.state == ON)) ||
-   		((day == 5) && (weckerFreitag.state == ON))    ||
-   		((day == 6) && (weckerSamstag.state == ON))    ||
-   		((day == 7) && (weckerSonntag.state == ON))
-   		) {
-   		sendHttpGetRequest("http://192.168.10.100/ExecuteEvent.asp?Event=Wecker")
-    		
-   		sendCommand(ZwaveShutterEGEingang, UP)
-   		sendCommand(ZwaveShutterEGKuecheLinks, UP)
-   		sendCommand(ZwaveShutterEGKuecheRechts, UP)
-   		sendCommand(ZwaveShutterEGWohnenRechts, UP)
-   		sendCommand(ZwaveShutterEGWohnenLinks, UP)
-   		sendCommand(ZwaveShutterOGGang, UP)
-   		sendCommand(ZwaveShutterOGBuero, UP)
-   		sendCommand(ZwaveShutterEGTV, UP)
-   		
-   		createTimer(now.plusSeconds(7)) [|
-   		  sendCommand(ZwaveShutterEGTV, STOP)
-   		  ]
-   	    }
-   	   timer1.reschedule(now.plusHours(24))
-     ]
+    // add one day (1440 minutes) if alarm time for today already passed
+    if (jetzt1 > weckzeit1) { delta1 = delta1 + 1440 }
+    
+    // check if there is already an alarm timer; cancel it if present
+    if (timer1 != null) {
+       timer1.cancel
+       timer1 = null
     }
+    
+    // create a new timer using the calculated delta [min]
+    timer1 = createTimer(now.plusMinutes(delta1)) [|
+        // This code will be executed if the timer triggers
+        // ************************************************
+        // check if alarm clock is armed for this weekday
+        var Number day = now.getDayOfWeek
+        if (((day == 1) && (weckerMontag.state == ON))     ||
+            ((day == 2) && (weckerDienstag.state == ON))   ||
+            ((day == 3) && (weckerMittwoch.state == ON))   ||
+            ((day == 4) && (weckerDonnerstag.state == ON)) ||
+            ((day == 5) && (weckerFreitag.state == ON))    ||
+            ((day == 6) && (weckerSamstag.state == ON))    ||
+            ((day == 7) && (weckerSonntag.state == ON))) {
+                // The things to do if the alarm clock is enabled for this day of week: 
+                // ...
+                // ...
+           }
+           // Re-Arm the timer to trigger again tomorrow (same time) 
+           timer1.reschedule(now.plusHours(24))
+        // ************************************************
+        // Here the code ends that executes once the timer triggers 
+        ]
   } finally  {
+     // release the lock - we are ready to process the next event
      lock1.unlock()
   }
 end
