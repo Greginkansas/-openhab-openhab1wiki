@@ -1,11 +1,11 @@
-* [How to use homematic door contact sensors](Samples-Item-Definitions#howto-use-homematic-door-contact-sensors)
-* [How to use homematic window contact sensors](Samples-Item-Definitions#howto-use-homematic-window-contact-sensors)
-* [How to read Homematic heater valve state](Samples-Item-Definitions#howto-read-homematic-heater-valve-state)
-* [How to configure Homematic light switch](Samples-Item-Definitions#howto-configure-homematic-light-switch)
-* [How to configure Homematic temperature and humidity sensor](Samples-Item-Definitions#how-to-configure-homematic-temperature-and-humidity-sensor)
-* [How to configure Homematic motion and brightness sensors](Samples-Item-Definitions#how-to-configure-homematic-motion-and-brightness-sensors)
-* [How to control a homematic roller shutter with an EnOcean Rocker](Samples-Item-Definitions#how-to-control-a-homematic-roller-shutter-with-an-enocean-rocker)
-* [How to control a homematic dimmer with an EnOcean Rocker (OnOff Profile)](Samples-Item-Definitions#how-to-control-a-homematic-dimmer-with-an-enocean-rocker-onoff-profile)
+* [How to use homematic door contact sensors](Homematic-Binding-Examples#howto-use-homematic-door-contact-sensors)
+* [How to use homematic window contact sensors](Homematic-Binding-Examples#howto-use-homematic-window-contact-sensors)
+* [How to read Homematic heater valve state](Homematic-Binding-Examples#howto-read-homematic-heater-valve-state)
+* [How to configure Homematic light switch](Homematic-Binding-Examples#howto-configure-homematic-light-switch)
+* [How to configure Homematic temperature and humidity sensor](Homematic-Binding-Examples#how-to-configure-homematic-temperature-and-humidity-sensor)
+* [How to configure Homematic motion and brightness sensors](Homematic-Binding-Examples#how-to-configure-homematic-motion-and-brightness-sensors)
+* [How to control a homematic roller shutter with an EnOcean Rocker](Homematic-Binding-Examples#how-to-control-a-homematic-roller-shutter-with-an-enocean-rocker)
+* [How to control a homematic dimmer with an EnOcean Rocker (OnOff Profile)](Homematic-Binding-Examples#how-to-control-a-homematic-dimmer-with-an-enocean-rocker-onoff-profile)
 
 
 ### How to use homematic door contact sensors
