@@ -22,9 +22,9 @@
 
 ## [[Automation|Automation]]
 * [[Scripts]]
+    * [[JSR223 Script Engine|Jsr223-Script-Engine]]
 * [[Rules]]
 * [[Actions]]
-* [[Jsr223-Script-Engine]]
 
 ## User Interfaces
 * [[Classic UI|Web-AppUI]]
