@@ -87,6 +87,7 @@
 * [[Bticino Binding|Bticino-Binding]]
 * [[CalDAV Binding|CalDAV]]
 * [[Comfo Air Binding|Comfo-Air-Binding]]
+    *  [[Binding Examples | Samples-Comfo-Air-Binding]]
 * [[Config Admin Binding|Config-Admin-Binding]]
 * [[CUL Binding|CUL-Binding]]
 * [[CUL Intertechno Binding|CUL Intertechno]]
@@ -240,7 +241,7 @@ A good source of inspiration and tips from users gathered over the years. Be awa
 Please update the wiki if you do come across any out of date information.
 
 ### [[Binding configurations|Samples-Binding-Config]]
-*  [[Comfo Air Binding | Samples-Comfo-Air-Binding]]
+
 *  [[Ecobee Examples|Ecobee-Examples]]
 *  [[Nest Examples|Nest-Binding-Example]]
 *  [[Rollershutter Bindings|Rollershutter-Bindings]]
