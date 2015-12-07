@@ -1,3 +1,5 @@
+**TODO/Work in progress: This page needs sorting alphabetically, into categories and with headings**
+
 Here are some examples of valid binding configuration strings, as defined in the items configuration file:
 
     /* Some general z-wave statistics */
