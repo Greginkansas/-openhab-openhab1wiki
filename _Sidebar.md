@@ -87,7 +87,7 @@
 * [[Bticino Binding|Bticino-Binding]]
 * [[CalDAV Binding|CalDAV]]
 * [[Comfo Air Binding|Comfo-Air-Binding]]
-    *  [[Binding Examples | Samples-Comfo-Air-Binding]]
+    *  [[Comfo Air Examples | Samples-Comfo-Air-Binding]]
 * [[Config Admin Binding|Config-Admin-Binding]]
 * [[CUL Binding|CUL-Binding]]
 * [[CUL Intertechno Binding|CUL Intertechno]]
@@ -101,6 +101,7 @@
 * [[DSMR Binding|DSMR-binding]]
 * [[eBUS Binding|eBus-Binding]]
 * [[Ecobee Binding|Ecobee-Binding]]
+    *  [[Ecobee Examples|Ecobee-Examples]]
 * [[EDS OWSever Binding|EDS-OWServer-Binding]]
 * [[eKey Binding|ekey-Binding]]
 * [[Energenie Binding|Energenie-Binding]]
@@ -147,6 +148,7 @@
 * [[MQTTitude binding|Mqttitude-Binding]]
 * [[Neohub Binding|NeoHub-Binding]]
 * [[Nest Binding]]
+    *  [[Nest Examples|Nest-Binding-Example]]
 * [[Netatmo Binding|Netatmo-Binding]]
 * [[Network Health Binding|Network-Health-Binding]]
 * [[Network UPS Tools Binding|Network-UPS-Tools]]
@@ -242,8 +244,6 @@ Please update the wiki if you do come across any out of date information.
 
 ### [[Binding configurations|Samples-Binding-Config]]
 
-*  [[Ecobee Examples|Ecobee-Examples]]
-*  [[Nest Examples|Nest-Binding-Example]]
 *  [[Rollershutter Bindings|Rollershutter-Bindings]]
 *  __Squeezebox__
     * [[Select Radio-Stations|SqueezeboxExample]]
