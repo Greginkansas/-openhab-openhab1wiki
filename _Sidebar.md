@@ -206,6 +206,7 @@
 * [[Yamahareceiver Binding|Yamahareceiver-Binding]]
 * [[Zibase Binding|Zibase-Binding]]
 * [[Z-Wave Binding|Z-Wave-Binding]]
+    * [[Z-Wave Examples|Z-wave-Binding-Examples]]
 
 ***
 
