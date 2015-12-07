@@ -279,6 +279,7 @@ There seems to be an issue with the binding running on the latest oracle VM Beta
 
 ## Examples
 
+Numerous examples of item definitions available at the [Binding examples page](Z-Wave-Binding-Examples)
 
 ## Healing
 The binding can perform a nightly heal. This will try to update the neighbor node list, associations and routes. The actual routing is performed by the controller.
