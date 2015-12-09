@@ -86,7 +86,7 @@ Binding file: org.openhab.binding.caldav-personal-version.jar
 
 # Logging
 * `<logger name="org.openhab.binding.caldav_personal" level="TRACE"/>`
-* `<logger name="org.openhab.binding.caldav_presence" level="TRACE"/>`
+* `<logger name="org.openhab.binding.caldav_command" level="TRACE"/>`
 * `<logger name="org.openhab.io.caldav" level="TRACE"/>`
 
 # Tested calDAV Servers
