@@ -39,7 +39,7 @@ Once you have done this you need to find out some identifiers to allow the devic
 <tr><td>Energy Monitor</td><td>Serial Number</td>
 <tr><td>Relay</td><td>RoomId and DeviceId</td>
 <tr><td>WifiLink</td><td>Serial set to "wifilink"</td>
-<tr><td>Mood (this isn't the Mood Switch but moods setup in the App)</td><td>Room Id</td>
+<tr><td>Mood (this isn't the Mood Switch but moods setup in the LightwaveRF App)</td><td>Room Id</td>
 <tr><td>All Off</td><td>Room Id</td>
 </table>
 
@@ -57,7 +57,7 @@ Valid types are
 <tr><td><b>LightwaveRF Type</b></td><td><b>OpenhabType/b></td><td><b>Read/Write</b></td><td><b>Devices</b></td><td><b>From Version</b></td></tr>
 <tr><td>DIMMER</td><td>Dimmer</td><td>Read/Write</td><td>Dimmer</td><td>1.7.0</td>
 <tr><td>SWITCH</td><td>Switch</td><td>Read/Write</td><td>Switch</td><td>1.7.0</td>
-<tr><td>MOOD</td><td>Number</td><td>Read/Write</td><td>Setup in App</td><td>1.8.0</td>
+<tr><td>MOOD</td><td>Number</td><td>Read/Write</td><td>Setup in LightwaveRF App</td><td>1.8.0</td>
 <tr><td>ALL_OFF</td><td>Switch</td><td>Read/Write</td><td>Virtual Device</td><td>1.8.0</td>
 <tr><td>UPDATETIME</td><td>DateTime</td><td>Read</td><td>Energy Monitor, Radiator Valves</td><td>1.8.0 (was called HEATING_UPDATETIME in 1.7.0)</td>
 <tr><td>SIGNAL</td><td>Number</td><td>Read</td><td>Energy Monitor, Radiator Valves</td><td>1.8.0 (was called HEATING_SIGNAL in 1.7.0)</td>
