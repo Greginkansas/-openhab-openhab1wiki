@@ -103,6 +103,7 @@ Here is the full list of available persistence extensions:
     <item>.deltaSince(AbstractInstant) - Gets the difference value of the state of a given item since a certain point in time.
     <item>.previousState(AbstractInstant) - Retrieves the previous state of the item.
     <item>.previousState(AbstractInstant, true) - Retrieves the previous state of the item, skips equal state values and searches the first state not equal the current state
+    <item>.sumSince(AbstractInstant) - Retrieves the sum of the previous states since a certain point in time. (OpenHab 1.8)
 
 These extensions use the default persistence service that is configured in openhab.cfg. If the default service should not be used, all extensions accept a String as a further parameter for the persistence service to use (e.g. "rrd4j" or "sense").
 
