@@ -65,7 +65,7 @@ Valid types are
 <tr><td>HEATING_BATTERY</td><td>Number</td><td>Read</td><td>Radiator Valves</td><td>1.7.0</td>
 <tr><td>HEATING_SET_TEMP</td><td>Number</td><td>Write</td><td>Radiator Valves</td><td>1.7.0</td>
 <tr><td>HEATING_MODE</td><td>String</td><td>Read</td><td>Radiator Valves</td><td>1.7.0</td>
-<tr><td>HEATING_VALVE_POSITION</td><td>Percent</td><td>Read</td><td>Radiator Valves</td><td>1.8.0</td>
+<tr><td>HEATING_OUTPUT</td><td>Percent</td><td>Read</td><td>Radiator Valves</td><td>1.8.0</td>
 <tr><td>ENERGY_YESTERDAY_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0</td>
 <tr><td>ENERGY_TODAY_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0</td>
 <tr><td>ENERGY_MAX_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0</td>
