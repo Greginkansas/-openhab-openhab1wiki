@@ -151,7 +151,7 @@ Therefore "apt-get update && apt-get upgrade" can be safely used for the other l
 ## Snapshot builds
 Not yet available.
 
-### [Java 8 Installation for Ubuntu](http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html)
+### [Java 8 Installation for Ubuntu or Debian](http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html)
 
 ```
 su -
