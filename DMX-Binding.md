@@ -12,10 +12,10 @@ The DMX binding consists out of 2 bundles: the core binding bundle (org.openhab.
 
 The following device interface bundles are available:
 - org.openhab.binding.dmx.artnet : An interface using Artnet (Available as of 1.4.0. only!)
-- org.openhab.binding.dmx.ola : An interface using [OLA](http://opendmx.net/index.php/OLA) as a bridge
+- org.openhab.binding.dmx.ola : An interface using [OLA](http://opendmx.net/index.php/OLA) as a bridge. This interface only supports localhost bindings.
 - org.openhab.binding.dmx.lib485 : This interface will provide an interface to the [dmx485 library](http://dmx485.sourceforge.net/). This interface is currently in an experimental stage and should not be used.
 
-To use the DMX binding, install the core bundle and ONE device interface bundle in the folder ${openhab_home}/addons and add binding information to your configuration. Depending on which interface bundle you use, you will need to define appropriate connection details in the openhab.cfg file. The table below lists some sample configurations:
+To use the DMX binding, install the CORE bundle and ONE device interface bundle in the folder ${openhab_home}/addons and add binding information to your configuration. Depending on which interface bundle you use, you will need to define appropriate connection details in the openhab.cfg file. The table below lists some sample configurations:
 
 <table>
 <tr><th>Interface</th><th>Example Configuration</th><th>Comment</th></tr>
