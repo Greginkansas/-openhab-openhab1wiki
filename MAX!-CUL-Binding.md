@@ -43,6 +43,8 @@ Aside from understanding what the binding does do which is documented here there
 1. Radiator valve data is updated quite sporadically. Items such as set point temperature, measured temperature, valve position, battery status and operating mode are only sent when the state of the valve changes - i.e. valve moves or the dial used to manually set a temperature. If you want measured temperature it is much better to use a wall thermostat.
 1. The binding has no concept of 'auto' mode. It currently has no ability to retrieve from any source and subsequently send a schedule to devices. This may change in the future, which would allow basic operation should OpenHAB fail for some reason.
 1. If a wall thermostat is set to 'OFF' (mapped to 4.5deg) it won't update the measured temperature.
+1. You must also install org.openhab.io.transport.cul
+1. Pairing data is written to the filesystem, if directory xxxx isn't writeable then pairing won't work
 
 # Binding Configuration
 Example configuration:
