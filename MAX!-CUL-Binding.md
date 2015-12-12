@@ -44,7 +44,7 @@ Aside from understanding what the binding does do which is documented here there
 1. The binding has no concept of 'auto' mode. It currently has no ability to retrieve from any source and subsequently send a schedule to devices. This may change in the future, which would allow basic operation should OpenHAB fail for some reason.
 1. If a wall thermostat is set to 'OFF' (mapped to 4.5deg) it won't update the measured temperature.
 1. You must also install org.openhab.io.transport.cul
-1. Pairing data is written to the filesystem, if directory xxxx isn't writeable then pairing won't work
+1. Pairing data is written to the filesystem, if directory etc/maxcul isn't available/writeable then pairing won't work
 
 # Binding Configuration
 Example configuration:
