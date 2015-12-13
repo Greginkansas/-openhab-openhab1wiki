@@ -239,8 +239,10 @@ Setting a maximum level does not affect manual turning on or dimming a switch.
 
 ### On/Off Outlets
 Here's how to configure the top and bottom outlet of the in-wall 2 outlet controller:
+
     Switch fOutTop "Front Outlet Top" <socket> {insteonplm="xx.xx.xx:0x000039#topoutlet"}
     Switch fOutBot "Front Outlet Bottom" <socket> {insteonplm="xx.xx.xx:0x000039#bottomoutlet"}
+
 This will give you individual control of each outlet.
     
 ### Mini remotes
