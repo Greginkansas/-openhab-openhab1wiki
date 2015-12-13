@@ -81,6 +81,9 @@ The following devices have been tested and should work out of the box:
 <td>2342-2</td><td>Mini Remote</td><td>F00.00.10</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
+<td>2663-222</td><td>On/Off Outlet</td><td>0x000039</td><td>SwissKid</td>
+</tr>
+<tr>
 <td>2466D</td><td>ToggleLinc Dimmer</td><td>F00.00.11</td><td>Rob Nielsen</td>
 </tr>
 <tr>
