@@ -5,7 +5,7 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 * [Remote Controls](Z-wave-Binding-Examples#Remote-Controls)
 * [Sensors](Z-wave-Binding-Examples#Sensors)
 * [Shutters](Z-wave-Binding-Examples#Shutters)
-* [Smoke Detectors](Z-wave-Binding-Examples#Smoke-Detectors)
+* [Smoke Detectors](Z-wave-Binding-Examples#smoke-detectors)
 * [Switches](Z-wave-Binding-Examples#Switches)
 * [Thermostats](Z-wave-Binding-Examples#Thermostats)
 * [Weather Stations](Z-wave-Binding-Examples#Weather-Stations)
@@ -233,7 +233,7 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Contact	iSmokeSensorMasterAlarm			"Master Status [%s]"		<fire>		(gSmokeSensorMaster)		{ zwave="8:command=SENSOR_BINARY,respond_to_basic=true" }
     Number	iSmokeSensorMasterBattery		"Master Battery [%s]"		<battery>	(gSmokeSensorMaster)		{ zwave="8:command=BATTERY" }
 
-###Fibaro Smoke detector  
+###Fibaro Smoke detector (FGSS101, FGSD002)  
 
     Contact	Z_Kitchen_Smoke	"Smokedetector_K is[%s]"	(Smoke_Alarm) {zwave="6:command=sensor_alarm,alarm_type=1" }
     Contact	Z_Kitchen_Tamper	"Smoke_sensor_K Tamper is[MAP(en.map):%s]"	(Tamper_Alarm)	{ zwave="6:command=sensor_alarm,alarm_type=0" }
