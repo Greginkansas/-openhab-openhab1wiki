@@ -18,15 +18,15 @@ These config parameters are used for the Sallegra binding. Values with a leading
 ```
 ############################### Sallegra Binding #######################################
 #
-# sallegra:$modulename:hostname=$hostname
-sallegra:livingroom:hostname=192.168.0.52
-# sallegra:$modulename:password=$password
-sallegra:livingroom:password=admin
+# sallegra:$modulename.hostname=$hostname
+sallegra:livingroom.hostname=192.168.0.52
+# sallegra:$modulename.password=$password
+sallegra:livingroom.password=admin
 
-# sallegra:$modulename:hostname=$hostname
-sallegra:bedroom:hostname=192.168.0.54
-# sallegra:$modulename:password=$password
-sallegra:bedroom:password=admin
+# sallegra:$modulename.hostname=$hostname
+sallegra:bedroom.hostname=192.168.0.54
+# sallegra:$modulename.password=$password
+sallegra:bedroom.password=admin
 ```
 
 ### Item Configuration
