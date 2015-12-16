@@ -34,7 +34,9 @@ If the parameter is set to -1, the property is not read at any time.
 
 **Optional parameter ignoreReadErrors (OneWire binding openhab Version >= 1.8.0)**
 
-With this Parameter it is possible to support iButtons (https://en.m.wikipedia.org/wiki/IButton). In the normal Modus the binding give an error on the event Bus if an One Wire item is not reachable. With this paramter the binding ignore real errors and don't send them to the Event bus 
+         ignoreReadErrors
+
+With this Parameter it is possible to support iButtons (https://en.m.wikipedia.org/wiki/IButton). In the normal Modus the binding give an error on the event Bus if an One Wire item is not reachable. With this paramter the binding ignore read errors if an item is not present.
 
 **Optional parameter ignore85CPowerOnResetValues**
 
