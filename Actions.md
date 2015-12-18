@@ -302,7 +302,7 @@ telegram:<bot name>.chatId=<chat id>
 telegram:<bot name>.token=<authentication token>
 ```
 
-#### Sample action usage in .rules to send telegram to chat
+#### Sample action usage in .rules to send telegram message to chat
 
 ```
 rule "Send telegram with Fixed Message"
@@ -319,6 +319,16 @@ when
 	Item Foo changed
 then
 	sendTelegram("bot1", "item Foo changed to %s and number is %.1f", Foo.state.toString, 23.56)
+end
+```
+#### Sample action usage in .rules to send image from web to telegram chat
+
+```
+rule "Send telegram with image"
+when
+    Item Light_GF_Living_Table changed
+then
+    sendTelegramPhoto("bot1", "http://www.openhab.org/assets/images/openhab-logo-top.png", "sent from openHAB")
 end
 ```
 
