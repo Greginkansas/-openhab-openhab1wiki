@@ -138,7 +138,8 @@ Number items can be used only if `object_number` is not given and the number spe
 **Valid options:**
 <table><tr><th>Name</th><th>Description</th></tr>
 <tr><td>force_arm</td><td>forces arming for arming commands</td></tr>
-<tr><td>commands_only</td><td>item accepts commands, but state of the item is not updated</td></tr></table>
+<tr><td>commands_only</td><td>item accepts commands, but state of the item is not updated</td></tr>
+<tr><td>invert_state</td><td>uses 0 as active state (zones and outputs only)</td></tr></table>
 
 
 ## Examples
@@ -228,6 +229,4 @@ Although this binding allows you to configure disarming a partition and clearing
 ## TO DO
 
 * troubles support
-* event list support
-* openHAB 2.0 support
 * support for automatic updates available in the newest firmware for INT-RS Plus and ETHM-1 Plus
