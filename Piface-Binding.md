@@ -17,10 +17,12 @@ In newer RasPi kernel versions the hardware resource allocation is handled by th
 3. Modify **/boot/config.txt** to enable SPI in the device tree
 4. Reboot your Raspberry
 
-### Check if the SPI kernel module is loaded
+### Check if the SPI kernel module (spi_bcm2708 or spi_bcm2835) is loaded
 The command 
 
     lsmod | grep spi_bcm2708
+or
+    lsmod | grep spi_bcm2835
 
 checks if the kernel module is loaded. If the module is loaded you will get output like
 
