@@ -22,7 +22,7 @@ The command
 
     lsmod | grep spi_bcm2708
 or
-    lsmod | grep spi_bcm2835
+`    lsmod | grep spi_bcm2835`
 
 checks if the kernel module is loaded. If the module is loaded you will get output like
 
