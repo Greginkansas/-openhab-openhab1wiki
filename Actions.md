@@ -172,7 +172,7 @@ sendMail("you@email.net", "Test", "This is the message.", attachmentUrlList)
 
 _Available as of openHAB 1.8_
 
-* `publish(String brokerName, String topic, String message)`: Publish the message to topic using specified MQTT broker.
+* `publish(String brokerName, String topic, String message)`: Publish the message to topic using specified MQTT broker. The action uses the same transport configuration settings as documented for the [[MQTT binding|MQTT-Binding#transport-configuration]].
 
 [Table of Contents](#table-of-contents)
 
