@@ -15,6 +15,7 @@ tested Receivers:
 * V675
 * V773
 * V775
+* RX-A1030
 * RX-A1050 (Aventage)
 * RX-A2020
 * RX-A810
