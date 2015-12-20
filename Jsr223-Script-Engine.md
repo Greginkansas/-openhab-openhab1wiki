@@ -7,6 +7,8 @@ This addon allows the usage of different scripting languages as basis for rules.
 ## Installation
 The package needs to be installed to addons like any other addon [openhab]/addons. By default it comes with build-in Nashorn-Engine for JavaScript (\*.js) as scripting language. Feel free to use another scripting language like Jython (\*.py). Put all your scripts in the [openhab]/scripts directory.
 
+- **ATTENTION**: The addon jsr223 jar of 1.7.0 is broken, please use a [1.8.0 build](https://openhab.ci.cloudbees.com/job/openHAB/)
+
 **Requirements, using Nashorn-Engine for JavaScript**
 - Use Java Version >= 1.8.0_40
 - Use openHAB Version >= 1.8.0
@@ -476,4 +478,3 @@ RuleSet getRules() {
 	return new RuleSet(new GroovyTestRule())
 }
 ```
-
