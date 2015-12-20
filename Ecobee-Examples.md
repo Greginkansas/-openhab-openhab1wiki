@@ -18,7 +18,7 @@ Number actualTemperature "actual temp [%.1f °F]" { ecobee="<[123456789012#runti
 Number actualHumidity "actual hum [%d %%]" { ecobee="<[123456789012#runtime.actualHumidity]" }
 String hvacMode "hvac mode [%s]"            { ecobee="=[123456789012#settings.hvacMode]" }
 String currentClimateRef "sched comf [%s]"  { ecobee="<[123456789012#program.currentClimateRef]" }
-String desiredComf "desired comf"           { autoupdate="false" }
+String desiredComf "desired comf"           { ecobee="<[123456789012#runningEvent.holdClimateRef]", autoupdate="false" }
 Number desiredTemp "desired temp [%.1f °F]"
 Number desiredHeat "desired heat [%.1f °F]" { ecobee="<[123456789012#runtime.desiredHeat]" }
 Number desiredCool "desired cool [%.1f °F]" { ecobee="<[123456789012#runtime.desiredCool]" }
