@@ -214,6 +214,10 @@ ping.checkVitality("google.com", 80, 100)
 * FilenameUtils
 * File 
 
+# Script Collection
+On the [community board](https://community.openhab.org/t/jsr223-script-collection/5232) some useful commonly usable scripts can be found. At the time of this writing only Jython based scripts were available.
+
+The scripts themself can be found at the [Github Repository](https://github.com/smerschjohann/openhab-jsr223-scripts).
 
 # Examples
 
@@ -478,3 +482,4 @@ RuleSet getRules() {
 	return new RuleSet(new GroovyTestRule())
 }
 ```
+
