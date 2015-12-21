@@ -125,8 +125,7 @@ Switch turns on, when value of device property s greater then maxWarning (30) or
     
 ### iButton
 
-Items
-	String OneWireKeyBlack "Keyl Schwarz [%s]" <key> {onewire="deviceId=uncached/01.234567790000;propertyName=r_id;refreshinterval=2"}
+``String OneWireKeyBlack "Key black [%s]" <key> {onewire="deviceId=uncached/01.234567790000;propertyName=r_id;refreshinterval=2"}
 
 The parameter r_id read the unique r_id of the iButton.
 If you use an iButton please edit yout owfs.conf an add an entry timeout_presence = 2 (seconds standard=120s). If you remove the iButton, the owserver hold the item for the configured time in the one wire file system.
