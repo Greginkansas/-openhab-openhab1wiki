@@ -81,10 +81,10 @@ openHAB is a Java application and is expected to run on all platforms where JVM 
   ```
   Examples:
   ```
-  apt-get install openhab-addon-binding-knx
-  apt-get install openhab-addon-persistence-rrd4j
-  apt-get install openhab-addon-io-dropbox
-  apt-get install openhab-addon-action-twitter
+  sudo apt-get install openhab-addon-binding-knx
+  sudo apt-get install openhab-addon-persistence-rrd4j
+  sudo apt-get install openhab-addon-io-dropbox
+  sudo apt-get install openhab-addon-action-twitter
   ```
   A list of all available packages can be retrieved with
 
