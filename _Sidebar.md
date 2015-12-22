@@ -114,6 +114,7 @@
 * [[Frontier Silicon Radio Binding|Frontier-Silicon-Radio-Binding]]
 * [[Fritz AHA Binding|Fritz-AHA-Binding]]
 * [[Fritz!Box Binding|Fritz-Box-Binding]]
+* [[FritzBox-TR064-Binding]]
 * [[FS20 Binding|FS20-Binding]]
 * [[Global Cache IR Binding|Global-Cache-IR-Binding]]
 * [[GPIO Binding|GPIO-Binding]]
