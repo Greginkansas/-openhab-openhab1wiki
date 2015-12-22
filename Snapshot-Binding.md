@@ -18,6 +18,12 @@ Note that the type of the item must be `DateTime` because it contains the timest
 
 You can of course have multiple items if you have multiple cameras/directories.
 
+## Debugging
+
+Modify your logback.xml file to debug if needed:
+
+`<logger name="org.openhab.binding.snapshop" level="DEBUG" />`
+
 ## Managing Snapshots
 
 When a new snapshot appears then the binding does the following:
@@ -36,6 +42,4 @@ The binding has a webservlet with the following features:
 * can optionally resize snapshots to create thumbs/previews in the webpages
 * can render the original snapshot
 
-To use it, create a subdirectory in webapps called `snapshot-resources` and provide template files for the various views.  Please see the examples provided.
-
-Have a look at the example template files
+To use it, create a subdirectory in webapps called `snapshot-resources` and provide template files for the various views.  Please see this [example zip of template files](https://drive.google.com/file/d/0B3zmi0FWXByrT1VzTWJ6N3p0a3M/view?usp=sharing) which should be self explanatory.
