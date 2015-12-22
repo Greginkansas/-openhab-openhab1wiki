@@ -96,9 +96,6 @@ fritzboxtr064:pass=Fr!tZP@ssw0rd
 see issues [here] (https://github.com/gitbock/fritzboxtr064/issues?q=is%3Aissue+is%3Aclosed)
  
 
-![screenshot1](http://abload.de/img/screenshot_2015-10-058qse4.png)
-![screenshot2](http://abload.de/img/screenshot_2015-10-05zqskj.jpg)
-
 ## Debug Logging
 Insert the following line into you logback.xml or logback_debug.xml inside the configuration tag.
 
