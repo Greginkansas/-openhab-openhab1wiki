@@ -77,7 +77,7 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
 #Remote Controls
 
-###Nodon CRC 3100 (Octan Remote):  
+###Nodon CRC 3100 (Octan Remote) and CRC3605 (SoftRemote):  
 
 1.- Change the configuration parameter 3 to 1.
 2.- Create the items as shown below:
@@ -380,7 +380,6 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Number  BarometricPressure      "Barometric Pressure [%.1f kPa]"        (weather_station)               { zwave="5:command=sensor_multilevel,sensor_type=9,refresh_interval=300" }
     Number  TempWeatherStation      "Temp Weatherstation [%.1f °C]" <temperature>   (weather_station)               { zwave="5:command=sensor_multilevel,sensor_type=1,refresh_interval=300" }
     Number  BatteryWeatherStation   "Battery Weatherstation [%.2f %%]"      { zwave="5:command=battery,refresh_interval=600" }
-
 
 
 
