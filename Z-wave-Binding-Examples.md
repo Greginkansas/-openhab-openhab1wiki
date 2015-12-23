@@ -79,9 +79,9 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
 ###Nodon CRC 3100 (Octan Remote) and CRC3605 (SoftRemote):  
 
-1.- Change the configuration parameter 3 to 1.
-2.- Create the items as shown below:
-
+1. Change the configuration parameter 3 to 1.
+2. Create the items as shown below:
+```
     Switch	Nodon_Button1_Single	"Nodon_Button1_Single"	<switch>	{ zwave="8:command=SCENE_ACTIVATION,scene=10,state=1" }
     Switch	Nodon_Button2_Single	"Nodon_Button2_Single"	<switch>	{ zwave="8:command=SCENE_ACTIVATION,scene=20,state=1" }
     Switch	Nodon_Button3_Single	"Nodon_Button3_Single"	<switch>	{ zwave="8:command=SCENE_ACTIVATION,scene=30,state=1" }
@@ -101,7 +101,7 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Switch  Nodon_Button2_Double    "Nodon_Button2_Double" <switch>         { zwave="8:command=SCENE_ACTIVATION,scene=23,state=1" }
     Switch  Nodon_Button3_Double    "Nodon_Button3_Double" <switch>         { zwave="8:command=SCENE_ACTIVATION,scene=33,state=1" }
     Switch  Nodon_Button4_Double    "Nodon_Button4_Double" <switch>         { zwave="8:command=SCENE_ACTIVATION,scene=43,state=1" }
-
+```
 
 #Sensors
 
