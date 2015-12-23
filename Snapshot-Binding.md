@@ -8,7 +8,7 @@ The binding includes a web servlet which generates html pages and thumbnails so 
 
 The binding is also capable of capping the number of images in the directory based upon either file count or number of days so you don't run out of disk space.
 
-## Generic Item Binding Configuration
+## Configuration
 
 In order to bind an item to a snapshot directory, all you need to do is configure a generic item binding in your items configuration folder like this:
 
@@ -17,6 +17,10 @@ In order to bind an item to a snapshot directory, all you need to do is configur
 Note that the type of the item must be `DateTime` because it contains the timestamp of the most recent snapshot.
 
 You can of course have multiple items if you have multiple cameras/directories.
+
+The sitemap entry is trivial:
+
+`Text item=cam1`
 
 ## Debugging
 
