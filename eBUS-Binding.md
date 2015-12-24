@@ -17,7 +17,7 @@ The eBUS binding allows you to control your heating system. The eBus protocol is
 	└────────┘
 	Heating Unit             eBUS Adapter              openHAB Server
 
-To access your heating system you either need an eBus interface. You can buy a ready interface or solder your own circuit (examples: [eBUS Wiki](http://ebus.webhop.org/twiki/bin/view.pl/EBus/EBusKonverter)). A simple read-only interface can be build with an Arduino device.
+To access your heating system you either need an eBus interface. You can buy a ready interface or solder your own circuit (examples: [eBUS Wiki](http://ebus-wiki.org/doku.php/ebus/ebuskonverter)). A simple read-only interface can be build with an Arduino device.
 
 For installation of the binding, please see Wiki page [[Bindings]]. You can download the latest binding from here: 
 [eBUS binding 1.7.0 SNAPSHOT](https://buildhive.cloudbees.com/job/openhab/job/openhab/lastStableBuild/org.openhab.binding$org.openhab.binding.ebus/artifact/org.openhab.binding/org.openhab.binding.ebus/1.7.0-SNAPSHOT/org.openhab.binding.ebus-1.7.0-SNAPSHOT.jar)
