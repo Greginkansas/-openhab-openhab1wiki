@@ -18,9 +18,41 @@ Note that the type of the item must be `DateTime` because it contains the timest
 
 You can of course have multiple items if you have multiple cameras/directories.
 
-The sitemap entry is trivial:
+The sitemap entry to see the timestamp of the most recent snapshot is trivial:
 
 `Text item=cam1`
+
+Here's an example sitemap with two hikvision cameras with corresponding items `gateSnapshot` and `garageSnaphsot`.  The cameras are on the local network at 192.168.1.5 and 192.168.1.6 using default hikvision credentials:
+```
+    Text label="Cameras" icon="camera" {
+      Frame label="Cameras" {
+        Text label="Recent Activity" icon="none" {
+          Webview url="/snapshot" height=14
+        }
+        Text label="Garage Snapshot" icon="camera" {
+          Frame {
+            Image label="Camera" url="http://admin:12345@192.168.1.5/Streaming/channels/1/picture" ref$
+          }
+        }
+        Text item=garageSnapshot {
+          Frame {
+            Image url="http://localhost:8080/snapshot?action=snapshot&name=garageSnapshot&size=1217:614"
+          }
+        }
+        Text label="Gate Snapshot" icon="camera" {
+          Frame {
+            Image label="Camera" url="http://admin:12345@192.168.1.6/Streaming/channels/1/picture" ref$
+          }
+        }
+        Text item=gateSnapshot {
+          Frame {
+            Image url="http://localhost:8080/snapshot?action=snapshot&name=gateSnapshot&size=1217:619"
+          }
+        }
+      }
+    }
+```
+
 
 ## Debugging
 
