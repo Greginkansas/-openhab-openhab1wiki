@@ -50,6 +50,6 @@ As a result, your lines in the items file might look like the following:
 
 ## Quirks
 
-If openHAB server user does not have permission to use ICMP for the ping attempt, then Java will attempt to use the Echo server (port 7) on the remote device. If that service is not available, then the ping attempt fails. For discussion of this issue, see the following thread in the community forum:
+If the openHAB server user does not have permission to use ICMP for the ping, then Java will attempt to use the Echo server (port 7) on the remote device. If that service is not available, then the ping attempt fails. For discussion of this issue, see the following thread in the community forum:
 
 https://community.openhab.org/t/networkhealth-unable-to-detect-some-devices/2902
