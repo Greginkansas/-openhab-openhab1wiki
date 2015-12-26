@@ -22,8 +22,6 @@ Here you'll need to configure your players; please make sure that the id's match
     squeeze:TV.id           = 00:04:20:23:52:3c
     squeeze:Wohnbereich.id  = 00:04:20:2a:3b:21
 
-    squeeze:language        = de
-
 # squeeze.items
 
     /* SqueezeBox */
