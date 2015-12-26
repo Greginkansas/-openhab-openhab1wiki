@@ -32,8 +32,20 @@ See example config and rules here [[SqueezeboxExample]]
     # Squeezebox players/devices
     squeeze:<player-id>.id=<mac-address-of-player A:B:C:D:E:F>
 
-    # Language used by squeezeboxSpeak as used by google ttl (en, de, fr,...) 
-    squeeze:language=<xx>
+    # TTS URL to use for generating text-to-speech voice announcements
+    # the URL should contain one '%s' parameter which will be substituted
+    # with the text to be translated
+    # (defaults to Google TTS service using the URL below)
+    #    http://translate.google.com/translate_tts?tl=en&ie=UTF-8&client=openhab&q=%s)
+    # (another TTS service is http://www.voicerss.org/api/ which requires an API key)
+    #    https://api.voicerss.org/?key=YOURAPIKEYHERE&hl=en-gb&src=%s
+    #squeeze:ttsurl=
+
+    # Maximum TTS sentence length - for example the Google TTS service only
+    # permits up to 100 chars - the Squeezebox speak action will break long
+    # strings into sentence chunks call the TTS service repeatedly
+    # (defaults to 100)
+    #squeeze:ttsmaxsentencelength=
 
 NOTE: the `player-id` will be used in both the binding item configs and the action calls to defined which of your Squeezebox devices to communicate with.  
 NOTE2: the mac-address of players is case-sensitive. Use small letters (a-f) if the address contains them.
