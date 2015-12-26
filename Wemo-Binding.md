@@ -49,7 +49,7 @@ The following channel types are possible for Insight switch devices:
 	currentPower	Current power usage in Watts. 0 if switched off
 	energyToday		Energy in Wh used today
 	energyTotal		Energy in Wh used in total
-
+	standbyLimit		Minimum energy draw in W to register device as switched on (default 8W, configurable via wemo app)
 
 Examples, how to configure your items in your items file:
 
