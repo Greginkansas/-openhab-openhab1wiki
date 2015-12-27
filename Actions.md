@@ -11,6 +11,7 @@ Since openHAB 1.3.0, not all actions are part of the core runtime distribution a
   * [Audio](#audio-actions)
   * [Logging](#logging-actions)
   * [HTTP](#http-actions)
+  * [Timers](#timers)
   * [Other](#other-actions)
 * [Add-on Actions](#add-on-actions)
   * [Astro](#astro-actions)
