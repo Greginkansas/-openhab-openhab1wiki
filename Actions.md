@@ -103,6 +103,8 @@ Timer then supports the following methods:
 - `hasTerminated()`: Returns true if the scheduled code has laready terminated
 - `reschedule(AbstractInstant newTime)`: Reschedules a new starting time. If called after termination, this will schedule another execution of the same code again.
 
+[Table of Contents](#table-of-contents)
+
 ### Other actions
 - `callScript(String scriptName)`: Calls a script which must be located in the configurations/scripts folder
 
