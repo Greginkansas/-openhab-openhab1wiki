@@ -185,6 +185,9 @@ Number   Rain_Inches   "Rain [%.2f in/h]"   {weather="locationId=home, type=prec
 Number   Snow          "Snow [%.2f mm/h]"   {weather="locationId=home, type=precipitation, property=snow"}
 Number   Snow_Inches   "Snow [%.2f in/h]"   {weather="locationId=home, type=precipitation, property=snow, unit=inches"}
 Number   Precip_Probability   "Precip probability [%d %%]"   {weather="locationId=home, type=precipitation, property=probability"}
+// new total property in 1.8
+Number   Precip_Total         "Precip total [%d mm]"   {weather="locationId=home, type=precipitation, property=total"}
+Number   Precip_Total_Inches  "Precip total [%d in]"   {weather="locationId=home, type=precipitation, property=total, unit=inches"}
 
 // temperature
 Number   Temperature      "Temperature [%.2f °C]"       {weather="locationId=home, type=temperature, property=current"}
