@@ -87,9 +87,24 @@ Example:
 
 [Table of Contents](#table-of-contents)
 
+### Timers
+- `createTimer(AbstractInstant instant, Procedure procedure)`: Schedules a block of code (a closure) for future execution.
+
+The method returns a Timer object, for example:
+
+    var Timer timer = createTimer(now.plusMinutes(5)) [|
+        logInfo("rules", "Timer activated")
+    ]
+
+Timer then supports the following methods:
+- `cancel()`: Cancels the timer, returns true if successful
+- `isRunning()`: Returns true if the scheduled code is currently being executed
+- `hasTerminated()`: Returns true if the scheduled code has laready terminated
+- `reschedule(AbstractInstant newTime)`: Reschedules a new starting time. If called after termination, this will schedule another execution of the same code again.
+
 ### Other actions
 - `callScript(String scriptName)`: Calls a script which must be located in the configurations/scripts folder
-- `createTimer(AbstractInstant instant, Procedure procedure)`: Schedules a block of code (a closure) for future execution.
+
 - `executeCommandLine(String commandLine)`: Executes a command on the command line
 - `executeCommandLine(String commandLine, int timeout)`: Executes a command on the command line with a timeout
 - `transform(String type, String function, String value)`: Applies a transformation of a given type with some function to a value.  Returns the transformed value, or the original value if the transformation failed.  See [[Transformations]] for available transformations and their usage.
