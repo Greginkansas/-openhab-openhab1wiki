@@ -6,7 +6,7 @@ The REST interface is very fast, so it is good for real time interaction with op
 
 The REST API furthermore supports server-push, so you can subscribe yourself on change notification for certain resources. Find more about the server-push features in the "Server-Push" section below.
 
-The uris of the REST API support different media types. This means that you can define the format of the response with an additional HTTP header like 
+The URIs of the REST API support different media types. This means that you can define the format of the response with an additional HTTP header like 
 
     Accept: application/xml
 For each url, you will find the list of supported media types documented below.
