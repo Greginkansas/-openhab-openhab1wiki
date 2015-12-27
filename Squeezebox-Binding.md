@@ -47,8 +47,11 @@ See example config and rules here [[SqueezeboxExample]]
     # (defaults to 100)
     #squeeze:ttsmaxsentencelength=
 
-NOTE: the `player-id` will be used in both the binding item configs and the action calls to defined which of your Squeezebox devices to communicate with.  
-NOTE2: the mac-address of players is case-sensitive. Use small letters (a-f) if the address contains them.
+**NOTE:** TTS configuration (squeeze:ttsurl) is not available in 1.7.1; [1.8 SNAPSHOT](https://openhab.ci.cloudbees.com/job/openHAB/) >= #1104 is required. 
+
+**NOTE:** The `player-id` will be used in both the binding item configs and the action calls to defined which of your Squeezebox devices to communicate with.
+  
+**NOTE:** The mac-address of players is case-sensitive. Use small letters (a-f) if the address contains them.
 
 ## Item Binding Configuration
 
