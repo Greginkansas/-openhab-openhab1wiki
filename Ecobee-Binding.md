@@ -26,25 +26,32 @@ In order to use the Ecobee API, you must specify the `appkey` and `scope` that w
 
 >In OpenHAB 1.7, `ecobee:refresh` defaulted to 60000ms (one minute).
 
-    ############################## Ecobee binding ########################################
-    #
-    # Data refresh interval in ms (optional, defaults to 180000)
-    # ecobee:refresh=180000
+```
+################################ Ecobee Binding #######################################
+#
+# the private API key issued be Ecobee to use the API (required, replace with your own)
+# ecobee:appkey=9T4huoUXlT5b5qNpEJvM5sqTMgaNCFoV
 
-    # the temperature scale to use when sending or receiving temperatures
-    # optional, defaults to Fahrenheit (F)
-    # ecobee:tempscale=C
+# the application scope used when authorizing the binding
+# choices are smartWrite,smartRead, or ems, or multiple (required, comma-separated, no spaces)
+# ecobee:scope=smartWrite
 
-    # the time to wait for an API response (not available in 1.7.1 or previous, do not use)
-    # optional, defaults to 20000 (ms) (hardcoded to 10000 ms in 1.7.1 and previous)
-    # ecobee:timeout=30000
+# Rate at which to check if poll is to run, in ms (as of 1.8, optional, defaults to 5000)
+# ecobee:granularity=5000
 
-    # the private API key issued be Ecobee to use the API (replace with your own)
-    ecobee:appkey=9T4huoUXlT5b5qNpEJvMssqTMgaNCFoV
+# Data refresh interval in ms (optional, defaults to 180000)
+# ecobee:refresh=180000
 
-    # the application scope used when authorizing the binding
-    # choices are smartWrite,smartRead, or ems, or multiple (comma-separated, no spaces)
-    ecobee:scope=smartWrite
+# Time in ms to wait after successful update, command or action before refresh (as of 1.8, optional, defaults to 6000)
+# ecobee:quickpoll=6000
+
+# Time in ms to allow an API request to complete (as of 1.8, optional, defaults to 20000)
+# ecobee:timeout=20000
+
+# the temperature scale to use when sending or receiving temperatures
+# optional, defaults to Fahrenheit (F)
+# ecobee:tempscale=C
+```
 
 You can set up multiple, distinct API connections by repeating the `appkey` and `scope` settings with a prepended "user ID" that indicates a separate ecobee.com account will be used to complete authorization.
 
@@ -70,7 +77,7 @@ Where `<thermostat>` is a decimal thermostat identifier for in (`<`), out (`>`) 
 > *Where can I find my thermostat identifier?*
 > A thermostat identifier is a long, decimal number.  For ecobee3 users, one way to find the number is to login to your Ecobee portal and read the URL you were taken to in the browser's address bar:
 >```
-https://www.ecobee.com/consumerportal/index.html#/thermostats/318937256426
+https://www.ecobee.com/consumerportal/index.html#/thermostats/318973256526
 ```
 > The final component of the URL is your thermostat identifier.
 > For non-ecobee3 users who are using the older web portal, you can go to the Home IQ&trade; tab and choose Download Data from the Report chart.  The thermostat identifier can be found in the report.
@@ -493,3 +500,4 @@ To configure DEBUG logging for the Ecobee binding to be sent to a separate file,
 * Changed default HTTP request timeout from 10 seconds (10000) to 20 seconds (20000) due to frequent reports of repeated timeouts.  Also added optional `ecobee:timeout` parameter to openhab.cfg in case the user would like a longer or shorter HTTP request timeout. ([#3151](https://github.com/openhab/openhab/pull/3151))
 * Added `runningEvent` binding config strings so that your items can see values for the currently running event (like a temperature, climate/comfort setting, vacation or QuickSave hold, etc.) ([#3298](https://github.com/openhab/openhab/pull/3298))
 * Updated binding to align with the minor changes present in the [December 2015 ecobee API update](https://www.ecobee.com/home/developer/api/documentation/v1/change-log.shtml) ([#3494](https://github.com/openhab/openhab/pull/3494))
+* Added "quick poll" feature that causes item states to update sooner after a change is sent to Ecobee ([#3568](https://github.com/openhab/openhab/pull/3568))
