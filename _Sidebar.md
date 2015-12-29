@@ -86,6 +86,7 @@
 * [[Bluetooth Binding|Bluetooth-Binding]]
 * [[Bticino Binding|Bticino-Binding]]
 * [[CalDAV Binding|CalDAV]]
+* [[Chamberlain MyQ Binding|Chamberlain-MyQ-Binding]]
 * [[Comfo Air Binding|Comfo-Air-Binding]]
     *  [[Comfo Air Examples | Samples-Comfo-Air-Binding]]
 * [[Config Admin Binding|Config-Admin-Binding]]
