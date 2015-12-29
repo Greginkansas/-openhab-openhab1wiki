@@ -157,3 +157,6 @@ Here you'll need to configure your players; please make sure that the id's match
 			}		
 		}	
 	}
+# Trouble shooting
+If you have also some issues with the example feel free to check the current discussion:
+https://community.openhab.org/t/wiki-squeezeboxexample-errors-cannot-cast-cannot-retrieve-item/5488
