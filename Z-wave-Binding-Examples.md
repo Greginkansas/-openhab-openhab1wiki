@@ -1,14 +1,14 @@
 Here are some examples of valid z-wave binding configuration strings, as defined in the items configuration file:
 
-* [Generic](Z-wave-Binding-Examples#Generic)
-* [Lighting and Bulbs](Z-wave-Binding-Examples#Lighting-and-Bulbs)
-* [Remote Controls](Z-wave-Binding-Examples#Remote-Controls)
-* [Sensors](Z-wave-Binding-Examples#Sensors)
-* [Shutters](Z-wave-Binding-Examples#Shutters)
+* [Generic](Z-wave-Binding-Examples#generic)
+* [Lighting and Bulbs](Z-wave-Binding-Examples#lighting-and-bulbs)
+* [Remote Controls](Z-wave-Binding-Examples#remote-controls)
+* [Sensors](Z-wave-Binding-Examples#sensors)
+* [Shutters](Z-wave-Binding-Examples#shutters)
 * [Smoke Detectors](Z-wave-Binding-Examples#smoke-detectors)
-* [Switches](Z-wave-Binding-Examples#Switches)
-* [Thermostats](Z-wave-Binding-Examples#Thermostats)
-* [Weather Stations](Z-wave-Binding-Examples#Weather-Stations)
+* [Switches](Z-wave-Binding-Examples#switches)
+* [Thermostats](Z-wave-Binding-Examples#thermostats)
+* [Weather Stations](Z-wave-Binding-Examples#weather-stations)
 
 #Generic
 
