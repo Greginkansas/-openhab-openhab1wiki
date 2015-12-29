@@ -1,4 +1,4 @@
-**Note**: This Script-Engine comes with no forward compatibility guarantee. It is currently untested against openHAB2 and therefore it can happen that scripts need to be rewritten for openHAB2 compatibility.
+**Note**: Currently this Scriptengine cannot be used in OpenHAB2. A new smarthome compatible functionality is in development. Scripts from this engine can be used in the new addon without significant changes, a compatibility layer will be provided.
 
 # Script-Engines
 
