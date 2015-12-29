@@ -66,7 +66,7 @@ In order to bind an item to a thermostat's properties and functions, you need to
 
 Ecobee bindings start with a `<`, `>` or `=`, to indicate if the item receives values from the API (in binding), sends values to the API (out binding), or both (bidirectional binding), respectively.
 
-The first character is then followed by a section between square brackets (\[and \] characters):
+The first character is then followed by a section between square brackets (`[` and `]` characters):
 
 ```
 [<thermostat>#<property>]
@@ -177,7 +177,7 @@ Determine if there was any occupancy in the condo's kitchen within the last 30 m
 
 ## Examples
 
-Here are some examples of valid binding configuration strings, as you would define in the your .items file.  Each item binding indicates if it is an in-only binding or bidirectional binding string in the examples.
+Here are some examples of valid binding configuration strings, as you would define in your .items file.  Each item binding indicates if it is an in-only binding or bidirectional binding string in the examples below.
 
 	/* Ecobee binding items (replace 123456789012 with your thermostat ID) */
 
