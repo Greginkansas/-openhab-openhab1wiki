@@ -66,7 +66,7 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Number wzRGBW_Power     "Stromverbrauch [%.1f W]"   	<energy> 	(gwzRGBW)	{ zwave="2:command=sensor_multilevel"}
     Number wzRGBW_Energy    "Gesamtverbrauch [%.2f KWh]"   	<energy> 	(gwzRGBW)	{ zwave="2:command=meter", refresh_interval=60}
 
-###Fibaro Universal Dimmer 2 (FGD-211)
+###Fibaro Universal Dimmer (FGD-211)
 
     Switch  swLight_HallCeiling      "Hall: Ceiling"          { zwave="9:command=SWITCH_MULTILEVEL" }
     Dimmer  diLight_HallCeiling      "Hall: Ceiling [%d %%]"  { zwave="9:command=SWITCH_MULTILEVEL" }
@@ -74,7 +74,12 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Switch  swScene2_HallCeiling     "Hall-Doubleclick"       { zwave="9:command=SCENE_ACTIVATION,scene=24,state=0" }
     Switch  swScene3_HallCeiling     "Hall-Tripleclick"       { zwave="9:command=SCENE_ACTIVATION,scene=25,state=0" }
 
+###Fibaro Universal Dimmer 2 (FGD-212)
 
+Switch      foo             "Foo"                                           { zwave="42:command=SWITCH_MULTILEVEL" }
+Dimmer      foo_dim         "Foo [%d %%]"                                   { zwave="42:command=SWITCH_MULTILEVEL" }
+Number      foo_power       "Foo - current power consumption [%.2f W]"      { zwave="42:command=METER,meter_scale=E_W,refresh_interval=300" }
+Number      foo_energy      "Foo - total energy use [%.2f KWh]"             { zwave="42:command=METER,meter_scale=E_KWh,refresh_interval=300" }
 
 #Remote Controls
 
