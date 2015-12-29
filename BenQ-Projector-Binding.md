@@ -13,26 +13,33 @@ This binding is current in Beta state with the following commands implemented:
 
 Tested Devices:
 
+* BenQ W1070
 * BenQ W1080
 
 ## Transports
 
-The binding has currently been developed using a TCP/IP to RS232 converter. A direct RS232 interface needs to be implemented.
+The binding support transport using a TCP/IP to RS232 converter or via a direct RS232 interface.
 
-Known working converter is the [USR-TCP232-2](http://en.usr.cn/Ethernet-Module-T24/RS232-to-Ethernet-module.html).
+[USR-TCP232-2](http://en.usr.cn/Ethernet-Module-T24/RS232-to-Ethernet-module.html) is a known working TCP/IP to RS232 converter.
 
 # Binding Configuration
 ```
 ############################# BenqProjector Binding  ########################################
 
-# device interface
-benqprojector:deviceId=<hostname>:<port number>
+# mode controls how the projector can be reached. 'serial' is for a directly
+# connected RS232 serial interface while 'network' is for using a TCP/IP to
+# serial converter
+#benqprojector:mode=network
 
-# set interval to refresh status from projector
-benqprojector:refresh=15000
+# For mode=network, define the Serial to Ethernet device location
+#benqprojector:deviceId=<hostname>:<port>
 
-# following is default, non-network mode is not implemented
-#benqprojector:networkMode=true
+# For mode=serial, define the serial device (e.g. /dev/ttyUSB0) and speed
+# (defaults to 57600 bps)
+#benqprojector:deviceId=<device>:<speed>
+
+# Define polling interval in milliseconds
+#benqprojector:refresh=15000
 ```
 
 # Item Configuration
