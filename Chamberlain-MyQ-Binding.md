@@ -27,7 +27,7 @@ Edit the file `openhab.cfg` located in `${openhab_home}/configurations/`.  Paste
     # myq:timeout=5000
 
     # Chamberlain MyQ Username and Password
-    myq:username=email@server.com
+    myq:username=email@website.com
     myq:password=password123
 
     # Application ID for the MyQ API (optional, only recommended if existing id ceases to work)
