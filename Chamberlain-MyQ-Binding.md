@@ -42,10 +42,10 @@ Three Item Types are supported with this binding. Contact type will display if y
 
 items example:
 ```
-Switch GarageDoorSwitch         "Garage [%s]" <contact> {myq="0"}
-Contact GarageDoorContact       "Garage [%s]" <contact> {myq="0"}
-String GarageDoorString         "Garage [%s]" <contact> {myq="0"}
-Rollershutter GarageDoorShutter "Garage [%s]"           {myq="0"}
+Switch GarageDoorSwitch         "Garage Door Open"           {myq="0"}
+Contact GarageDoorContact       "Garage Door Open" <contact> {myq="0"}
+String GarageDoorString         "Garage Door [%s]"           {myq="0"}
+Rollershutter GarageDoorShutter "Garage Door Open"           {myq="0"}
 ```
 
 sitemap example:
