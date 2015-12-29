@@ -37,6 +37,10 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
 #Lighting and Bulbs
 
+###Domitech ZBULB  
+    Switch  Light_Landing   "Landing Light" <whites>    (FF_Hall,Lights)   {zwave="37:respond_to_basic=true"}
+    Dimmer  Light_LandingBrightness   "Landing Brightness" <whites>    (FF_Hall,Lights)   {zwave="37:command=switch_multilevel"}
+
 ###Everspring Wireless Dimmer ADA1311  
 
     Dimmer Light { zwave="6:command=SWITCH_MULTILEVEL,respond_to_basic=true" }
@@ -62,7 +66,7 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Number wzRGBW_Power     "Stromverbrauch [%.1f W]"   	<energy> 	(gwzRGBW)	{ zwave="2:command=sensor_multilevel"}
     Number wzRGBW_Energy    "Gesamtverbrauch [%.2f KWh]"   	<energy> 	(gwzRGBW)	{ zwave="2:command=meter", refresh_interval=60}
 
-###Fibaro Universal-Dimmer (FGD-211)  
+###Fibaro Universal Dimmer 2 (FGD-211)
 
     Switch  swLight_HallCeiling      "Hall: Ceiling"          { zwave="9:command=SWITCH_MULTILEVEL" }
     Dimmer  diLight_HallCeiling      "Hall: Ceiling [%d %%]"  { zwave="9:command=SWITCH_MULTILEVEL" }
@@ -70,14 +74,11 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Switch  swScene2_HallCeiling     "Hall-Doubleclick"       { zwave="9:command=SCENE_ACTIVATION,scene=24,state=0" }
     Switch  swScene3_HallCeiling     "Hall-Tripleclick"       { zwave="9:command=SCENE_ACTIVATION,scene=25,state=0" }
 
-###Domitech ZBULB  
-    Switch  Light_Landing   "Landing Light" <whites>    (FF_Hall,Lights)   {zwave="37:respond_to_basic=true"}
-    Dimmer  Light_LandingBrightness   "Landing Brightness" <whites>    (FF_Hall,Lights)   {zwave="37:command=switch_multilevel"}
 
 
 #Remote Controls
 
-###Nodon CRC 3100 (Octan Remote) and CRC3605 (SoftRemote):  
+###Nodon CRC 3100 (Octan Remote) and CRC3605 (SoftRemote)
 
 1. Change the configuration parameter 3 to 1.
 2. Create the items as shown below:
@@ -105,17 +106,11 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
 #Sensors
 
-###Everspring ST814 temperature and humidity sensor  
-   
-    Number T_AZH  "Temperature [%.1f °C]" (AZH) {zwave="32:1:command=sensor_multilevel,sensor_type=1" }
-    Number RH_AZH "Humidity    [%.0f %%]" (AZH) { zwave="32:1:command=sensor_multilevel,sensor_type=5" }
+###Aeotec Door/Window Sensor (2nd Edition) Model: DSB29-ZWUS  
 
-###Monoprice motion detector (ZP3102)  
-
-    Contact OfficeMotion            "office motion [MAP(motion.map):%s]"                               (ALL,motion,ff)              {zwave="2:command=BASIC"}
-    Number  OfficeMotionBattery     "office motion battery [%d %%]"                                    (ALL,battery)                {zwave="2:command=BATTERY"}
-    Contact OfficeMotionTamper      "office motion tamper [MAP(tamper.map):%s]"                        (ALL,tamper)                 {zwave="2:command=ALARM"}
-    Number  OfficeMotionTemp        "office temp [%.1f °F]"                            <temperature>   (ALL,temperature,ff)         {zwave="2:command=sensor_multilevel,sensor_type=1,sensor_scale=1" }
+    Contact     zwave_contact_16_sensor "office - test door"                                             (doors,monitor)  {zwave="16:command=basic,respond_to_basic=true"}
+    Contact     zwave_contact_16_tamper "office - test door tamper"                                      (doors,tamper)   {zwave="16:command=ALARM"}
+    Number      FrontDoorBattery        "office - test door battery [%d %%]"              <battery>      (doors,battery)  {zwave="16:command=BATTERY"}
 
 ###Aeotec hidden door sensor (gen 5, DSB54)
   
@@ -139,49 +134,32 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Number Lumin_GFToilet "Luminance: [%.0f Lux]" (GF_Toilet) { zwave="8:command=sensor_multilevel,sensor_type=3" }
     Number Battery_GFToilet "Battery: [%d %%]" (GF_Toilet) { zwave="8:command=battery" }
 
-###Ecolink PIR motion detector  
-
-    Contact EntryMotion              "entry motion [MAP(motion.map):%s]"                           (ALL,motion,ff)              {zwave="4:command=SENSOR_BINARY"}
-    Contact EntryMotionTamper        "entry motion tamper [MAP(tamper.map):%s]"    <battery>       (ALL,tamper)                 {zwave="4:command=ALARM"}
-    Number  EntryMotionBattery       "entry motion battery [%d %%]"                <battery>       (ALL,battery)                {zwave="4:command=BATTERY"}
-
-###D-Link DCH-Z110:  
+###D-Link DCH-Z110  
 
     Contact	C	"Movement [%s]"	(gf)	{ zwave="10:command=SENSOR_BINARY,respond_to_basic=TRUE" }
     Number	T	"Temperature [%.1f °C]"	(gf)	{ zwave="10:command=sensor_multilevel,sensor_type=1" }
     Number	H	"Luminance [%.0f Lux]"	(gf)	{ zwave="10:command=sensor_multilevel,sensor_type=3" }
-
-###Fibaro FGK-101 door sensor (requires DS18B20 to be added):  
-
-    Number  Temp_UtilityRoom "Utility room temperature [%.1f °C]" { zwave="7:2:command=SENSOR_MULTILEVEL" }
 
 ###Ecolink tiltzwave1 garage door sensor:  
 
     Group DoorsWindows "Doors and Windows"
     Contact GarageDoor "Garage Door is [MAP(en.map):%s]" (DoorsWindows){zwave="3:command=SENSOR_BINARY"}
 
-###Fibaro Universal Sensor with attached DS18B20 temperature sensors:  
+###Ecolink PIR motion detector  
 
-    Number Sensor_Temp_1 "Temp1 [%.2f °C]" { zwave="17:3:command=sensor_multilevel" }
-    Number Sensor_Temp_2 "Temp1 [%.2f °C]" { zwave="17:4:command=sensor_multilevel" }
-    Number Sensor_Temp_3 "Temp1 [%.2f °C]" { zwave="17:5:command=sensor_multilevel" }
+    Contact EntryMotion              "entry motion [MAP(motion.map):%s]"                           (ALL,motion,ff)              {zwave="4:command=SENSOR_BINARY"}
+    Contact EntryMotionTamper        "entry motion tamper [MAP(tamper.map):%s]"    <battery>       (ALL,tamper)                 {zwave="4:command=ALARM"}
+    Number  EntryMotionBattery       "entry motion battery [%d %%]"                <battery>       (ALL,battery)                {zwave="4:command=BATTERY"}
 
-###Aeotec Door/Window Sensor (2nd Edition) Model: DSB29-ZWUS  
+###Everspring Flood Detector model:ST812-2  
 
-    Contact     zwave_contact_16_sensor "office - test door"                                             (doors,monitor)  {zwave="16:command=basic,respond_to_basic=true"}
-    Contact     zwave_contact_16_tamper "office - test door tamper"                                      (doors,tamper)   {zwave="16:command=ALARM"}
-    Number      FrontDoorBattery        "office - test door battery [%d %%]"              <battery>      (doors,battery)  {zwave="16:command=BATTERY"}
+    Contact     zwave_water_9_sensor       "office - water sensor 2"                    <water>    (water,monitor)    {zwave="9:command=SENSOR_ALARM"}
+    Number      Water_sensor_battery       "office - water sensor 2 battery [%d %%]"    <battery>  (water,battery)    {zwave="9:command=BATTERY"}
 
-###Fibaro Door-Contact (FGK-101)  
-
-    Contact   coStatus_DoorBell     "Doorbell: [MAP(bell.map):%s]"   { zwave="10:command=SENSOR_BINARY,respond_to_basic=TRUE" }
-    Number    nuBatttery_DoorBell   "Doorbell: Battery [%s %%]"      { zwave="10:command=BATTERY" }
-
-###Fibaro Flood-Sensor (FGFS-101)  
-
-    Contact coFibFlood_Alarm    "Water-Sensor: [MAP(water.map):%s]"   { zwave="11:command=SENSOR_ALARM, alarm_type=5,respond_to_basic=TRUE" }
-    Number nuFibFlood_Battery   "Water-Sensor: Batterie [%s %%]"      { zwave="11:command=BATTERY" }
-
+###Everspring ST814 temperature and humidity sensor  
+   
+    Number T_AZH  "Temperature [%.1f °C]" (AZH) {zwave="32:1:command=sensor_multilevel,sensor_type=1" }
+    Number RH_AZH "Humidity    [%.0f %%]" (AZH) { zwave="32:1:command=sensor_multilevel,sensor_type=5" }
 
 ###Fortrez water/temperature sensor  
 
@@ -189,12 +167,21 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Contact Water3 "water sensor 3" (water) {zwave="18"}
     Number Water3_battery "Water 3 battery [%s %%]" (water) {zwave="18:command=BATTERY"}
 
-###Everspring Flood Detector model:ST812-2  
+###Fibaro Door-Contact (FGK-101)  
 
-    Contact     zwave_water_9_sensor       "office - water sensor 2"                    <water>    (water,monitor)    {zwave="9:command=SENSOR_ALARM"}
-    Number      Water_sensor_battery       "office - water sensor 2 battery [%d %%]"    <battery>  (water,battery)    {zwave="9:command=BATTERY"}
+    Contact   coStatus_DoorBell     "Doorbell: [MAP(bell.map):%s]"   { zwave="10:command=SENSOR_BINARY,respond_to_basic=TRUE" }
+    Number    nuBattery_DoorBell   "Doorbell: Battery [%s %%]"      { zwave="10:command=BATTERY" }
 
-###Fibaro Multisensor (FIB_FGMS-001)  
+###Fibaro FGK-101 door sensor (requires DS18B20 to be added):  
+
+    Number  Temp_UtilityRoom "Utility room temperature [%.1f °C]" { zwave="7:2:command=SENSOR_MULTILEVEL" }
+
+###Fibaro Flood-Sensor (FGFS-101)
+
+    Contact coFibFlood_Alarm    "Water-Sensor: [MAP(water.map):%s]"   { zwave="11:command=SENSOR_ALARM, alarm_type=5,respond_to_basic=TRUE" }
+    Number nuFibFlood_Battery   "Water-Sensor: Batterie [%s %%]"      { zwave="11:command=BATTERY" }
+
+###Fibaro Multisensor (FIB_FGMS-001)
 
     Number  Movement         "Movement: [%s]"          <present>      { zwave="4:0:command=sensor_binary" }
     Number  Alarm            "Alarm: [%s]"             <fire>         { zwave="4:0:command=sensor_alarm" }
@@ -208,6 +195,19 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Contact	Z_deurbel0	"Z_deurbel_sensor"	{ zwave="8:0:command=SENSOR_BINARY,respond_to_basic=TRUE" }
     Contact	Z_deurbel1	"Z_deurbel_input1"	{ zwave="8:1:command=SENSOR_BINARY,respond_to_basic=TRUE" }
     Contact	Z_deurbel2	"deurbel"	{ zwave="8:2:command=SENSOR_BINARY,respond_to_basic=TRUE" }
+
+###Fibaro Universal Sensor with attached DS18B20 temperature sensors  
+
+    Number Sensor_Temp_1 "Temp1 [%.2f °C]" { zwave="17:3:command=sensor_multilevel" }
+    Number Sensor_Temp_2 "Temp2 [%.2f °C]" { zwave="17:4:command=sensor_multilevel" }
+    Number Sensor_Temp_3 "Temp3 [%.2f °C]" { zwave="17:5:command=sensor_multilevel" }
+
+###Monoprice motion detector (ZP3102)  
+
+    Contact OfficeMotion            "office motion [MAP(motion.map):%s]"                               (ALL,motion,ff)              {zwave="2:command=BASIC"}
+    Number  OfficeMotionBattery     "office motion battery [%d %%]"                                    (ALL,battery)                {zwave="2:command=BATTERY"}
+    Contact OfficeMotionTamper      "office motion tamper [MAP(tamper.map):%s]"                        (ALL,tamper)                 {zwave="2:command=ALARM"}
+    Number  OfficeMotionTemp        "office temp [%.1f °F]"                            <temperature>   (ALL,temperature,ff)         {zwave="2:command=sensor_multilevel,sensor_type=1,sensor_scale=1" }
 
 ###Vision Security Door/Window Sensor  
     Contact	Contact_BackDoor	"Back Door [MAP(motion.map):%s]"	<frontdoor> (GF_Kitchen)	{zwave="5:command=basic,respond_to_basic=true"}
@@ -242,14 +242,13 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
 #Switches
 
-###Fibaro wall plug with energy meter.  
-    
-    Switch Coffee_Kitchen_Switch "Coffee machine" (GF_Cellar) {zwave="18:command=switch_binary"} 
-    Number Coffee_Kitchen_Power "Coffee machine power consumption [%.1f W]" (GF_Cellar,GF_Energy) { zwave="18:command=sensor_multilevel" }
-    Number Coffee_Kitchen_Energy "Coffee machine total energy usage  [%.2f KWh]" (GF_Cellar) { zwave="18:command=meter" }
+###Fibaro Wall Plug (FGWPF-101 & FGWPF-102)  
 
+    Switch Wall_Plug           "Wall Plug"                             { zwave="3:command=switch_binary"} 
+    Number Wall_Plug_Power     "Wall Plug - current energy [%.1f W]"   { zwave="3:command=sensor_multilevel"}
+    Number Wall_Plug_Energy    "Wall Plug - total energy [%.2f KWh]"   { zwave="3:command=meter" }
  
-###six node power bar with integrated energy and power meter and different intervals.
+###GreenWave PowerNode 6-port power strip
     
     Switch Switch_Powerbar_Subwoofer "Subwoofer" (GF_Living) {zwave="26:1:command=switch_binary"} 
     Switch Switch_Powerbar_Reiceiver "Receiver" (GF_Living) {zwave="26:2:command=switch_binary"} 
@@ -280,6 +279,9 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Number Smart6_Volts             "Smart6 voltage [%.2f V]"                                      (ALL,power)                  {zwave="6:command=meter,meter_scale=E_V"}
     Number Smart6_Amps              "Smart6 amperage [%.2f A]"                                     (ALL,power)                  {zwave="6:command=meter,meter_scale=E_A"}
 
+###TKB Home TZ68E Wall switches
+    Switch	WallSwitch_Hall	"Hallway Wall switch"	(GF_Hall,MyOpenHAB)	{zwave="3"}
+
 ###Z-wave.me double paddle wall switch  
 
     Switch WCD1_1_BUT1 "Test BUT 1" { zwave="7:command=SCENE_ACTIVATION,scene=11,state=1" }
@@ -288,16 +290,6 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Switch WCD1_1_BUT4 "Test BUT 4" { zwave="7:command=SCENE_ACTIVATION,scene=22,state=0" }
     Switch WCD1_1_SW1 "Test WCD SW 1" (gTest) 
     Switch WCD1_1_SW2 "Test WCD SW 2" (gTest)
-
-###Fibaro Wall Plug (FIB_FGWPF-101)  
-
-    Switch Wall_Plug           "Wall Plug"                             { zwave="3:command=switch_binary"} 
-    Number Wall_Plug_Power     "Wall Plug - current energy [%.1f W]"   { zwave="3:command=sensor_multilevel"}
-    Number Wall_Plug_Energy    "Wall Plug - total energy [%.2f KWh]"   { zwave="3:command=meter" }
-
-###TKB Home TZ68E Wall switches
-    Switch	WallSwitch_Hall	"Hallway Wall switch"	(GF_Hall,MyOpenHAB)	{zwave="3"}
-
 
 #Thermostats
 
@@ -380,11 +372,3 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Number  BarometricPressure      "Barometric Pressure [%.1f kPa]"        (weather_station)               { zwave="5:command=sensor_multilevel,sensor_type=9,refresh_interval=300" }
     Number  TempWeatherStation      "Temp Weatherstation [%.1f °C]" <temperature>   (weather_station)               { zwave="5:command=sensor_multilevel,sensor_type=1,refresh_interval=300" }
     Number  BatteryWeatherStation   "Battery Weatherstation [%.2f %%]"      { zwave="5:command=battery,refresh_interval=600" }
-
-
-
-
-
-
-
-
