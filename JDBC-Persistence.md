@@ -1,3 +1,5 @@
+*Available as of openHAB 1.8*
+
 ### Table of Contents
 
  * [Introduction](#introduction)
