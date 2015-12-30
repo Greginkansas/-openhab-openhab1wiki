@@ -14,10 +14,21 @@ plex:port=32400
 # Refresh interval in ms. Default = 5000. 
 plex:refresh=5000
 
+# If you're using Plex Home you need to supply the username and password of your
+# Plex account here. If you don't want to enter your credentials you can also
+# directly set your account token below instead. 
+#plex:username=Plex username
+
+# Plex password
+#plex:password=Plex password
+
+# Plex account token, use instead of username/password when using Plex Home. 
+#plex:token=abcdefghijklmnopqrst
+
 ```
 Most changes are pushed to the binding using web sockets. Polling (and the corresponding refresh interval) is only applicable to the online/offline status of clients.
 
-Make sure 'Require authentication on local networks' is **disabled** on your Plex server. This setting can be found in Plex Web at Settings, Server, Connect, Show Advanced. 
+If you have Plex Home enabled you need to fill in your plex.tv username/password or the [Plex token](https://support.plex.tv/hc/en-us/articles/204059436-Finding-your-account-token-X-Plex-Token).
 
 ## Items
 
@@ -43,6 +54,7 @@ The following properties are available:
 |  title | String | Title of the media playing |
 |  type | String | Media type, values: movie, episode and [more](https://code.google.com/p/plex-api/wiki/MediaTypes) |
 |  playback/progress | Dimmer | Progress of the media playing  |
+|  playback/endTime | DateTime | Time at which the media that is playing will end  |
 |  playback/volume | Dimmer | Volume (increase/decrease or decimaltype) |
 |  playback/pause | Switch | Pause |
 |  playback/play | Switch | Play |
@@ -69,6 +81,8 @@ String PlexTVTitle		"Title [%s]"	<video>		{plex="playerid#title"}
 String PlexTVType		"Type [%s]"		<video>		{plex="playerid#type"}
 
 Dimmer PlexTVProgress   "Progress [%.1f%%]"    <video>    {plex="playerid#playback/progress"}
+DateTime PlexTVEndTime  "End time [%1$tR]"     <video>    {plex="playerid#playback/endTime"}
+
 Dimmer PlexTVVolume		"Volume"		<video>		{plex="playerid#playback/volume"}
 Switch PlexTVPause		"Pause"			<video>		{plex="playerid#playback/pause"}
 Switch PlexTVPlay		"Play"			<video>		{plex="playerid#playback/play"}
@@ -95,6 +109,7 @@ sitemap demo label="Main Menu"
 		Text item=PlexTVStatus
         Slider item=PlexTVProgress visibility=[PlexTVStatus!="Stopped"] 
 		Setpoint item=PlexTVProgress visibility=[PlexTVStatus!="Stopped"] minValue=0 maxValue=100 step=1
+		Text item=PlexTVEndTime visibility=[PlexTVStatus!="Stopped"]
 		Text item=PlexTVTitle visibility=[PlexTVStatus!="Stopped"]
 		Text item=PlexTVType visibility=[PlexTVStatus!="Stopped"]
 		Switch item=PlexTVPause
