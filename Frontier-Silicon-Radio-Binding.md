@@ -79,14 +79,15 @@ A list of all properties and their possible item types is given below:
 
 The *radio mode* property is just a number that specifies the radio mode which may differ for each radio. This is why there is no fixed mapping implemented. For radios listed above, the mapping is as follows (please [add your radio mapping](Frontier-Silicon-Radio-Binding/_edit), if it differs!):
 
-| radio mode | Hama IR110 | Medion MD 87180/87090  | Medion MD 86988| Pinell Supersound II
-| --- | --- | --- | --- | --- 
-| 0 | Internet Radio | Internet Radio | Internet Radio | Internet Radio
-| 1 | Spotify | Music Player (USB, LAN) | Music Player | Spotify
-| 2 | Player | DAB Radio | FM Radio | Player
-| 3 | AUX in | FM Radio | AUX in | DAB Radio
-| 4 | - | AUX in | - | FM Radio
-| 5 | - | - | - | AUX in
+| radio mode | Hama IR110 | Medion MD 87180/87090  | Medion MD 86988| Pinell Supersound II| Silvercrest SIRD 14 C1
+| --- | --- | --- | --- | --- | ---
+| 0 | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio
+| 1 | Spotify | Music Player (USB, LAN) | Music Player | Spotify | Spotify
+| 2 | Player | DAB Radio | FM Radio | Player | ---
+| 3 | AUX in | FM Radio | AUX in | DAB Radio | Music Player
+| 4 | - | AUX in | - | FM Radio | DAB Radio
+| 5 | - | - | - | AUX in | FM Radio
+| 6 | - | - | - | - | AUX in
 
 
 ## Example
