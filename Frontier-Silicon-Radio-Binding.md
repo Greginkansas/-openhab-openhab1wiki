@@ -9,6 +9,7 @@ The [MEDION® P85040 (MD 86988)](http://medion.scene7.com/is/image/Medion/500468
 [<img src="https://de.hama.com/bilder/00054/abb/00054823abb.jpg" alt="Hama Internetradio IR110" height="180">](https://de.hama.com/00054823/hama-internetradio-ir110)
 [<img src="http://internetradio.medion.com/images/md86988_small.jpg" alt="MEDION LIFE P85040 (MD 86988)" height="160">](http://internetradio.medion.com/)
 [<img src="http://www.pinell.no/sitefiles/site8/shop/pinell-supersound-ii-white3.jpg" alt="Pinell Supersound II" height="100">](http://pinell.no/en/)
+[<img src="http://www.lidl.de/media/product/0/2/0/8/3/1/0/silvercrest-stereo-internetradio-sird-14-c1.jpg" alt="Silvercrest SIRD 14 C1" height="100">](http://www.lidl.de/de/dab-/-internetradios/c15246)
 
 You can easily check if your IP radio is supported:
 
