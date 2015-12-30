@@ -3,7 +3,7 @@ Documentation of the Frontier Silicon Radio binding for Internet Radios based on
 ## Introduction
 
 This binding has been developed and tested with the [Hama IR110](https://de.hama.com/00054823/hama-internetradio-ir110) and [Medion MD87180](https://www.medion.com/de/service/start/_product.php?msn=50047825&gid=00) internet radios. 
-The [MEDION® P85040 (MD 86988)](http://medion.scene7.com/is/image/Medion/50046868_PIC-Q?$m$), [MEDION® P85035 (MD 87090)](https://medion.scene7.com/is/image/Medion/50048568_PIC-Q?$m$) and the [Pinell Supersound II](http://www.pinell.no/en/products/pinell-supersound-ii-white//) are also supported.
+The [MEDION® P85040 (MD 86988)](http://medion.scene7.com/is/image/Medion/50046868_PIC-Q?$m$), [MEDION® P85035 (MD 87090)](https://medion.scene7.com/is/image/Medion/50048568_PIC-Q?$m$), [Pinell Supersound II](http://www.pinell.no/en/products/pinell-supersound-ii-white//) and the [Silvercrest SIRD 14 C1](http://www.lidl.de/de/silvercrest-stereo-internetradio-sird-14-c1/p208310) are also supported.
 
 [<img src="http://internetradio.medion.com/images/md87180_small.jpg" alt="MEDION LIFE P85044 (MD 87180)" height="160">](http://internetradio.medion.com/)
 [<img src="https://de.hama.com/bilder/00054/abb/00054823abb.jpg" alt="Hama Internetradio IR110" height="180">](https://de.hama.com/00054823/hama-internetradio-ir110)
