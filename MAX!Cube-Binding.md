@@ -2,7 +2,7 @@ Documentation of the MAX!Cube Binding Bundle
 
 ## Introduction
 
-The openHAB MAX!Cube binding allows to connect to [(ELV) MAX!Cube Lan Gateway](http://www.elv.de/max-cube-lan-gateway.html,) installations. The binding allows to communicate with the MAX! devices through the MAX!Cube Lan Gateway.
+The openHAB MAX!Cube binding allows to connect to [(ELV) MAX!Cube Lan Gateway](http://www.elv.de/max-cube-lan-gateway.html) installations. The binding allows to communicate with the MAX! devices through the MAX!Cube Lan Gateway.
 
 To communicate with MAX! devices, a already setup MAX! environment including a MAX!Cube Lan Gateway is required. In addition, the binding expects an already set up MAX environment.
 
@@ -77,7 +77,7 @@ The above examples would be shown as
 
 MAX heating thermostat devices show OFF when turned to the minimum or On when turned to the maximum. The openHAB MAX!Cube binding would show the values 4.5 for OFF and 30.5 for On instead. 
 
-If you would like to display OFF and on instead, you can apply a mapping and  change the binding using this mapping to 
+If you would like to display OFF and on instead, you can apply a mapping and change the binding using this mapping to 
 
     Number Heating_Max "Heating Thermostat [MAP(maxcube.map):%s]" (MyGroup) { maxcube="JEQ0336148" }
 
@@ -122,6 +122,17 @@ To receive the valve position of a heating thermostat, the type for the desired 
 
 The value position is transmitted as rarely as the actual temperature. You may have to wait very long until something is displayed.
 
+**Mode**
+
+The operating mode can be requested using the _mode_ type in the corresponding binding configuration.
+
+    String Heating_Max_Valve_Mode "Thermostat Mode [%s]" (MyGroup) { maxcube="JEQ0336148:type=mode" }
+
+The mode is displayed as "AUTOMATIC" for example.
+
+### All devices
+The following configuration is available for all MAX! devices.
+
 **Battery State**
 
 The battery state of a device can be requested using the _battery_ type in the corresponding binding configuration. 
@@ -132,13 +143,13 @@ The battery state of a device can be requested using the _battery_ type in the c
 
 String values returned by the binding are either _ok_ or _low_.
 
-**Mode**
+**Connection Error (Since 1.8.0)**
 
-The operating mode can be requested using the _mode_ type in the corresponding binding configuration.
+The connection state between a device and the MAX!Cube can be requested using the _connectionError_ type in the corresponding binding configuration. 
 
-    String Heating_Max_Valve_Mode "Thermostat Mode [%s]" (MyGroup) { maxcube="JEQ0336148:type=mode" }
+    Switch Heating_Connection_Error "Thermostat Conn. Error" (MyGroup) { maxcube="JEQ0336148:type=connectionError" }
 
-The mode is displayed as "AUTOMATIC" for example.
+The switch will change to ON if the MAX!Cube reports that it cannot connect (anymore) to the configured device.
 
 ## Logging
 
