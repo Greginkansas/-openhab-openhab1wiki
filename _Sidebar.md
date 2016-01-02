@@ -157,7 +157,7 @@
 * [[Network UPS Tools Binding|Network-UPS-Tools]]
 * [[Nibe Heatpump Binding|Nibe-Heat-Pump-Binding]]
 * [[Nikobus Binding|Nikobus-Binding]]
-* [[Novelan/Luxtronic Heatpump Binding|Novelan-Heat-Pump-Binding]]
+* [[Novelan/Luxtronic Heatpump Binding|Novelan-Luxtronic-heat-pump-binding]]
 * [[NTP Binding|Ntp-Binding]]
 * [[One-Wire Binding|One-Wire-Binding]]
 * [[Onkyo AV Receiver Binding|Onkyo-Binding]]
