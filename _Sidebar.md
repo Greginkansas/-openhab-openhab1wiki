@@ -293,6 +293,7 @@ Please update the wiki if you do come across any out of date information.
 
 #### Release Notes
 
+* [[Version 1.8|Release-Notes-1.8]]
 * [[Version 1.7|Release-Notes-1.7]]
 * [[Version 1.6|Release-Notes-1.6]]
 * [[Version 1.5|Release-Notes-1.5]]
