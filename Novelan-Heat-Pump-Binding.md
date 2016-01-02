@@ -1,4 +1,4 @@
-Documentation of the Novelan (Siemens) HeatPump binding Bundle
+Documentation of the Novelan / Luxtronic HeatPump binding Bundle
 
 ## Introduction
 
@@ -123,6 +123,7 @@ Number HeatPump_Cooling_Start "AT Überschreitung[%.1f hrs]" (gHeatpump) { novel
 Number HeatPump_Cooling_Stop "AT Unterschreitung[%.1f hrs]" (gHeatpump) { novelanheatpump="cooling_stop_hours" }
 
 ## Set parameters
+
 These parameters can be changed:
 - Heating operation mode
 - Warm water operation mode
