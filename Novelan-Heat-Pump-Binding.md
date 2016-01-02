@@ -4,7 +4,7 @@ Documentation of the Novelan (Siemens) HeatPump binding Bundle
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-This Binding was created for Novelan Heatpump. Novelan is identical in construction to Luxtronic (Alpha Innotec) and Buderus Logamatic. So this bundle can be used with Loxtronic, too.
+This Binding was created for the Novelan Heatpump. Since the Novelan control unit is identical in construction to Luxtronic (Alpha Innotec) and Buderus Logamatic, this bundle can be used with all three of them
 
 ## Disclaimer
 
@@ -112,19 +112,26 @@ As a result, your lines in the items file might look like the following:
     String HeatPump_State   "Status [%s]"   <temperature> (Heatpump) { novelanheatpump="extended_state" }
 
     //new since 1.7
-    Number heatPump_heating_operation_mode   "Heizung Betriebsart [%.0f]"  (gHeatpump) { novelanheatpump="heating_operation_mode" }
-    Number heatPump_heating_temperature   "Heizung Temperatur [%.1f]"  (gHeatpump) { novelanheatpump="heating_temperature" }
-    Number heatPump_warmwater_operation_mode   "Warmwasser Betriebsart [%.0f]"  (gHeatpump) { novelanheatpump="warmwater_operation_mode" }
-    Number heatPump_warmwater_temperature   "Warmwasser Temperatur [%.1f]"  (gHeatpump) { novelanheatpump="warmwater_temperature" }
+    Number HeatPump_heating_operation_mode   "Heizung Betriebsart [%.0f]"  (gHeatpump) { novelanheatpump="heating_operation_mode" }
+    Number HeatPump_heating_temperature   "Heizung Temperatur [%.1f]"  (gHeatpump) { novelanheatpump="heating_temperature" }
+    Number HeatPump_warmwater_operation_mode   "Warmwasser Betriebsart [%.0f]"  (gHeatpump) { novelanheatpump="warmwater_operation_mode" }
+    Number HeatPump_warmwater_temperature   "Warmwasser Temperatur [%.1f]"  (gHeatpump) { novelanheatpump="warmwater_temperature" }
+
+Number HeatPump_Cool_BA "Betriebsart" (gHeatpump) { novelanheatpump="cooling_operation_mode" }
+Number HeatPump_Cooling_Release "Freigabe [%.1f °C]" (gHeatpump) { novelanheatpump="cooling_release_temperature" }
+Number HeatPump_Cooling_Inlet "Vorlauf Soll [%.1f °C]" (gHeatpump) { novelanheatpump="cooling_inlet_temperature" }
+Number HeatPump_Cooling_Start "AT Überschreitung[%.1f hrs]" (gHeatpump) { novelanheatpump="cooling_start_hours" }
+Number HeatPump_Cooling_Stop "AT Unterschreitung[%.1f hrs]" (gHeatpump) { novelanheatpump="cooling_stop_hours" }
 
 ## Set parameters
-This parameters can be changed:
+These parameters can be changed:
 - Heating operation mode
-- Warm wather operation mode
+- Warm water operation mode
+- Cooling operation mode
 - Offset of the heating curve
-- Target temperature for warm wather
+- Target temperature for warm water
 
-Sitemap exmaple:
+## Sitemap example:
 
     Switch item=heatPump_heating_operation_mode  mappings=[0="Auto", 1="Zuheizer", 2="Party", 3="Ferien", 4="Aus"]
     Setpoint item=heatPump_heating_temperature minValue=-10 maxValue=10 step=0.5
@@ -132,7 +139,7 @@ Sitemap exmaple:
     Setpoint item=heatPump_warmwater_temperature minValue=10 maxValue=65 step=1
 
 
-## Further planned features (not yet implemented)
+## Planned features (not yet implemented)
 
 - access the errorlog
 
