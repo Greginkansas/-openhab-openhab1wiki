@@ -5,10 +5,10 @@ The aim of this binding is to allow the connection OpenHAB to MAX! devices (wall
 
 A lot of credit must go to the [FHEM project](http://fhem.de/fhem.html)- without their implementation of the MAX interface with CUL this would be taking a lot longer to implement!
 
-# Status
+## Status
 The binding is currently in beta and it is recommended that you only use it expecting there to be bugs and issues. It is has enough features to be useful as a heating system, though lacks some of the finer features. This page will be updated as things progress.
 
-# Features
+## Features
 The binding currently offers the following features:
 
 * Listen mode - this allows you to listen in on MAX! network activity from a MAX!Cube for example. A trace will be output in debug mode that decodes implemented messages
@@ -37,16 +37,19 @@ The binding currently offers the following features:
 * TX Credit Monitoring
  * It is possible to report TX credits from the CUL device via an item binding.
 
-# Limitations
+## Limitations
 Aside from understanding what the binding does do which is documented here there are some key things to be aware of that may limit what you hope to achieve.
 
-1. Radiator valve data is updated quite sporadically. Items such as set point temperature, measured temperature, valve position, battery status and operating mode are only sent when the state of the valve changes - i.e. valve moves or the dial used to manually set a temperature. If you want measured temperature it is much better to use a wall thermostat.
-1. The binding has no concept of 'auto' mode. It currently has no ability to retrieve from any source and subsequently send a schedule to devices. This may change in the future, which would allow basic operation should OpenHAB fail for some reason.
+1. Radiator thermostat data is updated quite sporadically. Items such as set point temperature, measured temperature, valve position, battery status and operating mode are only sent when the state of the valve changes - i.e. valve moves or the dial used to manually set a temperature. If you want measured temperature it is much better to use a wall thermostat.
+1. The binding has no concept of 'auto' mode: It currently has no ability to retrieve from any source and subsequently send a schedule to devices. This may change in the future, which would allow basic operation should OpenHAB fail for some reason.
 1. If a wall thermostat is set to 'OFF' (mapped to 4.5deg) it won't update the measured temperature.
-1. You must also install org.openhab.io.transport.cul
-1. Pairing data is written to the filesystem, if directory etc/maxcul isn't available/writeable then pairing won't work
 
-# Binding Configuration
+# Installation
+
+You will need the MAX! CUL binding and the [CUL io binding](https://github.com/openhab/openhab/wiki/CUL-Binding) in your "addons" directory. Set up the CUL io binding as described in the wiki. Create a directory "maxcul" in the "etc" directory of your OpenHAB installation (e.g. "/usr/share/openhab/etc/") and make it writeable for OpenHAB.
+
+# Binding Configuration in openhab.cfg
+
 Example configuration:
 
     ################################ Max!CUL Binding  ###########################################
@@ -57,16 +60,20 @@ Example configuration:
     maxcul:refreshInterval=60000
     # set timezone you want the units to be set to - default is Europe/London
     maxcul:timezone=Europe/London
+    # set baud rate for the CUL
+    maxcul:baudrate=38400
+    # set parity
+    maxcul:parity=0
 
 
 # Item Configuration
 
 Some quick Examples:
 * `Number RadTherm1 { maxcul="RadiatorThermostat:JEQ1234565" }` - will return/set the thermostat temperature of radiator thermostat with the serial number JEQ1234565
-* `Number RadThermBatt { maxcul="RadiatorThermostat:JEQ1234565:feature=battery" }`- will return the battery level of JEQ0304492
-* `Number wallThermTemp { maxcul="WallThermostat:JEQ1234566:feature=temperature" }` - will return the temperature of a wall mounted thermostat with serial number JEQ1234566
+* `Number RadThermBatt { maxcul="RadiatorThermostat:JEQ1234565:feature=battery" }`- will return the battery level of radiator thermostat with the serial number JEQ0304492, if supported by the thermostat
+* `Number wallThermTemp { maxcul="WallThermostat:JEQ1234566:feature=temperature" }` - will return the measured temperature of a wall mounted thermostat with serial number JEQ1234566
 * `Number wallThermSet { maxcul="WallThermostat:JEQ1234566:feature=thermostat" }` - will set/return the desired temperature of a wall mounted thermostat with serial number JEQ1234566
-* `Switch pushBtn { maxcul="PushButton:JEQ1234567" }` - ON maps to Auto, OFF maps to Eco
+* `Switch pushBtn { maxcul="PushButton:JEQ1234567" }` - ON maps to Auto, OFF maps to Eco of the push button with serial number JEQ1234567
 * `Switch pair { maxcul="PairMode" }` - Switch only, ON enables pair mode for 60s. Will automatically switch off after this time.
 * `Switch listen { maxcul="ListenMode" }` - Switch only, puts binding into mode where it doesn't process messages - just listens to traffic, parses and outputs it in the log. Mainly used for debugging and checking behaviours. Can monitor devices associated with another controller, e.g a Max! Cube.
 * `Number txCredit { maxcul="CreditMonitor" }` - Will be updated with the latest value for the TX credit whenever it receives an update or command to a maxcul binding item. This number is used to adhere to the 1% transmission time rule. The 1% rule is enforced by the CUL USB device firmware.
@@ -87,9 +94,9 @@ Example:
 There is the option of the addition of `configTemp=20.0/15.0/30.5/4.5/4.5/0.0/0.0` at the end of a thermostat device binding (wall or radiator) will allow the setting of comfort/eco/max/min/windowOpenDetectTemp/windowOpenDetectTime/measurementOffset respectively. It's best to set this on only one binding of each device - if you set this on more than one binding for the same device then it will take the first one in the parsing order (whatever that is - hence generating some uncertainty!). These correspond to the following:
 * comfort - the defined 'comfort' temperature (default 21.0)
 * eco - the defined eco setback temperature (default 17.0)
-* max - maximum temperature that can be set on the thermostat (default 30.5)
-* min - minimum temperature that can be set on the thermostat (default 4.5)
-* windowOpenDetectTemp - set point in the event that a window open event is triggered by a shutter.
+* max - maximum temperature that can be set on the thermostat (default 30.5, which is the maximum value and corresponds to "open valve")
+* min - minimum temperature that can be set on the thermostat (default 4.5, which is the minimum value and corresponds to "closed valve")
+* windowOpenDetectTemp - set point in the event that a window open event is triggered by a shutter, if set to 4.5, this function is deactivated.
 * windowOpenDetectTime - Rounded down to the nearest 5 minutes. (default is 0)
 * measurement offset - offset applied to measure temperature (range is -3.5 to +3.5) - default is 0.0
 
