@@ -116,7 +116,6 @@ As a result, your lines in the items file might look like the following:
     Number HeatPump_heating_temperature   "Heizung Temperatur [%.1f]"  (gHeatpump) { novelanheatpump="heating_temperature" }
     Number HeatPump_warmwater_operation_mode   "Warmwasser Betriebsart [%.0f]"  (gHeatpump) { novelanheatpump="warmwater_operation_mode" }
     Number HeatPump_warmwater_temperature   "Warmwasser Temperatur [%.1f]"  (gHeatpump) { novelanheatpump="warmwater_temperature" }
-
 Number HeatPump_Cool_BA "Betriebsart" (gHeatpump) { novelanheatpump="cooling_operation_mode" }
 Number HeatPump_Cooling_Release "Freigabe [%.1f °C]" (gHeatpump) { novelanheatpump="cooling_release_temperature" }
 Number HeatPump_Cooling_Inlet "Vorlauf Soll [%.1f °C]" (gHeatpump) { novelanheatpump="cooling_inlet_temperature" }
