@@ -26,7 +26,7 @@ This is a binding for communication with AVM FritzBox using SOAP requests (TR064
 Java JRE 1.8.0+ (version 1.7 / openJDK7 is not working)
 
 ## Download
-Since v1.8.0 it is part of the addons repository.
+Until I manage it to integrate the binding in the build process, you may download the latest version [here] (https://github.com/gitbock/fritzboxtr064/releases)
 
 ## Installation
 Put the *.jar file into your openHAB "addons" directory.
