@@ -76,10 +76,10 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
 ###Fibaro Universal Dimmer 2 (FGD-212)
 
-Switch      foo             "Foo"                                           { zwave="42:command=SWITCH_MULTILEVEL" }
-Dimmer      foo_dim         "Foo [%d %%]"                                   { zwave="42:command=SWITCH_MULTILEVEL" }
-Number      foo_power       "Foo - current power consumption [%.2f W]"      { zwave="42:command=METER,meter_scale=E_W,refresh_interval=300" }
-Number      foo_energy      "Foo - total energy use [%.2f KWh]"             { zwave="42:command=METER,meter_scale=E_KWh,refresh_interval=300" }
+    Switch      foo             "Foo"                                           { zwave="42:command=SWITCH_MULTILEVEL" }
+    Dimmer      foo_dim         "Foo [%d %%]"                                   { zwave="42:command=SWITCH_MULTILEVEL" }
+    Number      foo_power       "Foo - current power consumption [%.2f W]"      { zwave="42:command=METER,meter_scale=E_W,refresh_interval=300" }
+    Number      foo_energy      "Foo - total energy use [%.2f KWh]"             { zwave="42:command=METER,meter_scale=E_KWh,refresh_interval=300" }
 
 #Remote Controls
 
