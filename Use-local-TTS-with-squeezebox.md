@@ -90,10 +90,13 @@ try {
 
 // send the converted mp3 back to the client
 if(file_exists($filemp3)) {
+    header('Content-Transfer-Encoding: binary');
     header('Content-Type: audio/mpeg');
     header('Content-length: ' . filesize($filemp3));
     header('Content-Disposition: filename=' . $filemp3);
-    header('Cache-Control: private');
+    header('Cache-Control: no-cache');
+    header('icy-br: 64');
+    header('icy-name: TTS Announcement');
     readfile($filemp3);
 } else {
     header("HTTP/1.0 404 Not Found");
