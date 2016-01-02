@@ -18,40 +18,57 @@ The Heatpump bundle connects to your Heatpump via network. Make sure your Heatpu
 
 The binding configurations format is simple and looks like this:
 
-    novelanheatpump ="<eventType>"
+    novelanheatpump="<eventType>"
 
-where eventType is one of the following values:
-- temperature_outside – the measured temperature by the outside sensor
-- temperature_return – the temperature returned by floor heating
-- temperature_reference_return – the reference temperature of the heating water
-- temperature_supplay – the temperature sent to the floor heating
-- temperature_servicewater_reference – the reference temperature of the servicewater
-- temperature_servicewater - the temperature of the servicewater
-- state – contains the time of the state and the state; Possible states are error, running, stoped, defrosting
-- temperature_solar_collector - the temperature of the sensor in the solar collector
-- temperature_solar_storage - the temperature of the solar storage
-new since 1.3
-- temperature_outside_avg - the average measured temperature by the outside sensor
-- temperature_probe_in - temperature flowing to probe head
-- temperature_probe_out - temperature coming  from probe head
-- hours_compressor1 - operating hours of compressor one
-- starts_compressor1 - total starts of compressor one
-- hours_compressor2 - operating hours of compressor two
-- starts_compressor2 - total starts of compressor two
-- hours_heatpump - operating hours of heatpump
-- hours_heating - operating hours of heating
-- hours_warmwater - operating hours creating warm water
-- hours_cooling - operating hours of cooling
-- thermalenergy_heating - total energy for heating in KWh
-- thermalenergy_warmwater - total energy for creating warm water in KWh
-- thermalenergy_pool - total energy for heating pool in KWh
-- thermalenergy_total - sum of all total energy in KWh
-- extended_state – contains the time of the state and the state; Possible states are error, heating, standby, switch-on delay, switching cycle blocked, provider lock time, service water, screed heat up, defrosting, pump flow, desinfection, cooling, pool water, heating ext., service water ext., flow monitoring, ZWE operation
-- heating_operation_mode - operation mode (0="Auto", 1="Zuheizer", 2="Party", 3="Ferien", 4="Aus")
-- heating_temperature - heating curve offset
-- warmwater_operation_mode (0="Auto", 1="Zuheizer", 2="Party", 3="Ferien", 4="Aus")
-- warmwater_temperature - target temperature for warm water
-There are some more values listed in the example configuration. But these are only values for "heatpump professionals".
+where `<eventType>` is one of the following values:
+
+`<eventType>` | Item Type | Meaning
+------------- | --------- | -------
+`temperature_outside` | Number | the measured temperature by the outside sensor
+`temperature_outside_avg` | Number | the average measured temperature by the outside sensor
+`temperature_return` | Number | the temperature returned by floor heating
+`temperature_reference_return` | Number | the reference temperature of the heating water
+`temperature_supplay` | Number | the temperature sent to the floor heating
+`temperature_servicewater_reference` | Number | the reference temperature of the servicewater
+`temperature_servicewater` | Number | the temperature of the servicewater
+`state` | String | contains the time of the state and the state; Possible states are error, running, stoped, defrosting
+`extended_state` | String | contains the time of the state and the state; Possible states are error, heating, standby, switch-on delay, switching cycle blocked, provider lock time, service water, screed heat up, defrosting, pump flow, desinfection, cooling, pool water, heating ext., service water ext., flow monitoring, ZWE operation
+`temperature_solar_collector` | Number | the temperature of the sensor in the solar collector
+`temperature_hot_gas` | Number | 
+`temperature_probe_in` | Number | temperature flowing to probe head
+`temperature_probe_out` | Number | temperature coming  from probe head
+`temperature_mk1` | Number | 
+`temperature_mk1_reference` | Number | 
+`temperature_mk2` | Number | 
+`temperature_mk2_reference` | Number | 
+`temperature_external_source` | Number | 
+`hours_compressor1` | String | operating hours of compressor one
+`starts_compressor1` | Number | total starts of compressor one
+`hours_compressor2` | String | operating hours of compressor two
+`starts_compressor2` | Number | total starts of compressor two
+`temperature_out_external` | Number | 
+`hours_zwe1` | String | 
+`hours_zwe2` | String | 
+`hours_zwe3` | String | 
+`hours_heatpump` | String | operating hours of heatpump
+`hours_heating` | String | operating hours of heating
+`hours_warmwater` | String | operating hours creating warm water
+`hours_cooling` | String | operating hours of cooling
+`thermalenergy_heating` | Number | total energy for heating in KWh
+`thermalenergy_warmwater` | Number | total energy for creating warm water in KWh
+`thermalenergy_pool` | Number | total energy for heating pool in KWh
+`thermalenergy_total` | Number | sum of all total energy in KWh
+`massflow` | Number | 
+`temperature_solar_storage` | Number | the temperature of the solar storage
+`heating_operation_mode` | Number | operation mode (0="Auto", 1="Zuheizer", 2="Party", 3="Ferien", 4="Aus")
+`heating_temperature` | Number | heating curve offset
+`warmwater_operation_mode` | Number | (0="Auto", 1="Zuheizer", 2="Party", 3="Ferien", 4="Aus")
+`warmwater_temperature` | Number | target temperature for warm water
+`cooling_operation_mode` | Number | (1="Auto", 0="Off")
+`cooling_release_temperature` | Number | cooling release temeprature
+`cooling_inlet_temperature` | Number | cooling inlet temeprature
+`cooling_start_hours` | Number | cooling start after hours
+`cooling_stop_hours` | Number | cooling stop after hours
 
 As a result, your lines in the items file might look like the following:
 
@@ -115,15 +132,7 @@ Sitemap exmaple:
     Setpoint item=heatPump_warmwater_temperature minValue=10 maxValue=65 step=1
 
 
-## Gallery
-
-The following charts are created via the rrd4j chart and heatpump bundle. <br/>
-
-![alt text](http://wiki.openhab.googlecode.com/hg/images/screenshots/noveleanheatpump_rrdchart_d.png "RRD Chart")
-
-![alt text](http://wiki.openhab.googlecode.com/hg/images/screenshots/noveleanheatpump_rrdchart_w.png "RRD Chart")
-
 ## Further planned features (not yet implemented)
 
-- accesc the errorlog
- 
+- access the errorlog
+
