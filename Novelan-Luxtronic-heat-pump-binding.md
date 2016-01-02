@@ -1,10 +1,10 @@
-Documentation of the Novelan / Luxtronic HeatPump binding Bundle
+Documentation of the Novelan/Luxtronic heat pump binding Bundle
 
 ## Introduction
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-This Binding was created for the Novelan Heatpump. Since the Novelan control unit is identical in construction to Luxtronic (Alpha Innotec) and Buderus Logamatic, this bundle can be used with all three of them
+This binding was originally created for the Novelan heat pump. Since the Novelan control unit is based on the Luxtronic 2 contol unit of Alpha Innotec, this binding should work with all heat pumps that use this typ of controller.
 
 ## Disclaimer
 
@@ -12,10 +12,25 @@ The whole functionality was reverse engineered via tcpdump, so use it at your
 
 ## Precondition
 
-The Heatpump bundle connects to your Heatpump via network. Make sure your Heatpump is connected to your network and the network settings are configured. To excess the network settings go in the Heatpump Service menu -> system control -> IP address.
+The heat pump bundle connects to your heat pump via network. Make sure your heat pump is connected to your network and the network settings are configured. To excess the network settings go in the heat pump Service menu -> system control -> IP address.
 
 ## Generic Item Binding Configuration
 
+openhab.cfg file (in the folder '${openhab_home}/configurations').
+
+    ######################## Novelan/Luxtronic heat pump binding ###########################
+    # IP address of the heat pump to connect to
+    novelanheatpump:ip=
+    
+    # refresh inverval in milliseconds (optional, defaults to 60000)
+    #novelanheatpump:refresh=
+    
+    # port number of the heat pump to connect to (optional, defaults to 8888)
+    #novelanheatpump:port=
+
+Please be aware that from firmware version 1.73, Alpha Innotec has changed the port to 8889!
+
+## Item Binding Configuration
 The binding configurations format is simple and looks like this:
 
     novelanheatpump="<eventType>"
@@ -122,6 +137,7 @@ As a result, your lines in the items file might look like the following:
     Number HeatPump_Cooling_Start "AT Überschreitung[%.1f hrs]" (gHeatpump) { novelanheatpump="cooling_start_hours" }
     Number HeatPump_Cooling_Stop "AT Unterschreitung[%.1f hrs]" (gHeatpump) { novelanheatpump="cooling_stop_hours" }
 
+
 ## Set parameters
 
 These parameters can be changed:
@@ -142,4 +158,3 @@ These parameters can be changed:
 ## Planned features (not yet implemented)
 
 - access the errorlog
-
