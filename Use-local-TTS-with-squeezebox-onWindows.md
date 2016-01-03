@@ -3,6 +3,7 @@ This page is work-in-progress to summarize the findings of the following communi
 ***
 * [Environment Requirements](#environment-requirements)
 * [References](#references)
+* [REST-TTS service](#rest-tts-service)
 
 ***
 
@@ -13,8 +14,10 @@ To verify if your system provides decent text-to-speech ability I recommend to d
 
 If the voice quality is not sufficient, or the desired language is missing you may consider a commercial SAPI 5 voice. Only use trial versions until your openHAB TTS is working end-to-end, as I can not know if the solution is compatible with all voices.
 
-# The REST-TTS service
-One way to use OS-TTS with openHAB (e.g. Squeezebox) is to provide a REST API that will convert a text string to an .mp3 file with the respective spoken text. The software available from [[3](https://dl.dropboxusercontent.com/u/1781347/RESTTTS-2016-01-01.001.zip)] provides such an API.  
+# REST-TTS service
+One way to use OS-TTS with openHAB (e.g. Squeezebox) is to provide a REST API that will convert a text string to an .mp3 file with the respective spoken text. The software available from [[3](https://dl.dropboxusercontent.com/u/1781347/RESTTTS-2016-01-01.001.zip)] provides such an API.
+
+Extract the downloaded .zip package. This will provide you the source code of the utility (can be compiled using M$-VS 2013 community edition) as well as some pre-compiled ready to use files (.\RESTTTS\RESTTTS\bin\Release).
 
 ***
 # References
