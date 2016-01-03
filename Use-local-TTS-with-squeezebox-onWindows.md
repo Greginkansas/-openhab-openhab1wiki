@@ -1,5 +1,11 @@
 This page is work-in-progress to summarize the findings of the following community discussion for users hosting openHAB on a M$-Windows operating system [[1](https://community.openhab.org/t/googletts-responding-with-503-error-even-after-the-url-fix/3385)].
 
+***
+* [Environment Requirements](#environment-requirements)
+* [References](#References)
+
+***
+
 # Environment Requirements
 To verify if your system provides decent text-to-speech ability I recommend to download "Balabolka" [[2](http://portableapps.com/apps/accessibility/balabolka-portable)]. Verify that a SAPI 5 voice is available for your language and that it's quality is decent enough.
 
@@ -8,5 +14,6 @@ To verify if your system provides decent text-to-speech ability I recommend to d
 If the voice quality is not sufficient, or the desired language is missing you may consider a commercial SAPI 5 voice. Only use trial versions until your openHAB TTS is working end-to-end, as I can not know if the solution is compatible with all voices.
 
 ***
+# References
 * [1]: [GoogleTTS responding with 503 error](https://community.openhab.org/t/googletts-responding-with-503-error-even-after-the-url-fix/3385)
 * [2]: [Balabolka Portable](portableapps.com/apps/accessibility/balabolka-portable)
