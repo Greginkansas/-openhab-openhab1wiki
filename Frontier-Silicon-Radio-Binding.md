@@ -89,7 +89,7 @@ The *radio mode* property is just a number that specifies the radio mode which m
 | 4 | - | AUX in | - | FM Radio | DAB Radio | DAB Radio
 | 5 | - | - | - | AUX in | FM Radio | FM Radio
 | 6 | - | - | - | - | AUX in | AUX in
-| 7 | - | - | - | - | - | - | Bluetooth
+| 7 | - | - | - | - | - | Bluetooth
 
 ## Example
 
