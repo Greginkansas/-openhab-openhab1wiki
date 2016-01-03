@@ -24,8 +24,10 @@ One way to use OS-TTS with openHAB (e.g. Squeezebox) is to provide a REST API th
 Extract the downloaded .zip package. This will provide you the source code of the utility (can be compiled using M$-VS 2013 community edition) as well as some pre-compiled ready to use files (.\RESTTTS\RESTTTS\bin\Release).
 # Configuration
 ## REST-TTS
-...
+To keep things as simple as possible the tool is a self hosted REST service. This requires elevated rights on your system. Therefore either compile the binaries yourself (after review of the code), or if you use a pre-compiled version make sure you scan it with a recent anti-virus software.
 
+Right-click the "RESTTTS.exe" and execute it as administrator; you should see something similar to this:
+![REST TTS with default configuration](https://dl.dropboxusercontent.com/u/1781347/wiki/2016-01-03%2016_03_48-_RESTTTS_RESTTTS_bin_Rele.png)
 ## Operating System
 ...
 
