@@ -252,6 +252,7 @@ Please update the wiki if you do come across any out of date information.
 *  __Squeezebox__
     * [[Select Radio-Stations|SqueezeboxExample]]
     * [[Use local TTS|Use-local-TTS-with-squeezebox]]
+    * [[Use local TTS (M$-Windows)|Use-local-TTS-with-squeezebox-onWindows]]
 *  [[WAC Binding|Samples WAC Binding]]
 *  [[WebSolarLog|Sample---integration-of-WebSolarLog-into-openhab]]
 
