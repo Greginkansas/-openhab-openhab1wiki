@@ -49,7 +49,7 @@ Verify that this works correctly with a browser from a different computer in you
 Now you can change the openHAB configuration to instruct squeezebox to use this service:
 
 ```
-squeeze:ttsurl               = http://192.168.10.100:8089/Service/TTS?text=%s`
+squeeze:ttsurl               = http://192.168.10.100:8089/Service/TTS?text=%s
 squeeze:ttsmaxsentencelength = 4096
 ```
 
