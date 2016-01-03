@@ -31,7 +31,7 @@ To keep things as simple as possible the tool is a self hosted REST service. Thi
 Right-click the "RESTTTS.exe" and execute it as administrator; you should see something similar to this:
 ![REST TTS with default configuration](https://dl.dropboxusercontent.com/u/1781347/wiki/2016-01-03%2016_03_48-_RESTTTS_RESTTTS_bin_Rele.png)
 
-Enter the following URL in a new browser window (or tab): "http://127.0.0.1:8089/Service/TTS?text=Test"; an .mp3 file should be received by the browser. Once that 1st test works ok close the REST service again (just select the windows and press enter).
+Enter the following URL in a new browser window (or tab): "http://127.0.0.1:8089/Service/TTS?text=Test"; an .mp3 file should be received by the browser. Once that 1st test works ok close the REST service again (just select the window and press enter).
 
 Now open "RESTTTS.exe.config" and replace the loopback address with your actual IP (e.g. 192.168.1.100). If you prefer a different voice, enter the voice id as well (e.g. "TTS_MS_EN-US_ZIRA_11.0"):
 
@@ -40,7 +40,7 @@ Now open "RESTTTS.exe.config" and replace the loopback address with your actual 
 Start the service after the configuration change and check that the new settings were applied.
  
 ## Operating System
-By default the firewall of the operating system will allow external systems to access the service from other computers in your network. Therefore you need to configure an exception that you allow incoming request to the configured port (e.g. 8089) from the local network.
+By default the firewall of the operating system will not allow external systems to access the service from other computers in your network. Therefore you need to configure an exception that you allow incoming request to the configured port (e.g. 8089) from the local network.
 
 Verify that this works correctly with a browser from a different computer in you network using the configured network address and port (e.g. http://192.168.1.100:8089/Service/TTS?text=Test).
 
