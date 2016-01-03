@@ -1,4 +1,4 @@
-This page is work-in-progress to summarize the findings of the following community discussion for users hosting openHAB on a M$-Windows operating system [[1](https://community.openhab.org/t/googletts-responding-with-503-error-even-after-the-url-fix/3385)].
+This page is based on the findings during discussion in the OH community forum @ [[1](https://community.openhab.org/t/googletts-responding-with-503-error-even-after-the-url-fix/3385)]. If you need support related to this page please visit the forum @ [Use local TTS with squeezebox on Windows](https://community.openhab.org/t/use-local-tts-with-squeezebox-on-windows/5677).
 
 ***
 * [Environment Requirements](#environment-requirements)
@@ -59,3 +59,4 @@ squeeze:ttsmaxsentencelength = 4096
 * [2]: [Balabolka Portable](portableapps.com/apps/accessibility/balabolka-portable)
 * [3]: [REST-TTS](https://dl.dropboxusercontent.com/u/1781347/RESTTTS-2016-01-01.001.zip)
 * [4]: [openHAB nightly builds](https://openhab.ci.cloudbees.com/job/openHAB)
+* [5]: [Use local TTS with squeezebox on Windows](https://community.openhab.org/t/use-local-tts-with-squeezebox-on-windows/5677)
