@@ -50,7 +50,7 @@ Now you can change the openHAB configuration to instruct squeezebox to use this 
 
 ```
 squeeze:ttsurl               = http://192.168.10.100:8089/Service/TTS?text=%s`
-squeeze:ttsmaxsentencelength = 4096`
+squeeze:ttsmaxsentencelength = 4096
 ```
 
 ***
