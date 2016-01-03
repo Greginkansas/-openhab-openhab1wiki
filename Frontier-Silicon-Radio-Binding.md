@@ -3,13 +3,14 @@ Documentation of the Frontier Silicon Radio binding for Internet Radios based on
 ## Introduction
 
 This binding has been developed and tested with the [Hama IR110](https://de.hama.com/00054823/hama-internetradio-ir110) and [Medion MD87180](https://www.medion.com/de/service/start/_product.php?msn=50047825&gid=00) internet radios. 
-The [MEDION® P85040 (MD 86988)](http://medion.scene7.com/is/image/Medion/50046868_PIC-Q?$m$), [MEDION® P85035 (MD 87090)](https://medion.scene7.com/is/image/Medion/50048568_PIC-Q?$m$), [Pinell Supersound II](http://www.pinell.no/en/products/pinell-supersound-ii-white//) and the [Silvercrest SIRD 14 C1](http://www.lidl.de/de/silvercrest-stereo-internetradio-sird-14-c1/p208310) are also supported.
+The [MEDION® P85040 (MD 86988)](http://medion.scene7.com/is/image/Medion/50046868_PIC-Q?$m$), [MEDION® P85035 (MD 87090)](https://medion.scene7.com/is/image/Medion/50048568_PIC-Q?$m$), [Pinell Supersound II](http://www.pinell.no/en/products/pinell-supersound-ii-white//), [Silvercrest SIRD 14 C1](http://www.lidl.de/de/silvercrest-stereo-internetradio-sird-14-c1/p208310) and the [Revo Superconnect] (http://revo.co.uk/shop/superconnect/) are also supported.
 
 [<img src="http://internetradio.medion.com/images/md87180_small.jpg" alt="MEDION LIFE P85044 (MD 87180)" height="160">](http://internetradio.medion.com/)
 [<img src="https://de.hama.com/bilder/00054/abb/00054823abb.jpg" alt="Hama Internetradio IR110" height="180">](https://de.hama.com/00054823/hama-internetradio-ir110)
 [<img src="http://internetradio.medion.com/images/md86988_small.jpg" alt="MEDION LIFE P85040 (MD 86988)" height="160">](http://internetradio.medion.com/)
 [<img src="http://www.pinell.no/sitefiles/site8/shop/pinell-supersound-ii-white3.jpg" alt="Pinell Supersound II" height="100">](http://pinell.no/en/)
 [<img src="http://www.lidl.de/media/product/0/2/0/8/3/1/0/silvercrest-stereo-internetradio-sird-14-c1.jpg" alt="Silvercrest SIRD 14 C1" height="180">](http://www.lidl.de/de/dab-/-internetradios/c15246)
+[<img src="http://revo.co.uk/assets/2013/10/H2_WNT_BLK_SUPERHERO2-486x395.jpg" alt="Revo Superconnect" height="180">](http://revo.co.uk/shop/superconnect/)
 
 You can easily check if your IP radio is supported:
 
@@ -79,16 +80,16 @@ A list of all properties and their possible item types is given below:
 
 The *radio mode* property is just a number that specifies the radio mode which may differ for each radio. This is why there is no fixed mapping implemented. For radios listed above, the mapping is as follows (please [add your radio mapping](Frontier-Silicon-Radio-Binding/_edit), if it differs!):
 
-| radio mode | Hama IR110 | Medion MD 87180/87090  | Medion MD 86988| Pinell Supersound II| Silvercrest SIRD 14 C1
-| --- | --- | --- | --- | --- | ---
-| 0 | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio
-| 1 | Spotify | Music Player (USB, LAN) | Music Player | Spotify | Spotify
-| 2 | Player | DAB Radio | FM Radio | Player | ---
-| 3 | AUX in | FM Radio | AUX in | DAB Radio | Music Player
-| 4 | - | AUX in | - | FM Radio | DAB Radio
-| 5 | - | - | - | AUX in | FM Radio
-| 6 | - | - | - | - | AUX in
-
+| radio mode | Hama IR110 | Medion MD 87180/87090  | Medion MD 86988| Pinell Supersound II| Silvercrest SIRD 14 C1 | Revo Superconnect
+| --- | --- | --- | --- | --- | --- | ---
+| 0 | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio
+| 1 | Spotify | Music Player (USB, LAN) | Music Player | Spotify | Spotify | Spotify
+| 2 | Player | DAB Radio | FM Radio | Player | --- | ---
+| 3 | AUX in | FM Radio | AUX in | DAB Radio | Music Player | Music Player
+| 4 | - | AUX in | - | FM Radio | DAB Radio | DAB Radio
+| 5 | - | - | - | AUX in | FM Radio | FM Radio
+| 6 | - | - | - | - | AUX in | AUX in
+| 7 | - | - | - | - | - | - | Bluetooth
 
 ## Example
 
