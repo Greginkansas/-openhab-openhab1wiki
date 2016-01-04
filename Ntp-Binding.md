@@ -14,7 +14,7 @@ where the parts in `[]` are optional. If no or an incorrect time zone is configu
 
 Here are some examples of valid binding configuration strings:
 
-    ntp="America/Detroit:en_EN"
+    ntp="America/Detroit:en_US"
     ntp="Europe/Berlin:de_DE"
     ntp="Europe/Berlin"
     ntp=""
@@ -28,7 +28,7 @@ If you like to post the queried time to the knx-bus your line might look like:
     DateTime    Date    "Date and Time: [%1$tA, %1$td.%1$tm.%1$tY %1$tT]"  (Status)    { ntp="Europe/Berlin:de_DE", knx="11.001:15/7/2, 10.001:15/7/1" } 
 where 11.001 is the KNX date type and 10.001 is the KNX time type
 
-## Formating
+## Formatting
 
 [Here](http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html) is an overview of how you can format the output of date and time.
 
