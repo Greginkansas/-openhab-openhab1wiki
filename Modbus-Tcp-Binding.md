@@ -33,7 +33,7 @@ Valid keys are
   <tr><td>connection</td><td>mandatory</td><td>for tcp connection use form host_ip[:port] e.g. 192.168.1.55 or 192.168.1.55:511. If you omit port, default 502 will be used. For serial connections use just COM port name optional [:baud:dataBits:parity:stopBits:encoding] <br/>opitons are: parity={even,odd}; encoding={ascii,rtu,bin} (default is ascii, supported since v1.7)</td></tr>
   <tr><td>id</td><td>optional</td><td>slave id, default 1</td></tr>
   <tr><td>start</td><td>optional</td><td>slave start address, default 0</td></tr>
-  <tr><td>length</td><td>mandatory?</td><td>number of data item to read, default 0 (but set it to something meaningful :)</td></tr>
+  <tr><td>length</td><td>mandatory</td><td>number of data item to read, default 0 (but set it to something meaningful :)</td></tr>
   <tr><td>type</td><td>mandatory</td><td>data type, can be either "coil", "discrete", "holding", "input" or "register", now only "coil", "discrete", "holding" and "input" are supported</td></tr>
 </table>
 
