@@ -44,7 +44,7 @@ First login with your user. Then some examples of the documentation contain the 
 https://dev.netatmo.com/doc/methods/devicelist
 ```
 
-main_device is the ID of the "main device", the indoor sensor.
+main_device is the ID of the "main device", the indoor sensor. This is equal to the MAC address of the Netatmo.
 
 The other modules you can recognize by "module_name" and then note the "_id" which you need later.
 
