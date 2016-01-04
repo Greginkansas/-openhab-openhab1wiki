@@ -23,13 +23,10 @@ Integration directly in sitemap (20x):
     Image url="http://<doorbird-user>:<doorbird-password>@<doorbird-ip>/bha-api/history.cgi?index=1
 
 ##Notifications##
-The outbound part is rather straightforward and can be implemented with an item definition using HTTP binding:
+Item definition using HTTP binding:
 
-    Switch DoorBird_MotionSensor_Register "DoorBird - Register Motion Sensor" (DoorBird) { http=">[ON:GET:http://<doorbird-user>:<doorbird-password>@<doorbird-ip>/bha-api/notification.cgi?url=http://<openhab-ip>:<openhab-port>/doorbird-callback/motion-sensor&user=<openhab-user>&password=<openhab-password>&event=motionsensor&subscribe=1] >[OFF:GET:http://<doorbird-user>:<doorbird-password>@<doorbird-ip>/bha-api/notification.cgi?url=http://<openhab-ip>:<openhab-port>/doorbird-callback/motion-sensor&user=<openhab-user>&password=<openhab-password>&event=motionsensor&subscribe=0]" }
-    Switch DoorBird_DoorBell_Register "DoorBird - Register Door Bell" (DoorBird) { http=">[ON:GET:http://<doorbird-user>:<doorbird-password>@<doorbird-ip>/bha-api/notification.cgi?url=http://<openhab-ip>:<openhab-port>/doorbird-callback/door-bell&user=<openhab-user>&password=<openhab-password>&event=doorbell&subscribe=1] >[OFF:GET:http://<doorbird-user>:<doorbird-password>@<doorbird-ip>/bha-api/notification.cgi?url=http://<openhab-ip>:<openhab-port>/doorbird-callback/door-bell&user=<openhab-user>&password=<openhab-password>&event=doorbell&subscribe=0]" }
-
-DoorBird can only send a GET request to a web ressource you have to provide in the registration.
-This can be solved using a "gateway" based on a servlet that accepts the GET request from the DoorBird and notifies the corresponding item in openHAB via REST. The implementation and according documentation can be found here: https://github.com/bern77/DoorBird-Callback
+    Switch DoorBird_MotionSensor_Register "DoorBird - Register Motion Sensor" (DoorBird) { http=">[ON:GET:http://<doorbird-user>:<doorbird-password>@<doorbird-ip>/bha-api/notification.cgi?url=http://<openhab-ip>:<openhab-port>/CMD%3FDoorBird_MotionSensor%3DON&user=<openhab-user>&password=<openhab-password>&event=motionsensor&subscribe=1] >[OFF:GET:http://<doorbird-user>:<doorbird-password>@<doorbird-ip>/bha-api/notification.cgi?url=http://<openhab-ip>:<openhab-port>/CMD%3FDoorBird_MotionSensor%3DON&user=<openhab-user>&password=<openhab-password>&event=motionsensor&subscribe=0]" }
+    Switch DoorBird_DoorBell_Register "DoorBird - Register Door Bell" (DoorBird) { http=">[ON:GET:http://<doorbird-user>:<doorbird-password>@<doorbird-ip>/bha-api/notification.cgi?url=http://<openhab-ip>:<openhab-port>/CMD%3FDoorBird_DoorBell%3DON&user=<openhab-user>&password=<openhab-password>&event=doorbell&subscribe=1] >[OFF:GET:http://<doorbird-user>:<doorbird-password>@<doorbird-ip>/bha-api/notification.cgi?url=http://<openhab-ip>:<openhab-port>/CMD%3FDoorBird_DoorBell%3DON&user=<openhab-user>&password=<openhab-password>&event=doorbell&subscribe=0]" }
 
 This then also requires additional items to receive the notifications:
 
