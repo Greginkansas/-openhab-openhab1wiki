@@ -30,6 +30,9 @@ Edit the file `openhab.cfg` located in `${openhab_home}/configurations/`.  Paste
     # Data refresh interval in ms (optional, defaults to 60000)
     # nest:refresh=60000
 
+    # HTTP request timeout in ms (as of 1.8, optional, defaults to 10000)
+    # nest:timeout=10000
+
     # the Product ID for the product you created (replace with your own)
     nest:client_id=e5cc5558-ec55-4c55-8555-4b95555f4979
 
@@ -243,4 +246,6 @@ Number NestCondo_temp "Condo Temperature [%.1f °F]" {nest="=[thermostats(Dining
 
 ### openHAB 1.8.0
 
+* Quiesce logging on status poll ([#3111](https://github.com/openhab/openhab/pull/3111))
 * Added support for monitoring and turning on or off streaming from your Nest Cams. ([#3232](https://github.com/openhab/openhab/pull/3232))
+* Added optional `nest:timeout` config parameter ([#3692](https://github.com/openhab/openhab/pull/3692))
