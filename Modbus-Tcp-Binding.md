@@ -40,14 +40,14 @@ Valid keys are
 Remark : in "`openhab_default.cfg`", the modbus binding section has a wrong key "`host`", this doesn't work if you put your slave ip address here. So you have to replace "`host`" by "`connection`" witch is the right key as mentioned above.
 
 Modbus read functions 
-- `type=coil` uses function 1,
-- `type=discrete` uses function is 2,
-- `type=holding` uses function is 3,
-- `type=input` uses function ist 4
+- `type=coil` uses function 1 "Read Coil Status" 
+- `type=discrete` uses function 2 "Read Input Status" (readonly inputs)
+- `type=holding` uses function 3, "Read Holding Registers"
+- `type=input` uses function 4 "Read Input Register" (readonly-registers eG analogue inputs)
 
 Modbus write functions 
-- `type=coil` uses function 5,
-- `type=holding` uses function is 6,
+- `type=coil` uses function 5 "Write Single Coil"
+- `type=holding` uses function 6 "Write Single Register"
  see also http://www.simplymodbus.ca
 
 with `type=holding` and `type=input` you can now only operate with datatype byte!!!
