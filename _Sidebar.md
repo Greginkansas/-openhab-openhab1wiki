@@ -187,6 +187,7 @@
 * [[Sinthesi Sapp Binding|Sapp-Binding]]
 * [[Snmp Binding|Snmp-Binding]]
 * [[Somfy URTSI II Binding|URTSI-Binding]]
+* [[Sonance Binding|Sonance-binding]]
 * [[Sonos Binding|Sonos-Binding]]
 * [[Squeezebox Binding|Squeezebox-Binding]]
 * [[Swegon ventilation Binding|Swegon-Ventilation-Binding]]
