@@ -32,6 +32,8 @@ When a command for a new volume or mute toggle is pressed, the value is updated 
 
 ```
 /* Sonance items*/
+Switch 	 Sonance "Amplifier" {sonance="10.0.0.8:52000:power"}
+
 Switch 	 Sonance_bedroom_mute "Bedroom" {sonance="10.0.0.8:52000:mute:00"}
 Number 	 Sonance_bedroom_volume "Volume [%.0f db]" <chart> {sonance="10.0.0.8:52000:volume:00"}
 
@@ -48,6 +50,8 @@ Number 	 Sonance_office_volume "Volume [%.0f db]" <chart> {sonance="10.0.0.8:520
 ## Sitemap Example
 ```
 Frame label="Amplifier" {
+	Switch item=Sonance
+
 	Switch item=Sonance_bedroom_mute
 	Setpoint item=Sonance_bedroom_volume minValue=-70.0 maxValue=12
 	
@@ -86,9 +90,10 @@ In order to configure logging for this binding to be generated in a separate fil
 
 ## Known Issues
 
-1. No known issues
+1. Getting current power status from amplifier fails because of a bug in the Sonance. This is reported to Sonance and they are working on a solution. This is only when the power on method is set to IP. When requesting the power status, music from the digital input module just stops and you have to reboot the device.
+2. The auto on method "music" seems to fail when using an digital input module. This is reported to Sonance and they are working on a solution.
 
 ## Change Log
-### openHAB TODO
+### openHAB 1.8
 
 * Initial version
