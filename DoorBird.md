@@ -32,3 +32,5 @@ This then also requires additional items to receive the notifications:
 
     Switch DoorBird_MotionSensor "DoorBird Motion Sensor Triggered" (DoorBird)
     Switch DoorBird_DoorBell "DoorBird Door Bell Triggered" (DoorBird)
+
+**Note: providing a user and password for the callback is not mandatory in case basic HTTP authentication is not enabled in openHAB.**
