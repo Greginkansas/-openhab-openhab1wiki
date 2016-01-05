@@ -518,6 +518,8 @@ xmpp:password=mysectret
 # check you openhab.log to found the address after you send something via hangout to your openhab account
 xmpp:consoleusers=**cryptic**@public.talk.google.com,myname@gmail.com
 ```
+OpenHAB does not resolve SRV entries like other XMPP clients do, you have to setup the server details manually. Generally, if `joe@example.org` is your XMPP user ID and `xmpp.example.net` points to the server running the service, set `xmpp:servername` to the actual server `xmpp.example.net`, the user name `xmpp:username` to `joe` and `xmpp:proxy` to the domain name part of your user ID `example.org`.
+
 *using XMPP*
 
 This add-on provides XMPP communication. Besides the action methods itself, it also contains the XMPP console (please check openhab.cfg for required configuration settings):
