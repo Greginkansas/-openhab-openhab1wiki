@@ -1,5 +1,5 @@
 ##Introduction
-Basically a step by step guide to install [OpenHAB 1.7.1](www.openhab.org) on an Intel x86 machine using a few common bindings. 
+Basically a step by step guide to install [OpenHAB 1.7.1](http://www.openhab.org) on an Intel x86 machine using a few common bindings. 
 The content is mostly copy & paste from other parts of the wiki.
 
 ## Operating System
