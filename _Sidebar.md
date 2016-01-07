@@ -219,6 +219,7 @@
 ### [[Application Integration|Application-Integration]]
 * [[Asterisk|Asterisk-Integration]]
 * [[DoorBird]]
+* [[Heatmiser PRT Thermostat]]
 * [[Google Calendar|GCal-Binding]]
 * [[Linux Media Players|Linux-Media-Players]]
 * [[ROS Robot Operating System|ROS-Robot-Operating-System]]
