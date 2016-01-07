@@ -169,7 +169,7 @@ Switch Btn1 { rfxcom="<636602.1:Command" }
 Number Btn1SignalLevel { rfxcom="<636602.1:SignalLevel" }
 Dimmer Btn1DimLevel { rfxcom="<636602.1:DimmingLevel" }
 String Btn2RawData { rfxcom="<636602.2:RawData" }
-Switch ChristmasTreeLights { rfxcom">636602.1:LIGHTING2.AC:Command" }
+Switch ChristmasTreeLights { rfxcom=">636602.1:LIGHTING2.AC:Command" }
 Rollershutter CurtainDownstairs { rfxcom=">P.1:CURTAIN1.HARRISON:Shutter" }
 Rollershutter ShutterBedroom { rfxcom=">1.0.0.1:RFY.RFY:Shutter" }
 ```
