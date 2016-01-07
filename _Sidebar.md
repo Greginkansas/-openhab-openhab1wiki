@@ -76,6 +76,7 @@
 
 # [[Bindings]]
 
+* [[AKM868 Binding|AKM868-Binding]]
 * [[AlarmDecoder Binding|AlarmDecoder-binding]]
 * [[Anel Binding|Anel-binding]]
 * [[Arduino SmartHome Souliss Binding|Souliss-Arduino-based-SmartHome-Binding]]
