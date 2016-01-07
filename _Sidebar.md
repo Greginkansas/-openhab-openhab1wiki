@@ -149,6 +149,7 @@
 * [[MPD Binding|Mpd-Binding]]
 * [[MQTT Binding|MQTT-Binding]]
 * [[MQTTitude binding|Mqttitude-Binding]]
+* [[MystromEcoPower Binding|MystromEcoPower-Binding]]
 * [[Neohub Binding|NeoHub-Binding]]
 * [[Nest Binding]]
     *  [[Nest Examples|Nest-Binding-Example]]
