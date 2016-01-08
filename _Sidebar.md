@@ -199,6 +199,7 @@
 * [[Tellstick Binding|Tellstick-Binding]]
 * [[TinkerForge Binding|Tinkerforge-Binding]]
 * [[Tivo Binding|Tivo-Binding]]
+* [[UCProjects.eu Relay Board Binding|UCProjects.eu Relay Board Binding]]
 * [[VDR Binding|VDR-Binding]]
 * [[Velleman-K8055-Binding|Velleman-K8055-Binding]]
 * [[Wago Binding|Wago-Binding]]
