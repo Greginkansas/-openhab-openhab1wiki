@@ -5,7 +5,15 @@ Documentation of the InfluxDB Persistence Service
 This service allows you to persist and query states using the time series database 
 [InfluxDB](http://influxdb.org).
 
-The InfluxDB binding [does not support InfluxDB 0.9 yet](https://github.com/openhab/openhab/issues/2748).
+There are two influxdb persistence bundles which support different InfluxDB versions.
+The bundle named influxdb supports InfluxDB 0.9 and newer and the influxdb08 bundle supports 
+InfluxDB up to version 0.8.x.
+
+## 1.8.0 New & Noteworthy
+As of openHAB 1.8.0 there are two influxdb persistence bundles which support different InfluxDB versions.
+If you are upgrading from prior openHAB versions you have to either upgrade your InfluxDB installation to 0.9.x or newer
+(Upgrading docs: https://github.com/influxdata/influxdb/blob/master/importer/README.md) or if you want 
+keep your current InfluxDB installation switch to the influxdb08 persistence bundle.
 
 ## Features
 
@@ -38,7 +46,7 @@ Choose a password and remember it.
 
 ### openhab.cfg
 After this the persistence service needs some configuration in the "InfluxDB Persistence Service" 
-section in openhab.cfg.
+respectively "InfluxDB 0.8 Persistence Service" section in openhab.cfg.
 
 The defaults for the database name, the database user and the database url are "openhab",
 "openhab" and "http://127.0.0.1:8086" respectively. If you took this defaults for the database setup 
@@ -49,11 +57,12 @@ you only have to add the password value to the influxdb:password=<password> vari
 |influxdb:url         | the database URL              | http://127.0.0.1:8086 |
 |influxdb:user        | the name of the database user | openhab |
 |influxdb:db          | the name of the database      | openhab |
-| influxdb:password   | the password of the database user | no default |
+|influxdb:password   | the password of the database user | no default |
+
+For influxdb08 users the variables are named influxdb08:url, influxdb08:user, influxdb08:db and influxdb08:password.
 
 ### Installation
 For installation of this persistence package please follow the same steps as if you would [install a binding](Bindings).
 
 Now place a persistence configuration file called influxdb.persist in the 
 _${openhab.home}/configuration/persistence_ folder. This has the standard format as described in [[Persistence]].
-
