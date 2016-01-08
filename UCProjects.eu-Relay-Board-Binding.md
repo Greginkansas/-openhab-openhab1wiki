@@ -23,7 +23,7 @@ Only Switch item is supported. In order to bind relay board to the switch, you n
 
 
 ```
-{ucprelayboard="board=<name>;relay=<number>;[inverted=true]"}
+{ucprelayboard="board=<name>;relay=<number>[;inverted=true]"}
 ```
 
 | Property | Description | Mandatory |
