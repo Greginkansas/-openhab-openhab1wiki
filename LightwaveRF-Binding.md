@@ -60,7 +60,7 @@ Valid types are
 <tr><td>MOOD</td><td>Number</td><td>Read/Write</td><td>Setup in LightwaveRF App</td><td>1.8.0</td>
 <tr><td>ALL_OFF</td><td>Switch</td><td>Read/Write</td><td>Virtual Device</td><td>1.8.0</td>
 <tr><td>UPDATETIME</td><td>DateTime</td><td>Read</td><td>Energy Monitor, Radiator Valves</td><td>1.8.0 (was called HEATING_UPDATETIME in 1.7.0)</td>
-<tr><td>SIGNAL</td><td>Number</td><td>Read</td><td>Energy Monitor, Radiator Valves</td><td>1.8.0 (was called HEATING_SIGNAL in 1.7.0)</td>
+<tr><td>SIGNAL</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0 (was called HEATING_SIGNAL in 1.7.0, removed from Radiator valve in 1.8.0)</td>
 <tr><td>HEATING_CURRENT_TEMP</td><td>Number</td><td>Read</td><td>Radiator Valves</td><td>1.7.0</td>
 <tr><td>HEATING_BATTERY</td><td>Number</td><td>Read</td><td>Radiator Valves</td><td>1.7.0</td>
 <tr><td>HEATING_SET_TEMP</td><td>Number</td><td>Write</td><td>Radiator Valves</td><td>1.7.0</td>
