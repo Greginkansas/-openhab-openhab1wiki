@@ -40,24 +40,46 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
 * add new bindings to http://www.openhab.org/features-tech.html
 
 ### Upload the deb Repository to bintray
+#### Fake packages
+The fake packages are a workaround for triggering the metadata generation
+for the arm and mips architectures (e.g. https://bintray.com/openhab/apt-repo/openhab/view#files/dists/1.7.1/main binary-armhf, binary-armel, ..)
+
+For every new release *once-only* the fake packages have to be uploaded.
+* open a command-line 
+* the fake packages must be available in the current working directory
+* you can download the fake packages from bintray https://bintray.com/openhab/apt-repo/fake/fake-0.1/view#files/pool/main/fake
+* execute the distribution/src/deb/bintray-upload-fake-packages.sh script from your openHAB git clone
+* executing without arguments will print the usage information
+* all packges are automatically published
+* Examples
+```
+sh bintray-upload-fake-packages.sh theoweiss bintray-api-key-abc gpgsecret-xyz 1.8.0.RC1
+```
+```
+sh bintray-upload-fake-packages.sh theoweiss bintray-api-key-abc gpgsecret-xyz 1.8.0
+```
+
+#### openHAB packages
 * open a web browser go to the bintray openHAB organisation, step into the apt-repo repository, add a new __Version__ to the openhab package: e.g. 1.7.0.RC2
 * open a command-line and go to the local apt-repo directory
-* execute the /distribution/src/deb/bintray-upload-debs.sh script from the repository
+* execute the distribution/src/deb/bintray-upload-debs.sh script from your openHAB git clone
+* executing without arguments will print the usage information
  * the first argument is your bintray username
  * the second argument is your bintray api key
- * the third argument is the openHAB version
- * the fourth argument is the distribution name. Use:
+ * the third argument is the gpg key passphrase
+ * the fourth argument is the openHAB version
+ * the fifth argument is the distribution name. Use:
    * "stable" for releases
    * "testing" for release canditates
    * "unstable" for snapshots
+* all packges are automatically published
  * Examples
 ```
-sh bintray-upload-debs.sh theoweiss 9999999999999999 1.7.0-RC2 testing
+sh bintray-upload-debs.sh theoweiss bintray-api-key-abc gpgsecret-xyz 1.7.0-RC2 testing
 ```
 ```
-sh bintray-upload-debs.sh theoweiss 9999999999999999 1.7.0 stable
+sh bintray-upload-debs.sh theoweiss bintray-api-key-abc gpgsecret-xyz 1.7.0 stable
 ```
-* open a web browser go to the bintray openHAB organisation, step into the apt-repo and publih the files
 
 ### Channels to inform about the new Release
 
