@@ -27,8 +27,8 @@ The syntax of the binding configuration is like this:
 ```
 xbmc:{instanceName}.{parameter}={value}
 ```
-Where <instanceName> is the name by which you can refer to this instance in your item binding configuration.
-<parameter> can be one of the following
+Where `instanceName` is the name by which you can refer to this instance in your item binding configuration.
+`parameter` can be one of the following
 * host
 * rsPort
 * wsPort
