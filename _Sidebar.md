@@ -178,6 +178,7 @@
 * [[PLCBus Binding|PLC-Bus-Binding]]
 * [[Primare Binding|Primare-binding]]
 * [[Pulseaudio Binding|Pulseaudio-Binding]]
+* [[Raspberry Pi RC Switch Binding|Raspberry-Pi-RC-Switch-Binding]]
 * [[RFXCOM Binding|RFXCOM-Binding]]
 * [[RWE Smarthome Binding|RWE-Smarthome-Binding]]
 * [[Sager WeatherCaster Binding|SagerWeatherCaster-Binding]]
