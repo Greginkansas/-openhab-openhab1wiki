@@ -107,7 +107,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 
 ## Updating the openHAB runtime 1.7 to 1.8
 
-If you have a running openHAB runtime 1.6 installation, you can easily update it to version 1.8 by following these steps:
+If you have a running openHAB runtime 1.7 installation, you can easily update it to version 1.8 by following these steps:
  1. Unzip the runtime 1.8 and all required addons to a new installation folder
  1. Replace the folder "configurations" by the version from your 1.7 installation
  1. Copy all other customizations you might have done to the new installation (e.g. additional images, sounds, etc.)
