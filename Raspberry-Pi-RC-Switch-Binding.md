@@ -3,7 +3,7 @@ Note: This binding will be released with openHAB 1.8
 ***
 
 ### Introduction
-openHAB binding to manage remote controlled (RC) switches via a 433-MHz transmitter connected to a Raspberry Pi
+This binding enables the management of remote controlled (RC) switches via a 433-MHz transmitter connected to a Raspberry Pi.
 
 The binding can be used with a 433-MHz transmitter connected to a Raspberry Pi as described in the following assembly instruction: https://www.raspberrypi.org/forums/viewtopic.php?f=37&t=66946
 
