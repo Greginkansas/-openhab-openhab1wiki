@@ -32,7 +32,7 @@ This procedure was tested on FreeBSD 10.2 with openHAB 1.8.0.
 9. Edit start.sh and add the following define: -Djava.net.preferIPv4Stack=true
 9. Edit configurations/openhab.cfg and set the serial port to /dev/ttyU0 (or adapt if your usb device shows up on a different device)
 
-# Regarding the multicast bug
+# Regarding the multicast problem
 
 For those interested in more background, it seems the FreeBSD IP stack does not support mapping IPV4 multicast addresses inside IPV6 addresses. Here is a link to the corresponding bug report:
 
