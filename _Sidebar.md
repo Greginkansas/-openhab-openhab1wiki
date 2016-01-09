@@ -12,6 +12,8 @@
 
 ###[[Windows|Windows]]
 
+###[[FreeBSD|FreeBSD]]
+
 ***
 
 ##[[Configuration|Configuring-the-openHAB-runtime]]
