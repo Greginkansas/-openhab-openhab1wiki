@@ -173,6 +173,7 @@
 * [[panStamp Binding|panStamp-Binding]]
 * [[Philips Hue Binding|Hue-Binding]]
 * [[Piface Binding|Piface-Binding]]
+* [[PiXtend Binding|PiXtend-Binding]]
 * [[pilight Binding|pilight-Binding]]
 * [[Pioneer-AVR-Binding]]
 * [[Plex Binding|Plex-Binding]]
