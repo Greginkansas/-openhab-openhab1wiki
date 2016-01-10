@@ -7,7 +7,7 @@ The binding is inspired by the work of [Monitoring a Stiebel Eltron LWZ] (http:/
 
 The following functionality has been implemented:
 * reading all Settings, status, time , sensor data from the heat pump
-* protocol parse for different versions of LWZ is configurable via xml file
+* protocol parse for different versions of LWZ is configurable via xml file.
   Other versions like 2.16, 4.09, 4.19, 4.38 should be easy to extend as parser configuration can be derived from [protocol versions] (http://bazaar.launchpad.net/~robert-penz-name/heatpumpmonitor/trunk/files/head:/protocolVersions/)
 * changing Settings of number setting parameter in the heat pump (still in beta)
 * updating the time in the heat pump (still in beta)
