@@ -2,7 +2,7 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
 
 1. Pull the latest state from the repository into a fresh and empty directory
 
-        git clone git@github.com:openhab/openhab.git
+        git clone https://github.com/openhab/openhab.git
 1. Open a command-line and go to the `openhab` directory
 1. Set project version to release version with the Tycho Versions plugin
 
