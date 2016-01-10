@@ -37,6 +37,8 @@ Note2: If you are using **non standard serial ports** you have to adapt start.sh
 -Dgnu.io.rxtx.SerialPorts=/dev/ttyAMA0
 ```
 
-whereas `ttyAMA0` is the path to your serial port. Please be aware to change all scripts you might use for startup (debug, automatic start in linus,...)
+whereas `ttyAMA0` is the path to your serial port. Please be aware to change all scripts you might use for startup (debug, automatic start in linux,...)
 
 Note3: With version 1.8 it is allowed to use a serial connection for multiple items. This has changed for the RegEx extension.
+
+Note4: If you are running the serial on linux then you have to remember to add to add openhab as user to the dialout: sudo adduser openhab dialout
