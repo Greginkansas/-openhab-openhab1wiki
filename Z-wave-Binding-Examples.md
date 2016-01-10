@@ -298,6 +298,10 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
 #Thermostats
 
+###Danfoss LC13 radiator thermostat:
+    Number          bedroom_thermostat_setpoint     "Bedroom Thermostat Setpoint [%.2f C]"  { zwave="3:0:command=THERMOSTAT_SETPOINT" }
+    Number          bedroom_thermostat_battery      "Bedroom Thermostat battery [%d %%]"    { zwave="3:0:command=BATTERY" }
+
 ###Eurotronic Stella Z thermostat:  
 
     Number Temp_Sensor_StellaZ_Bad "Badezimmer Temperatur: [%.1f C]" <temperature> (Heizung,Bad,Temperaturen) { zwave="28:command=sensor_multilevel,sensor_type=1" }
