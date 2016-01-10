@@ -51,6 +51,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#3604](https://github.com/openhab/openhab/pull/3604) - Plex binding update (@idserda)
 * [#3598](https://github.com/openhab/openhab/pull/3598) - Weather: Added Wunderground total precipitation (@gerrieg)
 * [#3593](https://github.com/openhab/openhab/pull/3593) - Weather: Fixed exception if degree is not in a valid range (@gerrieg)
+* [#3434](https://github.com/openhab/openhab/pull/3434) - insteonplm: Added On/Off Outlet configuration (@SwissKid)
 * [#3590](https://github.com/openhab/openhab/pull/3590) - InsteonPLM: removed comments after port configuration in openhab_default.cfg (@berndpfrommer)
 * [#3588](https://github.com/openhab/openhab/pull/3588) - Updated Squeezebox speak action to allow configurable TTS URL (@sumnerboy12)
 * [#3568](https://github.com/openhab/openhab/pull/3568) - [ecobee] Added quick poll after update, command or action. (@watou)
