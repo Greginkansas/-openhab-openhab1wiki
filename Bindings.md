@@ -4,6 +4,8 @@ This page describes how openHAB binding can be installed
 
 Bindings are optional packages that can be used to extend functionality of openHAB. By help of bindings openHAB users can e.g. access Asterisk communications software or connect to the KNX Home Automation Bus.
 
+To get an overview, visit the [tagged binding list](http://www.openhab.org/features/supported-technologies.html).
+
 ## Installation
 
 openHAB bindings do not need a dedicated installation but three simple steps:
