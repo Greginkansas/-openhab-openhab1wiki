@@ -1,6 +1,6 @@
-openHAB LCN binding
-
 Author: Tobias Jüttner, Date: 10/28/2015
+
+![](http://3.bp.blogspot.com/-d5mm3HC7uic/VpO2ctrfWNI/AAAAAAAAJOI/a37JMGhC4IY/s600/openhab_lcn.jpg)
 
 # Overview
 
