@@ -30,9 +30,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#2568](https://github.com/openhab/openhab/pull/2568) - Binding for octoller (www.octoller.com) V1.0.0 / Try 2 (@JPlenert)
 * [#2567](https://github.com/openhab/openhab/pull/2567) - New binding to control RC switches (@mroeckl)
 * [#2525](https://github.com/openhab/openhab/pull/2525) - Initial implementation of TACmi binding. (@twendt)
-* [#2494](https://github.com/openhab/openhab/pull/2494) - FritzBoxTR064 Binding (@gitbock)
 * [#2478](https://github.com/openhab/openhab/pull/2478) - New binding for IPX800 (@seebag)
-* [#2293](https://github.com/openhab/openhab/pull/2293) - First contribution of AKM868 Binding (@MitchSUEW)
 * [#2101](https://github.com/openhab/openhab/pull/2101) - new stiebel eltron heat pump binding (@kreutpet)
 
 ####Enhancements:
