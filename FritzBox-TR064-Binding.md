@@ -1,14 +1,14 @@
 # Fritzbox Binding using TR064 protocol
 
 
-This is a binding for communication with AVM FritzBox using SOAP requests (TR064 protocol). I tested it on
+This is a binding for communication with AVM Fritz!Box using SOAP requests (TR064 protocol). I tested it on
 
 * 7270
 * 7360SL (v6.30)
 * 7390
+* 6360 Cable (v6.04)
 
 **Features:**
-
 * detect if MAC is online in network (presence detection)
 * switching on/off 2,4Hz Wifi, 5GHz Wifi and Guest Wifi (if any)
 * getting external IP address of fbox
