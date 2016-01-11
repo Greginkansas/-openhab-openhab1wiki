@@ -22,7 +22,11 @@ For installation of the binding, please see the Wiki page [Bindings](Bindings).
 
 ## Binding Configuration
 
-In order to use the Ecobee API, you must specify the `appkey` and `scope` that will be used.  You must generate your own `appkey` on the Ecobee developer dashboard.  Typically, `scope` will be set to `smartWrite`, but if you have an EMS thermostat, set `scope` to `ems`.  These values must be set in the openhab.cfg file (in the folder '${openhab_home}/configurations'). The refresh interval can also be specified, and defaults to 180000ms (three minutes).
+In order to use the Ecobee API, you must specify the `appkey` and `scope` that will be used.  You must generate your own `appkey` on the Ecobee developer dashboard.  
+
+![app](https://watou.github.io/images/ecobee-pin.jpg)
+
+Typically, `scope` will be set to `smartWrite`, but if you have an EMS thermostat, set `scope` to `ems`.  These values must be set in the openhab.cfg file (in the folder '${openhab_home}/configurations'). The refresh interval can also be specified, and defaults to 180000ms (three minutes).
 
 >In OpenHAB 1.7, `ecobee:refresh` defaulted to 60000ms (one minute).
 
