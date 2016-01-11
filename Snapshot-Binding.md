@@ -31,7 +31,7 @@ Here's an example sitemap with two hikvision cameras with corresponding items `g
         }
         Text label="Garage Snapshot" icon="camera" {
           Frame {
-            Image label="Camera" url="http://admin:12345@192.168.1.5/Streaming/channels/1/picture" ref$
+            Image label="Camera" url="http://admin:12345@192.168.1.5/Streaming/channels/1/picture"
           }
         }
         Text item=garageSnapshot {
@@ -41,7 +41,7 @@ Here's an example sitemap with two hikvision cameras with corresponding items `g
         }
         Text label="Gate Snapshot" icon="camera" {
           Frame {
-            Image label="Camera" url="http://admin:12345@192.168.1.6/Streaming/channels/1/picture" ref$
+            Image label="Camera" url="http://admin:12345@192.168.1.6/Streaming/channels/1/picture"
           }
         }
         Text item=gateSnapshot {
@@ -53,6 +53,7 @@ Here's an example sitemap with two hikvision cameras with corresponding items `g
     }
 ```
 
+If you are using Foscam then try using URLs such as http://ip address:port/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=admin&pwd=xxx (thanks to Zacofany for the tip)
 
 ## Debugging
 
