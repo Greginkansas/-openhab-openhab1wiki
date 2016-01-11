@@ -33,7 +33,7 @@ Edit the file `openhab.cfg` located in `${openhab_home}/configurations/`.  Paste
     # Application ID for the MyQ API (optional, only recommended if existing id ceases to work)
     # myq:appId=JVM/G9Nwih5BwKgNCjLxiFUQxQijAebyyg8QUHr7JOrP+tuPb8iHfRHKwTmDzHOu
 
-Optional settings refresh interval, HTTP request timeout, and Application ID may also be specified. Refresh interval can be changed via the `refresh` parameter, and defaults to a polling rate of one call per every 60000ms (one minute). HTTP request timeout ('timeout') defaults to 5000ms or 5 seconds. Application ID ('appId') is used to access the the MyQ API. This should not every be changed unless the current id stops working. Changing the id overrides the included default id and could prevent new versions of the binding from working in the future. It is recommended you do not change the id unless you understand how it fully works. 
+Optional settings refresh interval, HTTP request timeout, and Application ID may also be specified. Refresh interval can be changed via the `refresh` parameter, and defaults to a polling rate of one call per every 60000ms (one minute). HTTP request timeout ('timeout') defaults to 5000ms or 5 seconds. Application ID ('appId') is used to access the the MyQ API. This should not every be changed unless the current id stops working. Changing the id overrides the included default id and could prevent new versions of the binding from working in the future. It is recommended you do not change the id unless you understand how the binding internal logic works and how/what could stop working. 
 
 
 ## Item configuration
