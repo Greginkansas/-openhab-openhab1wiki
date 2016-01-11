@@ -15,7 +15,6 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#3468](https://github.com/openhab/openhab/pull/3468) - caldav binding 26/11 (@querdenker2k)
 * [#3401](https://github.com/openhab/openhab/pull/3401) - Sonance binding (@LaurensVanAcker)
 * [#3386](https://github.com/openhab/openhab/pull/3386) - Implemented RWE Smarthome binding (@ollie-dev)
-* [#3322](https://github.com/openhab/openhab/pull/3322) - InfluxDB persistence for influxdb versions >= 0.9 (@theoweiss)
 * [#3266](https://github.com/openhab/openhab/pull/3266) - New DSC Alarm Action (@RSStephens)
 * [#3248](https://github.com/openhab/openhab/pull/3248) - New generic JDBC Persistence Service (@lewie)
 * [#3230](https://github.com/openhab/openhab/pull/3230) - Telegram action (@paolodenti)
