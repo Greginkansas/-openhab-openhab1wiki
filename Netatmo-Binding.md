@@ -329,12 +329,29 @@ unable to find valid certification path to requested target
 
 can be solved by installing the StartCom CA Certificate into the local JDK like this:
 
-* Download the certificate from https://www.startssl.com/certs/ca.pem
+* Download the certificate from https://www.startssl.com/certs/ca.pem or use wget https://www.startssl.com/certs/ca.pem
 
 * Then import it into the keystore (the password is "changeit")
 ```
 $JAVA_HOME/bin/keytool -import -keystore $JAVA_HOME/jre/lib/security/cacerts -alias StartCom-Root-CA -file ca.pem
 ```
+If $JAVA_HOME is not set then run the command:
+update-alternatives --list java
+
+This should output something similar to:
+/usr/lib/jvm/java-8-oracle/jre/bin/java
+
+Use everything before /jre/... to set the JAVA_HOME environment variable:
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+
+After you set the environment variable, try:
+
+ls -l $JAVA_HOME/jre/lib/security/cacerts
+
+If it's set correctly then you should see something similar to:
+-rw-r--r-- 1 root root 101992 Nov 4 10:54 /usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts
+
+Now try and rerun the keytool command. If you didn't get errors, you should be good to go.
 
 source: http://jinahya.wordpress.com/2013/04/28/installing-the-startcom-ca-certifcate-into-the-local-jdk/  
 
