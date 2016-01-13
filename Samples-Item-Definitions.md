@@ -1,8 +1,9 @@
 Samples of Item definitions
 * [How to configure a switch to be a pushbutton](Samples-Item-Definitions#how-to-configure-a-switch-to-be-a-pushbutton)
 * [How to set up voice control for use with HABDroid](Samples-Item-Definitions#how-to-set-up-voice-control-for-use-with-habdroid)
+* [How to get special characters like "%" in a label text](Samples-Item-Definitions#how-to-get-special-characters-like--in-a-label-text)
 
-### How to configure a switch to be a pushbutton:
+### How to configure a switch to be a pushbutton
 
 [German Thread](http://knx-user-forum.de/openhab/27123-einfacher-taster-openhab.html)
 
