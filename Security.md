@@ -22,6 +22,8 @@ and the HTTP communication will be encrypted by SSL.
 If you prefer to use your own X.509 certificates, you can. [Configure_SSL](http://wiki.eclipse.org/Jetty/Howto/Configure_SSL) has information on how to do that, and there's a
 [step-by-step guide](https://gist.github.com/jpmens/8029383) specifically for openHAB users.
 
+[Here is a guide] (https://gist.github.com/dfraser/e5710fb84c6d35aa0743) for using [Let's Encrypt] (https://letsencrypt.org) with openHAB.
+
 ## Authentication
 
 In order to activate Authentication one has to add the following parameters to the openHAB start command line
