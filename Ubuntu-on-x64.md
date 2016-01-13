@@ -1,5 +1,5 @@
 ##Introduction
-Basically a step by step guide to install [OpenHAB 1.7.1](http://www.openhab.org) on an Intel x86 machine using a few common bindings. 
+Basically a step by step guide to install [OpenHAB 1.8](http://www.openhab.org) on an Intel x86 machine using a few common bindings. 
 The content is mostly copy & paste from other parts of the wiki.
 
 ## Operating System
@@ -164,9 +164,9 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{product}=="FT232R USB UART", SY
 ```
 Add the symlinks to the Java args
 ```bash
-sudo nano /etc/init.d/openhab
+sudo nano /etc/default/openhab
 ```
-Look file the lines starting with -D and add one
+Look in the file for JAVA_ARGS and add the following
 ```
 -Dgnu.io.rxtx.SerialPorts=/dev/usb_dsmr:/dev/usb_zwave
 ```
