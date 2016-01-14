@@ -138,11 +138,11 @@ In our example we assign the following KNX group addresses to the different comm
 
 The respective line in the items definition file would therefore look like this:
 
-    Dimmer TestDimmer (Lights) { knx="1/3/20+0/3/20, 1/3/21, 1/3/22+0/3/22+0/8/15" }
+    Dimmer TestDimmer "TestDimmer [%s]" (Lights) { knx="1/3/20+0/3/20, 1/3/21, 1/3/22+0/3/22+0/8/15" }
 
 If you have a dimmer that does not support INCREASE/DECREASE commands and thus you do not have a GA to provide in the middle, you can also directly define the datapoint types (DPTs) in the configuration. The above example would then look like this (without INCREASE/DECREASE support):
 
-    Dimmer TestDimmer (Lights) { knx="1.001:1/3/20+0/3/20, 5.001:1/3/22+0/3/22+0/8/15" }
+    Dimmer TestDimmer "TestDimmer [%s]" (Lights) { knx="1.001:1/3/20+0/3/20, 5.001:1/3/22+0/3/22+0/8/15" }
 
 ### Command types for items
 
