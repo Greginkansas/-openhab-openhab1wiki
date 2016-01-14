@@ -91,10 +91,16 @@ Binding file: org.openhab.binding.caldav-personal-version.jar
 
 # Tested calDAV Servers
 As far as i know are these
-* ownCloud (reference implementation)
+* ownCloud (my reference implementation)
 * baikal
 * google (performance issue, because the timestamp of files is not correct)
-* (zafira?)
+* (zarafa?)
+
+# Persistence
+> caldav-persistence:calendarId=history
+> caldav-persistence:duration=10
+> caldav-persistence:singleEvents=false
+Saves the events to the calendar named history with a length of 10 minutes
 
 # Example configuration
 
@@ -154,9 +160,9 @@ openhab.cfg
 
 The items-File:
 
-    String OfficeCalName0	"Termin jetzt"		<calendar>	{ caldavPersonal="calendar:dienstlich type:ACTIVE eventNr:1 value:NAME" } //eventNr for concurrent events
-    DateTime OfficeCalTime0	"Beginn"			<calendar>	{ caldavPersonal="calendar:dienstlich type:ACTIVE eventNr:1 value:START" } //eventNr for concurrent events
-    String OfficeCalName1	"nächster Termin"	<calendar>	{ caldavPersonal="calendar:dienstlich type:UPCOMING eventNr:1 value:NAME" }
-    DateTime OfficeCalTime1	"Beginn"			<calendar>	{ caldavPersonal="calendar:dienstlich type:UPCOMING eventNr:1 value:START" }
-    String OfficeCalName2	"übernächster Termin" <calendar> { caldavPersonal="calendar:dienstlich type:UPCOMING eventNr:2 value:NAME" }
-    DateTime OfficeCalTime2	"Beginn" 			<calendar> { caldavPersonal="calendar:dienstlich type:UPCOMING eventNr:2 value:START" }
+    String OfficeCalName0	"Termin jetzt [%s]"		<calendar>	{ caldavPersonal="calendar:dienstlich type:ACTIVE eventNr:1 value:NAME" } //eventNr for concurrent events
+    DateTime OfficeCalTime0	"Beginn [%1$tT, %1$td.%1$tm.%1$tY]"			<calendar>	{ caldavPersonal="calendar:dienstlich type:ACTIVE eventNr:1 value:START" } //eventNr for concurrent events
+    String OfficeCalName1	"nächster Termin [%s]"	<calendar>	{ caldavPersonal="calendar:dienstlich type:UPCOMING eventNr:1 value:NAME" }
+    DateTime OfficeCalTime1	"Beginn [%1$tT, %1$td.%1$tm.%1$tY]"			<calendar>	{ caldavPersonal="calendar:dienstlich type:UPCOMING eventNr:1 value:START" }
+    String OfficeCalName2	"übernächster Termin [%s]" <calendar> { caldavPersonal="calendar:dienstlich type:UPCOMING eventNr:2 value:NAME" }
+    DateTime OfficeCalTime2	"Beginn [%1$tT, %1$td.%1$tm.%1$tY]" 			<calendar> { caldavPersonal="calendar:dienstlich type:UPCOMING eventNr:2 value:START" }
