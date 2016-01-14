@@ -24,7 +24,7 @@ You'll have to authorise openHAB to use Twitter. This is done using a two step p
     08:46:10.015 INFO  o.openhab.io.net.actions.Tweet[:143] - # NOTE: You will only have 5 mins before openHAB gives up waiting for the pin!!!
     08:46:10.015 INFO  o.openhab.io.net.actions.Tweet[:144] - ################################################################################################
 
-**Step 2** needs interaction. Copy the given URL to your browser and authorize openHAB to use Twitter. Be aware that the request token is only valid for the next five minutes, so don't wait too long. After successful authorization you will be given an authentication pin which you will need to copy to a new file you create in the `<openhabhome>` directory called `twitter.pin`.
+**Step 2** needs interaction. Copy the given URL to your browser and authorize openHAB to use Twitter. Be aware that the request token is only valid for the next five minutes, so don't wait too long. After successful authorization you will be given an authentication pin which you will need to copy to a new file you create in the `<openhabhome>` directory called `twitter.pin`. Please note that the pin must be given in this format: `pin=<authpin>`
 
 **Step 3** is handled automatically by openHAB. It will detect the pin file you just created and use it to generate an authentication token which it will store away for future use. openHAB will give up waiting after 5 mins so if you are not quick enough you will have to restart openHAB and begin the authentication process again.
 
