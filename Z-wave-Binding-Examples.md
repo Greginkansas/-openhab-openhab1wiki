@@ -50,16 +50,16 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Group	gWohnzimmer		"Wohnzimmer"			<sofa>	(gAlles)
     Group	gwzRGBW			"TV Rücklicht Erweitert"	<sofa>	(gWohnzimmer)
 
-    Color 	wzRGBW 		"TV Rücklicht" 		<slider> 	(gwzRGBW)
-    Dimmer 	wzRGBW_All 	"Helligkeit [%d %%]" 	<switch> 	(gwzRGBW)	{zwave="2"}
-    Dimmer	wzRGBW_R 	"Rot [%d %%]" 		<switch> 	(gwzRGBW)	{zwave="2:2"}
-    Dimmer 	wzRGBW_G 	"Grün [%d %%]" 		<switch> 	(gwzRGBW)	{zwave="2:3"}
-    Dimmer 	wzRGBW_B 	"Blau [%d %%]" 		<switch> 	(gwzRGBW)	{zwave="2:4"}
-    Dimmer 	wzRGBW_W 	"Weiß [%d %%]" 		<switch> 	(gwzRGBW)	{zwave="2:5"}
+    Color 	wzRGBW 		"TV Rücklicht" 		<slider> (gwzRGBW)
+    Dimmer 	wzRGBW_All 	"Helligkeit [%d %%]" 	<switch> (gwzRGBW)	{zwave="2"}
+    Dimmer	wzRGBW_R 	"Rot [%d %%]" 		<switch> (gwzRGBW)	{zwave="2:2:command=switch_multilevel"}
+    Dimmer 	wzRGBW_G 	"Grün [%d %%]" 		<switch> (gwzRGBW)	{zwave="2:3:command=switch_multilevel"}
+    Dimmer 	wzRGBW_B 	"Blau [%d %%]" 		<switch> (gwzRGBW)	{zwave="2:4:command=switch_multilevel"}
+    Dimmer 	wzRGBW_W 	"Weiß [%d %%]" 		<switch> (gwzRGBW)	{zwave="2:5:command=switch_multilevel"}
     
     Switch  wzRGBW_Switch	"Schalter Alle"		<switch> 	(gwzRGBW)	{ zwave="2:1"}
     Switch  wzRGBW_R_Switch	"Schalter Rot"		<switch> 	(gwzRGBW)	{ zwave="2:2"}
-    Switch  wzRGBW_G_Switch "Schalter Grün"		<switch> 	(gwzRGBW)	{ zwave="2:3"}
+    Switch  wzRGBW_G_Switch	"Schalter Grün"		<switch> 	(gwzRGBW)	{ zwave="2:3"}
     Switch  wzRGBW_B_Switch	"Schalter Blau"		<switch> 	(gwzRGBW)	{ zwave="2:4"}
     Switch  wzRGBW_W_Switch	"Schalter Weiß"         <switch> 	(gwzRGBW)	{ zwave="2:5"}
 
@@ -137,6 +137,7 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Number Temp_GFToilet "Temperature: [%.1f °C]" (GF_Toilet) { zwave="8:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
     Number Humid_GFToilet "Humidity: [%.0f %%]" (GF_Toilet) { zwave="8:command=sensor_multilevel,sensor_type=5" }
     Number Lumin_GFToilet "Luminance: [%.0f Lux]" (GF_Toilet) { zwave="8:command=sensor_multilevel,sensor_type=3" }
+    Number UV_GFToilet "Luminance: [UV index %d]" (GF_Toilet) { zwave="8:command=sensor_multilevel,sensor_type=27" }
     Number Battery_GFToilet "Battery: [%d %%]" (GF_Toilet) { zwave="8:command=battery" }
 
 ###D-Link DCH-Z110  
@@ -240,7 +241,8 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
 ###Fibaro Smoke detector (FGSS101, FGSD002)  
 
-    Contact	Z_Kitchen_Smoke	"Smokedetector_K is[%s]"	(Smoke_Alarm) {zwave="6:command=sensor_alarm,alarm_type=1" }
+    Contact	Z_Kitchen_Smoke	"Smoke detector is [%s]"	(Smoke_Alarm) {zwave="6:command=sensor_alarm,alarm_type=1" }
+    Contact	Z_Kitchen_Heat	"Heat detector is [%s]"	(Smoke_Alarm) {zwave="6:command=sensor_alarm,alarm_type=4" }
     Contact	Z_Kitchen_Tamper	"Smoke_sensor_K Tamper is[MAP(en.map):%s]"	(Tamper_Alarm)	{ zwave="6:command=sensor_alarm,alarm_type=0" }
     Number	Z_Kitchen_Battery	"Smoke_sensor_batt [%d %%]"	(Battery_Levels)	{zwave="6:command=battery" }
     Number	Z_Kitchen_Temp	"Kitchen_temperature [%.1f°C]"	(Temperatures) {zwave="6:command=sensor_multilevel,sensor_type=1" }
