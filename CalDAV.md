@@ -97,9 +97,9 @@ As far as i know are these
 * (zarafa?)
 
 # Persistence
-> caldav-persistence:calendarId=history
-> caldav-persistence:duration=10
-> caldav-persistence:singleEvents=false
+    caldav-persistence:calendarId=history
+    caldav-persistence:duration=10
+    caldav-persistence:singleEvents=false
 Saves the events to the calendar named history with a length of 10 minutes
 
 # Example configuration
