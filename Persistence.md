@@ -14,7 +14,7 @@ Name | Queryable | Link | Notes
 [[Cosm|Cosm-Persistence]] | | [cosm.com](http://cosm.com/) | write item states to Cosm/Xively site
 [[db4o|db4o-Persistence]] | X | [db4o.com](http://www.db4o.com/) | a lightweight, 100% pure Java object database
 [[Exec|Exec-Persistence]] | | | persist by executing commands in the underlying OS
-IFTTT |  | [IFTTT](https://ifttt.com/recipes) | if-this-then-that could service. See [[my.openHAB|my.openHAB-Persistence]]
+IFTTT |  | [IFTTT](https://ifttt.com/recipes) | if-this-then-that cloud service. See [[my.openHAB|my.openHAB-Persistence]]
 [[InfluxDB|InfluxDB-Persistence]] | X | [influxdata.com](https://influxdata.com/) | open-source distributed time series database with no external dependencies
 [[JDBC|JDBC-Persistence]] | X | [wikipedia](https://en.wikipedia.org/wiki/Java_Database_Connectivity) | Java Database Connectivity support for MySQL and several other JDBC-enabled databases (one table per item)
 [[JPA|JPA-Persistence]] | X | [wikipedia](http://en.wikipedia.org/wiki/Java_Persistence_API) | Java Persistence API support for Derby and many other JDBC-enabled databases (one table "historic_item" where all item states are stored as strings)
