@@ -10,7 +10,7 @@ The mapdb Persistence Service is based on simple key-value store http://www.mapd
 
 ## Features
 
-The mapdb Persistence Service is a simple persistence provider that only saves the last value. Intention is to use this for "reloadOnStartup" items because all other persistence options have their drawbacks if values are only needed for reload
+The mapdb Persistence Service is a simple persistence provider that only saves the last value. The intention is to use this for "restoreOnStartup" items because all other persistence options have their drawbacks if values are only needed for reload.
 
 They:
 a) grow in time
@@ -25,7 +25,7 @@ For installation of this persistence package please follow the same steps as if 
 
 ## Configuration
 
-Place a persistence file called mapdb.persist in the `${openhab_home}/configuration/persistence` folder.
+Place a persistence file called mapdb.persist in the `${openhab_home}/configurations/persistence` folder.
 
 See [Persistence](Persistence) for details on configuring this file.
 
