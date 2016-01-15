@@ -186,6 +186,8 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
     Contact coFibFlood_Alarm    "Water-Sensor: [MAP(water.map):%s]"   { zwave="11:command=SENSOR_ALARM, alarm_type=5,respond_to_basic=TRUE" }
     Number nuFibFlood_Battery   "Water-Sensor: Batterie [%s %%]"      { zwave="11:command=BATTERY" }
+    Number nuFibFlood_Temp	"Water-Sensor: Temperatur [%.1f Â°C]" { zwave="11:2:command=sensor_multilevel" }
+    Switch swFibFlood_Tamper    "Water-Sensor: Tamper"                { zwave="11:command=sensor_alarm, alarm_type=0,respond_to_basic=true" }
 
 ###Fibaro Multisensor (FIB_FGMS-001)
 
