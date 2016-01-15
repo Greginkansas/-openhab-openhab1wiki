@@ -251,7 +251,7 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
 #Switches
 
-###Fibaro Wall Plug (FGWPF-101 & FGWPF-102)  
+###Fibaro Wall Plug (FGWPF-101 & FGWPF-102 & FGWPE)  
 
     Switch Wall_Plug           "Wall Plug"                             { zwave="3:command=switch_binary"} 
     Number Wall_Plug_Power     "Wall Plug - current energy [%.1f W]"   { zwave="3:command=sensor_multilevel"}
