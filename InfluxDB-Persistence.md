@@ -64,5 +64,5 @@ For __influxdb08__ users the variables are named influxdb08:url, influxdb08:user
 ### Installation
 For installation of this persistence package please follow the same steps as if you would [install a binding](Bindings).
 
-Now place a persistence configuration file called influxdb.persist in the 
+Now place a persistence configuration file called influxdb.persist (or influxdb08.persist for the influxdb08 bundle) in the 
 _${openhab.home}/configuration/persistence_ folder. This has the standard format as described in [[Persistence]].
