@@ -224,6 +224,7 @@
 ### [[Application Integration|Application-Integration]]
 * [[Asterisk|Asterisk-Integration]]
 * [[DoorBird]]
+* [[Foscam IP Cameras|Foscam-IP-Cameras]]
 * [[Heatmiser PRT Thermostat]]
 * [[Google Calendar|GCal-Binding]]
 * [[Linux Media Players|Linux-Media-Players]]
