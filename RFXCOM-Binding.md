@@ -247,7 +247,7 @@ Number Owl_Amps { rfxcom="<35072:Channel2Amps" }
   <tr><td>TEMPERATUREHUMIDITY.<br>THGR918_THGRN228_THGN50</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.TFA_TS34C__CRESTA</td><td>Working</td><td>Temperature, Humidity, HumidityStatus, BatteryLevel, SignalLevel</td></tr>
   <tr><td>TEMPERATUREHUMIDITY.<br>WT260_WT260H_WT440H_WT450_WT450H</td><td>Untested</td><td></td></tr>
-  <tr><td>TEMPERATUREHUMIDITY.VIKING_02035_02038</td><td>Untested</td><td></td></tr>
+  <tr><td>TEMPERATUREHUMIDITY.VIKING_02035_02038</td><td>Working</td><td>Temperature, Humidity, Humidity status, Signal level, Battery level</td></tr>
   <tr><td>SECURITY1.X10_SECURITY_MOTION</td><td>working</td><td>Motion</td></tr>
   <tr><td>THERMOSTAT1</td><td>Digimax 210 working</td><td>Temperature, SetPoint, Contact</td></tr>
 
