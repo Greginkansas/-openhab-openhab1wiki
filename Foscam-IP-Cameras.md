@@ -78,7 +78,7 @@ From [Steve Bate](https://community.openhab.org/users/steve1):
 > and JSR223 Jython rules and scripts. I also use the log analysis to determine who
 > is logging into my camera (user names and IP addresses) for security monitoring.
 
-See also: [General API Access](#general-api-access)
+See also: [General API Access](#general-api-access), [foscam_log](https://github.com/steve-bate/openhab-foscam/tree/master/src/python)
 
 ### Use Motion Alarm Callback (older camera API)
 
