@@ -13,7 +13,7 @@ Sitemaps are a declarative UI definition. With a few lines it is possible to def
 
 If you create a sitemap with the name `default.sitemap` and the sitemap element 'default' then you do not need to specify a sitemap parameter in your URL. The URL "http://localhost:8080/openhab.app" has the same behaviour as "http://localhost:8080/openhab.app?sitemap=default".
 
-The openHAB runtime comes with a [demo sitemap file](https://github.com/openhab/openhab/blob/master/distribution/openhabhome/configurations/sitemaps/demo.sitemap), which should let you easily understand its structure. 
+The openHAB runtime comes with a [demo sitemap file](https://github.com/openhab/openhab-distro/blob/master/features/openhab-demo-resources/src/main/resources/sitemaps/demo.sitemap), which should let you easily understand its structure. 
 
 For easy editing, the openHAB Designer brings full IDE support for these files, so you can easily check the syntax and find out about the options you have. (Again, for the technically interested, this is also an [Xtext DSL](https://github.com/openhab/openhab/blob/master/bundles/model/org.openhab.model.sitemap/src/org/openhab/model/Sitemap.xtext).)
 
