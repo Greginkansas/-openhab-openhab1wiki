@@ -161,7 +161,7 @@ For detailed binding configuration syntax of openHAB bindings please see the ope
 
 ## examples
 #### from the demo file
-The openHAB runtime comes with a [demo items file](https://github.com/openhab/openhab/blob/master/distribution/openhabhome/configurations/items/demo.items), here is a short excerpt from it:
+The openHAB runtime comes with a [demo items file](https://github.com/openhab/openhab-distro/blob/master/features/openhab-demo-resources/src/main/resources/items/demo.items), here is a short excerpt from it:
 
     Group            gAll
     Group            Status                                                 (gAll)
