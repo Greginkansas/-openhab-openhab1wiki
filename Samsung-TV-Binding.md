@@ -37,12 +37,12 @@ A working example for such configuration could look like:
     ######################## SAMSUNG TV Binding ############################################
     
     # Host and port of the first TV to control
-    # samsungtv:Livingroom.host=192.168.0.12
-    # samsungtv:Livingroom.port=55000
+    samsungtv:Livingroom.host=192.168.0.12
+    samsungtv:Livingroom.port=55000
     
     # Host and port of the second TV to control
-    # samsungtv:Bedroom.host=192.168.0.13
-    # samsungtv:Bedroom.port=55000
+    samsungtv:Bedroom.host=192.168.0.13
+    samsungtv:Bedroom.port=55000
 
 During first connection attempt, TV ask to grant permission to OpenHAB application. If you have missed dialog, you can change permission options from TV's menu (e.g. Menu -> Network -> AllShare options). If you have any problems to control you TV by OpenHAB, you could verify connection by Samsung official iOS or Android remote control software. 
 
