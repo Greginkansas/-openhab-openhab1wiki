@@ -46,7 +46,7 @@ From [Nicholas Waterton](https://community.openhab.org/users/Nicholas_Waterton):
 
 ---
 
-## Motion Alarms
+## Motion and Sound Alarms
 
 Some versions of Foscam cameras provide a motion detection callback (models?), 
 but the newer HD cameras do not. Users have proposed several techniques for
@@ -62,7 +62,8 @@ From [mstormi](https://community.openhab.org/users/mstormi):
 
 > I'm polling [with]:
 
->     String Foscam_Detect "Bewegungserkennung Aussenkamera [MAP(foscam.map):%s]" <camera> (Status,Test) { http="<[http://foscam:88/cgi-bin/CGIProxy.fcgi?cmd=getDevState&usr=USER&pwd=PASSWORD:4000:REGEX(.*?<motionDetectAlarm>(.*?)</motionDetectAlarm>.*)]" }
+>     String Foscam_Motion "Motion detection [MAP(foscam.map):%s]" <camera> (Status,Test) { http="<[http://foscam:88/cgi-bin/CGIProxy.fcgi?cmd=getDevState&usr=USER&pwd=PASSWORD:4000:REGEX(.*?<motionDetectAlarm>(.*?)</motionDetectAlarm>.*)]" }
+>     String Foscam_Sound "Sound detection [MAP(foscam.map):%s]" <camera> (Status,Test) { http="<[http://foscam:88/cgi-bin/CGIProxy.fcgi?cmd=getDevState&usr=USER&pwd=PASSWORD:4000:REGEX(.*?<soundAlarm>(.*?)</soundAlarm>.*)]" }
 
 > Not the most elegant solution, and specific to Foscam, but it works and it's 
 > fast to react, almost as good as a PIR sensor.
