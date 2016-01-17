@@ -1,3 +1,11 @@
+**! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !**
+
+**-->    This page is out of date. Please check [here](https://github.com/openhab/openhab-distro/blob/master/docs/sources/development/ide.md) for the latest info.**
+
+**! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !**
+
+
+
 How to set up a development environment for openHAB
 
 ## Introduction
