@@ -67,8 +67,8 @@
 * [[Projects using openHAB|Projects-using-openHAB]]
 
 ## Development
-* [[How to Contribute|How-To-Contribute]]
-* [[IDE Setup|IDE-Setup]]
+* [[How to Contribute|https://github.com/openhab/openhab-distro/blob/master/CONTRIBUTING.md]]
+* [[IDE Setup|https://github.com/openhab/openhab-distro/blob/master/docs/sources/development/ide.md]]
 * [[How to Implement a Binding|How-To-Implement-A-Binding]]
 * [[How to Implement an Action|How-To-Implement-An-Action]]
 
