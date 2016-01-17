@@ -33,6 +33,9 @@ jpa:url=jdbc:mysql://localhost:3306/openhab
 Attention: databases "openhab" for MySQL and PostgreSQL must be created manually first.
 The JPA binding does not create databases, except this is possible as configuration in the jdbc url (see Apache Derby example).
 
+Update:
+From version 1.8 the binding does create tables.
+
 ### Database driver
 ```
 jpa:driver        # the database driver class name
