@@ -1,3 +1,10 @@
+
+**! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !**
+
+**-->    This page is out of date. Please check [here](https://github.com/openhab/openhab-distro/blob/master/docs/sources/development/bindings.md) for the latest info.**
+
+**! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !**
+
 # Introduction
 
 Bindings are the most interesting bit for people to get into coding for openHAB and therefore, many questions arise around this topic regularly.
