@@ -59,7 +59,7 @@ you only have to add the password value to the influxdb:password=<password> vari
 |influxdb:db          | the name of the database      | openhab |
 |influxdb:password   | the password of the database user | no default |
 
-For __influxdb08__ users the variables are named influxdb08:url, influxdb08:user, influxdb08:db and influxdb08:password.
+For __influxdb08__ users the variables are named influxdb08:url, influxdb08:user, influxdb08:db and influxdb08:password. If influxdb is your default persitence service, then change to persistence:default=influxdb08 as well. 
 
 ### Installation
 For installation of this persistence package please follow the same steps as if you would [install a binding](Bindings).
