@@ -106,8 +106,7 @@ These map files have to be structured as simple key/value pairs:
     1=opened
     UNDEFINED=unknown
 
-See the sample map files in the source code repository online here:
-https://github.com/openhab/openhab/tree/master/distribution/openhabhome/configurations/transform
+See the [sample map files](https://github.com/openhab/openhab/tree/1.8/distribution/openhabhome/configurations/transform) in the openHAB 1.8 source code repository.
 
 **Example:**
 
@@ -198,5 +197,4 @@ For more info about other options have a look at the demo.items file and the wik
 
 Further examples for defining items can be found in our [openHAB-samples section](Samples-Item-Definitions). 
 
-The currently implemented item types can be found in [source code](https://github.com/openhab/openhab/tree/master/bundles/core/org.openhab.core.library/src/main/java/org/openhab/core/library/types).
-
+The currently implemented item types can be found in [the openHAB 1.8 source code](https://github.com/openhab/openhab/tree/1.8/bundles/core/org.openhab.core.library/src/main/java/org/openhab/core/library/types).
