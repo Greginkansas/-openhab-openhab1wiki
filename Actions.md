@@ -362,7 +362,7 @@ then
 end
 ```
 
-In case your image is behind an authenticated web server (locked by username and password) you can pass the credentials as additional parameters to the `sendTelegramPhoto` method (**available since 1.9**).
+In case your image is behind an authenticated web server (locked by username and password) you can pass the credentials as additional parameters to the extended `sendTelegramPhoto` method (**available since 1.9**).
 
 ```
 rule "Send telegram with image without caption from image accessible by url"
