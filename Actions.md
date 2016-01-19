@@ -362,6 +362,18 @@ then
 end
 ```
 
+In case your image is behind an authenticated server (locked by username and password) you can pass the credentials as additional parameters to the `sendTelegramPhoto ` method.
+
+```
+rule "Send telegram with image without caption from image accessible by url"
+when
+    Item Light_GF_Living_Table changed
+then
+    sendTelegramPhoto("bot1", "http://www.openhab.org/assets/images/openhab-logo-top.png",
+        null, "username", "password")
+end
+```
+
 #### How to get the Bot authentication token and the chatId
 As described in the Telegram Bot API, this is the manual procedure needed in order to get the necessary information.
 
