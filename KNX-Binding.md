@@ -2,7 +2,7 @@ Documentation of the KNX Binding Bundle
 ### Table of Contents
 
  * [Introduction](#introduction)
- * [Binding Configuration](#binding-configuration-in-openhab-cfg)
+ * [Binding Configuration](#binding-configuration)
  * [Bind Items to KNX](#bind-items-to-knx)
  * [Supported Datapoint Types](#supported-datapoint-types)
  * [KNX Logging](#knx-logging)
@@ -13,13 +13,13 @@ The openHAB KNX binding allows to connect to [KNX Home Automation](http://www.kn
 
 To access your KNX bus you either need an KNX IP gateway (like e.g. the [Gira KNX IP Router](http://www.gira.com/en/produkte/knxeib-ip-router.html)) or a PC running [EIBD](http://www.auto.tuwien.ac.at/~mkoegler/index.php/eibd) (free open source component that enables communication with the KNX bus).
 
-> Please note that the KNX Binding is using **3761/UDP** by default to connect to your gateway.
+> Please note that the KNX Binding is using **224.0.23.12:3671/UDP** by default to connect to your gateway.
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-## Binding Configuration in openhab.cfg
+## Binding Configuration
 
-You can find the configuration section for the KNX binding in file configurations/openhab.cfg, section "KNX Binding". 
+You can find the configuration section for the KNX binding in file **configurations/openhab.cfg**, section "KNX Binding". 
 
 ##### For your convenience you can see the relevant section as follows:
 
