@@ -14,7 +14,7 @@ For installation of the binding, please see Wiki page [[Bindings]].
 
 You can find the configuration section for the KNX binding in file configurations/openhab.cfg, section "KNX Binding". 
 
-For your convenience you can see the relevant section as follows:
+##### For your convenience you can see the relevant section as follows:
 
     # KNX gateway IP address 
     # (optional, if serialPort or connection type 'ROUTER' is specified)
@@ -78,10 +78,31 @@ For your convenience you can see the relevant section as follows:
     # ScheduledExecutorService. (optional, defaults to 5)
     #knx:scheduledExecutorServiceShutdownTimeoutString=
 
-A sample configuration could look like:
+##### A sample configuration could look like:
 
     knx:ip=192.168.1.10
     knx:type=ROUTER
+    
+##### Specific sample configuration for KNX communication between two openHAB installations:
+This configuration works without any physical KNX Hardware. 
+Uses default KNX multicast IP address: *224.0.23.12:3671* for communication.
+
+KNX Configuration first openHAB:
+
+    knx:busaddr=15.15.248
+    knx:type=ROUTER
+
+KNX Configuration second openHAB:
+
+    knx:busaddr=15.15.249
+    knx:type=ROUTER
+    
+The multicast IP address 224.0.23.12 is reserved for KNXnet/IP at the IANA (Internet Assigned Numbers Authority) for this purpose. 
+If a different multicast IP address is required, it must lie within the range of 239.0.0.0 to 239.255.255.255. 
+For alternative multicast IP adress for example, add in both KNX configurations:
+
+    knx:localIp=239.0.0.1
+    knx:ip=239.0.0.1
 
 ## Bind Items to KNX
 
@@ -198,7 +219,7 @@ To get an overview of the supported DPTs, it's best to look into the source code
 ### Forward Data from other Bindings to another Binding (KNX)
 You may want in some cases to get Data from one Binding (for example 1Wire) to KNX. You will be able to do this through rules, but also can do this by an Item definition.
 
-    Number Temperature_UG_HWR	"HWR [%.1f °C]"  <temperature>	(Temperature_UG, UG_HWR) {onewire="28.7871CF040000#temperature", knx="5/1/40"}
+    Number Temperature_UG_HWR   "HWR [%.1f °C]"  <temperature>  (Temperature_UG, UG_HWR) {onewire="28.7871CF040000#temperature", knx="5/1/40"}
 
 In this Example a 1Wire Temperature Sensor will also be available on knx adress 5/1/40
 
