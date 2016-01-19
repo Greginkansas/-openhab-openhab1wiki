@@ -92,18 +92,22 @@ Binding file: org.openhab.binding.caldav-personal-version.jar
 # Tested calDAV Servers with examples
 As far as i know are these
 * ownCloud (my reference implementation)
+
     caldavio:openhab_tasks:url=http://server.de/owncloud/remote.php/caldav/calendars/openHAB/tasks
     caldavio:openhab_tasks:username=username
     caldavio:openhab_tasks:password=password
     caldavio:openhab_tasks:reloadInterval=10
     caldavio:openhab_tasks:preloadTime=20000
+
 * baikal
 * google (performance issue, because the timestamp of files is not correct)
+
     caldavio:openhab_tasks:url=https://www.google.com/calendar/dav/email@gmail.com/events
     caldavio:openhab_tasks:username=email@gmail.com
     caldavio:openhab_tasks:password=password
     caldavio:openhab_tasks:reloadInterval=10
     caldavio:openhab_tasks:preloadTime=20000
+
 * (zarafa?)
 
 # Persistence
