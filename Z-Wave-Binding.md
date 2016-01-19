@@ -11,7 +11,7 @@ Initialization of the binding typically takes several seconds to minutes dependi
 
 For installation of the binding, please see Wiki page [Bindings](Bindings).
 
-The snapshot version of the binding can be downloaded, together with the rest of openhab, from the [cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/) page.
+The snapshot version of the binding can be downloaded, together with the rest of openhab, from the [cloudbees](https://openhab.ci.cloudbees.com/job/openHAB1-Addons/) page.
 
 **NOTE:** There is an issue with using the RPi with the zwave binding - see the known issues below.
 
