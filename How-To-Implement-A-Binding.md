@@ -1,9 +1,12 @@
-
-**! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !**
-
-**-->    This page is out of date. Please check [here](https://github.com/openhab/openhab-distro/blob/master/docs/sources/development/bindings.md) for the latest info.**
-
-**! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !**
+<table><tr><td>:warning:</td>
+<td>
+<hr width="100%">
+<b>
+This page is out of date. Please check <a href="https://github.com/openhab/openhab-distro/blob/master/docs/sources/development/bindings.md">here</a> for the latest info.
+</b>
+<hr>
+</td>
+<td>:warning:</td></tr></table>
 
 # Introduction
 
