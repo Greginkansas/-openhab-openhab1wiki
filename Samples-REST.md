@@ -349,7 +349,7 @@ _Get state updates of an item/page (using websockets) you can decode the data in
 ```python
     #!/usr/bin/env python
 
-    import websocket    #need to run pip install websockets-client to get this module
+    import websocket    #need to run pip install websocket-client to get this module
 
     class WSClient():
      
