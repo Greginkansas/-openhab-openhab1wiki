@@ -1,4 +1,11 @@
 Documentation of the KNX Binding Bundle
+### Table of Contents
+
+ * [Introduction](#introduction)
+ * [Binding Configuration](#binding-configuration-in-openhab-cfg)
+ * [Bind Items to KNX](#bind-items-to-knx)
+ * [Supported Datapoint Types](#supported-datapoint-types)
+ * [KNX Logging](#knx-logging)
 
 ## Introduction
 
