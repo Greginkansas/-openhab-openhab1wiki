@@ -37,6 +37,7 @@
 * [[CometVisu|CometVisu]]
 * [[Kodi|https://github.com/enishoca/openhab-kodi]]
 * [[Slack|https://github.com/openhab/openhab/wiki/Slack-integration]]
+* [[Chrome Extension|https://chrome.google.com/webstore/detail/mini-openhab-controller/lphilmckagfijcikbfoibgekcoodaobd]]
 
 ## [[Persistence]]
 * [[Cosm Persistence|Cosm-Persistence]]
