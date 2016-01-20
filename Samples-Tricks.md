@@ -120,6 +120,9 @@ OPENHAB_LOG=/var/log/openhab.log
 # be sure you are adopting the user to your local OH user 
 RUN_AS=ben
 
+# make sure logfile has proper owner
+touch $OPENHAB_LOG && chown $RUN_AS $OPENHAB_LOG
+
 # get path to equinox jar inside $eclipsehome folder
 cp=$(find $ECLIPSEHOME/server -name "org.eclipse.equinox.launcher_*.jar" | sort | tail -1);
 
