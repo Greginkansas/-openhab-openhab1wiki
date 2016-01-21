@@ -9,6 +9,7 @@ The Binding uses an abstraction layer that theoretically allows it to support ma
 
 This persistence service supports writing information to SQL or NoSQL database systems.
 Currently, with openHAB 1.6, the binding supports MySQL, Apache Derby and PostgreSQL databases.
+UPDATE: from openHAB 1.8+ only the embedded Derby database driver is included. Other drivers must be installed manually.
 
 ## Installation
 
