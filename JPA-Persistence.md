@@ -9,7 +9,8 @@ The Binding uses an abstraction layer that theoretically allows it to support ma
 
 This persistence service supports writing information to SQL or NoSQL database systems.
 Currently, with openHAB 1.6, the binding supports MySQL, Apache Derby and PostgreSQL databases.
-UPDATE: from openHAB 1.8+ only the embedded Derby database driver is included. Other drivers must be installed manually.
+
+UPDATE: from openHAB 1.8+ only the embedded Derby database driver is included. Other drivers must be installed manually. (See below for more information on that.)
 
 ## Installation
 
@@ -66,6 +67,10 @@ The item state as such is stored as a string representation.
 In openHAB 1.8 the binding has been modified in that now only the embedded Derby driver is included.
 Drivers for other databases must be installed manually. This is a trivial process. Normally JDBC database drivers are packaged as OSGi bundles and can just be dropped into the 'addons' folder of openHAB.
 This has the advantage that users can update their drivers as needed.
+
+The following database drivers are known to work:
+- postgresql-9.4-1203-jdbc41.jar
+- postgresql-9.4-1206-jdbc41.jar
 
 If a database driver is not an OSGi bundle the below technique can be used to extend the openHAB classpath.
 
