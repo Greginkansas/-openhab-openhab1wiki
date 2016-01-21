@@ -74,8 +74,10 @@ H2 | h2-1.4.189.jar | [Maven](http://mvnrepository.com/artifact/com.h2database/h
 HSQLDB | hsqldb-2.3.3.jar | [Maven](http://mvnrepository.com/artifact/org.hsqldb/hsqldb)
 MariaDB | mariadb-java-client-1.3.4.jar | [Maven](http://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client)
 MySQL | mysql-connector-java-5.1.36.jar | [Maven](http://mvnrepository.com/artifact/mysql/mysql-connector-java)
-PostgreSQL | postgresql-9.4-1201-jdbc41.jar | [Maven](http://mvnrepository.com/artifact/org.postgresql/postgresql)
+PostgreSQL | postgresql-9.4-1206-jdbc41.jar | [Maven](http://mvnrepository.com/artifact/org.postgresql/postgresql)
 SQLite | sqlite-jdbc-3.8.11.2.jar | [Maven](http://mvnrepository.com/artifact/org.xerial/sqlite-jdbc)
+
+Please do not use *postgresql-9.4.1207x.jar*, it does not work.
 
 ### Configuring JDBC Persistence
 You can configure the persistence service in **JDBC Persistence Service** section in `openhab.cfg`.
@@ -133,7 +135,7 @@ jdbc:tableIdDigitCount=0
 # HSQLDB:    hsqldb-2.3.3.jar                  http://mvnrepository.com/artifact/org.hsqldb/hsqldb
 # MariaDB:   mariadb-java-client-1.2.0.jar     http://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client
 # MySQL      mysql-connector-java-5.1.36.jar   http://mvnrepository.com/artifact/mysql/mysql-connector-java
-# PostgreSQL:postgresql-9.4-1201-jdbc41.jar    http://mvnrepository.com/artifact/org.postgresql/postgresql
+# PostgreSQL:postgresql-9.4-1206-jdbc41.jar    http://mvnrepository.com/artifact/org.postgresql/postgresql
 # SQLite:    sqlite-jdbc-3.8.11.1.jar          http://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
 #
 # Tested databases/url-prefix: jdbc:derby, jdbc:h2, jdbc:hsqldb, jdbc:mariadb, jdbc:mysql, jdbc:postgresql, jdbc:sqlite
