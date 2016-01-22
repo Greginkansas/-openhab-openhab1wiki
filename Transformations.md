@@ -36,7 +36,7 @@ Let's assume we have received a string containing `foo bar baz` and we're lookin
     // Wrap everything in a function
     (function(i) {
         var
-            array = i.split(i);
+            array = i.split(" ");
         return array[array.length - 1].length;
     })(input)
     // input variable contains data passed by openhab
