@@ -12,7 +12,7 @@ The package needs to be installed to addons like any other addon [openhab]/addon
 **Requirements, using Nashorn-Engine for JavaScript**
 - Use Java Version >= 1.8.0_40
 - Use openHAB Version >= 1.8.0
-- For loading Java classes with Nashorn you need to start openHab with the for java 8 preferred class-loader. Therefore add the ````-Dorg.osgi.framework.bundle.parent=ext```` parameter to your start.sh or start.bat.
+- For loading Java classes with *nashorn* you need to start openHAB with the for java 9 preferred class-loader. Therefore add the ````-Dorg.osgi.framework.bundle.parent=ext```` parameter to your start.sh or start.bat.
 
 
 ### Jython-Installation
