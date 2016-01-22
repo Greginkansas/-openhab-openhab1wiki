@@ -46,8 +46,8 @@ where `<commandType>` is optional for switch items, unless you want to use comma
 
 The device-id corresponds to the bridge which is defined in openhab.cfg.
 
-The channelNumber corresponds to the bulbs/channels on your bridge, where 0 reflects all white bulbs, 1-4 white bulb channels 1-4 and 5 all rgb bulbs.
-For the new RGBW bulbs uses channel numbers 6 (all RGBW bulbs), 7-10 (RGBW channels 1 to 4)
+The channelNumber corresponds to the bulbs/channels on your bridge, where 0 reflects all white bulbs, 1-4 white bulb channels and 5 all rgb bulbs.
+For the new RGBW bulbs use channel number 6 (all RGBW bulbs), 7-10 (RGBW channels 1 to 4)
 
 The deviceCommand corresponds to the way you want to control your Milight bulbs.
 
