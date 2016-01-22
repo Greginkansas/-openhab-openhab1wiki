@@ -38,6 +38,6 @@ String is usefull for scripting because you can receive the state on, off or off
 Add the log into the logback.xml file, the logger name is org.openhab.binding.mystromecopower:
 for INFO level you can set:
 
-	<logger name="org.openhab.binding.mystromecopower.MyStromEcoPowerBinding" level="INFO">
+	<logger name="org.openhab.binding.mystromecopower" level="INFO">
 			<appender-ref ref="STDOUT" />
 	</logger>
