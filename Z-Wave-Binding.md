@@ -300,6 +300,9 @@ One last point on the wakeup configuration node. There is (currently) no way to 
 
 
 ## Database
+
+**Note**: A new online database editor is being produced. This should make it easier for most people to add and update devices within the database, and will improve support for both the OH1 and OH2 bindings. Please support this [here](http://www.cd-jackson.com/index.php/zwave/zwave-device-database/zwave-device-database-guide).
+
 The binding uses a database of devices so that it can work around any quirks, or present information about association groups and configuration data. The format for the database is [here](https://github.com/cdjackson/HABmin2/wiki/Z-Wave-Product-Database).
 
 If you are not able to produce the XML file yourself, then please open an issue. The following information is required -:
