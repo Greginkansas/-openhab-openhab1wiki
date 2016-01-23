@@ -96,5 +96,17 @@ If the task gets executed it sends an HTTP GET request to the REST API of the op
 
 
 ##without Android/Tasker##
+
+For those with an iPhone, a really easy, reliable, and fast way to integrate the Flic buttons is through the Flic app on the iPhone and creating an "HTTP request" and then using the following:
+
+http://<openhab-host>:8080/CMD?<ITEM>=<COMMAND>
+
+HTTP type is type is POST, not GET.
+
+For example:
+
+http://192.168.1.10:8080/CMD?BedroomLight=TOGGLE
+
+
 btw: There might be a linux library in the works, so you can connect the buttons directly to your openHAB server via a bluetooth dongle.
 http://www.hardill.me.uk/wordpress/2015/10/10/flic-io-button-finally-arrived/#comment-109834
