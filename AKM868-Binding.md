@@ -74,7 +74,7 @@ sendCommand(Power_Upstairs_Wifi, OFF)
 - At the moment you have to have a LANT-868 Adapter. The USB868-Adapter doesn't work.
 
 # Workaround for USB868
-However, if you own a USB adapter, there is a workaround for utilizing the [serial](https://github.com/openhab/openhab/wiki/Serial-Binding) binding.
+However, if you own a USB adapter, there is a workaround utilizing the [serial](https://github.com/openhab/openhab/wiki/Serial-Binding) binding.
 
 Once the [serial](https://github.com/openhab/openhab/wiki/Serial-Binding) binding is installed, following items are needed for the workaround:
 
