@@ -85,7 +85,7 @@ String   Presence_AKM1_Action 		"Key 1: Last Action:  [%s]"
 Switch	 Presence_AKM				"Presence AKM"	<contact>
 ```
 
-This rule checks handles an incomming event form the keyfob:
+This rule handles an incomming event form the keyfob:
 ```
 rule "Presence AKM Direct"
 	when Item Presence_AKM_ComPort received update 
