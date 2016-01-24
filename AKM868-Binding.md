@@ -77,14 +77,17 @@ sendCommand(Power_Upstairs_Wifi, OFF)
 However, if you own a USB adapter, there is a workaround for utilizing the [serial](https://github.com/openhab/openhab/wiki/Serial-Binding) binding.
 
 Items
-```String	 Presence_AKM_ComPort		"Last String from AKM [%s]" 						{ serial="/dev/ttyUSB1" }
+
+```
+String	 Presence_AKM_ComPort		"Last String from AKM [%s]" 						{ serial="/dev/ttyUSB1" }
 DateTime Presence_AKM1_LastUpdate	"Key 1: Last Update:  [%1$td.%1$tm.%1$tY %1$tT]"
 String   Presence_AKM1_Action 		"Key 1: Last Action:  [%s]"
 Switch	 Presence_AKM			"Presence AKM"	<contact>
 ```
 
 This rule checks handles an incomming event form the keyfob:
-```rule "Presence AKM Direct"
+```
+rule "Presence AKM Direct"
 	when Item Presence_AKM_ComPort received update 
 then
 	var String[] buffer= Presence_AKM_ComPort.state.toString.split(",")
@@ -113,10 +116,12 @@ then
 	else {
 			logError("JK","AKM hat fehlerhaftes Packet gesendet"+Presence_AKM_ComPort.state.toString)
 	}
-end```
+end
+```
 
 This rule periodically checks if the there was an update from the keyfob. If there was no update in the last 100 sec, the assumption is that the fob is out of range. 
-```rule "Presence AKM reset"
+```
+rule "Presence AKM reset"
 	when 
 		Time cron "0 0/1 * * * ?"
 then
@@ -130,5 +135,6 @@ then
 			}
 		}
 
-end```
+end
+```
 
