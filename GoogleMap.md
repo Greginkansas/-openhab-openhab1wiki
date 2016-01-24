@@ -123,6 +123,17 @@ The following code will display a map based on your home location; and auto zoom
                             icon      : 'http://maps.google.com/mapfiles/kml/pal2/icon10.png',
                             title     : "Ehrendingen"
                         })
+
+           var circle = new google.maps.Circle({
+                        center        : latlngHome,
+                        radius        : 1500,
+                        map           : map,
+                        strokeColor   : '#050505',
+                        strokeOpacity : 0.5,
+                        strokeWeight  : 2,
+                        fillColor     : '#000000',
+                        fillOpacity   : 0,
+                      }); // end of [Circle]
                         
            bounds.extend(latlngHome);
         }))
