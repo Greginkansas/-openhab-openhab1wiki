@@ -20,11 +20,11 @@ Once you have the "raw" data available in OH you're ready ...
 ###Items...
 ```Xtend
 Location locationPatrik
-String	 mqttPositionPatrikRaw	"Patrik Raw Data"	{ mqtt="<[home:owntracks/Lex/LexLuther:state:default]" }
-String   mqttPatrikLatitude	"Patrik's Lat"
-String   mqttPatrikLongitude	"Patrik's Lon"
-String   mqttPatrikAccuracy	"Patrik's Accuracy"
-String   mqttHtcOneBattery	"Patrik's HTC One Battery [%s%%]"		<battery>	(Phone, MQTT, Battery)
+String	 mqttPositionPatrikRaw  "Patrik Raw Data"	{ mqtt="<[home:owntracks/Lex/LexLuther:state:default]" }
+String   mqttPatrikLatitude     "Patrik's Lat"
+String   mqttPatrikLongitude    "Patrik's Lon"
+String   mqttPatrikAccuracy     "Patrik's Accuracy"
+String   mqttHtcOneBattery      "Patrik's HTC One Battery [%s%%]"		<battery>	(Phone, MQTT, Battery)
 ```
 
 ![](https://dl.dropboxusercontent.com/u/1781347/wiki/2015-06-11_15_39_08.png)
