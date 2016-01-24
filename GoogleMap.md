@@ -19,12 +19,12 @@ For this example to work you'll need a proper [MQTT](MQTT-Binding) and [OwnTrack
 Once you have the "raw" data available in OH you're ready ...
 ###Items...
 ```Xtend
-/* Phone */
-String	mqttPositionPatrikRaw		"Patrik Raw Data"	{ mqtt="<[home:owntracks/Lex/LexLuther:state:default]" }
-String	mqttPatrikLatitude			"Patrik's Lat"
-String	mqttPatrikLongitude			"Patrik's Lon"
-String	mqttPatrikAccuracy			"Patrik's Accuracy"
-String	mqttHtcOneBattery			"Patrik's HTC One Battery [%s%%]"		<battery>	(Phone, MQTT, Battery)
+Location locationPatrik
+String	 mqttPositionPatrikRaw	"Patrik Raw Data"	{ mqtt="<[home:owntracks/Lex/LexLuther:state:default]" }
+String   mqttPatrikLatitude	"Patrik's Lat"
+String   mqttPatrikLongitude	"Patrik's Lon"
+String   mqttPatrikAccuracy	"Patrik's Accuracy"
+String   mqttHtcOneBattery	"Patrik's HTC One Battery [%s%%]"		<battery>	(Phone, MQTT, Battery)
 ```
 
 ![](https://dl.dropboxusercontent.com/u/1781347/wiki/2015-06-11_15_39_08.png)
@@ -35,27 +35,26 @@ For each person you'ld like to show on the map you'll need to have latitude and 
 
 ```Xtend
 import org.openhab.core.library.types.*
-import org.openhab.core.persistence.*
-import org.openhab.model.script.actions.*
 
 rule "MqttPostionParsePatrik"
   when 
     Item mqttPositionPatrikRaw changed
   then
-    var String json = (mqttPositionPatrikRaw.state as StringType).toString
+    val String json = (mqttPositionPatrikRaw.state as StringType).toString
 	// {"_type": "location", "lat": "47.5010314", "lon": "8.3444293",
 	//    "tst": "1422616466", "acc": "21.05", "batt": "40"}
-	var String type = transform("JSONPATH", "$._type", json)
+	val String type = transform("JSONPATH", "$._type", json)
 	if (type == "location") {
-	  var String lat  = transform("JSONPATH", "$.lat", json)
-	  var String lon  = transform("JSONPATH", "$.lon", json)
-	  var String acc  = transform("JSONPATH", "$.acc", json)
-	  var String batt = transform("JSONPATH", "$.batt", json)
-	
-      sendCommand(mqttPatrikLatitude,  lat)
-	  sendCommand(mqttPatrikLongitude, lon)
-	  sendCommand(mqttPatikAccuracy,   acc) 
-	  sendCommand(mqttHtcOneBattery,  batt)
+	  val String lat  = transform("JSONPATH", "$.lat", json)
+	  val String lon  = transform("JSONPATH", "$.lon", json)
+	  val String acc  = transform("JSONPATH", "$.acc", json)
+	  val String batt = transform("JSONPATH", "$.batt", json)
+
+      mqttPatrikLatitude.postUpdate(lat)
+      mqttPatrikLongitude.postUpdate(lon)
+      locationPatrik.postUpdate(new PointType(lat + "," + lon))
+      mqttPatikAccuracy.postUpdate(new DecimalType(acc))
+      mqttHtcOneBattery.postUpdate(new PercentType(batt))
 	}
   end
 ```
