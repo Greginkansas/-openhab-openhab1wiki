@@ -330,7 +330,7 @@ I assume, the binding is in your addons folder.
 * In the openHab logfile you must see for each configured apikey one line with  
 ```ProviderConfig[providerName=xx, apiKey=xxx]```  
 and for each configured location  
-```LocationConfig[providerName=xxx, language=xx, updateInterval=xx, latitude=xx.xxxx, longitude=xx.xxxx, locationId=xxx]```
+```LocationConfig[providerName=xxx, language=xx, updateInterval=xx, latitude=xx.xxxx, longitude=xx.xxxx, locationId=xxx, name=xxx]```
 If these entries do not exist, there is a problem in your openhab.cfg. A common problem is a space in front of the config properties.
 
 * If the items are still not populated, switch the binding to [DEBUG mode](#debugging-and-tracing) and start openHab. Now you should see for every weather item a entry in your logfile:  
