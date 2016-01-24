@@ -72,3 +72,62 @@ sendCommand(Power_Upstairs_Wifi, OFF)
 
 # Limitations
 - At the moment you have to have a LANT-868 Adapter. The USB868-Adapter doesn't work.
+
+# Workaround for USB868
+However, if you own a USB adapter, there is a workaround for utilizing the [serial](https://github.com/openhab/openhab/wiki/Serial-Binding) binding.
+
+Items
+`String	 Presence_AKM_ComPort		"Last String from AKM [%s]" 						{ serial="/dev/ttyUSB1" }
+DateTime Presence_AKM1_LastUpdate	"Key 1: Last Update:  [%1$td.%1$tm.%1$tY %1$tT]"
+String   Presence_AKM1_Action 		"Key 1: Last Action:  [%s]"
+Switch	 Presence_AKM			"Presence AKM"	<contact>`
+
+This rule checks handles an incomming event form the keyfob:
+`rule "Presence AKM Direct"
+	when Item Presence_AKM_ComPort received update 
+then
+	var String[] buffer= Presence_AKM_ComPort.state.toString.split(",")
+//	var String id = buffer.get(2) // this is the ID of the keyfob. rule could be enhanced to distinguish several keyfobs
+	var String action = buffer.get(3)
+	var String packetValid = buffer.get(4)	
+
+	if (packetValid.contains("OK")) {
+		postUpdate(Presence_AKM1_LastUpdate, new DateTimeType())
+		Presence_AKM.sendCommand("ON") 
+	    switch (action) {
+		    case '0' :   {
+					logDebug("JK","AKM => Ping")
+					Presence_AKM1_Action.sendCommand("Ping")
+			    }
+		    case '1' :   {
+					logDebug("JK","AKM => KeyPressedShort")
+					Presence_AKM1_Action.sendCommand("PressedShort")	    	
+		    	    }
+		    case '5' :   {
+		 			logDebug("JK","AKM => KeyPressedLong");
+		 			Presence_AKM1_Action.sendCommand("PressedLong")	   	
+		            }        
+	    }
+	}
+	else {
+			logError("JK","AKM hat fehlerhaftes Packet gesendet"+Presence_AKM_ComPort.state.toString)
+	}
+end`
+
+This rule periodically checks if the there was an update from the keyfob. If there was no update in the last 100 sec, the assumption is that the fob is out of range. 
+`rule "Presence AKM reset"
+	when 
+		Time cron "0 0/1 * * * ?"
+then
+		logDebug("JK","AKM_LatUpdate : " + Presence_AKM1_LastUpdate.state.toString)		
+		if (Presence_AKM.state == ON) {
+			var DateTimeType l_akm1 = Presence_AKM1_LastUpdate.state as DateTimeType			
+			if ((new DateTimeType().calendar.timeInMillis - l_akm1.calendar.timeInMillis) > 100000){  // 100 sec timeout
+				Presence_AKM1_Action.sendCommand("Away")
+				Presence_AKM.sendCommand("OFF")
+				logInfo("JK","AKM hat Abwesenheit von Key 1 festgestellt");
+			}
+		}
+
+end`
+
