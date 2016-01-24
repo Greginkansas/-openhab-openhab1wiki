@@ -27,8 +27,6 @@ String   mqttPatrikAccuracy     "Patrik's Accuracy"
 String   mqttHtcOneBattery      "Patrik's HTC One Battery [%s%%]"		<battery>	(Phone, MQTT, Battery)
 ```
 
-![](https://dl.dropboxusercontent.com/u/1781347/wiki/2015-06-11_15_39_08.png)
-
 ## Configuration
 ### Parse the raw data ...
 For each person you'ld like to show on the map you'll need to have latitude and longitude data available. A rule can be used to parse the data received:
@@ -70,9 +68,9 @@ The following code will display a map based on your home location; and auto zoom
     <!--
     .Flexible-container {
       position: relative;
-      padding-bottom: 56.25%;
-      padding-top: 30px;
-      height: 0;
+      padding-bottom: 0px;
+      padding-top   : 0px;
+      height        : 345px ;
       overflow: hidden;
     }
 
@@ -89,7 +87,7 @@ The following code will display a map based on your home location; and auto zoom
    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places,drawing,geometry"></script>
-    
+
     <script type="text/javascript">
         ////////////////////////////////////////////////////////////////////////
         // Google Maps JavaScript API:
@@ -97,97 +95,127 @@ The following code will display a map based on your home location; and auto zoom
         // Marker Icons:
         // https://sites.google.com/site/gmapsdevelopment/
         ////////////////////////////////////////////////////////////////////////
+
+        ////////////////////////////////////////////////////////////////////////
+        // JQuery
+        ////////////////////////////////////////////////////////////////////////
         
         var map = null;
+        //make an empty bounds variable
+        var bounds = new google.maps.LatLngBounds();
+
         // LatLng's we want to show 
         var latlngHome   = new google.maps.LatLng("47.501006", "8.344842");
         var latlngPatrik = new google.maps.LatLng("47.501006", "8.344842"); // initialize to home ...
         var latlngKarin  = new google.maps.LatLng("47.501006", "8.344842"); // initialize to home ...
         
-        function startup() {
-            var map_canvas  = document.getElementById('map_canvas');
-            var map_options = { center    : latlngHome,
-                                zoom      : 14,
-                                mapTypeId : google.maps.MapTypeId.ROADMAP };
-
-            map = new google.maps.Map(map_canvas, map_options); 
-            
-            var marker = new google.maps.Marker({
+        var map_options = { center    : latlngHome,
+                            zoom      : 10,
+                            mapTypeId : google.maps.MapTypeId.ROADMAP };
+         
+        $( "#map_canvas" ).ready($(function() {
+          var map_canvas = document.getElementById('map_canvas');
+          map = new google.maps.Map(map_canvas, map_options)
+          
+          var marker = new google.maps.Marker({
                             position  : latlngHome,
                             map       : map,
                             icon      : 'http://maps.google.com/mapfiles/kml/pal2/icon10.png',
                             title     : "Ehrendingen"
                         })
-            google.maps.event.addListener(map, 'tilesloaded', function(evt) { updateZoom(); });
-        } // end of function - startup
-        
-        function updateZoom() {
-            // Array of google.maps.LatLng we want to be visible on screen ...
-            var latLngArray = [];
-            latLngArray.push(latlngHome);
-            latLngArray.push(latlngPatrik);
-            latLngArray.push(latlngKarin);
+                        
+           bounds.extend(latlngHome);
+        }))
 
-            var viewPointBounds = new google.maps.LatLngBounds ();
-            for (var i = 0, length = latLngArray.length; i < length; i++) {
-                viewPointBounds.extend(latLngArray[i]);
-            }
-            map.fitBounds(viewPointBounds);
-        } // end of function - zoom
-        
-        $(function() {
+        $( document ).ready($(function() {
+            // ******************************************************************************
             $.ajax({
-              url     : "../rest/items/mqttPatrikLatitude/state",
-              data    : { },
+              url     : "../rest/items/locationPatrik/state/",
+              data    : {},
               success : function( data ) {
-                 var Latitude = data;
- 
-                 $.ajax({
-                     url     : "../rest/items/mqttPatrikLongitude/state",
-                     data    : { },
-                     success : function( data ) {
-                        var Longitude = data;
-                        latlngPatrik = new google.maps.LatLng(Latitude, Longitude);
-                        var marker = new google.maps.Marker({
-                            position  : latlngPatrik,
-                            map       : map,
-                            icon      : 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
-                            title     : "Patrik"
-                        })
-                        ////////////////////////////////////////////////////////////////////////
-                     }
-                })
-              }
-              
-            }); // end of $.ajax - Patrik
+                  if ( map == null) { return; }
+                  if ( data == "Uninitialized") { return; }
+                  
+                  var coords = data.split(',');
+                  var latlngPatrik = new google.maps.LatLng(coords[0],coords[1]);
+                  
+                  var marker = new google.maps.Marker({
+                    position  : latlngPatrik,
+                    map       : map,
+                    icon      : 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+                    title     : "Patrik"
+                  }) // end of [Marker]
+                  
+                  $.ajax({
+                    url     : "../rest/items/mqttPatikAccuracy/state/",
+                    data    : {},
+                    success : function( data ) {
+                    if ( data == "Uninitialized") { return; }
+                      var accuracy = parseInt(data);
+                      var circle = new google.maps.Circle({
+                        center        : latlngPatrik,
+                        radius        : accuracy,
+                        map           : map,
+                        strokeColor   : '#00FF00',
+                        strokeOpacity : 0.8,
+                        strokeWeight  : 2,
+                        fillColor     : '#00FF00',
+                        fillOpacity   : 0.35,
+                      }); // end of [Circle]
+                      
+                      bounds.extend(latlngPatrik);
+                      map.fitBounds(bounds);
+                      
+                    } // end of [function]
+                  }) // end of [$.ajax]
+                } // end of [function]
+            }) // end of [$.ajax]
+            // ******************************************************************************
             $.ajax({
-              url     : "../rest/items/mqttKarinLatitude/state",
-              data    : { },
+              url     : "../rest/items/locationKarin/state/",
+              data    : {},
               success : function( data ) {
-                 var Latitude = data;
-                 
-                 $.ajax({
-                     url     : "../rest/items/mqttKarinLongitude/state",
-                     data    : { },
-                     success : function( data ) {
-                        var Longitude = data;
-                        latlngKarin = new google.maps.LatLng(Latitude, Longitude);
-                        var marker = new google.maps.Marker({
-                            position  : latlngKarin,
-                            map       : map,
-                            icon      : 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
-                            title     : "Karin"
-                        })
-                        ////////////////////////////////////////////////////////////////////////
-                     }
-                })
-              }
-              
-            }); // end of $.ajax - Karin
-        }); // end of $(function)
+                  if ( map == null) { return; }
+                  if ( data == "Uninitialized") { return; }
+                  
+                  var coords = data.split(',');
+                  var latlngKarin = new google.maps.LatLng(coords[0],coords[1]);
+                  
+                  var marker = new google.maps.Marker({
+                    position  : latlngKarin,
+                    map       : map,
+                    icon      : 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+                    title     : "Karin"
+                  }) // end of [Marker]
+                  
+                  $.ajax({
+                    url     : "../rest/items/mqttKarinAccuracy/state/",
+                    data    : {},
+                    success : function( data ) {
+                    if ( data == "Uninitialized") { return; }
+                      var accuracy = parseInt(data);
+                      var circle = new google.maps.Circle({
+                        center        : latlngKarin,
+                        radius        : accuracy,
+                        map           : map,
+                        strokeColor   : '#00FF00',
+                        strokeOpacity : 0.8,
+                        strokeWeight  : 2,
+                        fillColor     : '#00FF00',
+                        fillOpacity   : 0.35,
+                      }); // end of [Circle]
+                      
+                      bounds.extend(latlngKarin);
+                      map.fitBounds(bounds);
+                    } // end of [function]
+                  }) // end of [$.ajax]
+                } // end of [function]
+            }) // end of [$.ajax]
+            // ******************************************************************************
+        }))
     </script>
   </head>
-  <body onload="startup()">
+  <body>
     <div id="map_canvas" class="Flexible-container" />
   </body>
 </html>
