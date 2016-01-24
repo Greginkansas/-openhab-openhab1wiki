@@ -300,6 +300,10 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Switch WCD1_1_SW1 "Test WCD SW 1" (gTest) 
     Switch WCD1_1_SW2 "Test WCD SW 2" (gTest)
 
+###AspireRF RF9517
+
+    Switch Remote_Button "button" { zwave="23:command=BASIC,respond_to_basic=true,refresh_interval=2" }
+
 #Thermostats
 
 ###Danfoss LC13 radiator thermostat:
