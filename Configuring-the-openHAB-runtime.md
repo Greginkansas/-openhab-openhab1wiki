@@ -12,7 +12,7 @@ This page describes the different places in which the openHAB runtime can be con
 
 ## General Configuration - openhab.cfg
 
-The runtime comes with one core configuration file, the file [openhab_default.cfg](https://github.com/openhab/openhab/blob/master/distribution/openhabhome/configurations/openhab_default.cfg).
+The runtime comes with one core configuration file, the file [openhab_default.cfg](https://github.com/openhab/openhab/blob/1.8/distribution/openhabhome/configurations/openhab_default.cfg).
 The purpose of this file is to define all basic settings, such as IP addresses, mail server, folder locations etc.
 
 The file also contains settings for all (optional) bindings. These settings are automatically dispatched to the according binding. For this, all settings come with a namespace (such as "mail:" or "knx:") to identify the associated binding.
@@ -36,7 +36,7 @@ Item files are stored in `${openhab_home}/configurations/items`.
 
 Although items can be dynamically added by item providers (as OSGi services), it is usually very practical to statically define most of the items that should be used in the UI or in automation rules. 
 
-These static definition files follow a certain syntax. This syntax will be explained here. (For the technical interested: This syntax is in fact a [Xtext DSL grammar](https://github.com/openhab/openhab/blob/master/bundles/model/org.openhab.model.item/src/org/openhab/model/Items.xtext).)
+These static definition files follow a certain syntax. This syntax will be explained here. (For the technical interested: This syntax is in fact a [Xtext DSL grammar](https://github.com/openhab/openhab/blob/1.8/bundles/model/org.openhab.model.item/src/org/openhab/model/Items.xtext).)
 
 Please visit the [Items](Explanation-of-Items) page on how to configure items.
 
@@ -46,7 +46,7 @@ Sitemap files are stored in `${openhab_home}/configurations/sitemaps`.
 
 Sitemaps are a declarative UI definition. With a few lines it is possible to define the structure and the content of your UI screens. 
 
-(For the technical interested: This syntax is in fact a [Xtext DSL grammar](https://github.com/openhab/openhab/blob/master/bundles/model/org.openhab.model.item/src/org/openhab/model/Items.xtext) (Broken Link!).)
+(For the technical interested: This syntax is in fact a [Xtext DSL grammar](https://github.com/openhab/openhab/blob/1.8/bundles/model/org.openhab.model.item/src/org/openhab/model/Items.xtext)).)
 
 Please see page [sitemaps](Explanation-of-Sitemaps) for a description on how to create sitemaps.
 
