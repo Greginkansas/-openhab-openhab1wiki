@@ -46,7 +46,7 @@ Sitemap files are stored in `${openhab_home}/configurations/sitemaps`.
 
 Sitemaps are a declarative UI definition. With a few lines it is possible to define the structure and the content of your UI screens. 
 
-(For the technical interested: This syntax is in fact a [Xtext DSL grammar](https://github.com/openhab/openhab/blob/master/bundles/model/org.openhab.model.item/src/org/openhab/model/Items.xtext).)
+(For the technical interested: This syntax is in fact a [Xtext DSL grammar](https://github.com/openhab/openhab/blob/master/bundles/model/org.openhab.model.item/src/org/openhab/model/Items.xtext) (Broken Link!).)
 
 Please see page [sitemaps](Explanation-of-Sitemaps) for a description on how to create sitemaps.
 
