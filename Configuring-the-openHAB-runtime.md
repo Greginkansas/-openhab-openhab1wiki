@@ -19,7 +19,7 @@ The file also contains settings for all (optional) bindings. These settings are 
 
 First thing after unzipping the runtime should be creating a copy of `openhab_default.cfg` to `openhab.cfg`. All personal settings should always only be done in this copy. This ensures that your settings are not lost, if you unzip a new version of the runtime to your openHAB home directory.
 
-The `openhab_default.cfg` file comes with extensive comments which explain, what settings are available and what can be configured with them. If you have any doubts, please ask on the [discussion group](https://groups.google.com/forum/#!forum/openhab).
+The `openhab_default.cfg` file comes with extensive comments which explain, what settings are available and what can be configured with them. If you have any doubts, please ask on the [discussion group](https://community.openhab.org/).
 
 To activate a binding uncomment the specific settings. 
 
