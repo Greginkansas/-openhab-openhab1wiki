@@ -98,6 +98,11 @@ As far as i know are these
     caldavio:openhab_tasks:reloadInterval=10
     caldavio:openhab_tasks:preloadTime=20000
 ## baikal
+    caldavio:kalendername:url=https://server_ip/baikal/cal.php/calendars/username/kalender_id  
+    caldavio:kalendername:username=username  
+    caldavio:kalendername:password=password  
+    caldavio:kalendername:reloadInterval=10  
+    caldavio:kalendername:preloadTime=20000
 ## google (performance issue, because the timestamp of files is not correct)
     caldavio:openhab_tasks:url=https://www.google.com/calendar/dav/email@gmail.com/events
     caldavio:openhab_tasks:username=email@gmail.com
@@ -111,6 +116,9 @@ As far as i know are these
     caldav-persistence:duration=10
     caldav-persistence:singleEvents=false
 Saves the events to the calendar named history with a length of 10 minutes
+
+# Known Problems (or limitations)
+* If you are using multiple calendars you have to set the thread count for quartz to this calendar amount or higher otherwise some calendars will not be loaded.
 
 # Example configuration
 
