@@ -36,7 +36,7 @@ Item files are stored in `${openhab_home}/configurations/items`.
 
 Although items can be dynamically added by item providers (as OSGi services), it is usually very practical to statically define most of the items that should be used in the UI or in automation rules. 
 
-These static definition files follow a certain syntax. This syntax will be explained here. (For the technical interested: This syntax is in fact a [Xtext DSL grammar](https://github.com/openhab/openhab/blob/1.8/bundles/model/org.openhab.model.item/src/org/openhab/model/Items.xtext).)
+These static definition files follow a certain syntax. This syntax will be explained here. (For the technical interested: This syntax is in fact a [Xtext DSL grammar](https://github.com/openhab/openhab/blob/1.8/bundles/model/org.openhab.model.item/src/org/openhab/model/Items.xtext).
 
 Please visit the [Items](Explanation-of-Items) page on how to configure items.
 
@@ -46,7 +46,7 @@ Sitemap files are stored in `${openhab_home}/configurations/sitemaps`.
 
 Sitemaps are a declarative UI definition. With a few lines it is possible to define the structure and the content of your UI screens. 
 
-(For the technical interested: This syntax is in fact a [Xtext DSL grammar](https://github.com/openhab/openhab/blob/1.8/bundles/model/org.openhab.model.item/src/org/openhab/model/Items.xtext)).)
+(For the technical interested: This syntax is in fact a [Xtext DSL grammar](https://github.com/openhab/openhab/blob/1.8/bundles/model/org.openhab.model.item/src/org/openhab/model/Items.xtext).)
 
 Please see page [sitemaps](Explanation-of-Sitemaps) for a description on how to create sitemaps.
 
