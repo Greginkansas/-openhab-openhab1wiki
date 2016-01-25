@@ -745,7 +745,7 @@ Rules
     then
         // check for any temperature sensors in the house that are very high
         if (SensorTemperature.members.filter(s | s.state > 45).size > 0) {        
-            if (Alarm_Fire.state == OFF) {
+            if (Alarm_Fire.state != ON) {
                 logInfo("sensor.rules", "Fire alarm tripped by temperature sensor!")
                 Alarm_Fire.postUpdate(ON)
             }    	
