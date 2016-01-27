@@ -1,4 +1,4 @@
-The Weather binding collects current and forecast weather data from different provides with a free weather API. You can also display weather data with highly customizable html layouts and icons.
+The Weather binding collects current and forecast weather data from different providers with a free weather API. You can also display weather data with highly customizable html layouts and icons.
 
 ![](https://farm4.staticflickr.com/3946/15407522168_7ea34d51e1_o.png)
 
@@ -10,7 +10,9 @@ Currently supported weather providers:
 - [Hamweather](http://hamweather.com)
 - [Yahoo](https://weather.yahoo.com)
 
-**Important changes in 1.8**: The item token for layouts has been removed to make the binding openHab2 compatible (see Example tokens) and new example weather-data file in [download section](#download).
+**Important changes in 1.8**: The item token for layouts has been removed to make the binding openHAB 2 compatible (see Example tokens) and new example weather-data file in [download section](#download).
+
+**Important changes for Yahoo provider**: In January 2016, Yahoo discontinued the service that allows you to use latitude and longitude to locate your weather location.  To continue to use the Yahoo weather provider, you must upgrade the weather binding to 1.8.1 or later and supply a woeid (Where On Earth ID) for your location, as shown in the example below.  You can find your woeid by copying the numeric digits at the end of the URL for your location at weather.yahoo.com.
 
 ## Configuration
 ### openhab.cfg
@@ -28,24 +30,27 @@ Currently supported weather providers:
 
 # location configuration, you can specify multiple locations
 #weather:location.<locationId1>.name=
-#weather:location.<locationId1>.latitude=
-#weather:location.<locationId1>.longitude=
+#weather:location.<locationId1>.latitude=   (not required for Yahoo)
+#weather:location.<locationId1>.longitude=  (not required for Yahoo)
+#weather:location.<locationId1>.woeid=      (required for Yahoo)
 #weather:location.<locationId1>.provider=
 #weather:location.<locationId1>.language=
 #weather:location.<locationId1>.updateInterval=
 
 #weather:location.<locationId2>.name=
-#weather:location.<locationId2>.latitude=
-#weather:location.<locationId2>.longitude=
+#weather:location.<locationId2>.latitude=   (not required for Yahoo)
+#weather:location.<locationId2>.longitude=  (not required for Yahoo)
+#weather:location.<locationId2>.woeid=      (required for Yahoo)
 #weather:location.<locationId2>.provider=
 #weather:location.<locationId2>.language=
 #weather:location.<locationId2>.updateInterval=
 ```
 Before you can use a weather provider, you need to register a free apikey on the website of the provider.  
-**Note:** Hamweather has two apikeys (client_id, secret_id), Yahoo does not need a apikey.
+**Note:** Hamweather has two apikeys (client_id, secret_id), Yahoo does not need an apikey.
 
 Now you can specify locations. Each location has a locationId that can be referenced from an item. A location has five required parameters.
-- **latitude, longitude:** the coordinates the weather is retrieved from
+- **latitude, longitude:** the coordinates the weather is retrieved from (not required for Yahoo)
+- **woeid:** required for Yahoo, the numeric Where On Earth ID, found at end of your weather.yahoo.com URL
 - **provider:** a reference to a provider name
 - **language:** the language of the weather condition text (see provider homepage for supported languages)
 - **updateInterval:** the interval in minutes the weather is retrieved
@@ -56,8 +61,7 @@ Now you can specify locations. Each location has a locationId that can be refere
 **Example:** Let's display the current temperature and humidity in Salzburg (AT) from Yahoo.  
 **openhab.cfg**
 ```
-weather:location.home.latitude=47.8011
-weather:location.home.longitude=13.0448
+weather:location.home.woeid=547826
 weather:location.home.provider=Yahoo
 weather:location.home.language=de
 weather:location.home.updateInterval=10
@@ -67,13 +71,14 @@ weather:location.home.updateInterval=10
 Number   Temperature   "Temperature [%.2f °C]"   {weather="locationId=home, type=temperature, property=current"}
 Number   Humidity      "Humidity [%d %%]"        {weather="locationId=home, type=atmosphere, property=humidity"}
 ```
-For Yahoo you don't need a apikey. The location has the locationId *home* and updates the weather data every 10 minutes.  
+For Yahoo you don't need a apikey, but you do need a woeid (which you can find as the numeric digits at the end of your weather.yahoo.com URL). The location has the locationId *home* and updates the weather data every 10 minutes.  
 In the item file, you reference the locationId and the type and property to display (see below for more).  
-Let's say you want to switch to another provider, ForecastIo. All you have to do is register your apikey, configure it and change the provider in your location:  
+Let's say you want to switch to another provider, ForecastIo. All you have to do is register your apikey, configure it, supply your latitude and longitude, and change the provider in your location:  
 **openhab.cfg** (example key is not a registered key!)
 ```
 weather:apikey.ForecastIo=sdf7g69fdgdfg679dfg69sdgkj
-
+weather:location.home.latitude=47.8011
+weather:location.home.longitude=13.0448
 weather:location.home.provider=ForecastIo
 ```
 Now the weather data is retrieved from ForecastIo, your item file does not need to be changed! Let's say you want to have the current temperature from ForecastIo and the humidity from OpenWeatherMap.  
@@ -136,7 +141,7 @@ String   Temperatur_MinMax   "Min/Max [%s °C]"   {weather="locationId=home, for
 String   Temperatur_MinMax   "Min/Max [%s °C]"   {weather="locationId=home, forecast=0, type=temperature, property=minMax, scale=0"}
 > Temperatur_MinMax state updated to 9/17
 
-// roudingMode and scale set
+// roundingMode and scale set
 String   Temperatur_MinMax   "Min/Max [%s °C]"   {weather="locationId=home, forecast=0, type=temperature, property=minMax, roundingMode=down, scale=0"}
 > Temperatur_MinMax state updated to 8/17
 ```
@@ -221,7 +226,7 @@ Number   Wind_Gust_Mph        "Wind gust [%.2f mph]"     {weather="locationId=ho
 Number   Wind_Chill           "Wind chill [%.2f °C]"     {weather="locationId=home, type=wind, property=chill"}
 Number   Wind_Chill_F         "Wind chill [%.2f °F]"     {weather="locationId=home, type=wind, property=chill, unit=fahrenheit"}
 
-// weather station (only Wunderground and Hamweather), needs version 1.7 of the binding
+// weather station (only Wunderground and Hamweather), needs version 1.7 or greater of the binding
 String   Station_Name         "Station Name [%s]"        {weather="locationId=home, type=station, property=name"}
 String   Station_Id           "Station Id [%s]"          {weather="locationId=home, type=station, property=id"}
 Number   Station_Latitude     "Station Latitude [%.6f]"  {weather="locationId=home, type=station, property=latitude, scale=6"}
@@ -250,7 +255,7 @@ Each provider sends different forecast days.
 **Note:** If you omit the forecast property, the *current* conditions are shown, if you specify forecast=0, the forecast for *today* is shown.
 
 ### Data accuracy
-It highly dependes on your location and which weather provider you choose. Some providers updates the data in realtime, others only once in a hour. You have to test yourself and find the best provider for your location.
+It highly depends on your location and which weather provider you choose. Some providers updates the data in realtime, others only once in a hour. You have to test yourself and find the best provider for your location.
 
 ### Common Id
 The common id property `(locationId=..., type=condition, property=commonId)` is an attempt to have a unique weather id for all providers. This is useful for displaying weather icons and a short condition text message. The documentation from the different weather providers are partially poor, hence the mapping is partially a guess and needs to be optimized with your help. If you think the commonId/weather icon is wrong, just [contact me](mailto:gerrieg.openhab@icloud.com).  
@@ -327,10 +332,10 @@ If you want to see even more, switch to TRACE to also see the communication with
 ### Troubleshooting
 I assume, the binding is in your addons folder.
 
-* In the openHab logfile you must see for each configured apikey one line with  
+* In the openHAB logfile you must see for each configured apikey one line with  
 ```ProviderConfig[providerName=xx, apiKey=xxx]```  
 and for each configured location  
-```LocationConfig[providerName=xxx, language=xx, updateInterval=xx, latitude=xx.xxxx, longitude=xx.xxxx, locationId=xxx, name=xxx]```
+```LocationConfig[providerName=xxx, language=xx, updateInterval=xx, latitude=xx.xxxx, longitude=xx.xxxx, woeid=xxx, locationId=xxx, name=xxx]```
 If these entries do not exist, there is a problem in your openhab.cfg. A common problem is a space in front of the config properties.
 
 * If the items are still not populated, switch the binding to [DEBUG mode](#debugging-and-tracing) and start openHab. Now you should see for every weather item a entry in your logfile:  
@@ -339,7 +344,7 @@ If you don't see these entries, check your item file.
 
 * As mentioned earlier, every weather provider sends different data and not all available binding properties are set. If you want to know which provider sends which properties to optimize your items, switch the binding to [DEBUG mode](#debugging-and-tracing). At every refresh the weather data is logged to the logfile.
 
-* important note if you're installing from a debian based distribution: openhab-addon-action-weather and openhab-addon-binding-weather are not compatible with each other and will silently fail (at least since 1.7.1). If you made sure your openhab.cfg and your items are fine but you still don't see any ```ProviderConfig``` lines you might wan't to check the installed openhab addons.
+* important note if you're installing from a debian based distribution: openhab-addon-action-weather and openhab-addon-binding-weather are not compatible with each other and will silently fail (at least since 1.7.1). If you made sure your openhab.cfg and your items are fine but you still don't see any `ProviderConfig` lines you might wan't to check the installed openhab addons.
 
 ### Download
 [weather-data](https://drive.google.com/file/d/0Bw7zjCgsXYnHWmV6cHRwWnhjSFU/view?usp=sharing) with icons and example layout file  
