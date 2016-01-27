@@ -107,8 +107,9 @@ Timer then supports the following methods:
 
 ### Other actions
 - `callScript(String scriptName)`: Calls a script which must be located in the configurations/scripts folder
+- `executeCommandLine(String commandLine)`: Executes a command on the command line.
 
-- `executeCommandLine(String commandLine)`: Executes a command on the command line
+   Note: The `commandLine` variable has to use a special format where `@@` separates the arguments. For example the bash command `touch somefile` will have to be written as `touch@@somefile`. See [Samples and Tricks](https://github.com/openhab/openhab/wiki/Samples-Tricks#how-to-use-the-lifx-beta-api-via-executecommandline-and-curl) for a larger example.
 - `executeCommandLine(String commandLine, int timeout)`: Executes a command on the command line with a timeout
 - `transform(String type, String function, String value)`: Applies a transformation of a given type with some function to a value.  Returns the transformed value, or the original value if the transformation failed.  See [[Transformations]] for available transformations and their usage.
 
