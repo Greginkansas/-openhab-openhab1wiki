@@ -1,200 +1,181 @@
-* [**Introduction**](Explanation-of-items/#introduction)
-* [**syntax**](Explanation-of-items/#syntax)
-* [itemtype](Explanation-of-items/#itemtype)
-* [itemname](Explanation-of-items/#itemname)
-* [labeltext](Explanation-of-items/#labeltext)
-* [iconname](Explanation-of-items/#iconname)
-* [groups](Explanation-of-items/#groups)
-* [bindingconfig](Explanation-of-items/#bindingconfig)
-* [**examples**](Explanation-of-items/#examples)
+* [Introduction](Explanation-of-items/#introduction)
+* [Syntax](Explanation-of-items/#syntax)
+	* [Real life example](Explanation-of-items/#real-life-example)
+	* [Item type](Explanation-of-items/#item-type)
+		* [Group](Explanation-of-items/#group)
+	* [Item name](Explanation-of-items/#item-name)
+	* [Label text](Explanation-of-items/#label-text)
+		* [Formatting](Explanation-of-items/#formatting)
+		* [Transforming](Explanation-of-items/#transforming)
+	* [Icon name](Explanation-of-items/#icon-name)
+		* [Dynamic icons](Explanation-of-items/#dynamic-icons)
+	* [Groups](Explanation-of-items/#groups)
+	* [Binding config](Explanation-of-items/#binding-config)
+* [Demo item file](Explanation-of-items/#demoitem-file)
 
-## introduction
-
-- Items are objects that can be read from or written to in order to interact with them.
-
-- Items can be bound to bindings i.e. for reading the status from e.g. KNX or for updating them.
-  Read the wiki page for the respective binding for more help and examples.
-
-- Items can be defined in files in folder `${openhab_home}/configurations/items`.
- 
-- All item definition files have to have the file extension `.items`
-  Just create a new file called thenameyouwish.items.
-- Groups are also defined in the .items files. Groups can be inside groups, and items can be in none, one
-  or more groups. 
+# Introduction
+* Items are objects that can be read from or written to in order to interact with them.
+* Items can be bound to bindings i.e. for reading the status from e.g. KNX or for updating them. Read the wiki page for the respective binding for more help and examples.
+* Items can be defined in files in folder ```${openhab_home}/configurations/items```.
+* All item definition files have to have the file extension `.items`. Just create a new file called thenameyouwish.items.
+* Groups are also defined in the .items files. Groups can be inside groups, and items can be in none, one or more groups. 
 
 Typically items are defined using the openHAB Designer by editing the items definition files. Doing so you will have full IDE support like syntax checking, context assist etc.
 
-## syntax
-
-Items are defined in the followng syntax:
+# Syntax
+Items are defined in the following syntax:
 
     itemtype itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
 
-Parts in square brackets [are optional.
+Parts in square brackets ([]) are optional.
 
-**Example:**
-
+## Real life example
     Number Temperature_GF_Living "Temperature [%.1f °C]" <temperature> (GF_Living) {knx="1/0/15+0/0/15"}
 
-Above example defines an item...
-- of [type](#itemtype) `Number`
-- with [name](#itemname) `Temperature_GF_Living`
-- formatting its [output](#labeltext) in format `xx.y °C`
-- displaying [icon](#iconname) `temperature`
-- belonging to [group](#groups) `GF_Living`
-- bound to openHAB [binding](#bindingconfig) `knx` with write group address `1/0/15` and listening group address `0/0/15`
+Above example defines an item 
+* of [type](#itemtype) `Number`
+* with [name](#itemname) `Temperature_GF_Living`
+* formatting its [output](#labeltext) in format `xx.y °C`
+* displaying [icon](#iconname) `temperature`
+* belonging to [group](#groups) `GF_Living`
+* bound to openHAB [binding](#bindingconfig) `knx` with write group address `1/0/15` and listening group address `0/0/15`
 
-### itemtype
+## Item type
+The item type defines which kind of values can be stored in that item and which commands can be send to it. Each item type has been optimized for certain components in your smart home. This optimization is reflected in the data types and commands types. Little example for better understanding: Have a look at the following table and find the itemtype "Color". A Philips Hue RGB light bulb provides you three information. Is the bulb on or off, its current brightness and the color. If you want to change one of these values you can use four commands. Switching the bulb on or off, increasing or decreasing the brightness, setting the brightness directly to a specific value and you can change the bulb's color.
 
-The following item types are currently available (alphabetical order):
+OpenHAB 1.8 provides you the following item types (alphabetical order):
 
 <table>
-  <tr><td><b>Itemtype</b></td><td><b>Description</b></td><td><b>Command Types</b></td></tr>
-  <tr><td>Call</td><td>Telephone call by origin and destination</td><td>Call</td></tr>
-  <tr><td>Color</td><td>Color information (RGB)</td><td>OnOff, IncreaseDecrease, Percent, HSB</td></tr>
-  <tr><td>Contact</td><td>Item storing status of e.g. door/window contacts</td><td>OpenClosed</td></tr>
-  <tr><td>DateTime</td><td>Stores date and time (see NTP binding for details)</td><td></td></tr>
-  <tr><td>Dimmer</td><td>Item carrying a percentage value for dimmers</td><td>OnOff, IncreaseDecrease, Percent</td></tr>
-  <tr><td>Group</td><td>Item to nest other items / collect them in groups</td><td>-</td></tr>
-  <tr><td>Location</td><td>GPS related information by latitude, longitude and altitude</td><td>Point</td></tr>
-  <tr><td>Number</td><td>Stores values in number format</td><td>Decimal</td></tr>
-  <tr><td>Rollershutter</td><td>Typically used for blinds</td><td>UpDown, StopMove, Percent</td></tr>
-  <tr><td>String</td><td>Stores texts</td><td>String</td></tr>
-  <tr><td>Switch</td><td>Typically used for lights (on/off)</td><td>OnOff</td></tr>
+    <tr><td><b>Itemtype</b></td><td><b>Description</b></td><td><b>DataTypes</b></td><td><b>CommandTypes</b></td></tr>
+    <tr><td>Call</td><td>Telephone call by origin and destination</td><td>Call</td><td>-</td></tr>
+    <tr><td>Color</td><td>Color information (RGB)</td><td>OnOff, Percent, HSB</td><td>OnOff, IncreaseDecrease, Percent, HSB</td></tr>
+    <tr><td>Contact</td><td>Item storing status of e.g. door/window contacts</td><td>OpenClosed</td><td>-</td></tr>
+    <tr><td>DateTime</td><td>Stores date and time (see NTP binding for details)</td><td>DateTime</td><td>DateTime</td></tr>
+    <tr><td>Dimmer</td><td>Item carrying a percentage value for dimmers</td><td>OnOff, Percent</td><td>OnOff, IncreaseDecrease, Percent</td></tr>
+    <tr><td>Group</td><td>Item to nest other items / collect them in groups</td><td>-</td><td>-</td></tr>
+    <tr><td>Location</td><td>GPS related information by latitude, longitude and altitude</td><td>Point</td><td>Point</td></tr>
+    <tr><td>Number</td><td>Stores values in number format</td><td>Decimal</td><td>Decimal</td></tr>
+    <tr><td>Rollershutter</td><td>Typically used for blinds</td><td>UpDown, Percent</td><td>UpDown, StopMove, Percent</td></tr>
+    <tr><td>String</td><td>Stores texts</td><td>String, DateTime</td><td>String</td></tr>
+    <tr><td>Switch</td><td>Typically used for lights (on/off)</td><td>OnOff</td><td>OnOff</td></tr>
 </table>
 
-  Group items can also have a summary value displayed.
-  - AVG displays the average of the items in the group.
-  - OR displays an OR of the group, typically used to display whether any item in a group has been set.
-  - other summaries:  AND, SUM, MIN, MAX, NAND, NOR
+### Group
+The item type _group_ is used to define a group in which you can nest/collect other items, including other groups. You don't need groups, but they are a great help for your openHAB configuration. Groups are supported in sitemaps, rules, functions, the openhab.cfg and more places. In all these places you can either write every single item, for example your 6 temperature sensors, or you just put all into one group and use the group instead. A typical and minimal group definition is:
 
-**Example** for a group summary:
+    Group TemperatureSensors
 
-    Group:Number:AVG() itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
-    Group:Switch:OR(ON, OFF) itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
+Group items can also be used to easily determine one or more items with a defined value or can be used to calculate a value depending on all values within the group. Please note that this can only be used if all items in the group have the same type. You have to add this type of the items and the desired function to the item type:
 
+    Group:itemtype:function itemname ["labeltext"] [<iconname>] [(group1, group2, ...)]
 
-### itemname
+<table>
+	<tr><td><b>Function</b></td><td><b>Description</b></td><td><b>Can be used with</b></td></tr>
+	<tr><td>AND(value1, value2, ...)</td><td>Determines all items with all of the given values.</td><td>All</td></tr>
+	<tr><td>AVG</td><td>Calculates the average value of all items.</td><td>Number</td></tr>
+	<tr><td>MAX</td><td>Determines the highest value of all items.</td><td>Number</td></tr>
+	<tr><td>MIN</td><td>Determines the lowest value of all items.</td><td>Number</td></tr>
+	<tr><td>NAND(value1, value2, ...)</td><td>Determines all items with exact none of the given values.</td><td>Number</td></tr>
+	<tr><td>NOR(value1, value2, ...)</td><td>Determines all items with none of the given values.</td><td>All</td></tr>
+	<tr><td>OR(value1, value2, ...)</td><td>Determines all items with minimum one of the given values.</td><td></td></tr>
+	<tr><td>SUM</td><td>Calculates the sum of all items in the group.</td><td>Number</td></tr>
+</table>
 
-The item name is the unique name of the object which is used e.g. in the sitemap definition or rule definition files to access the specific item.
+## Item name
 
-### labeltext
+The item name is the unique name of the item which is used e.g. in the sitemap definition or rule definition files to access the specific item. The name must be unique across all item files. The name should only consist of letters, numbers and the underscore character. Spaces cannot be used.
 
-The label text is used on the one hand side to display a description for the specific item e.g. in the sitemap, on the other hand to format the output of number or string item types.
+## Label text
 
-Formatting is done applying [standard Java formatter class syntax](http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html).
+The label text is used on the one hand side to display a description for the specific item e.g. in the sitemap, on the other hand to format or transform the output of the item. If you want to display a special character you have to mask it with it a '%'. So to display one '%' write '%%'.
 
-**Example:**
+### Formatting
 
-An item defined like
-    Number MyTemp "Temperature [%.1f] °C"
-would be formatted for output as:
-    "Temperature 23.2 °C"
+Formatting is done applying [Java formatter class syntax](http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax), therefore the syntax is
 
-Another possibility in labeltexts is to use so-called maps for replacing the item status name by e.g. human-readable words:
+    %[argument_index$][flags][width][.precision]conversion
 
-**Example:**
+Only the leading '%' and the trailing 'conversion' are mandatory. The **argument_index$** must be used if you want to convert the value of the item several times within the label text. That is mostly used for formatting dates. Please note that the index is always '1$' as we only have one argument. 
 
-An item defined like
-    Number WindowBathroom "Window is [MAP(en.map):%s]"
-would be formatted for output as:
-    "Window is open"
-if there is a file called **en.map** in folder configurations/transform.
+Some example items with formatted label text
 
-These map files have to be structured as simple key/value pairs:
+    Number    MyTemperature  "Temperature [%.1f] °C"       {someBinding:somevalue}
+	String    MyString       "Value: [%s]"                 {someBinding:somevalue}
+	DateTime  MyLastUpdate   "Last Update: [%1$ta %1$tR]"  {someBinding:somevalue}
+
+and their output.
+
+	Temperature 23.2 °C
+	Value: Lorem ipsum
+	Last Update: Sun 15:26
+
+### Transforming
+
+Another possibility in label texts is to use a transformation. They are used for example to translate a status into another language or convert technical value into human readable ones. To do this you have to create a .map file in your ```${openhab_home}/configurations/transform``` folder. As you have a look at that directory there are still some .map files. These files are typical key/value pair files.
+
+    key1=value1
+	key2=value2
+	...
+
+Let's make a small example to illustrate this function. If you have a sensor which returns you the number 0 for a closed window and 1 for an open window, you can transform these values into the words "open" or "closed". Create a map file named window.map for example and add the desired keys and values.
+
     0=closed
     1=opened
     UNDEFINED=unknown
+	-=unknown
 
-See the [sample map files](https://github.com/openhab/openhab/tree/1.8/distribution/openhabhome/configurations/transform) in the openHAB 1.8 source code repository.
+Next we define two items. One showing the raw value as it is provided from our sensor and one with transformed value.
 
-**Example:**
+	Number WindowRaw          "Window is [%d]"                  { someBinding:somevalue }
+    Number WindowTransformed  "Window is [MAP(window.map):%s]"  { someBinding:somevalue }
 
-An item defined like 
-    ```DateTime Weather_LastUpdate	"Last Update [%1$ta %1$tR]"```
-outputs two components which both are taken from the DateTime variable itself. So both have to reference the variable. This is done by ```1$```. Following ```t``` marks a [time object](http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax). ```a``` and ```R``` represent the [date formatter](http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#dt) "abbreviated day of week" and "24-hour clock", respectively.
+The output will be
 
-Note: The first ```1$``` is optional, as the first components always takes the first input argument. However, as the second components would take the second input argument by default but there is only one input argument (namely the DateTime variable itself), the second ```1$``` is essential.
+    Window is 1
+	Window is opened
 
-### iconname
+## Icon name
 
-The icon name is used to reference a png image file from folder `${openhab_home}/webapps/images/`. These icons are used in the openHAB frontends.
+The icon name is used to reference a png image file from folder ```${openhab_home}/webapps/images/```. These icons are used in the openHAB frontends. OpenHAB provides you a set of basic icons. To use on of the images just write the file name without it's ending (".png") between a '<' and '>'.
 
-Please use the filename (without extension) of icons in above mentioned folder.
-If you append e.g. "-on" and "-off" to the file name the icon will change its appearance depending on the switch item state.
-Resp. you can add "-0", "-1" etc. to the filename for number items, "-on" / "-off" for switches and anything else for string items etc. 
-A file amongst files having such additions that has no addition representes an uninitialized state.
-Make shure to to use small letters for filenames only.
+Feel free to put your own icons into that directory. The images must be in png format, having a size of 32x32 pixel and a name with only small letters and the underscore. There was a thread in the community board where some icon source was provide:
 
-**Example:**
+* [[http://www.intranet-of-things.com/software/downloads]]
+* [[https://github.com/OpenAutomationProject/knx-uf-iconset]]
 
-You can use two icons "present-on.png" and "present-off.png" like this:
+### Dynamic icons
+You can dynamically change the icon depending on the item state. You have to provide one icon file per state with the states name append to the icons name.
 
-`Switch DanHome     "Dan at home"      <present>  `
+    present.png
+	present-off.png
+    present-on.png
 
-### groups
+If you want to use the dynamically items just use the image name without the added states.
 
-Items can be linked to specific groups by referencing these in a comma separated list embraced by round brackets.
+	Switch  MeAtHome  "I'm at home!"  { somebinding:somconfig }
 
-**Example:**
+A file amongst files having such additions that has no addition represents an uninitialized state.
 
-An item defined like
-    Number MyTemp (gTempOutside, gTemperatures)
-would be member of the groups `gTempOutside` and `gTemperatures`
+## Groups
+Items can be linked to specific groups by referencing these in a comma separated list embraced by round brackets. An item defined like
 
-### bindingconfig
+    Number  MyTemperature  (Group_TemperaturesInside, Group_Temperatures)
 
-Items can be bound to specific openHAB bindings by adding a binding definition in curly brackets at the end of the item definition:
+would be member of the groups ```Group_TemperaturesInside``` and ```Group_Temperatures```.
 
-` { ns1="bindingconfig1", ns2="bindingconfig2", ...} `
+## Binding config
+The binding config is the most import part of an item. It defines from where the item gets it values and where a given value/command should be send. Bind an item to a binding by adding a binding definition in curly brackets at the end of the item definition
 
-where "nsx" is the namespace for a certain binding (e.g. "knx", "bluetooth", "serial" etc.). 
+    {ns="bindingconfig"}
 
-For detailed binding configuration syntax of openHAB bindings please see the openHAB [[Bindings]] configuration section.
+Where _ns_ is the namespace for a certain binding like "knx", "bluetooth", "serial". Every binding defines what values must be given in the bindingconfig string. That can be the id of a sensor, an ip or mac address or anything else. You must have a look at your [[Bindings]] configuration section, to know what to use. Some typical examples are:
 
-**Example:**
+    Switch  Light_Floor        "Light at Floor"                { knx="1/0/15+0/0/15" }
+    Switch  Presence           "I'm at home"                   { bluetooth="123456ABCD" }
+    Switch  Doorbell           "Doorbell"                      { serial="/dev/usb/ttyUSB0" }
+	Contact Garage             "Garage is [MAP(en.map):%s]"    { zwave="21:command=sensor_binary,respond_to_basic=true" }
+	String  Error_Ventilation  "Error in Ventilation %s"       { comfoair="error_message" }
+	Number  DiningRoomTemp     "Maximum Away Temp. [%.1f °F]"  { nest="<[thermostats(Dining Room).away_temperature_high_f]" }
 
-    Switch Light_GF_Living_Table "Table" (GF_Living, Lights) { knx="1/0/15+0/0/15" }
-    Switch Presence { bluetooth="123456ABCD" }
-    Switch Doorbell "Doorbell" <bell> { serial="/dev/usb/ttyUSB0" }
-
-## examples
-#### from the demo file
-The openHAB runtime comes with a [demo items file](https://github.com/openhab/openhab-distro/blob/master/features/openhab-demo-resources/src/main/resources/items/demo.items), here is a short excerpt from it:
-
-    Group            gAll
-    Group            Status                                                 (gAll)
-    Group            gGF 	                                            (gAll)
-    Group            gLights 	                                            (gAll)
-    Group            gShutters 	                                            (gAll)
-    Group            gGF_Living       "Living room" 	             <video> 	    (gGF)
-    Group:Number:AVG gTemperature     "Avg. Room Temp. [%.1f °C]" <temperature> 
-    
-    /* Lights */
-    Switch Light_GF_Living_Table     "Table" 	                               (gGF_Living, gLights)
-    
-    /* Rollershutters */
-    Rollershutter Shutter_GF_Living  "Shutter"	                               (gGF_Living, gShutters)
-
-    /* Indoor Temperatures */
-    Number Temperature_GF_Living     "Temperature [%.1f °C]"   <temperature>   (gTemperature, gGF_Living)
-    Number Temperature_GF_Kitchen    "Temperature [%.1f °C]"   <temperature>   (gTemperature, gGF_Kitchen)
-
-Groups can be inside groups, and items can be in none, one or more groups. For example:
-
-- `Group gGF               (All)` This statement defines the gGF group and states that it belongs to the All group.
-- `Group GF_Living         "Living room"   <video>         (gGF)` This statement defines the group GF_Living, defines that the user interface will show it as  "Living room", defines the icon to be shown <video> and states that it belongs to (gGF). Notice that the gGF group belongs to the ALL group, hence GF_Living inherits that group, and it belongs to the All group too.
-- `Group:Number:AVG  Temperature "Average lighting [Lux](%.1f)"  <temperature>   (Status)`: this statement means that there is a group called Temperature, which has a value calculated as an average of all its members, and its value is a float with one decimals. It will show a temperature icon and it belongs to the Status group.
-
-#### knx example
-
-The items may include the KNX group address to use them. They might be actively read by openHAB or not. They look like this:
-
-- `Number Lighting_Room_Sensor "Lighting in the Room [Lux](%.2f)"  <switch> (Room,Lighting) { knx = "<0/1/1" }`: This is a sensor item. It uses the 0/1/1 group address and openHAB will ask for its value periodically because there is a "<" sign before the address. It is a number item, called Lighting_Room_Sensor, and belongs to Room and Lighting groups.
-- `Switch Light_Room_Table  "Table Light" (Room, Lights) { knx = "<0/1/10+0/1/30"}`: This is a switch item that has two addresses. openHAB may responds to events in any of them, but may actively read the first one.
-
-For more info about other options have a look at the demo.items file and the wiki bindings pages.
-
-Further examples for defining items can be found in our [openHAB-samples section](Samples-Item-Definitions). 
-
-The currently implemented item types can be found in [the openHAB 1.8 source code](https://github.com/openhab/openhab/tree/1.8/bundles/core/org.openhab.core.library/src/main/java/org/openhab/core/library/types).
+# demo.items file
+The openHAB runtime comes with a [demo items file](https://github.com/openhab/openhab-distro/blob/master/features/openhab-demo-resources/src/main/resources/items/demo.items).
