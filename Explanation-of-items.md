@@ -1,17 +1,17 @@
-* [Introduction](Explanation-of-items/#introduction)
-* [Syntax](Explanation-of-items/#syntax)
-	* [Real life example](Explanation-of-items/#real-life-example)
-	* [Item type](Explanation-of-items/#item-type)
-		* [Group](Explanation-of-items/#group)
-	* [Item name](Explanation-of-items/#item-name)
-	* [Label text](Explanation-of-items/#label-text)
-		* [Formatting](Explanation-of-items/#formatting)
-		* [Transforming](Explanation-of-items/#transforming)
-	* [Icon name](Explanation-of-items/#icon-name)
-		* [Dynamic icons](Explanation-of-items/#dynamic-icons)
-	* [Groups](Explanation-of-items/#groups)
-	* [Binding config](Explanation-of-items/#binding-config)
-* [Demo item file](Explanation-of-items/#demoitem-file)
+* [Introduction](#introduction)
+* [Syntax](#syntax)
+	* [Real life example](#real-life-example)
+	* [Item type](#item-type)
+		* [Group](#group)
+	* [Item name](#item-name)
+	* [Label text](#label-text)
+		* [Formatting](#formatting)
+		* [Transforming](#transforming)
+	* [Icon name](#icon-name)
+		* [Dynamic icons](#dynamic-icons)
+	* [Groups](#groups)
+	* [Binding config](#binding-config)
+* [Further examples](Explanation-of-items/#further-examples)
 
 # Introduction
 * Items are objects that can be read from or written to in order to interact with them.
@@ -33,12 +33,12 @@ Parts in square brackets ([]) are optional.
     Number Temperature_GF_Living "Temperature [%.1f °C]" <temperature> (GF_Living) {knx="1/0/15+0/0/15"}
 
 Above example defines an item 
-* of [type](#itemtype) `Number`
-* with [name](#itemname) `Temperature_GF_Living`
-* formatting its [output](#labeltext) in format `xx.y °C`
-* displaying [icon](#iconname) `temperature`
+* of [type](#item-type) `Number`
+* with [name](#item-name) `Temperature_GF_Living`
+* formatting its [output](#label-text) in format `xx.y °C`
+* displaying [icon](#icon-name) `temperature`
 * belonging to [group](#groups) `GF_Living`
-* bound to openHAB [binding](#bindingconfig) `knx` with write group address `1/0/15` and listening group address `0/0/15`
+* bound to openHAB [binding](#binding-config) `knx` with write group address `1/0/15` and listening group address `0/0/15`
 
 ## Item type
 The item type defines which kind of values can be stored in that item and which commands can be send to it. Each item type has been optimized for certain components in your smart home. This optimization is reflected in the data types and commands types. Little example for better understanding: Have a look at the following table and find the itemtype "Color". A Philips Hue RGB light bulb provides you three information. Is the bulb on or off, its current brightness and the color. If you want to change one of these values you can use four commands. Switching the bulb on or off, increasing or decreasing the brightness, setting the brightness directly to a specific value and you can change the bulb's color.
@@ -100,8 +100,8 @@ Only the leading '%' and the trailing 'conversion' are mandatory. The **argument
 Some example items with formatted label text
 
     Number    MyTemperature  "Temperature [%.1f] °C"       {someBinding:somevalue}
-	String    MyString       "Value: [%s]"                 {someBinding:somevalue}
-	DateTime  MyLastUpdate   "Last Update: [%1$ta %1$tR]"  {someBinding:somevalue}
+    String    MyString       "Value: [%s]"                 {someBinding:somevalue}
+    DateTime  MyLastUpdate   "Last Update: [%1$ta %1$tR]"  {someBinding:somevalue}
 
 and their output.
 
@@ -147,14 +147,14 @@ Feel free to put your own icons into that directory. The images must be in png f
 You can dynamically change the icon depending on the item state. You have to provide one icon file per state with the states name append to the icons name.
 
     present.png
-	present-off.png
+    present-off.png
     present-on.png
 
 If you want to use the dynamically items just use the image name without the added states.
 
-	Switch  MeAtHome  "I'm at home!"  { somebinding:somconfig }
+	Switch  MeAtHome  "I'm at home!"  <present>  { somebinding:somconfig }
 
-A file amongst files having such additions that has no addition represents an uninitialized state.
+A file among files having such additions that has no addition represents an uninitialized state.
 
 ## Groups
 Items can be linked to specific groups by referencing these in a comma separated list embraced by round brackets. An item defined like
@@ -177,5 +177,6 @@ Where _ns_ is the namespace for a certain binding like "knx", "bluetooth", "seri
 	String  Error_Ventilation  "Error in Ventilation %s"       { comfoair="error_message" }
 	Number  DiningRoomTemp     "Maximum Away Temp. [%.1f °F]"  { nest="<[thermostats(Dining Room).away_temperature_high_f]" }
 
-# demo.items file
-The openHAB runtime comes with a [demo items file](https://github.com/openhab/openhab-distro/blob/master/features/openhab-demo-resources/src/main/resources/items/demo.items).
+# Further examples
+1. Further examples for defining items can be found in our [openHAB-samples](https://github.com/openhab/openhab/wiki/Samples-Item-Definitions) section.
+1. The openHAB runtime comes with a [demo items file](https://github.com/openhab/openhab-distro/blob/master/features/openhab-demo-resources/src/main/resources/items/demo.items).
