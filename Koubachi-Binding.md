@@ -66,10 +66,22 @@ Here are some examples for valid binding configuration strings:
 - associatedSince (!DateTime)
 - recentSoilmoistureReadingValue (String)
 - recentSoilmoistureReadingTime (!DateTime)
+- recentSoilmoistureReadingSiValue (Number) (available since 1.9)
 - recentTemperatureReadingValue (String)
 - recentTemperatureReadingTime (!DateTime)
+- recentTemperatureReadingSiValue (Number) (available since 1.9)
 - recentLightReadingValue (String)
 - recentLightReadingTime (!DateTime)
+- recentLightReadingSiValue (Number) (available since 1.9)
+- recentSoiltemperatureReadingValu (String) (available since 1.9)
+- recentSoiltemperatureReadingTime (!DateTime) (available since 1.9)
+- recentSoiltemperatureReadingSiValue (Number) (available since 1.9)
+- soiltemperaturePollingInterval (Number) (available since 1.9)
+- recentIrlightReadingValue (String) (available since 1.9)
+- recentIrlightReadingTime (DateTime) (available since 1.9)
+- recentIrlightReadingSiValue (Number) (available since 1.9)
+- hardwareProductGeneration (String) (available since 1.9)
+- hardwareProductName (String) (available since 1.9)
 
 #### for Plant Resource type
 
