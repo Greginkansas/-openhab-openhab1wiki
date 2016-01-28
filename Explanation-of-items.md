@@ -45,20 +45,19 @@ The item type defines which kind of values can be stored in that item and which 
 
 OpenHAB 1.8 provides you the following item types (alphabetical order):
 
-<table>
-    <tr><td><b>Itemtype</b></td><td><b>Description</b></td><td><b>DataTypes</b></td><td><b>CommandTypes</b></td></tr>
-    <tr><td>Call</td><td>Telephone call by origin and destination</td><td>Call</td><td>-</td></tr>
-    <tr><td>Color</td><td>Color information (RGB)</td><td>OnOff, Percent, HSB</td><td>OnOff, IncreaseDecrease, Percent, HSB</td></tr>
-    <tr><td>Contact</td><td>Item storing status of e.g. door/window contacts</td><td>OpenClosed</td><td>-</td></tr>
-    <tr><td>DateTime</td><td>Stores date and time (see NTP binding for details)</td><td>DateTime</td><td>DateTime</td></tr>
-    <tr><td>Dimmer</td><td>Item carrying a percentage value for dimmers</td><td>OnOff, Percent</td><td>OnOff, IncreaseDecrease, Percent</td></tr>
-    <tr><td>Group</td><td>Item to nest other items / collect them in groups</td><td>-</td><td>-</td></tr>
-    <tr><td>Location</td><td>GPS related information by latitude, longitude and altitude</td><td>Point</td><td>Point</td></tr>
-    <tr><td>Number</td><td>Stores values in number format</td><td>Decimal</td><td>Decimal</td></tr>
-    <tr><td>Rollershutter</td><td>Typically used for blinds</td><td>UpDown, Percent</td><td>UpDown, StopMove, Percent</td></tr>
-    <tr><td>String</td><td>Stores texts</td><td>String, DateTime</td><td>String</td></tr>
-    <tr><td>Switch</td><td>Typically used for lights (on/off)</td><td>OnOff</td><td>OnOff</td></tr>
-</table>
+Item Type | Description | Accepted Data Types | Accepted Command Types
+----------|-------------|---------------------|-----------------------
+Call | This type can be used for items that are dealing with telephony functionality. | Call | -
+Color | Can be used for color values, e.g. for LED lights | OnOff, Percent, HSB | OnOff, IncreaseDecrease, Percent, HSB
+Contact | Can be used for sensors that return an "open" or "close" as a state. This is useful for doors, windows, etc. | OpenClosed | -
+DateTime | Stores a timestamp including a valid time zone. | DateTime | DateTime
+Dimmer | Can be used as a switch (ON/OFF), but it also accepts percent values to reflect the dimmed state. | OnOff, Percent | OnOff, IncreaseDecrease, Percent
+Group | Item to nest other items / collect them in groups | - | -
+Location | Can be used to store GPS related informations, addresses, etc. by latitude, longitude and altitude | Point | Point
+Number | Has a decimal value and is usually used for all kinds of sensors, like temperature, brightness, wind, etc. It can also be used as a counter or as any other thing that can be expressed as a number. | Decimal | Decimal
+Rollershutter | Allows the control of roller shutters, i.e. moving them up, down, stopping or setting it to close to a certain percentage. | UpDown, Percent | UpDown, StopMove, Percent
+String | Can be used for any kind of string or textuell representation of a DateTime. | String, DateTime | String
+Switch | Represents a normal switch that can be ON or OFF. Useful for normal lights, presence detection, etc. | OnOff | OnOff
 
 ### Group
 The item type _group_ is used to define a group in which you can nest/collect other items, including other groups. You don't need groups, but they are a great help for your openHAB configuration. Groups are supported in sitemaps, rules, functions, the openhab.cfg and more places. In all these places you can either write every single item, for example your 6 temperature sensors, or you just put all into one group and use the group instead. A typical and minimal group definition is:
@@ -69,17 +68,15 @@ Group items can also be used to easily determine one or more items with a define
 
     Group:itemtype:function itemname ["labeltext"] [<iconname>] [(group1, group2, ...)]
 
-<table>
-	<tr><td><b>Function</b></td><td><b>Description</b></td></tr>
-	<tr><td>AND(value1, value2)</td><td>This does a logical 'and' operation. Only if all items are of 'value1' this is returned, otherwise the 'value2' is returned.</td></tr>
-	<tr><td>AVG</td><td>Calculates the numeric average over all item values of decimal type.</td></tr>
-	<tr><td>MAX</td><td>This calculates the maximum value of all item values of decimal type.</td></tr>
-	<tr><td>MIN</td><td>This calculates the minimum value of all item values of decimal type.</td></tr>
-	<tr><td>NAND(value1, value2)</td><td>This does a logical 'nand' operation. The value is 'calculated' by the normal 'and' operation and than negated by returning the opposite value. E.g. when the 'and' operation calculates the value1 the value2 will be returned and vice versa. </td></tr>
-	<tr><td>NOR(value1, value2)</td><td>This does a logical 'nor' operation. The value is 'calculated' by the normal 'or' operation and than negated by returning the opposite value. E.g. when the 'or' operation calculates the value1 the value2 will be returned and vice versa. </td></tr>
-	<tr><td>OR(value1, value2)</td><td>Does a logical 'or' operation. If at least one item is of 'value1' this is returned, otherwise the 'value2' is returned.</td></tr>
-	<tr><td>SUM</td><td>Calculates the sum of all items in the group.</td></tr>
-</table>
+Function | Description
+AND(value1, value2) | This does a logical 'and' operation. Only if all items are of 'value1' this is returned, otherwise the 'value2' is returned.
+AVG | Calculates the numeric average over all item values of decimal type.
+MAX | This calculates the maximum value of all item values of decimal type.
+MIN | This calculates the minimum value of all item values of decimal type.
+NAND(value1, value2) | This does a logical 'nand' operation. The value is 'calculated' by the normal 'and' operation and than negated by returning the opposite value. E.g. when the 'and' operation calculates the value1 the value2 will be returned and vice versa. 
+NOR(value1, value2) | This does a logical 'nor' operation. The value is 'calculated' by the normal 'or' operation and than negated by returning the opposite value. E.g. when the 'or' operation calculates the value1 the value2 will be returned and vice versa. 
+OR(value1, value2) | Does a logical 'or' operation. If at least one item is of 'value1' this is returned, otherwise the 'value2' is returned.
+SUM | Calculates the sum of all items in the group.
 
 ## Item name
 
