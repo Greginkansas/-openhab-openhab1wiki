@@ -70,15 +70,15 @@ Group items can also be used to easily determine one or more items with a define
     Group:itemtype:function itemname ["labeltext"] [<iconname>] [(group1, group2, ...)]
 
 <table>
-	<tr><td><b>Function</b></td><td><b>Description</b></td><td><b>Can be used with</b></td></tr>
-	<tr><td>AND(value1, value2, ...)</td><td>Determines all items with all of the given values.</td><td>All</td></tr>
-	<tr><td>AVG</td><td>Calculates the average value of all items.</td><td>Number</td></tr>
-	<tr><td>MAX</td><td>Determines the highest value of all items.</td><td>Number</td></tr>
-	<tr><td>MIN</td><td>Determines the lowest value of all items.</td><td>Number</td></tr>
-	<tr><td>NAND(value1, value2, ...)</td><td>Determines all items with exact none of the given values.</td><td>Number</td></tr>
-	<tr><td>NOR(value1, value2, ...)</td><td>Determines all items with none of the given values.</td><td>All</td></tr>
-	<tr><td>OR(value1, value2, ...)</td><td>Determines all items with minimum one of the given values.</td><td></td></tr>
-	<tr><td>SUM</td><td>Calculates the sum of all items in the group.</td><td>Number</td></tr>
+	<tr><td><b>Function</b></td><td><b>Description</b></td></tr>
+	<tr><td>AND(value1, value2)</td><td>This does a logical 'and' operation. Only if all items are of 'value1' this is returned, otherwise the 'value2' is returned.</td></tr>
+	<tr><td>AVG</td><td>Calculates the numeric average over all item values of decimal type.</td></tr>
+	<tr><td>MAX</td><td>This calculates the maximum value of all item values of decimal type.</td></tr>
+	<tr><td>MIN</td><td>This calculates the minimum value of all item values of decimal type.</td></tr>
+	<tr><td>NAND(value1, value2)</td><td>This does a logical 'nand' operation. The value is 'calculated' by the normal 'and' operation and than negated by returning the opposite value. E.g. when the 'and' operation calculates the value1 the value2 will be returned and vice versa. </td></tr>
+	<tr><td>NOR(value1, value2)</td><td>This does a logical 'nor' operation. The value is 'calculated' by the normal 'or' operation and than negated by returning the opposite value. E.g. when the 'or' operation calculates the value1 the value2 will be returned and vice versa. </td></tr>
+	<tr><td>OR(value1, value2)</td><td>Does a logical 'or' operation. If at least one item is of 'value1' this is returned, otherwise the 'value2' is returned.</td></tr>
+	<tr><td>SUM</td><td>Calculates the sum of all items in the group.</td></tr>
 </table>
 
 ## Item name
@@ -95,44 +95,44 @@ Formatting is done applying [Java formatter class syntax](http://docs.oracle.com
 
     %[argument_index$][flags][width][.precision]conversion
 
-Only the leading '%' and the trailing 'conversion' are mandatory. The **argument_index$** must be used if you want to convert the value of the item several times within the label text. That is mostly used for formatting dates. Please note that the index is always '1$' as we only have one argument. 
+Only the leading '%' and the trailing 'conversion' are mandatory. The **argument_index$** must be used if you want to convert the value of the item several times within the label text or if the item has more than one value. Look at the DateTime and Call item in the following example.
 
-Some example items with formatted label text
+    Number    MyTemperature  "Temperature [%.1f] °C"          { someBinding:somevalue }
+    String    MyString       "Value: [%s]"                    { someBinding:somevalue }
+    DateTime  MyLastUpdate   "Last Update: [%1$ta %1$tR]"     { someBinding:somevalue }
+    Call      IncomingCall   "Incoming call: [%1$s to %2$s]"  { someBinding:somevalue }
 
-    Number    MyTemperature  "Temperature [%.1f] °C"       {someBinding:somevalue}
-    String    MyString       "Value: [%s]"                 {someBinding:somevalue}
-    DateTime  MyLastUpdate   "Last Update: [%1$ta %1$tR]"  {someBinding:somevalue}
+The output would look like this:
 
-and their output.
-
-	Temperature 23.2 °C
-	Value: Lorem ipsum
-	Last Update: Sun 15:26
+    Temperature 23.2 °C
+    Value: Lorem ipsum
+    Last Update: Sun 15:26
+    Incoming call: +1555555555 to +49555555555
 
 ### Transforming
 
 Another possibility in label texts is to use a transformation. They are used for example to translate a status into another language or convert technical value into human readable ones. To do this you have to create a .map file in your ```${openhab_home}/configurations/transform``` folder. As you have a look at that directory there are still some .map files. These files are typical key/value pair files.
 
     key1=value1
-	key2=value2
-	...
+    key2=value2
+    ...
 
 Let's make a small example to illustrate this function. If you have a sensor which returns you the number 0 for a closed window and 1 for an open window, you can transform these values into the words "open" or "closed". Create a map file named window.map for example and add the desired keys and values.
 
     0=closed
     1=opened
     UNDEFINED=unknown
-	-=unknown
+    -=unknown
 
 Next we define two items. One showing the raw value as it is provided from our sensor and one with transformed value.
 
-	Number WindowRaw          "Window is [%d]"                  { someBinding:somevalue }
+    Number WindowRaw          "Window is [%d]"                  { someBinding:somevalue }
     Number WindowTransformed  "Window is [MAP(window.map):%s]"  { someBinding:somevalue }
 
 The output will be
 
     Window is 1
-	Window is opened
+    Window is opened
 
 ## Icon name
 
@@ -152,7 +152,7 @@ You can dynamically change the icon depending on the item state. You have to pro
 
 If you want to use the dynamically items just use the image name without the added states.
 
-	Switch  MeAtHome  "I'm at home!"  <present>  { somebinding:somconfig }
+    Switch  MeAtHome  "I'm at home!"  <present>  { somebinding:someconfig }
 
 A file among files having such additions that has no addition represents an uninitialized state.
 
@@ -173,10 +173,11 @@ Where _ns_ is the namespace for a certain binding like "knx", "bluetooth", "seri
     Switch  Light_Floor        "Light at Floor"                { knx="1/0/15+0/0/15" }
     Switch  Presence           "I'm at home"                   { bluetooth="123456ABCD" }
     Switch  Doorbell           "Doorbell"                      { serial="/dev/usb/ttyUSB0" }
-	Contact Garage             "Garage is [MAP(en.map):%s]"    { zwave="21:command=sensor_binary,respond_to_basic=true" }
-	String  Error_Ventilation  "Error in Ventilation %s"       { comfoair="error_message" }
-	Number  DiningRoomTemp     "Maximum Away Temp. [%.1f °F]"  { nest="<[thermostats(Dining Room).away_temperature_high_f]" }
+    Contact Garage             "Garage is [MAP(en.map):%s]"    { zwave="21:command=sensor_binary,respond_to_basic=true" }
+    String  Error_Ventilation  "Error in Ventilation %s"       { comfoair="error_message" }
+    Number  DiningRoomTemp     "Maximum Away Temp. [%.1f °F]"  { nest="<[thermostats(Dining Room).away_temperature_high_f]" }
 
 # Further examples
 1. Further examples for defining items can be found in our [openHAB-samples](https://github.com/openhab/openhab/wiki/Samples-Item-Definitions) section.
 1. The openHAB runtime comes with a [demo items file](https://github.com/openhab/openhab-distro/blob/master/features/openhab-demo-resources/src/main/resources/items/demo.items).
+1. Every [[binding]] provides it own item samples for better understanding the usage of the binding.
