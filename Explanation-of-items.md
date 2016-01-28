@@ -166,7 +166,7 @@ would be member of the groups ```Group_TemperaturesInside``` and ```Group_Temper
 ## Binding config
 The binding config is the most import part of an item. It defines from where the item gets it values and where a given value/command should be send. Bind an item to a binding by adding a binding definition in curly brackets at the end of the item definition
 
-    {ns="bindingconfig"}
+    { ns="bindingconfig" }
 
 Where _ns_ is the namespace for a certain binding like "knx", "bluetooth", "serial". Every binding defines what values must be given in the bindingconfig string. That can be the id of a sensor, an ip or mac address or anything else. You must have a look at your [[Bindings]] configuration section, to know what to use. Some typical examples are:
 
@@ -180,4 +180,4 @@ Where _ns_ is the namespace for a certain binding like "knx", "bluetooth", "seri
 # Further examples
 1. Further examples for defining items can be found in our [openHAB-samples](https://github.com/openhab/openhab/wiki/Samples-Item-Definitions) section.
 1. The openHAB runtime comes with a [demo items file](https://github.com/openhab/openhab-distro/blob/master/features/openhab-demo-resources/src/main/resources/items/demo.items).
-1. Every [[binding]] provides it own item samples for better understanding the usage of the binding.
+1. Every [binding](bindings) provides it own item samples for better understanding the usage of the binding.
