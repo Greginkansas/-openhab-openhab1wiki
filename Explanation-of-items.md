@@ -69,6 +69,7 @@ Group items can also be used to easily determine one or more items with a define
     Group:itemtype:function itemname ["labeltext"] [<iconname>] [(group1, group2, ...)]
 
 Function | Description
+---------|------------
 AND(value1, value2) | This does a logical 'and' operation. Only if all items are of 'value1' this is returned, otherwise the 'value2' is returned.
 AVG | Calculates the numeric average over all item values of decimal type.
 MAX | This calculates the maximum value of all item values of decimal type.
