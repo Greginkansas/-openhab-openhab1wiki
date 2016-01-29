@@ -51,13 +51,38 @@ Call | This type can be used for items that are dealing with telephony functiona
 Color | Can be used for color values, e.g. for LED lights | OnOff, Percent, HSB | OnOff, IncreaseDecrease, Percent, HSB
 Contact | Can be used for sensors that return an "open" or "close" as a state. This is useful for doors, windows, etc. | OpenClosed | -
 DateTime | Stores a timestamp including a valid time zone. | DateTime | DateTime
-Dimmer | Accepts percent values to set the dimmed state. Can also be used as a switch by accepting ON/OFF commands (though this only mimics a Switch by sending 0% and 100% for ON/OFF)  | Percent | OnOff, IncreaseDecrease, Percent
+Dimmer | Accepts percent values to set the dimmed state. Can also be used as a switch by accepting ON/OFF commands (though this only mimics a Switch by sending 0% and 100% for ON/OFF. See note below)  | Percent | OnOff, IncreaseDecrease, Percent
 Group | Item to nest other items / collect them in groups | - | -
 Location | Can be used to store GPS related informations, addresses, etc. by latitude, longitude and altitude | Point | Point
 Number | Has a decimal value and is usually used for all kinds of sensors, like temperature, brightness, wind, etc. It can also be used as a counter or as any other thing that can be expressed as a number. | Decimal | Decimal
 Rollershutter | Allows the control of roller shutters, i.e. moving them up, down, stopping or setting it to close to a certain percentage. | UpDown, Percent | UpDown, StopMove, Percent
 String | Can be used for any kind of string or textuell representation of a DateTime. | String, DateTime | String
 Switch | Represents a normal switch that can be ON or OFF. Useful for normal lights, presence detection, etc. | OnOff | OnOff
+
+#### Dimmers vs Switches
+
+You can send both ON/OFF and Percentage commands to a single Dimmer Item.
+
+```java
+// default.items
+
+Dimmer  Light_FF_Office  "Dimmer [%s %%]"  {milight="bridge01;3;brightness"}
+```
+
+```java
+// default.sitemap
+
+Switch item=Light_FF_Office
+Slider item=Light_FF_Office
+```
+
+This doesn't actually save the state as ON/OFF, it only maps ON to 100% and OFF to 0% [forum thread: Dimmers vs Switch items](https://community.openhab.org/t/dimmer-vs-switch-items/6325/2)
+
+e.g. You send the dimm level 60% to the Dimmer Item (Lights_FF_Office) using a Slider. Then turn off the light with a Switch Item (Lights_FF_Office) using a Switch. When you turn the light back on, it will not remember the 60%, it will instead go to 100%.
+
+The state is changed from 60% to 0% when sent the OFF command, and to 100% when sent ON.
+
+Which could cause problems if you later try to check the state of Lights_FF_Office is OFF.
 
 ### Group
 The item type _group_ is used to define a group in which you can nest/collect other items, including other groups. You don't need groups, but they are a great help for your openHAB configuration. Groups are supported in sitemaps, rules, functions, the openhab.cfg and more places. In all these places you can either write every single item, for example your 6 temperature sensors, or you just put all into one group and use the group instead. A typical and minimal group definition is:
