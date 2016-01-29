@@ -52,8 +52,8 @@ Call | This type can be used for items that are dealing with telephony functiona
 Color | Can be used for color values, e.g. for LED lights | OnOff, Percent, HSB | OnOff, IncreaseDecrease, Percent, HSB
 Contact | Can be used for sensors that return an "open" or "close" as a state. This is useful for doors, windows, etc. | OpenClosed | -
 DateTime | Stores a timestamp including a valid time zone. | DateTime | DateTime
-Dimmer | Accepts percent values to set the dimmed state. Can also be used as a switch by accepting ON/OFF commands (though this only mimics a Switch by sending 0% and 100% for ON/OFF. [See note below](#dimmers-vs-switches)  | Percent | OnOff, IncreaseDecrease, Percent
-Group | Item to nest other items / collect them in groups | - | -
+Dimmer | Accepts percent values to set the dimmed state. Can also be used as a switch by accepting ON/OFF commands (though this only mimics a Switch by sending 0% and 100% for ON/OFF. [See note below](#dimmers-vs-switches)  | OnOff, Percent | OnOff, IncreaseDecrease, Percent
+Group | Item to nest other items / collect them in groups | The accepted data types of a group item is the same as of the underlying base item. If none is defined, the intersection of all sets of accepted data types of all group members is used instead. | The accepted command types of a group item is the same as of the underlying base item. If none is defined, the intersection of all sets of accepted command types of all group members is used instead.
 Location | Can be used to store GPS related informations, addresses, etc. by latitude, longitude and altitude | Point | Point
 Number | Has a decimal value and is usually used for all kinds of sensors, like temperature, brightness, wind, etc. It can also be used as a counter or as any other thing that can be expressed as a number. | Decimal | Decimal
 Rollershutter | Allows the control of roller shutters, i.e. moving them up, down, stopping or setting it to close to a certain percentage. | UpDown, Percent | UpDown, StopMove, Percent
@@ -62,28 +62,19 @@ Switch | Represents a normal switch that can be ON or OFF. Useful for normal lig
 
 #### Dimmers vs Switches
 
-You can send both ON/OFF and Percentage commands to a single Dimmer Item.
+While Dimmer items accept either OnOff or Percent commands, or OnOff, IncreaseDecrease, or Percent updates, Dimmer items store their state as a Percent.  See the following example:
 
+item:
 ```java
-// default.items
-
 Dimmer  Light_FF_Office  "Dimmer [%s %%]"  {milight="bridge01;3;brightness"}
 ```
 
+sitemap:
 ```java
-// default.sitemap
-
 Switch item=Light_FF_Office
 Slider item=Light_FF_Office
 ```
-
-This doesn't actually save the state as ON/OFF, it only maps ON to 100% and OFF to 0% [forum thread: Dimmers vs Switch items](https://community.openhab.org/t/dimmer-vs-switch-items/6325/2)
-
-e.g. You send the dimm level 60% to the Dimmer Item (Lights_FF_Office) using a Slider. Then turn off the light with a Switch Item (Lights_FF_Office) using a Switch. When you turn the light back on, it will not remember the 60%, it will instead go to 100%.
-
-The state is changed from 60% to 0% when sent the OFF command, and to 100% when sent ON.
-
-Which could cause problems if you later try to check the state of Lights_FF_Office is OFF.
+When the Switch widget is used, it sends ON or OFF commands to the item, but these are mapped to 100% and 0%, respectively.  When the slider widget is used, it sends Percent commands to the item, which are used as the item's state.  In the example above, if you move the Slider widget to 60%, move the Switch to OFF, and finally move the switch to ON, the item's state will be 100%.
 
 ### Group
 The item type _group_ is used to define a group in which you can nest/collect other items, including other groups. You don't need groups, but they are a great help for your openHAB configuration. Groups are supported in sitemaps, rules, functions, the openhab.cfg and more places. In all these places you can either write every single item, for example your 6 temperature sensors, or you just put all into one group and use the group instead. A typical and minimal group definition is:
