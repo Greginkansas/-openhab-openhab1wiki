@@ -2,6 +2,7 @@
 * [Syntax](#syntax)
 	* [Real life example](#real-life-example)
 	* [Item type](#item-type)
+		* [Dimmers vs Switches](#dimmers-vs-switches) 
 		* [Group](#group)
 	* [Item name](#item-name)
 	* [Label text](#label-text)
@@ -51,7 +52,7 @@ Call | This type can be used for items that are dealing with telephony functiona
 Color | Can be used for color values, e.g. for LED lights | OnOff, Percent, HSB | OnOff, IncreaseDecrease, Percent, HSB
 Contact | Can be used for sensors that return an "open" or "close" as a state. This is useful for doors, windows, etc. | OpenClosed | -
 DateTime | Stores a timestamp including a valid time zone. | DateTime | DateTime
-Dimmer | Accepts percent values to set the dimmed state. Can also be used as a switch by accepting ON/OFF commands (though this only mimics a Switch by sending 0% and 100% for ON/OFF. See note below)  | Percent | OnOff, IncreaseDecrease, Percent
+Dimmer | Accepts percent values to set the dimmed state. Can also be used as a switch by accepting ON/OFF commands (though this only mimics a Switch by sending 0% and 100% for ON/OFF. [See note below](#dimmers-vs-switches)  | Percent | OnOff, IncreaseDecrease, Percent
 Group | Item to nest other items / collect them in groups | - | -
 Location | Can be used to store GPS related informations, addresses, etc. by latitude, longitude and altitude | Point | Point
 Number | Has a decimal value and is usually used for all kinds of sensors, like temperature, brightness, wind, etc. It can also be used as a counter or as any other thing that can be expressed as a number. | Decimal | Decimal
