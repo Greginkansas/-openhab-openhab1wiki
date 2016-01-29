@@ -207,11 +207,11 @@ Examples, how to configure your items:
 	Number openhabUptime    "Uptime [%d]"   (System) { systeminfo="ProcessUptime:5000:$$" }
 	String openhabUptimeFormatted   "Uptime form. [%s]" (System) { systeminfo="ProcessUptimeFormatted:5000:$$" }
 
-	Number eclipseRealMem1  "Real mem1 [%.1f]"  (System) { systeminfo="<ProcessCpuPercent:10000:eclipse" }
-	Number eclipseRealMem2  "Real mem2 [%.1f]"  (System) { systeminfo="<ProcessCpuPercent:10000:*eclipse" }
-	Number eclipseRealMem3  "Real mem3 [%.1f]"  (System)  { systeminfo="<ProcessCpuPercent:10000:eclipse*" }
-	Number eclipseRealMem4  "Real mem4 [%.1f]"  (System) { systeminfo="<ProcessCpuPercent:10000:=eclipse" }
-	Number eclipseRealMem5  "Real mem5 [%.1f]"  (System) { systeminfo="<ProcessCpuPercent:10000:#State.Name.eq=eclipse" }
+	Number eclipseRealMem1  "Real mem1 [%.1f%%]"  (System) { systeminfo="ProcessCpuPercent:10000:eclipse" }
+	Number eclipseRealMem2  "Real mem2 [%.1f%%]"  (System) { systeminfo="ProcessCpuPercent:10000:*eclipse" }
+	Number eclipseRealMem3  "Real mem3 [%.1f%%]"  (System)  { systeminfo="ProcessCpuPercent:10000:eclipse*" }
+	Number eclipseRealMem4  "Real mem4 [%.1f%%]"  (System) { systeminfo="ProcessCpuPercent:10000:=eclipse" }
+	Number eclipseRealMem5  "Real mem5 [%.1f%%]"  (System) { systeminfo="ProcessCpuPercent:10000:#State.Name.eq=eclipse" }
 
 Examples, how to configure your sitemap:
 
