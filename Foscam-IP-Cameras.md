@@ -198,6 +198,22 @@ From [Nicholas Waterton](https://community.openhab.org/users/Nicholas_Waterton):
 * [pyh264decode](https://github.com/tzwenn/pyh264decode) - This is a small Python module 
 to decode raw H.264 packets with external avcC extra data.
 
+### Use Apache FTP Server FTPlet
+
+From [Martin Raepple](https://community.openhab.org/users/raepple):
+
+The Apache FTP Server can be used to capture the motion detection event by implementing an FTPlet. An FTPlet can hook into the common FTP commands such as login. If the Foscam HD IP camera is configured for FTP in the capture storage location settings, a motion detection alarm triggers the camera to call the FTPlet's onLogin method. 
+
+The sample FTPlet below takes the camera's name from the authenticated user in the onLogin method. Therefore, each camera must have its own user in the Apache FTP Server (configured with res/conf/users.properties in the server's installation directory). Next, it calls openHAB's REST API to change the state of the camera's assigned motion detection switch item, which may cause other rules in openHAB to trigger. On my openHAB installation, the FTPlet also checks for the current state of a presence item. If nobody is at home, the login operation will continue and the captured video is stored on the FTP Server. Otherwise, there is no need to record the video, and the session will be disconnected.
+
+Similar to some of the other solutions provided above, this approach does not require to openHAB to poll for a motion alarm. It only requires the Apache FTP Server to run on a host which can be reached by the camera(s) and openHAB. The Apache FTP Server is a lightweight process with very little resource consumption and can be deployed on the same host where openHAB is running.
+
+#### Resources
+
+* [Sample FTPlet](https://github.com/raepple/foscamFTPlet/blob/master/FoscamFTPlet/src/net/raepple/homezone/FoscamFtplet.java)
+* [Apache FTP Server]
+(https://mina.apache.org/ftpserver-project/index.html)
+
 ---
 
 ## General API Access
