@@ -253,3 +253,7 @@ Number NestCondo_temp "Condo Temperature [%.1f °F]" {nest="=[thermostats(Dining
 * Quiesce logging on status poll ([#3111](https://github.com/openhab/openhab/pull/3111))
 * Added support for monitoring and turning on or off streaming from your Nest Cams. ([#3232](https://github.com/openhab/openhab/pull/3232))
 * Added optional `nest:timeout` config parameter ([#3692](https://github.com/openhab/openhab/pull/3692))
+
+### openHAB 1.8.1
+
+* Allow setting setpoints with decimals ([#3950](https://github.com/openhab/openhab/pull/3950))
