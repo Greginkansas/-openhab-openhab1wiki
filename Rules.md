@@ -111,6 +111,18 @@ You can either use some pre-defined expressions for timers or use a [cron expres
     Time is noon
     Time cron "<cron expression>"
 ```
+A cron expression takes the form of six or optionally seven fields:
+
+1. Seconds
+1. Minutes
+1. Hours
+1. Day-of-Month
+1. Month
+1. Day-of-Week
+1. Year (optional field)
+
+for more information see: http://www.quartz-scheduler.org/documentation/quartz-2.1.x/tutorials/tutorial-lesson-06
+
 ### System-based Triggers
 
 Currently, you schedule rules to be executed either at system startup or shutdown. Note that newly added or modified startup rules are executed once, even if openHAB is already up and running. They are simply executed once as soon as the system is aware of them. Here's the syntax for system triggers:
