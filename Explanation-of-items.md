@@ -57,7 +57,7 @@ Group | Item to nest other items / collect them in groups | The accepted data ty
 Location | Can be used to store GPS related informations, addresses, etc. by latitude, longitude and altitude | Point | Point
 Number | Has a decimal value and is usually used for all kinds of sensors, like temperature, brightness, wind, etc. It can also be used as a counter or as any other thing that can be expressed as a number. | Decimal | Decimal
 Rollershutter | Allows the control of roller shutters, i.e. moving them up, down, stopping or setting it to close to a certain percentage. | UpDown, Percent | UpDown, StopMove, Percent
-String | Can be used for any kind of string or textuell representation of a DateTime. | String, DateTime | String
+String | Can be used for any kind of string or textual representation of a DateTime. | String, DateTime | String
 Switch | Represents a normal switch that can be ON or OFF. Useful for normal lights, presence detection, etc. | OnOff | OnOff
 
 #### Dimmers vs Switches
