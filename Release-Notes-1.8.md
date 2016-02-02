@@ -2,6 +2,47 @@
 
 Please find below the _intermediary_ release notes of the 1.8 Release.
 
+### Version 1.8.1
+
+This is the second bugfix release of the 1.8 release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.1).
+
+### Updating the openHAB runtime 1.8.0 to 1.8.1
+
+Many of the fixes does not require to update the Runtime itself so it would suffice to simply replace the Binding jars in your Add-Ons folder. However, if you would like have one of these [issues in the runtime](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.1+label%3Aruntime) fixed you will have to update the Runtime as well.
+
+####Major Features:
+
+####Enhancements:
+* [#3881](https://github.com/openhab/openhab/pull/3881) - Remove dependancy on database to determine if device supports class during config (@cdjackson)
+* [#3774](https://github.com/openhab/openhab/pull/3774) - DSC Alarm Binding: IT-100 TCP Connection Support (@marclennox)
+
+####Bugfixes:
+* [#3950](https://github.com/openhab/openhab/pull/3950) - [nest] Allow setting setpoints with decimals (@watou)
+* [#3890](https://github.com/openhab/openhab/pull/3890) - [tcp] Same change as #3792 on 1.8 (@watou)
+* [#3888](https://github.com/openhab/openhab/pull/3888) - [weather] workaround for #3860 (@watou)
+* [#3882](https://github.com/openhab/openhab/pull/3882) - Bugfix in frontiersiliconradio: volume update posted from value on bus. (@paphko)
+* [#3844](https://github.com/openhab/openhab/pull/3844) - Sonance binding power query and volume command fix (@LaurensVanAcker)
+* [#3830](https://github.com/openhab/openhab/issues/3830) - 1.8 Classic UI Does not render properly (@z00tv)
+* [#3825](https://github.com/openhab/openhab/pull/3825) - ExecUtil: fixed incorrect exitValue configuration. (@steve-bate)
+* [#3821](https://github.com/openhab/openhab/issues/3821) - ExecUtil command execution raises exception when exitCode != 1 (@steve-bate)
+* [#3819](https://github.com/openhab/openhab/pull/3819) - Modbus TCP connections closed after every transaction (@ssalonen)
+transaction (@ssalonen)
+* [#3816](https://github.com/openhab/openhab/pull/3816) - Some bugfix (@fazioa)
+* [#3813](https://github.com/openhab/openhab/pull/3813) - [weather] Add name examples to default weather binding config (@watou)
+* [#3812](https://github.com/openhab/openhab/pull/3812) - MariaDB compatibility update (@lewie)
+* [#3804](https://github.com/openhab/openhab/pull/3804) - Rename duplicate influxdb project Eclipse (@idserda)
+* [#3796](https://github.com/openhab/openhab/pull/3796) - Fix ClassicUI Slider for no-value-labels (@sja)
+* [#3779](https://github.com/openhab/openhab/pull/3779) - Remove the switch_all command class from the default command classes … (@cdjackson)
+* [#3733](https://github.com/openhab/openhab/pull/3733) - Fix bug with ZWave library types (@cdjackson)
+* [#3122](https://github.com/openhab/openhab/pull/3122) - RRD4J: Handling of Dimmer and Rollershutter items during restore of values improved (Fix for #3090). (@LKuech)
+
+####Uncategorized:
+
+* [#3881](https://github.com/openhab/openhab/pull/3881) - Remove dependancy on database to determine if device supports class during config (@cdjackson)
+* [#3774](https://github.com/openhab/openhab/pull/3774) - DSC Alarm Binding: IT-100 TCP Connection Support (@marclennox)
+* [#3770](https://github.com/openhab/openhab/pull/3770) - some cleanup on yamahareceiver project (@kaikreuzer)
+
+
 ### Version 1.8.0
 
 See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.0).
