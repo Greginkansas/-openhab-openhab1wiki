@@ -1,4 +1,4 @@
-Quite often, there are rules with all the same logic, but operating on different items and with different parameters. Using [lambda expressions](https://eclipse.org/xtend/documentation.html#lambdas), it is in fact possible to specify reusable and parameterizable functions. The example below can be used to control rollershutters:
+Quite often, there are rules with all the same logic, but operating on different items and with different parameters. Using [lambda expressions](https://eclipse.org/xtend/documentation/203_xtend_expressions.html#lambdas), it is in fact possible to specify reusable and parameterizable functions. The example below can be used to control rollershutters:
 * **S_[name]_up** is a switch (input) item to move it up
 * **S_[name]_down** is a switch (input) item to move it down
 * **R_[name]_up** is the switch item that actually moves it up
