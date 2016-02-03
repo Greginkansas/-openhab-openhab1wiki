@@ -26,12 +26,17 @@ Typically items are defined using the openHAB Designer by editing the items defi
 # Syntax
 Items are defined in the following syntax:
 
-    itemtype itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
+```java
+itemtype itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
+```
 
 Parts in square brackets ([]) are optional.
 
 ## Real life example
-    Number Temperature_GF_Living "Temperature [%.1f °C]" <temperature> (GF_Living) {knx="1/0/15+0/0/15"}
+
+```java
+Number Temperature_GF_Living "Temperature [%.1f °C]" <temperature> (GF_Living) {knx="1/0/15+0/0/15"}`
+```
 
 Above example defines an item 
 * of [type](#item-type) `Number`
@@ -83,7 +88,9 @@ The item type _group_ is used to define a group in which you can nest/collect ot
 
 Group items can also be used to easily determine one or more items with a defined value or can be used to calculate a value depending on all values within the group. Please note that this can only be used if all items in the group have the same type. You have to add this type of the items and the desired function to the item type:
 
-    Group:itemtype:function itemname ["labeltext"] [<iconname>] [(group1, group2, ...)]
+```java
+Group:itemtype:function itemname ["labeltext"] [<iconname>] [(group1, group2, ...)]
+```
 
 Function | Description
 ---------|------------
@@ -108,14 +115,18 @@ The label text is used on the one hand side to display a description for the spe
 
 Formatting is done applying [Java formatter class syntax](http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax), therefore the syntax is
 
-    %[argument_index$][flags][width][.precision]conversion
+```java
+%[argument_index$][flags][width][.precision]conversion
+```
 
 Only the leading '%' and the trailing 'conversion' are mandatory. The **argument_index$** must be used if you want to convert the value of the item several times within the label text or if the item has more than one value. Look at the DateTime and Call item in the following example.
 
-    Number    MyTemperature  "Temperature [%.1f] °C"          { someBinding:somevalue }
-    String    MyString       "Value: [%s]"                    { someBinding:somevalue }
-    DateTime  MyLastUpdate   "Last Update: [%1$ta %1$tR]"     { someBinding:somevalue }
-    Call      IncomingCall   "Incoming call: [%1$s to %2$s]"  { someBinding:somevalue }
+```java
+Number    MyTemperature  "Temperature [%.1f] °C"          { someBinding:somevalue }
+String    MyString       "Value: [%s]"                    { someBinding:somevalue }
+DateTime  MyLastUpdate   "Last Update: [%1$ta %1$tR]"     { someBinding:somevalue }
+Call      IncomingCall   "Incoming call: [%1$s to %2$s]"  { someBinding:somevalue }
+```
 
 The output would look like this:
 
@@ -141,8 +152,10 @@ Let's make a small example to illustrate this function. If you have a sensor whi
 
 Next we define two items. One showing the raw value as it is provided from our sensor and one with transformed value.
 
-    Number WindowRaw          "Window is [%d]"                  { someBinding:somevalue }
-    Number WindowTransformed  "Window is [MAP(window.map):%s]"  { someBinding:somevalue }
+```java 
+Number WindowRaw          "Window is [%d]"                  { someBinding:somevalue }
+Number WindowTransformed  "Window is [MAP(window.map):%s]"  { someBinding:somevalue }
+```
 
 The output will be
 
@@ -185,12 +198,14 @@ The binding config is the most import part of an item. It defines from where the
 
 Where _ns_ is the namespace for a certain binding like "knx", "bluetooth", "serial". Every binding defines what values must be given in the bindingconfig string. That can be the id of a sensor, an ip or mac address or anything else. You must have a look at your [[Bindings]] configuration section, to know what to use. Some typical examples are:
 
-    Switch  Light_Floor        "Light at Floor"                { knx="1/0/15+0/0/15" }
-    Switch  Presence           "I'm at home"                   { bluetooth="123456ABCD" }
-    Switch  Doorbell           "Doorbell"                      { serial="/dev/usb/ttyUSB0" }
-    Contact Garage             "Garage is [MAP(en.map):%s]"    { zwave="21:command=sensor_binary,respond_to_basic=true" }
-    String  Error_Ventilation  "Error in Ventilation %s"       { comfoair="error_message" }
-    Number  DiningRoomTemp     "Maximum Away Temp. [%.1f °F]"  { nest="<[thermostats(Dining Room).away_temperature_high_f]" }
+```java
+Switch  Light_Floor        "Light at Floor"                { knx="1/0/15+0/0/15" }
+Switch  Presence           "I'm at home"                   { bluetooth="123456ABCD" }
+Switch  Doorbell           "Doorbell"                      { serial="/dev/usb/ttyUSB0" }
+Contact Garage             "Garage is [MAP(en.map):%s]"    { zwave="21:command=sensor_binary,respond_to_basic=true" }
+String  Error_Ventilation  "Error in Ventilation %s"       { comfoair="error_message" }
+Number  DiningRoomTemp     "Maximum Away Temp. [%.1f °F]"  { nest="<[thermostats(Dining Room).away_temperature_high_f]" }
+```
 
 # Further examples
 1. Further examples for defining items can be found in our [openHAB-samples](https://github.com/openhab/openhab/wiki/Samples-Item-Definitions) section.
