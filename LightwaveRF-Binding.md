@@ -57,26 +57,27 @@ Valid types are
 <tr><td><b>LightwaveRF Type</b></td><td><b>OpenhabType</b></td><td><b>Read/Write</b></td><td><b>Devices</b></td><td><b>From Version</b></td></tr>
 <tr><td>DIMMER</td><td>Dimmer</td><td>Read/Write</td><td>Dimmer</td><td>1.7.0</td>
 <tr><td>SWITCH</td><td>Switch</td><td>Read/Write</td><td>Switch</td><td>1.7.0</td>
-<tr><td>MOOD</td><td>Number</td><td>Read/Write</td><td>Setup in LightwaveRF App</td><td>1.8.0</td>
-<tr><td>ALL_OFF</td><td>Switch</td><td>Read/Write</td><td>Virtual Device</td><td>1.8.0</td>
-<tr><td>UPDATETIME</td><td>DateTime</td><td>Read</td><td>Energy Monitor, Radiator Valves</td><td>1.8.0 (was called HEATING_UPDATETIME in 1.7.0)</td>
-<tr><td>SIGNAL</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0 (was called HEATING_SIGNAL in 1.7.0, removed from Radiator valve in 1.8.0)</td>
+<tr><td>MOOD</td><td>Number</td><td>Read/Write</td><td>Setup in LightwaveRF App</td><td>1.9.0</td>
+<tr><td>ALL_OFF</td><td>Switch</td><td>Read/Write</td><td>Virtual Device</td><td>1.9.0</td>
+<tr><td>UPDATETIME</td><td>DateTime</td><td>Read</td><td>Energy Monitor, Radiator Valves</td><td>1.9.0 (was called HEATING_UPDATETIME in 1.7.0)</td>
+<tr><td>SIGNAL</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.9.0 (was called HEATING_SIGNAL in 1.7.0, removed from Radiator valve in 1.9.0)</td>
 <tr><td>HEATING_CURRENT_TEMP</td><td>Number</td><td>Read</td><td>Radiator Valves</td><td>1.7.0</td>
 <tr><td>HEATING_BATTERY</td><td>Number</td><td>Read</td><td>Radiator Valves</td><td>1.7.0</td>
 <tr><td>HEATING_SET_TEMP</td><td>Number</td><td>Write</td><td>Radiator Valves</td><td>1.7.0</td>
 <tr><td>HEATING_MODE</td><td>String</td><td>Read</td><td>Radiator Valves</td><td>1.7.0</td>
-<tr><td>HEATING_OUTPUT</td><td>Percent</td><td>Read</td><td>Radiator Valves</td><td>1.8.0</td>
-<tr><td>ENERGY_YESTERDAY_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0</td>
-<tr><td>ENERGY_TODAY_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0</td>
-<tr><td>ENERGY_MAX_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0</td>
-<tr><td>ENERGY_CURRENT_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0</td>
-<tr><td>RELAY</td><td>Number (-1 Close, 0 Stop, 1 Open)</td><td>Read/Write</td><td>Relay</td><td>1.8.0</td>
-<tr><td>WIFILINK_IP</td><td>String</td><td>Read</td><td>Wifi Link</td><td>1.8.0</td>
-<tr><td>WIFILINK_DUSK_TIME</td><td>DateTime</td><td>Read</td><td>Wifi Link</td><td>1.8.0</td>
-<tr><td>WIFILINK_DAWN_TIME</td><td>DateTime</td><td>Read</td><td>Wifi Link</td><td>1.8.0</td>
-<tr><td>WIFILINK_UPTIME</td><td>Number</td><td>Read</td><td>Wifi Link</td><td>1.8.0</td>
-<tr><td>WIFILINK_LONGITUDE</td><td>String</td><td>Read</td><td>Wifi Link</td><td>1.8.0</td>
-<tr><td>WIFILINK_LATITUDE</td><td>String</td><td>Read</td><td>Wifi Link</td><td>1.8.0</td>
+<tr><td>HEATING_OUTPUT</td><td>Percent</td><td>Read</td><td>Radiator Valves</td><td>1.9.0</td>
+<tr><td>ENERGY_YESTERDAY_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.9.0</td>
+<tr><td>ENERGY_TODAY_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.9.0</td>
+<tr><td>ENERGY_MAX_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.9.0</td>
+<tr><td>ENERGY_CURRENT_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.9.0</td>
+<tr><td>RELAY</td><td>Number (-1 Close, 0 Stop, 1 Open)</td><td>Read/Write</td><td>Relay</td><td>1.9.0</td>
+<tr><td>WIFILINK_IP</td><td>String</td><td>Read</td><td>Wifi Link</td><td>1.9.0</td>
+<tr><td>WIFILINK_DUSK_TIME</td><td>DateTime</td><td>Read</td><td>Wifi Link</td><td>1.9.0</td>
+<tr><td>WIFILINK_DAWN_TIME</td><td>DateTime</td><td>Read</td><td>Wifi Link</td><td>1.9.0</td>
+<tr><td>WIFILINK_UPTIME</td><td>Number</td><td>Read</td><td>Wifi Link</td><td>1.9.0</td>
+<tr><td>WIFILINK_LONGITUDE</td><td>String</td><td>Read</td><td>Wifi Link</td><td>1.9.0</td>
+<tr><td>WIFILINK_LATITUDE</td><td>String</td><td>Read</td><td>Wifi Link</td><td>1.9.0</td>
+<tr><td>WIFILINK_FIRMWARE</td><td>String</td><td>Read</td><td>Wifi Link</td><td>1.9.0</td>
 </table>
 
 ## Force WiFi Link to register your device
