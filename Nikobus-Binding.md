@@ -75,7 +75,7 @@ Where `<moduleAddress>` is the address of the switch module and `<channel>` is a
 To find out the address of your switch module, press and hold the yellow 'mode' button on the switch module until you here a beep. This will trigger the module to send out it's identification on the bus.
 When you check the openHAB log, you should see an entry similar to:
 
-    12:55:55.332 DEBUG [Nikobus Receiver] o.o.b.n.i.c.NikobusCommandReceiver[:177] - Received NikobusCommand [command=$186C9400100167FF78607E, repeats=1]
+    12:55:55.332 DEBUG [Nikobus Receiver] o.o.b.n.i.c.NikobusCommandReceiver[:177] - Received NikobusCommand [command=$18C96400100167FF78607E, repeats=1]
 
 The 4 characters following $18 are the switch module address. In the example above, that's C964.
 With this address, you can now define the different channels in your item configuration, e.g:
