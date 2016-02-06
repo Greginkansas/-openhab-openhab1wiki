@@ -499,7 +499,7 @@ pause
 
 ### How start openHAB automatically on Linux using systemd
 
-Systemd is used as init system on various Linux flavors, i.e. openSUSE, ArchLinux, etc.
+Systemd is used as init system on various Linux flavors, i.e. Debian, Ubuntu, openSUSE, ArchLinux, etc.
 To make openHAB start automatically on system startup we utilize the main start.sh script which comes with the openHAB distribution.
 We just need to modify it a bit.
 Instead of this line:
