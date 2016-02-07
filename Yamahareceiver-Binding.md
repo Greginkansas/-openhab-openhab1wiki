@@ -18,6 +18,7 @@ tested Receivers:
 * RX-A1030
 * RX-A1050 (Aventage)
 * RX-A2020
+* RX-A3000
 * RX-A810
 * RX-S601D
 * RX-V677
