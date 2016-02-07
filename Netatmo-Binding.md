@@ -1,4 +1,5 @@
 The Netatmo binding integrates the Netatmo Personal Weather Station into openHAB. Its different modules allow you to measure temperature, humidity, air pressure, carbon dioxide concentration in the air, as well as the ambient noise level.
+Since 1.9 the Netatmo Welcome Camera is also supported, it is a home camera with face recognition. It notifies you when it sees someone it knows, but also when it sees a stranger.
 
 See http://www.netatmo.com/ for details on their product.
 
@@ -9,7 +10,7 @@ See http://www.netatmo.com/ for details on their product.
 * Retrieve a refresh token from Netatmo API, using e.g. curl:
 
 ```
-curl -d 'grant_type=password&client_id=123456789012345678901234&client_secret=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHI&username=example@example.com&password=example&scope=read_station read_thermostat write_thermostat' 'https://api.netatmo.net/oauth2/token'
+curl -d 'grant_type=password&client_id=123456789012345678901234&client_secret=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHI&username=example@example.com&password=example&scope=read_station read_camera read_thermostat write_thermostat' 'https://api.netatmo.net/oauth2/token'
 ```
 
 * Add client id, client secret and refresh token to openhab.cfg
@@ -65,6 +66,10 @@ Example item for the **indoor module**:
 ```
 Number Netatmo_Indoor_CO2 "Carbon dioxide [%d ppm]" {netatmo="00:00:00:00:00:00#Co2"}
 ```
+Since 1.9 also with the keyword _weather=_:
+```
+Number Netatmo_Indoor_CO2 "Carbon dioxide [%d ppm]" {netatmo="weather=00:00:00:00:00:00#Co2"}
+```
 
 **Supported types for the indoor module:**
 * Temperature
@@ -103,6 +108,10 @@ Example item for the **outdoor module** (first id is the main module, second id 
 ```
 Number Netatmo_Outdoor_Temperature "Outdoor temperature [%.1f °C]" {netatmo="00:00:00:00:00:00#00:00:00:00:00:00#Temperature"}
 ```
+Since 1.9 also with the keyword _weather=_:
+```
+Number Netatmo_Outdoor_Temperature "Outdoor temperature [%.1f °C]" {netatmo="weather=00:00:00:00:00:00#00:00:00:00:00:00#Temperature"}
+```
 
 **Supported types for the outdoor module:**
 * Temperature
@@ -124,6 +133,11 @@ Example item for the **rain gauge** (first id is the main module, second id is t
 ```
 Number Netatmo_Rain_Current "Rain [%.1f mm]" {netatmo="00:00:00:00:00:00#00:00:00:00:00:00#Rain"}
 ```
+Since 1.9 also with the keyword _weather=_:
+```
+Number Netatmo_Rain_Current "Rain [%.1f mm]" {netatmo="weather=00:00:00:00:00:00#00:00:00:00:00:00#Rain"}
+```
+
 **Supported types for the rain guage:**
 * Rain
 * Humidity
@@ -136,6 +150,11 @@ Example item for the **wind module** (first id is the main module, second id is 
 ```
 Number Netatmo_Wind_Strength "Wind Strength [%.0f KPH]" {netatmo="00:00:00:00:00:00#00:00:00:00:00:00#WindStrength"}
 ```
+Since 1.9 also with the keyword _weather=_:
+```
+Number Netatmo_Wind_Strength "Wind Strength [%.0f KPH]" {netatmo="weather=00:00:00:00:00:00#00:00:00:00:00:00#WindStrength"}
+```
+
 **Supported types for the wind module:**
 * WindStrength
 * WindAngle
@@ -156,7 +175,6 @@ Types **WindStrength**, **WindAngle**, **GustStrength**, **GustAngle** are for a
 The  type **date_max_gust** is also for a specific time frame, and defaults to 1 day. It will only work with the ranges **1day**, **1week**, and **1month**.
 
 Example items with different time frames:
-
 ```
 Number   Netatmo_Wind_Strength_Current        "Wind Strength [%.0f KPH]"     (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#WindStrength"}
 Number   Netatmo_Wind_Wind_Angle_Current      "Wind Angle [%d°]"             (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#WindAngle"}
@@ -176,6 +194,25 @@ Number   Netatmo_Wind_Gust_Angle_Month        "Wind Angle [%d°]"             (N
 DateTime Netatmo_Wind_Max_Gust_Date_Month     "Date Max Gust [%1$tD %1$tr]"  (Netatmo)  {netatmo="00:00:00:00:00:00#06:00:00:00:00:de#date_max_gust,1month"}
 ```
 
+Since 1.9 also with the keyword _weather=_:
+```
+Number   Netatmo_Wind_Strength_Current        "Wind Strength [%.0f KPH]"     (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#WindStrength"}
+Number   Netatmo_Wind_Wind_Angle_Current      "Wind Angle [%d°]"             (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#WindAngle"}
+Number   Netatmo_Wind_Gust_Strength_Current   "Wind Strength [%.0f KPH]"     (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#GustStrength"}
+Number   Netatmo_Wind_Gust_Angle_Current      "Wind Angle [%d°]"             (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#GustAngle"}
+
+Number   Netatmo_Wind_Strength_Today          "Wind Strength [%.0f KPH]"     (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#WindStrength,1day"}
+Number   Netatmo_Wind_Wind_Angle_Today        "Wind Angle [%d°]"             (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#WindAngle,1day"}
+Number   Netatmo_Wind_Gust_Strength_Today     "Wind Strength [%.0f KPH]"     (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#GustStrength,1day"}
+Number   Netatmo_Wind_Gust_Angle_Today        "Wind Angle [%d°]"             (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#GustAngle,1day"}
+DateTime Netatmo_Wind_Max_Gust_Date_Today     "Date Max Gust [%1$tD %1$tr]"  (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#date_max_gust"}
+
+Number   Netatmo_Wind_Strength_Month          "Wind Strength [%.0f KPH]"     (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#WindStrength,1month"}
+Number   Netatmo_Wind_Wind_Angle_Month        "Wind Angle [%d°]"             (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#WindAngle,1month"}
+Number   Netatmo_Wind_Gust_Strength_Month     "Wind Strength [%.0f KPH]"     (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#GustStrength,1month"}
+Number   Netatmo_Wind_Gust_Angle_Month        "Wind Angle [%d°]"             (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#GustAngle,1month"}
+DateTime Netatmo_Wind_Max_Gust_Date_Month     "Date Max Gust [%1$tD %1$tr]"  (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#date_max_gust,1month"}
+```
 ###Min, Max and Sum Types (Since 1.8)
 Types that contain **_min**, **_max**, or **_sum** are for a specific time frame, with a default of 1 day. Possible time frames are:
 * 30min
@@ -195,6 +232,16 @@ Number   Netatmo_Indoor_Max_Temp_This_Month  "Indoor Maximum Temperature This Mo
 Number   Netatmo_Rain_Today                  "Rain Today [%.02f mm]"                          (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:be#sum_rain"}
 Number   Netatmo_Rain_Week                   "Rain This Week [%.02f mm]"                      (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:be#sum_rain,1week""}
 Number   Netatmo_Rain_Month                  "Rain This Month [%.02f mm]"                     (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:be#sum_rain,1month""}
+```
+
+Since 1.9 also with the keyword _weather=_:
+```
+Number   Netatmo_Indoor_Max_Temp_Today       "Indoor Maximum Temperature Today [%.2f C]"      (Netatmo)  {netatmo="weather=00:00:00:00:00:00#max_temp"}
+Number   Netatmo_Indoor_Max_Temp_This_Week   "Indoor Maximum Temperature This Week [%.2f C]"  (Netatmo)  {netatmo="weather=00:00:00:00:00:00#max_temp,1week"}
+Number   Netatmo_Indoor_Max_Temp_This_Month  "Indoor Maximum Temperature This Month [%.2f C]" (Netatmo)  {netatmo="weather=00:00:00:00:00:00#max_temp,1month"}
+Number   Netatmo_Rain_Today                  "Rain Today [%.02f mm]"                          (Netatmo)  {netatmo="weather=00:00:00:00:00:00#05:00:00:00:00:be#sum_rain"}
+Number   Netatmo_Rain_Week                   "Rain This Week [%.02f mm]"                      (Netatmo)  {netatmo="weather=00:00:00:00:00:00#05:00:00:00:00:be#sum_rain,1week""}
+Number   Netatmo_Rain_Month                  "Rain This Month [%.02f mm]"                     (Netatmo)  {netatmo="weather=00:00:00:00:00:00#05:00:00:00:00:be#sum_rain,1month""}
 ```
   
 ## Example items
@@ -258,6 +305,65 @@ Number   Netatmo_Wind_Batteryvp        "Wind battery status [%d %%]"            
 
 ```
 
+Since 1.9 also with the keyword _weather=_:
+```
+Number   Netatmo_Indoor_Temperature    "Indoor Temperature [%.2f C]"                       (Netatmo)  {netatmo="weather=00:00:00:00:00:00#Temperature"}
+Number   Netatmo_Indoor_Humidity       "Indoor Humidity [%d %%]"                           (Netatmo)  {netatmo="weather=00:00:00:00:00:00#Humidity"}
+Number   Netatmo_Indoor_CO2            "Indoor Carbon dioxide [%d ppm]"                    (Netatmo)  {netatmo="weather=00:00:00:00:00:00#Co2"}
+Number   Netatmo_Indoor_Pressure       "Indoor Pressure [%.2f mbar]"                       (Netatmo)  {netatmo="weather=00:00:00:00:00:00#Pressure"}
+Number   Netatmo_Indoor_Noise          "Indoor Noise [%d db]"                              (Netatmo)  {netatmo="weather=00:00:00:00:00:00#Noise"}
+Number   Netatmo_Indoor_wifi           "Indoor Wifi status [%d / 4]"                       (Netatmo)  {netatmo="weather=00:00:00:00:00:00#Wifistatus"}
+Number   Netatmo_Indoor_altitude       "Indoor Altitude [%f]"                              (Netatmo)  {netatmo="weather=00:00:00:00:00:00#Altitude"}
+Number   Netatmo_Indoor_latitude       "Indoor Latitude [%.6f]"                            (Netatmo)  {netatmo="weather=00:00:00:00:00:00#Latitude"}
+Number   Netatmo_Indoor_longitude      "Indoor Longitude [%.6f]"                           (Netatmo)  {netatmo="weather=00:00:00:00:00:00#Longitude"}
+Number   Netatmo_Indoor_Min_Temp       "Indoor Minimum Temperature Today [%.2f C]"         (Netatmo)  {netatmo="weather=00:00:00:00:00:00#min_temp"}
+DateTime Netatmo_Indoor_Min_Temp_Date  "Indoor Minimum Temperature Today [%1$tD %1$tr]"    (Netatmo)  {netatmo="weather=00:00:00:00:00:00#date_min_temp"}
+Number   Netatmo_Indoor_Max_Temp       "Indoor Maximum Temperature Today [%.2f C]"         (Netatmo)  {netatmo="weather=00:00:00:00:00:00#max_temp"}
+DateTime Netatmo_Indoor_Max_Temp_Date  "Indoor Maximum Temperature Today [%1$tD %1$tr]"    (Netatmo)  {netatmo="weather=00:00:00:00:00:00#date_max_temp"}
+Number   Netatmo_Indoor_Min_Hum        "Indoor Minimum Humidity Today [%d %%]"             (Netatmo)  {netatmo="weather=00:00:00:00:00:00#min_hum"}
+DateTime Netatmo_Indoor_Min_Hum_Date   "Indoor Minimum Humidity Today [%1$tD %1$tr]"       (Netatmo)  {netatmo="weather=00:00:00:00:00:00#date_min_hum"}
+Number   Netatmo_Indoor_Max_Hum        "Indoor Maximum Humidity Today [%d %%]"             (Netatmo)  {netatmo="weather=00:00:00:00:00:00#max_hum"}
+DateTime Netatmo_Indoor_Max_Hum_Date   "Indoor Maximum Humidity Today [%1$tD %1$tr]"       (Netatmo)  {netatmo="weather=00:00:00:00:00:00#date_max_hum"}
+Number   Netatmo_Indoor_Min_Press      "Indoor Minimum Pressure Today [%.2f mbar]"         (Netatmo)  {netatmo="weather=00:00:00:00:00:00#min_pressure"}
+DateTime Netatmo_Indoor_Min_Temp_Press "Indoor Minimum Pressure Today [%1$tD %1$tr]"       (Netatmo)  {netatmo="weather=00:00:00:00:00:00#date_min_pressure"}
+Number   Netatmo_Indoor_Max_Press      "Indoor Maximum Pressure Today [%.2f mbar]"         (Netatmo)  {netatmo="weather=00:00:00:00:00:00#max_pressure"}
+DateTime Netatmo_Indoor_Max_Temp_Press "Indoor Maximum Pressure Today [%1$tD %1$tr]"       (Netatmo)  {netatmo="weather=00:00:00:00:00:00#date_max_pressure"}
+Number   Netatmo_Indoor_Min_Noise      "Indoor Minimum Noise Today [%d db]"                (Netatmo)  {netatmo="weather=00:00:00:00:00:00#min_noise"}
+DateTime Netatmo_Indoor_Min_Noise_Date "Indoor Minimum Noise Today [%1$tD %1$tr]"          (Netatmo)  {netatmo="weather=00:00:00:00:00:00#date_min_noise"}
+Number   Netatmo_Indoor_Max_Noise      "Indoor Maximum Noise Today [%d db]"                (Netatmo)  {netatmo="weather=00:00:00:00:00:00#max_noise"}
+DateTime Netatmo_Indoor_Max_Noise_Date "Indoor Maximum Noise Today [%1$tD %1$tr]"          (Netatmo)  {netatmo="weather=00:00:00:00:00:00#date_max_noise"}
+Number   Netatmo_Indoor_Min_CO2        "Indoor Minimum Carbon Dioxide Today [%d ppm]"      (Netatmo)  {netatmo="weather=00:00:00:00:00:00#min_co2"}
+DateTime Netatmo_Indoor_Min_CO2_Date   "Indoor Minimum Carbon Dioxide Today [%1$tD %1$tr]" (Netatmo)  {netatmo="weather=00:00:00:00:00:00#date_min_co2"}
+Number   Netatmo_Indoor_Max_CO2        "Indoor Maxinum Carbon Dioxide Today [%d ppm]"      (Netatmo)  {netatmo="weather=00:00:00:00:00:00#max_co2"}
+DateTime Netatmo_Indoor_Max_CO2_Date   "Indoor Maximum Carbon Dioxide Today [%1$tD %1$tr]" (Netatmo)  {netatmo="weather=00:00:00:00:00:00#date_max_co2"}
+
+Number   Netatmo_Outdoor_Temperature   "Outdoor Temperature [%.2f °C]"                     (Netatmo)  {netatmo="weather=00:00:00:00:00:00#02:00:00:00:00:00#Temperature"}
+Number   Netatmo_Outdoor_Humidity      "Outdoor Humidity [%.2f %%]"                        (Netatmo)  {netatmo="weather=00:00:00:00:00:00#02:00:00:00:00:00#Humidity"}
+Number   Netatmo_Outdoor_Rfstatus      "Outdoor RF status [%d / 5]"                        (Netatmo)  {netatmo="weather=00:00:00:00:00:00#02:00:00:00:00:00#Rfstatus"}
+Number   Netatmo_Outdoor_Batteryvp     "Outdoor battery status [%d %%]"                    (Netatmo)  {netatmo="weather=00:00:00:00:00:00#02:00:00:00:00:00#Batteryvp"}
+Number   Netatmo_Outdoor_Min_Temp      "Outdoor Mininum Temperature Today [%.2f C]"        (Netatmo)  {netatmo="weather=00:00:00:00:00:00#02:00:00:00:00:00#min_temp"}
+DateTime Netatmo_Outdoor_Min_Temp_Date "Outdoor Minimum Temperature Today [%1$tD %1$tr]"   (Netatmo)  {netatmo="weather=00:00:00:00:00:00#02:00:00:00:00:00#date_min_temp"}
+Number   Netatmo_Outdoor_Max_Temp      "Outdoor Maximum Temperature Today [%.2f C]"        (Netatmo)  {netatmo="weather=00:00:00:00:00:00#02:00:00:00:00:00#max_temp"}
+DateTime Netatmo_Outdoor_Max_Temp_Date "Outdoor Maximum Temperature Today [%1$tD %1$tr]"   (Netatmo)  {netatmo="weather=00:00:00:00:00:00#02:00:00:00:00:00#date_max_temp"}
+Number   Netatmo_Outdoor_Min_Hum       "Outdoor Mininum Humidity Today [%d %%]"            (Netatmo)  {netatmo="weather=00:00:00:00:00:00#02:00:00:00:00:00#min_hum"}
+DateTime Netatmo_Outdoor_Min_Hum_Date  "Outdoor Minimum Humidity Today [%1$tD %1$tr]"      (Netatmo)  {netatmo="weather=00:00:00:00:00:00#02:00:00:00:00:00#date_min_hum"}
+Number   Netatmo_Outdoor_Max_Hum       "Outdoor Maximum Humidity Today [%d %%]"            (Netatmo)  {netatmo="weather=00:00:00:00:00:00#02:00:00:00:00:00#max_hum"}
+DateTime Netatmo_Outdoor_Max_Hum_Date  "Outdoor Maximum Humidity Today [%1$tD %1$tr]"      (Netatmo)  {netatmo="weather=00:00:00:00:00:00#02:00:00:00:00:00#date_max_hum"}
+
+Number   Netatmo_Rain_Current          "Rain Current [%.02f mm]"                           (Netatmo)  {netatmo="weather=00:00:00:00:00:00#05:00:00:00:00:be#Rain"}
+Number   Netatmo_Rain_Today            "Rain Today [%.02f mm]"                             (Netatmo)  {netatmo="weather=00:00:00:00:00:00#05:00:00:00:00:be#sum_rain"}
+Number   Netatmo_Rain_Rfstatus         "Rain RF Status [%d / 5]"                           (Netatmo)  {netatmo="weather=00:00:00:00:00:00#05:00:00:00:00:be#Rfstatus"}
+Number   Netatmo_Rain_Batteryvp        "Rain battery status [%d %%]"                       (Netatmo)  {netatmo="weather=00:00:00:00:00:00#05:00:00:00:00:be#Batteryvp"}
+
+Number   Netatmo_Wind_Strength         "Wind Strength [%.0f KPH]"                          (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#WindStrength"}
+Number   Netatmo_Wind_Wind_Angle       "Wind Angle [%d°]"                                  (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#WindAngle"}
+Number   Netatmo_Wind_Gust_Strength    "Wind Strength [%.0f KPH]"                          (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#GustStrength"}
+Number   Netatmo_Wind_Gust_Angle       "Wind Angle [%d°]"                                  (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#GustAngle"}
+DateTime Netatmo_Wind_Max_Gust_Date    "Date Max Gust [%1$tD %1$tr]"                       (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#date_max_gust"}
+Number   Netatmo_Wind_Rfstatus         "Wind RF Status [%d / 5]"                           (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#Rfstatus"}
+Number   Netatmo_Wind_Batteryvp        "Wind battery status [%d %%]"                       (Netatmo)  {netatmo="weather=00:00:00:00:00:00#06:00:00:00:00:de#Batteryvp"}
+```
+
 ## Example rules
 **Example rule** to send a mail if carbon dioxide reaches a certain threshold:
 ```
@@ -314,6 +420,68 @@ then
 
 end
 ```
+
+# Welcome Camera (Since 1.9)
+## Home
+Example item for the **home** (first id is the home id):
+```
+String Welcome_Home                "Home [%s]"          {netatmo="camera=000000000000000000000000#Name"}
+String Welcome_Home_Place_Country  "Home Country [%s]"  {netatmo="camera=000000000000000000000000#PlaceCountry"}
+String Welcome_Home_Place_Timezone "Home Timezone [%s]" {netatmo="camera=000000000000000000000000#PlaceTimezone"}
+```
+
+**Supported types for welcome camera home:**
+* Name
+* PlaceCountry
+* PlaceTimezone
+
+## Person
+Example item for the **person** (first id is the home id, second is the person id):
+```
+String   Welcome_Person_Name       "Person Name [%s]"                                 {netatmo="camera=000000000000000000000000#00000000-0000-0000-0000-000000000000#Pseudo"}
+DateTime Welcome_Person_LastSeen   "Person LastSeen [%1$ta, %1$td.%1$tm.%1$tY %1$tR]" {netatmo="camera=000000000000000000000000#00000000-0000-0000-0000-000000000000#LastSeen"}
+Switch   Welcome_Person_AtHome     "Person [%s]"                                      {netatmo="camera=000000000000000000000000#00000000-0000-0000-0000-000000000000#OutOfSight"}
+String   Welcome_Person_FaceId     "Person FaceId [%s]"                               {netatmo="camera=000000000000000000000000#00000000-0000-0000-0000-000000000000#FaceId"}
+String   Welcome_Person_FaceKey    "Person FaceKey [%s]"                              {netatmo="camera=000000000000000000000000#00000000-0000-0000-0000-000000000000#FaceKey"}
+```
+**Supported types for welcome camera person:**
+* Pseudo
+* LastSeen
+* OutOfSight
+* FaceId
+* FaceKey
+
+## Unknown Person
+Example item for the **unknown person** (first id is the home id):
+```
+Number Welcome_Unknown_Home       "Unknown @Home Count [%d]"    {netatmo="camera=000000000000000000000000#UNKNOWN#HomeCount"}
+Number Welcome_Unknown_Away       "Unknown @Away Count [%d]"    {netatmo="camera=000000000000000000000000#UNKNOWN#AwayCount"}
+String Welcome_Unknown_LastSeen   "Unknown lastSeenList [%s]"   {netatmo="camera=000000000000000000000000#UNKNOWN#LastSeenList"}
+String Welcome_Unknown_OutOfSight "Unknown OutOfSightList [%s]" {netatmo="camera=000000000000000000000000#UNKNOWN#OutOfSightList"}
+String Welcome_Unknown_FaceId     "Unknown FaceIdList [%s]"     {netatmo="camera=000000000000000000000000#UNKNOWN#FaceIdList"}
+String Welcome_Unknown_FaceKey    "Unknown FaceKeyList [%s]"    {netatmo="camera=000000000000000000000000#UNKNOWN#FaceKeyList"}
+```
+**Supported types for welcome camera unknown person:**
+* HomeCount
+* AwayCount
+* LastSeenList
+* OutOfSightList
+* FaceIdList
+* FaceKeyList
+
+## Camera
+Example item for the **camera** (first id is the home id, second is the camera_id):
+```
+String Welcome_Camera            "Camera [%s]"              {netatmo="camera=000000000000000000000000#00:00:00:00:00:00#Name"}
+String Welcome_Camera_Status     "Camera Status [%s]"       {netatmo="camera=000000000000000000000000#00:00:00:00:00:00#Status"}
+String Welcome_Camera_SDStatus   "Camera SD Status [%s]"    {netatmo="camera=000000000000000000000000#00:00:00:00:00:00#SdStatus"}
+String Welcome_Camera_AlimStatus "Camera Power Status [%s]" {netatmo="camera=000000000000000000000000#00:00:00:00:00:00#AlimStatus"}
+```
+**Supported types for welcome camera unknown person:**
+* Name
+* Status
+* SdStatus
+* AlimStatus
 
 
 # Common problems
