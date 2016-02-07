@@ -83,7 +83,9 @@ keyfile /etc/mosquitto/certs/server.key
 require_certificate false
 ```
 
-Restart Mosquitto (check how, /etc/init.d/mosquitto restart doesn't work)
+Restart Mosquitto, try one of the following; 
+* /etc/init.d/mosquitto restart
+* service mosquitto restart
 
 ####Portforward
 Make sure you portforwarded the default mosquitto port 8883 (or 1883) to your server!  
