@@ -43,7 +43,61 @@ From [Nicholas Waterton](https://community.openhab.org/users/Nicholas_Waterton):
 > pages from. The pages are very simple, just a few lines each. This works 
 > independently of how many people are using openhab, and in a browser 
 > it's just a web page.
+>
+>Here is my web page set up:
 
+```
+<!DOCTYPE html>
+<html>
+<meta http-equiv="refresh" content="60">
+<body bgcolor="black">
+<a href="http://ip/Porch_Camera_Motion.html"><img id=cam1 src=http://1p:8082/ width=49.7% border="0"></a>
+<a href="http://ip/Hallway_Camera_Motion.html"><img id=cam2 src=http://ip:8083/ width=49.7% border="0"></a><br>
+<a href="http://ip/Back_Garden_Camera_Motion.html"><img id=cam3 src=http://ip:8084/ width=49.7% border="0"></a>
+<a href="http://ip/Side_Garden_Camera_Motion.html"><img id=cam4 src=http://ip:8081/ width=49.7% border="0"></a>
+</body>
+</html>
+```
+
+>Each web page looks like this:
+```
+<!DOCTYPE html>
+<html>
+<meta http-equiv="refresh" content="60">
+<link href="style.css" rel="stylesheet" type="text/css">
+<body>
+<a href="http://ip/All_Cameras_Motion.html"><img src="http://ip:8082" alt="Porch WD Live Feed"></a>
+</body>
+</html>
+```
+
+>Stylesheet is:
+
+```
+body {
+      background-color: black;
+      color: white;
+      margin: 0;
+      padding: 0;
+      }
+img,video {
+    width: auto;
+    width: 100%;
+    height: auto;
+    }
+```
+
+>One for each camera, where ip is your ip address of the web server. I'm using the program motion, which gives an mjpeg >stream on ports (you define) I'm using 8081-8084, but you could substitute any ip:port combination that gets you an mjpeg >stream as Kimberly points out above.
+
+>The refresh line is optional.
+
+>in your sitemap, the item looks like this:
+
+```
+Webview url="http://ip/All_Cameras_Motion.html" height=14
+```
+
+>The height setting is important! it's height*22 lines (not lines), it has to be big enough to display on your device, but >not so big that the screen would scroll, or the screen will continually refresh.
 ---
 
 ## Motion and Sound Alarms
