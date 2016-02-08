@@ -58,7 +58,7 @@ From [Nicholas Waterton](https://community.openhab.org/users/Nicholas_Waterton):
 </html>
 ```
 
->Each web page looks like this:
+>Each web page looks like this (this would be "Porch_Camera_Motion.html"):
 ```
 <!DOCTYPE html>
 <html>
@@ -84,7 +84,7 @@ img,video {
     height: auto;
     }
 ```
->One for each camera, where ip is your ip address of the web server. I'm using the program motion, which gives an mjpeg >stream on ports (you define) I'm using 8081-8084, but you could substitute any ip:port combination that gets you an mjpeg >stream as Kimberly points out above.
+>One for each camera, where ip is your ip address of the web server. I'm using the program motion, which gives an mjpeg stream on ports (you define) I'm using 8081-8084, but you could substitute any ip:port combination that gets you an mjpeg stream as Kimberly points out above.
 
 >The refresh line is optional.
 
