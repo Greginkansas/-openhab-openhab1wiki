@@ -69,6 +69,47 @@ First install jython (in e.g. /opt/jython) as above, then:
 - In the "Plug-ins" tab, verify that org.openhab.core.jsr223 has Auto-Start = true, and that "Start Level" is set larger than the default. So if the default Start Level is 4, you must set the Start Level of the jsr223 engine  to 5 to defer its start. **This step is crucially important to avoid null pointer exceptions and a broken system**.
 - Now you can start the customized runtime by clicking on the down arrow next to the green start button, and selecting "openHAB Runtime Custom"
 
+### Groovy-Installation
+- Download groovy from http://www.groovy-lang.org/download.html and install it.
+- Create a new directory inside openhab, openhab/lib
+- Copy from groovy/lib all groovy*.lib to openhab/lib
+- You now need to modify your startup script (here is the windows one)
+start.bat
+```
+@echo off
+
+:: set path to eclipse folder. If local folder, use '.'; otherwise, use c:\path\to\eclipse
+set ECLIPSEHOME=server
+
+:: set ports for HTTP(S) server
+set HTTP_PORT=8080
+set HTTPS_PORT=8443
+ 
+:: get path to equinox jar inside ECLIPSEHOME folder
+for /f "delims= tokens=1" %%c in ('dir /B /S /OD %ECLIPSEHOME%\plugins\org.eclipse.equinox.launcher_*.jar') do set EQUINOXJAR=%%c
+ 
+:: start Eclipse w/ java
+echo Launching the openHAB runtime...
+java -Dosgi.clean=true^
+ -Declipse.ignoreApp=true^
+ -Dosgi.noShutdown=true^
+ -Djetty.port=%HTTP_PORT%^
+ -Djetty.port.ssl=%HTTPS_PORT%^
+ -Djetty.home=.^
+ -Dlogback.configurationFile=configurations/logback.xml^
+ -Dfelix.fileinstall.dir=addons^
+ -Dfelix.fileinstall.filter=.*\\.jar^
+ -Djava.library.path=lib^
+ -Djava.security.auth.login.config=./etc/login.conf^
+ -Dorg.quartz.properties=./etc/quartz.properties^
+ -Dequinox.ds.block_timeout=240000^
+ -Dequinox.scr.waitTimeOnBlock=60000^
+ -Djava.awt.headless=true^
+ -Dfelix.fileinstall.active.level=4^
+ -cp .\lib\*;%EQUINOXJAR% org.eclipse.equinox.launcher.Main %*^
+ -console 
+```
+
 ## Scripts
 Each Script needs to be located in configurations/scripts with a correct script ending (".py", ".jy" for jython interpreter). Each Script can contain multiple rules.
 
