@@ -33,6 +33,7 @@ The following properties can be configured to define a broker connection:
     mqtt:<broker>.qos=<qos>
     mqtt:<broker>.retain=<retain>
     mqtt:<broker>.async=<async>
+    mqtt:<broker>.keepAlive=<keepAlive>
 
 The properties indicated by `<...>` need to be replaced with an actual value.  The table below lists the meaning of the different properties.
 
@@ -46,6 +47,8 @@ The properties indicated by `<...>` need to be replaced with an actual value.  T
   <tr><td>qos</td><td>Optional. Set the quality of service level for sending messages to this broker. Possible values are 0 (Deliver at most once),1 (Deliver at least once) or 2 (Deliver exactly once). Defaults to 0.</td></tr>
   <tr><td>retain</td><td>Optional. True or false. Defines if the broker should retain the messages sent to it. Defaults to false.</td></tr>
   <tr><td>async</td><td>Optional. True or false. Defines if messages are published asynchronously or synchronously. Defaults to true.</td></tr>
+  <tr><td>keepAlive</td><td>Optional. True or false. Defines the keep alive interval in seconds. Defaults to 60.</td></tr>
+keepAlive
 </table>
 
 
