@@ -97,7 +97,8 @@ Webview url="http://ip/All_Cameras_Motion.html" height=14
 
 >This is what it looks like (at night hence B/W):
 
-![openhab screenshot](https://www.dropbox.com/s/vg30wj9xn0nvg33/File%202016-02-08%2C%2012%2034%2035%20PM.png?dl=0)
+![Openhab Screenshot](https://www.dropbox.com/s/vg30wj9xn0nvg33/File%202016-02-08%2C%2012%2034%2035%20PM.png?dl=0)
+
 ---
 
 ## Motion and Sound Alarms
