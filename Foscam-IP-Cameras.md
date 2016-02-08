@@ -1,4 +1,4 @@
-Although there is openHAB binding for Foscam IP cameras, there are many ways to
+Although there is no openHAB binding for Foscam IP cameras, there are many ways to
 interact with them from an openHAB server. This wiki page describes some of the
 techniques shared by openHAB users (edited).
 
@@ -246,10 +246,13 @@ From [Nicholas Waterton](https://community.openhab.org/users/Nicholas_Waterton):
 > You need the latest version of "motion" the earlier ones did not support RTSP, 
 > and you need FFMPEG as well (motion uses FFMPEG libraries to decode the 
 > H.264 video stream).
+
+>The Python script in the below "resources" does not need motion, it works out of the box (low level HD comms protocol is built in). It is a command line program that takes various options (see -h for help) for the camera ip, login, password, openhab server, item (key and value). It sends a defined value (ON default) to a defined key (switch item) via the openhab REST interface. It has to be a Switch item, as you can't sent a value to a Contact item via the Rest interface (Openhab quirk?).
  
 #### Resources
 
 * [Motion Wiki](http://www.lavrsen.dk/foswiki/bin/view/Motion/WebHome)
+* [Python Motion Detection Script, and modified motion source files](https://www.dropbox.com/sh/86xqj2h1nyvzdks/AADdTcGxthH0ThZu4NIP3yJZa?dl=0) - the Python motion detection script is stand alone - no other programs needed.
 * [pyh264decode](https://github.com/tzwenn/pyh264decode) - This is a small Python module 
 to decode raw H.264 packets with external avcC extra data.
 
