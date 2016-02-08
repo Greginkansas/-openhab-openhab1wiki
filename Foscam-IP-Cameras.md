@@ -95,6 +95,9 @@ Webview url="http://ip/All_Cameras_Motion.html" height=14
 
 >The height setting is important! it's height*22 lines (not lines), it has to be big enough to display on your device, but  not so big that the screen would scroll, or the screen will continually refresh.
 
+>This is what it looks like (at night hence B/W):
+
+![openhab screenshot](https://www.dropbox.com/s/vg30wj9xn0nvg33/File%202016-02-08%2C%2012%2034%2035%20PM.png?dl=0)
 ---
 
 ## Motion and Sound Alarms
@@ -310,6 +313,5 @@ Python        | [ipcam](http://gitlab.clicknweb.com/eric/ipcam/tree/master)
 * https://community.openhab.org/t/idea-for-foscam-camera-binding/4857/9
 * https://community.openhab.org/t/security-camera-recommendations/3616/9
 * [Forum Query: Foscam](https://community.openhab.org/search?q=foscam)
-
 
 
