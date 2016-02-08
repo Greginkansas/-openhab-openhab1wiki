@@ -122,6 +122,7 @@ Each rule is basically a class in the given scripting language. It needs to impl
 
 Supported triggers: 
 * ChangedEventTrigger (for updates and changed states)
+* UpdatedEventTrigger
 * CommandEventTrigger
 * ShutdownTrigger
 * StartUpTrigger
