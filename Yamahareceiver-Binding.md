@@ -3,9 +3,9 @@
 Documentation of the Yamahareceiver binding Bundle
 
 ## Details
-This binding connects openhab with varoius Yamaha Receivers.
+This binding connects openhab with various Yamaha Receivers.
 
-tested Receivers:
+Tested Receivers:
 * V473
 * V475
 * V477
@@ -21,11 +21,12 @@ tested Receivers:
 * RX-A3000
 * RX-A810
 * RX-S601D
+* RX-V673
 * RX-V677
 * HTR-4065
 
 
-please add sucessfully tested receivers!
+Please add successfully tested receivers!
 
 ## Configuration
 
@@ -40,7 +41,7 @@ items:
 
      {yamahareceiver="uid=living, zone=main, bindingType=power"}
 
-allowed zone entrys:
+allowed zone entries:
 
 * `main`: Main Zone
 * `zone2`: Zone 2
@@ -51,7 +52,7 @@ depends on the real zones implemented on your receiver.
 
 allowed bindingTypes:
 
-* `power`: Openhab Type `Switch`, Switches The Receiver ON or OFF (ON only if you have the Receiver allowed insid settings to react on this Signal in OFF state!!)
+* `power`: Openhab Type `Switch`, Switches The Receiver ON or OFF (ON only works if the Receiver's settings are configured to react on this signal while in the OFF state!  This setting is sometimes labeled "Network Standby" and must be enabled.)
 
 * `mute`: Openhab Type `Switch`, Mute or Unmute the receiver
 * `volume`: Openhab Type `Dimmer`, Set's the receivers Volume percent Value.
