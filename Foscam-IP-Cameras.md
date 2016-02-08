@@ -247,7 +247,38 @@ From [Nicholas Waterton](https://community.openhab.org/users/Nicholas_Waterton):
 > and you need FFMPEG as well (motion uses FFMPEG libraries to decode the 
 > H.264 video stream).
 
->The Python script in the below "resources" does not need motion, it works out of the box (low level HD comms protocol is built in). It is a command line program that takes various options (see -h for help) for the camera ip, login, password, openhab server, item (key and value). It sends a defined value (ON default) to a defined key (switch item) via the openhab REST interface. It has to be a Switch item, as you can't sent a value to a Contact item via the Rest interface (Openhab quirk?).
+>The Python script in the below "resources" does not need motion (or any other program), it works out of the box (low level HD comms protocol is built in). It only works with HD cameras (SD uses a different protocol).
+
+>The program is a command line program that takes various options - see -h for help as shown below:
+
+```
+usage: Camera_Motion_Detect.py [-h] [-c CAMERAIP] [-p OHPORT] [-P CAMERAPORT]
+                               [-k KEY] [-v VALUE] [-n NAME] [-D]
+                               [openhabhost]
+
+Camera Motion Detector for Openhab
+
+positional arguments:
+  openhabhost           ip adress of Openhab host (default: localhost)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c CAMERAIP, --cameraip CAMERAIP
+                        ip adress of camera host(default: 192.168.100.110)
+  -p OHPORT, --ohport OHPORT
+                        openhab REST port number (default: 8009)
+  -P CAMERAPORT, --cameraport CAMERAPORT
+                        Camera port to connect to (default: 34101)
+  -k KEY, --key KEY     openhab item (Switch) to activate (default:
+                        HallwayMotion)
+  -v VALUE, --value VALUE
+                        value to send to openhab item key (default: ON)
+  -n NAME, --name NAME  name of the camera -u sed for log file (default:
+                        Hallway)
+  -D, --debug           debug mode
+```
+
+You may want to edit the script to change the defaults, camera login, password, default log file location etc. There is a lot of extraneous stuff in there - unused modules/functions and so on, as it's hacked out of a larger server program (sorry I wrote this for myself). It connects to the HD FosCam, and basically ignores all the data (video, audio etc) until it sees a motion detect code (code 111). It then sends a defined value (ON default) to a defined key (switch item) via the openhab REST interface. It has to be a Switch item, as you can't sent a value to a Contact item via the REST interface (Openhab quirk?). The program runs until you ^C out of it. I leave multiple instances of it (one for each camera) running for days (weeks even) with no problems.
  
 #### Resources
 
