@@ -45,7 +45,6 @@ From [Nicholas Waterton](https://community.openhab.org/users/Nicholas_Waterton):
 > it's just a web page.
 >
 >Here is my web page set up:
-
 ```
 <!DOCTYPE html>
 <html>
@@ -72,7 +71,6 @@ From [Nicholas Waterton](https://community.openhab.org/users/Nicholas_Waterton):
 ```
 
 >Stylesheet is:
-
 ```
 body {
       background-color: black;
@@ -86,18 +84,17 @@ img,video {
     height: auto;
     }
 ```
-
 >One for each camera, where ip is your ip address of the web server. I'm using the program motion, which gives an mjpeg >stream on ports (you define) I'm using 8081-8084, but you could substitute any ip:port combination that gets you an mjpeg >stream as Kimberly points out above.
 
 >The refresh line is optional.
 
 >in your sitemap, the item looks like this:
-
 ```
 Webview url="http://ip/All_Cameras_Motion.html" height=14
 ```
 
->The height setting is important! it's height*22 lines (not lines), it has to be big enough to display on your device, but >not so big that the screen would scroll, or the screen will continually refresh.
+>The height setting is important! it's height*22 lines (not lines), it has to be big enough to display on your device, but  not so big that the screen would scroll, or the screen will continually refresh.
+
 ---
 
 ## Motion and Sound Alarms
