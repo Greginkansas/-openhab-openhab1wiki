@@ -88,7 +88,7 @@ DateTime PlexTVEndTime  "End time [%1$tR]"     <video>    {plex="playerid#playba
 Dimmer PlexTVVolume		"Volume"		<video>		{plex="playerid#playback/volume"}
 Switch PlexTVPause		"Pause"			<video>		{plex="playerid#playback/pause"}
 Switch PlexTVPlay		"Play"			<video>		{plex="playerid#playback/play"}
-Switch PlexTVPlayPause		"PlayPause"		<video>		{plex="playerid#playback/playpause"}
+Switch PlexTVPlayPause	"PlayPause"		<video>		{plex="playerid#playback/playpause"}
 Switch PlexTVStop		"Stop"			<video>		{plex="playerid#playback/stop"}
 
 Switch PlexTVSelect		"Select"		<video>		{plex="playerid#navigation/select"}
