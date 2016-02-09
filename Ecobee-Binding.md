@@ -506,6 +506,6 @@ To configure DEBUG logging for the Ecobee binding to be sent to a separate file,
 * Updated binding to align with the minor changes present in the [December 2015 ecobee API update](https://www.ecobee.com/home/developer/api/documentation/v1/change-log.shtml) ([#3494](https://github.com/openhab/openhab/pull/3494))
 * Added "quick poll" feature that causes item states to update sooner after a change is sent to Ecobee ([#3568](https://github.com/openhab/openhab/pull/3568))
 
-### openHAB 1.9.0
+### openHAB 1.8.2
 
 * Change seconds back to minutes for PIN expiration message in log ([#4008](https://github.com/openhab/openhab/pull/4008))
