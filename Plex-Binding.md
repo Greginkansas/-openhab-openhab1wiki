@@ -53,11 +53,13 @@ The following properties are available:
 |  state | String | Status of player, values: Stopped, Buffering, Playing, Paused |
 |  title | String | Title of the media playing |
 |  type | String | Media type, values: movie, episode and [more](https://code.google.com/p/plex-api/wiki/MediaTypes) |
+|  playback/cover | String | Holds the URL to the cover image for the media that is currently playing |
 |  playback/progress | Dimmer | Progress of the media playing  |
 |  playback/endTime | DateTime | Time at which the media that is playing will end  |
 |  playback/volume | Dimmer | Volume (increase/decrease or decimaltype) |
 |  playback/pause | Switch | Pause |
 |  playback/play | Switch | Play |
+|  playback/playpause | Switch | PlayPause, toggle between play/pause depending on player state |
 |  playback/stop | Switch | Stop |
 |  navigation/select | Switch | Select |
 |  navigation/back | Switch | Back |
@@ -86,6 +88,7 @@ DateTime PlexTVEndTime  "End time [%1$tR]"     <video>    {plex="playerid#playba
 Dimmer PlexTVVolume		"Volume"		<video>		{plex="playerid#playback/volume"}
 Switch PlexTVPause		"Pause"			<video>		{plex="playerid#playback/pause"}
 Switch PlexTVPlay		"Play"			<video>		{plex="playerid#playback/play"}
+Switch PlexTVPlayPause		"PlayPause"		<video>		{plex="playerid#playback/playpause"}
 Switch PlexTVStop		"Stop"			<video>		{plex="playerid#playback/stop"}
 
 Switch PlexTVSelect		"Select"		<video>		{plex="playerid#navigation/select"}
@@ -114,9 +117,9 @@ sitemap demo label="Main Menu"
 		Text item=PlexTVType visibility=[PlexTVStatus!="Stopped"]
 		Switch item=PlexTVPause
 		Switch item=PlexTVPlay
+		Switch item=PlexTVPlayPause mappings=[ON="▐ ▌"]
 		Switch item=PlexTVStop mappings=[ON="Stop"]
 		Slider item=PlexTVVolume
-		
 		Switch item=PlexTVSelect mappings=[ON="Select"]
 		Switch item=PlexTVBack mappings=[ON="Back"]
 		Switch item=PlexTVUp mappings=[ON="⬆"]
