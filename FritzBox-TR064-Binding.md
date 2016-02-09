@@ -128,5 +128,21 @@ Now, as item configuration use:
 ```
 Contact cFboxMacOnline		"Presence (Wifi) [MAP(presence.map):%d]"	<present>		{fritzboxtr064="maconline:11-22-33-44-55-66 }
 ```
+### rule examples
+If you need the caller name (resolved from the fritzbox phonebook) in a rule, extract it like this:
+```
+rule "Phone is ringing"
+    when
+        // fboxRinging is a switch item which switches to ON if call is detected
+        Item fboxRinging changed from OFF to ON 
+    then
+            logInfo("Anrufermeldung", "Generating caller name message...")
+            // fboxIncoming call receives numbers/name of incoming call
+            val CallType incCall = fboxIncomingCall.state as CallType
+            var callerName = incCall.destNum //destNum is external number OR resolved Name if no phonebook entry exists
 
+            // do something with callerName
+
+end
+```
 
