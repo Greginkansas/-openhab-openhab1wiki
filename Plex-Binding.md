@@ -81,7 +81,7 @@ Switch PlexTVPower		"Power"         <video>		{plex="playerid#power"}
 String PlexTVStatus		"Status [%s]"	<video>		{plex="playerid#state"}
 String PlexTVTitle		"Title [%s]"	<video>		{plex="playerid#title"}
 String PlexTVType		"Type [%s]"		<video>		{plex="playerid#type"}
-String PlexTVCover		"Cover"		<video>		{plex="playerid#playback/cover"}
+String PlexTVCover		"Cover"			<video>		{plex="playerid#playback/cover"}
 
 Dimmer PlexTVProgress   "Progress [%.1f%%]"    <video>    {plex="playerid#playback/progress"}
 DateTime PlexTVEndTime  "End time [%1$tR]"     <video>    {plex="playerid#playback/endTime"}
