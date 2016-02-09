@@ -6,7 +6,7 @@ _**Note:** This Binding is available in 1.7 and later releases._
 * [Binding Configuration](#binding-configuration)
 * [Item configuration](#item-configuration)
  * [ecobee3 Remote Sensors](#ecobee3-remote-sensors)
-* [Authentication](#authentication)
+* [Authorization](#authorization)
 * [Example Binding Strings](#example-binding-strings)
 * [Examples](#examples)
 * [Logging](#logging)
@@ -34,27 +34,27 @@ Typically, `scope` will be set to `smartWrite`, but if you have an EMS thermosta
 ################################ Ecobee Binding #######################################
 #
 # the private API key issued be Ecobee to use the API (required, replace with your own)
-# ecobee:appkey=9T4huoUXlT5b5qNpEJvM5sqTMgaNCFoV
+#ecobee:appkey=9T4huoUXlT5b5qNpEJvM5sqTMgaNCFoV
 
 # the application scope used when authorizing the binding
 # choices are smartWrite,smartRead, or ems, or multiple (required, comma-separated, no spaces)
-# ecobee:scope=smartWrite
+#ecobee:scope=smartWrite
 
 # Rate at which to check if poll is to run, in ms (as of 1.8, optional, defaults to 5000)
-# ecobee:granularity=5000
+#ecobee:granularity=5000
 
 # Data refresh interval in ms (optional, defaults to 180000)
-# ecobee:refresh=180000
+#ecobee:refresh=180000
 
 # Time in ms to wait after successful update, command or action before refresh (as of 1.8, optional, defaults to 6000)
-# ecobee:quickpoll=6000
+#ecobee:quickpoll=6000
 
 # Time in ms to allow an API request to complete (as of 1.8, optional, defaults to 20000)
-# ecobee:timeout=20000
+#ecobee:timeout=20000
 
 # the temperature scale to use when sending or receiving temperatures
 # optional, defaults to Fahrenheit (F)
-# ecobee:tempscale=C
+#ecobee:tempscale=C
 ```
 
 You can set up multiple, distinct API connections by repeating the `appkey` and `scope` settings with a prepended "user ID" that indicates a separate ecobee.com account will be used to complete authorization.
@@ -66,7 +66,7 @@ You would then include `condo.` in item references (see below) for those thermos
 
 ## Item configuration
 
-In order to bind an item to a thermostat's properties and functions, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder `configurations/items`). The syntax for the Ecobee binding configuration string is explained below.
+In order to bind an item to a thermostat's properties, you need to provide configuration settings. To do this, you will add some binding information in your item file (in the folder `configurations/items`). The syntax for the Ecobee binding configuration string is explained below.
 
 Ecobee bindings start with a `<`, `>` or `=`, to indicate if the item receives values from the API (in binding), sends values to the API (out binding), or both (bidirectional binding), respectively.
 
@@ -123,18 +123,18 @@ Switch BedroomOccu "Bedroom occupancy [%s]" { ecobee="<[123456789#remoteSensors(
 
 See the Example Binding Strings section below for more examples.
 
-## Authentication
+## Authorization
 
-After you have installed the binding JAR in your `addons` directory, configured your `openhab.cfg` file, added items to your .items file and started OpenHAB (if not previously started), when the binding performs its first poll, it will discover that is has not yet authenticated with the Ecobee servers, and will retrieve a four-character PIN from the Ecobee server.  This PIN will appear prominently in your `openhab.log` file:
+After you have installed the binding JAR in your `addons` directory, configured your `openhab.cfg` file, added items to your .items file and started OpenHAB (if not previously started), when the binding performs its first poll, it will discover that is has not yet been authorized by the Ecobee servers, and will retrieve a four-character PIN from the Ecobee server.  This PIN will appear prominently in your `openhab.log` file:
 
 	#########################################################################################
 	# Ecobee-Integration: U S E R   I N T E R A C T I O N   R E Q U I R E D !!
 	# 1. Login to www.ecobee.com using your 'DEFAULT_USER' account
-	# 2. Enter the PIN 'gxvg' in My Apps within the next 3599 seconds.
+	# 2. Enter the PIN 'gxvg' in My Apps within the next 9 minutes.
 	# NOTE: Any API attempts will fail in the meantime.
 	#########################################################################################
 
-When it does, enter it into your Apps settings in your account at ecobee.com.  This will authenticate your instance of the binding to work with your Ecobee account.  On the next poll of the API, it will retrieve authentication tokens and continue.
+When it does, enter it into your Apps settings in your account at ecobee.com.  This will authorize your instance of the binding to work with your Ecobee account.  On the next poll of the API, it will retrieve access and refresh tokens and continue.
 
 ## Example Binding Strings
 
@@ -490,7 +490,7 @@ To configure DEBUG logging for the Ecobee binding to be sent to a separate file,
 
 ## Change Log
 
-### OpenHAB 1.7.1
+### openHAB 1.7.1
 
 * Changed default polling to 3 minutes to comply with API documentation. ([#2713](https://github.com/openhab/openhab/pull/2713))
 * For users of the Ecobee binding who have more than one thermostat that are managed under the same account at ecobee.com, sets of bound items were toggling between `Uninitialized` and their proper values. ([#2765](https://github.com/openhab/openhab/pull/2765))
@@ -498,10 +498,14 @@ To configure DEBUG logging for the Ecobee binding to be sent to a separate file,
 * Expired auth tokens or tokens from a different app key would not clear from persistent store ([#2849](https://github.com/openhab/openhab/pull/2849))
 * Very rarely, some updates to DateTime items would attempt to echo back as changes to the Ecobee API, generating log errors ([#2942](https://github.com/openhab/openhab/pull/2942))
 
-### OpenHAB 1.8.0
+### openHAB 1.8.0
 
 * Added an Action bundle that allows users to perform more complex actions, like setting holds for different durations to temperature setpoints or comfort settings, to send messages to the thermostat's display, to resume the normal program, create vacation events, etc. ([#2755](https://github.com/openhab/openhab/pull/2755))
 * Changed default HTTP request timeout from 10 seconds (10000) to 20 seconds (20000) due to frequent reports of repeated timeouts.  Also added optional `ecobee:timeout` parameter to openhab.cfg in case the user would like a longer or shorter HTTP request timeout. ([#3151](https://github.com/openhab/openhab/pull/3151))
 * Added `runningEvent` binding config strings so that your items can see values for the currently running event (like a temperature, climate/comfort setting, vacation or QuickSave hold, etc.) ([#3298](https://github.com/openhab/openhab/pull/3298))
 * Updated binding to align with the minor changes present in the [December 2015 ecobee API update](https://www.ecobee.com/home/developer/api/documentation/v1/change-log.shtml) ([#3494](https://github.com/openhab/openhab/pull/3494))
 * Added "quick poll" feature that causes item states to update sooner after a change is sent to Ecobee ([#3568](https://github.com/openhab/openhab/pull/3568))
+
+### openHAB 1.9.0
+
+* Change seconds back to minutes for PIN expiration message in log ([#4008](https://github.com/openhab/openhab/pull/4008))
