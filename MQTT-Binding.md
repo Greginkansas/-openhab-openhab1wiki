@@ -90,10 +90,10 @@ Since 1.6 it is possible to add an optional 5th configuration like:
 
 ### Example Inbound Configurations
 
-    Number temperature {mqtt="<[publicweatherservice:/london-city/temperature:state:default]"}
-    Number waterConsumption {mqtt="<[mybroker:/myHome/watermeter:state:XSLT(parse_water_message.xslt)]"} 
-    Switch doorbell {mqtt="<[mybroker:/myHome/doorbell:command:ON]"}
-    Number mfase1 {mqtt="<[flukso:/sensor/9cf3d75543fa82a4662fe70df5bf4fde/gauge:state:REGEX(.*,(.*),.*)]"}
+    Number temperature "temp [%.1f]" {mqtt="<[publicweatherservice:/london-city/temperature:state:default]"}
+    Number waterConsumption "consum [%d]" {mqtt="<[mybroker:/myHome/watermeter:state:XSLT(parse_water_message.xslt)]"} 
+    Switch doorbell "bell [%s]" {mqtt="<[mybroker:/myHome/doorbell:command:ON]"}
+    Number mfase1 "mfase1 [%.3f]" {mqtt="<[flukso:/sensor/9cf3d75543fa82a4662fe70df5bf4fde/gauge:state:REGEX(.*,(.*),.*)]"}
 
 ## Item Binding Configuration for Outbound Messages
 
