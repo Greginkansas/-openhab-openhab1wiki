@@ -29,6 +29,7 @@ Simply enter the hostname or IP address of your RWE Smarthome Central (SHC) as w
 
 **Important:**
 The binding only runs with TLSv1, which is default until java 1.7. If you use java 1.8, you have to add `-Djdk.tls.client.protocols=TLSv1` to the java command in your start.sh/start.bat file.
+(in OpenHAB2 the java command is somewhere at the end of runtime/karaf/bin/karaf)
 
 
 # General item binding configuration
@@ -51,9 +52,15 @@ The following parameters are available:
 |  dimmerinverted | Dimmer | Dimmer with inverted values |
 |  rollershutter | Rollershutter | Rollershutter |
 |  rollershutterinverted | Rollershutter | Rollershutter with inverted values, recommended! |
-|  smokedetector | Switch | State of a smokedetector |
+|  smokedetector | String | State of a smokedetector |
 |  alarm | Switch | Siren of a smokedetector |
 |  variable | Switch | Variable as defined in SHC |
+|  totalenergy | Number | Total energy consumption in kWh of a PowerControl/EnergyControl (since 1.9.0) |
+|  energypermonthinkwh | Number | energy consumption per month in kWh of a PowerControl/EnergyControl (since 1.9.0) |
+|  energypermonthineuro | Number | energy consumption in EUR of a PowerControl/EnergyControl (since 1.9.0) |
+|  energyperdayinkwh | Number | energy consumption per day in kWh of a PowerControl/EnergyControl (since 1.9.0) |
+|  energyperdayineuro | Number | energy consumption in EUR of a PowerControl/EnergyControl (since 1.9.0) |
+|  powerinwatt | Number | current power consumption in Watts of a PowerControl/EnergyControl (since 1.9.0) |
 
 Supported (confirmed) devices and corresponding parameters are:
 * RWE SmartHome Bewegungsmelder innen (WMD): luminance only, movement only via variable, see examples.
@@ -66,6 +73,10 @@ Supported (confirmed) devices and corresponding parameters are:
 * RWE SmartHome Wandsender (WSC2): only indirect via variable, see examples.
 * RWE SmartHome Zwischenstecker (PSS): switch
 * RWE SmartHome Zwischenstecker aussen (PSSOz): switch
+* RWE SmartHome Zwischenstecker dimmbar (PSD): dimmer, dimmerinverted
+* RWE SmartHome Power Control (since 1.9.0): totalenergy, energypermonthinkwh, energypermonthineuro, energyperdayinkwh, energyperdayineuro, powerinwatt
+* RWE SmartHome Power Control Solar (since 1.9.0): totalenergy, energypermonthinkwh, energypermonthineuro, energyperdayinkwh, energyperdayineuro, powerinwatt
+* RWE SmartHome Energy Control (since 1.9.0): totalenergy, energypermonthinkwh, energypermonthineuro, energyperdayinkwh, energyperdayineuro, powerinwatt 
 
 Unconfirmed but probably supported devices and corresponding parameters are (please report and confirm, if you own one of the following devices and they are working):
 * RWE SmartHome Bewegungsmelder aussen (WMDO): luminance only, movement only via variable, see examples
@@ -89,6 +100,12 @@ Switch rweSwitch "Light corridor" <switch> {rwe="id=2951a048-1d21-5caf-d866-b63b
 Switch rweVariable "Variable TEST" <switch> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=variable"}
 Rollershutter rweRollershutter "Rollershutter living [%d %%]" <rollershutter> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=rollershutterinverted"}
 Dimmer rweDimmer "Light [%d %%]" <slider> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=dimmer"}
+Number rweEnergyConsumptionTotal "EnergyConsumption total [%.3f kWh]" <energy> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=totalenergy"}
+Number rweEnergyConsumptionMonthKWh "EnergyConsumption per month [%.3f kWh]" <energy> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=energypermonthinkwh"}
+Number rweEnergyConsumptionMonthEuro "EnergyConsumption per month [%.2f €]" <energy> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=energypermonthineuro"}
+Number rweEnergyConsumptionDayKWh "EnergyConsumption per day [%.3f kWh]" <energy> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=energyperdayinkwh"}
+Number rweEnergyConsumptionDayEuro "EnergyConsumption per day [%.2f €]" <energy> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=energyperdayineuro"}
+Number rwePowerConsumption "PowerConsumption [%.2f W]" <energy> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=powerinwatt"}
 ```
 
 # Solutions/examples for not directly supported devices
