@@ -15,8 +15,10 @@ Many zwave devices communicate of a basic radio protocol which can be intercepte
 - Lock and unlock a door lock
 - Reports battery percentage
 - Update Lock status
+- Set user codes - see 
 
-**What it doesn't do (yet!)**  not a wishlist, just things that are necessary for the bare minimum functionality that aren't working yet
+**Limitations/Known Issues**  not a wishlist, just things that are necessary for the bare minimum functionality that aren't working yet
+- Do not do a habmin reinitialize on a door lock.  It has been known to cause issues and require a new secure repairing to restore functionality
 - Trying to perform lock/unlock commands too quickly will result in failure.  Ideally some sort of message would appear preventing the user from doing this
 
 ##Instructions
