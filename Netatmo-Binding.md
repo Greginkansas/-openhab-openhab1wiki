@@ -5,22 +5,74 @@ See http://www.netatmo.com/ for details on their product.
 
 # Configuration
 ## Pre setup
-* Create an application at http://dev.netatmo.com/dev/createapp
+To make the binding work an [OAuth2](http://oauth.net/2/) authorization has to be performed by hand to let openHAB connect to your Netatmo devices. The following is a step by step guide to do so.
 
-* Retrieve a refresh token from Netatmo API, using e.g. curl:
-
-```
-curl -d 'grant_type=password&client_id=123456789012345678901234&client_secret=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHI&username=example@example.com&password=example&scope=read_station read_camera read_thermostat write_thermostat' 'https://api.netatmo.net/oauth2/token'
-```
-
-* Add client id, client secret and refresh token to openhab.cfg
+A note on the notation: Variable are written like this `<VARIABLE_NAME>` when replacing the variable, replace the `<` and `>` as well. E.g. Assuming `<CLIENT_ID>` is 1234 then,
 
 ```
-netatmo:refresh=300000
-netatmo:clientid=123456789012345678901234
-netatmo:clientsecret=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHI
-netatmo:refreshtoken=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDE
+https://api.netatmo.com/oauth2/authorize?client_id=<CLIENT_ID>
 ```
+
+should be replaced to
+
+```
+https://api.netatmo.com/oauth2/authorize?client_id=1234
+```
+
+### 1. Application creation
+Create an application at https://dev.netatmo.com/dev/createapp
+
+### 2. Authorize your Application
+[Authorize the application](https://dev.netatmo.com/doc/authentication/authcode) by visiting the following URL in your Browser.
+
+```
+https://api.netatmo.com/oauth2/authorize?client_id=<CLIENT_ID>&redirect_uri=http%3Alocalhost%3A8080%2Ftest%2F&scope=<SCOPE>&state=42"
+```
+
+The variables to fill in are:
+* `<CLIENT_ID>` Your client ID taken from your App at https://dev.netatmo.com/dev/listapps
+* `<SCOPE>` A list of devices and capabilities. The full scope would be `read_station read_thermostat write_thermostat read_camera access_camera`, see the [Netatmo Scope Documentation](https://dev.netatmo.com/doc/authentication/scopes) for more info. Please ensure that the variable is [URL encoded](http://www.w3schools.com/tags/ref_urlencode.asp) if your browser doesn't do it automatically, e.g. the URL encoded complete list of scopes would be `read_station%20read_thermostat%20write_thermostat%20read_camera%20access_camera`
+
+When entering the URL to your browser it will take you to the Netatmo Webpage asking you to authorize your application to access your Netatmo data. The page should look something like [this](https://dev.netatmo.com/images/dev/auth_app.jpg). After this step your Application should appear as an authorized application in your Netatmo profile. Please make sure it is there, the setup can not continue if your app is not authorized.
+
+### 3. Retrieve a refresh token
+[Retrieve a refresh token](https://dev.netatmo.com/doc/authentication/refreshtoken) from Netatmo API, using e.g. curl. 
+
+```
+curl -d 'grant_type=password&client_id=<CLIENT_ID>&client_secret=<CLIENT_SECRET>&username=<USERNAME>&password=<PASSWORD>&scope=<SCOPE>' 'https://api.netatmo.net/oauth2/token'
+```
+
+The variables to fill in are:
+* `<CLIENT_ID>` Same as before
+* `<CLIENT_SECRET>` Your client secret taken from your App at https://dev.netatmo.com/dev/listapps
+* `<USERNAME>` Your Netatmo username
+* `<PASSWORD>` Your Netatmo password
+* `<SCOPE>` Same as before.
+
+A successful response looks like this:
+
+```JSON
+{
+    "access_token":"2YotnFZFEjr1zCsicMWpAA",
+    "expires_in":10800,
+    "refresh_token":"tGzv3JOkF0XG5Qx2TlKWIA",
+}
+```
+
+### 4. openHAB Config
+Add client id, client secret and refresh token to openhab.cfg
+
+```
+netatmo:clientid=<CLIENT_ID>
+netatmo:clientsecret=<CLIENT_SECRET>
+netatmo:refreshtoken=<REFRESH_TOKEN>
+```
+
+The variables to fill in are:
+* `<CLIENT_ID>` Same as before
+* `<CLIENT_SECRET>` Same as before
+* `<REFRESH_TOKEN>` The refresh token from the previous response
+
 ## Measurement Units
 Starting with 1.8, you can optionally set the unit system and/or pressure units. The unit systems options are either Metric (Celsius/meters/millimeters) or US (Fahrenheit/feet/inches) and is case insensitive. The  temperature (Celsius or Fahrenheit), rain (millimeter or inches) and altitude (meters or feet) are affected by this parameter. If not specified, openHAB defaults to Metric.
 
