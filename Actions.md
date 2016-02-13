@@ -154,7 +154,11 @@ _Available as of openHAB 1.8_
 
 The Ecobee Action bundle provides actions such as setting and clearing program holds, sending a text message to the thermostat's display, renaming a remote wireless sensor, and other functions that cannot be performed by setting object properties.  The Action bundle requires that the [[Ecobee Binding|Ecobee-Binding]] is also installed in your `addons` folder.  Read the [Ecobee function API documentation](https://www.ecobee.com/home/developer/api/documentation/v1/functions/using-functions.shtml) to be sure you know the rules for calling these actions.
 
+> NOTE: See changes below for actions supported in 1.9 and onwards.
+
 Parameters in _italics_ are optional, in which case each unused parameter must be replaced with `null`.  
+
+_Actions supported in openHAB 1.8:_
 
 * ecobeeAcknowledge(Item item, String thermostatIdentifier, String ackRef, String ackType, _Boolean remindMeLater_) - Acknowledge an alert.
 * ecobeeControlPlug(Item item, String plugName, String plugState, _Date startDateTime_, _Date endDateTime_, _String holdType_, _Integer holdHours_) - Control the on/off state of a plug by setting a hold on the plug.
@@ -166,6 +170,21 @@ Parameters in _italics_ are optional, in which case each unused parameter must b
 * ecobeeSetHold(Item item, _DecimalType coolHoldTemp_, _DecimalType heatHoldTemp_, _String holdClimateRef_, _Date startDateTime_, _Date endDateTime_, _String holdType_, _Integer holdHours_) - Set the thermostat into a hold with the specified temperature.
 * ecobeeSetOccupied(Item item, Boolean occupied, _Date startDateTime_, _Date endDateTime_, _String holdType_, _Integer holdHours_) - Switches a (EMS model only) thermostat from occupied mode to unoccupied, or vice versa.
 * ecobeeUpdateSensor(Item item, String name, String deviceId, String sensorId) - Update the name of an ecobee3 remote sensor.
+
+_Actions supported in openHAB 1.9 and onwards (changes were required for support of openHAB 2):_
+
+The `selection` parameter is a string that identifies the thermostat(s) against which the action is performed, identical in format to `<thermostat>` used in the [[binding|Ecobee-Binding#item-configuration]].
+
+* ecobeeAcknowledge(String selection, String thermostatIdentifier, String ackRef, String ackType, _Boolean remindMeLater_) - Acknowledge an alert.
+* ecobeeControlPlug(String selection, String plugName, String plugState, _Date startDateTime_, _Date endDateTime_, _String holdType_, _Number holdHours_) - Control the on/off state of a plug by setting a hold on the plug.
+* ecobeeCreateVacation(String selection, String name, Number coolHoldTemp, Number heatHoldTemp, _Date startDateTime_, _Date endDateTime_, _String fan_, _Number fanMinOnTime_) - Create a vacation event on the thermostat.
+* ecobeeDeleteVacation(String selection, String name) - Delete a vacation event from a thermostat.
+* ecobeeResetPreferences(String selection) - Set all user configurable settings back to the factory default values.
+* ecobeeResumeProgram(String selection, _Boolean resumeAll_) - Remove the currently running event providing the event is not a mandatory demand response event.
+* ecobeeSendMessage(String selection, String text) - Send an alert message to the thermostat.
+* ecobeeSetHold(String selection, _Number coolHoldTemp_, _Number heatHoldTemp_, _String holdClimateRef_, _Date startDateTime_, _Date endDateTime_, _String holdType_, _Number holdHours_) - Set the thermostat into a hold with the specified temperature.
+* ecobeeSetOccupied(String selection, Boolean occupied, _Date startDateTime_, _Date endDateTime_, _String holdType_, _Number holdHours_) - Switches a (EMS model only) thermostat from occupied mode to unoccupied, or vice versa.
+* ecobeeUpdateSensor(String selection, String name, String deviceId, String sensorId) - Update the name of an ecobee3 remote sensor.
 
 [Table of Contents](#table-of-contents)
 
