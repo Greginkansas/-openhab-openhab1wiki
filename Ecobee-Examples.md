@@ -115,6 +115,9 @@ then
     desiredCoolTemp = new DecimalType(90)
   }
 
+  // the 1.9 onwards action bundle uses a selection string instead of an item as the first parameter
+  // ecobeeSetHold("123456789012", desiredCoolTemp, desiredHeatTemp, null, null, null, null, null)
+  // openHAB 1.8 call:
   ecobeeSetHold(desiredHeat, desiredCoolTemp, desiredHeatTemp, null, null, null, null, null)
 end
 
@@ -131,6 +134,9 @@ then
     desiredHeatTemp = new DecimalType(50)
   }
 
+  // the 1.9 onwards action bundle uses a selection string instead of an item as the first parameter
+  // ecobeeSetHold("123456789012", desiredCoolTemp, desiredHeatTemp, null, null, null, null, null)
+  // openHAB 1.8 call:
   ecobeeSetHold(desiredCool, desiredCoolTemp, desiredHeatTemp, null, null, null, null, null)
 end
 
@@ -139,8 +145,14 @@ when
   Item desiredComf received command
 then
   if (receivedCommand.toString.equals("resume")) {
+    // the 1.9 onwards action bundle uses a selection string instead of an item as the first parameter
+    // ecobeeResumeProgram("123456789012", true)
+    // openHAB 1.8 call:
     ecobeeResumeProgram(currentClimateRef, true)
   } else {
+    // the 1.9 onwards action bundle uses a selection string instead of an item as the first parameter
+    // ecobeeSetHold("123456789012", null, null, receivedCommand.toString, null, null, null, null)
+    // openHAB 1.8 call:
     ecobeeSetHold(currentClimateRef, null, null, receivedCommand.toString, null, null, null, null)
   }
 end
