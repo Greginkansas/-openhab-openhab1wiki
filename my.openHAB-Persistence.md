@@ -37,9 +37,7 @@ The example on the my.openHAB site (for all items):
 
 **Be aware that above example will persist ALL your items, and every change to my.openHAB cloud.**
 
-Currently (21 Sept 2015) there is no method to remove data or items from the my.openHAB cloud.
-
-Though there are plans to add the option [https://community.openhab.org/t/cleaning-up-demo-items-from-myopenhab/1689](https://community.openhab.org/t/cleaning-up-demo-items-from-myopenhab/1689)
+There is a method to remove all data and from the my.openHAB cloud but no way to do it selectively. You can remove it all at once, or not at all. 
 
 This means if you change the name of an item, the old "item" will still appear on my.openHAB cloud and also appear in your IFTTT dropdown. Also, if you set up my.openHAB with the demo configuration still setup, all of those items will also appear.
 
