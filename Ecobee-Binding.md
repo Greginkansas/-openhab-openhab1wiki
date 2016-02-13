@@ -490,7 +490,7 @@ To configure DEBUG logging for the Ecobee binding to be sent to a separate file,
 
 ## Change Log
 
-### openHAB 1.7.1
+### 1.7.1
 
 * Changed default polling to 3 minutes to comply with API documentation. ([#2713](https://github.com/openhab/openhab/pull/2713))
 * For users of the Ecobee binding who have more than one thermostat that are managed under the same account at ecobee.com, sets of bound items were toggling between `Uninitialized` and their proper values. ([#2765](https://github.com/openhab/openhab/pull/2765))
@@ -498,7 +498,7 @@ To configure DEBUG logging for the Ecobee binding to be sent to a separate file,
 * Expired auth tokens or tokens from a different app key would not clear from persistent store ([#2849](https://github.com/openhab/openhab/pull/2849))
 * Very rarely, some updates to DateTime items would attempt to echo back as changes to the Ecobee API, generating log errors ([#2942](https://github.com/openhab/openhab/pull/2942))
 
-### openHAB 1.8.0
+### 1.8.0
 
 * Added an Action bundle that allows users to perform more complex actions, like setting holds for different durations to temperature setpoints or comfort settings, to send messages to the thermostat's display, to resume the normal program, create vacation events, etc. ([#2755](https://github.com/openhab/openhab/pull/2755))
 * Changed default HTTP request timeout from 10 seconds (10000) to 20 seconds (20000) due to frequent reports of repeated timeouts.  Also added optional `ecobee:timeout` parameter to openhab.cfg in case the user would like a longer or shorter HTTP request timeout. ([#3151](https://github.com/openhab/openhab/pull/3151))
@@ -506,6 +506,10 @@ To configure DEBUG logging for the Ecobee binding to be sent to a separate file,
 * Updated binding to align with the minor changes present in the [December 2015 ecobee API update](https://www.ecobee.com/home/developer/api/documentation/v1/change-log.shtml) ([#3494](https://github.com/openhab/openhab/pull/3494))
 * Added "quick poll" feature that causes item states to update sooner after a change is sent to Ecobee ([#3568](https://github.com/openhab/openhab/pull/3568))
 
-### openHAB 1.8.2
+### 1.8.2
 
 * Change seconds back to minutes for PIN expiration message in log ([#4008](https://github.com/openhab/openhab/pull/4008))
+
+### 1.9.0
+
+* The action JAR must be updated to match the binding JAR, as an incompatible change was introduced 12 February 2016 in order to work properly under openHAB 2.  See the [[Actions|Actions#ecobee-actions]] wiki page for more information. ([#4029](https://github.com/openhab/openhab/pull/4029))
