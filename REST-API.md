@@ -115,6 +115,8 @@ In order to send a command to an item, you would use the item uri (`http://local
 
 It's also possible to send a status update using a HTTP GET request (`http://localhost:8080/CMD?Temperature_FF_Office=12.3`). This way it's actually possible to send status updates simply through a web browser address bar.
 
+Note: Openhab only supports status updates for the current timestamp. You can record "The value is 5, now". You cannot record "The value was 5, at 6am yesterday" to the API as yet.
+
 ## Sitemap Resource
 
 The request
