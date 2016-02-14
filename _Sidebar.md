@@ -229,6 +229,7 @@
 * [[Heatmiser PRT Thermostat]]
 * [[Google Calendar|GCal-Binding]]
 * [[Linux Media Players|Linux-Media-Players]]
+* [[Rainforest EAGLE Energy Access Gateway|Rainforest-EAGLE]]
 * [[ROS Robot Operating System|ROS-Robot-Operating-System]]
 * [[Telldus Tellstick|Telldus-Tellstick]]
 * [[Twitter|Twitter-Action]]
