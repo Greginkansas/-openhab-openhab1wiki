@@ -18,7 +18,7 @@ Alecto, Cresta, Fine Offset, Hideki, LaCrosse, Oregon, Rubicson, TFA, Viking wea
 
 * ANSLUT, BBSB, Blyss, Brennestuhl, Chacon, COCO, DI.O, ELRO, Energenie, Eurodomest, HomeEasy, Pulse, Inter Techno, K ambrook, COCO, LightwaveRF, Livolo, Mercury, NEXA, Phenix, Proove, risingsun, Sartano, Siemens , X10, XDOM dimmers / switches,
 * Byron SX, Select Plus doorbell,
-* A-OK, Bofu, Ematronic, Hasta, RAEX, Rohrmotor24,  Roller Trol, Somfy, Yooda shutter / awning motors,
+* A-OK, Bofu, Ematronic, Hasta, RAEX, Rohrmotor24,  Roller Trol, Somfy (RFY), Yooda shutter / awning motors,
 * Harrison, Forest curtain motors,
 * Kingpin, Media Mount, Proluxx projection,
 * Avidsen, Chacon, NEXA, Flamingo, Blyss, Proove smoke alarms with  siren,
@@ -147,9 +147,13 @@ Alternately add the following to your `logback.xml` file to only see the RFXcom 
 | Lighting6 | `SensorId.GroupCode.UnitCode` | **257.B.1** or **64343.B.2** or **636602.H.5** |
 | Curtain1 | `SensorId.UnitCode` | **P.1** <sup>2</sup>|
 | TemperatureHumidity, Current, Energy etc | `SensorId.UnitCode` | **2561**|
+| RfyMessage | `Id1.Id2.Id3.UnitCode` | **0.12.12.1** <sup>3</sup>|
 
 <sup>1</sup> Where "0" would control all items on device,
+
 <sup>2</sup> See the RFXcom documents/manual for more information
+
+<sup>3</sup> See the RFXcom documents/manual, for defining the Ids and Unit code, you should pair the RFXcom with your somfy motor using RFXMgr program
 
 ----
 
@@ -253,7 +257,7 @@ Number Owl_Amps { rfxcom="<35072:Channel2Amps" }
 
   <tr><td>ENERGY.ELEC1</td><td>Owl CM113 Working</td><td>Channel1Amps, Channel2Amps, Channel3Amps</td></tr>
   <tr><td>ENERGY.ELEC2</td><td>Owl CM160 Working</td><td>InstantAmps, TotalAmpHours</td></tr>
-  <tr><td>RFY.RFY</td><td>Working</td><td></td>
+  <tr><td>RFY.RFY</td><td>Working</td><td>Shutter</td>
 
 </table>
 
