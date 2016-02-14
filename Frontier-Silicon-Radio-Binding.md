@@ -86,8 +86,8 @@ The *radio mode* property is just a number that specifies the radio mode which m
 | 1 | Spotify | Music Player (USB, LAN) | Music Player | Spotify | Spotify | Spotify | Spotify
 | 2 | Player | DAB Radio | FM Radio | Player | --- | --- | Player 
 | 3 | AUX in | FM Radio | AUX in | DAB Radio | Music Player | Music Player | DAB Radio
-| 4 | - | AUX in | - | FM Radio | DAB Radio | DAB Radio | - 
-| 5 | - | - | - | AUX in | FM Radio | FM Radio | - 
+| 4 | - | AUX in | - | FM Radio | DAB Radio | DAB Radio | FM Radio 
+| 5 | - | - | - | AUX in | FM Radio | FM Radio | AUX in 
 | 6 | - | - | - | - | AUX in | AUX in | - 
 | 7 | - | - | - | - | - | Bluetooth | - 
 
