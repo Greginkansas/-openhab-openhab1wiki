@@ -164,6 +164,7 @@ The output will be
 
 Transform file use ISO-8859-1 encoding. If you want your accent and special character to show in the right way, you need to precise this encoding in your editor. If you must use UTF-8, you will need to escape the character.
 see [UTF-8 encoding table](http://www.utf8-chartable.de/)
+
 example: é will be written ```\u00E9```
 
 ## Icon name
