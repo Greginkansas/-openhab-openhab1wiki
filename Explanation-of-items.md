@@ -162,6 +162,10 @@ The output will be
     Window is 1
     Window is opened
 
+Transform file use ISO-8859-1 encoding. If you want your accent and special character to show in the right way, you need to precise this encoding in your editor. If you must use UTF-8, you will need to escape the character.
+see [UTF-8 encoding table](http://www.utf8-chartable.de/)
+example: é will be written ```\u00E9```
+
 ## Icon name
 
 The icon name is used to reference a png image file from folder ```${openhab_home}/webapps/images/```. These icons are used in the openHAB frontends. OpenHAB provides you a set of basic icons. To use on of the images just write the file name without it's ending (".png") between a '<' and '>'.
