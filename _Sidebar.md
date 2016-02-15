@@ -192,6 +192,7 @@
 * [[Sallegra Binding|Sallegra-Binding]]
 * [[Satel Alarm Binding|Satel-Alarm-Binding]]
 * [[Sinthesi Sapp Binding|Picnet-Sapp-Binding]]
+* [[Smarthomatic Binding|Smarthomatic-Binding]]
 * [[Snmp Binding|Snmp-Binding]]
 * [[Somfy URTSI II Binding|URTSI-Binding]]
 * [[Sonance Binding|Sonance-binding]]
