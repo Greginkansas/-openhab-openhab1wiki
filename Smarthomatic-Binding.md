@@ -1,5 +1,7 @@
 # Smarthomatic Binding #
 
+Available from Version 1.9
+
 The Smarthomatic binding will connect a network of Smarthomatic devices to the openhab server. Information's about Smarthomatic devices can be found here: [Smarthomatic Project](https://www.smarthomatic.org)
 
 Currently only incoming messages of the Smarthomatic env sensor are tested.
