@@ -465,4 +465,8 @@ Frame label="Alarm System" {
 * Added user code to user opening/closing messages. ([#2964](https://github.com/openhab/openhab/pull/2964))
 * Added a DSC Alarm Action bundle that allows users to send DSC Alarm Commands directly to the alarm system from a rule. ([#3266](https://github.com/openhab/openhab/pull/3266))
 
+### OpenHAB 1.8.1
+
+* Added support for the DSC Alarm binding to communicate with an IT-100 through a TCP/IP serial server. Also, fixed a bug where the IT-100 serial interface requires a 6 digit usercode but was only receiving 4 digits.
+([#3774](https://github.com/openhab/openhab/pull/3774))
 
