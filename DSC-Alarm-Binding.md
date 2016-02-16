@@ -17,6 +17,10 @@ There are some configuration settings that you can set in the openhab.cfg file. 
 ```
 ############################## DSC Alarm Binding #####################################
 #
+# DSC Alarm interface device type
+# Valid values are it100 (default for serial connection) or envisalink (default for tcp connection)
+#dscalarm:deviceType=
+
 # DSC Alarm port name for a serial connection.
 # Valid values are e.g. COM1 for Windows and /dev/ttyS0 or /dev/ttyUSB0 for Linux.
 # Leave undefined if not connecting by serial port.
@@ -30,6 +34,11 @@ There are some configuration settings that you can set in the openhab.cfg file. 
 # DSC Alarm IP address for a TCP connection. 
 # Leave undefined if not connecting by network connection.
 #dscalarm:ip=
+
+# DSC Alarm TCP port for a TCP connection.
+# Can be EyezOn Envisalink on 4025 (default) or a TCP serial server to IT-100
+# Leave undefined if not connecting by network connection.
+#dscalarm:tcpPort=
 
 # DSC Alarm password for logging into the EyezOn Envisalink 3/2DS interface.
 # Leave undefined if using default.
@@ -52,7 +61,7 @@ There are some configuration settings that you can set in the openhab.cfg file. 
 #dscalarm:suppressAcknowledgementMsgs=
 ```
 
-The primary setting will be the IP address of the EyezOn Envisalink 3/2DS interface or the serial port name of the DSC IT-100.  The *password*, *usercode*, *baud*, *pollPeriod*, and *suppressAcknowledgementMsgs* settings are optional.  If not set, the binding will resort to the system defaults.
+The primary setting will be the IP address of the EyezOn Envisalink 3/2DS interface or the serial port name of the DSC IT-100.  The *password*, *usercode*, *baud*, *pollPeriod*, and *suppressAcknowledgementMsgs* settings are optional.  The *deviceType* and *tcpPort* settings are used to connect to an IT-100 interface through a TCP/IP serial server.  If these settings are not set, the binding will resort to the system defaults.
 
 ## Item Binding
 
