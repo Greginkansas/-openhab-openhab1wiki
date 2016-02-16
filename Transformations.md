@@ -61,10 +61,10 @@ Example item configuration:
 
 uvindex.scale in transform folder :
 ```
-[0,3[=1
-[3,6[=2
-[6,8[=3
-[8,10[=4
+[0,3]=1
+[3,6]=2
+[6,8]=3
+[8,10]=4
 [10,100]=5
 ```
 
@@ -79,10 +79,10 @@ The Regex transformation service matches a string against a regular expression w
 Example item configuration:
 
 Returns the string.<br>
-`http="<[http://example.com/var/value:60000:REGEX((.*)]" }`
+`http="<[http://example.com/var/value:60000:REGEX((.*))]" }`
 
 Extract a integer (e.g., "Result: 123" ==> "123")<br>
-`http="<[http://example.com/var/value:60000:REGEX(.*?([0-9]+).*]" }`
+`http="<[http://example.com/var/value:60000:REGEX(.*?([0-9]+).*)]" }`
 
 
 Example in rules:
