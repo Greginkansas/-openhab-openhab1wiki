@@ -406,7 +406,7 @@ As described in the Telegram Bot API, this is the manual procedure needed in ord
 	* write `/newbot` to BotFather, fill all the needed information, write down the token. This is the authentication token needed.
 2. Create the destination chat and get the chatId
 	* Open a new chat with your new Bot and post a message on the chat
-	* Open a browser and invoke `https://api.telegram.org/bot<token>/getUpdates` (where `<token>` is the authentication token previously obtained)
+	* Open a browser and invoke `https://api.telegram.org/bot<token>/getMe` (where `<token>` is the authentication token previously obtained e.g. `https://api.telegram.org/bot123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11/getMe`)
 	* Look at the JSON result and write down the value of `result[0].message.from.id`. That is the chatId.
 
 [Table of Contents](#table-of-contents)
