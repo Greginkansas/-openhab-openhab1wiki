@@ -69,10 +69,10 @@ jdbc:tableIdDigitCount=0
 #### JDBC Driver Files
 Database | Tested File | Repository
 ------------- | ------------- | -------------
-Derby | derby-10.11.1.1.jar | [Maven](http://mvnrepository.com/artifact/org.apache.derby/derby)
-H2 | h2-1.4.189.jar | [Maven](http://mvnrepository.com/artifact/com.h2database/h2)
+Derby | derby-10.12.1.1.jar | [Maven](http://mvnrepository.com/artifact/org.apache.derby/derby)
+H2 | h2-1.4.191.jar | [Maven](http://mvnrepository.com/artifact/com.h2database/h2)
 HSQLDB | hsqldb-2.3.3.jar | [Maven](http://mvnrepository.com/artifact/org.hsqldb/hsqldb)
-MariaDB | mariadb-java-client-1.3.4.jar | [Maven](http://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client)
+MariaDB | mariadb-java-client-1.3.5.jar | [Maven](http://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client)
 MySQL | mysql-connector-java-5.1.38.jar | [Maven](http://mvnrepository.com/artifact/mysql/mysql-connector-java)
 PostgreSQL | postgresql-9.4-1206-jdbc41.jar | [Maven](http://mvnrepository.com/artifact/org.postgresql/postgresql)
 SQLite | sqlite-jdbc-3.8.11.2.jar | [Maven](http://mvnrepository.com/artifact/org.xerial/sqlite-jdbc)
@@ -129,14 +129,7 @@ jdbc:tableIdDigitCount=0
 # a appropriate JDBC database-driver is needed in OpenHab addons Folder.
 # Copy both (JDBC-service-bundle and a JDBC database-driver) to your OpenHab '[OpenHab]/addons' Folder to make it work. 
 #
-# Driver jars:
-# Derby:     derby-10.11.1.1.jar               http://mvnrepository.com/artifact/org.apache.derby/derby
-# H2:        h2-1.4.189.jar                    http://mvnrepository.com/artifact/com.h2database/h2
-# HSQLDB:    hsqldb-2.3.3.jar                  http://mvnrepository.com/artifact/org.hsqldb/hsqldb
-# MariaDB:   mariadb-java-client-1.2.0.jar     http://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client
-# MySQL      mysql-connector-java-5.1.36.jar   http://mvnrepository.com/artifact/mysql/mysql-connector-java
-# PostgreSQL:postgresql-9.4-1206-jdbc41.jar    http://mvnrepository.com/artifact/org.postgresql/postgresql
-# SQLite:    sqlite-jdbc-3.8.11.1.jar          http://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
+# Driver jars see: https://github.com/openhab/openhab/wiki/JDBC-Persistence#jdbc-driver-files
 #
 # Tested databases/url-prefix: jdbc:derby, jdbc:h2, jdbc:hsqldb, jdbc:mariadb, jdbc:mysql, jdbc:postgresql, jdbc:sqlite
 # 
