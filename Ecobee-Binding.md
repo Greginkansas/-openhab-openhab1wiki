@@ -509,6 +509,7 @@ To configure DEBUG logging for the Ecobee binding to be sent to a separate file,
 ### 1.8.2
 
 * Change seconds back to minutes for PIN expiration message in log ([#4008](https://github.com/openhab/openhab/pull/4008))
+* Include alerts in the payload when any item is bound to an alerts property ([#4047](https://github.com/openhab/openhab/pull/4047), [#4048](https://github.com/openhab/openhab/pull/4048))
 
 ### 1.9.0
 
