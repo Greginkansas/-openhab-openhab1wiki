@@ -123,3 +123,12 @@ READ THE COMMENTS IN THE SOURCE CODE BELOW to set it up.  Hope this helps someon
     }
     ?>
 ```
+
+## API (as of zoneminder V1.29)
+Starting with version 1.29 zoneminder features an API. Monitor's function (i.e. Modect, Nodect, Mocord, etc.) may be established with a Json post to the server. This allows for simple "arming" of cameras (e.g. when there's no one home). For example, in order to set monitor 1 to modect (record on motion detection) with a rule:
+
+    sendHttpPostRequest("http://IPofZoneminderServer/zm/api/monitors/1.json", "application/x-www-form-urlencoded", "Monitor[Function]=Modect")
+
+To set its function to monitor (no recording, just been able to watch live):
+
+    sendHttpPostRequest("http://IPofZoneminderServer/zm/api/monitors/1.json", "application/x-www-form-urlencoded", "Monitor[Function]=Monitor") 
