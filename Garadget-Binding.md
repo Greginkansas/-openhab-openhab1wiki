@@ -11,7 +11,7 @@ _**Note:** This Binding is available in 1.9 and later releases._
 
 ## Introduction
 
-The [Garadget](https://www.kickstarter.com/projects/softcomplex/garadget-garage-door-futurizer) is cloud-based device that "futurizes" your existing garage door opener, letting you open and close your garage door from anywhere, including via openHAB with this binding.  Remote access is made possible with the Particle REST API.
+The [Garadget](http://garadget.com) is cloud-based device that "futurizes" your existing garage door opener, letting you open and close your garage door from anywhere, including via openHAB with this binding.  Remote access is made possible with the Particle REST API.
 
 ![garadget](https://watou.github.io/images/garadget-1.png)
 
