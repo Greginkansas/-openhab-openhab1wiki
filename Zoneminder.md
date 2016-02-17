@@ -129,6 +129,6 @@ Starting with version 1.29 zoneminder features an API. Monitor's function (i.e. 
 
     sendHttpPostRequest("http://IPofZoneminderServer/zm/api/monitors/1.json", "application/x-www-form-urlencoded", "Monitor[Function]=Modect")
 
-To set its function to monitor (no recording, just been able to watch live):
+To set its function to monitor (no recording, just being able to watch live):
 
     sendHttpPostRequest("http://IPofZoneminderServer/zm/api/monitors/1.json", "application/x-www-form-urlencoded", "Monitor[Function]=Monitor") 
