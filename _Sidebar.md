@@ -121,6 +121,7 @@
 * [[Fritz!Box Binding|Fritz-Box-Binding]]
 * [[FritzBox-TR064-Binding]]
 * [[FS20 Binding|FS20-Binding]]
+* [[Garadget Binding|Garadget-Binding]]
 * [[Global Cache IR Binding|Global-Cache-IR-Binding]]
 * [[GPIO Binding|GPIO-Binding]]
 * [[HAI/Leviton OmniLink Binding|OmniLink-Binding]]
