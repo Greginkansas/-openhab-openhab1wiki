@@ -1,6 +1,8 @@
 ## Introduction
 
-This binding supports the EvoHome products from Honeywell 
+This binding supports the EvoHome products from Honeywell. It isn't currently in the main distribution (and as it is only OH1 it is unlikely to get merged) but you can found details on where to get the JAR in the forums: 
+
+https://community.openhab.org/t/new-evohome-binding/7696
 
 ## Binding Configuration
 
