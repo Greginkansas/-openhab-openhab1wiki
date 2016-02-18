@@ -43,23 +43,20 @@ Valid types are
 Examples, configure for your items:
 ================
 
-String EvoHome_Name "EvoHome Location Name [%s]" { evohome="locationName=LOCATION_NAME,type=LOCATION_NAME" }
-Number EvoHome_Id "EvoHome Location ID [%s]" { evohome="locationName=LOCATION_NAME,type=LOCATION_ID" }
-
-String EvoHome_Weather_Condition "Weather Condition [%s]"  { evohome="locationName=LOCATION_NAME,type=WEATHER_CONDITION" }
-Number EvoHome_Weather_Temp "Weather Temp [%.1f °C]"  { evohome="locationName=LOCATION_NAME,type=WEATHER_TEMPERATURE" }
-Number EvoHome_Weather_Humidity "Weather Humidity [%.1f %%]"  { evohome="locationName=LOCATION_NAME,type=WEATHER_HUMIDITY" }
-String EvoHome_Weather_Unit "Weather Unit [%s]"  { evohome="locationName=LOCATION_NAME,type=WEATHER_UNIT" }
-String EvoHome_Weather_Phrase "Weather Phrase [%s]" { evohome="locationName=LOCATION_NAME,type=WEATHER_PHRASE" }
-
-Number Bedroom_Radiator_Current_Temp    "Bedroom Radiator Temp [%.1f °C]" { evohome="locationName=LOCATION_NAME,deviceName=DEVICE_NAME,type=THERMOSTAT_TEMPERATURE" }
-Number Bedroom_Radiator_Target_Temp     "Bedroom Radiator Target Temp [%.1f °C]" { evohome="locationName=LOCATION_NAME,deviceName=DEVICE_NAME,type=THERMOSTAT_SETPOINT_VALUE" }
-String Bedroom_Radiator_Device_Name "Bedroom Radiator Name [%s]" { evohome="locationName=LOCATION_NAME,deviceName=DEVICE_NAME,type=DEVICE_NAME" }
-Number Bedroom_Radiator_Device_Id "Bedroom Radiator Id [%s]" { evohome="locationName=LOCATION_NAME,deviceName=DEVICE_NAME,type=DEVICE_ID" }
-String Bedroom_Radiator_Unit "Bedroom Radiator Unit [%s]" { evohome="locationName=LOCATION_NAME,deviceName=DEVICE_NAME,type=THERMOSTAT_UNIT" }
-String Bedroom_Radiator_Mode "Bedroom Radiator Mode [%s]"  { evohome="locationName=LOCATION_NAME,deviceName=DEVICE_NAME,type=THERMOSTAT_MODE" }
-String Bedroom_Radiator_Set_Status "Bedroom Radiator Set Status [%s]"  { evohome="locationName=LOCATION_NAME,deviceName=DEVICE_NAME,type=THERMOSTAT_SETPOINT_STATUS" }
-DateTime Bedroom_Radiator_Set_NextTime "Bedroom Radiator Set Time [%1$tT, %1$tF]"  { evohome="locationName=LOCATION_NAME,deviceName=DEVICE_NAME,type=THERMOSTAT_SETPOINT_NEXTTIME" }
-
+    String EvoHome_Name "EvoHome Location Name [%s]" { evohome="locationName=LOCATION_NAME,type=LOCATION_NAME" }
+    Number EvoHome_Id "EvoHome Location ID [%s]" { evohome="locationName=LOCATION_NAME,type=LOCATION_ID" }
+    String EvoHome_Weather_Condition "Weather Condition [%s]"  { evohome="locationName=LOCATION_NAME,type=WEATHER_CONDITION" }
+    Number EvoHome_Weather_Temp "Weather Temp [%.1f °C]"  { evohome="locationName=LOCATION_NAME,type=WEATHER_TEMPERATURE" }
+    Number EvoHome_Weather_Humidity "Weather Humidity [%.1f %%]"  { evohome="locationName=LOCATION_NAME,type=WEATHER_HUMIDITY" }
+    String EvoHome_Weather_Unit "Weather Unit [%s]"  { evohome="locationName=LOCATION_NAME,type=WEATHER_UNIT" }
+    String EvoHome_Weather_Phrase "Weather Phrase [%s]" { evohome="locationName=LOCATION_NAME,type=WEATHER_PHRASE" }
+    Number Bedroom_Radiator_Current_Temp    "Bedroom Radiator Temp [%.1f °C]" { evohome="locationName=LOCATION_NAME,deviceName=DEVICE_NAME,type=THERMOSTAT_TEMPERATURE" }
+    Number Bedroom_Radiator_Target_Temp     "Bedroom Radiator Target Temp [%.1f °C]" { evohome="locationName=LOCATION_NAME,deviceName=DEVICE_NAME,type=THERMOSTAT_SETPOINT_VALUE" }
+    String Bedroom_Radiator_Device_Name "Bedroom Radiator Name [%s]" { evohome="locationName=LOCATION_NAME,deviceName=DEVICE_NAME,type=DEVICE_NAME" }
+    Number Bedroom_Radiator_Device_Id "Bedroom Radiator Id [%s]" { evohome="locationName=LOCATION_NAME,deviceName=DEVICE_NAME,type=DEVICE_ID" }
+    String Bedroom_Radiator_Unit "Bedroom Radiator Unit [%s]" { evohome="locationName=LOCATION_NAME,deviceName=DEVICE_NAME,type=THERMOSTAT_UNIT" }
+    String Bedroom_Radiator_Mode "Bedroom Radiator Mode [%s]"  { evohome="locationName=LOCATION_NAME,deviceName=DEVICE_NAME,type=THERMOSTAT_MODE" }
+    String Bedroom_Radiator_Set_Status "Bedroom Radiator Set Status [%s]"  { evohome="locationName=LOCATION_NAME,deviceName=DEVICE_NAME,type=THERMOSTAT_SETPOINT_STATUS" }
+    DateTime Bedroom_Radiator_Set_NextTime "Bedroom Radiator Set Time [%1$tT, %1$tF]"  { evohome="locationName=LOCATION_NAME,deviceName=DEVICE_NAME,type=THERMOSTAT_SETPOINT_NEXTTIME" }
 
 ================
