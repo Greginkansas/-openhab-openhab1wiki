@@ -103,6 +103,9 @@ You can listen to commands for a specific item, on status updates or on status c
     Item <item> received update [<state>]
     Item <item> changed [from <state>] [to <state>]
 ```
+
+> A simplistic explanation of the differences between `command` and `update` (useful if you are new to openHAB) can be found on the [Actions page : https://github.com/openhab/openhab/wiki/Actions#sendcommand-vs-postupdate](https://github.com/openhab/openhab/wiki/Actions#sendcommand-vs-postupdate) 
+
 ### Time-based Triggers
 
 You can either use some pre-defined expressions for timers or use a [cron expression](http://www.quartz-scheduler.org/documentation/quartz-2.1.x/tutorials/tutorial-lesson-06) instead:
