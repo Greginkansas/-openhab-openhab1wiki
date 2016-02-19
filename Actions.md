@@ -8,6 +8,7 @@ Since openHAB 1.3.0, not all actions are part of the core runtime distribution a
 
 * [Core Actions](#core-actions)
   * [Event bus](#event-bus-related-actions)
+    * [sendCommand vs postUpdate](#sendcommand-vs-postupdate)
   * [Audio](#audio-actions)
   * [Logging](#logging-actions)
   * [HTTP](#http-actions)
@@ -45,6 +46,21 @@ Here is the list of available actions in the core runtime:
 - `postUpdate(String itemName, String stateString)`: Posts the given status update for the specified item to the event bus
 - `Map<Item, State> storeStates(Item... items)`: Stores the current state of a list of items in a map which can be assigned to a variable. Group items are not themselves put into the map, but instead all their members.
 - `restoreStates(Map<Item, State> statesMap)`: Restores item states from a map. If the saved state can be interpreted as a command, a command is sent for the item (and the physical device can send a status update if occurred). If it is no valid command, the item state is directly updated to the saved value.
+
+[Table of Contents](#table-of-contents)
+
+#### sendCommand vs postUpdate
+
+The following is a useful post by @watou [Read the full thread here](https://community.openhab.org/t/sendcommand-vs-postupdate/3326/5)
+
+> This is a bit of a simplification, but should help explain:
+
+> If you want to tell something to change (turn a light on, change the thermostat to a new temperature, start raising the blinds, etc.), then you want to send a command to an item. If your items' states are not being updated by a binding, the autoupdate feature (see below) or something else external, you will probably want to update the state in a rule, using postUpdate.
+
+> When you click on buttons, sliders or other widgets in the UI, that sends commands to items. Usually this causes the state of the item to update automatically at the same time (using the default autoupdate feature), but there are causes where autoupdate is not performed, depending on the binding or configuration in your .items file if autoupdate="false" is present. Commands can also be sent other ways, such as the REST API and CMD servlet.
+
+> Your rules can trigger on items receiving commands, items' states updating, or items' states changing to a different value.
+
 
 [Table of Contents](#table-of-contents)
 
