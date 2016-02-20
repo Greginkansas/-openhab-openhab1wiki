@@ -19,7 +19,7 @@ Many zwave devices communicate of a basic radio protocol which can be intercepte
 
 **Limitations/Known Issues**  not a wishlist, just things that are necessary for the bare minimum functionality that aren't working yet
 - Do not do a habmin reinitialize on a door lock.  It has been known to cause issues and require a new secure repairing to restore functionality
-- Trying to perform lock/unlock commands too quickly will result in failure.  Ideally some sort of message would appear preventing the user from doing this
+
 
 ##Instructions
 **Get the Beta code**
@@ -40,9 +40,9 @@ Many zwave devices communicate of a basic radio protocol which can be intercepte
 
 **Steps to test**
 
-1. Run the code downloaded above.  Note that pairing process is different than with other zwave devices. The zwave controller needs to stay connected to the machine running openhab and it needs to be very close to the secure device (a foot or less).
+1. Run the code downloaded above.  Note that pairing process is different than with other zwave devices. The zwave controller needs to stay connected to the machine running openhab and it needs to be very close to the secure device (a foot or less) during pairing.  
 1. put the zwave controller into inclusion mode using habmin http://community-openhab-org.s3-eu-central-1.amazonaws.com/original/1X/63ec67c2a6dff6a42c8ef18e46333b0404953cb7.png
-- trigger secure pair from the device per the instructions.  You should see lots of activity in the log file at this time.  The device make show a confirmation or make noise that it is complete, but that is often premature. After a minute or 2, check your logs for "Secure Inclusion complete" or "Secure Inclusion FAILED".  If it was complete, wait until you see "Node advancer: loop - DONE" before continuing to the next step.  This is the critical indication that openhab is done interrogating the device to see which commands it supports.
+- trigger secure pair from the device per the instructions.  You should see lots of activity in the log file at this time.  The device make show a confirmation or make noise that it is complete, but that is often premature. After a minute or 2, check your logs for "Secure Inclusion complete" or "Secure Inclusion FAILED".  If it was complete, WAIT until you see "Node advancer: loop - DONE" before continuing to the next step.  This is the critical indication that openhab is done interrogating the device to see which commands it supports.  This literally took 4 minutes with my Yale lock, so be patient.  
 1. If secure inclusion failed, you can stop the server right away.  Post your results to the thread with the device you are using and the full openhab.log file.  Before trying to secure pair again, you must exclude the device using habmin
 1. Stop the openhab server.  You will now add the device to the items config file.  For example, door lock would require 3 new entries: 1) control the lock, 2) show the current state (requesting a lock/unlock doesn't mean it worked, and someone can manually lock/unlock at any time, so it's critical to NOT rely on the state of the switch), and 3) show battery status. For example: 
 `Switch Door_Lock "Front door lock control" <none> (GF_Office) {zwave="#:command=door_lock"}`
