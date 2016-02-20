@@ -10,7 +10,7 @@ It exposes the ability to do the following things in the MiOS HA Controller
 * `System` - Read System-level Attributes.
 It uses the remote control interfaces (aka "UI Simple" JSON Calls, and HTTP Long-polling) of the MiOS HA Controller to keep the _bound_ openHAB Items in sync with their counterparts in the MiOS HA Controller.
 
-The binding uses the openHAB _Transformation Service_ extensively to "map" the Data & Commands between the two systems. A set of example MAP transform files is provided in the `examples/transform` directory of the Binding, but these can readily be augmented without needing to tweak the code.
+The binding uses the openHAB _Transformation Service_ extensively to "map" the Data & Commands between the two systems. A set of example MAP transform files is provided and these can readily be augmented without needing to tweak the code.
 
 Original code was used from the XBMC Binding, and then heavily modified. Snippets included from the HTTP Binding for the various datatype mapping functions.
 
@@ -438,7 +438,7 @@ _&lt;BoundValue>_ is `?`, `??`, `?++`, `?--`
 
 #### Device Command Binding Examples (Parameterless)
 
-In practice, when discrete commands are being sent by openHAB, the map is fairly simple.  In the examples listed below, the `*.map` files are provided in the `examples/transform` directory of the MiOS binding.
+In practice, when discrete commands are being sent by openHAB, the map is fairly simple.  In the examples listed below, the `*.map` files are provided and can be downloaded per the [Transformations](MiOS-Binding#mios-transformations) setup descriptions.
 
 [Back to Table of Contents](MiOS-Binding#configuration)
 
@@ -510,7 +510,7 @@ or the full version:
 
 Since Dimmer Items in openHAB can be sent `INCREASE`, `DECREASE` or _&lt;PCTNumber>_ as the command, the mapping file must account for both the static commands (`INCREASE`, `DECREASE`) as well as the possibility of a _Command Value_ being sent.
 
-The `examples/transform/miosDimmerCommand.map` file has a definition that handles this situation:
+The `miosDimmerCommand.map` file has a definition that handles this situation:
 
     INCREASE=urn:upnp-org:serviceId:Dimming1/SetLoadLevelTarget(newLoadlevelTarget=?++)
     DECREASE=urn:upnp-org:serviceId:Dimming1/SetLoadLevelTarget(newLoadlevelTarget=?--)
