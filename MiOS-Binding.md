@@ -83,11 +83,15 @@ Internally, the MiOS Binding uses the openHAB _Transformation Service_.  The MiO
 
 From a configuration standpoint, these transformations need to be copied from the source-code repository:
 
-    bundles/binding/org.openhab.binding.mios/examples/transform/mios*.map
-    
+    features/openhab-addons-external/src/main/resources/transform/mios*.map
+
 and placed into your openHAB installation under the directory:
 
     {openHAB Home}/configurations/transform/
+
+If you have a Unix machine, the MAP files can also be downloaded using:
+
+    svn checkout https://github.com/openhab/openhab/trunk/features/openhab-addons-external/src/main/resources/transform/
 
 **NOTE**: These transformations can be readily extended by the user, for any use-cases that aren't covered by those pre-configured & shipped with the Binding.
 
