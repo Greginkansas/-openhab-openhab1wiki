@@ -134,6 +134,7 @@ Alternately add the following to your `logback.xml` file to only see the RFXcom 
 
     <logger name="org.openhab.binding.rfxcom" level="DEBUG" />
 
+** Some devices like Oregon Thermo Hygrometer changes the Device id every time you remove the batteries, when you change your batteries you will have to get the new deviceId and update the Item binding **
 
 ----
 ## Device specific PacketType syntaxes
