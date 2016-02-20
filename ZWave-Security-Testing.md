@@ -15,7 +15,7 @@ Many zwave devices communicate of a basic radio protocol which can be intercepte
 - Lock and unlock a door lock
 - Reports battery percentage
 - Update Lock status
-- Set user codes - see 
+- Set user codes - see [instructions](https://github.com/openhab/openhab/wiki/ZWave-Security-Testing/_edit#user-codes)
 
 **Limitations/Known Issues**  not a wishlist, just things that are necessary for the bare minimum functionality that aren't working yet
 - Do not do a habmin reinitialize on a door lock.  It has been known to cause issues and require a new secure repairing to restore functionality
@@ -51,3 +51,79 @@ Many zwave devices communicate of a basic radio protocol which can be intercepte
 Be sure to replace # above with the id of your door lock from the secure pairing session
 1. start openhab, wait for everything to initialize and check the logs for errors
 1. Try the switch and wait 10 seconds.  If you hear the lock turn, great!  If not, the switch may have been in the wrong position to begin with, so try it again and wait 10 seconds
+
+##User Codes
+
+**Overview**
+
+The user code command class allows the door entry codes to be set on the door lock by OH.  Currently this is a manual process which requires editing the node xml file.  Hopefully this will change in the future with OpenHab2.
+
+The friendlyName value below is just a way for humans to track the codes.  The friendlyName is never sent to the door lock.  OH and the door lock track codes by the position in the userCodeList list.
+
+
+**Adding codes**
+
+1. Make a backup of all files in openhabhome\etc\zwave.  Move the backup outside of the zwave directory.
+1. Open the node xml file for the door lock with a text editor.  Search for "<commandClass>USER_CODE</commandClass>" and you should see something like the example below.
+**NOTE:** If you don't see the USER_CODE section, you probably paired the lock with OH before user code support was added to the security branch.  Do a git pull, then exclude and re-perform the secure inclusion process as described above
+    ```
+     <entry>
+       <commandClass>USER_CODE</commandClass>
+       <userCodeCommandClass>
+         <version>1</version>
+         <instances>1</instances>
+         <numberOfUsersSupported>30</numberOfUsersSupported>
+         <userCodeList/>
+       </userCodeCommandClass>
+     </entry>
+    ```
+
+1. Note the value of numberOfUsersSupported.  This is the maximum number of user codes you can store in the lock.  If this value is zero, than no codes can be stored
+1. You will now edit the "<userCodeList/>" line.  Each code is given a friendly name to go along with the code.  For example to add the user "Dave" with the code "1234" it would look like this:
+
+    ```
+    <entry>
+      <commandClass>USER_CODE</commandClass>
+      <userCodeCommandClass>
+        <version>1</version>
+        <instances>1</instances>
+        <numberOfUsersSupported>30</numberOfUsersSupported>
+        <userCodeList>
+          <userCode>
+            <friendlyName>Dave</friendlyName>
+            <code>1234</code>
+          </userCode>
+        </userCodeList>
+      </userCodeCommandClass>
+    </entry>
+    ```
+
+5. To add multiple codes, simply repeat the userCode block, like so:
+
+    ```
+    <entry>
+      <commandClass>USER_CODE</commandClass>
+      <userCodeCommandClass>
+        <version>1</version>
+        <instances>1</instances>
+        <numberOfUsersSupported>30</numberOfUsersSupported>
+        <userCodeList>
+          <userCode>
+            <friendlyName>Dave</friendlyName>
+            <code>1234</code>
+          </userCode>
+          <userCode>
+            <friendlyName>Bob</friendlyName>
+            <code>5678</code>
+          </userCode>
+        </userCodeList>
+      </userCodeCommandClass>
+    </entry>
+    ```
+
+1. Once your edits are complete, restart OH and your changes should take effect shortly.
+
+**Editing codes**
+
+1. You can add or change codes at any time, just edit the node xml and restart OH
+1. If you are removing an item from the list, set the code to 0 (zero) and recycle.  This will trigger OH to tell the door lock to remove the code in that position from the door lock.  Test it out to make sure the code no longer works, then you can remove that userCode block
