@@ -77,7 +77,8 @@ _begin_ / _end_  sets the begin / end of the time axis of the chart. Valid value
 Note that charts are rendered by a chart provider. By default, openHAB provides a default chart provider which will work with all queryable persistence services. Other chart providers can be user to render the chart by changing the `chart:provider=default` configuration in openhab.cfg to the name of the alternative provider. Currently, the only alternative is to use the rrd4j provider to render the graphs.
 
 A few technical constraints and details to be aware of:
- * When using rrd4j persistence, you must use the everyMinute (60 seconds) logging strategy otherwise rrd4j thinks that there is no data and will not properly draw the charts
+ * When using rrd4j persistence, you must use the everyMinute (60 seconds) logging strategy otherwise rrd4j thinks that there is no data and will not properly draw the charts.
+ * When using chart:provider=rrd4j, the `service=<service>` is ignored and only the persistence service rrd4j is used.
  * Despite the chart refresh option, charts do not appear to refresh properly according to this setting
  * The visibility of multiple chart objects can be toggled to simulate changing the chart period, and the non-visible chart widgets are NOT generated behind the scenes until it becomes visible.
  * When charting a group of items make sure every label is unique. Identical labels result in an empty chart (as of 1.7.0).
