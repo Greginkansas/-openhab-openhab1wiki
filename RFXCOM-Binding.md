@@ -12,6 +12,7 @@ Alecto, Cresta, Fine Offset, Hideki, LaCrosse, Oregon, Rubicson, TFA, Viking wea
 * Atlantic Meiantech, Visonic, X10 alarm sensors,
 * Oregon scales,
 * Maverick BBQ Rubicson sensors
+* Keeloq, HCS301 based sensors (Security2 protocol)
 * Chacon, Home Easy, COCO, NEXA, X10 remote controls.
 
 **And suitable for controlling eg 433.92MHz these devices:**
@@ -38,7 +39,7 @@ The binding should be compatible at least with RFXtrx433 USB 433.92MHz transceiv
 
 ### RFXCOM binding currently supports:
 
-Blinds1, Control, Current, Curtain1, Energy, Humidity, Interface, Lighting1, Lighting2, Lighting4, Lighting5, Lighting6, Factory, Interface, Rain, Rfy, Security1, TemperatureHumidity, Temperature, Thermostat1, Transmitter, Wind packet types.
+Blinds1, Control, Current, Curtain1, Energy, Humidity, Interface, Lighting1, Lighting2, Lighting4, Lighting5, Lighting6, Factory, Interface, Rain, Rfy, Security1, Security2, TemperatureHumidity, Temperature, Thermostat1, Transmitter, Wind packet types.
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
@@ -148,6 +149,7 @@ Alternately add the following to your `logback.xml` file to only see the RFXcom 
 | Lighting6 | `SensorId.GroupCode.UnitCode` | **257.B.1** or **64343.B.2** or **636602.H.5** |
 | Curtain1 | `SensorId.UnitCode` | **P.1** <sup>2</sup>|
 | TemperatureHumidity, Current, Energy etc | `SensorId.UnitCode` | **2561**|
+| Security2 | `S2_SensorId` | **S2_12567** |
 | RfyMessage | `Id1.Id2.Id3.UnitCode` | **0.12.12.1** <sup>3</sup>|
 
 <sup>1</sup> Where "0" would control all items on device,
@@ -254,6 +256,7 @@ Number Owl_Amps { rfxcom="<35072:Channel2Amps" }
   <tr><td>TEMPERATUREHUMIDITY.<br>WT260_WT260H_WT440H_WT450_WT450H</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.VIKING_02035_02038</td><td>Working</td><td>Temperature, Humidity, Humidity status, Signal level, Battery level</td></tr>
   <tr><td>SECURITY1.X10_SECURITY_MOTION</td><td>working</td><td>Motion</td></tr>
+  <tr><td>SECURITY2</td><td>working<br>e.g. JFL SHC3.0</td><td>Contact,Contact1,Contact2,Contact3,SignalLevel,BatteryLevel</td></tr>
   <tr><td>THERMOSTAT1</td><td>Digimax 210 working</td><td>Temperature, SetPoint, Contact</td></tr>
 
   <tr><td>ENERGY.ELEC1</td><td>Owl CM113 Working</td><td>Channel1Amps, Channel2Amps, Channel3Amps</td></tr>
@@ -297,4 +300,7 @@ Number Owl_Amps { rfxcom="<35072:Channel2Amps" }
   <tr><td>Status</td><td>StringItem</td><td></td></tr>
   <tr><td>Mood</td><td>NumberItem</td><td></td></tr>
   <tr><td>Contact</td><td>ContactItem</td><td></td></tr>
+  <tr><td>Contact1</td><td>ContactItem</td><td></td></tr>
+  <tr><td>Contact2</td><td>ContactItem</td><td></td></tr>
+  <tr><td>Contact3</td><td>ContactItem</td><td></td></tr>
 </table>
