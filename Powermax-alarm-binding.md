@@ -91,7 +91,7 @@ Full list of binding items:
 | `zone_status` | zone number (first zone is 1) | Switch or Contact | Whether the zone is tripped or not | no
 | `zone_last_trip` | zone number (first zone is 1) | DateTime | Timestamp when the zone was last tripped | no
 | `zone_bypassed` | zone number (first zone is 1) | Switch | Whether the zone is bypassed or not | yes (ON or OFF)
-| `zone_armed` | zone number (first zone is 1) | String or Switch | Whether the zone is armed or not | yes (ON or OFF)
+| `zone_armed` | zone number (first zone is 1) | String or Switch | Whether the zone is armed or not | no
 | `zone_low_battery` | zone number (first zone is 1) | Switch | Whether the sensor battery is low or not | no
 | `command` | - | String | To trigger a binding action | yes (possible values are get_event_log, download_setup, log_setup and help_items)
 | `event_log` | entry number (1 for the most recent) | String | Event log entry | no
