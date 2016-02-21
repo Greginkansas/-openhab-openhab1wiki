@@ -32,7 +32,7 @@ Many zwave devices communicate of a basic radio protocol which can be intercepte
 **Setup**
 
 1. enabled debug per https://github.com/openhab/openhab/wiki/Z-Wave-Binding#logging
-1. edit openhab.cfg and add a new entry in the zwave section YOU MUST REPLACE each ## with random hex digits:  
+1. edit openhab.cfg and add a new entry in the zwave section YOU MUST REPLACE each ## with random hex digits ([GRCs password generator](https://www.grc.com/passwords.htm) is a good source of random numbers):  
 `zwave:networkKey=0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##`
 1. If you have already paired the device with openhab you must unpair it using the exclusion function.  After it has been excluded, Stop openhab and delete the etc/zwave/node#.xml that corresponded to the device
 1. hard reset the device.  NOTE: if this is a door lock, this will likely erase all door codes you have programmed!
