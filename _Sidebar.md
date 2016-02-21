@@ -181,6 +181,7 @@
 * [[Plex Binding|Plex-Binding]]
 * [[Plugwise Binding|Plugwise-Binding]]
 * [[PLCBus Binding|PLC-Bus-Binding]]
+* [[Powermax alarm Binding|Powermax-alarm-binding]]
 * [[Primare Binding|Primare-binding]]
 * [[Pulseaudio Binding|Pulseaudio-Binding]]
 * [[Raspberry Pi RC Switch Binding|Raspberry-Pi-RC-Switch-Binding]]
