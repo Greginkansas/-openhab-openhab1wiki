@@ -16,7 +16,13 @@ For installation of this persistence package please follow the same steps as if 
 
 ## Configuration
 
-Place a persistence file called rrd4j.persist in the `${openhab_home}/configuration/persistence` folder.
+Configuration takes place in two files: `${openhab_home}/configurations/persistence/rrd4j.persist` and `${openhab_home}/configurations/openhab.cfg`.
+
+The former file `rrd4j.persist` should include timers and strategies for items as described in [Configuration] (Persistence) section of Persistence.
+
+Setup of the latter file depends on openHAB version - see below.
+
+To sum up: `rrd4j.persist` defines how often data should be obtained and `openhab.cfg` defines how they should be stored in RRD. 
 
 ### From 1.7
 As of Openhab 1.7 it is possible to configure the later described values. Example:
