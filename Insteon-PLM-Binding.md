@@ -511,6 +511,18 @@ your `logback.xml` file:
 This will log additional debugging messages to a separate file in the
 log directory.
 
+### Device Permissions / Linux Device Locks
+
+When OpenHAB is running as a non-root user (Linux/OSX) it is important to ensure it has write access not just to the PLM device, but to the os lock directory. Under openSUSE this is `/run/lock` and is managed by the **lock** group. 
+
+Example commands to grant OpenHAB access (adjust for your distribution):
+````
+usermod -a -G dialout openhab
+usermod -a -G lock openhab
+````
+
+Insufficient access to the lock directory will result in OpenHAB failing to access the device, even if the device itself is writable.
+
 ### Adding new device types (using existing device features)
 
 Device types are defined in the file `device_types.xml`, which is inside the InsteonPLM bundle and thus not visible to the user. You can however load your own device_types.xml by referencing it in the openhab.cfg file like so:
