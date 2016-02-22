@@ -45,10 +45,13 @@ Many zwave devices communicate of a basic radio protocol which can be intercepte
 - trigger secure pair from the device per the instructions.  You should see lots of activity in the log file at this time.  The device make show a confirmation or make noise that it is complete, but that is often premature. After a minute or 2, check your logs for "Secure Inclusion complete" or "Secure Inclusion FAILED".  If it was complete, WAIT until you see "Node advancer: loop - DONE" before continuing to the next step.  This is the critical indication that openhab is done interrogating the device to see which commands it supports.  This literally took 4 minutes with my Yale lock, so be patient.  
 1. If secure inclusion failed, you can stop the server right away.  Post your results to the thread with the device you are using and the full openhab.log file.  Before trying to secure pair again, you must exclude the device using habmin
 1. Stop the openhab server.  You will now add the device to the items config file.  For example, door lock would require 3 new entries: 1) control the lock, 2) show the current state (requesting a lock/unlock doesn't mean it worked, and someone can manually lock/unlock at any time, so it's critical to NOT rely on the state of the switch), and 3) show battery status. For example: 
-`Switch Door_Lock "Front door lock control" <none> (GF_Office) {zwave="#:command=door_lock"}`
-`Contact Door_Basic "Front door lock status [%s]" <lock> (GF_Office) {zwave="#:command=door_lock,refresh_interval=120"}`
-`Number Door_Corridor_Battery "Front door lock battery level [%d %%]" (GF_Office) { zwave="#:command=battery,refresh_interval=43200" }`
-Be sure to replace # above with the id of your door lock from the secure pairing session
+
+    ```
+    Switch Door_Lock "Front door lock control" <none> (GF_Office) {zwave="#:command=door_lock"}
+    Contact Door_Basic "Front door lock status [%s]" <lock> (GF_Office) {zwave="#:command=door_lock,refresh_interval=120"}
+    Number Door_Corridor_Battery "Front door lock battery level [%d %%]" (GF_Office) { zwave="#:command=battery,refresh_interval=43200" }
+    ```
+    Be sure to replace # above with the id of your door lock from the secure pairing session
 1. start openhab, wait for everything to initialize and check the logs for errors
 1. Try the switch and wait 10 seconds.  If you hear the lock turn, great!  If not, the switch may have been in the wrong position to begin with, so try it again and wait 10 seconds
 
