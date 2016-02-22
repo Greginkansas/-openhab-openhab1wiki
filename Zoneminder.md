@@ -132,3 +132,20 @@ Starting with version 1.29 zoneminder features an API. Monitor's function (i.e. 
 To set its function to monitor (no recording, just being able to watch live):
 
     sendHttpPostRequest("http://IPofZoneminderServer/zm/api/monitors/1.json", "application/x-www-form-urlencoded", "Monitor[Function]=Monitor") 
+
+## Triggering event recording from OH
+Recording may be triggered from OpenHAB rules. For example, in order to trigger recording when a door is opened:
+
+    rule "trigger zoneminder recording when door opens"
+    when Door_Sensor changed to OPEN    
+    then
+       var String zmTrigger = "/etc/openhab/zmtriggerscript.sh"
+       executeCommandLine(zmTrigger)
+    end
+
+where zmtriggerscript.sh is:
+
+    #!/bin/bash
+    /bin/echo "1|on+40|255|DoorOpen|entrance" |nc IPOFZoneminderServer 6802
+
+This script will trigger camera with ID '1' to record for 40 seconds with an alarm score of 255 with a cause tagged as 'DoorOpen' and with 'entrance' added to the timestamp.
