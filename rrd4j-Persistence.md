@@ -18,7 +18,7 @@ For installation of this persistence package please follow the same steps as if 
 
 Configuration takes place in two files: `${openhab_home}/configurations/persistence/rrd4j.persist` and `${openhab_home}/configurations/openhab.cfg`.
 
-The former file `rrd4j.persist` should include timers and strategies for items as described in [Configuration] (Persistence) section of Persistence.
+The former file `rrd4j.persist` should include timers and strategies for items as described in [Configuration] (Persistence) section of Persistence. For rrd4j to work, the strategy everyMinute has to be used, otherwise no data will be persisted (stored).
 
 Setup of the latter file depends on openHAB version - see below.
 
