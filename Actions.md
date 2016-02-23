@@ -43,6 +43,7 @@ Here is the list of available actions in the core runtime:
 ### Event bus related actions
 - `sendCommand(String itemName, String commandString)`: Sends the given command for the specified item to the event bus
 - `postUpdate(String itemName, String stateString)`: Posts the given status update for the specified item to the event bus
+- `group.send(Command command_to_send)`: sends the given Command (ON/OFF/etc.) to every item in the group. [Casts from other data types (e.g. switch) are possible](https://community.openhab.org/t/sendcommand-vs-postupdate/3326/10?u=spaceman_spiff)
 
 > #### sendCommand vs postUpdate
 
