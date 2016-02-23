@@ -4,6 +4,9 @@ Visonic produces the Powermax alarm panel series (PowerMax, PowerMax+, PowerMaxE
 
 The PowerMax provides support for a serial interface that can be connected to the machine running openHAB. The serial interface is not installed by default but can be ordered from any PowerMax vendor (called the Visonic RS-232 Adaptor Kit).
 
+Visonic does not provide a specification of the RS232 protocol and, thus, the binding uses the available protocol specification given at the [​domoticaforum](http://www.domoticaforum.eu/viewtopic.php?f=68&t=6581).
+The binding implemntation of this protocol is largely inspired by the [Vera plugin](http://code.mios.com/trac/mios_visonic-powermax).
+
 For installation of the binding, please see Wiki page [[Bindings]].
 
 # Binding configuration
@@ -116,6 +119,60 @@ Here are the available actions:
 | `download_setup` | Read the panel setup (and sync time)
 | `log_setup` | Log information about the current panel setup
 | `help_items` | Log information about how to create items and sitemap
+
+# Items example
+
+Here is an example of what items you can define (only zone 1 and X10 device 1 are considered in this example):
+
+```
+Group GPowerMax "Alarm"
+
+String Powermax_partition_status "Partition status [%s]" (GPowerMax) {powermax="partition_status"}
+Switch Powermax_partition_ready "Partition ready" (GPowerMax) {powermax="partition_ready", autoupdate="false"}
+Switch Powermax_partition_bypass "Partition bypass" (GPowerMax) {powermax="partition_bypass", autoupdate="false"}
+Switch Powermax_partition_alarm "Partition alarm" (GPowerMax) {powermax="partition_alarm", autoupdate="false"}
+Switch Powermax_panel_trouble "Panel trouble" (GPowerMax) {powermax="panel_trouble", autoupdate="false"}
+Switch Powermax_panel_alert_in_mem "Panel alert in memory" (GPowerMax) {powermax="panel_alert_in_memory", autoupdate="false"}
+Switch Powermax_partition_armed "Partition armed" (GPowerMax) {powermax="partition_armed", autoupdate="false"}
+String Powermax_partition_arm_mode "Partition arm mode [%s]" (GPowerMax) {powermax="partition_arm_mode", autoupdate="false"}
+
+Switch Powermax_zone1_status "Zone 1 status" (GPowerMax) {powermax="zone_status:1", autoupdate="false"}
+Contact Powermax_zone1_status2 "Zone 1 status [%s]" (GPowerMax) {powermax="zone_status:1"}
+DateTime Powermax_zone1_last_trip "Zone 1 last trip [%1$tH:%1$tM]" (GPowerMax) {powermax="zone_last_trip:1"}
+Switch Powermax_zone1_bypassed "Zone 1 bypassed" (GPowerMax) {powermax="zone_bypassed:1", autoupdate="false"}
+Switch Powermax_zone1_armed "Zone 1 armed" (GPowerMax) {powermax="zone_armed:1", autoupdate="false"}
+Switch Powermax_zone1_low_battery "Zone 1 low battery" (GPowerMax) {powermax="zone_low_battery:1", autoupdate="false"}
+
+String Powermax_command "Command [%s]" (GPowerMax) {powermax="command", autoupdate="false"}
+
+String Powermax_event_log_1 "Event log 1 [%s]" (GPowerMax) {powermax="event_log:1"}
+String Powermax_event_log_2 "Event log 2 [%s]" (GPowerMax) {powermax="event_log:2"}
+String Powermax_event_log_3 "Event log 3 [%s]" (GPowerMax) {powermax="event_log:3"}
+String Powermax_event_log_4 "Event log 4 [%s]" (GPowerMax) {powermax="event_log:4"}
+String Powermax_event_log_5 "Event log 5 [%s]" (GPowerMax) {powermax="event_log:5"}
+
+String Powermax_panel_mode "Panel mode [%s]" (GPowerMax) {powermax="panel_mode"}
+String Powermax_panel_type "Panel type [%s]" (GPowerMax) {powermax="panel_type"}
+String Powermax_panel_eeprom "EPROM [%s]" (GPowerMax) {powermax="panel_eprom"}
+String Powermax_panel_software "Software version [%s]" (GPowerMax) {powermax="panel_software"}
+String Powermax_panel_serial "Serial [%s]" (GPowerMax) {powermax="panel_serial"}
+
+Switch Powermax_PGM_status "PGM status" (GPowerMax) {powermax="PGM_status", autoupdate="false"}
+Switch Powermax_X10_1_status "X10 1 status" (GPowerMax) {powermax="X10_status:1", autoupdate="false"}
+String Powermax_X10_1_status2 "X10 1 status [%s]" (GPowerMax) {powermax="X10_status:1", autoupdate="false"}
+```
+
+And here is an example of what you could add in your sitemap:
+
+```
+Text label="Security" icon="lock" {
+    Switch item=Powermax_partition_armed mappings=[OFF="Disarmed", ON="Armed"]
+    Switch item=Powermax_partition_arm_mode mappings=[Disarmed="Disarmed", Stay="Armed home", Armed="Armed away"] valuecolor=[=="Armed"="green",=="Stay"="orange"]
+    Switch item=Powermax_command mappings=[get_event_log="Event log", download_setup="Get setup", log_setup="Log setup", help_items="Help items"]
+    Switch item=Powermax_X10_1_status2 mappings=[OFF="Off", ON="On", DIM="Dim", BRIGHT="Bright"]
+    Group item=GPowerMax label="Alarm"
+}
+```
 
 # Limitations
 - Visonic does not provide a specification of the RS232 protocol and, thus, use this binding at your own risk.
