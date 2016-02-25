@@ -203,7 +203,7 @@ do_reload() {
 }
 
 case "$1" in
-  start)
+  'start')
     log_daemon_msg "Starting $DESC"
     do_start
     case "$?" in
@@ -211,7 +211,7 @@ case "$1" in
         2) log_end_msg 1 ;;
     esac
     ;;
-  stop)
+  'stop')
     log_daemon_msg "Stopping $DESC" 
     do_stop
     case "$?" in
@@ -219,7 +219,7 @@ case "$1" in
         2) log_end_msg 1 ;;
     esac
     ;;
-  status)
+  'status')
        status_of_proc "$DAEMON" "$NAME" && exit 0 || exit $?
        ;;
   #reload|force-reload)
@@ -231,7 +231,7 @@ case "$1" in
     #do_reload
     #log_end_msg $?
     #;;
-  restart|force-reload)
+  'restart'|'force-reload')
     #
     # If the "reload" option is implemented then remove the
     # 'force-reload' alias
