@@ -297,6 +297,7 @@ Please update the wiki if you do come across any out of date information.
 * [[Spell checking for foreign languages|Spell-checking-for-foreign-languages]]
 * [[Flic via Tasker|Flic-via-Tasker]]
 * [[Chromecast via castnow|Chromecast-via-castnow]]
+* [[Speedtest.net integration|speedtest-cli-integration]]
 
 ### Scripts
 
