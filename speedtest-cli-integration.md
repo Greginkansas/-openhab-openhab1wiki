@@ -6,6 +6,8 @@ Below you'll find a complete solution on integrating the internet connection ban
   * show all results on an extra page after click
   * a button is defined to start the speedtest, either through the sitemap or your own rules
 
+<img src="https://community-openhab-org.s3-eu-central-1.amazonaws.com/original/2X/2/2b3ee536c3026d68191802329246b3bca6a7dd3f.png" width="300">
+
 ## Installation and Test
 
 In your linux console (installation may differ from system to system):
