@@ -290,7 +290,7 @@ Devices which do not support callbacks will be polled with a configurable interv
  is 60000 milliseconds. This value can be changed in openhab.cfg:
  
 ```
-tinkerforge.refresh=<value in milliseconds>
+tinkerforge:refresh=<value in milliseconds>
 ```
 ---
 
