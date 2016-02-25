@@ -80,11 +80,9 @@ In order to bind an item to RFXCOM device, you need to provide configuration set
     in:  rfxcom="<DeviceId:ValueSelector"
     out: rfxcom=">DeviceId:PacketType.SubType:ValueSelector"
 
-### Getting the correct Decimal DeviceID number
+### Decimal or Hex DeviceID
 
-A common mistake when setting up this binding, is to use the wrong format for the DeviceID.
-
-DeviceID is a valid wireless device identifier number in decimal format.
+_(Prior to 1.8 a common mistake when setting up this binding, was to use the wrong format for the DeviceID. Though the logback since 1.8 seems to be reporting the DeviceID in the correct Decimal format (note that this maybe due to a firmware upgrade of the device and not necessarily the binding). The following section may not be relevant to new installs, but given it is such a major "gotcha" it is worth being aware of.)_
 
 RFXmngr and the openHAB logback outputs may display something like this example from a HomeEasy wireless wall switch.
 
