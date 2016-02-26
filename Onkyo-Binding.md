@@ -2,7 +2,7 @@ Documentation of the Onkyo AV Receiver Binding
 
 ## Introduction
 
-Binding should be compatible with Onkyo AV receivers which support ISCP (Integra Serial Control Protocol) over Ethernet (eISCP).
+Binding should be compatible with Onkyo AV receivers which support ISCP (Integra Serial Control Protocol) over Ethernet (eISCP) and Serial port (since version 1.9).
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
@@ -17,7 +17,7 @@ First of all you need to introduce your Onkyo AV receiver's in the openhab.cfg f
     # Port of the Onkyo to control (optional, defaults to 60128)
     # onkyo:<OnkyoId1>.port=
     
-    # Host of the first Onkyo device to control 
+    # Host of the second Onkyo device to control 
     # onkyo:<OnkyoId2>.host=
     # Port of the Onkyo to control (optional, defaults to 60128)
     # onkyo:<OnkyoId2>.port=
@@ -26,10 +26,19 @@ The `onkyo:<OnkyoId1>.host` value is the ip address of the Onkyo AV receiver.
 
 The `onkyo:<OnkyoId1>.port` value is TCP port address of the the receiver. Port value is optional parameter.
 
+Since Version 1.9, you can also control receivers with Serial port
+    # Serial Port of the third Onkyo device to control 
+    # onkyo:<OnkyoId3>.serialPortName=
+ 
+
 Examples, how to configure your receiver device:
 
     onkyo:hometheater.host=192.168.1.100
     onkyo:hometheater.port=60128
+
+Or
+
+onkyo:hometheater.serialPortName=/dev/ttyUSB0
 
 ## Item Binding Configuration
 
