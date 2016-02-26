@@ -27,6 +27,7 @@ The `onkyo:<OnkyoId1>.host` value is the ip address of the Onkyo AV receiver.
 The `onkyo:<OnkyoId1>.port` value is TCP port address of the the receiver. Port value is optional parameter.
 
 Since Version 1.9, you can also control receivers with Serial port
+
     # Serial Port of the third Onkyo device to control 
     # onkyo:<OnkyoId3>.serialPortName=
  
@@ -35,10 +36,8 @@ Examples, how to configure your receiver device:
 
     onkyo:hometheater.host=192.168.1.100
     onkyo:hometheater.port=60128
-
-Or
-
-onkyo:hometheater.serialPortName=/dev/ttyUSB0
+    Or
+    onkyo:hometheater.serialPortName=/dev/ttyUSB0
 
 ## Item Binding Configuration
 
