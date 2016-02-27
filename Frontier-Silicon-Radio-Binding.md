@@ -3,7 +3,7 @@ Documentation of the Frontier Silicon Radio binding for Internet Radios based on
 ## Introduction
 
 This binding has been developed and tested with the [Hama IR110](https://de.hama.com/00054823/hama-internetradio-ir110) and [Medion MD87180](https://www.medion.com/de/service/start/_product.php?msn=50047825&gid=00) internet radios. 
-The [MEDION® P85040 (MD 86988)](http://medion.scene7.com/is/image/Medion/50046868_PIC-Q?$m$), [MEDION® P85035 (MD 87090)](https://medion.scene7.com/is/image/Medion/50048568_PIC-Q?$m$), [Pinell Supersound II](http://www.pinell.no/en/products/pinell-supersound-ii-white//), [Silvercrest SIRD 14 C1](http://www.lidl.de/de/silvercrest-stereo-internetradio-sird-14-c1/p208310), [Revo Superconnect] (http://revo.co.uk/shop/superconnect/) and the [Hama DIR3110](https://de.hama.com/00054824/hama-digitalradio-dir3110-internetradio-dab+-fm-app-steuerung) are also supported.
+The [MEDION® P85040 (MD 86988)](http://medion.scene7.com/is/image/Medion/50046868_PIC-Q?$m$), [MEDION® P85035 (MD 87090)](https://medion.scene7.com/is/image/Medion/50048568_PIC-Q?$m$), [Pinell Supersound II](http://www.pinell.no/en/products/pinell-supersound-ii-white//), [Silvercrest SIRD 14 C1](http://www.lidl.de/de/silvercrest-stereo-internetradio-sird-14-c1/p208310), [Revo Superconnect] (http://revo.co.uk/shop/superconnect/), [Ruark R2] (http://www.ruarkaudio.com/products/r2-overview) and the [Hama DIR3110](https://de.hama.com/00054824/hama-digitalradio-dir3110-internetradio-dab+-fm-app-steuerung) are also supported.
 
 [<img src="http://internetradio.medion.com/images/md87180_small.jpg" alt="MEDION LIFE P85044 (MD 87180)" height="160">](http://internetradio.medion.com/)
 [<img src="https://de.hama.com/bilder/00054/abb/00054823abb.jpg" alt="Hama Internetradio IR110" height="180">](https://de.hama.com/00054823/hama-internetradio-ir110)
@@ -11,6 +11,8 @@ The [MEDION® P85040 (MD 86988)](http://medion.scene7.com/is/image/Medion/500468
 [<img src="http://www.pinell.no/sitefiles/site8/shop/pinell-supersound-ii-white3.jpg" alt="Pinell Supersound II" height="100">](http://pinell.no/en/)
 [<img src="http://www.lidl.de/media/product/0/2/0/8/3/1/0/silvercrest-stereo-internetradio-sird-14-c1.jpg" alt="Silvercrest SIRD 14 C1" height="180">](http://www.lidl.de/de/dab-/-internetradios/c15246)
 [<img src="http://revo.co.uk/assets/2013/10/H2_WNT_BLK_SUPERHERO2-486x395.jpg" alt="Revo Superconnect" height="180">](http://revo.co.uk/shop/superconnect/)
+
+![Ruark R2](http://www.ruarkaudio.com/images/finishes-r2-walnut.jpg)
 
 You can easily check if your IP radio is supported:
 
