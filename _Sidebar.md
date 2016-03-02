@@ -171,7 +171,7 @@
 * [[OpenPaths presence detection binding|OpenPaths-Binding]]
 * [[OpenSprinkler Binding|Open-Sprinkler]]
 * [[OSGi Configuration Admin Binding|Config-Admin-Binding]]
-* [[Panasonic TV Bindung|Panasonic-TV-Binding]]
+* [[Panasonic TV Binding|Panasonic-TV-Binding]]
 * [[panStamp Binding|panStamp-Binding]]
 * [[Philips Hue Binding|Hue-Binding]]
 * [[Piface Binding|Piface-Binding]]
