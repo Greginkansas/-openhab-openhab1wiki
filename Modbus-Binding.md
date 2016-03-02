@@ -48,7 +48,7 @@ Entries in openhab config file should look like below.
 
 Most of config parameters are related to specific slaves, but some are global and thus affect all slaves.
 
-#### Poll period (optional)
+**Poll period (optional)**
 
 Frequency of polling Modbus slaves can be configured using `poll` keyword:
 ````
@@ -56,7 +56,7 @@ Frequency of polling Modbus slaves can be configured using `poll` keyword:
 ````
 This is optional and default is `200`. Note that the value is in milliseconds! For example, `modbus:poll=1000` makes the binding poll Modbus slaves once per second.
 
-#### Function code to use when writing holding registers (optional)
+**Function code to use when writing holding registers (optional)**
 
 Binding can be configured to use FC 16 (*Write Multiple Holding Registers*) over FC 6 (*Write Single Holding Register*) when writing holding register items (see above)
 ````
