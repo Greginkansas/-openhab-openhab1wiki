@@ -103,6 +103,7 @@ Valid slave parameters are
 Remark : in "`openhab_default.cfg`", the modbus binding section has a wrong key "`host`", this doesn't work if you put your slave ip address here. So you have to replace "`host`" by "`connection`" witch is the right key as mentioned above.
 
 TODO: mention about `start` addressing (ie. relative to 00001, 10001, 30001, or 40001 depending on object type)
+TODO: comment that one physical slave might require many slave definition in openhab (one for each object type for example, or different slave ids)
 
 Modbus read functions 
 - `type=coil` uses function 1 "Read Coil Status" 
