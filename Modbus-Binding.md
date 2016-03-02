@@ -64,7 +64,7 @@ Binding can be configured to use FC 16 (*Write Multiple Holding Registers*) over
 ````
 This is optional and default is `false`. For example, `modbus:writemultipleregisters=true` makes the binding to use FC16 when writing holding registers.
 
-### Configuration parameters specific to each slaves
+### Configuration parameters specific to each slave
 
 The slaves are configured using key value pairs in openhab config file using the following pattern:
 
