@@ -11,7 +11,7 @@ For installation of the binding, please see Wiki page [[Bindings]].
  
 ## Details
 
-## Supported Modbus object types
+## Supported Modbus *object types*
 Modbus binding allows to connect to multiple Modbus slaves. The binding supports following Modbus object types
 
 - coils, also known as *digital out (DO)* (read & write)
