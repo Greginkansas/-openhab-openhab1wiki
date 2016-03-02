@@ -1,40 +1,103 @@
-Documentation of the Modbus TCP binding Bundle
+Documentation of the Modbus binding Bundle. The binding supports both TCP and Serial slaves. RTU, ASCII and BIN variants of Serial Modbus are supported.
+
+The binding acts as Modbus TCP Client (that is, as modbus master), querying data from Modbus TCP servers (that is, modbus slaves).
 
 ## Introduction
 
-The modbus TCP binding polls the bus in an configurable interval for a configurable length.  
+The Modbus TCP binding polls the slaves in an configurable interval for a configurable length. Openhab commands are translated to write requests.
 
 For installation of the binding, please see Wiki page [[Bindings]].
+
  
 ## Details
+
+## Supported Modbus object types
+Modbus binding allows to connect to multiple Modbus slaves. The binding supports following Modbus object types
+
+- coils, also known as *digital out (DO)* (read & write)
+- discrete inputs, also known as *digital in (DI)* (read)
+- input registers (read)
+- holding registers (read & write)
+
+Binding can be configured to interpret values stored in the 16bit registers in different ways, e.g. as signed or unsigned integer.
+
+For more information on these object types, please consult [Modbus wikipedia article](https://en.wikipedia.org/wiki/Modbus).
+
+## Read and write functions
+
+Modbus specification has different operations for reading and writing different object types. These types of operations are identified by *function code*. Some devices support only certain function codes.
+
+For more background information, please consult [Modbus wikipedia article](https://en.wikipedia.org/wiki/Modbus).
+
+The binding uses following function codes when communicating with the slaves:
+
+- read coils: function code (FC) 1 (*Read Coils*)
+- write coil: FC 5  (*Write Single Coil*)
+- read discrete inputs: FC 2 (*Read Discrete Inputs*)
+- read input registers: FC 4 (*Read Input Registers*)
+- read holding registers: FC 3 (*Read Multiple Holding Registers*)
+- write holding register: FC 6 (*Write Single Holding Register*), OR  FC 16 (*Write Multiple Holding Registers*) (see note on `writemultipleregisters` configuration parameter below)
 
 ## Binding Configuration
 
 add to `${openhab_home}/configuration/`
 
-Modbus binding allows to connect to multiple Modbus slaves as TCP master. This implementation works with coils (boolean values) only.
 Entries in openhab config file should look like below.
-Most of config parameters are related to specific slaves, the only exception is
 
+### Global configuration
+
+Most of config parameters are related to specific slaves, but some are global and thus affect all slaves.
+
+#### Poll period (optional)
+
+Frequency of polling Modbus slaves can be configured using `poll` keyword:
+````
      modbus:poll=<value>
+````
+This is optional and default is `200`. Note that the value is in milliseconds! For example, `modbus:poll=1000` makes the binding poll Modbus slaves once per second.
 
-which sets refresh interval to Modbus polling service. Value is in milliseconds - optional, default is 200
+#### Function code to use when writing holding registers (optional)
 
-     modbus:<slave-type>.<slave-name>.<slave-parameter>
+Binding can be configured to use FC 16 (*Write Multiple Holding Registers*) over FC 6 (*Write Single Holding Register*) when writing holding register items (see above)
+````
+     modbus:writemultipleregisters=<value>
+````
+This is optional and default is `false`. For example, `modbus:writemultipleregisters=true` makes the binding to use FC16 when writing holding registers.
 
-     <slave-type> can be either "tcp" or "serial"
-     <slave-name> is unique name per slave you are connecting to.
-     <slave-parameter> are pairs key=value
+### Configuration parameters specific to each slaves
 
+The slaves are configured using key value pairs in openhab config file using the following pattern:
 
-Valid keys are
+     modbus:<slave-type>.<slave-name>.<slave-parameter-name>=<slave-parameter-value>
+
+where
+- `<slave-type>` can be either "tcp" or "serial" depending on the type of this Modbus slave
+- `<slave-name>` is unique name per slave you are connecting to. Used in openhab configuration to refer to the slave.
+- `<slave-parameter-name>` identifies the parameter to configure
+- `<slave-parameter-value>` is the value of the parameter
+
+Valid slave parameters are
 
 <table>
-  <tr><td>connection</td><td>mandatory</td><td>for tcp connection use form host_ip[:port] e.g. 192.168.1.55 or 192.168.1.55:511. If you omit port, default 502 will be used. For serial connections use just COM port name optional [:baud:dataBits:parity:stopBits:encoding] <br/>opitons are: parity={even,odd}; encoding={ascii,rtu,bin} (default is ascii, supported since v1.7)</td></tr>
-  <tr><td>id</td><td>optional</td><td>slave id, default 1</td></tr>
-  <tr><td>start</td><td>optional</td><td>slave start address, default 0</td></tr>
-  <tr><td>length</td><td>mandatory</td><td>number of data item to read, default 0 (but set it to something meaningful :)</td></tr>
-  <tr><td>type</td><td>mandatory</td><td>data type, can be either "coil", "discrete", "holding", "input" or "register", now only "coil", "discrete", "holding" and "input" are supported</td></tr>
+  <tr><td>parameter name</td><td>parameter value</td><td>example values</td>
+  <tr><td>connection</td><td>mandatory</td>
+       <td>connection string for the slave. TCP slaves use the form host_ip[:port] e.g. 192.168.1.55 or 192.168.1.55:511. If you omit port, default 502 will be used. <br />For serial connections use the COM port name and optionally one can configure one or more of the serial parameters. [:baud:dataBits:parity:stopBits:encoding] <br/>options are: parity={even,odd}; encoding={ascii,rtu,bin} (default is ascii, supported since v1.7)</td>
+       <td><pre>192.168.1.50</pre>, <pre>/dev/ttyS0:38400:8:none:1:rtu</pre>
+</td></tr>
+  <tr><td>id</td><td>optional</td>
+       <td>slave id, default 1. Also known as *Address*, *Station address*, or *Unit identifier*, see [wikipedia](https://en.wikipedia.org/wiki/Modbus) and [simplymodbus](http://www.simplymodbus.ca/index.html) articles for more information</td>
+       <td></td></tr>
+
+       <tr><td>type</td><td>mandatory</td>
+              <td>object type, can be either "coil", "discrete", "holding", "input" or "register", now only "coil", "discrete", "holding" and "input" are supported</td>
+              <td></td></tr>
+       
+       <tr><td>start</td><td>optional</td>
+              <td>address of first coil/discrete input/register to read. Default is 0. The address is directly passed to the corresponding Modbus request, and thus is zero-based. </td>
+              <td></td></tr>
+
+       <tr><td>length</td><td>mandatory</td><td>number of data items to read, default 0 (but set it to something meaningful :)</td>
+              <td></td></tr>
 </table>
 
 Remark : in "`openhab_default.cfg`", the modbus binding section has a wrong key "`host`", this doesn't work if you put your slave ip address here. So you have to replace "`host`" by "`connection`" witch is the right key as mentioned above.
