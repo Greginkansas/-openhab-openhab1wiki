@@ -4,7 +4,7 @@ The binding acts as Modbus TCP Client (that is, as modbus master), querying data
 
 ## Introduction
 
-The Modbus TCP binding polls the slaves in an configurable interval for a configurable length. Openhab commands are translated to write requests.
+The Modbus TCP binding polls the slaves in an configurable interval for a configurable length. openHAB commands are translated to write requests.
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
@@ -42,7 +42,7 @@ The binding uses following function codes when communicating with the slaves:
 
 add to `${openhab_home}/configuration/`
 
-Entries in openhab config file should look like below.
+Entries in the `openhab.cfg` file should look like below.
 
 ### Global configuration
 
@@ -66,13 +66,13 @@ This is optional and default is `false`. For example, `modbus:writemultipleregis
 
 ### Configuration parameters specific to each slave
 
-The slaves are configured using key value pairs in openhab config file using the following pattern:
+The slaves are configured using key value pairs in openHAB config file using the following pattern:
 
      modbus:<slave-type>.<slave-name>.<slave-parameter-name>=<slave-parameter-value>
 
 where
 - `<slave-type>` can be either "tcp" or "serial" depending on the type of this Modbus slave
-- `<slave-name>` is unique name per slave you are connecting to. Used in openhab configuration to refer to the slave.
+- `<slave-name>` is unique name per slave you are connecting to. Used in openHAB configuration to refer to the slave.
 - `<slave-parameter-name>` identifies the parameter to configure
 - `<slave-parameter-value>` is the value of the parameter
 
@@ -100,10 +100,10 @@ Valid slave parameters are
               <td></td></tr>
 </table>
 
-Remark : in "`openhab_default.cfg`", the modbus binding section has a wrong key "`host`", this doesn't work if you put your slave ip address here. So you have to replace "`host`" by "`connection`" witch is the right key as mentioned above.
+Remark : in "`openhab_default.cfg`", the modbus binding section has a wrong key "`host`", this doesn't work if you put your slave ip address here. So you have to replace "`host`" by "`connection`" which is the right key as mentioned above.
 
 TODO: mention about `start` addressing (ie. relative to 00001, 10001, 30001, or 40001 depending on object type)
-TODO: comment that one physical slave might require many slave definition in openhab (one for each object type for example, or different slave ids)
+TODO: comment that one physical slave might require many slave definition in openHAB (one for each object type for example, or different slave ids)
 
 Modbus read functions 
 - `type=coil` uses function 1 "Read Coil Status" 
@@ -119,13 +119,13 @@ Modbus write functions
 with `type=holding` and `type=input` you can now only operate with datatype byte!!!
 see point 4 below
 
-Minimal construction in openhab.config for TCP connections will look like:
+Minimal construction in openhab.cfg for TCP connections will look like:
 
     modbus:tcp.slave1.connection=192.168.1.50
     modbus:tcp.slave1.length=10
     modbus:tcp.slave1.type=coil
  
-Minimal construction in openhab.conf for serial connections will look like:
+Minimal construction in openhab.cfg for serial connections will look like:
 
     modbus:serial.slave1.connection=/dev/ttyUSB0
     modbus:tcp.slave1.length=10
@@ -187,14 +187,14 @@ NOTE: the moxa e1200 modules give by reading with function 02 from start=0 the c
 
 ## Item Binding Configuration
 
-ModbusBindingProvider provides binding for Openhab Items
+ModbusBindingProvider provides binding for openHAB Items
 There are three ways to bind an item to modbus coils/registers
 
 1) single coil/register per item
 
      Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:5"}
 
-This binds MySwitch to modbus slave defined as "slave1" in openhab.config reading/writing to the coil 5
+This binds MySwitch to modbus slave defined as "slave1" in openhab.cfg reading/writing to the coil 5
 
 2) separate coils for reading and writing
 
