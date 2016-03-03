@@ -12,6 +12,7 @@
  * [Database Table Schema](#database-table-schema)
  * [Number Precision](#number-precision)
  * [Rounding results](#rounding-results)
+ * [Not representative Database Performance Tests](#not-representative-database-performance-tests)
 
 ### Introduction
 
@@ -222,3 +223,45 @@ Default openHab number items are persisted with sql datatype `double`. Internall
 
 ### Rounding results
 The results of database queries of number items are rounded to three decimal places by default. With `jdbc:numberDecimalcount` in the **JDBC Persistence Service** section of `openhab.cfg` decimals can be changed. Especially if sql types `DECIMAL ` or  `NUMERIC` are used for `jdbc:sqltype.NUMBER`, rounding can be disabled by setting `jdbc:numberDecimalcount=-1`. 
+
+
+### Not representative Database Performance Tests
+#### Used a script like this:
+````
+var count = 0;
+rule "DB STRESS TEST"
+when 
+	Time cron "30 * * * * ?"
+then
+	if( count = 24) count = 0
+	count = count+1
+	if( count > 3 && count < 23){
+		for( var i=500; i>1; i=i-1){
+			postUpdate( NUMBERITEM, i)
+			SWITCHITEM.previousState().state
+			postUpdate( DIMMERITEM, OFF)
+			NUMBERITEM.changedSince( now().minusMinutes(1))
+			postUpdate( DIMMERITEM, ON)
+		}
+	}
+end
+````
+Each Test ran about 20 Times every 30 seconds.
+OpenHAB has ready started for about a Minute.
+The data in seconds for the evaluation I had from the Console Output.
+
+#### Results per DATABASE:
+DATABASE | FIRST RUN | AVERAGE | FASTEST | COMMENT
+------------- | ------------- | ------------- | ------------- | -------------
+Derby | 7.829 | 6.892 | 5.381 | local embedded
+H2 | 1.797 | 2.080 | 1.580 | local embedded
+hsqldb | 3.474 | 2.104 | 1.310 | local embedded
+mysql | 11.873 | 11.524 | 10.971 | external Server VM
+postgresql | 8.147 | 7.072 | 6.895 | external Server VM
+sqlite | 2.406 | 1.249 | 1.137 | local embedded
+
+##### DATABASE file sizes after these Tests:
+Derby  = 5.36 MB
+H2     = 0.96 MB
+hsqldb = 1.23 MB
+sqlite = 0.28 MB
