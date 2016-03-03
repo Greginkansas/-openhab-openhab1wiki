@@ -267,4 +267,4 @@ Derby | 5.36
 H2 | 0.96
 hsqldb | 1.23
 sqlite | 0.28
-sqlite = | 0.28 MB
+
