@@ -261,7 +261,10 @@ postgresql | 8.147 | 7.072 | 6.895 | external Server VM
 sqlite | 2.406 | 1.249 | 1.137 | local embedded
 
 ##### DATABASE file sizes after these Tests:
-Derby  = 5.36 MB
-H2     = 0.96 MB
-hsqldb = 1.23 MB
-sqlite = 0.28 MB
+DATABASE | SIZE in MB
+------------- | -------------
+Derby | 5.36
+H2 | 0.96
+hsqldb | 1.23
+sqlite | 0.28
+sqlite = | 0.28 MB
