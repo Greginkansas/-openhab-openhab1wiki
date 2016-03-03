@@ -226,6 +226,19 @@ The results of database queries of number items are rounded to three decimal pla
 
 
 ### Not representative Database Performance Tests
+#### Results per DATABASE:
+DATABASE | FIRST RUN | AVERAGE | FASTEST | SIZE AFTER | COMMENT
+------------- | ------------- | ------------- | ------------- | ------------- | -------------
+Derby | 7.829 | 6.892 | 5.381 | 5.36 MB  | local embedded
+H2 | 1.797 | 2.080 | 1.580 |  0.96 MB | local embedded
+hsqldb | 3.474 | 2.104 | 1.310 | 1.23 MB | local embedded
+mysql | 11.873 | 11.524 | 10.971 | - | external Server VM
+postgresql | 8.147 | 7.072 | 6.895 | - | external Server VM
+sqlite | 2.406 | 1.249 | 1.137 | 0.28 MB| local embedded
+
+Each Test ran about 20 Times every 30 seconds.
+OpenHAB has ready started for about a Minute.
+The data in seconds for the evaluation are from the Console Output.
 #### Used a script like this:
 ````
 var count = 0;
@@ -246,25 +259,5 @@ then
 	}
 end
 ````
-Each Test ran about 20 Times every 30 seconds.
-OpenHAB has ready started for about a Minute.
-The data in seconds for the evaluation I had from the Console Output.
 
-#### Results per DATABASE:
-DATABASE | FIRST RUN | AVERAGE | FASTEST | COMMENT
-------------- | ------------- | ------------- | ------------- | -------------
-Derby | 7.829 | 6.892 | 5.381 | local embedded
-H2 | 1.797 | 2.080 | 1.580 | local embedded
-hsqldb | 3.474 | 2.104 | 1.310 | local embedded
-mysql | 11.873 | 11.524 | 10.971 | external Server VM
-postgresql | 8.147 | 7.072 | 6.895 | external Server VM
-sqlite | 2.406 | 1.249 | 1.137 | local embedded
-
-##### DATABASE file sizes after these Tests:
-DATABASE | SIZE in MB
-------------- | -------------
-Derby | 5.36
-H2 | 0.96
-hsqldb | 1.23
-sqlite | 0.28
 
