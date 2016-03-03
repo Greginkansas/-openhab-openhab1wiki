@@ -232,8 +232,8 @@ DATABASE | FIRST RUN | AVERAGE | FASTEST | SIZE AFTER | COMMENT
 Derby | 7.829 | 6.892 | 5.381 | 5.36 MB  | local embedded
 H2 | 1.797 | 2.080 | 1.580 |  0.96 MB | local embedded
 hsqldb | 3.474 | 2.104 | 1.310 | 1.23 MB | local embedded
-mysql | 11.873 | 11.524 | 10.971 | - | external Server VM
-postgresql | 8.147 | 7.072 | 6.895 | - | external Server VM
+mysql | 11.873 | 11.524 | 10.971 | - | ext. Server VM
+postgresql | 8.147 | 7.072 | 6.895 | - | ext. Server VM
 sqlite | 2.406 | 1.249 | 1.137 | 0.28 MB| local embedded
 
 Each Test ran about 20 Times every 30 seconds.
