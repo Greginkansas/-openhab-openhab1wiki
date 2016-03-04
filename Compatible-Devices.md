@@ -1,8 +1,8 @@
 ## Lighting
 
-| Device  | Description | Integration | Notes | Level of Integration |
+| Device  | Description | Integration | Notes | Level of Integration |wiki |
 | ------------- | ------------- | ------------- | ------------- |------------- |
-| Milight/limitlessled  | RF lightning with Wifi Bridge   | Binding  | Sometime command did not pass well. No real status    | Good  |
+| Milight/limitlessled  | RF lightning with Wifi Bridge   | Binding  | Sometime command did not pass well. No real status    | Good  |https://github.com/openhab/openhab/wiki/Milight-Binding  |
 | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
 
 ## Thermostats/Climate Control
