@@ -2,6 +2,7 @@
 
 | Device  | Description | Integration | Notes | Level of Integration |
 | ------------- | ------------- | ------------- | ------------- |------------- |
+| Milight/limitlessled  | RF lightning with Wifi Bridge   | Binding  | Sometime command did not pass well. No real status    | Good  |
 | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
 
 ## Thermostats/Climate Control
