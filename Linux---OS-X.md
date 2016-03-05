@@ -68,7 +68,7 @@ openHAB is a Java application and is expected to run on all platforms where JVM 
   ```
   sudo update-rc.d openhab defaults
   ```
-  2. Init based on systemd
+ or using Init based on systemd
 
   ```
   sudo systemctl daemon-reload
