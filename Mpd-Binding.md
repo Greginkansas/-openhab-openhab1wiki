@@ -15,7 +15,7 @@ In order to bind an item to a MPD, you need to provide configuration settings. T
 
 where the parts in `[]` are optional.
 
-The Player-Id corresponds whith the configuration in openhab.cfg where one has to configure the MPDs:
+The Player-Id corresponds with the configuration in openhab.cfg where one has to configure the MPDs:
 
     mpd:<player-id>.host=[host]
     mpd:<player-id>.port=[port]
