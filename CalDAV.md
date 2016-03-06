@@ -128,6 +128,15 @@ As far as i know are these
     caldav-persistence:singleEvents=false
 Saves the events to the calendar named history with a length of 10 minutes
 
+# Presence Simulation
+You can simulate presence with this binding.
+To do this you have to
+* enable the caldav-command binding
+* enbale the caldav-persistence binding
+* configure the Items you need for simulation for caldav persistence
+* configure the caldav persistence to singleEvents=true and an offset you want. One week or two make sense.
+* keep openHAB running for a week or more and the persistent events will occur again in the future regarding the offset you set up
+
 # Known Problems (or limitations)
 * If you are using multiple calendars you have to set the thread count for quartz to this calendar amount or higher otherwise some calendars will not be loaded.
 
