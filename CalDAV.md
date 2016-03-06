@@ -1,14 +1,11 @@
 This binding can be used to connect through the CalDAV Interface to calendars.
 First of all you need to add the org.openhab.io.caldav-version.jar to the addons folder.
 
-**Old releases**
+**Newest**
 
-[v09.10.2015](http://speedy.sh/qHKZJ/caldav-2015-10-09.zip)
+[v20.02.2016](http://speedy.sh/7rn5k/caldav-16-02-20.zip)
 
-[v25.10.2015](http://speedy.sh/K3X4h/caldav-2015-10-25.zip)
-changes: Events has been send multiple times, reduced to one for every change; use sendCommand instead of postUpdate
-
-**Binding is merged and will be available in 1.8.0. Until 1.8.0 is not released it can be loaded from the build agent.**
+**PR is created and waiting for merge**
 
 
 openhab.cfg
@@ -19,12 +16,14 @@ openhab.cfg
 * `caldavio:<calendar-id>:preloadTime=<minutes>`
 * `caldavio:<calendar-id>:historicLoadTime=<minutes>`
 * `caldavio:<calendar-id>:disableCertificateVerification=<true|false>`
+* `caldavio:<calendar-id>:charset=<well formed charset name>`
 * `caldavio:timeZone=<Timezone>`
 
 **Restrictions**
 * The calendar-id must be just upper- and lowercase characters. (e. g. private or work, something like 1 or private-home is not allowed)
 * disableCertificateVerification can just be set to true (default is false) if ssl is used.
 * timeZone must just be used if the local timezone of the pc is not the correct one. E. g. if you are living in Berlin and your calendar timezone is Berlin and your local pc timezone is Berlin you must not define this setting
+* '' for item configurations are optional (eventNr:1 and eventNr:'1' is the same). I prefer to use ''
 
 ***
 
@@ -67,8 +66,20 @@ Binding file: org.openhab.binding.caldav-personal-version.jar
 * `caldavPersonal:homeIdentifiers=<values seperated by commans>` (if one of these identifiers can be found inside the place of the event, this event will not be used for presence)
 
 ### items
-* `caldavPersonal="calendar:<calendar-id> type:<UPCOMING|ACTIVE|EVENT> eventNr:<event-nr, first one is 1> value:<NAME|DESCRIPTION|PLACE|START|END|TIME>"`
-* `caldavPersonal="calendar:<calendar-id> type:PRESENCE" (type must be Switch)`
+* `caldavPersonal="calendar:'<calendar-ids, comma separated>' type:'<UPCOMING|ACTIVE|EVENT>' eventNr:'<event-nr, first one is 1>' value:'<NAME|DESCRIPTION|PLACE|START|END|TIME>"'`
+* `caldavPersonal="calendar:'<calendar-ids>' type:'PRESENCE'" (type must be Switch)`
+
+## filtering
+You've got the option to show just specific events.
+* `filter-name:'<regular expression>'`
+* `filter-category:'<categories, comma separated>'`
+
+### Example for filtering
+* just showing upcoming free days
+`caldavPersonal="calendar:'robert,common' type:'EVENT' eventNr:'1' value:'START' filter-name:'Gleittag|Urlaub|Frei'"`
+* just showing events for the next garbage pick-up
+`caldavPersonal="calendar:'common' type:'EVENT' eventNr:'1' value:'START' filter-category:'Müllabholung'"`
+
 
 ## Description of type
 * UPCOMING: the next upcoming events, not the active ones
@@ -82,7 +93,7 @@ Binding file: org.openhab.binding.caldav-personal-version.jar
 * START: start time (itemtype: DateTime)
 * END: end time (itemtype: DateTime)
 * TIME: start/end time (itemtype: String)
-* NAMEANDTIME: name und start- bis endzeit
+* NAMEANDTIME: name and start- to end time (itemtype:String)
 
 # Logging
 * `<logger name="org.openhab.binding.caldav_personal" level="TRACE"/>`
