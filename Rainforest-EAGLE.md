@@ -88,5 +88,6 @@ then
     logInfo("eagle", "PERF Pull-Data-from-Eagle elapsed: " + String::valueOf(x) + "ms")
 end
 ```
+Note: When you update the EAGLE_URL and the EAGLE_MAC, note the MAC is 18 characters starting with "0x"
 
 ref: https://community.openhab.org/t/rainforest-zigbee-smart-energy-support/6595
