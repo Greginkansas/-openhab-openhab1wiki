@@ -85,7 +85,7 @@ Valid slave parameters are
        <td><pre>192.168.1.50</pre>, <pre>/dev/ttyS0:38400:8:none:1:rtu</pre>
 </td></tr>
   <tr><td>id</td><td>optional</td>
-       <td>slave id, default 1. Also known as *Address*, *Station address*, or *Unit identifier*, see [wikipedia](https://en.wikipedia.org/wiki/Modbus) and [simplymodbus](http://www.simplymodbus.ca/index.html) articles for more information</td>
+       <td>slave id, default 1. Also known as <i>Address</i>, <i>Station address</i>, or <i>Unit identifier</i>, see [wikipedia](https://en.wikipedia.org/wiki/Modbus) and [simplymodbus](http://www.simplymodbus.ca/index.html) articles for more information</td>
        <td></td></tr>
 
        <tr><td>type</td><td>mandatory</td>
