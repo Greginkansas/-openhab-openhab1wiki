@@ -13,6 +13,7 @@ Tested Receivers:
 * V575
 * V671
 * V675
+* V679
 * V773
 * V775
 * RX-A1030
