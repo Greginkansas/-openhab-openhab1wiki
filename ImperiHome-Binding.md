@@ -21,7 +21,11 @@ Copy the .jar files provided into the ./addons directory of your OH installation
 
 [[Page Top|ImperiHome-Binding#imperihome-binding]]
 
-## Configuration
+## ImperiHome Configuration
+
+After OpenHAB configuration is complete, on your ImperiHome device add a new system.  Type should be ImperiHome Standard System.  Local API base url should be of the form http://(your openhab server ip address):(openhab port)/imperihab
+
+## OpenHAB Configuration
 The binding provides the API for ImperiHome to load the devices from openHAB and to control it.
 
 ### Items
