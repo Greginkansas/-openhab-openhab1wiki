@@ -11,7 +11,7 @@ _**Note:** This Binding is available in 1.9 and later releases._
 
 ## Introduction
 
-The [Garadget](http://garadget.com) is cloud-based device that "futurizes" your existing garage door opener, letting you open and close your garage door from anywhere, including via openHAB with this binding.  Remote access is made possible with the Particle REST API.
+The [Garadget](http://garadget.com) is cloud-based device that "futurizes" your existing garage door opener, letting you open and close your garage door from anywhere, including via openHAB with this binding.  Remote access is made possible with the [particle.io](https://www.particle.io/) REST API.
 
 ![garadget](https://watou.github.io/images/garadget-1.png)
 
@@ -48,9 +48,9 @@ In order to use the Particle API to access your Garadget, you must specify the `
 
 In order to bind an item to a Garadget's properties, you need to provide configuration settings. To do this, you will add some binding information in your item file (in the folder `configurations/items`). The syntax for the Garadget binding configuration string is explained below.
 
-Garadget bindings start with a `<` or `>`, to indicate if the item receives values from the API (in binding) or sends values to the API (out binding), respectively.
+Garadget bindings start with a `<` or `>`, to indicate if the item receives values from the API (in binding) or sends values to the API (out binding), respectively.  A single `garadget=` binding string can contain multiple in and out bindings separated by commas, so that a single openHAB item can be used to send commands to your Garadget device(s) as well as receive state updates.  The Garadget binding suppresses auto-updates of items that are sent commands, so that the actual state reported back from Garadget is used.  See the `doorState` example item below.
 
-The first character is then followed by a section between square brackets (`[` and `]` characters):
+The first character (`<` or `>`) is then followed by a section between square brackets (`[` and `]` characters):
 
 ```
 [<device>#<property>]
@@ -67,7 +67,7 @@ http://garag.io/my/settings.php?id=270041234567343432313031
 
 ## Example Binding Strings
 
-Here are some examples of valid binding configuration strings, as you would define in your .items file.  Each item binding indicates if it is an in-only binding or bidirectional binding string in the examples below.  Change the device identifiers below to match your Garadget(s).
+Here are some examples of valid binding configuration strings, as you would define in your .items file.  Change the device identifiers below to match your Garadget(s).
 
 ```
 Group Garadget
@@ -114,7 +114,7 @@ String setConfig          "Workshop Garage Door Config [%s]"              (Garad
 
 ## Logging
 
-To configure DEBUG or TRACE logging for the Garadget binding to be sent to a separate file, add the following to your logback.xml file:
+To configure DEBUG or TRACE logging for the Garadget binding to be sent to a separate file, add the following to your `logback.xml` file:
 ```xml
 <appender name="GARADGETFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
    <file>logs/garadget.log</file>
@@ -139,4 +139,4 @@ To configure DEBUG or TRACE logging for the Garadget binding to be sent to a sep
 
 ### 1.9.0
 
-* Initial release.  Until then, consider using [this JAR file](https://dl.dropboxusercontent.com/u/4286376/garadget-binding/org.openhab.binding.garadget-1.9.0-SNAPSHOT.jar).
+* Initial release.  Until then, consider using [this JAR file](https://openhab.ci.cloudbees.com/job/openHAB1-Addons/lastSuccessfulBuild/artifact/bundles/binding/org.openhab.binding.garadget/target/).
