@@ -9,7 +9,7 @@ In general, for all types their start and stop events coincide with a stop or st
 
 For the ordered list of the following 11 types, the start event is always equal to the end event of the next type. Except: **morningNight** is always at 0:00 of the current day and **eveningNight** is at 0:00 of the following day.
 
-[For other astrological definitions, see here.](http://www.timeanddate.com/astronomy/different-types-twilight.html)
+[For astrological definitions, see here.](http://www.timeanddate.com/astronomy/different-types-twilight.html)
 
 * morningNight
 * astroDawn
