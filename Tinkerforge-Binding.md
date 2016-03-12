@@ -16,6 +16,7 @@ Documentation of the TinkerForge binding bundle
     - [Servo Brick](#servo-brick)
   - Bricklets
     - [Accelerometer Bricklet](#accelerometer-bricklet)
+    - [Ambient Light Bricklet](#ambient-light-bricklet)
     - [Ambient Light Bricklet 2.0](#ambient-light-bricklet-v2)
     - [Analog In Bricklet](#analog-in-bricklet)
     - [Analog In Bricklet 2.0](#analog-in-bricklet-20)
@@ -189,6 +190,7 @@ The following table shows the TinkerForge device, its device type, its subid and
 |Accelerometer Bricklet subdevice|accelerometer_direction|z|x|
 |Accelerometer Bricklet subdevice|accelerometer_temperature|temperature||
 |Accelerometer Bricklet subdevice|accelerometer_led|led||
+|Ambient Light Bricklet|bricklet_ambient_light||x|
 |Ambient Light Bricklet 2.0|bricklet_ambient_lightv2||x|
 |Analog In Bricklet|bricklet_analogin||x|
 |Analog In Bricklet 2.0|bricklet_analoginv2||x|
@@ -614,7 +616,7 @@ Switch led "Led"  {tinkerforge="uid=<your_uid>, subid=led"}
 
 ##### Sitemap file entry (e.g tinkerforge.sitemap):
 ```
-sitemap led label="Accelerometer"
+sitemap tf label="Accelerometer"
 {
     Frame label="Accelerometer" {
         Text item=X
@@ -622,6 +624,46 @@ sitemap led label="Accelerometer"
         Text item=Z
         Text item=temperature
         Switch item=led
+    }
+}
+
+```
+---
+
+### Ambient Light Bricklet
+
+Technical description see [Tinkerforge Website](http://www.tinkerforge.com/en/doc/Hardware/Bricklets/Ambient_Light.html)
+
+#### Binding properties:
+An entry in openhab.cfg is only needed if you want to adjust [threshold and / or callbackPeriod](#call_thresh).
+
+##### Bricklet:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| type | openHAB type name | bricklet_ambient_light |
+| threshold | | see "Callback and Threshold" |
+| callbackPeriod | | see "Callback and Threshold" |
+
+##### openhab.cfg:
+```
+tinkerforge:ambientlight.uid=<your_uid>
+tinkerforge:ambientlight.type=bricklet_ambient_light
+tinkerforge:ambientlight.callbackPeriod=10
+tinkerforge:ambientlight.threshold=0
+```
+##### Items file entry (e.g. tinkerforge.items):
+```
+Number TF_AmbientLight "Luminance [%.1f Lux]" { tinkerforge="uid=<your_uid>" }
+
+```
+##### Sitemap file entry (e.g tinkerforge.sitemap):
+```
+sitemap tf label="TinkerForge AmbientLight"
+{
+    Frame label="AmbientLight" {
+        Text item=TF_AmbientLight
     }
 }
 
@@ -661,9 +703,9 @@ Number illuminance "Illuminance [%.2f]" {tinkerforge="uid=<your_uid>"}
 ```
 ##### Sitemap file entry (e.g tinkerforge.sitemap):
 ```
-sitemap led label="TinkerForge AmbientLightV2"
+sitemap tf label="TinkerForge AmbientLightV2"
 {
-    Frame label="PTC" {
+    Frame label="AmbientLightV2" {
         Text item=illuminance
     }
 }
@@ -707,7 +749,7 @@ Number voltage "Voltage [%.0f mV]" {tinkerforge="uid=<your_uid>"}
 
 ##### Sitemap file entry (e.g tinkerforge.sitemap):
 ```
-sitemap led label="Analog In"
+sitemap tf label="Analog In"
 {
     Frame label="Analog In" {
         Text item=voltage
@@ -751,7 +793,7 @@ Number voltage "Voltage [%.0f mV]" {tinkerforge="uid=<your_uid>"}
 
 ##### Sitemap file entry (e.g tinkerforge.sitemap):
 ```
-sitemap led label="Analog In V2"
+sitemap tf label="Analog In V2"
 {
     Frame label="Analog In V2" {
         Text item=voltage
@@ -870,7 +912,7 @@ Switch led "Color Led"  {tinkerforge="uid=<your_uid>, subid=led"}
 
 ##### Sitemap file entry (e.g tinkerforge.sitemap):
 ```
-sitemap led label="Color"
+sitemap tf label="Color"
 {
     Frame label="Color" {
     	Colorpicker item=color
@@ -1209,7 +1251,7 @@ Contact HallEffect       "Hall" { tinkerforge="uid=<your_uid>"}
 
 ##### Sitemap file entry (e.g tinkerforge.sitemap):
 ```
-sitemap led label="TinkerForge Halleffect"
+sitemap tf label="TinkerForge Halleffect"
 {
     Frame label="HallEffect" {
         Text item=HallEffect
@@ -1386,7 +1428,7 @@ Number temperature1 "Temperature1 [%.2f]" {tinkerforge="uid=<your_uid>, subid=se
 
 ##### Sitemap file entry (e.g tinkerforge.sitemap):
 ```
-sitemap led label="TinkerForge 020"
+sitemap tf label="TinkerForge 020"
 {
     Frame label="PTC" {
         Text item=temperature0
@@ -1449,7 +1491,7 @@ Number channel1 "Channel1 [%.0f mV]" {tinkerforge="uid=<your_uid>, subid=channel
 
 ##### Sitemap file entry (e.g tinkerforge.sitemap):
 ```
-sitemap led label="Industrial Dual Analog In"
+sitemap tf label="Industrial Dual Analog In"
 {
     Frame label="Industrial Dual Analog In" {
         Text item=channel0
@@ -1842,7 +1884,7 @@ Switch laser "Enable Laser" {tinkerforge="uid=<your_uid>, subid=laser"}
 
 ##### Sitemap file entry (e.g tinkerforge.sitemap):
 ```
-sitemap led label="Laser Range Finder"
+sitemap tf label="Laser Range Finder"
 {
     Frame label="Laser Range Finder" {
         Text item=distance
@@ -2059,7 +2101,7 @@ Color  tfled2   <slider> {tinkerforge="uid=<your_uid>, subid=ledgroup2"}
 
 ##### Sitemap file entry (e.g tinkerforge.sitemap):
 ```
-sitemap led label="TinkerForge LED"
+sitemap tf label="TinkerForge LED"
 {
     Frame label="LED Strip" {
         Colorpicker item=tfled1 icon="slider"
@@ -2445,7 +2487,7 @@ Number resistance "Resistance [%.0f]" {tinkerforge="uid=<your_uid>, subid=ptc_re
 
 ##### Sitemap file entry (e.g tinkerforge.sitemap):
 ```
-sitemap led label="TinkerForge PTC"
+sitemap tf label="TinkerForge PTC"
 {
     Frame label="PTC" {
         Text item=temperature
@@ -2736,7 +2778,7 @@ end
 
 ##### Sitemap file entry (e.g tinkerforge.sitemap):
 ```
-sitemap led label="TinkerForge SolidStateRelay"
+sitemap tf label="TinkerForge SolidStateRelay"
 {
     Frame label="Relay" {
         Switch item=relay
@@ -2813,7 +2855,7 @@ Number temperature "Temperature [%.2f]" {tinkerforge="uid=<your_uid>"}
 ```
 ##### Sitemap file entry (e.g tinkerforge.sitemap):
 ```
-sitemap led label="TinkerForge Temperature"
+sitemap tf label="TinkerForge Temperature"
 {
     Frame label="Temperature" {
         Text item=temperature
@@ -3191,7 +3233,7 @@ Number brickd1counter "Brickd1 [%d]" {tinkerforge="uid=<your_ip>:<your_port>, su
 
 ##### Sitemap file entry (e.g. tinkerforge.sitemap):
 ```
-sitemap led label="TinkerForge Brickd"
+sitemap tf label="TinkerForge Brickd"
 {
     Frame label="Brickd" {
         Text item=brickd1connected
