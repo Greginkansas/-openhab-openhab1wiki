@@ -14,6 +14,10 @@ uncheck the security box.
 
 ![Security](https://community-openhab-org.s3.amazonaws.com/original/2X/a/aadfb7a13c7363826c90a9add8d7a99c381649ec.jpg)
 
+While you are in the Eagle gateway page look at the URL at the top and note the IP and MAC for setting up the .RULES file.
+
+![MAC](https://community-openhab-org.s3.amazonaws.com/original/2X/b/be0131bce2667bc4991967ea643579d43baf5bb3.jpg)
+
 In my setup I created separate item and rule files for power.
 
 ### power.items
