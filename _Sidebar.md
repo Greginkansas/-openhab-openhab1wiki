@@ -201,6 +201,7 @@
 * [[Sonance Binding|Sonance-binding]]
 * [[Sonos Binding|Sonos-Binding]]
 * [[Squeezebox Binding|Squeezebox-Binding]]
+* [[Stiebel Eltron Heatpump|Stiebel-Eltron-Heatpump]]
 * [[Swegon ventilation Binding|Swegon-Ventilation-Binding]]
 * [[System Info Binding|Systeminfo-Binding]]
 * [[TA CMI Binding|TA Cmi Binding]]
