@@ -1,4 +1,4 @@
-**NOTE: There has been some issues with connection to newer Samsung Air Conditioner (2014-), this might be because of a changed method of communciation with the devices, if you have problems please check out the issue on this: [2863](https://github.com/openhab/openhab/issues/2863)**
+**NOTE: If your are getting a log message saying something like 'javax.net.ssl.SSLHandshakeException', you will need a newer version of the binding than 1.8.1 and check out the description on how to solve this; [2863] (https://github.com/openhab/openhab/issues/2863#issuecomment-192738255)**
 
 Documentation of the Samsung Smart Air Conditioner Binding. This Binding should be compatible with Samsung Smart Air Conditioner models
 
@@ -14,6 +14,8 @@ First of all you need to introduce your Samsung AC's in the openhab.cfg file (in
     # samsungac:<ACId1>.host=192.168.1.2
     # samsungac:<ACId1>.mac=7825AD1243BC
     # samsungac:<ACId1>.token=33965901-4482-M849-N716-373832354144
+    # samsungac:<ACId1>.certificate=cacert.pem
+    # samsungac:<ACId1>.password=something
     
     # Host and port of the second AC to control
     # samsungac:<ACId2>.host=192.168.1.3
@@ -32,6 +34,8 @@ A working example for such configuration could look like:
     # samsungac:Livingroom.host=192.168.1.2
     # samsungac:Livingroom.mac=7825AD1243BC
     # samsungac:Livingroom.token=33965901-4482-M849-N716-373832354144
+    # samsungac:Livingroom.password=something
+    # samsungac:Livingroom.certificate=/tmp/cert/cacert.pem
 
 If you do not know your Samsung Air Conditioners IP- or Mac-address you can download the jar, and run the following command. Then the details of the FIRST discovered air conditioner will be printed:
 
@@ -119,7 +123,7 @@ Supported Air conditioner commands (with valid values to send):
         Auto(0), SwingUD(1), Rotation(2), Fixed(3), SwingLR(4)
 
  The binding asks the air conditioner for its status every 60 seconds, this is the only update from the air conditioner. Sometimes the newest changed aren't reflected at once, so you might have to wait a bit before the air conditioner returns the correct state.
- The air conditioner return an xml in the following format:
+ The air conditioner returns an xml in the following format:
 ```
  <?xml version="1.0" encoding="utf-8" ?>
     <Response Type="DeviceState" Status="Okay">
