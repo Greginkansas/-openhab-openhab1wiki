@@ -30,6 +30,8 @@ You'll have to authorize openHAB to connect to your Dropbox. This is done in a t
 
 To activate the OSGi console in a running session simply press enter you should then get a prompt like "osgi >". If openHAB has been started as a service, terminate this service and start openHAB using one of the start scripts to enter the OSGi console.
 
+If you have installed openhab via the debian packages, you can telnet to the osgi console using the TELNET_PORT port set in /etc/default/openhab (default 5555) to enter the finishAuthentication command.
+
 ## Sync Modes
 
 There are three different synchronization modes available
