@@ -110,7 +110,7 @@ Insert the following line into you logback.xml or logback_debug.xml inside the c
     [...]
 </configuration>
 ```
-After that, watch your openhab.log file for extended log output.
+After that, watch your openhab.log file for extended log output. You may use `level="TRACE"` for even more debug information.
 
 
 ## Hints
