@@ -34,4 +34,4 @@ You can set the commit interval.
 
 ## Troubleshooting
 
-Restore of items after startup is taking some time. Rules are already started in parallel. Especially in rules that are started via "System started" trigger, it may happen that the restore is not completed resulting in defined items. In these cases the use of restored items has to be delayed by a couple of seconds. This delay has to be determined experimentally.
+Restore of items after startup is taking some time. Rules are already started in parallel. Especially in rules that are started via "System started" trigger, it may happen that the restore is not completed resulting in undefined items. In these cases the use of restored items has to be delayed by a couple of seconds. This delay has to be determined experimentally.
