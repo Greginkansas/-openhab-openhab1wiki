@@ -1,6 +1,8 @@
 Documentation of the Modbus binding Bundle. The binding supports both TCP and Serial slaves. RTU, ASCII and BIN variants of Serial Modbus are supported.
 
-The binding acts as Modbus TCP Client (that is, as modbus master), querying data from Modbus TCP servers (that is, modbus slaves).
+The binding can act as 
+- Modbus TCP Client (that is, as modbus master), querying data from Modbus TCP servers (that is, modbus slaves).
+- Modbus serial master, querying data from modbus serial slaves
 
 ## Introduction
 
@@ -312,7 +314,7 @@ Converting INCREASE and DECREASE commands to numbers is more complicated
 1. Register matching (`start` + read index) is interpreted as unsigned 16bit integer. Previous polled register value is used
 2. add/subtract `1` from the integer
 
-**Note: note that INCREASE and DECREASE ignore valuetype when using the previously polled value. Thus, it is not recommended to use INCREASE and DECREASE commands with other than `valuetype=uint16`**
+**Note: note that INCREASE and DECREASE ignore valuetype when using the previously polled value. Thus, it is not recommended to use INCREASE and DECREASE commands with other than `valuetype=uint16` **
 
 ## Item Binding Configuration
 
