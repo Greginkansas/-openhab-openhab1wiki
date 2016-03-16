@@ -79,28 +79,30 @@ where
 Valid slave parameters are
 
 <table>
-  <tr><td>parameter name</td><td>mandatory / optional?</td><td>parameter value</td><td>example values</td></tr>
+  <tr><td>parameter name</td><td>mandatory / optional?</td><td>parameter value</td></tr>
   <tr><td>connection</td><td>mandatory</td>
-       <td>connection string for the slave. TCP slaves use the form host_ip[:port] e.g. 192.168.1.55 or 192.168.1.55:511. If you omit port, default 502 will be used. <br />For serial connections use the COM port name and optionally one can configure one or more of the serial parameters. [:baud:dataBits:parity:stopBits:encoding] <br/>options are: parity={even,odd}; encoding={ascii,rtu,bin} (default is ascii, supported since v1.7)</td>
-       <td><pre>192.168.1.50</pre>, <pre>/dev/ttyS0:38400:8:none:1:rtu</pre>
-</td></tr>
+       <td><p>Connection string for the slave. **TCP slaves** use the form host_ip[:port] e.g. 192.168.1.55 or 192.168.1.55:511. If you omit port, default 502 will be used. </p>
+       <p>For **serial connections** use the COM port name on Windows and serial device path in *nix. Optionally one can configure one or more of the serial parameters. [:baud:dataBits:parity:stopBits:encoding] <br/>options are: parity={even,odd}; encoding={ascii,rtu,bin} (default is ascii, supported since v1.7)</p></td>
+     </tr>
   <tr><td>id</td><td>optional</td>
        <td>slave id, default 1. Also known as <i>Address</i>, <i>Station address</i>, or <i>Unit identifier</i>, see <a href="https://en.wikipedia.org/wiki/Modbus">wikipedia</a> and <a href="http://www.simplymodbus.ca/index.html">simplymodbus</a> articles for more information</td>
-       <td></td></tr>
+      </tr>
 
        <tr><td>type</td><td>mandatory</td>
               <td>object type, can be either "coil", "discrete", "holding", "input" or "register", now only "coil", "discrete", "holding" and "input" are supported</td>
-              <td></td></tr>
+            </tr>
        
        <tr><td>start</td><td>optional</td>
               <td>address of first coil/discrete input/register to read. Default is 0. The address is directly passed to the corresponding Modbus request, and thus is zero-based. </td>
-              <td></td></tr>
+            </tr>
 
        <tr><td>length</td><td>mandatory</td><td>number of data items to read, default 0 (but set it to something meaningful :)</td>
-              <td></td></tr>
+              </tr>
 </table>
 
-Remark : in "`openhab_default.cfg`", the modbus binding section has a wrong key "`host`", this doesn't work if you put your slave ip address here. So you have to replace "`host`" by "`connection`" which is the right key as mentioned above.
+
+  <td><pre>192.168.1.50</pre>, <pre>/dev/ttyS0:38400:8:none:1:rtu</pre>
+</td>
 
 TODO: mention about `start` addressing (ie. relative to 00001, 10001, 30001, or 40001 depending on object type)
 TODO: comment that one physical slave might require many slave definition in openHAB (one for each object type for example, or different slave ids)
