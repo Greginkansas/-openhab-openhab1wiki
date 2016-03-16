@@ -82,9 +82,9 @@ Valid slave parameters are
   <tr><td>parameter name</td><td>mandatory / optional?</td><td>parameter value</td></tr>
   <tr><td>connection</td><td>mandatory</td>
        <td><p>Connection string for the slave.</p>
-           <p><b>TCP slaves</b> use the form <pre>host_ip[:port]</pre> e.g. <pre>192.168.1.55</pre> or <pre>192.168.1.55:511</pre>. If you omit port, default 502 will be used. </p>
-       <p>For <b>serial connections</b> use the form <pre>port:[:baud:[dataBits:[parity:[stopBits:[encoding]]]]]</pre>
-<pre>port</pre> refers to COM port name on Windows and serial device path in *nix. Optionally one can configure one or more of the serial parameters: baud, dataBits, parity, stopBits, encoding <br/>options are: parity={<pre>even</pre>, <pre>odd</pre>}; encoding={<pre>ascii</pre>, <pre>rtu</pre>, <pre>bin</pre>} (default is <pre>ascii</pre>, supported since v1.7).</p>
+           <p><b>TCP slaves</b> use the form <i>host_ip[:port]</i> e.g. <i>192.168.1.55</i> or <i>192.168.1.55:511</i>. If you omit port, default 502 will be used. </p>
+       <p>For <b>serial connections</b> use the form <i>port:[:baud:[dataBits:[parity:[stopBits:[encoding]]]]]</i>
+<i>port</i> refers to COM port name on Windows and serial device path in *nix. Optionally one can configure one or more of the serial parameters: baud, dataBits, parity, stopBits, encoding <br/>options are: parity={<i>even</i>, <i>odd</i>}; encoding={<i>ascii</i>, <i>rtu</i>, <i>bin</i>} (default is <i>ascii</i>, supported since v1.7).</p>
 
 </td>
      </tr>
