@@ -81,8 +81,12 @@ Valid slave parameters are
 <table>
   <tr><td>parameter name</td><td>mandatory / optional?</td><td>parameter value</td></tr>
   <tr><td>connection</td><td>mandatory</td>
-       <td><p>Connection string for the slave. <b>TCP slaves</b> use the form host_ip[:port] e.g. 192.168.1.55 or 192.168.1.55:511. If you omit port, default 502 will be used. </p>
-       <p>For <b>serial connections</b> use the COM port name on Windows and serial device path in *nix. Optionally one can configure one or more of the serial parameters. [:baud:dataBits:parity:stopBits:encoding] <br/>options are: parity={even,odd}; encoding={ascii,rtu,bin} (default is ascii, supported since v1.7)</p></td>
+       <td><p>Connection string for the slave.</p>
+           <p><b>TCP slaves</b> use the form <pre>host_ip[:port]</pre> e.g. <pre>192.168.1.55</pre> or <pre>192.168.1.55:511</pre>. If you omit port, default 502 will be used. </p>
+       <p>For <b>serial connections</b> use the form <pre>port:[:baud:[dataBits:[parity:[stopBits:[encoding]]]]]</pre>
+<pre>port</pre> refers to COM port name on Windows and serial device path in *nix. Optionally one can configure one or more of the serial parameters: baud, dataBits, parity, stopBits, encoding <br/>options are: parity={<pre>even</pre>, <pre>odd</pre>}; encoding={<pre>ascii</pre>, <pre>rtu</pre>, <pre>bin</pre>} (default is <pre>ascii</pre>, supported since v1.7).</p>
+
+</td>
      </tr>
   <tr><td>id</td><td>optional</td>
        <td>slave id, default 1. Also known as <i>Address</i>, <i>Station address</i>, or <i>Unit identifier</i>, see <a href="https://en.wikipedia.org/wiki/Modbus">wikipedia</a> and <a href="http://www.simplymodbus.ca/index.html">simplymodbus</a> articles for more information</td>
@@ -96,7 +100,7 @@ Valid slave parameters are
               <td>address of first coil/discrete input/register to read. Default is 0. The address is directly passed to the corresponding Modbus request, and thus is zero-based. </td>
             </tr>
 
-       <tr><td>length</td><td>mandatory</td><td>number of data items to read, default 0 (but set it to something meaningful :)</td>
+       <tr><td>length</td><td>mandatory</td><td>number of registers to read. Note that number of registers needs to be specified, not number of data items. For example, if the goal is to read one item with `valuetype=int32`, one needs to read two registers (2 * 16bit = 32bit), thus `length = 2`.</td>
               </tr>
 </table>
 
