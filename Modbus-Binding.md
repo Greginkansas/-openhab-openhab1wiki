@@ -308,13 +308,13 @@ Conversion rules for converting command to 16bit integer
 - DOWN, OFF, CLOSED commands are converted to number 0 
 - Decimal commands are truncated as 32 bit integer (in 2's complement representation), and then the least significant 16 bits of this integer are extracted.
 
-**Note: The way Decimal commands are handled currently means that it is probably not useful to try to use Decimal commands with non-16bit `valuetype`s. **
+**Note: The way Decimal commands are handled currently means that it is probably not useful to try to use Decimal commands with non-16bit `valuetype`s.**
 
 Converting INCREASE and DECREASE commands to numbers is more complicated
 1. Register matching (`start` + read index) is interpreted as unsigned 16bit integer. Previous polled register value is used
 2. add/subtract `1` from the integer
 
-**Note: note that INCREASE and DECREASE ignore valuetype when using the previously polled value. Thus, it is not recommended to use INCREASE and DECREASE commands with other than `valuetype=uint16` **
+**Note: note that INCREASE and DECREASE ignore valuetype when using the previously polled value. Thus, it is not recommended to use INCREASE and DECREASE commands with other than `valuetype=uint16`**
 
 ## Item Binding Configuration
 
