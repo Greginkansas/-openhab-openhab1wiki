@@ -1,1 +1,1 @@
-rename to [Items-–-Explanation]
+renamed to [[Items – Explanation|Items-–-Explanation]]
