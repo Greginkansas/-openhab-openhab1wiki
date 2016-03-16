@@ -11,7 +11,7 @@ For installation of the binding, please see Wiki page [[Bindings]].
  
 ## Details
 
-## Supported Modbus object types
+### Supported Modbus object types
 Modbus binding allows to connect to multiple Modbus slaves. The binding supports following Modbus *object types*
 
 - coils, also known as *digital out (DO)* (read & write)
@@ -23,7 +23,7 @@ Binding can be configured to interpret values stored in the 16bit registers in d
 
 For more information on these object types, please consult [Modbus wikipedia article](https://en.wikipedia.org/wiki/Modbus).
 
-## Read and write functions
+### Read and write functions
 
 Modbus specification has different operations for reading and writing different object types. These types of operations are identified by *function code*. Some devices support only certain function codes.
 
@@ -38,13 +38,13 @@ The binding uses following function codes when communicating with the slaves:
 - read holding registers: FC 3 (*Read Multiple Holding Registers*)
 - write holding register: FC 6 (*Write Single Holding Register*), OR  FC 16 (*Write Multiple Holding Registers*) (see note on `writemultipleregisters` configuration parameter below)
 
-## Binding Configuration
+### Binding Configuration
 
 add to `${openhab_home}/configuration/`
 
 Entries in the `openhab.cfg` file should look like below.
 
-### Global configuration
+#### Global configuration
 
 Most of config parameters are related to specific slaves, but some are global and thus affect all slaves.
 
@@ -64,7 +64,7 @@ Binding can be configured to use FC 16 (*Write Multiple Holding Registers*) over
 ````
 This is optional and default is `false`. For example, `modbus:writemultipleregisters=true` makes the binding to use FC16 when writing holding registers.
 
-### Configuration parameters specific to each slave
+#### Configuration parameters specific to each slave
 
 The slaves are configured using key value pairs in openHAB config file using the following pattern:
 
@@ -82,9 +82,11 @@ Valid slave parameters are
   <tr><td>parameter name</td><td>mandatory / optional?</td><td>parameter value</td></tr>
   <tr><td>connection</td><td>mandatory</td>
        <td><p>Connection string for the slave.</p>
-           <p><b>TCP slaves</b> use the form <i>host_ip[:port]</i> e.g. <i>192.168.1.55</i> or <i>192.168.1.55:511</i>. If you omit port, default 502 will be used. </p>
-       <p>For <b>serial connections</b> use the form <i>port:[:baud:[dataBits:[parity:[stopBits:[encoding]]]]]</i>
-<i>port</i> refers to COM port name on Windows and serial device path in *nix. Optionally one can configure one or more of the serial parameters: baud, dataBits, parity, stopBits, encoding <br/>options are: parity={<i>even</i>, <i>odd</i>}; encoding={<i>ascii</i>, <i>rtu</i>, <i>bin</i>} (default is <i>ascii</i>, supported since v1.7).</p>
+           <p><b>TCP slaves</b> use the form <i>host_ip[:port]</i> e.g. <i>192.168.1.55</i> or <i>192.168.1.55:511</i>. If you omit port, default <i>502</i> will be used. </p>
+       <p>For <b>serial connections</b> use the form <i>port:[:baud:[dataBits:[parity:[stopBits:[encoding]]]]]</i>, e.g. <i>/dev/ttyS0:38400:8:none:1:rtu</i> (read from <i>/dev/ttyS0</i> using baud rate of 38400, 8 databits, no parity, 1 stopbits, and rtu encoding. Another minimal example is <i>/dev/ttyS0:38400</i> where all optional parameters except baud rate will get their default values.</p>
+
+<p>
+<i>port</i> refers to COM port name on Windows and serial device path in *nix. Optionally one can configure one or more of the serial parameters: baud (default <i>9600</i>), dataBits (default <i>8</i>), parity (default <i>none</i>), stopBits (default <i>1</i>), encoding (default <i>ascii</i>). <br/>Options for the optional serial parameters are as follows: parity={<i>even</i>, <i>odd</i>}; encoding={<i>ascii</i>, <i>rtu</i>, <i>bin</i>}.</p>
 
 </td>
      </tr>
@@ -93,24 +95,47 @@ Valid slave parameters are
       </tr>
 
        <tr><td>type</td><td>mandatory</td>
-              <td>object type, can be either "coil", "discrete", "holding", "input" or "register", now only "coil", "discrete", "holding" and "input" are supported</td>
+              <td>object type. Dictates the function codes used for read & write. See below for more information. Can be either <i>coil</i>, <i>discrete</i>, <i>holding</i>, <i>input</i> or <i>register</i>.</td>
             </tr>
        
        <tr><td>start</td><td>optional</td>
-              <td>address of first coil/discrete input/register to read. Default is 0. The address is directly passed to the corresponding Modbus request, and thus is zero-based. </td>
+              <td>address of first coil/discrete input/register to read. Default is 0. The address is directly passed to the corresponding Modbus request, and thus is zero-based. See below for more information on the addressing. </td>
             </tr>
 
-       <tr><td>length</td><td>mandatory</td><td>number of registers to read. Note that number of registers needs to be specified, not number of data items. For example, if the goal is to read one item with `valuetype=int32`, one needs to read two registers (2 * 16bit = 32bit), thus `length = 2`.</td>
+       <tr><td>length</td><td>mandatory</td><td>number of <i>data items</i> to read. <i>Data items</i> here refers to registers, coils or discrete inputs depending on the slave type. For example, if the goal is to read one item with `valuetype=int32`, one needs to read two registers (2 * 16bit = 32bit), thus `length = 2`. If three coils are of interest, one should specify `length = 3`</td>
               </tr>
 </table>
-
-
-  <td><pre>192.168.1.50</pre>, <pre>/dev/ttyS0:38400:8:none:1:rtu</pre>
 </td>
 
-TODO: mention about `start` addressing (ie. relative to 00001, 10001, 30001, or 40001 depending on object type)
-TODO: comment that one physical slave might require many slave definition in openHAB (one for each object type for example, or different slave ids)
+##### Comment on addressing
+[Modbus Wikipedia article](https://en.wikipedia.org/wiki/Modbus#Coil.2C_discrete_input.2C_input_register.2C_holding_register_numbers_and_addresses) summarizes this excellently:
 
+> In the traditional standard, [entity] numbers for those entities start with a digit, followed by a number of four digits in range 1–9,999:
+
+> - coils numbers start with a zero and then span from 00001 to 09999
+> - discrete input numbers start with a one and then span from 10001 to 19999
+> - input register numbers start with a three and then span from 30001 to 39999
+> - holding register numbers start with a four and then span from 40001 to 49999
+
+> This translates into [entity] addresses between 0 and 9,998 in data frames.
+
+The openhab modbus binding uses entity addresses when referring to modbus entities. That is, the entity address configured in modbus binding is passed to modbus protocol frame as-is. For example, modbus slave definition with `start=3`, `length=2` and `type=holding` will read modbus entities with the following numbers 40004 and 40005.
+
+##### Many modbus binding slaves for single physical slave
+
+One needs to configure as many modbus slaves to openhab as there are corresponding modbus requests. For example, in order to poll status of `coil` and `holding` items from a single [physical] modbus slave, two separate modbus slave definitions need to be configured in the ``openhab.cfg``. For example:
+
+````
+modbus:serial.slave1.connection=/dev/pts/8:38400:8:none:1:rtu
+modbus:serial.slave1.type=coil
+modbus:serial.slave1.length=3
+
+modbus:serial.slave2.connection=/dev/pts/8:38400:8:none:1:rtu
+modbus:serial.slave2.type=holding
+modbus:serial.slave2.length=5
+````
+
+##### Read and write functions (modbus slave type)
 Modbus read functions 
 - `type=coil` uses function 1 "Read Coil Status" 
 - `type=discrete` uses function 2 "Read Input Status" (readonly inputs)
@@ -120,65 +145,81 @@ Modbus read functions
 Modbus write functions 
 - `type=coil` uses function 5 "Write Single Coil"
 - `type=holding` uses function 6 "Write Single Register"
- see also http://www.simplymodbus.ca
 
-with `type=holding` and `type=input` you can now only operate with datatype byte!!!
-see point 4 below
+See also [simplymodbus.ca](http://www.simplymodbus.ca) and [wikipedia article](https://en.wikipedia.org/wiki/Modbus#Supported_function_codes).
 
-Minimal construction in openhab.cfg for TCP connections will look like:
+### Config Examples
 
+- Minimal construction in openhab.cfg for TCP connections will look like:
+
+    # read 10 coils starting from address 0
     modbus:tcp.slave1.connection=192.168.1.50
     modbus:tcp.slave1.length=10
     modbus:tcp.slave1.type=coil
  
-Minimal construction in openhab.cfg for serial connections will look like:
+- Minimal construction in openhab.cfg for serial connections will look like:
 
+    # read 10 coils starting from address 0
     modbus:serial.slave1.connection=/dev/ttyUSB0
     modbus:tcp.slave1.length=10
     modbus:tcp.slave1.type=coil
 
-connects to slave at ip=192.168.1.50 and reads 10 coils starting from address 0
-More complex setup could look like
+- More complex setup could look like
 
-    modbus:tcp.slave1.connection=192.168.1.50:502
-    modbus:tcp.slave1.id=41
+    # Poll values very 300ms = 0.3 seconds
     modbus:poll=300
+
+    # Connect to modbus slave at 192.168.1.50, port 502
+    modbus:tcp.slave1.connection=192.168.1.50:502
+    # use slave id 41 in requests
+    modbus:tcp.slave1.id=41
+    # read 32 coils (digital outputs) starting from address 0
     modbus:tcp.slave1.start=0
     modbus:tcp.slave1.length=32
     modbus:tcp.slave1.type=coil
 
-example for an moxa e1214 module in simple io mode
-6 output switches starting from modbus address 0 and
-6 inputs from modbus address 10000 (the function 2 implizits the modbus 10000 address range)
-you only read 6 input bits and say start from 0
-the moxa manual ist not right clear in this case 
+- Another example where coils, discrete inputs (`discrete`) and input registers (`input`) are polled from modbus tcp slave at `192.168.6.180`.
+
+> (original example description:)
+> example for an moxa e1214 module in simple io mode
+> 6 output switches starting from modbus address 0 and
+> 6 inputs from modbus address 10000 (the function 2 implizits the modbus 10000 address range)
+> you only read 6 input bits and say start from 0
+> the moxa manual ist not right clear in this case 
 
     modbus:poll=300
     
+    # Query coils from 192.168.6.180
     modbus:tcp.slave1.connection=192.168.6.180:502
     modbus:tcp.slave1.id=1
     modbus:tcp.slave1.start=0
     modbus:tcp.slave1.length=6
     modbus:tcp.slave1.type=coil
     
+    # Query discrete inputs from 192.168.6.180
     modbus:tcp.slave2.connection=192.168.6.180:502
     modbus:tcp.slave2.id=1
     modbus:tcp.slave2.start=0
     modbus:tcp.slave2.length=6
     modbus:tcp.slave2.type=discrete
     
+    # Query input registers from 192.168.6.180
     modbus:tcp.slave3.connection=192.168.6.180:502
     modbus:tcp.slave3.id=1
     modbus:tcp.slave3.start=17
     modbus:tcp.slave3.length=2
     modbus:tcp.slave3.type=input
     
+    # Query holding registers from 192.168.6.181
+    # Holding registers matching addresses 33 and 34 are read
     modbus:tcp.slave4.connection=192.168.6.181:502
     modbus:tcp.slave4.id=1
     modbus:tcp.slave4.start=33
     modbus:tcp.slave4.length=2
     modbus:tcp.slave4.type=holding
 
+    # Query 2 input registers from 192.168.6.181. 
+    # Interpret the two registers as single 32bit floating point number
     modbus:tcp.slave5.connection=192.168.6.181:502
     modbus:tcp.slave5.id=1
     modbus:tcp.slave5.start=10
@@ -186,10 +227,8 @@ the moxa manual ist not right clear in this case
     modbus:tcp.slave5.type=input
     modbus:tcp.slave5.valuetype=float32
 
-here we use the same modbus gateway with ip 192.168.6.180 twice 
+here we used the same modbus gateway with ip 192.168.6.180 twice 
 on different modbus address ranges and modbus functions
-
-NOTE: the moxa e1200 modules give by reading with function 02 from start=0 the content of register 10000 aka DI-00, an reading with function code 1 gives the address 00000 this is a little bit scary, reading from other plc can be different! 
 
 ## Item Binding Configuration
 
