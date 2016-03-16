@@ -18,7 +18,7 @@
 
 ##[[Configuration|Configuring-the-openHAB-runtime]]
 
-* [[Items|Explanation-of-Items]]
+* [[Items|Items---Explanation]]
 * [[Sitemaps|Explanation-of-Sitemaps]]
 * [[Performance Tuning|Performance]]
 
