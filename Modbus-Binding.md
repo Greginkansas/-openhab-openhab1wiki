@@ -81,8 +81,8 @@ Valid slave parameters are
 <table>
   <tr><td>parameter name</td><td>mandatory / optional?</td><td>parameter value</td></tr>
   <tr><td>connection</td><td>mandatory</td>
-       <td><p>Connection string for the slave. **TCP slaves** use the form host_ip[:port] e.g. 192.168.1.55 or 192.168.1.55:511. If you omit port, default 502 will be used. </p>
-       <p>For **serial connections** use the COM port name on Windows and serial device path in *nix. Optionally one can configure one or more of the serial parameters. [:baud:dataBits:parity:stopBits:encoding] <br/>options are: parity={even,odd}; encoding={ascii,rtu,bin} (default is ascii, supported since v1.7)</p></td>
+       <td><p>Connection string for the slave. <b>TCP slaves</b> use the form host_ip[:port] e.g. 192.168.1.55 or 192.168.1.55:511. If you omit port, default 502 will be used. </p>
+       <p>For <b>serial connections</b> use the COM port name on Windows and serial device path in *nix. Optionally one can configure one or more of the serial parameters. [:baud:dataBits:parity:stopBits:encoding] <br/>options are: parity={even,odd}; encoding={ascii,rtu,bin} (default is ascii, supported since v1.7)</p></td>
      </tr>
   <tr><td>id</td><td>optional</td>
        <td>slave id, default 1. Also known as <i>Address</i>, <i>Station address</i>, or <i>Unit identifier</i>, see <a href="https://en.wikipedia.org/wiki/Modbus">wikipedia</a> and <a href="http://www.simplymodbus.ca/index.html">simplymodbus</a> articles for more information</td>
