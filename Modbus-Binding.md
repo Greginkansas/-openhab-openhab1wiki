@@ -152,20 +152,25 @@ See also [simplymodbus.ca](http://www.simplymodbus.ca) and [wikipedia article](h
 
 - Minimal construction in openhab.cfg for TCP connections will look like:
 
+````
     # read 10 coils starting from address 0
     modbus:tcp.slave1.connection=192.168.1.50
     modbus:tcp.slave1.length=10
     modbus:tcp.slave1.type=coil
+````
  
 - Minimal construction in openhab.cfg for serial connections will look like:
 
+````
     # read 10 coils starting from address 0
     modbus:serial.slave1.connection=/dev/ttyUSB0
     modbus:tcp.slave1.length=10
     modbus:tcp.slave1.type=coil
+````
 
 - More complex setup could look like
 
+````
     # Poll values very 300ms = 0.3 seconds
     modbus:poll=300
 
@@ -177,6 +182,7 @@ See also [simplymodbus.ca](http://www.simplymodbus.ca) and [wikipedia article](h
     modbus:tcp.slave1.start=0
     modbus:tcp.slave1.length=32
     modbus:tcp.slave1.type=coil
+````
 
 - Another example where coils, discrete inputs (`discrete`) and input registers (`input`) are polled from modbus tcp slave at `192.168.6.180`.
 
@@ -187,6 +193,7 @@ See also [simplymodbus.ca](http://www.simplymodbus.ca) and [wikipedia article](h
 > you only read 6 input bits and say start from 0
 > the moxa manual ist not right clear in this case 
 
+````
     modbus:poll=300
     
     # Query coils from 192.168.6.180
@@ -226,51 +233,136 @@ See also [simplymodbus.ca](http://www.simplymodbus.ca) and [wikipedia article](h
     modbus:tcp.slave5.length=2
     modbus:tcp.slave5.type=input
     modbus:tcp.slave5.valuetype=float32
+````
 
-here we used the same modbus gateway with ip 192.168.6.180 twice 
-on different modbus address ranges and modbus functions
+Above we used the same modbus gateway with ip 192.168.6.180 multiple times 
+on different modbus address ranges and modbus functions.
+
+### Register interpretation (valuetype) on read & write
+
+#### Read
+
+When the binding interprets and converts polled input registers (`input`) or holding registers (`holding`) to openhab items, the process goes like this:
+
+- 1. register(s) are first parsed to a number (see below for the details, exact logic depends on `valuetype`)
+- 2a. if the item is Switch or Contact: zero is converted CLOSED / OFF. Other numbers are converted to OPEN / ON.
+- 2b. if the item is Number: the value is passed as is
+
+The logic for converting read registers to number goes as below. Different procedure is taken depending on `valuetype`. 
+
+Note that <i>first register</i> refers to register with address `start` (as defined in the slave definition), <i>second register</i> refers to register with address `start + 1` etc. The <i>index</i> refers to item read index, e.g. item `Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:5"}` has 5 as read index.
+
+`valuetype=bit`:
+- a single bit is read from the registers
+- indices between 0...15 (inclusive) represent bits of the first register
+- indices between 16...31 (inclusive) represent bits of the second register, etc.
+- index 0 refers to the least significant bit of the first register
+- index 1 refers to the second least significant bit of the first register, etc.
+
+`valuetype=int8`:
+- a byte (8 bits) from the registers is interpreted as signed integer
+- index 0 refers to low byte of the first register, 1 high byte of first register
+- index 2 refers to low byte of the second register, 3 high byte of second register, etc.
+- it is assumed that each high and low byte is encoded in most significant bit first order
+
+`valuetype=uint8`:
+- same as INT8 except values are interpreted as unsigned integers
+
+`valuetype=int16`:
+- register with index (counting from zero) is interpreted as 16 bit signed integer.
+- it is assumed that each register is encoded in most significant bit first order
+
+`valuetype=uint16`:
+- same as INT16 except values are interpreted as unsigned integers
+
+`valuetype=int32`:
+- registers (2 index) and ( 2 *index + 1) are interpreted as signed 32bit integer.
+- it assumed that the two registers follow the big endian byte order
+- it is assumed that each register is encoded in most significant bit first order
+
+`valuetype=uint32`:
+- same as UINT32 except values are interpreted as unsigned integers
+
+`valuetype=float32`:
+- registers (2 index) and ( 2 *index + 1) are interpreted as signed 32bit floating point number.
+- it assumed that the two registers follow the big endian byte order
+- it is assumed that each register is encoded in most significant bit first order
+
+
+Extra notes
+- `valuetype`s smaller than one register (less than 16 bits) actually read the whole register, and finally extract single bit from the result.
+- work is ongoing (issue [#3558](https://github.com/openhab/openhab/issues/3558)) to support decoding 32bit `valuetype`s with little endian order.
+
+#### Write
+
+When the binding processes openhab command (e.g. sent by `sendCommand` as explained [here](https://github.com/openhab/openhab/wiki/Actions)), the process goes as follows
+
+1. it is checked whether the associated item is bound to holding register. If not, command is ignored.
+2. command is converted to 16bit integer (in [two's complement format](https://www.cs.cornell.edu/~tomf/notes/cps104/twoscomp.html)) (see below for details)
+3. the 16bits are written to the register with address `start` (as defined in the slave definition)
+
+Conversion rules for converting command to 16bit integer
+- UP, ON, OPEN commands that are converter to number 1
+- DOWN, OFF, CLOSED commands are converted to number 0 
+- Decimal commands are truncated as 32 bit integer (in 2's complement representation), and then the least significant 16 bits of this integer are extracted.
+
+**Note: The way Decimal commands are handled currently means that it is probably not useful to try to use Decimal commands with non-16bit `valuetype`s. **
+
+Converting INCREASE and DECREASE commands to numbers is more complicated
+1. Register matching (`start` + read index) is interpreted as unsigned 16bit integer. Previous polled register value is used
+2. add/subtract `1` from the integer
+
+**Note: note that INCREASE and DECREASE ignore valuetype when using the previously polled value. Thus, it is not recommended to use INCREASE and DECREASE commands with other than `valuetype=uint16`**
 
 ## Item Binding Configuration
 
-ModbusBindingProvider provides binding for openHAB Items
-There are three ways to bind an item to modbus coils/registers
+ModbusBindingProvider provides binding for openHAB Items.
 
-1) single coil/register per item
+There are three ways to bind an item to modbus coils/registers. 
+
+### Single coil/register per item
 
      Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:5"}
 
-This binds MySwitch to modbus slave defined as "slave1" in openhab.cfg reading/writing to the coil 5
+- This binds MySwitch to modbus slave defined as "slave1" in openhab.cfg reading/writing to the coil (5 + slave's `start` index). The `5` is called item read index.
+- If the slave is read-only, that is the `type` is `input` or `discrete`, the binding ignores any write commands. 
+- if the slave1 refers to registers, and after parsing using the registers as rules defined by the `valuetype`, zero value is considered as `OFF`, everything else as `ON`.
 
-2) separate coils for reading and writing
+### Separate coils for reading and writing
 
      Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:<6:>7"}
-In this case coil 6 is used as status coil (readonly) and commands are put to coil 7 by setting coil 7 to true.
-Your hardware should then set coil 7 back to false to allow further commands processing. 
 
-3) input coil only for reading
+- In this case coil 6 is used as status coil (read-only) and commands are put to coil 7 by setting coil 7 to true.
+- (?) Your hardware should then set coil 7 back to false to allow further commands processing (Note 16.3.2016: does this relate to [issue #3685](https://github.com/openhab/openhab/issues/3685)?).
+
+### input coil only for reading
 
      Contact Contact1 "Contact1 [MAP(en.map):%s]" (All)   {modbus="slave2:0"}
-In this case regarding to moxa example coil 0 is used as discrete input (in Moxa naming DI-00)
 
-following examples are relatively useless, if you know better one let us know!
+- In this case regarding to moxa example coil 0 is used as discrete input (in Moxa naming DI-00)
+- (?) following examples are relatively useless, if you know better one let us know!
 counter values in most cases 16bit values, now we must do math: in rules to deal with them ...
 
-4) read write byte register
+### Read / write register (number) 
 
       Number Dimmer1 "Dimmer1 [%d]" (ALL) {modbus="slave4:0"}
-and in sitemap
+and in sitemap you can for example
 
       Setpoint item=Dimmer1 minValue=0 maxValue=100 step=5
-**NOTE:** if the value goes over a byte this case is fully untested!!!
-this example should write the value to all DO bits of an moxa e1212 as byte value
 
-5) read only byte register `type=input`
+**NOTE:** if the item value goes over the max value specified by the `valuetype` (e.g. 32767 with `int16`), the effects are fully untested!!!
+
+(?) this example should write the value to all DO bits of an moxa e1212 as byte value
+
+5. read only register `type=input`
 
       Number MyCounterH "My Counter high [%d]" (All) {modbus="slave3:0"}
-this reads counter 1 high word
+this reads counter 1 high word when valuetype=`int8` or `uint8`
 
       Number MyCounterL "My Counter low [%d]" (All) {modbus="slave3:1"}
-this reads counter 1 low word
+this reads counter 1 low word when valuetype=`int8` or `uint8`
+
+6. floating point value numbers
 
 When using a float32 value you must use [%f] in item description.
 
