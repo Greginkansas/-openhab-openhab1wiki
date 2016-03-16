@@ -151,7 +151,7 @@
 * [[MAX! CUL Binding|MAX!-CUL-Binding]]
 * [[MiLight Binding|Milight-Binding]]
 * [[MiOS Binding|MiOS-Binding]]
-* [[Modbus TCP Binding|Modbus-Tcp-Binding]]
+* [[Modbus Binding|Modbus-Binding]]
 * [[MPD Binding|Mpd-Binding]]
 * [[MQTT Binding|MQTT-Binding]]
 * [[MQTTitude binding|Mqttitude-Binding]]
