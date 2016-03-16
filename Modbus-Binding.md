@@ -79,7 +79,7 @@ where
 Valid slave parameters are
 
 <table>
-  <tr><td>parameter name</td><td>parameter value</td><td>example values</td>
+  <tr><td>parameter name</td><td>parameter value</td><td>example values</td></tr>
   <tr><td>connection</td><td>mandatory</td>
        <td>connection string for the slave. TCP slaves use the form host_ip[:port] e.g. 192.168.1.55 or 192.168.1.55:511. If you omit port, default 502 will be used. <br />For serial connections use the COM port name and optionally one can configure one or more of the serial parameters. [:baud:dataBits:parity:stopBits:encoding] <br/>options are: parity={even,odd}; encoding={ascii,rtu,bin} (default is ascii, supported since v1.7)</td>
        <td><pre>192.168.1.50</pre>, <pre>/dev/ttyS0:38400:8:none:1:rtu</pre>
