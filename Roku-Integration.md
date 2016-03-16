@@ -7,7 +7,7 @@ However, unless your home router is configured to give your Rokus a static IP yo
 
 The following Python script will perform an SSDP query and print the Roku serial number and API URL. The script can be called from openHAB to get the Roku's current URL and then that discovered URL can be used to issue commands.
 
-`
+```python
 #!/usr/bin/python
 
 import sys
@@ -33,23 +33,23 @@ while True:
         print (matchObj.group(1) + " " + matchObj.group(2))
     except socket.timeout:
         break
-`
+```
 
 An example of how to use it.
 
 ## Items
 
-`
+```java
 String BedroomRokuAddress "Bedroom Roku [%s]"
 String DenRokuAddress "Den Roku [%s]"
 Switch RefreshRokuAddresses // used for testing
 
 Switch S_C_BedroomRokuHome "Go Home on Bedroom Roku"
-`
+```
 
 ## Rules
 
-`
+```java
 rule "Get Roku Addresses"
 when
         Time cron "0 0 0/1 ? * *" or
@@ -78,6 +78,6 @@ then
         logInfo("Roku", "Sending Bedroom Roku to Home")
         sendHttpGetRequest(BedroomRokuAddress+"keypress/Home")
 end
-`
+```
 
 NOTE: You can find the serial number on the label on the bottom of your Roku.
