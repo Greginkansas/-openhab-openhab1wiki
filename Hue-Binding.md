@@ -1,3 +1,23 @@
+**Table of Contents**
+
+- [Introduction](#introduction)
+- [Configuration](#configuration)
+  - [Pairing the Philips Hue bridge](#pairing-the-philips-hue-bridge)
+  - [Generic Item Binding Configuration](#generic-item-binding-configuration)
+    - [Switch items](#switch-items)
+    - [Color items](#color-items)
+    - [Dimmer items](#dimmer-items)
+      - [Brightness dimmer items](#brightness-dimmer-items)
+      - [Color temperature dimmer items](#color-temperature-dimmer-items)
+  - [Items file example](#items-file-example)
+  - [Sitemap file example](#sitemap-file-example)
+    - [Basic example](#basic-example)
+    - [Using a Dynamic Sitemap to hide clutter](#using-a-dynamic-sitemap-to-hide-clutter)
+  - [Rules](#rules)
+  - [Indirectly using a LivingColors remote or Hue Dimmer Switch](#indirectly-using-a-livingcolors-remote-or-hue-dimmer-switch)
+
+
+
 # Introduction
 
 For installation of the binding, please see Wiki page [[Bindings]].
