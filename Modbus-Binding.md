@@ -146,7 +146,7 @@ Modbus read functions
 
 Modbus write functions 
 - `type=coil` uses function 5 "Write Single Coil"
-- `type=holding` uses function 6 "Write Single Register"
+- `type=holding` uses function 6 "Write Single Register", or function 16 "Write Multiple registers" when `writemultipleregisters` is `true`
 
 See also [simplymodbus.ca](http://www.simplymodbus.ca) and [wikipedia article](https://en.wikipedia.org/wiki/Modbus#Supported_function_codes).
 
