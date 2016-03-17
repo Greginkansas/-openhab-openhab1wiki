@@ -69,7 +69,7 @@ The color item allows you to change color and brightness of a bulb.
 
     Color <Item_Name> hue="<bulb number>"
 
-Here are some examples of valid binding configuration strings for switch items:
+Here are some examples of valid binding configuration strings for color items:
 
 ```java
 Color  Light_GF_Lounge_BackCorner_C     {hue="1"}
@@ -108,7 +108,7 @@ where the part in `[]` is optional.
 
 The step size defines how fast the dimmer changes the color temperature. If no value is defined the default value of 25 is used.
 
-Here are some examples of valid binding configuration strings for brightness dimmer items:
+Here are some examples of valid binding configuration strings for color temperature dimmer items:
 
 ```java
 Dimmer  Light_GF_Lounge_BackCorner_T     {hue="1;colorTemperature"}
@@ -151,10 +151,6 @@ Slider         item=Light_GF_Lounge_B   label="Lounge Brightness"
 Slider         item=Light_GF_Lounge_T   label="Lounge Color Temperature" 
 ```
 
-
-
-
-
 ### Using a Dynamic Sitemap to hide clutter
 
 By adding a visibility tag (see [[Explanation-of-Sitemaps#visibility]] for more) we can hide the widgets for the color, brightness and color temperature if the light is not on. 
@@ -165,7 +161,7 @@ Colorpicker    item=Light_GF_Lounge_C    visibility=[Light_GF_Lounge==ON]    lab
 Slider         item=Light_GF_Lounge_B    visibility=[Light_GF_Lounge==ON]    label="Lounge Brightness" 
 Slider         item=Light_GF_Lounge_T    visibility=[Light_GF_Lounge==ON]    label="Lounge Color Temperature"  
 ```
-### Rules
+## Rules
 
 Use the corresponding items within the rules:
 
@@ -193,7 +189,7 @@ If you like dedicated Hue icons, please consider using those posted in the forum
 
     Switch Light_GF_Lounge_C   "left bulb"   <hue>   (Switching) {hue="1"}
  
-#### Indirectly use of LivingColors remote
+## Indirectly using a LivingColors remote or Hue Dimmer Switch
 
 The LivingColors remote is only compatible to Philips branded bulbs. We can't control for e.g. Osram bulbs with this remote. However the Hue Bridge can control these bulbs, since it fully supports the underlying ZigBee protocol - I guess the LivingColor remote and Philips bulbs use some proprietary protocol to communicate with each other.
 
