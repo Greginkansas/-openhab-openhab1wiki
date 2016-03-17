@@ -80,7 +80,7 @@ Please visit the [transformation](https://github.com/openhab/openhab/wiki/Transf
 You will find the openHAB configuration under /etc/openhab.
 If you change configuration files it will not be overwritten by updates or upgrades.
 
-#### ${openhab_home}/etc/default/openhab
+#### ${openhab_home}/etc/default/openhab (manual install) /etc/default/openhab (apt-get install)
     USER_AND_GROUP=openhab:openhab
     HTTP_PORT=8080
     HTTPS_PORT=8443
