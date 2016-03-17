@@ -2,7 +2,9 @@
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-Click the image below for a YouTube video demonstrating setup, configuration and a simple scene (not a "Hue Scene") controller.
+Click the image below for a YouTube video demonstrating setup, configuration and a simple custom scene controller.
+
+[![openHAB Hue binding](http://img.youtube.com/vi/Q4_LkXIRBWc/0.jpg)](http://www.youtube.com/watch?v=Q4_LkXIRBWc)
 
 # Configuration
 
