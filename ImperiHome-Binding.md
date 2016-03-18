@@ -67,7 +67,8 @@ The binding provides the API for ImperiHome to load the devices from openHAB and
 </td></tr>
   <tr><td>#wattsitem</td><td>Optional, this lets you specify another item to be the "energy" value for an item, e.g. for a z-wave power outlet Switch Item, you can link this to the Number item that has the power reading.  Then in imperihome it will show the power usage for that switch.</td></tr>
   <tr><td>#persist</td><td>Optional, this lets you specify another persist store to use instead of the default configured in openHAB.</td></tr>
-  <tr><td>#unit</td><td>Optional lets you specify the units for a numeric value</td></tr>
+  <tr><td>#unit</td><td>Optional lets you specify the units for a numeric value, for Fahrenheit temperatures use "F", eg unit:F </td></tr>
+  <tr><td>#stopable</td><td>Optional, if present on a Shutter, this will show a "Stop" button for that shutter in imperiHome</td></tr>
   <tr><td>#invert</td><td>Optional (true|false), this lets you invert an on/off, open/closed state of an item.  This is helpful if ImperiHome is showing the wrong state for a door.  E.g. a garage door appears open when closed etc. </td></tr>
 </table>
 
