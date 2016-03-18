@@ -21,7 +21,7 @@ import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
 rule "Convert ZwaveTempC to F"
 	when
-		Item ZwaveTempC received update
+		Item ZwaveTempC changed
 	then
 		var Number temp
 		if (ZwaveTempC.state instanceof DecimalType) temp = ZwaveTempC.state as DecimalType
