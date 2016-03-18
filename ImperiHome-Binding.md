@@ -73,11 +73,21 @@ The binding provides the API for ImperiHome to load the devices from openHAB and
 
 [[Page Top|ImperiHome-Binding#imperihome-binding]]
 
+## Temperatures with Humidity
+To combine a temperature with a humidity value (so they appear as a single item in imperiHome).  You can specify a "hygroId" to the temperature binding.  For example
+```
+Number	nOffice_Temperature { zwave="3:command=SENSOR_MULTILEVEL,sensor_type=1", imperihab="room:Office,label:Office Temperature,hygroId:nOffice_Humidity" }
+Number	nOffice_Humidity { zwave="3:command=SENSOR_MULTILEVEL,sensor_type=5" }
+```
+In this case you do not specify a imperihab binding for the humidity just for the temperature.
+
 #### Examples
 ```
 Number zWaveSensor23_1 "L1 [%.1f W]" <energy> (gZWaveNode23, gPower) {zwave="23:1:command=METER", imperihab="room:Keller,label:Verbrauch L1,type:DevElectricity,watts:zWaveSensor23_1"}
 Dimmer zWaveLightOGBedroom "Licht [%d %%]" <light> (gZWaveNode20, gLights, gHomeOGBedroom) {zwave="20:0:command=SWITCH_MULTILEVEL", imperihab="room:Schlafzimmer,label:Licht,type:DevDimmer,watts:zWaveLightOGBedroom"}
 Rollershutter zWaveShutterEGLivingroomLeft "Rollladen" <rollershutter> (gZWaveNode16, gHomeShuttersEG, gHomeEGLivingRoom) {zwave="16:0:command=SWITCH_MULTILEVEL", imperihab="room:Wohnraum,label:Rollladen,type:DevShutter,watts:zWaveShutterEGLivingroomLeft"}
 Number zWaveSensor2Temperatur "Temperatur EG [%.1f °C]" <temperature> (gZWaveNode2, gTemperature, gHomeEGTV) {zwave="2:3:command=SENSOR_MULTILEVEL, sensor_type=1, sensor_scale=0", imperihab="room:TV,label:Temperatur,type:DevTemperature,watts:zWaveSensor2Temperatur"} 
+Number	nOffice_Temperature { zwave="3:command=SENSOR_MULTILEVEL,sensor_type=1", imperihab="room:Office,label:Office Temperature,hygroId:nOffice_Humidity" }
+Number	nOffice_Humidity { zwave="3:command=SENSOR_MULTILEVEL,sensor_type=5" }
 ```
 [[Page Top|ImperiHome-Binding#imperihome-binding]]
