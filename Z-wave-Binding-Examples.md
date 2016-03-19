@@ -191,11 +191,11 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
 ###Fibaro Multisensor (FIB_FGMS-001)
 
-    Number  Movement         "Movement: [%s]"          <present>      { zwave="4:0:command=sensor_binary" }
-    Number  Alarm            "Alarm: [%s]"             <fire>         { zwave="4:0:command=sensor_alarm" }
-    Number  Lux              "Lux: [%.2f Lux]"         <sun>          { zwave="4:0:command=sensor_multilevel,sensor_type=3" }
-    Number  Bat              "Battery: [%d %%]"        <energy>       { zwave="4:0:command=battery" }
-    Number  Temp             "Temperature: [%.1f °C]"  <temperature>  { zwave="4:0:command=sensor_multilevel,sensor_type=1" }
+    Number  Movement         "Movement: [%s]"          <present>      { zwave="4:command=sensor_binary" }
+    Number  Alarm            "Alarm: [%s]"             <fire>         { zwave="4:command=sensor_alarm" }
+    Number  Lux              "Lux: [%.2f Lux]"         <sun>          { zwave="4:command=sensor_multilevel,sensor_type=3" }
+    Number  Bat              "Battery: [%d %%]"        <energy>       { zwave="4:command=battery" }
+    Number  Temp             "Temperature: [%.1f °C]"  <temperature>  { zwave="4:command=sensor_multilevel,sensor_type=1" }
 
 
 ###Fibaro Universal Sensor  
