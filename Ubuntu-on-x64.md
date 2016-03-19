@@ -177,6 +177,10 @@ Look in the file for JAVA_ARGS and add the following
 ```bash
 sudo update-rc.d openhab defaults
 ```
+note that for UBUNTU 15.10 and Raspian Jessie this should be
+```bash
+sudo systemctl enable openhab
+```
 
 ##Share the configuration using Samba
 ```bash
