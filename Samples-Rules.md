@@ -1005,7 +1005,8 @@ items-File
 ```
 Number  cTemperature_Chart_Period   (gInitializeZero)
 ```
-### Create a dynamic group that holds only items in state on
+
+### Create a dynamic group that holds only items in state ON
 
 Using these rules you can create a dynamic group that holds only items that match a certain criteria, in this case items in state ON.
 In my case the gAll group holds (almost) all the items via nested groups, but one can create similar rules for other groups as well, and get different dynamic groups.
