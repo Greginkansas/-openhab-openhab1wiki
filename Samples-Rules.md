@@ -15,6 +15,7 @@ Samples for Rules
 * [Create text item to combine two values and format string options](Samples-Rules#create-text-item-to-combine-two-values-and-format-string-options)
 * [Get an email when battery powered devices are running low on power](Samples-Rules#get-an-email-when-battery-powered-devices-are-running-low-on-power)
 * [Initialize all items in a group which are still uninitialized after startup](Samples-Rules#initialize-all-items-which-are-still-uninitialized-after-startup)
+* [Create a dynamic group that holds only items in state ON](Samples-Rules#create-a-dynamic-group-that-holds-only-items-in-state-ON)
 
 ### How to turn on light when motion detected and is dark?
 
@@ -1003,4 +1004,68 @@ end
 items-File
 ```
 Number  cTemperature_Chart_Period   (gInitializeZero)
+```
+### Create a dynamic group that holds only items in state ON
+
+Using these rules you can create a dynamic group that holds only items that match a certain criteria, in this case items in state ON.
+In my case the gAll group holds (almost) all the items via nested groups, but one can create similar rules for other groups as well, and get different dynamic groups.
+
+Items:
+
+```
+Group gAll
+
+Group		gStateON		"Whats ON"				<info>
+Switch		sRefreshON		"refresh Whats ON"	
+```
+
+Rules:
+```
+import java.util.concurrent.locks.ReentrantLock
+
+…
+
+var java.util.concurrent.locks.ReentrantLock lock  = new java.util.concurrent.locks.ReentrantLock()
+var Timer ONtimer = null
+
+…
+
+// during startup there are many updates to the gAll group - delay the initial population of gStateON to startup+20 seconds
+
+rule "What's ON - Startup"
+	when 
+		System started
+	then
+		ONtimer = createTimer(now.plusSeconds(20)) [| sendCommand(sRefreshON, ON)]
+	end
+
+// the gAll group gets multiple updates per each item change, therefore a timer is set and only one refresh
+// will happen, after 10 seconds from the first update
+
+rule "What's ON - gAll update"
+	when 
+		Item gAll received update 
+	then
+		lock.lock()
+		try {
+			if(ONtimer.hasTerminated() ) {
+				ONtimer = createTimer(now.plusSeconds(10)) [| sendCommand(sRefreshON, ON)]
+			}
+		} 
+		finally {
+			lock.unlock()
+		}
+end
+
+// The gStateON group is a dynamic group that holds all the Items that are in state ON.
+// The group gets refreshed whenever the gAll group gets an update, i.e. whenever an item changes
+
+rule "What's on - refresh"
+    when 
+        Item sRefreshON received update 
+    then
+    	logDebug("rules","Group gStateON about to be refreshed")
+    	gStateON.members.forEach[ item | gStateON.removeMember(item)]
+		gAll.allMembers.filter(s | s.state == ON).forEach[ item | gStateON.addMember(item)]
+    end
 ```
