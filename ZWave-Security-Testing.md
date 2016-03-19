@@ -24,13 +24,8 @@ Many zwave devices communicate of a basic radio protocol which can be intercepte
 ##Instructions
 **Get the Beta code**
 
-1. Create a local clone of the dbadia openHAB repository by running "git clone https://github.com/dbadia/openhab" in a suitable folder.
-1. Change to the beta testing branch by running "git checkout -b security-beta-test origin/security-beta-test"
-1. Continue with step 2 at https://github.com/openhab/openhab/wiki/IDE-Setup 
-
-
-**Setup**
-
+1. Download the precompiled zwave binding jar from [dropbox](https://www.dropbox.com/sh/m63bjuzjxixxtv6/AADNxDY0WDSHaP4l3TIF4mvLa?dl=0 )
+1. Remove your current zwave jar from <openhab_home>/addons and deploy the file from step 1
 1. enabled debug per https://github.com/openhab/openhab/wiki/Z-Wave-Binding#logging
 1. edit openhab.cfg and add a new entry in the zwave section YOU MUST REPLACE each ## with random hex digits ([GRCs password generator](https://www.grc.com/passwords.htm) is a good source of random numbers):  
 `zwave:networkKey=0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##, 0x##`
