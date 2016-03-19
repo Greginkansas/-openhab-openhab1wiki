@@ -1030,7 +1030,8 @@ var Timer ONtimer = null
 
 …
 
-// during startup there are many updates to the gAll group - delay the initial population of gStateON to startup+20 seconds
+// during startup there are many updates to the gAll group
+// delay the initial population of gStateON to startup+20 seconds
 
 rule "What's ON - Startup"
 	when 
@@ -1039,8 +1040,9 @@ rule "What's ON - Startup"
 		ONtimer = createTimer(now.plusSeconds(20)) [| sendCommand(sRefreshON, ON)]
 	end
 
-// the gAll group gets multiple updates per each item change, therefore a timer is set and only one refresh
-// will happen, after 10 seconds from the first update
+// the gAll group gets multiple updates per each item change, 
+// therefore a timer is set and only one refresh will happen,
+// after 10 seconds from the first update
 
 rule "What's ON - gAll update"
 	when 
@@ -1057,8 +1059,9 @@ rule "What's ON - gAll update"
 		}
 end
 
-// The gStateON group is a dynamic group that holds all the Items that are in state ON.
-// The group gets refreshed whenever the gAll group gets an update, i.e. whenever an item changes
+// gStateON is a dynamic group that holds all Items in state ON.
+// The group gets refreshed whenever the gAll group gets an update, 
+// i.e. whenever an item changes
 
 rule "What's on - refresh"
     when 
