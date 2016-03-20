@@ -7,7 +7,7 @@ This page should give an example how you can control openHAB via natural languag
 You need a working voice recognition system, that sends the recognized text to the VoiceCommand item in openHAB.
 The easiest way of doing is by using HABDroid, which works out of the box.
 
-Other possible solutions are Tasker together with AutoVoice of Jasper (on Linux systems).
+Other possible solutions are Tasker together with AutoVoice (on Android) or Jasper (on Linux systems).
 
 ### Item structure
 Your items should follow this naming convention:
