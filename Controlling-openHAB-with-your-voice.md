@@ -137,7 +137,8 @@ An additional feature in this rule is the possibility to give responses by TTS (
 	end
 ## Natural language processing rule (English and adapted version)
 
-The code above was a perfect starting point that saved me a lot of time, but it didn't really work for me. The version below is translated to English and slightly adjusted.
+The code above was a perfect starting point that saved me a lot of time, but it didn't really work for me in the end. The version below is translated to English and slightly adjusted.
+
 
     import org.openhab.core.library.types.*
     import org.openhab.core.persistence.* 
@@ -145,6 +146,8 @@ The code above was a perfect starting point that saved me a lot of time, but it 
     import org.openhab.core.types.Command 
     import org.openhab.core.types.*
     import org.openhab.core.items.GenericItem 
+    import java.util.regex.Matcher
+    import java.util.regex.Pattern
 
     rule "speak"
     when
@@ -157,7 +160,8 @@ The code above was a perfect starting point that saved me a lot of time, but it 
     when
         Item DebugSwitch changed from OFF to ON
     then
-        sendCommand(VoiceCommand,"Switch off cabinet light in the living")
+        //sendCommand(VoiceCommand,"Switch off toy closet light in the living")
+        sendCommand(VoiceCommand,"Play radio in living")
     end
 
     rule "VoiceControl" 
@@ -166,28 +170,32 @@ The code above was a perfect starting point that saved me a lot of time, but it 
         Item VoiceCommand received command 
     then 
         var String command = VoiceCommand.state.toString.toLowerCase
-    //    logInfo("Voice.Rec","VoiceCommand received "+command)
+        logInfo("Voice.Rec","VoiceCommand received "+command)
         var State newState = null
         // Status herausfinden, ansonsten togglen
         if (command.contains("degrees") || command.contains("percent") || command.contains("dim")) {
             // Wert setzten=> neuer Status als Zahl extrahieren
-    //        var Pattern p = Pattern::compile(".* ([0-9]+) (degrees|percent).*")
-    //        var Matcher m = p.matcher(command)
-    //        if (m.matches()) {
-    //            logInfo("Voice.Rec","found number is "+m.group(1))
-    //            newState = new StringType(m.group(1).trim())
-    //        } else {
-    //            logInfo("Voice.Rec","command does not match")
-    //        }
-        } else if (command.contains("off") || command.contains("stop")) {
+            var Pattern p = Pattern::compile(".* ([0-9]+) (degrees|percent).*")
+            var Matcher m = p.matcher(command)
+            if (m.matches()) {
+                logInfo("Voice.Rec","found number is "+m.group(1))
+                newState = new StringType(m.group(1).trim())
+            } else {
+                logInfo("Voice.Rec","command does not match")
+            }
+        } else if (command.contains("off") || command.contains("stop") || command.contains("pause")) {
             newState = OFF
-        } else if (command.contains("on") || command.contains("start")) {
+        } else if (command.contains("on") || command.contains("start") || command.contains("play")) {
             newState = ON
         } else if (command.contains("down") || command.contains("close")) {
             newState = DOWN
         } else if (command.contains("up") || command.contains("open")) {
             newState = UP
-        }
+        } //else if (command.contains("increase")) {
+    //        newState = INCREASE
+    //    } else if (command.contains("decrease")) {
+    //        newState = DECREASE
+    //    }
 
         // Raum herausfinden
         var String room = null
@@ -247,25 +255,33 @@ The code above was a perfect starting point that saved me a lot of time, but it 
             itemSubType = "_Target"
             reply = "Ok, Temperature "+roomArticle+" "+room+" set to "+newState
         } else if (command.contains("radio")) {
-            itemType = "Radio"	
+            itemType = "Radio"
+            if (command.contains("volume")) {
+                itemSubType = "_Volume"
+            } else if (command.contains("channel")) {
+                itemSubType = "_Channel"
+            } else if (command.contains("show")) {
+                itemSubType = "_Show"
+            }	
         }
 
-    //    logInfo("sending",newState)
+        logInfo("Voice.Rec","sending "+newState.toString)
 
         if (itemType != null && (roomItemPart != null || command.contains("all")) && newState != null) {
-    //        logInfo("Voice.Rec", "sending "+newState+" to "+itemType+"_"+roomItemPart+itemSubType)
             if (command.contains("all")) {
                 if (roomItemPart==null)
                     roomItemPart=""
                 val String itemName = itemType+"_"+roomItemPart+itemSubType
                 val State finalState = newState
-    //            logInfo("Voice.Rec","searching for  *"+itemName+"* items")
+                logInfo("Voice.Rec","searching for  *"+itemName+"* items")
                 All?.allMembers.filter(s | s.name.contains(itemName) && s.acceptedDataTypes.contains(finalState.class)).forEach[item|
-    //                logInfo("Voice.Rec","item  "+item+" found")
+                    logInfo("Voice.Rec","item  "+item.name.toString+" found")
                     sendCommand(item.name,finalState.toString)
-                ]    
+                ]
+                logInfo("Voice.Rec", "sending "+newState+" to "+itemType+"_"+roomItemPart+itemSubType)    
             } else {
-                sendCommand(itemType+"_"+roomItemPart+itemSubType,newState.toString)
+                    sendCommand(itemType+"_"+roomItemPart+itemSubType,newState.toString)
+                    logInfo("Voice.Rec", "sending "+newState+" to "+itemType+"_"+roomItemPart+itemSubType) 
             }
             if (reply != "")
                 sendCommand(TTS_Message,reply)
