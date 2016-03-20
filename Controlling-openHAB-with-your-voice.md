@@ -140,6 +140,7 @@ An additional feature in this rule is the possibility to give responses by TTS (
 The code above was a perfect starting point that saved me a lot of time, but it didn't really work for me in the end. The version below is translated to English and slightly adjusted.
 
 
+
     import org.openhab.core.library.types.*
     import org.openhab.core.persistence.* 
     import org.openhab.model.script.actions.*
@@ -160,8 +161,8 @@ The code above was a perfect starting point that saved me a lot of time, but it 
     when
         Item DebugSwitch changed from OFF to ON
     then
-        //sendCommand(VoiceCommand,"Switch off toy closet light in the living")
-        sendCommand(VoiceCommand,"Play radio in living")
+        sendCommand(VoiceCommand,"Switch on toy closet light in the living")
+        //sendCommand(VoiceCommand,"Play radio in living")
     end
 
     rule "VoiceControl" 
@@ -203,20 +204,20 @@ The code above was a perfect starting point that saved me a lot of time, but it 
         var String roomArticle="in the"
         if (command.contains("living")) {
             room = "Living"
-            roomItemPart = "GF_Living"
+            roomItemPart = "_GF_Living"
         } else if (command.contains("bedroom")) {
             room = "Bedroom"
-            roomItemPart = "FF_Bedroom"
+            roomItemPart = "_FF_Bedroom"
         } else if (command.contains("bathroom") || command.contains("bath")) {
             room = "Bathroom"
-            roomItemPart = "FF_Bathroom"
+            roomItemPart = "_FF_Bathroom"
         } else if (command.contains("attic")) {
             room = "Attic"
-            roomItemPart = "SF_Attic"
+            roomItemPart = "_SF_Attic"
             roomArticle = "at the"
         } else if (command.contains("kitchen")) {
             room = "Kitchen"
-            roomItemPart = "FF_Kitchen"
+            roomItemPart = "_FF_Kitchen"
         } 
 
         // Gewerk
@@ -271,17 +272,17 @@ The code above was a perfect starting point that saved me a lot of time, but it 
             if (command.contains("all")) {
                 if (roomItemPart==null)
                     roomItemPart=""
-                val String itemName = itemType+"_"+roomItemPart+itemSubType
+                val String itemName = itemType+roomItemPart+itemSubType
                 val State finalState = newState
                 logInfo("Voice.Rec","searching for  *"+itemName+"* items")
                 All?.allMembers.filter(s | s.name.contains(itemName) && s.acceptedDataTypes.contains(finalState.class)).forEach[item|
                     logInfo("Voice.Rec","item  "+item.name.toString+" found")
                     sendCommand(item.name,finalState.toString)
                 ]
-                logInfo("Voice.Rec", "sending "+newState+" to "+itemType+"_"+roomItemPart+itemSubType)    
+                logInfo("Voice.Rec", "sending "+newState+" to "+itemType+roomItemPart+itemSubType)    
             } else {
-                    sendCommand(itemType+"_"+roomItemPart+itemSubType,newState.toString)
-                    logInfo("Voice.Rec", "sending "+newState+" to "+itemType+"_"+roomItemPart+itemSubType) 
+                    sendCommand(itemType+roomItemPart+itemSubType,newState.toString)
+                    logInfo("Voice.Rec", "sending "+newState+" to "+itemType+roomItemPart+itemSubType) 
             }
             if (reply != "")
                 sendCommand(TTS_Message,reply)
