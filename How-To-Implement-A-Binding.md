@@ -14,7 +14,7 @@ Bindings are the most interesting bit for people to get into coding for openHAB 
 
 This page tries to give you a starting point, if you intend to implement (and hopefully contribute) your own binding.
 
-For information about how to setup a development environment, please see the [according wiki page](IDE-Setup).
+For information about how to setup a development environment, please see the [IDE Setup wiki page](IDE-Setup).
 
 # General Information about the Architecture
 
