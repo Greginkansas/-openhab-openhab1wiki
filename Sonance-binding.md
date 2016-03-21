@@ -1,5 +1,3 @@
-_**Note:** This Binding is available in 1.8 and later releases._
-
 ## Table of Contents
 
 * [Introduction](#introduction)
