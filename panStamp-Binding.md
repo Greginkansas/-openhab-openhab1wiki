@@ -1,6 +1,3 @@
-Documentation for the panStamp binding. 
-
-*Available as of openHAB 1.8*
 
 # Introduction
 The panStamp binding enables openHAB to connect to a network of panStamp devices. The binding requires you to have a panStamp running the 'modem' sketch connected to a serial port. 
