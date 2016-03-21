@@ -1,6 +1,56 @@
 ## New & Noteworthy
 
-Please find below the _intermediary_ release notes of the 1.8 Release.
+Please find below the release notes of the 1.8 Release.
+
+### Version 1.8.2
+
+This is the second bugfix release of the 1.8 release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.2).
+
+### Updating the openHAB runtime 1.8.1 to 1.8.2
+
+Many of the fixes does not require to update the Runtime itself so it would suffice to simply replace the Binding jars in your Add-Ons folder. However, if you would like have one of these [issues in the runtime](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.2+label%3Aruntime) fixed you will have to update the Runtime as well.
+
+####Major Features:
+
+####Enhancements:
+* [#4190](https://github.com/openhab/openhab/pull/4190) - ZWave Update database (@cdjackson)
+* [#4169](https://github.com/openhab/openhab/pull/4169) - Update Z-Wave database for 1.8.2 release (@cdjackson)
+* [#4142](https://github.com/openhab/openhab/pull/4142) - updated jodatime to 2.9.2 (@teichsta)
+* [#4062](https://github.com/openhab/openhab/pull/4062) - Denon binding: use different http request method (@idserda)
+* [#3777](https://github.com/openhab/openhab/pull/3777) - [neohub] Set heating to on when preheat is on (@carlossg)
+
+####Bugfixes:
+* [#4200](https://github.com/openhab/openhab/pull/4200) - Minor spelling/grammar fixes for S bindings. (@9037568)
+* [#4199](https://github.com/openhab/openhab/pull/4199) - Correct squeezebox action and binding example config (@watou)
+* [#4197](https://github.com/openhab/openhab/pull/4197) - bugfix in the way house codes and unit codes are packed into a single… (@renescherer)
+* [#4171](https://github.com/openhab/openhab/pull/4171) - 4 Bugs in Derby DAO and some typo (@lewie)
+* [#4168](https://github.com/openhab/openhab/pull/4168) - Maven warnings on build start (@slawekjaranowski)
+* [#4166](https://github.com/openhab/openhab/pull/4166) - don't change file mode of files in OPENHAB_HOME_DIR (@theoweiss)
+* [#4161](https://github.com/openhab/openhab/pull/4161) - fritzboxtr064 binding: fix compilation error (@stefanroellin)
+* [#4159](https://github.com/openhab/openhab/pull/4159) - Small fixes to TACmi binding (@Wolfgang1966)
+* [#4153](https://github.com/openhab/openhab/pull/4153) - MalformedByteSequenceException in stiebelheatpump ConfigParserTest (@slawekjaranowski)
+* [#4146](https://github.com/openhab/openhab/pull/4146) - Fix dropbox for windows machines (@computergeek1507)
+* [#4120](https://github.com/openhab/openhab/pull/4120) - [novelan] Fix for issue #4119 (@watou)
+* [#4117](https://github.com/openhab/openhab/pull/4117) - ClassicUI: full image and chart refresh (@watou)
+* [#4115](https://github.com/openhab/openhab/pull/4115) - Freebox binding: fix FTP config compatibility with firmware 3.3 (@lolodomo)
+* [#4110](https://github.com/openhab/openhab/pull/4110) - Changed regex matcher to "Find" method to support more garage door openers (@computergeek1507)
+* [#4106](https://github.com/openhab/openhab/pull/4106) - eBUS - Fix NullPointException if telegram value is invalid/out of range (@csowada)
+* [#4068](https://github.com/openhab/openhab/pull/4068) - Fix bug in node name class where location was set as the name (@cdjackson)
+* [#4062](https://github.com/openhab/openhab/pull/4062) - Denon binding: use different http request method (@idserda)
+* [#4060](https://github.com/openhab/openhab/pull/4060) - Handle null terminations in node naming class (@cdjackson)
+* [#4058](https://github.com/openhab/openhab/issues/4058) - NULLs in zwave data cause message length errors (@TheKorn2)
+* [#4057](https://github.com/openhab/openhab/pull/4057) - Update handling of configuration class detection (@cdjackson)
+* [#4051](https://github.com/openhab/openhab/pull/4051) - reverted: Implement slider widget for WebUI #2792 (@teichsta)
+* [#4047](https://github.com/openhab/openhab/pull/4047) - [ecobee] Include alerts in the payload when any item is bound to an alerts property (@watou)
+* [#4046](https://github.com/openhab/openhab/issues/4046) - Embedded NULLs in zwave XML persistence files cause deserialization errors on openHAB startup. (@TheKorn2)
+* [#4032](https://github.com/openhab/openhab/pull/4032) - RFXCOM clear buffer after reset command (@ivanfmartinez)
+* [#4021](https://github.com/openhab/openhab/pull/4021) - Fixed javascript that was breaking the colorpicker. (@9037568)
+* [#4020](https://github.com/openhab/openhab/pull/4020) - Fix error casting wakeup class (@cdjackson)
+* [#4018](https://github.com/openhab/openhab/pull/4018) - [davis] correct barometric pressure conversion (@watou)
+* [#4017](https://github.com/openhab/openhab/pull/4017) - Rfxcom reset buffer (@ivanfmartinez)
+* [#4014](https://github.com/openhab/openhab/pull/4014) - ZWave: Fix casting error in config (@cdjackson)
+* [#4008](https://github.com/openhab/openhab/pull/4008) - [ecobee] Change seconds back to minutes for PIN expiration (@watou)
+
 
 ### Version 1.8.1
 
