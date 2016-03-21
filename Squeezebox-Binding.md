@@ -2,91 +2,101 @@ Documentation of the Squeezebox binding Bundle
 
 ## Introduction
 
-Slim Devices was established in 2000, and was first known for its SlimServer used for streaming music, but launched a hardware player named SliMP3 able to play these streams in 2001. Although the first player was fairly simple only supporting wired Ethernet and MP3 natively, it was followed two years later by a slightly more advanced player which was renamed to Squeezebox. Other versions followed, gradually adding native support for additional file formats, Wi-Fi-support, gradually adding larger and more advanced displays as well as a version targeting audiophile users. Support for playing music from external streaming platforms such as Pandora, Napster, Last.fm and Sirius were also added. The devices in general have two operating modes; either standalone where the device connects to an internet streaming service directly, or to a local computer running the Logitech Media Server or a network-attached storage device. Both the server software and large parts of the firmware on the most recent players are released under open source licenses.
+From the [Wikipedia entry](http://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29):
 
-In 2006, Slim Devices was acquired by Logitech for $20 million USD. Logitech continued the development of the player until they announced in August 2012 that it would be discontinued. Given the cross-platform nature of the server and software client, some users have ensured the continued use of the platform by utilizing the Raspberry Pi as dedicated Squeezebox device (both client and server).
+> Slim Devices was established in 2000, and was first known for its SlimServer used for streaming music, but launched a hardware player named SliMP3 able to play these streams in 2001. Although the first player was fairly simple only supporting wired Ethernet and MP3 natively, it was followed two years later by a slightly more advanced player which was renamed to Squeezebox. Other versions followed, gradually adding native support for additional file formats, Wi-Fi-support, gradually adding larger and more advanced displays as well as a version targeting audiophile users. Support for playing music from external streaming platforms such as Pandora, Napster, Last.fm and Sirius were also added. The devices in general have two operating modes; either standalone where the device connects to an internet streaming service directly, or to a local computer running the Logitech Media Server or a network-attached storage device. Both the server software and large parts of the firmware on the most recent players are released under open source licenses.
 
-Taken from: [Wiki](http://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29)
+> In 2006, Slim Devices was acquired by Logitech for $20 million USD. Logitech continued the development of the player until they announced in August 2012 that it would be discontinued. Given the cross-platform nature of the server and software client, some users have ensured the continued use of the platform by utilizing the Raspberry Pi as dedicated Squeezebox device (both client and server).
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-Please note there are two parts to the Squeezebox binding. You need to install both `org.openhab.io.squeezeserver` and `org.openhab.binding.squeezebox`. The `io.squeezeserver` bundle is a common library used by both this binding and the Squeezebox action and handles all connections and messaging between openHAB and the Squeeze Server. This ensures you only need to specify one set of configuration in openhab.cfg (see below), which can be used by both the binding and the action.
+Please note there are two parts to the Squeezebox binding. You need to install both `org.openhab.io.squeezeserver` and `org.openhab.binding.squeezebox`. The `io.squeezeserver` bundle is a common library used by both this binding and the [[Squeezebox Action]] and handles all connections and messaging between openHAB and the Squeeze Server. This ensures you only need to specify one set of configuration in `openhab.cfg` (see below), which can be used by both the binding and the action.
 
-## Common Configuration
+## Example Configuration
 
-First you need to let openHAB know where to find your Squeeze Server and each of your Squeezebox devices. This configuration is entered in your openhab.cfg configuration file and is used by both the Squeezebox binding and the [[Squeezebox Action]]:
+First you need to let openHAB know where to find your Squeeze Server and each of your Squeezebox devices. This configuration is entered in your `openhab.cfg` configuration file and is used by both the Squeezebox binding and the [[Squeezebox Action]]:
 
     # Squeeze server
-    squeeze:server.host=A.B.C.D
-    [squeeze:server.cliport=9090]
-    [squeeze:server.webport=9000]
+    squeeze:server.host=192.168.1.129
+    # Bedroom Squeezebox
+    squeeze:bedroom.id=de:ad:be:ef:12:34
+    # Kitchen Squeezebox
+    squeeze:kitchen.id=ab:cd:ef:12:34:56
     
-#### Incorrect info in config comments
+## Full Configuration
 
-The openhab.cfg reads `squeeze:<serverId>.host=` and suggests that the <server> part is customisable.
+Please refer to the following example configuration (options included in the file `openhab_default.cfg` in openHAB 1.8.1 and earlier may be confusing):
+```
+############################ Squeezebox Action and Binding ############################
+#
+# Host (IP address) of your Logitech Media Server
+#squeeze:server.host=
 
-This is incorrect and it should be `server` for example 'squeeze:server.host=192.168.1.13' (not `serverId`, or your custom server name) 
+# Port of CLI interface of your Logitech Media Server (optional, defaults to 9090)
+#squeeze:server.cliport=
 
-See example config and rules here [[SqueezeboxExample]] 
- 
-    # Squeezebox players/devices
-    squeeze:<player-id>.id=<mac-address-of-player A:B:C:D:E:F>
+# Webport interface of the your Logitech Media Server (optional, defaults to 9000)
+#squeeze:server.webport=
 
-    # TTS URL to use for generating text-to-speech voice announcements
-    # the URL should contain one '%s' parameter which will be substituted
-    # with the text to be translated
-    # (defaults to Google TTS service using the URL below)
-    #    http://translate.google.com/translate_tts?tl=en&ie=UTF-8&client=openhab&q=%s)
-    # (another TTS service is http://www.voicerss.org/api/ which requires an API key)
-    #    https://api.voicerss.org/?key=YOURAPIKEYHERE&hl=en-gb&src=%s
-    #squeeze:ttsurl=
+# TTS URL to use for generating text-to-speech voice announcements
+# the URL should contain one '%s' parameter which will be substituted
+# with the text to be translated (new as of openHAB 1.8)
+# (defaults to Google TTS service using the URL below)
+#    http://translate.google.com/translate_tts?tl=en&ie=UTF-8&client=openhab&q=%s)
+# (another TTS service is http://www.voicerss.org/api/ which requires an API key)
+#    https://api.voicerss.org/?key=YOURAPIKEYHERE&hl=en-gb&src=%s
+#squeeze:ttsurl=
 
-    # Maximum TTS sentence length - for example the Google TTS service only
-    # permits up to 100 chars - the Squeezebox speak action will break long
-    # strings into sentence chunks call the TTS service repeatedly
-    # (defaults to 100)
-    #squeeze:ttsmaxsentencelength=
+# Maximum TTS sentence length - for example the Google TTS service only
+# permits up to 100 chars - the Squeezebox speak action will break long
+# strings into sentence chunks call the TTS service repeatedly
+# (defaults to 100)
+#squeeze:ttsmaxsentencelength=
 
-**NOTE:** TTS configuration (squeeze:ttsurl) is not available in 1.7.1; [1.8 SNAPSHOT](https://openhab.ci.cloudbees.com/job/openHAB/) >= #1104 is required. 
+# Id (MAC address) of your first Squeezebox.  MAC addresses of players are case-sensitive. 
+# Use small letters (a-f) if the address contains them. Example:
+# squeeze:Kitchen.id=de:ad:be:ef:12:34
+#squeeze:<boxId1>.id=
 
-**NOTE:** The `player-id` will be used in both the binding item configs and the action calls to defined which of your Squeezebox devices to communicate with.
-  
-**NOTE:** The mac-address of players is case-sensitive. Use small letters (a-f) if the address contains them.
+# Id (MAC address) of your nth Squeezebox
+#squeeze:<boxIdN>.id=
+```
+
+**NOTE:** The `<boxId>`s above will be used in both the binding item configs and the action calls to select with which of your Squeezebox devices to communicate.
 
 ## Item Binding Configuration
 
 The syntax of an item configuration is shown in the following line in general:
 
-    squeeze="<player-id>:<command>[:<extra>]"
+    squeeze="<boxId>:<command>[:<extra>]"
 
-Where `player-id` matches one of the ids defined in your openhab.cfg file.
+Where `<boxId>` matches one of the ids defined in your `openhab.cfg` file.
 
 ## Squeezebox commands
-| Command        | Purpose                   |
-| --------------- | ------------------------- |
-| power           | Power on/off your device  |
-| mute            | Mute/unmute your device   |
-| volume          | Change volume by 5%       |
-| play            | Play the current title    |
-| pause           | Pause the current title   |
-| stop            | Stop the current title    |
-| http:stream     | Play the given http stream (obsolete as there is now a new squeezeboxPlayUrl() action for handling this inside rules directly) |
-| file:file       | Play the given file on your server (obsolete as there is now a new squeezeboxPlayUrl() action for handling this inside rules directly) |
-| sync:player-id2 | Add `player-id2` to your device for synced playback |
+Command           | Purpose
+------------------|-------------------------
+`power`           | Power on/off your device
+`mute`            | Mute/unmute your device
+`volume`          | Change volume by 5%
+`play`            | Play the current title
+`pause`           | Pause the current title
+`stop`            | Stop the current title
+`http:stream`     | Play the given http stream (obsolete as there is now a new squeezeboxPlayUrl() action for handling this inside rules directly)
+`file:file`       | Play the given file on your server (obsolete as there is now a new squeezeboxPlayUrl() action for handling this inside rules directly)
+`sync:player-id2` | Add `player-id2` to your device for synced playback
 
 ## Squeezebox variables
 
-<table>
-  <tr><td><b>Variable</b></td><td><b>Purpose</b></td></tr>
-  <tr><td>title</td><td>Title of the current song</td></tr>
-  <tr><td>album</td><td>Album name of the current song</td></tr>
-  <tr><td>artist</td><td>Artist name of the current song</td></tr>
-  <tr><td>year</td><td>Release year of the current song</td></tr>
-  <tr><td>genre</td><td>Genre name of the current song</td></tr>
-  <tr><td>coverart</td><td>Address to cover art of the current song</td></tr>
-  <tr><td>remotetitle</td><td>Title of radio station currently playing</td></tr>
-  <tr><td>ircode</td><td>String of the catched IR code</td></tr>
-</table>
+Variable      | Purpose
+--------------|--------
+`title`       | Title of the current song
+`album`       | Album name of the current song
+`artist`      | Artist name of the current song
+`year`        | Release year of the current song
+`genre`       | Genre name of the current song
+`coverart`    | Address to cover art of the current song
+`remotetitle` | Title of radio station currently playing
+`ircode`      | String of the cached IR code
 
 ## Examples
 
@@ -107,7 +117,7 @@ NOTE: when binding the 'play' command to a switch item you will trigger 'play' w
 
     Switch item=sq_test_play mappings=[ON="Play", OFF="Stop"]
 
-And whenever the player state is changed from outside of openHAB these items will be updated accordingly, since there is now no longer a separate item for 'play' and 'isPlaying'.
+And whenever the player state is changed from outside of openHAB, these items will be updated accordingly, since there is now no longer a separate item for 'play' and 'isPlaying'.
 
 v1.4.0: Squeezebox binding can store the latest IR code (form the infrared remote) in a variable, which can be used to do some actions. Look at this rule:
 
@@ -157,7 +167,7 @@ Sitemap file:
 
     Selection item=Squeezebox_PlayList label="Start Playlist" mappings=[0="<Name of Playlist>", 1="<Name of Next Playlist >"] 
 
-##Example for displaying text
+## Example for displaying text
 
 Rule file:
 
@@ -173,7 +183,6 @@ Rule file:
 
 The is UTF-8 encoded. The URL calls the squeezebox server at port 9000 with this parameters: p1=upper display line, p2=lower display line, p3=duration of display, player= MAC address of player
 
-
-# Examples
+## More Examples
 * [[Select Radio-Stations|SqueezeboxExample]]
 * [[Use local TTS instead of Google-Translator|Use-local-TTS-with-squeezebox]]
