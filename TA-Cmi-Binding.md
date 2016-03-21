@@ -1,5 +1,3 @@
-_**Note:** This Binding is available in 1.8 SNAPSHOT and later releases._
-
 ## Introduction
 
 This binding makes use of the CAN over Ethernet feature of the CMI from Technische Alternative. Since I only have the new UVR16x2, it has only been tested with this controller.
