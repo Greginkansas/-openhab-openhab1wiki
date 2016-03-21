@@ -175,6 +175,7 @@
 * [[Panasonic TV Binding|Panasonic-TV-Binding]]
 * [[panStamp Binding|panStamp-Binding]]
 * [[Philips Hue Binding|Hue-Binding]]
+* [[Picnet Binding|Picnet-Sapp-Binding]]
 * [[Piface Binding|Piface-Binding]]
 * [[PiXtend Binding|PiXtend-Binding]]
 * [[pilight Binding|pilight-Binding]]
