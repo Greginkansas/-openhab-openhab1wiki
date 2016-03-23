@@ -290,7 +290,7 @@ Please update the wiki if you do come across any out of date information.
 #### Single Rules
 
 * [[Alarm Clock|AlarmClock]]
-* [[Convert Fahrenheit to Celsius|convert-fahrenheit-to-celsius]]
+* [[Convert Fahrenheit to Celsius|Convert-Fahrenheit-and-Celsius]]
 * [[The mother of all lighting rules|Taking-Rules-to-New-Heights]]
 * [[Reusable Rules via Functions|Reusable-Rules-via-Functions]]
 * [[Combining different Items|Rule-example:-Combining-different-items]]
