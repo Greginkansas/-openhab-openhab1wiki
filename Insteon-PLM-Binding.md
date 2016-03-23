@@ -494,9 +494,9 @@ To get additional debugging information, insert the following into
 your `logback.xml` file:
 
     <appender name="INSTEONPLMFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/insteonplm.log</file>
+        <file>${openhab.logdir:-logs}/insteonplm.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <fileNamePattern>logs/insteonplm-%d{yyyy-ww}.log.zip</fileNamePattern>
+                <fileNamePattern>${openhab.logdir:-logs}/insteonplm-%d{yyyy-ww}.log.zip</fileNamePattern>
         <maxHistory>30</maxHistory>
         </rollingPolicy>
         <encoder>
