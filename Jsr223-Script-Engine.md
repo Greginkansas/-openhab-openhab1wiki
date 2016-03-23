@@ -61,6 +61,8 @@ java \
 
 - symlink jython.jar into /opt/openhab/lib/ (mkdir /opt/openhab/lib; cd /opt/openhab/lib; ln -s /opt/jython/jython.jar .)  or add jython.jar to classpath in start-script
 
+- It is **recommended** that you add ``` -Dpython.path="configurations/scripts/lib" ``` to your startup arguments. You can than create library scripts in scripts/lib folder and then easily import them from you normal scripts. This makes creating library functions very easy!
+
 ### Running jython scripts from within the IDE
 First install jython (in e.g. /opt/jython) as above, then:
 - In the IDE "Run Configurations" create your own custom runtime environment by right-clicking "openHAB Runtime" and copying it into "openHAB Runtime Custom"
