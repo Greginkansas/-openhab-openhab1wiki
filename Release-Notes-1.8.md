@@ -54,7 +54,7 @@ Many of the fixes does not require to update the Runtime itself so it would suff
 
 ### Version 1.8.1
 
-This is the second bugfix release of the 1.8 release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.1).
+This is the first bugfix release of the 1.8 release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.1).
 
 ### Updating the openHAB runtime 1.8.0 to 1.8.1
 
