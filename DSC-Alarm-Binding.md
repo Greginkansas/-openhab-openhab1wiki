@@ -8,7 +8,7 @@ The OpenHAB DSC Alarm binding provides connectivity to the DSC Alarm panel via a
 
 Additionally there is a DSC Alarm action bundle that can be installed along with the DSC Alarm binding.  The action provides the ability to send DSC Alarm commands directly to the DSC Alarm system using rules.  Information for the DSC Alarm action can be found here: [DSC Alarm Action](https://github.com/openhab/openhab/wiki/DSC-Alarm-Action).
 
-The latest snapshot version of the DSC Alarm binding can be downloaded from the [cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/) page.
+The latest snapshot version of the DSC Alarm binding can be downloaded from the [cloudbees](https://openhab.ci.cloudbees.com/) page.
 
 ## Binding Configuration
 
