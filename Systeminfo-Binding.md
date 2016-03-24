@@ -171,7 +171,7 @@ Examples, how to configure your items:
 	Number cpuWait "CPU wait [%.1f]"    (System) { systeminfo="CpuWait:5000" }
 
 	Number uptime   "Uptime [%.1f]" (System) { systeminfo="Uptime:5000" }
-	String uptimeFormatted  "Update formatted [%s]" (System) { systeminfo="UptimeFormatted:5000" }
+	String uptimeFormatted  "Uptime [%s]" (System) { systeminfo="UptimeFormatted:5000" }
 
 	Number memFreePercentPeriod "MemFree chart selected [%.1f]" (System)
 	Number memFreePercent   	"Mem free [%.1f%%]" (System) { systeminfo="MemFreePercent:5000" }
