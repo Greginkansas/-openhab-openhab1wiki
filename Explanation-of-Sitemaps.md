@@ -281,7 +281,7 @@ valuecolor=[>25="orange",>15="green",>5="orange",<5="blue"]
 valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>600="lightgray",>15="green",>=10="orange",<10="red"]
 ```
 
-**Hint**: for dynamic icons see the section on [icons](Explanation-of-items/#iconname) on the items page.
+**Hint**: for dynamic icons see the section on [icons](Explanation-of-items/#icon-name) on the items page.
 
 ## Example
 You may find descriptions like:
