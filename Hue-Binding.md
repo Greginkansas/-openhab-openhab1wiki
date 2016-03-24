@@ -215,6 +215,7 @@ The LivingColors remote is only compatible to Philips branded bulbs. We can't co
 
 I use one of my LivingColor remote's scene for a sunset-like ambience. The following rule basically listens for a certain hue value from one of my Philips bulbs (which can be controlled by the remote) and if these values match (=when I activated the sunset scene) it sends a command to the unsupported bulb. This turns on the light with a delay of several seconds, since OpenHAB polls the values from the bridge every few seconds and while the bridge itself is also just polling the values.
 
+```java
   rule "LivingColorsRemoteGrab"
     when
       Item philipsColor1 received update
@@ -238,3 +239,4 @@ I use one of my LivingColor remote's scene for a sunset-like ambience. The follo
         }
       }
   end
+```
