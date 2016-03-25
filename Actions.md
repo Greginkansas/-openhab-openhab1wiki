@@ -113,19 +113,19 @@ Timer then supports the following methods:
 - `hasTerminated()`: Returns true if the scheduled code has laready terminated
 - `reschedule(AbstractInstant newTime)`: Reschedules a new starting time. If called after termination, this will schedule another execution of the same code again.
 
-- Thread::sleep()
+- `Thread::sleep()`
 If I'm in a rule for any reason and I want to stop the execution of the rule for a period of time before continuing execution of the rule use Thread::sleep. For example, I'm in a rule that was triggered because a computer went offline. I want to turn off the computer's plug, wait for a few seconds, then turn the outlet back on again.
 
-MyComputerOutlet.sendCommand(OFF)
-Thread::sleep(20000)
-MyComputerOutlet.sendCommand(ON)
+    `MyComputerOutlet.sendCommand(OFF)`
+    `Thread::sleep(20000)`
+    `MyComputerOutlet.sendCommand(ON)`
 
-- updateSince/changedSince/lastUpdate
+- `updateSince/changedSince/lastUpdate`
 If I'm in a rule for another reason (e.g. Time triggered, triggered by another Item, triggered by a Group, etc.) and need to check whether an Item has changed or been updated within or beyond a certain amount of time these methods are what I would use.
 
 For example, to get the most recently updated Item out of a Group:
 
-val lastItem = gMyGroup.members.sortBy[lastUpdate].tail
+    `val lastItem = gMyGroup.members.sortBy[lastUpdate].tail`
 
 The big distinguishing characteristic is that I'm already in the rule right now for another reason and I'm looking into the past to determine the behavior of my rule.
 
