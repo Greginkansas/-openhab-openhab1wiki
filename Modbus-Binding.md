@@ -379,12 +379,13 @@ When using a float32 value you must use [%f] in item description.
 
 You can use test serial slaves without any hardware on linux using these steps:
 1. Set-up virtual null modem emulator using [tty0tty](https://github.com/freemed/tty0tty)
-2. Download [diagslave](http://www.modbusdriver.com/diagslave.html) and start modbus serial slave up using this command`./diagslave -m rtu -a 1 -b 38400 -d 8 -s 1 -p none -4 10 /dev/pts/7`
-3. Configure openhab's modbus slave to connect to ´/dev/pts/8`: `xxx.connection=/dev/pts/8:38400:8:none:1:rtu`
+2. Download [diagslave](http://www.modbusdriver.com/diagslave.html) and start modbus serial slave up using this command: `./diagslave -m rtu -a 1 -b 38400 -d 8 -s 1 -p none -4 10 /dev/pts/7`
+3. Configure openhab's modbus slave to connect to `/dev/pts/8`: `xxx.connection=/dev/pts/8:38400:8:none:1:rtu`
+4. Modify `start.sh` or `start_debug.sh` to include the unconventional port name by adding the following argument to `java`: `-Dgnu.io.rxtx.SerialPorts=/dev/pts/8`
 
 Naturally this is not the same thing as the real thing but helps to identify simple issues.
 
 #### Testing TCP implementation
 
-1. Download [diagslave](http://www.modbusdriver.com/diagslave.html) and start modbus tcp server (slave) using this command`./diagslave -m tcp -a 1 -p 55502`
-2. Configure openhab's modbus slave to connect to ´127.0.0.1:55502`: `modbus:tcp.slave1.connection=127.0.0.1:55502`
+1. Download [diagslave](http://www.modbusdriver.com/diagslave.html) and start modbus tcp server (slave) using this command: `./diagslave -m tcp -a 1 -p 55502`
+2. Configure openhab's modbus slave to connect to `127.0.0.1:55502`: `modbus:tcp.slave1.connection=127.0.0.1:55502`
