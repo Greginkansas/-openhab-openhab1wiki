@@ -16,8 +16,8 @@ Samples for Rules
 * [Get an email when battery powered devices are running low on power](Samples-Rules#get-an-email-when-battery-powered-devices-are-running-low-on-power)
 * [Initialize all items in a group which are still uninitialized after startup](Samples-Rules#initialize-all-items-which-are-still-uninitialized-after-startup)
 * [Create a dynamic group that holds only items in state ON](Samples-Rules#create-a-dynamic-group-that-holds-only-items-in-state-on)
-* [Create a timer that stop the execution of the rule](Samples-Rules#Create-a-timer-that-stop-the-execution-of-the-rule)
-* [Monitor updates of the devices](Samples-Rules#Monitor-updates-of-the-devices)
+* [Create a timer that stop the execution of the rule](Samples-Rules#create-a-timer-that-stop-the-execution-of-the-rule)
+* [Monitor updates of the devices](Samples-Rules#monitor-updates-of-the-devices)
 
 ### How to turn on light when motion detected and is dark?
 
