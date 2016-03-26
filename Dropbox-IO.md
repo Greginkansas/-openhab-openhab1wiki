@@ -42,6 +42,12 @@ There are three different synchronization modes available
 
 In case your Dropbox returns the `reset` flag and your local configuration of `dropbox:initialize` is set to `true` all local files will be uploaded to your Dropbox once, even if your synchronization mode is set to `DROPBOX_TO_LOCAL`. The `reset` flag might be returned either if the synchronization has been the first call ever (so no delta cursor is available) or there might be technical issues at Dropbox which causes the connected clients to resynchronize their states with Dropbox again.
 
+## Filters
+
+The default upload and download filter do not work properly with non-unix (windows) based file systems. Windows based file paths use backslashes and the bundle uses forward slashes. The simplest workaround is to manually set the upload and download filter with the slashes removed.
+
+    dropbox:uploadfilter=configuration.*
+    dropbox:downloadfilter=configuration.*
 
 ## Schedules
 
