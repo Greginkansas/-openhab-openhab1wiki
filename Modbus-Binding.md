@@ -279,7 +279,7 @@ Note that <i>first register</i> refers to register with address `start` (as defi
 
 `valuetype=int32`:
 - registers (2 index) and ( 2 *index + 1) are interpreted as signed 32bit integer.
-- it assumed that the two registers follow the big endian byte order
+- it assumed that the first register contains the most significant 16 bits
 - it is assumed that each register is encoded in most significant bit first order
 
 `valuetype=uint32`:
@@ -287,7 +287,7 @@ Note that <i>first register</i> refers to register with address `start` (as defi
 
 `valuetype=float32`:
 - registers (2 index) and ( 2 *index + 1) are interpreted as signed 32bit floating point number.
-- it assumed that the two registers follow the big endian byte order
+- it assumed that the first register contains the most significant 16 bits
 - it is assumed that each register is encoded in most significant bit first order
 
 
