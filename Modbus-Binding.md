@@ -378,6 +378,7 @@ When using a float32 value you must use [%f] in item description.
 #### Testing serial implementation
 
 You can use test serial slaves without any hardware on linux using these steps:
+
 1. Set-up virtual null modem emulator using [tty0tty](https://github.com/freemed/tty0tty)
 2. Download [diagslave](http://www.modbusdriver.com/diagslave.html) and start modbus serial slave up using this command: `./diagslave -m rtu -a 1 -b 38400 -d 8 -s 1 -p none -4 10 /dev/pts/7`
 3. Configure openhab's modbus slave to connect to `/dev/pts/8`: `xxx.connection=/dev/pts/8:38400:8:none:1:rtu`
