@@ -32,6 +32,20 @@ where the `<sonos id>` corresponds with the UDN (UPNP Unique Device Name)  - or 
 
 and where `<sonos command>` is the command to be sent to the Sonos Player when `<command>` is received. Some `<sonos commands>` take input variables, which are taken from the current Item variable. In case status variables are used then any value received from the Sonos Player for the defined `<sonos variable>` is used to update the Item
 
+###Finding Your UPNP Unique Device Name###
+The easiest way to find your UPNP UDN is to use a UPNP scanner app. For Windows, UPnPTest [(download here)](http://noeld.com/programs.asp?cat=dstools#UPnPTest) works well. Once you've unzipped, run either the 32-bit or the 64-bit version that matches your architecture (if in doubt, try both).
+
+In the UPnPTest app, you will see the following screen:
+
+![](http://i.imgur.com/LKc2SjW.png)
+
+Right click on your device, and select 'Properties'. You will then see your UDN at the bottom:
+
+![](http://i.imgur.com/2TTMTOg.png)
+
+
+
+
 ## Sonos Commands
 
 The Sonos Player is very complete but also complex device. For a perfect integration within OpenHAB it is assumed that the user will be using the Sonos Desktop Controller software to define playlists, browse music and so forth, e.g. anything which requires user input or interactivity. Therefore the Sonos Commands supported from within openHAB are mostly limited to those actions that require little or no user interaction
