@@ -242,6 +242,8 @@ on different modbus address ranges and modbus functions.
 
 ### Register interpretation (valuetype) on read & write
 
+Note that this section applies to register elements only (`holding` or `input` type)
+
 #### Read
 
 When the binding interprets and converts polled input registers (`input`) or holding registers (`holding`) to openhab items, the process goes like this:
