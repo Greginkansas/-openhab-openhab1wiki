@@ -98,6 +98,30 @@ Valid `<sonos variable>`'s are:
 </table>
 
 ## Examples
+##Simple On/Off for one speaker###
+
+The following files will get a single speaker to turn on and off via the web interface.
+
+openhab.config:
+
+    # skipping beginning of config file
+    # Use your own UDN number (see instructions above)
+    sonos:kitchen.udn=RINCON_000E58F3CD0A00000
+    # skipping rest of config file
+
+onoff.items:
+
+    Switch Sonos "Power Sonos" { sonos="[ON:kitchen:play], [OFF:kitchen:stop]" }
+    Dimmer VolumeSonos "Sonos Volume" { sonos="[kitchen:volume]" }
+
+onoff.sitemap:
+
+    sitemap demo label="Main Menu"
+    Switch item=Sonos
+    Slider item=VolumeSonos
+
+
+###Other Examples###
 
 Here are some examples of valid binding configuration strings:
 
