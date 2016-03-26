@@ -16,6 +16,8 @@ Samples for Rules
 * [Get an email when battery powered devices are running low on power](Samples-Rules#get-an-email-when-battery-powered-devices-are-running-low-on-power)
 * [Initialize all items in a group which are still uninitialized after startup](Samples-Rules#initialize-all-items-which-are-still-uninitialized-after-startup)
 * [Create a dynamic group that holds only items in state ON](Samples-Rules#create-a-dynamic-group-that-holds-only-items-in-state-on)
+* [Create a timer that stop the execution of the rule](Samples-Rules#Create a timer that stop the execution of the rule)
+* [Monitor updates of the devices](Samples-Rules#Monitor updates of the devices)
 
 ### How to turn on light when motion detected and is dark?
 
@@ -1073,3 +1075,23 @@ rule "What's on - refresh"
 		gAll.allMembers.filter(s | s.state == ON).forEach[ item | gStateON.addMember(item)]
     end
 ```
+
+### Create a timer that stop the execution of the rule
+
+- `Thread::sleep()`
+If I'm in a rule for any reason and I want to stop the execution of the rule for a period of time before continuing execution of the rule use Thread::sleep. For example, I'm in a rule that was triggered because a computer went offline. I want to turn off the computer's plug, wait for a few seconds, then turn the outlet back on again.
+
+     `MyComputerOutlet.sendCommand(OFF)`
+     `Thread::sleep(20000)`
+     `MyComputerOutlet.sendCommand(ON)`
+
+### Monitor updates of the devices
+
+- `updateSince/changedSince/lastUpdate`
+If I'm in a rule for another reason (e.g. Time triggered, triggered by another Item, triggered by a Group, etc.) and need to check whether an Item has changed or been updated within or beyond a certain amount of time these methods are what I would use.
+
+For example, to get the most recently updated Item out of a Group:
+
+    val lastItem = gMyGroup.members.sortBy[lastUpdate].tail
+
+The big distinguishing characteristic is that I'm already in the rule right now for another reason and I'm looking into the past to determine the behavior of my rule.
