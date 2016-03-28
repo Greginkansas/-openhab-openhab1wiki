@@ -81,6 +81,8 @@ Command           | Purpose
 `play`            | Play the current title
 `pause`           | Pause the current title
 `stop`            | Stop the current title
+`next`            | Skip to next title
+`prev`            | Skip to previous title
 `http:stream`     | Play the given http stream (obsolete as there is now a new squeezeboxPlayUrl() action for handling this inside rules directly)
 `file:file`       | Play the given file on your server (obsolete as there is now a new squeezeboxPlayUrl() action for handling this inside rules directly)
 `sync:player-id2` | Add `player-id2` to your device for synced playback
