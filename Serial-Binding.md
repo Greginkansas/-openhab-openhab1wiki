@@ -48,6 +48,7 @@ whereas `ttyAMA0` is the path to your serial port. Please be aware to change all
  If you are running the on linux then you have to remember to add to add openhab as user to the dialout group to allow openhab permisstion to read/write to the serial port:
 
 assuming you are running openhab as user "openhab"
-    sudo usermod -a -G dialout openhab
+
+`sudo usermod -a -G dialout openhab`
 
 The user will need to logout (from all login instances) and log back in to see their new group added.  If you add your user to this group and still cannot get permission, rebooting the box to ensure the new group permission is attached to your user is suggested.
