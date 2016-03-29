@@ -285,7 +285,19 @@ This will give you a contact, the battery level, and the light level. Note that 
 
 ### Hidden door sensors
 
-See configuration for motion sensor. There is no light sensor, but "#data,field=battery_level" is available.
+Similar in operation to the motion sensor above.  Link such that the modem is a responder to the motion sensor. Create a contact.map file in the transforms directory like the following:
+
+    OPEN=open
+    CLOSED=closed
+    -=unknown
+
+Then create entries in the .items file like this:
+
+    Contact doorSensor "Door sensor [MAP(contact.map):%s]" {insteonplm="xx.xx.xx:F00.00.03#contact"}
+    Number dorSensorBatteryLevel "Door sensor battery level [%.1f]" insteonplm="xx.xx.xx:F00.00.03#data,field=battery_level"}
+
+This will give you a contact and the battery level. Note that battery level is only updated when either there is motion, or the sensor battery runs low.
+
 
 ### Locks
 
@@ -464,7 +476,7 @@ Here is an example configuration for a FanLinc module, which has a dimmable ligh
 
 ### X10 devices
 
-Here are some examples for configuring X10 devices. Be aware that X10 switches/dimmers send no status updates, i.e. openHAB will not learn about switches that are toggled manually. Further note that
+It is worth noting that both the Inseon PLM and the 2014 Hub can both command X10 devices over the powerline, and also set switch stats based on X10 signals received over the powerline.  This allows openHAB not only control X10 devices without the need for other hardwaare, but it can also have rules that react to incoming X10 powerline commands.  While you cannot bind the the X10 devices to the Insteon PLM/HUB, here are some examples for configuring X10 devices. Be aware that most X10 switches/dimmers send no status updates, i.e. openHAB will not learn about switches that are toggled manually. Further note that
 X10 devices are addressed with `houseCode.unitCode`, e.g. `A.2`.
 
     Switch x10Switch	"X10 switch" {insteonplm="A.1:X00.00.01#switch"}
