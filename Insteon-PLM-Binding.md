@@ -294,7 +294,7 @@ Similar in operation to the motion sensor above.  Link such that the modem is a 
 Then create entries in the .items file like this:
 
     Contact doorSensor "Door sensor [MAP(contact.map):%s]" {insteonplm="xx.xx.xx:F00.00.03#contact"}
-    Number dorSensorBatteryLevel "Door sensor battery level [%.1f]" insteonplm="xx.xx.xx:F00.00.03#data,field=battery_level"}
+    Number doorSensorBatteryLevel "Door sensor battery level [%.1f]" insteonplm="xx.xx.xx:F00.00.03#data,field=battery_level"}
 
 This will give you a contact and the battery level. Note that battery level is only updated when either there is motion, or the sensor battery runs low.
 
