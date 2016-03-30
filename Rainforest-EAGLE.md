@@ -94,4 +94,5 @@ end
 ```
 Note: When you update the EAGLE_URL and the EAGLE_MAC, note the MAC is 18 characters starting with "0x"
 
-ref: https://community.openhab.org/t/rainforest-zigbee-smart-energy-support/6595
+==References==
+1. https://community.openhab.org/t/rainforest-zigbee-smart-energy-support/6595
