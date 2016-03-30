@@ -16,7 +16,7 @@ Samples for Rules
 * [Get an email when battery powered devices are running low on power](Samples-Rules#get-an-email-when-battery-powered-devices-are-running-low-on-power)
 * [Initialize all items in a group which are still uninitialized after startup](Samples-Rules#initialize-all-items-which-are-still-uninitialized-after-startup)
 * [Create a dynamic group that holds only items in state ON](Samples-Rules#create-a-dynamic-group-that-holds-only-items-in-state-on)
-* [Create a timer that stop the execution of the rule](Samples-Rules#create-a-timer-that-stop-the-execution-of-the-rule)
+* [Create a timer that pauses the execution of the rule](Samples-Rules#create-a-timer-that-pauses-the-execution-of-the-rule)
 * [Monitor updates of the devices](Samples-Rules#monitor-updates-of-the-devices)
 
 ### How to turn on light when motion detected and is dark?
@@ -1076,14 +1076,21 @@ rule "What's on - refresh"
     end
 ```
 
-### Create a timer that stop the execution of the rule
+### Create a timer that pauses the execution of the rule
 
-- `Thread::sleep()`
-If I'm in a rule for any reason and I want to stop the execution of the rule for a period of time before continuing execution of the rule use Thread::sleep. For example, I'm in a rule that was triggered because a computer went offline. I want to turn off the computer's plug, wait for a few seconds, then turn the outlet back on again.
+`Thread::sleep()`
 
-     `MyComputerOutlet.sendCommand(OFF)`
-     `Thread::sleep(20000)`
-     `MyComputerOutlet.sendCommand(ON)`
+If I'm in a rule for any reason and I want to pause the execution of the rule for a period of time before continuing execution of the rule use `Thread::sleep`.
+
+For example, I'm in a rule that was triggered because a computer went offline. I want to turn off the computer's plug, wait for a few seconds, then turn the outlet back on again.
+
+```java
+MyComputerOutlet.sendCommand(OFF)
+Thread::sleep(20000)
+MyComputerOutlet.sendCommand(ON)
+```
+
+In the above example there is a 20 second delay as the time is set in milliseconds (1000ms = 1sec).
 
 ### Monitor updates of the devices
 
