@@ -52,3 +52,13 @@ assuming you are running openhab as user "openhab"
 `sudo usermod -a -G dialout openhab`
 
 The user will need to logout (from all login instances) and log back in to see their new group added.  If you add your user to this group and still cannot get permission, rebooting the box to ensure the new group permission is attached to your user is suggested.
+
+###### Note5 
+ If you use more than one USB serial converters like FTDI or CP2102, it may happend that your /dev/ttyUSB0 device is named /dev/ttyUSB1 after a reboot. To prevent this problem you can assign alias names for your serial devices by adding them to `/etc/udev/rules.d/99-com.rules`
+
+example:
+```
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="AE01F0PD", SYMLINK+="ttyMySensors"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="0001", SYMLINK+="ttyCulStick"
+```
+
