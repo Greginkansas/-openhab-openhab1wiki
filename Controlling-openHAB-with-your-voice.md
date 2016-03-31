@@ -41,7 +41,7 @@ An additional feature in this rule is the possibility to give responses by TTS (
 		// find new state, toggle otherwise (if possible)
 		if (command.contains("grad") || command.contains("prozent") || command.contains("dimme")) {
 			// extract new state (find the digits in the string)
-			var Pattern p = Pattern::compile(".* ([0-9]+) (grad|prozent).*")
+			var java.util.regex.Pattern p = java.util.regex.Pattern::compile(".* ([0-9]+) (grad|prozent).*")
 			var Matcher m = p.matcher(command)
 			if (m.matches()) {
 				newState = new StringType(m.group(1).trim())
