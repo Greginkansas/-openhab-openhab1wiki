@@ -250,7 +250,7 @@ Each provider sends different forecast days.
 - WorldWeatherOnline: 5 days (0-4)
 - Wunderground: 10 days (0-9)
 - Hamweather: 5 days (0-4)
-- Yahoo: 5 days (0-4)
+- Yahoo: 10 days (0-9)
 
 **Note:** If you omit the forecast property, the *current* conditions are shown, if you specify forecast=0, the forecast for *today* is shown.
 
