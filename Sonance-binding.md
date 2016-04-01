@@ -92,6 +92,7 @@ In order to configure logging for this binding to be generated in a separate fil
 **Update 19/01/2015**: This problem is fixed in the Sonance software version 2.39.
 2. The auto on method "music" seems to fail in version 2.31 when using an digital input module. This is reported to Sonance and they are working on a solution.  
 **Update 19/01/2015**: This problem still exists in version 2.39.
+**Update 01/04/2016**: Sonance reports this is a hardware limitation, so the auto on method "music" will never work with the digital input module.
 
 ## Change Log
 ### openHAB 1.8
