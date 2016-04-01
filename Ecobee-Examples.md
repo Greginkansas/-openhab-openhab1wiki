@@ -22,7 +22,9 @@ String desiredComf "desired comf"           { ecobee="<[123456789012#runningEven
 Number desiredTemp "desired temp [%.1f °F]"
 Number desiredHeat "desired heat [%.1f °F]" { ecobee="<[123456789012#runtime.desiredHeat]" }
 Number desiredCool "desired cool [%.1f °F]" { ecobee="<[123456789012#runtime.desiredCool]" }
+String desiredFan  "desired fan mode [%s]"  { ecobee="<[123456789012#runtime.desiredFanMode]" }
 
+// Address the ecobee3 unit itself as a sensor, unlike remote sensors it also supports humidity:
 Number diningRoomTemperature "dining rm temp [%.1f °F]" { ecobee="<[123456789012#remoteSensors(Dining Room).capability(temperature).value]" }
 Number diningRoomHumidity "dining rm hum [%d %%]" { ecobee="<[123456789012#remoteSensors(Dining Room).capability(humidity).value]" }
 Switch diningRoomOccupancy "dining rm occ [%s]" { ecobee="<[123456789012#remoteSensors(Dining Room).capability(occupancy).value]" }
@@ -48,6 +50,7 @@ sitemap ecobee label="Ecobee"
     Setpoint item=desiredTemp label="Temp [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[hvacMode==heat,hvacMode==cool]
     Setpoint item=desiredHeat label="Heat [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[hvacMode==auto]
     Setpoint item=desiredCool label="Cool [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[hvacMode==auto]
+    Switch item=desiredFan mappings=[on=On,auto=Auto] // for rule supported in 1.9
   }
 
   Frame label="Dining Room Sensors" {
@@ -140,6 +143,23 @@ then
   ecobeeSetHold(desiredCool, desiredCoolTemp, desiredHeatTemp, null, null, null, null, null)
 end
 
+// rule supported in 1.9 onwards using the new ecobeeSetHold method signature:
+rule FanHold
+when
+  Item desiredFan received command
+then
+  logInfo("FanHold", "Setting fan hold to " + receivedCommand.toString)
+  val params = newLinkedHashMap(
+    'isTemperatureAbsolute'-> false,
+    'isTemperatureRelative' -> false,
+    'isCoolOff' -> true,
+    'isHeatOff' -> true,
+    'coolHoldTemp' -> 90,
+    'heatHoldTemp' -> 50,
+    'fan' -> receivedCommand.toString)
+  ecobeeSetHold("123456789012", params, null, null, null, null)
+end
+
 rule ComfortHold
 when
   Item desiredComf received command
@@ -170,9 +190,9 @@ The binding can individually address each remote sensor's temperature and occupa
 
 Items:
 ```
-Switch EcobeeMBROccu "Ecobee MBR Occu [%s]" { ecobee="<[12345678901#remoteSensors(Bedroom).capability(occupancy).value]" }
-Switch EcobeeKitchenOccu "Ecobee Kitchen Occu [%s]" { ecobee="<[12345678901#remoteSensors(Kitchen).capability(occupancy).value]" }
-Switch EcobeeDROccu "Ecobee DR Occu [%s]" { ecobee="<[12345678901#remoteSensors(Dining Room).capability(occupancy).value]" }
+Switch EcobeeMBROccu "Ecobee MBR Occu [%s]" { ecobee="<[123456789012#remoteSensors(Bedroom).capability(occupancy).value]" }
+Switch EcobeeKitchenOccu "Ecobee Kitchen Occu [%s]" { ecobee="<[123456789012#remoteSensors(Kitchen).capability(occupancy).value]" }
+Switch EcobeeDROccu "Ecobee DR Occu [%s]" { ecobee="<[123456789012#remoteSensors(Dining Room).capability(occupancy).value]" }
 DateTime LastOccuTime "Last Occu [%1$tm/%1$td %1$tH:%1$tM]"
 ```
 Rules:
