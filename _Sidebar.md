@@ -195,6 +195,7 @@
 * [[Serial Binding|Serial-Binding]]
 * [[Sallegra Binding|Sallegra-Binding]]
 * [[Satel Alarm Binding|Satel-Alarm-Binding]]
+* [[SimpleBinary Binding|SimpleBinary Binding]]
 * [[Sinthesi Sapp Binding|Picnet-Sapp-Binding]]
 * [[Smarthomatic Binding|Smarthomatic-Binding]]
 * [[Snmp Binding|Snmp-Binding]]
