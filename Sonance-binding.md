@@ -88,11 +88,8 @@ In order to configure logging for this binding to be generated in a separate fil
 
 ## Known Issues
 
-1. Getting current power status from the amplifier fails because of a bug in the Sonance software version 2.31. This is reported to Sonance and they are working on a solution. This is only when the power on method is set to IP. When requesting the power status, music from the digital input module just stops and you have to reboot the device.  
-**Update 19/01/2015**: This problem is fixed in the Sonance software version 2.39.
-2. The auto on method "music" seems to fail in version 2.31 when using an digital input module. This is reported to Sonance and they are working on a solution.  
-**Update 19/01/2015**: This problem still exists in version 2.39.  
-**Update 01/04/2016**: Sonance reports this is a hardware limitation, so the auto on method "music" will never work with the digital input module.
+1. Getting current power status from the amplifier fails because of a bug in the Sonance software version 2.31. This is fixed in the Sonance firmware version 2.39.
+2. The auto on method "music" doesn't work when using an digital input module. Sonance reports this is a hardware limitation which will never be fixed.
 
 ## Change Log
 ### openHAB 1.8
