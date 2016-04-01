@@ -194,7 +194,7 @@ The `selection` parameter is a string that identifies the thermostat(s) against 
 * ecobeeResumeProgram(String selection, _Boolean resumeAll_) - Remove the currently running event providing the event is not a mandatory demand response event.
 * ecobeeSendMessage(String selection, String text) - Send an alert message to the thermostat.
 * ecobeeSetHold(String selection, _Number coolHoldTemp_, _Number heatHoldTemp_, _String holdClimateRef_, _Date startDateTime_, _Date endDateTime_, _String holdType_, _Number holdHours_) - Set the thermostat into a hold with the specified temperature.
-* ecobeeSetHold(String selection, Map<String, Object> params, _Date startDateTime_, _Date endDateTime_, _String holdType_, _Number holdHours_) - Set the thermostat into a hold with the specified event params.
+* ecobeeSetHold(String selection, `Map<String, Object>` params, _Date startDateTime_, _Date endDateTime_, _String holdType_, _Number holdHours_) - Set the thermostat into a hold with the specified event params.
 * ecobeeSetOccupied(String selection, Boolean occupied, _Date startDateTime_, _Date endDateTime_, _String holdType_, _Number holdHours_) - Switches a (EMS model only) thermostat from occupied mode to unoccupied, or vice versa.
 * ecobeeUpdateSensor(String selection, String name, String deviceId, String sensorId) - Update the name of an ecobee3 remote sensor.
 
