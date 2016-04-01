@@ -101,7 +101,7 @@ It is important that you specify these correctly in the sitemap, as each command
         Switch item=ac_power icon="heating"
         Switch item=ac_mode label="Mode" icon="sofa" mappings=[0="Off", 1="Quiet", 2="Sleep", 3="Smart", 4="SoftCool", 5="TurboMode", 6="WindMode1", 7="WindMode2", 8="WindMode3"]
         Switch item=ac_op_mode icon="sofa" mappings=[0="Auto", 1="Cool", 2="Dry", 3="Wind", 4="Heat"]
-        Switch item=ac_direction icon="wind" mappings=[0="Auto", 1="SwingUD", 2="Rotation", 3="Fixed", 4="SwingLR"]
+        Switch item=ac_direction icon="wind" mappings=[1="SwingUD", 2="Rotation", 3="Fixed", 4="SwingLR"]
         Switch item=ac_windlevel icon="wind" mappings=[0="Auto", 1="Low", 2="Mid", 3="High", 4="Turbo"]
     }
 
@@ -120,7 +120,7 @@ Supported Air conditioner commands (with valid values to send):
     AC_FUN_COMODE:
         Off(0), Quiet(1), Sleep(2), Smart(3), SoftCool(4), TurboMode(5), WindMode1(6), WindMode2(7), WindMode3(8) 
     AC_FUN_DIRECTION:
-        Auto(0), SwingUD(1), Rotation(2), Fixed(3), SwingLR(4)
+        SwingUD(1), Rotation(2), Fixed(3), SwingLR(4)
 
  The binding asks the air conditioner for its status every 60 seconds, this is the only update from the air conditioner. Sometimes the newest changed aren't reflected at once, so you might have to wait a bit before the air conditioner returns the correct state.
  The air conditioner returns an xml in the following format:
