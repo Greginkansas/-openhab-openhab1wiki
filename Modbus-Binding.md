@@ -371,7 +371,20 @@ this reads counter 1 low word when valuetype=`int8` or `uint8`
 When using a float32 value you must use [%f] in item description.
 
 `      Number MyCounter "My Counter [%f]" (All) {modbus="slave5:0"}`
- 
+
+### Troubleshooting
+
+### Enable verbose (debug) logging 
+
+Add the following to the `logback_debug.xml`:
+````
+    <logger name="net.wimpi.modbus" level="TRACE" />
+    <logger name="org.openhab.binding.modbus" level="TRACE" />
+````
+
+Make sure that you do not have any other loggers defined for `net.wimpi.modbus` or `org.openhab.binding.modbus`.
+
+Start the openhab with `start_debug`.
 
 ### For developers
 
