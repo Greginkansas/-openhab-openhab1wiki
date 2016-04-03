@@ -53,26 +53,26 @@ Most of config parameters are related to specific slaves, but some are global an
 **Poll period (optional)**
 
 Frequency of polling Modbus slaves can be configured using `poll` keyword:
-````ini
+```ini
 modbus:poll=<value>
-````
+```
 This is optional and default is `200`. Note that the value is in milliseconds! For example, `modbus:poll=1000` makes the binding poll Modbus slaves once per second.
 
 **Function code to use when writing holding registers (optional)**
 
 Binding can be configured to use FC 16 (*Write Multiple Holding Registers*) over FC 6 (*Write Single Holding Register*) when writing holding register items (see above)
-````ini
+```ini
 modbus:writemultipleregisters=<value>
-````
+```
 This is optional and default is `false`. For example, `modbus:writemultipleregisters=true` makes the binding to use FC16 when writing holding registers.
 
 #### Configuration parameters specific to each slave
 
 The slaves are configured using key value pairs in openHAB config file using the following pattern:
 
-````ini
+```ini
 modbus:<slave-type>.<slave-name>.<slave-parameter-name>=<slave-parameter-value>
-````
+```
 where
 - `<slave-type>` can be either "tcp" or "serial" depending on the type of this Modbus slave
 - `<slave-name>` is unique name per slave you are connecting to. Used in openHAB configuration to refer to the slave.
@@ -128,7 +128,7 @@ The openhab modbus binding uses entity addresses when referring to modbus entiti
 
 One needs to configure as many modbus slaves to openhab as there are corresponding modbus requests. For example, in order to poll status of `coil` and `holding` items from a single [physical] modbus slave, two separate modbus slave definitions need to be configured in the ``openhab.cfg``. For example:
 
-````ini
+```ini
 modbus:serial.slave1.connection=/dev/pts/8:38400:8:none:1:rtu
 modbus:serial.slave1.type=coil
 modbus:serial.slave1.length=3
@@ -136,7 +136,7 @@ modbus:serial.slave1.length=3
 modbus:serial.slave2.connection=/dev/pts/8:38400:8:none:1:rtu
 modbus:serial.slave2.type=holding
 modbus:serial.slave2.length=5
-````
+```
 
 ##### Read and write functions (modbus slave type)
 Modbus read functions 
@@ -155,25 +155,25 @@ See also [simplymodbus.ca](http://www.simplymodbus.ca) and [wikipedia article](h
 
 - Minimal construction in openhab.cfg for TCP connections will look like:
 
-````ini
+```ini
 # read 10 coils starting from address 0
 modbus:tcp.slave1.connection=192.168.1.50
 modbus:tcp.slave1.length=10
 modbus:tcp.slave1.type=coil
-````
+```
  
 - Minimal construction in openhab.cfg for serial connections will look like:
 
-````ini
+```ini
 # read 10 coils starting from address 0
 modbus:serial.slave1.connection=/dev/ttyUSB0
 modbus:tcp.slave1.length=10
 modbus:tcp.slave1.type=coil
-````
+```
 
 - More complex setup could look like
 
-````ini
+```ini
 # Poll values very 300ms = 0.3 seconds
 modbus:poll=300
 
@@ -185,7 +185,7 @@ modbus:tcp.slave1.id=41
 modbus:tcp.slave1.start=0
 modbus:tcp.slave1.length=32
 modbus:tcp.slave1.type=coil
-````
+```
 
 - Another example where coils, discrete inputs (`discrete`) and input registers (`input`) are polled from modbus tcp slave at `192.168.6.180`.
 
@@ -196,7 +196,7 @@ modbus:tcp.slave1.type=coil
 > you only read 6 input bits and say start from 0
 > the moxa manual ist not right clear in this case 
 
-````ini
+```ini
 modbus:poll=300
 
 # Query coils from 192.168.6.180
@@ -236,7 +236,7 @@ modbus:tcp.slave5.start=10
 modbus:tcp.slave5.length=2
 modbus:tcp.slave5.type=input
 modbus:tcp.slave5.valuetype=float32
-````
+```
 
 Above we used the same modbus gateway with ip 192.168.6.180 multiple times 
 on different modbus address ranges and modbus functions.
@@ -327,27 +327,27 @@ There are three ways to bind an item to modbus coils/registers.
 
 ### Single coil/register per item
 
-````ini
+```ini
 Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:5"}
-````
+```
 - This binds MySwitch to modbus slave defined as "slave1" in openhab.cfg reading/writing to the coil (5 + slave's `start` index). The `5` is called item read index.
 - If the slave is read-only, that is the `type` is `input` or `discrete`, the binding ignores any write commands. 
 - if the slave1 refers to registers, and after parsing using the registers as rules defined by the `valuetype`, zero value is considered as `OFF`, everything else as `ON`.
 
 ### Separate coils for reading and writing
 
-````ini
+```ini
 Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:<6:>7"}
-```` 
+``` 
 
 - In this case coil 6 is used as status coil (read-only) and commands are put to coil 7 by setting coil 7 to true.
 - (?) Your hardware should then set coil 7 back to false to allow further commands processing (Note 16.3.2016: does this relate to [issue #3685](https://github.com/openhab/openhab/issues/3685)?).
 
 ### input coil only for reading
 
-````ini
+```ini
 Contact Contact1 "Contact1 [MAP(en.map):%s]" (All)   {modbus="slave2:0"}
-````
+```
 
 - In this case regarding to moxa example coil 0 is used as discrete input (in Moxa naming DI-00)
 - (?) following examples are relatively useless, if you know better one let us know!
@@ -355,30 +355,30 @@ counter values in most cases 16bit values, now we must do math: in rules to deal
 
 ### Read / write register (number) 
 
-````ini
+```ini
 Number Dimmer1 "Dimmer1 [%d]" (ALL) {modbus="slave4:0"}
-````
+```
 
 and in sitemap you can for example
 
-````ini
+```ini
 Setpoint item=Dimmer1 minValue=0 maxValue=100 step=5
-````
+```
 **NOTE:** if the item value goes over the max value specified by the `valuetype` (e.g. 32767 with `int16`), the effects are fully untested!!!
 
 (?) this example should write the value to all DO bits of an moxa e1212 as byte value
 
 5. read only register `type=input`
 
-````ini
+```ini
 Number MyCounterH "My Counter high [%d]" (All) {modbus="slave3:0"}
-````
+```
 
 this reads counter 1 high word when valuetype=`int8` or `uint8`
 
-````ini
+```ini
 Number MyCounterL "My Counter low [%d]" (All) {modbus="slave3:1"}
-````
+```
 
 this reads counter 1 low word when valuetype=`int8` or `uint8`
 
@@ -386,19 +386,19 @@ this reads counter 1 low word when valuetype=`int8` or `uint8`
 
 When using a float32 value you must use [%f] in item description.
 
-````ini
+```ini
 Number MyCounter "My Counter [%f]" (All) {modbus="slave5:0"}`
-````
+```
 
 ### Troubleshooting
 
 #### Enable verbose (debug) logging 
 
 Add the following to the `logback_debug.xml`:
-````xml
+```xml
     <logger name="net.wimpi.modbus" level="TRACE" />
     <logger name="org.openhab.binding.modbus" level="TRACE" />
-````
+```
 
 Make sure that you do not have any other loggers defined for `net.wimpi.modbus` or `org.openhab.binding.modbus`.
 
@@ -412,27 +412,27 @@ You can use test serial slaves without any hardware on linux using these steps:
 
 1. Set-up virtual null modem emulator using [tty0tty](https://github.com/freemed/tty0tty)
 2. Download [diagslave](http://www.modbusdriver.com/diagslave.html) and start modbus serial slave up using this command: 
-````
+```
 ./diagslave -m rtu -a 1 -b 38400 -d 8 -s 1 -p none -4 10 /dev/pts/7
-````
+```
 3. Configure openhab's modbus slave to connect to `/dev/pts/8`: 
-````ini
+```ini
 xxx.connection=/dev/pts/8:38400:8:none:1:rtu
-````
+```
 4. Modify `start.sh` or `start_debug.sh` to include the unconventional port name by adding the following argument to `java`: 
-````
+```
 -Dgnu.io.rxtx.SerialPorts=/dev/pts/8
-````
+```
 
 Naturally this is not the same thing as the real thing but helps to identify simple issues.
 
 #### Testing TCP implementation
 
 1. Download [diagslave](http://www.modbusdriver.com/diagslave.html) and start modbus tcp server (slave) using this command: 
-````
+```
 ./diagslave -m tcp -a 1 -p 55502
-````
+```
 2. Configure openhab's modbus slave to connect to `127.0.0.1:55502`: 
-````ini
+```ini
 modbus:tcp.slave1.connection=127.0.0.1:55502
-````
+```
