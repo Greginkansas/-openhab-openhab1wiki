@@ -1,52 +1,52 @@
+<!-- Using MarkdownTOC plugin for Sublime Text to update the table of contents (TOC) -->
+<!-- MarkdownTOC depth=2 autolink=true bracket=round -->
+
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Binding Configuration](#binding-configuration)
+  - [Global configuration](#global-configuration)
+  - [Configuration parameters specific to each slave](#configuration-parameters-specific-to-each-slave)
+  - [Item Configuration](#item-configuration)
+- [Details](#details)
+  - [Modbus functions supported](#modbus-functions-supported)
+  - [Comment on addressing](#comment-on-addressing)
+  - [Many modbus binding slaves for single physical slave](#many-modbus-binding-slaves-for-single-physical-slave)
+  - [Read and write functions \(modbus slave type\)](#read-and-write-functions-modbus-slave-type)
+  - [Register interpretation \(valuetype\) on read & write](#register-interpretation-valuetype-on-read--write)
+- [Config Examples](#config-examples)
+- [Troubleshooting](#troubleshooting)
+  - [Enable verbose \(debug\) logging](#enable-verbose-debug-logging)
+- [For developers](#for-developers)
+  - [Testing serial implementation](#testing-serial-implementation)
+  - [Testing TCP implementation](#testing-tcp-implementation)
+
+<!-- /MarkdownTOC -->
+
+
+
+
+# Introduction
+
 Documentation of the Modbus binding Bundle. The binding supports both TCP and Serial slaves. RTU, ASCII and BIN variants of Serial Modbus are supported.
 
 The binding can act as 
 - Modbus TCP Client (that is, as modbus master), querying data from Modbus TCP servers (that is, modbus slaves).
 - Modbus serial master, querying data from modbus serial slaves
 
-## Introduction
-
 The Modbus TCP binding polls the slaves in an configurable interval for a configurable length. openHAB commands are translated to write requests.
+
+
+# Installation
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
- 
-## Details
-
-### Supported Modbus object types
-Modbus binding allows to connect to multiple Modbus slaves. The binding supports following Modbus *object types*
-
-- coils, also known as *digital out (DO)* (read & write)
-- discrete inputs, also known as *digital in (DI)* (read)
-- input registers (read)
-- holding registers (read & write)
-
-Binding can be configured to interpret values stored in the 16bit registers in different ways, e.g. as signed or unsigned integer.
-
-For more information on these object types, please consult [Modbus wikipedia article](https://en.wikipedia.org/wiki/Modbus).
-
-### Read and write functions
-
-Modbus specification has different operations for reading and writing different object types. These types of operations are identified by *function code*. Some devices support only certain function codes.
-
-For more background information, please consult [Modbus wikipedia article](https://en.wikipedia.org/wiki/Modbus).
-
-The binding uses following function codes when communicating with the slaves:
-
-- read coils: function code (FC) 1 (*Read Coils*)
-- write coil: FC 5  (*Write Single Coil*)
-- read discrete inputs: FC 2 (*Read Discrete Inputs*)
-- read input registers: FC 4 (*Read Input Registers*)
-- read holding registers: FC 3 (*Read Multiple Holding Registers*)
-- write holding register: FC 6 (*Write Single Holding Register*), OR  FC 16 (*Write Multiple Holding Registers*) (see note on `writemultipleregisters` configuration parameter below)
-
-### Binding Configuration
+# Binding Configuration
 
 add to `${openhab_home}/configuration/`
 
 Entries in the `openhab.cfg` file should look like below.
 
-#### Global configuration
+## Global configuration
 
 Most of config parameters are related to specific slaves, but some are global and thus affect all slaves.
 
@@ -66,7 +66,7 @@ modbus:writemultipleregisters=<value>
 ```
 This is optional and default is `false`. For example, `modbus:writemultipleregisters=true` makes the binding to use FC16 when writing holding registers.
 
-#### Configuration parameters specific to each slave
+## Configuration parameters specific to each slave
 
 The slaves are configured using key value pairs in openHAB config file using the following pattern:
 
@@ -110,7 +110,114 @@ Valid slave parameters are
 </table>
 </td>
 
-##### Comment on addressing
+
+## Item Configuration
+
+ModbusBindingProvider provides binding for openHAB Items.
+
+There are three ways to bind an item to modbus coils/registers. 
+
+### Single coil/register per item
+
+```ini
+Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:5"}
+```
+- This binds MySwitch to modbus slave defined as "slave1" in openhab.cfg reading/writing to the coil (5 + slave's `start` index). The `5` is called item read index.
+- If the slave is read-only, that is the `type` is `input` or `discrete`, the binding ignores any write commands. 
+- if the slave1 refers to registers, and after parsing using the registers as rules defined by the `valuetype`, zero value is considered as `OFF`, everything else as `ON`.
+
+### Separate coils for reading and writing
+
+```ini
+Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:<6:>7"}
+``` 
+
+- In this case coil 6 is used as status coil (read-only) and commands are put to coil 7 by setting coil 7 to true.
+- (?) Your hardware should then set coil 7 back to false to allow further commands processing (Note 16.3.2016: does this relate to [issue #3685](https://github.com/openhab/openhab/issues/3685)?).
+
+### input coil only for reading
+
+```ini
+Contact Contact1 "Contact1 [MAP(en.map):%s]" (All)   {modbus="slave2:0"}
+```
+
+- In this case regarding to moxa example coil 0 is used as discrete input (in Moxa naming DI-00)
+- (?) following examples are relatively useless, if you know better one let us know!
+counter values in most cases 16bit values, now we must do math: in rules to deal with them ...
+
+### Read / write register (number) 
+
+```ini
+Number Dimmer1 "Dimmer1 [%d]" (ALL) {modbus="slave4:0"}
+```
+
+and in sitemap you can for example
+
+```ini
+Setpoint item=Dimmer1 minValue=0 maxValue=100 step=5
+```
+**NOTE:** if the item value goes over the max value specified by the `valuetype` (e.g. 32767 with `int16`), the effects are fully untested!!!
+
+(?) this example should write the value to all DO bits of an moxa e1212 as byte value
+
+5. read only register `type=input`
+
+```ini
+Number MyCounterH "My Counter high [%d]" (All) {modbus="slave3:0"}
+```
+
+this reads counter 1 high word when valuetype=`int8` or `uint8`
+
+```ini
+Number MyCounterL "My Counter low [%d]" (All) {modbus="slave3:1"}
+```
+
+this reads counter 1 low word when valuetype=`int8` or `uint8`
+
+6. floating point value numbers
+
+When using a float32 value you must use [%f] in item description.
+
+```ini
+Number MyCounter "My Counter [%f]" (All) {modbus="slave5:0"}`
+```
+
+
+# Details
+
+
+## Modbus functions supported
+
+### Supported Modbus object types
+Modbus binding allows to connect to multiple Modbus slaves. The binding supports following Modbus *object types*
+
+- coils, also known as *digital out (DO)* (read & write)
+- discrete inputs, also known as *digital in (DI)* (read)
+- input registers (read)
+- holding registers (read & write)
+
+Binding can be configured to interpret values stored in the 16bit registers in different ways, e.g. as signed or unsigned integer.
+
+For more information on these object types, please consult [Modbus wikipedia article](https://en.wikipedia.org/wiki/Modbus).
+
+### Read and write functions
+
+Modbus specification has different operations for reading and writing different object types. These types of operations are identified by *function code*. Some devices support only certain function codes.
+
+For more background information, please consult [Modbus wikipedia article](https://en.wikipedia.org/wiki/Modbus).
+
+The binding uses following function codes when communicating with the slaves:
+
+- read coils: function code (FC) 1 (*Read Coils*)
+- write coil: FC 5  (*Write Single Coil*)
+- read discrete inputs: FC 2 (*Read Discrete Inputs*)
+- read input registers: FC 4 (*Read Input Registers*)
+- read holding registers: FC 3 (*Read Multiple Holding Registers*)
+- write holding register: FC 6 (*Write Single Holding Register*), OR  FC 16 (*Write Multiple Holding Registers*) (see note on `writemultipleregisters` configuration parameter below)
+
+
+
+## Comment on addressing
 [Modbus Wikipedia article](https://en.wikipedia.org/wiki/Modbus#Coil.2C_discrete_input.2C_input_register.2C_holding_register_numbers_and_addresses) summarizes this excellently:
 
 > In the traditional standard, [entity] numbers for those entities start with a digit, followed by a number of four digits in range 1–9,999:
@@ -124,7 +231,7 @@ Valid slave parameters are
 
 The openhab modbus binding uses entity addresses when referring to modbus entities. That is, the entity address configured in modbus binding is passed to modbus protocol frame as-is. For example, modbus slave definition with `start=3`, `length=2` and `type=holding` will read modbus entities with the following numbers 40004 and 40005.
 
-##### Many modbus binding slaves for single physical slave
+## Many modbus binding slaves for single physical slave
 
 One needs to configure as many modbus slaves to openhab as there are corresponding modbus requests. For example, in order to poll status of `coil` and `holding` items from a single [physical] modbus slave, two separate modbus slave definitions need to be configured in the ``openhab.cfg``. For example:
 
@@ -138,7 +245,7 @@ modbus:serial.slave2.type=holding
 modbus:serial.slave2.length=5
 ```
 
-##### Read and write functions (modbus slave type)
+## Read and write functions (modbus slave type)
 Modbus read functions 
 - `type=coil` uses function 1 "Read Coil Status" 
 - `type=discrete` uses function 2 "Read Input Status" (readonly inputs)
@@ -151,7 +258,90 @@ Modbus write functions
 
 See also [simplymodbus.ca](http://www.simplymodbus.ca) and [wikipedia article](https://en.wikipedia.org/wiki/Modbus#Supported_function_codes).
 
-### Config Examples
+
+## Register interpretation (valuetype) on read & write
+
+Note that this section applies to register elements only (`holding` or `input` type)
+
+### Read
+
+When the binding interprets and converts polled input registers (`input`) or holding registers (`holding`) to openhab items, the process goes like this:
+
+- 1. register(s) are first parsed to a number (see below for the details, exact logic depends on `valuetype`)
+- 2a. if the item is Switch or Contact: zero is converted CLOSED / OFF. Other numbers are converted to OPEN / ON.
+- 2b. if the item is Number: the value is passed as is
+
+The logic for converting read registers to number goes as below. Different procedure is taken depending on `valuetype`. 
+
+Note that <i>first register</i> refers to register with address `start` (as defined in the slave definition), <i>second register</i> refers to register with address `start + 1` etc. The <i>index</i> refers to item read index, e.g. item `Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:5"}` has 5 as read index.
+
+`valuetype=bit`:
+- a single bit is read from the registers
+- indices between 0...15 (inclusive) represent bits of the first register
+- indices between 16...31 (inclusive) represent bits of the second register, etc.
+- index 0 refers to the least significant bit of the first register
+- index 1 refers to the second least significant bit of the first register, etc.
+
+`valuetype=int8`:
+- a byte (8 bits) from the registers is interpreted as signed integer
+- index 0 refers to low byte of the first register, 1 high byte of first register
+- index 2 refers to low byte of the second register, 3 high byte of second register, etc.
+- it is assumed that each high and low byte is encoded in most significant bit first order
+
+`valuetype=uint8`:
+- same as INT8 except values are interpreted as unsigned integers
+
+`valuetype=int16`:
+- register with index (counting from zero) is interpreted as 16 bit signed integer.
+- it is assumed that each register is encoded in most significant bit first order
+
+`valuetype=uint16`:
+- same as INT16 except values are interpreted as unsigned integers
+
+`valuetype=int32`:
+- registers (2 index) and ( 2 *index + 1) are interpreted as signed 32bit integer.
+- it assumed that the first register contains the most significant 16 bits
+- it is assumed that each register is encoded in most significant bit first order
+
+`valuetype=uint32`:
+- same as UINT32 except values are interpreted as unsigned integers
+
+`valuetype=float32`:
+- registers (2 index) and ( 2 *index + 1) are interpreted as signed 32bit floating point number.
+- it assumed that the first register contains the most significant 16 bits
+- it is assumed that each register is encoded in most significant bit first order
+
+
+Extra notes
+- `valuetype`s smaller than one register (less than 16 bits) actually read the whole register, and finally extract single bit from the result.
+- work is ongoing (issue [#3558](https://github.com/openhab/openhab/issues/3558)) to support decoding 32bit `valuetype`s with little endian order.
+
+### Write
+
+When the binding processes openhab command (e.g. sent by `sendCommand` as explained [here](https://github.com/openhab/openhab/wiki/Actions)), the process goes as follows
+
+1. it is checked whether the associated item is bound to holding register. If not, command is ignored.
+2. command is converted to 16bit integer (in [two's complement format](https://www.cs.cornell.edu/~tomf/notes/cps104/twoscomp.html)) (see below for details)
+3. the 16bits are written to the register with address `start` (as defined in the slave definition)
+
+Conversion rules for converting command to 16bit integer
+- UP, ON, OPEN commands that are converter to number 1
+- DOWN, OFF, CLOSED commands are converted to number 0 
+- Decimal commands are truncated as 32 bit integer (in 2's complement representation), and then the least significant 16 bits of this integer are extracted.
+
+**Note: The way Decimal commands are handled currently means that it is probably not useful to try to use Decimal commands with non-16bit `valuetype`s.**
+
+Converting INCREASE and DECREASE commands to numbers is more complicated
+1. Register matching (`start` + read index) is interpreted as unsigned 16bit integer. Previous polled register value is used
+2. add/subtract `1` from the integer
+
+**Note: note that INCREASE and DECREASE ignore valuetype when using the previously polled value. Thus, it is not recommended to use INCREASE and DECREASE commands with other than `valuetype=uint16`**
+
+
+
+
+
+# Config Examples
 
 - Minimal construction in openhab.cfg for TCP connections will look like:
 
@@ -241,158 +431,10 @@ modbus:tcp.slave5.valuetype=float32
 Above we used the same modbus gateway with ip 192.168.6.180 multiple times 
 on different modbus address ranges and modbus functions.
 
-### Register interpretation (valuetype) on read & write
 
-Note that this section applies to register elements only (`holding` or `input` type)
+# Troubleshooting
 
-#### Read
-
-When the binding interprets and converts polled input registers (`input`) or holding registers (`holding`) to openhab items, the process goes like this:
-
-- 1. register(s) are first parsed to a number (see below for the details, exact logic depends on `valuetype`)
-- 2a. if the item is Switch or Contact: zero is converted CLOSED / OFF. Other numbers are converted to OPEN / ON.
-- 2b. if the item is Number: the value is passed as is
-
-The logic for converting read registers to number goes as below. Different procedure is taken depending on `valuetype`. 
-
-Note that <i>first register</i> refers to register with address `start` (as defined in the slave definition), <i>second register</i> refers to register with address `start + 1` etc. The <i>index</i> refers to item read index, e.g. item `Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:5"}` has 5 as read index.
-
-`valuetype=bit`:
-- a single bit is read from the registers
-- indices between 0...15 (inclusive) represent bits of the first register
-- indices between 16...31 (inclusive) represent bits of the second register, etc.
-- index 0 refers to the least significant bit of the first register
-- index 1 refers to the second least significant bit of the first register, etc.
-
-`valuetype=int8`:
-- a byte (8 bits) from the registers is interpreted as signed integer
-- index 0 refers to low byte of the first register, 1 high byte of first register
-- index 2 refers to low byte of the second register, 3 high byte of second register, etc.
-- it is assumed that each high and low byte is encoded in most significant bit first order
-
-`valuetype=uint8`:
-- same as INT8 except values are interpreted as unsigned integers
-
-`valuetype=int16`:
-- register with index (counting from zero) is interpreted as 16 bit signed integer.
-- it is assumed that each register is encoded in most significant bit first order
-
-`valuetype=uint16`:
-- same as INT16 except values are interpreted as unsigned integers
-
-`valuetype=int32`:
-- registers (2 index) and ( 2 *index + 1) are interpreted as signed 32bit integer.
-- it assumed that the first register contains the most significant 16 bits
-- it is assumed that each register is encoded in most significant bit first order
-
-`valuetype=uint32`:
-- same as UINT32 except values are interpreted as unsigned integers
-
-`valuetype=float32`:
-- registers (2 index) and ( 2 *index + 1) are interpreted as signed 32bit floating point number.
-- it assumed that the first register contains the most significant 16 bits
-- it is assumed that each register is encoded in most significant bit first order
-
-
-Extra notes
-- `valuetype`s smaller than one register (less than 16 bits) actually read the whole register, and finally extract single bit from the result.
-- work is ongoing (issue [#3558](https://github.com/openhab/openhab/issues/3558)) to support decoding 32bit `valuetype`s with little endian order.
-
-#### Write
-
-When the binding processes openhab command (e.g. sent by `sendCommand` as explained [here](https://github.com/openhab/openhab/wiki/Actions)), the process goes as follows
-
-1. it is checked whether the associated item is bound to holding register. If not, command is ignored.
-2. command is converted to 16bit integer (in [two's complement format](https://www.cs.cornell.edu/~tomf/notes/cps104/twoscomp.html)) (see below for details)
-3. the 16bits are written to the register with address `start` (as defined in the slave definition)
-
-Conversion rules for converting command to 16bit integer
-- UP, ON, OPEN commands that are converter to number 1
-- DOWN, OFF, CLOSED commands are converted to number 0 
-- Decimal commands are truncated as 32 bit integer (in 2's complement representation), and then the least significant 16 bits of this integer are extracted.
-
-**Note: The way Decimal commands are handled currently means that it is probably not useful to try to use Decimal commands with non-16bit `valuetype`s.**
-
-Converting INCREASE and DECREASE commands to numbers is more complicated
-1. Register matching (`start` + read index) is interpreted as unsigned 16bit integer. Previous polled register value is used
-2. add/subtract `1` from the integer
-
-**Note: note that INCREASE and DECREASE ignore valuetype when using the previously polled value. Thus, it is not recommended to use INCREASE and DECREASE commands with other than `valuetype=uint16`**
-
-## Item Binding Configuration
-
-ModbusBindingProvider provides binding for openHAB Items.
-
-There are three ways to bind an item to modbus coils/registers. 
-
-### Single coil/register per item
-
-```ini
-Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:5"}
-```
-- This binds MySwitch to modbus slave defined as "slave1" in openhab.cfg reading/writing to the coil (5 + slave's `start` index). The `5` is called item read index.
-- If the slave is read-only, that is the `type` is `input` or `discrete`, the binding ignores any write commands. 
-- if the slave1 refers to registers, and after parsing using the registers as rules defined by the `valuetype`, zero value is considered as `OFF`, everything else as `ON`.
-
-### Separate coils for reading and writing
-
-```ini
-Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:<6:>7"}
-``` 
-
-- In this case coil 6 is used as status coil (read-only) and commands are put to coil 7 by setting coil 7 to true.
-- (?) Your hardware should then set coil 7 back to false to allow further commands processing (Note 16.3.2016: does this relate to [issue #3685](https://github.com/openhab/openhab/issues/3685)?).
-
-### input coil only for reading
-
-```ini
-Contact Contact1 "Contact1 [MAP(en.map):%s]" (All)   {modbus="slave2:0"}
-```
-
-- In this case regarding to moxa example coil 0 is used as discrete input (in Moxa naming DI-00)
-- (?) following examples are relatively useless, if you know better one let us know!
-counter values in most cases 16bit values, now we must do math: in rules to deal with them ...
-
-### Read / write register (number) 
-
-```ini
-Number Dimmer1 "Dimmer1 [%d]" (ALL) {modbus="slave4:0"}
-```
-
-and in sitemap you can for example
-
-```ini
-Setpoint item=Dimmer1 minValue=0 maxValue=100 step=5
-```
-**NOTE:** if the item value goes over the max value specified by the `valuetype` (e.g. 32767 with `int16`), the effects are fully untested!!!
-
-(?) this example should write the value to all DO bits of an moxa e1212 as byte value
-
-5. read only register `type=input`
-
-```ini
-Number MyCounterH "My Counter high [%d]" (All) {modbus="slave3:0"}
-```
-
-this reads counter 1 high word when valuetype=`int8` or `uint8`
-
-```ini
-Number MyCounterL "My Counter low [%d]" (All) {modbus="slave3:1"}
-```
-
-this reads counter 1 low word when valuetype=`int8` or `uint8`
-
-6. floating point value numbers
-
-When using a float32 value you must use [%f] in item description.
-
-```ini
-Number MyCounter "My Counter [%f]" (All) {modbus="slave5:0"}`
-```
-
-### Troubleshooting
-
-#### Enable verbose (debug) logging 
+## Enable verbose (debug) logging 
 
 Add the following to the `logback_debug.xml`:
 ```xml
@@ -404,9 +446,9 @@ Make sure that you do not have any other loggers defined for `net.wimpi.modbus` 
 
 Start the openhab with `start_debug`.
 
-### For developers
+# For developers
 
-#### Testing serial implementation
+## Testing serial implementation
 
 You can use test serial slaves without any hardware on linux using these steps:
 
@@ -426,7 +468,7 @@ xxx.connection=/dev/pts/8:38400:8:none:1:rtu
 
 Naturally this is not the same thing as the real thing but helps to identify simple issues.
 
-#### Testing TCP implementation
+## Testing TCP implementation
 
 1. Download [diagslave](http://www.modbusdriver.com/diagslave.html) and start modbus tcp server (slave) using this command: 
 ```
