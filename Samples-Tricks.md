@@ -153,7 +153,7 @@ do_start()
     #   2 if daemon could not be started
     start-stop-daemon --start --quiet --make-pidfile --pidfile $PIDFILE --chuid $RUN_AS --chdir $ECLIPSEHOME --exec $DAEMON --test > /dev/null \
         || return 1
-    start-stop-daemon --start --quiet --background --make-pidfile --pidfile $PIDFILE --chuid $RUN_AS --chdir $ECLIPSEHOME  --startas /bin/bash -- -c "exec $DAEMON $DAEMON_ARGS > $OPENHAB_LOG 2>&1" \
+    start-stop-daemon --start --quiet --background --make-pidfile --pidfile $PIDFILE --chuid $RUN_AS --chdir $ECLIPSEHOME  --startas /bin/bash -- -c "chown $RUN_AS $PIDFILE && exec $DAEMON $DAEMON_ARGS > $OPENHAB_LOG 2>&1" \
         || return 2
     # Add code here, if necessary, that waits for the process to be ready
     # to handle requests from services started subsequently which depend
