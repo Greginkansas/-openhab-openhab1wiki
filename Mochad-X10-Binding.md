@@ -29,7 +29,7 @@ First of all you need to configure the following values in the openhab.cfg file 
 In order to bind an item to an X10 device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the Mochad X10 binding configuration string is explained here:
 The format of the binding configuration is simple and looks like this:
 
-    mochadx10="<houseCode><unitCode>[:<transmitMethod>][:<dimMethod>]"
+    mochadx10="<houseCode><unitCode>:<transmitMethod>:<dimMethod>"
 
 where parts in brackets indicate an optional item. 
 
