@@ -59,6 +59,10 @@ as the main network interface. If set to ```true```, the binding will configure 
 communications to the binding. This would include setting the wakeup class to send notifications to openhab, and set some associations so that the binding recieves notifications of configuration change or alarms.
 (being introduced for 1.7)
 </td>
+<tr>
+<td>wave:setSUC=true</td>
+<td>See https://github.com/cdjackson/HABmin/wiki/ZWave-SUC-Controller-Mode
+</td>
 </table>
 
 ## Item configuration
