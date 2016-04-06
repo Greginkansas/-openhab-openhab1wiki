@@ -60,7 +60,7 @@ The binding provides the API for ImperiHome to load the devices from openHAB and
   <tr><td>DevSmoke</td><td>Smoke security sensor</td></tr>
   <tr><td>DevSwitch</td><td>Standard on/off switch</td></tr>
   <tr><td>DevTemperature</td><td>Temperature sensor</td></tr>
-  <tr><td>DevThermostat</td><td>Thermostat</td></tr>
+  <tr><td>DevThermostat</td><td>Thermostat (extra parameters required)</td></tr>
   <tr><td>DevUV</td><td>UV sensor</td></tr>
   <tr><td>DevWind</td><td>Wind sensor</td></tr>
 </table>
@@ -82,7 +82,29 @@ Number	nOffice_Humidity { zwave="3:command=SENSOR_MULTILEVEL,sensor_type=5" }
 ```
 In this case you do not specify a imperihab binding for the humidity just for the temperature.
 
-#### Examples
+## Thermostats
+
+DevThermostat should be attached to the item that defines the thermostat's set point.  In addition, DevThermostat item needs several extra parameters to function.  _All of them are required._
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>curmodeid<td>Item<td>Current thermostat mode</tr>
+  <tr><td>currentTempId<td>Item<td>Current temperature</tr>
+  <tr><td>minVal<td>Number<td>Minimum allowable value for thermostat set point</tr>
+  <tr><td>maxVal<td>Number<td>Maximum allowable value for thermostat set point</tr>
+  <tr><td>availableModes<td>String<td>dash separated modes.  eg:  Off-Auto-Cool-Heat</tr>
+</table>
+
+####  Complete DevThermostat example
+
+```
+Number LIVINGROOM_THERMOSTAT_MODE "Livingroom Thermostat Mode: [MAP(zwave_thermostat_mode.map):%s]"  {zwave="40:0:command=THERMOSTAT_MODE"}
+Number LIVINGROOM_THERMOSTAT_TEMPERATURE "Livingroom Thermostat Temperature: [%.1f F]" <temperature> {zwave="40:0:command=SENSOR_MULTILEVEL,sensor_type=1"}
+Number LIVINGROOM_THERMOSTAT_SETPOINT "Livingroom Thermostat Daytime (heat) Set Point [%.1f F]"  {zwave="40:0:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=1", imperihab="room:Livingroom,label:Thermostat,unit:F,curmodeid:LIVINGROOM_THERMOSTAT_MODE,currentTempId:LIVINGROOM_THERMOSTAT_TEMPERATURE,minVal:60,maxVal:90,availableModes:Off-Auto-Cool-Heat"}
+```
+
+
+## Examples
 ```
 Number zWaveSensor23_1 "L1 [%.1f W]" <energy> (gZWaveNode23, gPower) {zwave="23:1:command=METER", imperihab="room:Keller,label:Verbrauch L1,type:DevElectricity,watts:zWaveSensor23_1"}
 Dimmer zWaveLightOGBedroom "Licht [%d %%]" <light> (gZWaveNode20, gLights, gHomeOGBedroom) {zwave="20:0:command=SWITCH_MULTILEVEL", imperihab="room:Schlafzimmer,label:Licht,type:DevDimmer,watts:zWaveLightOGBedroom"}
