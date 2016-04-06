@@ -60,8 +60,8 @@ communications to the binding. This would include setting the wakeup class to se
 (being introduced for 1.7)
 </td>
 <tr>
-<td>wave:setSUC=true</td>
-<td>See https://github.com/cdjackson/HABmin/wiki/ZWave-SUC-Controller-Mode
+<td>zwave:setSUC=true</td>
+<td>See: https://github.com/cdjackson/HABmin/wiki/ZWave-SUC-Controller-Mode
 </td>
 </table>
 
