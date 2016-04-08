@@ -10,6 +10,14 @@
 - alive validation, if no event is received within a specified time, the binding restarts.
 - action to send messages to a Homematic remote control with a display
 
+### New in 1.9 ([with this pull request](https://github.com/openhab/openhab/pull/4267))
+- HomematicIP support.  
+HomematicIP is disabled by default, because if you don't have HM-IP devices, the binding still communicates with BIN-RPC. If you enable HM-IP support, the binding uses XML-RPC. Configuration in openhab.cfg:
+```
+homematic:homematicIP.enabled=true
+```
+
+
 ### New in 1.6
 1.) [Homegear](https://www.homegear.eu) support including variables and programs (Homegear scripts). With Homegear you can control HomeMatic devices without a CCU, [MAX! devices](http://www.eq-3.de/max-heizungssteuerung.html) without a cube and Philips hue devices, more to come!  
 **Note:** You need at least 0.5.8 of Homegear.
@@ -98,6 +106,12 @@ homematic:host=
 # The reconnect.interval disables the alive.interval and reconnects after a fixed period of time. 
 # Think in hours when configuring (one hour = 3600)
 # homematic:reconnect.interval=
+
+# Enables CCU2 HomematicIP support (optional, default is disabled)
+# HomematicIP does currently not support BIN-RPC. Therefore it's disabled by default, because if you don't
+# have HM-IP devices, the binding still communicates with BIN-RPC. If you enable HM-IP support, the binding
+# uses XML-RPC.
+# homematic:homematicIP.enabled=
 ```
 **Note:** homematic:reconnect.interval is available with PR https://github.com/openhab/openhab/pull/2332
 ## Item Binding
