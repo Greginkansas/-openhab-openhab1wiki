@@ -226,12 +226,12 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
 ###Fibaro Rollershutter FGRM-222  
 
-    Rollershutter kdSHUTTER		"Außenrollo [%d %%]" 				(gkdSHUTTER)	{zwave="3:command=switch_multilevel,invert_state=false,invert_percent=true"}
-    Rollershutter BlindsSHUTTER		"Jalousie (venetian blinds) [%d %%]" 		(gkdSHUTTER)	{zwave="4:command=FIBARO_FGRM_222,type=shutter"}
-    Rollershutter BlindsLAMELLA		"Jalousie (venetian blinds) [%d %%]" 		(gkdSHUTTER)	{zwave="4:command=FIBARO_FGRM_222,type=lamella"}
+    Rollershutter kdSHUTTER		"Roller shutter [%d %%]" 				(gkdSHUTTER)	{zwave="3:command=switch_multilevel,invert_state=false,invert_percent=true"}
+    Rollershutter VenetianSHUTTER	"Venetian blind (blind position) [%d %%]" 		(gkdSHUTTER)	{zwave="4:command=FIBARO_FGRM_222,type=shutter"}
+    Rollershutter VenetianLAMELLA	"Venetian blind (lamella tilt) [%d %%]" 		(gkdSHUTTER)	{zwave="4:command=FIBARO_FGRM_222,type=lamella"}
 
-    Number kdSHUTTER_Power		"Stromverbrauch [%.1f W]"	<energy> 	(gkdSHUTTER)	{ zwave="3:command=sensor_multilevel"}
-    Number kdSHUTTER_Energy		"Gesamtverbrauch [%.2f KWh]"	<energy> 	(gkdSHUTTER)	{ zwave="3:command=meter" }
+    Number kdSHUTTER_Power		"current power usage [%.1f W]"	<energy> 	(gkdSHUTTER)	{ zwave="3:command=sensor_multilevel"}
+    Number kdSHUTTER_Energy		"power consumption [%.2f KWh]"	<energy> 	(gkdSHUTTER)	{ zwave="3:command=meter" }
 
 #Smoke Detectors
 
