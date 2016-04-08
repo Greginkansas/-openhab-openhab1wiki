@@ -29,4 +29,14 @@ Dynamic color is used to indicate the current cursor position. In order to do th
 ###Menu List Selection
 
 I have included "NLSL[0-9]" commands on the displayed menu item strings in the hopes that openHAB will eventually support some type of selectable text that sends a command instead of going to a URL. Then the user can just select the menu item on receivers that support "NLSL[0-9]" commands. For older receivers, the NETUSB_OP_SELECT command is used. The user needs to navigate to the desired menu item before this command is sent. Setpoint elements are used for navigation as they provide a more compact arrangement.
-    
+
+###Items
+
+
+###Sitemap
+
+
+###Rules
+
+
+More to come...
