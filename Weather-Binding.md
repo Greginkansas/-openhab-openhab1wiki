@@ -314,6 +314,8 @@ Either directly:
 or in a sitemap:  
 `Webview url="/weather?locationId=home&layout=example&iconset=colorful" height=7`
 
+(This does not work for OpenHAB2 and this WIKI needs an update for how to use this on OH2)
+
 Note: The binding works with openHab 1.5.x too, for the Webview in a sitemap you need 1.6
 
 ### Html Layout Gallery
