@@ -226,10 +226,9 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
 ###Fibaro Rollershutter FGRM-222  
 
-    Group	gKind			"Kinderzimmer"				<boy3>		(gAlles)
-    Group	gkdSHUTTER		"Kinderzimmer Außenrollo Erweitert"	<rollershutter>	(gKind)
-
     Rollershutter kdSHUTTER		"Außenrollo [%d %%]" 				(gkdSHUTTER)	{zwave="3:command=switch_multilevel,invert_state=false,invert_percent=true"}
+    Rollershutter BlindsSHUTTER		"Jalousie (venetian blinds) [%d %%]" 		(gkdSHUTTER)	{zwave="4:command=FIBARO_FGRM_222,type=shutter"}
+    Rollershutter BlindsLAMELLA		"Jalousie (venetian blinds) [%d %%]" 		(gkdSHUTTER)	{zwave="4:command=FIBARO_FGRM_222,type=lamella"}
 
     Number kdSHUTTER_Power		"Stromverbrauch [%.1f W]"	<energy> 	(gkdSHUTTER)	{ zwave="3:command=sensor_multilevel"}
     Number kdSHUTTER_Energy		"Gesamtverbrauch [%.2f KWh]"	<energy> 	(gkdSHUTTER)	{ zwave="3:command=meter" }
