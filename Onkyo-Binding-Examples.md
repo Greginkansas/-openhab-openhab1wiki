@@ -15,6 +15,18 @@ Onkyo receivers transmit menu items with a string matching the following REGEX:
 NLSU[0-9]-[0-9a-zA-Z ]*
 
 There may be other valid characters after the '-'. The 'U' in "NLSU" is for Unicode. Old receivers running old firmware images may have an 'A' here for ASCII.
+
+Onkyo receivers transmit the current cursor position (within the menu page) with a string matching the following REGEX:
+
+C[0-9][CP]
+
+The last character is a 'C' when the cursor moves within the page. The last character is a 'P' when a page change occurs. The NETUSB_OP_UP and NETUSB_OP_DOWN commands can be used to move the cursor up/down within the page. The NETUSB_OP_LEFT and NETUSB_OP_RIGHT commands can be used to scroll the current menu page up/down. The NETUSB_OP_RETURN command can be used to move up in the menu hierarchy. The NETUSB_OP_SELECT command can be used to select the current menu item. The "NLSL[0-9]" command can be used to randomly select a menu item (this is not supported on older models). These elements can be combined with rules and dynamic color to implement a reasonable user interface.
+
+For menu list display a string item is used for each item in the menu (ten strings). These strings capture the raw status updates from the receiver, but are not displayed. There is a rule for each menu item that removes the overhead characters and posts the value to another string item for display. 
+
+Dynamic color is used to indicate the current cursor position. In order to do this an item is used to capture the raw cursor position from the receiver. A rule is run when it changes to strip out the cursor line and post it to another item that is used to control the dynamic color (this simplifies the color rules and is useful later).
   
 ###Menu List Selection
+
+I have included "NLSL[0-9]" commands on the displayed menu item strings in the hopes that openHAB will eventually support some type of selectable text that sends a command instead of going to a URL. Then the user can just select the menu item on receivers that support "NLSL[0-9]" commands. For older receivers, the NETUSB_OP_SELECT command is used. The user needs to navigate to the desired menu item before this command is sent. Setpoint elements are used for navigation as they provide a more compact arrangement.
     
