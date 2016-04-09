@@ -43,4 +43,4 @@ The security options can be configured through `openhab.cfg`. One can choose bet
 - `OFF` - security is disabled generally
 - `EXTERNAL` - security is switched on for external requests (e.g. originating from the Internet) only
 
-To distinguish between internal and external addresses one may configure a net mask in `openhab.cfg`. Every ip-address which is in range of this net mask will be treated as internal address must not be authorized though.
+To distinguish between internal and external addresses one may configure the `security:netmask` in `openhab.cfg`. Every ip-address which is in range of this net mask will be treated as internal address must not be authorized though. Multiple netmasks can be specified (comma separated). This may be necessary on networks using both IPv4 and IPv6 addresses. To debug issues with netmasks set the `org.openhab.io.net.http` logging level to TRACE in logback.xml.
