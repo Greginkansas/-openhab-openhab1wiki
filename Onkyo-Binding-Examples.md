@@ -109,16 +109,16 @@ Number onkyoNETCursorPos    "Cursor"            (gOnkyo1)
                             Setpoint    item=onkyoNETCursorPos minValue=0 maxValue=9 step=1
                         }
                         Frame label="List" {
-                            Text        item=onkyoNETSel0 valuecolor=[onkyo2NETCursorPos=="9"="fuchsia"]
-                            Text        item=onkyoNETSel1 valuecolor=[onkyo2NETCursorPos=="8"="fuchsia"]
-                            Text        item=onkyoNETSel2 valuecolor=[onkyo2NETCursorPos=="7"="fuchsia"]
-                            Text        item=onkyoNETSel3 valuecolor=[onkyo2NETCursorPos=="6"="fuchsia"]
-                            Text        item=onkyoNETSel4 valuecolor=[onkyo2NETCursorPos=="5"="fuchsia"]
-                            Text        item=onkyoNETSel5 valuecolor=[onkyo2NETCursorPos=="4"="fuchsia"]
-                            Text        item=onkyoNETSel6 valuecolor=[onkyo2NETCursorPos=="3"="fuchsia"]
-                            Text        item=onkyoNETSel7 valuecolor=[onkyo2NETCursorPos=="2"="fuchsia"]
-                            Text        item=onkyoNETSel8 valuecolor=[onkyo2NETCursorPos=="1"="fuchsia"]
-                            Text        item=onkyoNETSel9 valuecolor=[onkyo2NETCursorPos=="0"="fuchsia"]
+                            Text        item=onkyoNETSel0 valuecolor=[onkyoNETCursorPos=="9"="fuchsia"]
+                            Text        item=onkyoNETSel1 valuecolor=[onkyoNETCursorPos=="8"="fuchsia"]
+                            Text        item=onkyoNETSel2 valuecolor=[onkyoNETCursorPos=="7"="fuchsia"]
+                            Text        item=onkyoNETSel3 valuecolor=[onkyoNETCursorPos=="6"="fuchsia"]
+                            Text        item=onkyoNETSel4 valuecolor=[onkyoNETCursorPos=="5"="fuchsia"]
+                            Text        item=onkyoNETSel5 valuecolor=[onkyoNETCursorPos=="4"="fuchsia"]
+                            Text        item=onkyoNETSel6 valuecolor=[onkyoNETCursorPos=="3"="fuchsia"]
+                            Text        item=onkyoNETSel7 valuecolor=[onkyoNETCursorPos=="2"="fuchsia"]
+                            Text        item=onkyoNETSel8 valuecolor=[onkyoNETCursorPos=="1"="fuchsia"]
+                            Text        item=onkyoNETSel9 valuecolor=[onkyoNETCursorPos=="0"="fuchsia"]
                         }
                     }
                     Text label="Transport" icon="sofa" {
