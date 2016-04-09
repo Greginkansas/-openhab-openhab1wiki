@@ -420,7 +420,7 @@ OHPATH=/opt/openhab
 
 case "$1" in
 
-  start)
+  'start')
         PID=`ps -ef | grep openHAB | grep -v grep | awk '{print $2}'`
         if [ "${PID}" != "" ]
          then
@@ -431,7 +431,7 @@ case "$1" in
           sudo -u ${OHUSER} screen -S openHAB -dm  sh ./start.sh
         fi
         ;;
-  stop)
+  'stop')
         echo "Stopping openHAB"
         sudo -u ${OHUSER} screen -S openHAB -p 0 -X stuff "exit$(printf \\r)"
         sudo -u ${OHUSER} screen -S openHAB -p 0 -X stuff "y$(printf \\r)"
@@ -444,7 +444,7 @@ case "$1" in
          done
         echo .
         ;;
-  restart|force-reload)
+  'restart'|'force-reload')
         echo "Restarting openHAB"
         $0 stop
         $0 start
