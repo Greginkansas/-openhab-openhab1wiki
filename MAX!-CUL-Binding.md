@@ -8,6 +8,9 @@ A lot of credit must go to the [FHEM project](http://fhem.de/fhem.html)- without
 ## Status
 The binding is currently in beta and it is recommended that you only use it expecting there to be bugs and issues. It is has enough features to be useful as a heating system, though lacks some of the finer features. This page will be updated as things progress.
 
+## Tutorial
+There is a tutorial using a raspberry pi available at [technpol](https://technpol.wordpress.com/2016/04/09/configuration-of-maxcul-and-cul-dongle/), which addresses some of the configuration issues and how to pair.  It's not clear that I'm doing pairing right (it seems very manual) but it does work.
+
 ## Features
 The binding currently offers the following features:
 
