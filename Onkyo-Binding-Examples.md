@@ -2,8 +2,9 @@ Here are some examples of configurations for various aspects of Onkyo receivers:
 
 * [NET/USB](Onkyo-Binding-Examples#NetUsb)
 
-#NetUsb
 ***
+
+#NetUsb
 
 ##Navigation
 
@@ -34,6 +35,7 @@ Dynamic color is used to indicate the current cursor position. In order to do th
 I have included "NLSL[0-9]" commands on the displayed menu item strings in the hopes that openHAB will eventually support some type of selectable text that sends a command instead of going to a URL. Then the user can just select the menu item on receivers that support "NLSL[0-9]" commands. For older receivers, the NETUSB_OP_SELECT command is used. The user needs to navigate to the desired menu item before this command is sent. Setpoint elements are used for navigation as they provide a more compact arrangement.
 
 ##Items
+```
 //
 // NET/USB
 //
@@ -84,9 +86,10 @@ String onkyoNETPlayStatus   "Play Status [%s]"  (gOnkyo1)   {onkyo="INIT:onkyo1:
 // Proxy
 Number onkyoNETPage         "Page"              (gOnkyo1)
 Number onkyoNETCursorPos    "Cursor"            (gOnkyo1)
-
+```
 
 ##Sitemap
+```
             Text label="NET/USB" icon="sofa" {
                 Frame label="Information" {
                     Text item=onkyoNETArtist
@@ -129,9 +132,10 @@ Number onkyoNETCursorPos    "Cursor"            (gOnkyo1)
                     }
                 }
             }
-
+```
 
 ##Rules
+```java
 import org.openhab.core.library.types.*
 import org.openhab.core.library.items.*
 import org.openhab.core.persistence.*
@@ -365,3 +369,4 @@ rule "Update List 9 Item"
         }
     ]
 end
+```
