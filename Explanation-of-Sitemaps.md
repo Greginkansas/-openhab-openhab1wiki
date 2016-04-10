@@ -180,7 +180,7 @@ encoding is the video encoding. Be sure to specify "mjpeg" for MJPEG video.  Lea
 
 Syntax:
 
-    Webview item=<itemname> [label="<labelname>"] [icon="<iconname>"] url="<url>" [height="<heightvalue"]
+    Webview item=<itemname> [label="<labelname>"] [icon="<iconname>"] url="<url>" [height=<heightvalue>]
 height is the number of rows.
 
 ### <a name="mappings"/>Mappings
