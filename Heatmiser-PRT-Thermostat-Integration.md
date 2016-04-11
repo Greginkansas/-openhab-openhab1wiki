@@ -22,10 +22,10 @@ Please bear in mind that this is still largely WIP but is published with the int
 
 Copy the perl script created by the above setup from cgi bin directory to /home/pi/heatmiser-wifi-read-only/bin/
 
-`#!/usr/bin/perl`
-`# This script provides a JSON interface to access the iPhone interface of`
-`# Heatmiser's range of Wi-Fi enabled thermostats from languages other than`
-`# Perl.`
+#!/usr/bin/perl
+# This script provides a JSON interface to access the iPhone interface of
+# Heatmiser's range of Wi-Fi enabled thermostats from languages other than
+# Perl.
 
 # Copyright © 2013 Alexander Thoukydides
 #
