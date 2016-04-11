@@ -1,4 +1,6 @@
+```
 WIP to be completed - WIP to be completed - WIP to be completed
+```
 
 This Section describes how to use AT Heatmiser Wifi Project together with JSONPath and execute commands and actions to completely control an Heatmiser Thermostat.
 
@@ -22,6 +24,7 @@ Please bear in mind that this is still largely WIP but is published with the int
 
 Copy the perl script created by the above setup from cgi bin directory to /home/pi/heatmiser-wifi-read-only/bin/
 
+```
 #!/usr/bin/perl
 # This script provides a JSON interface to access the iPhone interface of
 # Heatmiser's range of Wi-Fi enabled thermostats from languages other than
@@ -99,30 +102,38 @@ print qq(Content-type: text/plain\n\n);
 print JSON->new->utf8->pretty->canonical->encode(\%status);
 
 # That's all folks
-exit;`
-
+exit;
+```
 I reported this file since I am not sure if I did some very minor modification to the script created by the above installation: check and compare.
 
 Unix Bash Oneliners Scripts:
+
 Create the folder /home/pi/heatmiser-wifi-read-only/openhabscripts/
 and put this scripts in the folder. Make sure theyare executable by the openhab user.
 
 hw_keylock.sh
-/home/pi/heatmiser-wifi-read-only/bin/heatmiser_json.pl {\"keylock\":$1}
+
+```/home/pi/heatmiser-wifi-read-only/bin/heatmiser_json.pl {\"keylock\":$1}```
 
 hw_setback.sh
+```
 /home/pi/heatmiser-wifi-read-only/bin/heatmiser_json.pl  {\"enabled\": $1 }
-
+```
 hw_settemp.sh
+```
 a='{"heating":{"target":'
 b='}}'
 echo $a$1$b
 /home/pi/heatmiser-wifi-read-only/bin/heatmiser_json.pl $a$1$b
+```
 
-hw_status
+hw_status.sh
+```
 /home/pi/heatmiser-wifi-read-only/bin/heatmiser_json.pl 
+```
 
 Sitemap:
+```
 sitemap heatmiserwifi label="Heatmiser Wifi"
 {
     Frame label="Heatmiser Wifi"  
@@ -215,10 +226,11 @@ sitemap heatmiserwifi label="Heatmiser Wifi"
                 }
             }
 }
-
+```
 
 
 Items:
+```
 Number  HW_TemperatureInternal
 Number HW_HeatingTarget 
 Switch HW_HeatingEnabled  { exec=">[ON:/home/pi/heatmiser-wifi-read-only/openhabscripts/hw_setback.sh@@0] >[OFF:/home/pi/heatmiser-wifi-read-only/openhabscripts/hw_setback.sh@@1]" }
@@ -253,9 +265,11 @@ String HW_ProductModel
 String HW_ProductVendor
 String HW_ProductVersion
 
-
+```
 
 Rules:
+
+```
 import org.openhab.core.library.types.* 
 import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
@@ -379,8 +393,11 @@ then
      lock1.unlock()
   }
 end
+```
 
 Please note that here my heatmiser ip (192.168.2.251) is hardcoded but it shall be substituted with a variable.
+
+
 
 
 
