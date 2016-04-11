@@ -13,11 +13,6 @@ Be advised that installation of the prerequisite will take a rather long time.
 Leave all parameters default. 
 My installation runs with PI user modify that with your user if needed
 
-Prepare a directory on your device at the following path (tobeinserted).
-This folder will contain simple bash oneliners calling the Perl command with proper parameters.
-The scripts do the following:
-Onleliner name                                Function
-
 Finally:
 integrate the following to your sitemap/items/rules.
 
