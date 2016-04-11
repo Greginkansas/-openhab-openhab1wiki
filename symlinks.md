@@ -10,4 +10,5 @@ To get IdVendor, product, and IdProduct, you need to run (for USB0, USB1, ACM0 e
     -Dgnu.io.rxtx.SerialPorts=/dev/USBrfxcom:/dev/USBzwave
 
 Note: If you are using the apt-get installation method, you should add the previous line to the 'JAVA_ARGS' section of the '/etc/default/openhab' file.
+
 Note: On Linux; the extra Java command-line property is _not_ required if you choose a symlink name that matches a standard Linux comm port prefix and ends with a combination of numerics + non-letters. E.g. "ttyUSB-9999".
