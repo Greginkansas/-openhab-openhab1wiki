@@ -1,3 +1,4 @@
+WIP to be completed
 This Section describes how to use AT Heatmiser Wifi Project together with JSONPath and execute commands and actions to completely control an Heatmiser Thermostat.
 
 This is not a binding but is a a set of items/sitemap/rules file that use per Perl development by A. Thoukydides that can be found at https://github.com/thoukydides/heatmiser-wifi
