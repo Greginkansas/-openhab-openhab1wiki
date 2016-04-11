@@ -20,7 +20,17 @@ integrate the following to your sitemap/items/rules.
 
 Please adapt the icon names to the ones you want to use.
 
-Please bear in mind that this is still largely WIP but is published with the intend to finish it with help of the community as I have not much  time to dedicate to it. So... feel free to complete/make it better
+Please bear in mind that this is still largely WIP but is published with the intent to finish it with help of the community as I have not much  time to dedicate to it. So... feel free to complete/make it better.
+
+Unix Bash Oneliners Scripts:
+
+Sitemap:
+
+Items:
+
+Rules:
+
+
 
 
 
