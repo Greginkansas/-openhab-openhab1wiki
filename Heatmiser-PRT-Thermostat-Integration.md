@@ -22,7 +22,7 @@ Please bear in mind that this is still largely WIP but is published with the int
 
 Copy the perl script created by the above setup from cgi bin directory to /home/pi/heatmiser-wifi-read-only/bin/
 
-`#!/usr/bin/perl`
+`#!/usr/bin/perl
 
 # This script provides a JSON interface to access the iPhone interface of
 # Heatmiser's range of Wi-Fi enabled thermostats from languages other than
@@ -100,7 +100,7 @@ print qq(Content-type: text/plain\n\n);
 print JSON->new->utf8->pretty->canonical->encode(\%status);
 
 # That's all folks
-exit;
+exit;`
 
 I reported this file since I am not sure if I did some very minor modification to the script created by the above installation: check and compare.
 
