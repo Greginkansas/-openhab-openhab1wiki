@@ -63,12 +63,12 @@ openHAB is a Java application and is expected to run on all platforms where JVM 
   sudo systemctl start openhab
   ```
 1. Start openHAB - at system startup
-  1. Init based on sysVinit
+  1. Init based on sysVinit (e.g. Debian 7 / Ubuntu 14.x and earlier)
 
   ```
   sudo update-rc.d openhab defaults
   ```
- or using Init based on systemd
+ or using Init based on systemd (e.g. Debian 8 / Ubuntu 15.x and higher)
 
   ```
   sudo systemctl daemon-reload
