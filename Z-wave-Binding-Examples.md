@@ -4,7 +4,7 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 * [Lighting and Bulbs](Z-wave-Binding-Examples#lighting-and-bulbs)
 * [Remote Controls](Z-wave-Binding-Examples#remote-controls)
 * [Sensors](Z-wave-Binding-Examples#sensors)
-* [Shutters](Z-wave-Binding-Examples#shutters)
+
 * [Smoke Detectors](Z-wave-Binding-Examples#smoke-detectors)
 * [Switches](Z-wave-Binding-Examples#switches)
 * [Thermostats](Z-wave-Binding-Examples#thermostats)
@@ -80,6 +80,11 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Dimmer      foo_dim         "Foo [%d %%]"                                   { zwave="42:command=SWITCH_MULTILEVEL" }
     Number      foo_power       "Foo - current power consumption [%.2f W]"      { zwave="42:command=METER,meter_scale=E_W,refresh_interval=300" }
     Number      foo_energy      "Foo - total energy use [%.2f KWh]"             { zwave="42:command=METER,meter_scale=E_KWh,refresh_interval=300" }
+
+###Lineartec LB60Z-1
+
+    Dimmer myLight "Light" { zwave="2:command=SWITCH_MULTILEVEL" }
+
 
 #Remote Controls
 
