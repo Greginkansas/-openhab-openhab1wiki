@@ -211,7 +211,7 @@ rule "Update Cursor"
         onkyoLock.lock()
         try {
             logDebug("onkyo.rules", onkyoNETCursor.state.toString())
-            onkyoCursorPos = 9 - new Integer(onkyoNETCursor.state.toString.substring(1,1))
+            onkyoCursorPos = 9 - new Integer(onkyoNETCursor.state.toString.substring(1,2))
             postUpdate(onkyoNETCursorPos, onkyoCursorPos)
         } finally {
            onkyoLock.unlock()
