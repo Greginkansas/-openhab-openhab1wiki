@@ -4,7 +4,6 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 * [Lighting and Bulbs](Z-wave-Binding-Examples#lighting-and-bulbs)
 * [Remote Controls](Z-wave-Binding-Examples#remote-controls)
 * [Sensors](Z-wave-Binding-Examples#sensors)
-
 * [Smoke Detectors](Z-wave-Binding-Examples#smoke-detectors)
 * [Switches](Z-wave-Binding-Examples#switches)
 * [Thermostats](Z-wave-Binding-Examples#thermostats)
@@ -263,7 +262,7 @@ Here are some examples of valid z-wave binding configuration strings, as defined
  
 ###General Electric GE12722
 
-Switch  bedroom_light "Bedroom Light" { zwave="8:command=SWITCH_BINARY" }
+    Switch  bedroom_light "Bedroom Light" { zwave="8:command=SWITCH_BINARY" }
 
 
 ###GreenWave PowerNode 6-port power strip
