@@ -261,6 +261,11 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Number Wall_Plug_Power     "Wall Plug - current energy [%.1f W]"   { zwave="3:command=sensor_multilevel"}
     Number Wall_Plug_Energy    "Wall Plug - total energy [%.2f KWh]"   { zwave="3:command=meter" }
  
+###General Electric GE12722
+
+Switch  bedroom_light "Bedroom Light" { zwave="8:command=SWITCH_BINARY" }
+
+
 ###GreenWave PowerNode 6-port power strip
     
     Switch Switch_Powerbar_Subwoofer "Subwoofer" (GF_Living) {zwave="26:1:command=switch_binary"} 
