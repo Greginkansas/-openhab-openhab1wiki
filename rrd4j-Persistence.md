@@ -87,7 +87,8 @@ Sets the timeintervall(seconds) between consecutive readings.
 Steps are the number of consecutive readings that are used the create a single entry into the database for this timeintervall. The timeintervall covered is calculated by Step(seconds)*Steps. 
 
 Now for the archives: As already said, each datasource can have several archives. Think of an archive as a drawer with a fixed number of boxes in it. Each steps*step seconds  (the step is globally defined for the RRD, 60s in our example) the most-left box is emptied, the content of all boxes is moved one box to the left and new content is added to the most right box. The "steps" value is defined per archive it is the third parameter in the archive definition. The number of boxes is defined as the fourth parameter.
-
+The purpose to have several archives is raised if a different granuality is needed while displaying data for different timespans. In the above examples data for each second are saved for the last hour (granularity 1), looking at the last four houres a granularity of 10 (i.e. 10 readings are consolidated to one reading) is used and so forth. For the first archive (and maybe the only one) a steps-size of one should be used. This way a sample is taken after each step. In this special case the selection of the consolidationfunction is of no effect (a single reading is equal to the MAX, MIN, AVERAGE and LAST of this reading).
+  
 #### Example
 So in the above examples, we have 480 boxes, which each represent the value of one minute (Step is set to 60s, Granularity = 1). If more than one value is added to the database within (steps*step) second (and thus more than one value would be stored in one box), the "consolidation function" is used. OpenHAB uses AVERAGE as default for numeric values, so if you add 20 and 21 within one minute, 20.5 would be stored. 480 minutes is 8 hours, so we have a 8h with the granularity of one minute.
 
