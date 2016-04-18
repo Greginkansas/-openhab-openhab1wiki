@@ -74,13 +74,16 @@ Each datasource also has a value for heartbeat, minimum and maximum. This heartb
 
 #### Step(s)
 -Step (Till 1.6 set in:
-    `.SetStep(<step>)`
+    `.SetStep(<step>)`,
       From 1.7 set in 
     `.def=<dstype>,<heartbeat>,[<min>|U],[<max>|U],<step>`
       with step in seconds)
 Sets the timeintervall(seconds) between consecutive readings.
 
--Steps or Granularity (Till 1.6 set in ".addArchive(function, <xff>, <steps>, <rows>)", from 1.7 set in " .archives=<consolidationfunction>,<xff>,<steps>,<rows>"
+-Steps or Granularity (Till 1.6 set in 
+    `.addArchive(function, <xff>, <steps>, <rows>)`
+    , from 1.7 set in 
+   ` .archives=<consolidationfunction>,<xff>,<steps>,<rows>`
 Steps are the number of consecutive readings that are used the create a single entry into the database for this timeintervall. The timeintervall covered is calculated by Step(seconds)*Steps. 
 
 Now for the archives: As already said, each datasource can have several archives. Think of an archive as a drawer with a fixed number of boxes in it. Each steps*step seconds  (the step is globally defined for the RRD, 60s in our example) the most-left box is emptied, the content of all boxes is moved one box to the left and new content is added to the most right box. The "steps" value is defined per archive it is the third parameter in the archive definition. The number of boxes is defined as the fourth parameter.
