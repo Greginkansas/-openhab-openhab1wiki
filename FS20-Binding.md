@@ -2,23 +2,12 @@
 
 This binding enables support of sending and receiving FS20 messages via the CUL transport. You will need CULLite or similiar device from busware.de. This device needs to be flashed with the latest culfw firmware from culfw.de.
 
-### Installation
-You need the CUL transport (`org.openhab.io.transport.cul`) and the binding (`org.openhab.binding.fs20`) in your addons folder.
+## Installation and Configuration
+See [[CUL Transport]] for general configuration options (such as serial device parameters).
 
-### Configuration
-In your openhab.cfg you need to specify which serial device is the CUL device. This simply done via
+In the openhab.cfg you simply need to specify the device to use. For example
 
-    fs20:device=serial:/dev/ttyACM0
-
-if your serial device is /dev/ttyACM0
-
-Starting with version 1.6 you can adjust baudrate and parity handling too. For busware COC Raspberry extension please use the following settings: 
-
-    fs20:baudrate=38400
-    fs20:parity=0
-
-To connect to a networked CUL e.g. one made available by ser2net from a tuxnet device:
-    fs20:device=network:<my host ip>:<my port>
+> fs20:device=serial:/dev/ttyACM0
 
 ### Item configuration
 You can use SwitchItems and DimmerItems with this binding. You need to know the house address and device address of the device you want to receive messages or send messages to. To find these addresses you can start openhab in debug mode. The CUL transport will print all out all received messages.
