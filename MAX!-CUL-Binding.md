@@ -49,7 +49,8 @@ Aside from understanding what the binding does do which is documented here there
 
 # Installation
 
-You will need the MAX! CUL binding and the [CUL io binding](https://github.com/openhab/openhab/wiki/CUL-Binding) in your "addons" directory. Set up the CUL io binding as described in the wiki. Create a directory "maxcul" in the "etc" directory of your OpenHAB installation (e.g. "/usr/share/openhab/etc/") and make it writeable for OpenHAB.
+See [[CUL Transport]] for the common setup shared between all CUL bindings.
+Create a directory "maxcul" in the "etc" directory of your OpenHAB installation (e.g. "/usr/share/openhab/etc/") and make it writeable for OpenHAB.
 
 # Binding Configuration in openhab.cfg
 
