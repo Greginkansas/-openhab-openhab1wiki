@@ -1,6 +1,17 @@
 # CUL Transport
 This is the common layer shared between different CUL bindings that takes care of the transport. It is of no use alone without one of the bindings making use of it.
 
+## Bindings
+| Name | Binding Name |
+| ---- | ------------ |
+| [[EM]] | em | 
+| [[FHT Binding]] | fht | 
+| [[FS20 Binding]] | fs20 |
+| [[HMS]] | hms |
+| [[CUL Intertechno]] | culintertechno |
+| [[MAX! CUL Binding]] | maxcul |
+| [[S300TH]] | s300th |
+
 ## CUL
 CUL is a collection of devices produced by busware.de which allows to interact with various protocols and devices over radio frequencies. It's also possible to build one on your own.
 - Original Manufacturer: http://busware.de
@@ -22,12 +33,13 @@ At the very least you have to specify the device the binding should use (replace
 #### Local
 - Mandatory `<BINDING_NAME>:device=serial:/dev/ttyACM0`
 - Optional `<BINDING_NAME>:baudrate=<BAUDRATE>`
-where `<BAUDRATE>` is one of 75, 110, 300, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200
+ - `<BAUDRATE>` is one of 75, 110, 300, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200
 - Optional `<BINDING_NAME>:parity=<PARITY>`
-where `<PARITY>` is one of EVEN, ODD, MARK, NONE, SPACE
+ - `<PARITY>` is one of EVEN, ODD, MARK, NONE, SPACE
 
 #### Network
-- Mandatory `<BINDING_NAME>:device=network:192.0.0.5`
+- Mandatory `<BINDING_NAME>:device=network:<HOST>:<PORT>`
+ - This works for example with a cul made available by ser2net from a tuxnet device
 
 ## Additional hints
 It is possible that you need to explicitly specify the serial port when openhab is launched, add the following to the start script. This should normally not be needed
