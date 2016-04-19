@@ -3,13 +3,11 @@
 You can send intertechno in every mode. I.e. if you are using the CUL in slow RF mode or BidCos mode you can still send intetechno commands. The firmware will take care of switching to intertechno mode, sending the command and switching back.
 
 ## Configuration
-See [[CUL Binding]] for general configuration options (such as serial device parameters).
+See [[CUL Transport]] for general configuration options (such as serial device parameters).
 
 In the openhab.cfg you simply need to specify the device to use. For example
 
 > culintertechno:device=serial:/dev/ttyACM0
-
-In the future there will be support for for a more fine grained configuration (basically everything culfw lets you specify).
 
 ## Item configuration
 The item configuration depends on your specific intertechno device. Unfortunately there is no single manufacturer for these devices but many of them using intertechno a little differently.
