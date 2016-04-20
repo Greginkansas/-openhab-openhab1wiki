@@ -84,24 +84,76 @@ In this case you do not specify a imperihab binding for the humidity just for th
 
 ## Thermostats
 
-DevThermostat should be attached to the item that defines the thermostat's set point.  In addition, DevThermostat item needs several extra parameters to function.  _All of them are required._
+DevThermostat should be attached to the item that defines the thermostat's set point.  In addition, DevThermostat item needs several extra parameters to function.  _All of them are required._  Finally, rules to convert between the strings that Imperihab uses for the thermostat's modes and whatever command(s) you need to send to your thermostat.
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>curmodeid<td>Item<td>Current thermostat mode</tr>
+  <tr><td>curmodeid<td>String<td>Current thermostat mode</tr>
   <tr><td>currentTempId<td>Item<td>Current temperature</tr>
   <tr><td>minVal<td>Number<td>Minimum allowable value for thermostat set point</tr>
   <tr><td>maxVal<td>Number<td>Maximum allowable value for thermostat set point</tr>
   <tr><td>availableModes<td>String<td>dash separated modes.  eg:  Off-Auto-Cool-Heat</tr>
 </table>
 
-####  Complete DevThermostat example
+####  DevThermostat example
 
 ```
 Number LIVINGROOM_THERMOSTAT_MODE "Livingroom Thermostat Mode: [MAP(zwave_thermostat_mode.map):%s]"  {zwave="40:0:command=THERMOSTAT_MODE"}
 Number LIVINGROOM_THERMOSTAT_TEMPERATURE "Livingroom Thermostat Temperature: [%.1f F]" <temperature> {zwave="40:0:command=SENSOR_MULTILEVEL,sensor_type=1"}
-Number LIVINGROOM_THERMOSTAT_SETPOINT "Livingroom Thermostat Daytime (heat) Set Point [%.1f F]"  {zwave="40:0:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=1", imperihab="room:Livingroom,label:Thermostat,unit:F,curmodeid:LIVINGROOM_THERMOSTAT_MODE,currentTempId:LIVINGROOM_THERMOSTAT_TEMPERATURE,minVal:60,maxVal:90,availableModes:Off-Auto-Cool-Heat"}
+Number LIVINGROOM_THERMOSTAT_HEAT_SETPOINT "Livingroom Thermostat Heating Set Point [%.1f F]" <heating2_small> (Group_Thermostat, Group_Persistence)  {zwave="40:0:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=1", imperihab="room:Livingroom,label:Thermostat (heat),unit:F,curmodeid:IMPERIHAB_THERMOSTAT_MODE,currentTempId:LIVINGROOM_THERMOSTAT_TEMPERATURE,minVal:60,maxVal:90,availableModes:Off-Heat-Cool"}
+String IMPERIHAB_THERMOSTAT_MODE "Imperihab thermostat mode" 
 ```
+
+####  DevThermostat example rules
+
+```
+rule "Thermostat mode changed -- tell Imperihab"
+when
+  Item LIVINGROOM_THERMOSTAT_MODE received command
+then
+	switch receivedCommand
+		{
+			case 0: {
+				logInfo("openhab","Thermostat mode set to 0 (Off).  Informing Imperihab.")
+				postUpdate(IMPERIHAB_THERMOSTAT_MODE,"Off")
+					}  
+			case 1: {
+				logInfo("openhab","Thermostat mode set to 1 (Heat).  Informing Imperihab.")
+				postUpdate(IMPERIHAB_THERMOSTAT_MODE,"Heat")
+					}
+			case 2: {
+				logInfo("openhab","Thermostat mode set to 2 (Cool).  Informing Imperihab.")
+				postUpdate(IMPERIHAB_THERMOSTAT_MODE,"Cool")
+					}
+		}
+end
+
+rule "Imperihab changed thermostat mode -- change thermostat"
+when
+  Item IMPERIHAB_THERMOSTAT_MODE received command
+then
+	switch receivedCommand
+		{
+		case "Off":
+			{
+				logInfo("openhab","Imperihab switched thermostat state to Off")
+				sendCommand(LIVINGROOM_THERMOSTAT_MODE,0)
+			}
+		case "Heat":
+			{
+				logInfo("openhab","Iperihab switched thermostat state to Heat")				
+				sendCommand(LIVINGROOM_THERMOSTAT_MODE,1)
+			}
+		case "Cool":
+			{
+				logInfo("openhab","Iperihab switched thermostat state to Cool")				
+				sendCommand(LIVINGROOM_THERMOSTAT_MODE,2)
+			}
+		}
+end
+
+```
+
 
 
 ## Examples
