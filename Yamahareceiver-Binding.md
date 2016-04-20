@@ -24,6 +24,7 @@ Tested Receivers:
 * RX-S601D
 * RX-V673
 * RX-V677
+* RX-V771
 * HTR-4065
 
 
