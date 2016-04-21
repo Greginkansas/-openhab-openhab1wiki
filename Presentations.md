@@ -7,7 +7,11 @@ A couple of talks and other publications have been done about openHAB. Find the 
 
 ## Talks
 
-- Sept 16 2015 [Linux Home Automation using OpenHAB with Eli Ben-Shoshan](http://www.youtube.com/watch?v=GDfEO7vZy1g)
+- April 14, 2016 - Presentation of openHAB 2 at the [IoT Tech Day NL](http://www.iottechday.nl/) in Utrecht.
+
+- April 12, 2016 - Presentation of openHAB 2 at the [Dutch Eclipse Day](http://eclipseday.nl/) in Eindhoven.
+
+- Sept 16, 2015 [Linux Home Automation using OpenHAB with Eli Ben-Shoshan](http://www.youtube.com/watch?v=GDfEO7vZy1g)
 
 - July 9, 2015 - 'Mach mit Eclipse SmartHome dein Zuhause intelligent!' and 'IoT und SmartHome: Ein Überblick' at [Java Forum Stuttgart](http://www.java-forum-stuttgart.de/de).
 
