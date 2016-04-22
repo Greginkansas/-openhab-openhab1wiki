@@ -14,7 +14,7 @@ Although WebApp.Net is a pure HTML/JS solution, it mimicks an iPhone app and is 
 
 See here some examples of its look:
 
-![classic ui](http://www.openhab.org/images/ui/classicui.png) 
+![classic ui](http://www.openhab.org/assets/images/ui/classicui.png) 
 
 ## Technical Implementation
 
