@@ -18,6 +18,7 @@ Samples for Rules
 * [Create a dynamic group that holds only items in state ON](Samples-Rules#create-a-dynamic-group-that-holds-only-items-in-state-on)
 * [Create a timer that pauses the execution of the rule](Samples-Rules#create-a-timer-that-pauses-the-execution-of-the-rule)
 * [Monitor updates of the devices](Samples-Rules#monitor-updates-of-the-devices)
+* [Pulse light] (Pulse light)
 
 ### How to turn on light when motion detected and is dark?
 
@@ -1102,3 +1103,39 @@ For example, to get the most recently updated Item out of a Group:
     val lastItem = gMyGroup.members.sortBy[lastUpdate].tail
 
 The big distinguishing characteristic is that I'm already in the rule right now for another reason and I'm looking into the past to determine the behavior of my rule.
+
+### Pulse light
+
+Gradually changes brightness of a light from 1% to 100% and back. Returns to initial ON/OFF-state and brightness level after three cycles. 
+
+```
+import org.openhab.core.library.types.*
+import org.openhab.core.types.Command 
+import org.openhab.core.types.*
+import org.openhab.core.items.GenericItem 
+
+rule "pulselight"
+when
+Item DebugSwitch changed from OFF to ON
+then	
+    var Number pulseDimmer = 1
+    var Number i = 0
+    var State InitialBrightness = Light_GF_Living_Ceiling_Brightness.state
+    var State InitialState =  Light_GF_Living_Ceiling.state
+    while (i<3) {
+    	while(pulseDimmer<100){
+        	pulseDimmer=pulseDimmer+9
+        	sendCommand(Light_GF_Living_Ceiling_Brightness,pulseDimmer)
+        	Thread::sleep(100)
+    	}
+        	while(pulseDimmer>1){
+        	pulseDimmer=pulseDimmer-9
+        	sendCommand(Light_GF_Living_Ceiling_Brightness,pulseDimmer)
+        	Thread::sleep(100)
+    	}
+    i = i+1	
+    }
+    sendCommand(Light_GF_Living_Ceiling_Brightness,InitialBrightness)
+    sendCommand(Light_GF_Living_Ceiling,InitialState)	
+end
+```
