@@ -18,7 +18,7 @@ Samples for Rules
 * [Create a dynamic group that holds only items in state ON](Samples-Rules#create-a-dynamic-group-that-holds-only-items-in-state-on)
 * [Create a timer that pauses the execution of the rule](Samples-Rules#create-a-timer-that-pauses-the-execution-of-the-rule)
 * [Monitor updates of the devices](Samples-Rules#monitor-updates-of-the-devices)
-* [Pulse light](pulse-light)
+* [Pulse light](Samples-Rules#pulse-light)
 
 ### How to turn on light when motion detected and is dark?
 
