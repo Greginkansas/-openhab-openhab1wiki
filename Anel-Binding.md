@@ -60,6 +60,7 @@ Some notes:
 * The most obvious and important option is `host`, it is in fact mandatory if multiple devices are used.
 * The host name, ports, and credentials are device-specific settings that must be configured via the device's browser interface.
 * Port numbers above 1024 are recommended because ports below 1024 are typically reserved and their access restricted on some devices/networks.
+* For multiple devices, different ports must be used.
 
 
 ## Item Binding Configuration
