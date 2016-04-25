@@ -64,3 +64,13 @@ The available _ServiceAction_'s are described in the [MiOS Luup UPnP Variables a
             sendMiosAction(OfficeSonosId, "Sonos/Say", newArrayList('Text' -> 'Warning! Garage door opened', 'Volume' -> 50))
     end
 ```
+
+* Disarm your Alarm Panel (Paradox, GE, Ademco/Vista, DSC, etc)
+```
+    rule "Test action Disarm"
+        when
+            ...
+        then
+            sendMiosAction(EVL3VistaPartition1ArmMode, 'Alarm/RequestArmMode', newArrayList('State' -> 'Disarmed', PINCode' -> 1234)
+    end
+```
