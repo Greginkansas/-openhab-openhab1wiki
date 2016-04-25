@@ -5,8 +5,9 @@ create or add to existing file (`/etc/udev/rules.d/50-usb-serial.rules`) a rule 
     SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="USBzwave", GROUP="dialout", MODE="0666"
     SUBSYSTEM=="tty", ATTRS{idVendor}=="0658", ATTRS{idProduct}=="0200", SYMLINK+="USBzwave", GROUP="dialout", MODE="0666"
 
-The first entry corresponds to the RFXtrx433, the second one to the Aeotec ZStick Gen2 and the last one to the Aeotec ZStick Gen5. You can copy the entries that suit your case or all of them, you won't find any problem unless you add two ZWave USB plugs to the same computer. 
-To get IdVendor, product, and IdProduct, you need to run (for USB0, USB1, ACM0 etc) `sudo udevadm info --attribute-walk --path=/sys/bus/usb-serial/devices/ttyUSB0`. There you can find IdVendor, product, and IdProduct. Replace these IDs in the rule and save the file. Now your stick can be referenced in OpenHab configuration as `/dev/USBzwave`. You will also need to add the property to the Java command line by adding the following (device names delimited by `:` ) to the file `/etc/init.d/openhab` in the 'JAVA_ARGS' section with your device names substituted:
+The first entry corresponds to the RFXtrx433, the second one to the Aeotec ZStick Gen2 and the last one to the Aeotec ZStick Gen5. You can copy the entries that suit your case or all of them, you won't find any problem unless you add two ZWave USB plugs to the same computer.
+
+If you are going to use any other USB device, you can get the IdVendor, product, and IdProduct, running (for USB0, USB1, ACM0 etc) `sudo udevadm info --attribute-walk --path=/sys/bus/usb-serial/devices/ttyUSB0`. There you can find IdVendor, product, and IdProduct. Replace these IDs in the rule and save the file. Now your stick can be referenced in OpenHab configuration as `/dev/USBzwave`. You will also need to add the property to the Java command line by adding the following (device names delimited by `:` ) to the file `/etc/init.d/openhab` in the 'JAVA_ARGS' section with your device names substituted:
 
     -Dgnu.io.rxtx.SerialPorts=/dev/USBrfxcom:/dev/USBzwave
 
