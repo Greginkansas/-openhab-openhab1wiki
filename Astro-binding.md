@@ -12,7 +12,8 @@ astro:latitude=nn.nnnnnn
 # Your longitude
 astro:longitude=nn.nnnnnn
  
-# Refresh interval for some properties in seconds (optional, defaults to disabled)
+# Refresh interval for azimuth and elevation calculation in seconds
+# (optional, defaults to disabled)
 astro:interval=nnn
 ```
 
