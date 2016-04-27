@@ -73,7 +73,7 @@ You can also declare multiple MiOS Units, as illustrated in this example.
     mios:houseUpstairs.host=ha-upstairs.myhouse.example.com
     mios:houseDownstairs.host=ha-downstairs.myhouse.example.com
 
-**NOTE**: The MiOS Unit name is case-sensitive, and may only contain AlphaNumeric characters.  The leading character must be an [ASCII] alpha.
+:warning: The MiOS Unit name is case-sensitive, and may only contain AlphaNumeric characters.  The leading character must be an [ASCII] alpha.
 
 [Back to Table of Contents](MiOS-Binding#configuration)
 
@@ -93,7 +93,7 @@ If you have a Unix machine, the MAP files can also be downloaded using:
 
     svn checkout https://github.com/openhab/openhab/trunk/features/openhab-addons-external/src/main/resources/transform/
 
-**NOTE**: These transformations can be readily extended by the user, for any use-cases that aren't covered by those pre-configured & shipped with the Binding.
+:warning: These transformations can be readily extended by the user, for any use-cases that aren't covered by those pre-configured & shipped with the Binding.
 
 [Back to Table of Contents](MiOS-Binding#configuration)
 
@@ -186,9 +186,10 @@ The [MiOS Item Generator](https://github.com/openhab/openhab/tree/master/bundles
 
 After the initial generation the openHAB Items file can be customized, or can be regenerated, as Devices are added/removed from the MiOS Unit.
 
-NOTE: The Item Generator examples use a MiOS Unit name of "`house`".  This name must match the MiOS Unit name declared in the [MiOS Unit configuration](MiOS-Binding#mios-unit-configuration).
 
-Any name can be used, as long as they're in sync across the configuration files.
+:warning: The Item Generator examples use a MiOS Unit name of "`house`".  This name must match the MiOS Unit name declared in the [MiOS Unit configuration](MiOS-Binding#mios-unit-configuration).
+  Any name can be used, as long as they're in sync across the configuration files.
+
 [Back to Table of Contents](MiOS-Binding#configuration)
 
 ### Item : MiOS Device Binding - Values (Reading)
@@ -589,6 +590,6 @@ Or if you want the Scene executed upon receipt of `ON` or `TOGGLE` Commands:
     String   SceneMasterClosetLights "Master Closet Lights Scene" <sofa> (GScene) {mios="unit:house,scene:109/status,command:ON|TOGGLE", autoupdate="false"}
 
 
-**NOTE**: Here we've added an additional configuration to the binding declaration, `autoupdate="false"`, to ensure the Switch no longer has the `ON` and `OFF` States automatically managed.  In openHAB, this declaration ensures that the UI rendition appears like a Button.
+:warning: Here we've added an additional configuration to the binding declaration, `autoupdate="false"`, to ensure the Switch no longer has the `ON` and `OFF` States automatically managed.  In openHAB, this declaration ensures that the UI rendition appears like a Button.
 
 [Back to Table of Contents](MiOS-Binding#configuration)
