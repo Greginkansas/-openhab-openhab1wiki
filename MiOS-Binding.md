@@ -182,7 +182,9 @@ The sections below describe the types of things that can be bound, in addition t
 
 ### Item Generation : MiOS Item Generator
 
-A script has been written that automatically generates a starting point for an openHAB Items file dealing with MiOS devices - see [here](https://github.com/openhab/openhab/tree/master/bundles/binding/org.openhab.binding.mios/examples/scripts).
+The [MiOS Item Generator](https://github.com/openhab/openhab/tree/master/bundles/binding/org.openhab.binding.mios/examples/scripts) is a free-standing tool that generates an initial openHAB Items file for a MiOS Unit.
+
+After the initial generation the openHAB Items file can be customized, or can be regenerated, as Devices are added/removed from the MiOS Unit.
 
 NOTE: The Item Generator examples use a MiOS Unit name of "`house`".  This name must match the MiOS Unit name declared in the [MiOS Unit configuration](MiOS-Binding#mios-unit-configuration).
 
