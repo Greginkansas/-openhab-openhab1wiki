@@ -57,3 +57,4 @@ The following devices have been testes by various users and it can be confirmed 
 |Viessmann Vitosolic 200| 7321|
 |Resol DeltaSol BX |7421|
 |Resol DeltaSol BS/DrainBack|4278|
+|Resol DeltaSol M |7311|
