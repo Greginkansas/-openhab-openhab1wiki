@@ -184,6 +184,9 @@ The sections below describe the types of things that can be bound, in addition t
 
 A script has been written that automatically generates a starting point for an openHAB Items file dealing with MiOS devices - see [here](https://github.com/openhab/openhab/tree/master/bundles/binding/org.openhab.binding.mios/examples/scripts).
 
+NOTE: The Item Generator examples use a MiOS Unit name of "`house`".  This name must match the MiOS Unit name declared in the [MiOS Unit configuration](MiOS-Binding#mios-unit-configuration).
+
+Any name can be used, as long as they're in sync across the configuration files.
 [Back to Table of Contents](MiOS-Binding#configuration)
 
 ### Item : MiOS Device Binding - Values (Reading)
