@@ -6,9 +6,10 @@ With [[Persistence|Persistence]] being available in openHAB, one frequent requir
 
 # Available Solutions
 
-There are different ways to integrate charts in the UI: They can be created on the server and provided to the UI as PNG or SVG files. They could also be created as HTML5 through Javascript (see e.g. [Sencha Charts](http://www.sencha.com/products/touch/charts) or [Google Chart Tool](https://developers.google.com/chart/)), where the data would be retrieved from the openHAB server through a REST API.
+Currently only the server-side chart creation as PNG through rrd4j is implemented. 
 
-For the moment, only the server-side chart creation as PNG through rrd4j is implemented. More to come soon! 
+There are other potential ways to integrate charts in the UI: They could be created on the server and provided to the UI as PNG or SVG files. They could also be created as HTML5 through Javascript (see e.g. [Sencha Charts](http://www.sencha.com/products/touch/charts) or [Google Chart Tool](https://developers.google.com/chart/)), where the data would be retrieved from the openHAB server through a REST API.
+
 
 ## Using RRD4j Charts
 
