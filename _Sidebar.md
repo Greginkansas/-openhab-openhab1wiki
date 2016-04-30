@@ -151,6 +151,7 @@
 * [[MAX! CUL Binding|MAX!-CUL-Binding]]
 * [[MiLight Binding|Milight-Binding]]
 * [[MiOS Binding|MiOS-Binding]]
+    * [[MiOS Binding Examples|MiOS-Binding-Example]]
 * [[Mochad X10 Binding|Mochad-X10-Binding]]
 * [[Modbus Binding|Modbus-Binding]]
 * [[MPD Binding|Mpd-Binding]]
