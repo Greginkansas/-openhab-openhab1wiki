@@ -54,11 +54,11 @@ The binding will only talk you MiOS Units living on the same LAN as your MiOS Un
 
 The MiOS gateway services, such as `http://cp.mios.com` and `http://home.getvera.com`, are not supported.
 
-🚨🔧 Here is the simplest configuration entry for `openhab.cfg`.  It contains a Unit name, `house`, and a hostname, `192.168.1.22`, to use for the MiOS Unit connection:
+🚨🔧 The simplest configuration entry for `openhab.cfg` contains a Unit name, `house`, and a hostname, `192.168.1.22`, to use for the MiOS Unit connection:
 
     mios:house.host=192.168.1.22
 
-Or if you have local DNS setup correctly, then use this form:
+If you have local DNS setup correctly, then use this form instead:
 
     mios:house.host=ha.myhouse.example.com
 
