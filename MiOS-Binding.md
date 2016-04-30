@@ -54,11 +54,11 @@ The binding will only talk you MiOS Units living on the same LAN as your MiOS Un
 
 The MiOS gateway services, such as `http://cp.mios.com` and `http://home.getvera.com`, are not supported.
 
-Here is the simplest configuration.  It contains a Unit name, `house`, and a hostname, `192.168.1.22`, to use for the MiOS Unit connection.
+🚨🔧 Here is the simplest configuration entry for `openhab.cfg`.  It contains a Unit name, `house`, and a hostname, `192.168.1.22`, to use for the MiOS Unit connection:
 
     mios:house.host=192.168.1.22
 
-Or if you have local DNS setup correctly, then the following works also:
+Or if you have local DNS setup correctly, then use this form:
 
     mios:house.host=ha.myhouse.example.com
 
@@ -73,7 +73,7 @@ You can also declare multiple MiOS Units, as illustrated in this example.
     mios:houseUpstairs.host=ha-upstairs.myhouse.example.com
     mios:houseDownstairs.host=ha-downstairs.myhouse.example.com
 
-:warning: The MiOS Unit name is case-sensitive, and may only contain AlphaNumeric characters.  The leading character must be an [ASCII] alpha.
+🔦 The MiOS Unit name is case-sensitive, and may only contain AlphaNumeric characters.  The leading character must be an [ASCII] alpha.
 
 [Back to Table of Contents](MiOS-Binding#configuration)
 
@@ -81,7 +81,7 @@ You can also declare multiple MiOS Units, as illustrated in this example.
 
 Internally, the MiOS Binding uses the openHAB _Transformation Service_.  The MiOS Binding supplies a number of pre-configured MAP Transformation for the common use-cases.
 
-From a configuration standpoint, these transformations need to be copied from the source-code repository:
+🚨🔧 From a configuration standpoint, these transformations must be copied from the source-code repository:
 
     features/openhab-addons-external/src/main/resources/transform/mios*.map
 
@@ -93,12 +93,16 @@ If you have a Unix machine, the MAP files can also be downloaded using:
 
     svn checkout https://github.com/openhab/openhab/trunk/features/openhab-addons-external/src/main/resources/transform/
 
-:warning: These transformations can be readily extended by the user, for any use-cases that aren't covered by those pre-configured & shipped with the Binding.
+🔦  These transformations can be readily extended by the user, for any use-cases that aren't covered by those pre-configured & shipped with the Binding.
 
 [Back to Table of Contents](MiOS-Binding#configuration)
 
 ## Logger
-Especially during setup of the binding the log information can provide you valuable information. Therefore it is recommended to configure logging.
+During setup of the binding, log information can provide you valuable information.  By default openHAB will log diagnostic information, from all installed bindings, into a single log file (`openhab.log`).
+
+Through _custom configuration_, as an advanced configuration, you can separate out where specific bindings log their diagnostic information.
+
+:warning: This is not required, but it can aid in setting up the MiOS Binding when things aren't working as expected.
 
 There are two configuration files to configure the log subsystem of openHAB:
  * `configurations/logback.xml`
@@ -182,12 +186,12 @@ The sections below describe the types of things that can be bound, in addition t
 
 ### Item Generation : MiOS Item Generator
 
-The [MiOS Item Generator](https://github.com/openhab/openhab/tree/master/bundles/binding/org.openhab.binding.mios/examples/scripts) is a free-standing tool that generates an initial openHAB Items file for a MiOS Unit.
+🚨🔧The [MiOS Item Generator](https://github.com/openhab/openhab/tree/master/bundles/binding/org.openhab.binding.mios/examples/scripts) is a free-standing tool that generates an initial openHAB Items file for a MiOS Unit.
 
 After the initial generation the openHAB Items file can be customized, or can be regenerated, as Devices are added/removed from the MiOS Unit.
 
 
-:warning: The Item Generator examples use a MiOS Unit name of "`house`".  This name must match the MiOS Unit name declared in the [MiOS Unit configuration](MiOS-Binding#mios-unit-configuration).
+🔦 The Item Generator examples use a MiOS Unit name of "`house`".  This name must match the MiOS Unit name declared in the [MiOS Unit configuration](MiOS-Binding#mios-unit-configuration).
   Any name can be used, as long as they're in sync across the configuration files.
 
 [Back to Table of Contents](MiOS-Binding#configuration)
@@ -590,6 +594,6 @@ Or if you want the Scene executed upon receipt of `ON` or `TOGGLE` Commands:
     String   SceneMasterClosetLights "Master Closet Lights Scene" <sofa> (GScene) {mios="unit:house,scene:109/status,command:ON|TOGGLE", autoupdate="false"}
 
 
-:warning: Here we've added an additional configuration to the binding declaration, `autoupdate="false"`, to ensure the Switch no longer has the `ON` and `OFF` States automatically managed.  In openHAB, this declaration ensures that the UI rendition appears like a Button.
+🔦 Here we've added an additional configuration to the binding declaration, `autoupdate="false"`, to ensure the Switch no longer has the `ON` and `OFF` States automatically managed.  In openHAB, this declaration ensures that the UI rendition appears like a Button.
 
 [Back to Table of Contents](MiOS-Binding#configuration)
