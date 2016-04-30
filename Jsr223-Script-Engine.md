@@ -139,6 +139,9 @@ class TestRule(Rule):
 			TimerTrigger("0/50 * * * * ?")
 		] 
 		
+        def getName(self):
+                return type(self).__name__
+
 	def execute(self, event):
 		oh.logDebug(self.getName(), "event received " + str(event))
 		oh.logInfo(self.getName(), str(ItemRegistry.getItem("Heating_GF_Corridor")))
