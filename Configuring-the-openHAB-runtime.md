@@ -57,7 +57,7 @@ Script files are stored in `${openhab_home}/configurations/scripts`.
 
 Rules provide flexible logic to openHAB for automation which can also use scripts(macros) using related events and actions..
 
-Please visit the [automation](https://github.com/openhab/openhab/wiki/Automation) section for further detailes.
+Please visit the [automation](https://github.com/openhab/openhab/wiki/Automation) section for further details.
 
 ### Persistence
 Script files are stored in `${openhab_home}/configurations/persistence`.
