@@ -365,6 +365,9 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Number HVAC_Fan_State "Fan State [MAP(thermostatFanState.map):%d]" (gHVAC) {zwave="7:command=thermostat_fan_state,refresh_interval=60" }
     Number HVAC_Battery "Battery State [%d %%]" (gHVAC) {zwave="7:command=BATTERY"}
 
+###CT100 Complete Example
+Visit this [CT100 Page](Z-wave-Binding-Examples-CT100) for a complete example including items, transform and rules!
+
 ###TBZ48 thermostat (does not have humidity sensor)  
 
     Number      HVAC_HeatSetPoint       "Heat Set [%.1f F]"                               <thermostat>   (HVAC)           {zwave="15:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=1" }
