@@ -1,19 +1,19 @@
 ## Introduction
 
-System information binding provides operating system monitoring data including:
+The System Information binding provides operating system monitoring data, including:
 
-- System memory, swap, cpu, load average, uptime
-- Per-process memory, cpu
+- System memory, swap, CPU, load average, uptime
+- Per-process memory, CPU
 - File system metrics
 - Network interface metrics
 
-Binding uses Hyperic SIGAR API to access system information regardless of the underlying platform (Windows, Linux, OS X...). 
+The binding uses the Hyperic SIGAR API to access system information regardless of the underlying platform (Windows, Linux, OS X...). 
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
 ## Generic Item Binding Configuration
 
-openhab.cfg file (in the folder '${openhab_home}/configurations').
+In the `openhab.cfg` file (in the folder `${openhab_home}/configurations`):
 
     ############################### Systeminfo Binding ####################################
     #
@@ -23,12 +23,24 @@ openhab.cfg file (in the folder '${openhab_home}/configurations').
     
     # Data Storage Unit, where B=Bytes, K=kB, M=MB, T=TB (optional, defaults to M)
     #systeminfo:units=
+    
+    # New as of 1.9:
+    # Alternative native library to load (required for ARM/Linux or custom, not required
+    # for standard platforms). Choices for ARM/Linux are cubian, odroid-u3 or raspbian.
+    # Results in loading library having the name [lib]sigar-<variant>[.so|.sl|.dll|.dylib]
+    #systeminfo:variant=
 
 ## Hyperic SIGAR Native libraries
 
-The SystemInformation binding does not include SIGAR native libraries currently. The platform dependent Sigar native libraries can be found [here](http://sourceforge.net/projects/sigar/files/sigar/1.6/hyperic-sigar-1.6.4.tar.gz/download) for several platforms (see sigar-bin/lib folder). The Pre-built libraries need to be moved into the ${openhabhome]/lib folder. 
+### 1.9
 
-### ARM-based devices
+As of version 1.9, the SIGAR native libraries for standard platforms (and cubian, odroid-u3 and raspbian ARM/Linux systems) are included and loaded automatically by the binding.  To use a platform-specific native library that is not [included in the binding JAR](https://github.com/openhab/openhab/tree/master/bundles/binding/org.openhab.binding.systeminfo/lib), place it in your `${openhabhome}/lib` folder and make sure it is named as described above in the instructions for the `systeminfo:variant` configuration property.
+
+### 1.8 and previous
+
+The System Information binding does not include SIGAR native libraries currently. The platform-specific SIGAR native libraries can be found [here](http://sourceforge.net/projects/sigar/files/sigar/1.6/hyperic-sigar-1.6.4.tar.gz/download) for several platforms (see `sigar-bin/lib` folder). The pre-built libraries need to be moved into the `${openhabhome}/lib` folder.
+
+#### ARM-based devices (1.8 and previous)
 
 ARM-based devices, such as Raspberry PI, require manual setup. See [discussion](https://groups.google.com/forum/#!searchin/openhab/systeminfo/openhab/18C7FYpxWTQ/BT_iGycwcKsJ).
 
@@ -52,9 +64,9 @@ Create a ``lib`` folder first for ``apt-get`` installations:
 
     $ sudo mkdir /usr/share/openhab/lib
 
-(If you run openHAB from one single folder, please find the path to ``lib`` yourself. Usually: [openhabfolder]/lib)
+(If you run openHAB from one single folder, please find the path to ``lib`` yourself. Usually: `{openhabhome}/lib`).
 
-Then copy the downloaded files to the new ``lib`` folder:
+Then copy the downloaded files to the new `lib` folder:
 
     $ sudo cp ~/sigar-raspbian/lib/* /usr/share/openhab/lib
 
@@ -70,7 +82,7 @@ Done! Now install the binding and add your items.
 
 ## Item Binding Configuration
 
-In order to bind an item to the device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items). The syntax of the binding configuration strings accepted is the following:
+In order to bind an item to the device, you need to provide configuration settings by adding some binding information in your item file (in the folder `configurations/items`). The syntax of the binding configuration strings accepted is the following:
 
     systeminfo="<commandType>:<refreshPeriod>(<target>)"
 
