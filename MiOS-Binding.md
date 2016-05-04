@@ -91,13 +91,10 @@ and placed into your openHAB installation under the directory:
 
 If you have a Unix machine, the MAP files can also be downloaded using:
 
+    sudo apt-get install subversion
     svn checkout https://github.com/openhab/openhab/trunk/features/openhab-addons-external/src/main/resources/transform/
 
 🔦  These transformations can be readily extended by the user, for any use-cases that aren't covered by those pre-configured & shipped with the Binding.
-
-🔦  If the `svn` command is not already on your Linux install, you can add it with
-
-    sudo apt-get install subversion
 
 [Back to Table of Contents](MiOS-Binding#configuration)
 
