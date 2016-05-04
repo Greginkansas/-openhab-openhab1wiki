@@ -95,6 +95,10 @@ If you have a Unix machine, the MAP files can also be downloaded using:
 
 🔦  These transformations can be readily extended by the user, for any use-cases that aren't covered by those pre-configured & shipped with the Binding.
 
+🔦  If the `svn` command is not already on your Linux install, you can add it with
+
+    sudo apt-get install subversion
+
 [Back to Table of Contents](MiOS-Binding#configuration)
 
 ## Logger
