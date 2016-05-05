@@ -146,9 +146,9 @@ class TestRule(Rule):
 			ChangedEventTrigger("Heating_FF_Child", None, None),
 			TimerTrigger("0/50 * * * * ?")
 		] 
-		
-        def getName(self):
-                return type(self).__name__
+
+	def getName(self):
+		return type(self).__name__
 
 	def execute(self, event):
 		oh.logDebug(self.getName(), "event received " + str(event))
@@ -537,4 +537,3 @@ RuleSet getRules() {
 	return new RuleSet(new GroovyTestRule())
 }
 ```
-
