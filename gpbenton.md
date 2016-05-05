@@ -63,6 +63,14 @@ java \
 
 - It is **recommended** that you add ``` -Dpython.path="configurations/scripts/lib" ``` to your startup arguments. You can than create library scripts in scripts/lib folder and then easily import them from you normal scripts. This makes creating library functions very easy!
 
+#### For package installations on Unix
+The apt-get packages run openhab as an executable jar file, so modifying classpath has no effect.  
+
+To use Jython, update JAVA_ARGS in  /etc/default/openhab to this
+```
+JAVA_ARGS="-Xbootclasspath/a:/opt/jython/jython.jar -Dpython.home=/opt/jython -Dpython.path=configurations/scripts/lib"
+```
+
 ### Running jython scripts from within the IDE
 First install jython (in e.g. /opt/jython) as above, then:
 - In the IDE "Run Configurations" create your own custom runtime environment by right-clicking "openHAB Runtime" and copying it into "openHAB Runtime Custom"
