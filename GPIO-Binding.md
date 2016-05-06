@@ -30,6 +30,8 @@ Edit `/usr/lib/systemd/system/openhab.service` and set the following:
 User=root
 Group=root
 
+Note that if you chose above to add the openhab user to the gpio group, then you shouldn't make the changes above to run as root.
+
 **Manual installation without using `apt-repo`:**
 
 Extract openhab-runtime archive to `/opt/openhab` (recommended) if not done yet, copy following JARs from openhab-addons archive to `/opt/openhab/addons` folder:
