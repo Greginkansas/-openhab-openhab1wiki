@@ -110,7 +110,7 @@ The item name is the unique name of the item which is used e.g. in the sitemap d
 
 ## Label text
 
-The label text is used on the one hand side to display a description for the specific item e.g. in the sitemap, on the other hand to format or transform the output of the item. If you want to display a special character you have to mask it with it a '%'. So to display one '%' write '%%'.
+The label text has two purposes. First, this text is used to display a description of the specific item (for example, in the sitemap). Second, it can be used to format or transform output from the item (for example, making DateTime output more readable). If you want to display a special character you must mask the character with a '%'. So, to display one '%' enter the text '%%'.
 
 ### Formatting
 
