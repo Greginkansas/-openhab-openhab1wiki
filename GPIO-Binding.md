@@ -8,7 +8,7 @@ Binding for local GPIO subsystem, currently only this exposed to user space by [
 2. Mounted `sysfs` pseudo file system, the mount point can be:
  * Automatically determined if `procfs` is mounted under path `/proc`, this is the default path in almost all configurations
  * Manually set in openHAB configuration file, key `gpio:sysfs`
-3. Installed package for native JNA library, e.g. for debian-based OS use `apt-get install libjna-java`. Version 3.2.7 is used, it's the only available package in Debian currently. If the library isn't in system library path (which is true for most of the cases) you need to add a parameter in command line which starts openHAB and specify the path to JNA library, e.g. edit the last line in "start.sh" and append `-Djna.boot.library.path=/usr/lib/jni` right after `java`.
+3. Installed package for native JNA library, e.g. for debian-based OS use `apt-get install libjna-java`. If version 3.2.7 is used, then if the library isn't in system library path (which is true for most of the cases) you need to add a parameter in command line which starts openHAB and specify the path to JNA library, e.g. edit the last line in "start.sh" and append `-Djna.boot.library.path=/usr/lib/jni` right after `java`.  If version 4 or upwards is used, the directory /usr/lib/jni won't exist.
 4. Root privileges, openHAB should be run under "root" account.  
 Alternatively you can add the user "openhab" to the usergroup "gpio", if your distribution (like rasbian) does have such group.  
 `sudo adduser openhab gpio`
