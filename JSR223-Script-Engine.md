@@ -277,6 +277,9 @@ The scripts themself can be found at the [Github Repository](https://github.com/
 # Examples
 
 ### Example in Jython
+
+See [[Jython Hints and Tips]] page for more examples and suggestions.
+
 Open-Window on temperature (uses string casts, item info can also directly be obtained by the member method (intValue() etc.)) :
 ```
     import datetime
