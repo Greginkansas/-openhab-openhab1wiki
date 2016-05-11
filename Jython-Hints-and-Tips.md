@@ -1,3 +1,5 @@
+This page contains ideas for using [Jython](http://www.jython.org/) with the [[JSR223 Script Engine]] in Openhab.
+
 # Debugging
 
 Without help, the JSR223 engine simply prints a Java stack trace, from which it is difficult to determine the error.  Using the Python traceback module gives useful error indications.
