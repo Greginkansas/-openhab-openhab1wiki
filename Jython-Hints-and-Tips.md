@@ -15,5 +15,5 @@ class TestRule(Rule):
         try:
             self.foo = unknown_bar  # error
         except:
-            oh.logerror("TestRule", traceback.format_exc())
+            oh.logError("TestRule", traceback.format_exc())
 ```
