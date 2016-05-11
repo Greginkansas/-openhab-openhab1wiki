@@ -17,3 +17,25 @@ class TestRule(Rule):
         except:
             oh.logError("TestRule", traceback.format_exc())
 ```
+
+# Logging
+Creating a super class that automatically creates a logger with the class name
+
+```python
+class OpenhabRule(Rule):
+    def __init__(self):
+        self.log = oh.getLogger(type(self).__name__)
+
+class TestRule(OpenhabRule):
+    def __init__(self):
+        super(TestRule, self).__init__()
+
+    def getEventTrigger(self):
+        return [
+            TimerTrigger("0/50 * * * * ?")
+        ]
+
+
+    def execute(self, event):
+        self.log.debug("event received: {}", event)
+```
