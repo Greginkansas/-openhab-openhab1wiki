@@ -19,7 +19,7 @@ class TestRule(Rule):
 ```
 
 # Logging
-Creating a super class that automatically creates a logger with the class name
+Creating a super class that automatically creates a logger with the class name.  Note that TestRule inherits from OpenhabRule, and calls its parents initializer.
 
 ```python
 class OpenhabRule(Rule):
