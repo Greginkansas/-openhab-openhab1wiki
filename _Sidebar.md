@@ -281,6 +281,10 @@ Please update the wiki if you do come across any out of date information.
 *  [[WAC Binding|Samples WAC Binding]]
 *  [[WebSolarLog|Sample---integration-of-WebSolarLog-into-openhab]]
 
+### Use case examples
+
+* [[Raspberry-Pi-System-Temperature]]
+
 ### [[Item definition examples|Samples-Item-Definitions]]
 
 ### [[Sitemap definition examples|Samples-Sitemap-Definitions]]
