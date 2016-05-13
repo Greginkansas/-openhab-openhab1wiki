@@ -23,9 +23,11 @@ mqtt:find.pwd=YOURPASSWORD
 ```
 
 I have found that you need to add the username of the person to track to get the information in.
+the JSONPATH will pull the current location.
+
 
 location.items file
 ```java
-String	mqqtfind_david				"David FIND raw [%s]"	(All)	{mqtt="<[find:YOURGROUP/location/USERNAME:state:default]"}
+String	mqqtfind_david				"David FIND [%s]"	(All)	{mqtt="<[find:YOURGROUP/location/USERNAME:state:JSONPATH($.location)]"}
 ```
 
