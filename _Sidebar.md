@@ -4,7 +4,7 @@
 
 ### [[Setup intro|Quick-Setup-an-openHAB-Server]]
 
-###[[Linux / OS X|Linux---OS-X]]
+###[[Linux and OS X]]
 * [[Ubuntu on x64]]
 * [[ARM based systems|Hardware-FAQ]]
 * [[Multiple USB ports and symlinks|symlinks]]
