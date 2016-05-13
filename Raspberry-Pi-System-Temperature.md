@@ -26,14 +26,16 @@ The GPU temperature is captured through a Regex transformation.
 
 * Raspberry Pi running OpenHAB 
 * The [[Exec binding]] has already been installed.
-* User `openhab` needs to be member of the `video` group
+* User `openhab` is member of the `video` group
 
 ### Add openhab user to video group:
+
+The user `openhab` needs to be member of the `video` group to be able to run the `vcgencmd` command. Otherwise you will see a [VCHI initialization failed](http://raspberrypi.stackexchange.com/questions/7546/munin-node-plugins-vchi-initialization-failed) error message.
 
 Group memberships are only updated after a reboot.
 
 ```
-$ sudo usermod -a -G video openhaal
+$ sudo usermod -a -G video openhab
 $ sudo reboot
 ```
 
