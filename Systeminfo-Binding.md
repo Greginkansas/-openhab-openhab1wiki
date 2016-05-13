@@ -271,3 +271,13 @@ Examples, how to configure your sitemap:
 			}
 		}
 	}
+
+## Extensions
+
+System information can be extended in multiple ways.
+
+### Raspberry Pi
+
+The Raspberry Pi provides the `vcgencmd` command. More information about [vcgencmd usage](http://www.elinux.org/RPI_vcgencmd_usage) can be found on the Internet.
+
+A good and working example is to [[read the temperatures|Raspberry Pi System Temperature]].
