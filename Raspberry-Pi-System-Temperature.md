@@ -2,6 +2,24 @@
 
 The [[Systeminfo Binding]] enables you to read system information through Sigar. The system information provided through this library can be extended with some additional important features.
 
+## Requirements and prerequisites
+
+* OpenHAB has been installed on Raspberry Pi
+* The [[Exec binding]] has been installed
+* [[RRD4J persistence]] has been installed
+* User `openhab` is member of the `video` group
+
+### Add openhab user to video group:
+
+The user `openhab` needs to be member of the `video` group to be able to run the `vcgencmd` command. Otherwise you will see a [VCHI initialization failed](http://raspberrypi.stackexchange.com/questions/7546/munin-node-plugins-vchi-initialization-failed) error message.
+
+Group memberships are only updated after a reboot.
+
+```
+$ sudo usermod -a -G video openhab
+$ sudo reboot
+```
+
 ## Solution
 
 This solution was developed for a [Raspberry Pi 2 model B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) running [Raspbian](https://www.raspberrypi.org/downloads/raspbian/)) and an [[apt-get installation|Linux-and-OS-X#apt-get]].
@@ -22,26 +40,9 @@ However. The CPU temperature is returned as millidegrees Celsius. (I'm not sure 
 The CPU temperature is computed through a Javascript transformation.
 The GPU temperature is captured through a Regex transformation.
 
-## Requirements and prerequisites
-
-* Raspberry Pi running OpenHAB 
-* The [[Exec binding]] has already been installed.
-* User `openhab` is member of the `video` group
-
-### Add openhab user to video group:
-
-The user `openhab` needs to be member of the `video` group to be able to run the `vcgencmd` command. Otherwise you will see a [VCHI initialization failed](http://raspberrypi.stackexchange.com/questions/7546/munin-node-plugins-vchi-initialization-failed) error message.
-
-Group memberships are only updated after a reboot.
-
-```
-$ sudo usermod -a -G video openhab
-$ sudo reboot
-```
+This example gets the CPU temperature in degrees Celsius every 60 seconds and persistently stores them for presenting in a graph. It assumes that all items containing system information (potentially including those for the [[Systeminfo Binding]]) are in a `systems.items` file (any other items file will do).
 
 ## Example configuration
-
-This example gets the CPU temperature in degrees Celsius every 30 seconds and persistently stores them for presenting in a graph. It assumes that all items containing system information (potentially including those for the [[Systeminfo Binding]]) are in a `systems.items` file (any other items file will do).
 
 Create a `milli.js` file (in transform folder) with this content:
 
