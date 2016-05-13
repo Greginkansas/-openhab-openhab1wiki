@@ -235,6 +235,7 @@
 ### [[Application Integration|Application-Integration]]
 * [[Asterisk|Asterisk-Integration]]
 * [[DoorBird]]
+* [[FIND|FIND]]
 * [[Foscam IP Cameras|Foscam-IP-Cameras]]
 * [[Heatmiser PRT Thermostat]]
 * [[Google Calendar|GCal-Binding]]
