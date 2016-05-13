@@ -283,7 +283,7 @@ Please update the wiki if you do come across any out of date information.
 
 ### Use case examples
 
-* [[Raspberry-Pi-System-Temperature]]
+* [[Raspberry Pi System Temperature]]
 
 ### [[Item definition examples|Samples-Item-Definitions]]
 
