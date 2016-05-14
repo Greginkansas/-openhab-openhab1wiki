@@ -42,7 +42,7 @@ You can run your own find server like this:<br>
 `pi@tvpi:~/find $ ./find-2.1-linux-arm -mosquitto findID -mqtt mymqttserver:1883/ -mqttadmin finduser -mqttadminpass findpasswd tvpi:8003`
 
 then it'll connect to a MQTT server on `mymqttserver` port `1883` with a client ID 'findID' using credentials 'finduser' and password 'findpasswd'.
-If you're using mosquitto, use 'mosquitto_passwd <passwordfile> finduser' to add credentials.
+If you're using mosquitto, use `mosquitto_passwd <passwordfile> finduser` to add credentials.
 It publishes to mqtt channel 'YOURGROUP/location/YOURUSER'
 You can watch mqtt events like this: `mosquitto_sub -v -h mymqttserver -p 1883 -t 'YOURGROUP/#'`
 
