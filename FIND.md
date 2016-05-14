@@ -13,6 +13,7 @@ For a Raspberry Pi, select the _arm_ binaries.
 If your Pi has WiFi and you want to use as a client for learning, too, then also retrieve and install the fingerprint client from this page.
 
 Notes on using a Pi as a client:
+
 Note it usually does not make much sense because usually you actually don't _move_ a Pi that's connected to mains power,
 so you can just learn a single 'location' (one room). To use a phone is easier.
 If you still do, use `sudo`. If you encounter problems such as
@@ -36,6 +37,22 @@ mqtt:find.clientId=OpenHAB
 mqtt:find.user=YOURGROUP
 mqtt:find.pwd=YOURPASSWORD
 ```
+
+You can run your own find server like this:
+`pi@tvpi:~/find $ ./find-2.1-linux-arm -mosquitto findID -mqtt mymqttserver:1883/ -mqttadmin _finduser _-mqttadminpass findpasswd tvpi:8003`
+
+then it'll connect to a MQTT server on `mymqttserver` port `1883` with a client ID 'findID' using credentials 'finduser' and password 'findpasswd'.
+If you're using mosquitto, use 'mosquitto_passwd <passwordfile> finduser' to add credentials.
+It publishes to mqtt channel 'YOURGROUP/location/YOURUSER'
+You can watch mqtt events like this: `mosquitto_sub -v -h mymqttserver -p 1883 -t 'YOURGROUP/#'`
+
+```java
+mqtt:find.url=tcp://localhost:1883
+mqtt:find.clientId=OpenHAB
+mqtt:find.user=YOUR-OPENHAB-MOSQUITTO-USER
+mqtt:find.pwd=YOUR-OPENHAB-MOSQUITTO-PASSWORD
+```
+
 
 I have found that you need to add the username of the person to track to get the information in.
 the JSONPATH will pull the current location.
