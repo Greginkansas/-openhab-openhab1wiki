@@ -25,9 +25,8 @@ then try  `sudo ./fingerprint -iwlist`.
 
 ""NOTE"" this is a start to help with integration please feel free to edit and add more information.
 
-***
-
-Here is how I use [MQTT Binding](https://github.com/openhab/openhab/wiki/MQTT-Binding) to get the data from FIND mqtt server to OpenHAB
+##MQTT binding
+How to use [MQTT Binding](https://github.com/openhab/openhab/wiki/MQTT-Binding) to get the data from FIND's mqtt server to OpenHAB
 
 
 openhab.config file
@@ -38,6 +37,7 @@ mqtt:find.user=YOURGROUP
 mqtt:find.pwd=YOURPASSWORD
 ```
 
+## Running your own FIND server
 You can run your own find server like this:<br>
 `pi@tvpi:~/find $ ./find-2.1-linux-arm -mosquitto findID -mqtt mymqttserver:1883/ -mqttadmin finduser -mqttadminpass findpasswd tvpi:8003`
 
@@ -53,8 +53,8 @@ mqtt:find.user=YOUR-OPENHAB-MOSQUITTO-USER
 mqtt:find.pwd=YOUR-OPENHAB-MOSQUITTO-PASSWORD
 ```
 
-
-I have found that you need to add the username of the person to track to get the information in.
+##openHAB items
+You need to add the username of the person to track to get the information in.
 the JSONPATH will pull the current location.
 
 
