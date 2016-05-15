@@ -38,7 +38,7 @@ and where `<transformationrule>` that will be applied to the `<command>` receive
 Note: This is optional for the configuration and not necessary for receiving data. Item-defintions are enough for receiving date. (Developer confirm? 20150128)
 
 The TCP and UDP bindings are highly configurable through the openhab.cfg . 
-The following parameters can be set (substitute `"tcp="` with `"udp="` for the UDP binding):
+The following parameters can be set (substitute `"tcp:"` with `"udp:"` for the UDP binding):
 The indicated values are the default values used by either binding
 
 `tcp:refreshinterval=250` - This is a mandatory field in order to start up the binding - Refresh interval for the polling thread, can be used to manage oh Host CPU Load
