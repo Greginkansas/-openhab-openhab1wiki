@@ -185,7 +185,7 @@ ping.checkVitality("google.com", 80, 100)
 
 ### Example in Jython
 
-See [Jython examples](Jsr223-Jython.md#user-content-jython-examples)
+See [[Jython examples|Jsr223-Jython#jython-examples]]
 
 ### Example in JavaScript
 
