@@ -5,7 +5,7 @@
 This addon allows the usage of different scripting languages as basis for rules. It was tested with the Jython, but feel free to contribute to this wiki, if you are using another language like JRuby.
 
 * [Javascript](#javascript)
-* [[Jython|JSR223-Jython.md]] (separate page)
+* [[Jython|JSR223-Jython]] (separate page)
 * [Groovy](#groovy)
 
 <a name="javascript"></a>
