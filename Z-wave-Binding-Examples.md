@@ -225,6 +225,31 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Contact	Contact_BackDoor	"Back Door [MAP(motion.map):%s]"	<frontdoor> (GF_Kitchen)	{zwave="5:command=basic,respond_to_basic=true"}
     Number	Battery_BackDoor	"Back Door Battery: [%d %%]"	<battery>	(GF_Kitchen,Battery)	{zwave="5:command=battery"}
 
+###Zooz 4-in-1 Multisensor (ZSE40)
+
+```
+Contact UPSTAIRS_HALLWAY_PIR_TAMPER "Upstairs Hallway Tamper [MAP(zwave_motion.map):%s]" (Group_Motion, Group_Persistence, Group_Upstairs) {zwave="58:command=ALARM"}
+Number UPSTAIRS_HALLWAY_PIR_BATTERY "Upstairs Hallway Battery [%d %%]" (Group_Motion, Group_Persistence, Group_Upstairs) {zwave="58:command=BATTERY"}
+Number UPSTAIRS_HALLWAY_PIR_TEMPERATURE "Upstairs Hallway Temperature [%.2f F]" (Group_Motion, Group_Persistence, Group_Upstairs) {zwave="58:command=sensor_multilevel,sensor_type=1,sensor_scale=1"}
+Number UPSTAIRS_HALLWAY_PIR_LIGHT "Upstairs Hallway Light [%.1f %%]" (Group_Motion, Group_Persistence, Group_Upstairs) {zwave="58:command=sensor_multilevel,sensor_type=3"}
+Number UPSTAIRS_HALLWAY_PIR_REL_HUMID "Upstairs Hallway RH [%.0f %%]" (Group_Motion, Group_Persistence, Group_Upstairs) {zwave="58:command=sensor_multilevel,sensor_type=5"}
+Contact UPSTAIRS_HALLWAY_PIR_MOTION "Upstairs Hallway Motion [MAP(zwave_motion.map):%s]" (Group_Motion, Group_Persistence, Group_Upstairs) {zwave="58:command=BASIC"}
+```
+
+zwave_motion.map
+```
+CLOSED=No Motion
+OPEN=MOTION
+-=(No value yet)
+```
+
+zwave_tamper.map
+```
+CLOSED=No Tamper
+OPEN=TAMPER
+-=(No value yet)
+```
+
 
 #Shutters
 
