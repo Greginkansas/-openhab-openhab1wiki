@@ -63,4 +63,4 @@ Sitemap:
 
 
 ### Other Examples
-Example configurations can be found [here](https://code.google.com/p/openhab-samples/wiki/BindingConfig?ts=1370629305&updated=BindingConfig).
+Example configurations can be found [here](https://github.com/openhab/openhab/wiki/Samples-Binding-Config).
