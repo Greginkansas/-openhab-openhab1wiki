@@ -2,10 +2,15 @@
 
 # Script-Engines
 
-This addon allows the usage of different scripting languages as basis for rules. It was tested with the Jython-Scripting-Runtime and all examples rely on this scripting language. Feel free to contribute to this wiki, if you are using another language like JRuby.
+This addon allows the usage of different scripting languages as basis for rules. It was tested with the Jython, but feel free to contribute to this wiki, if you are using another language like JRuby.
 
-## Installation
-The package needs to be installed to addons like any other addon [openhab]/addons. By default it comes with build-in Nashorn-Engine for JavaScript (\*.js) as scripting language. Feel free to use another scripting language like Jython (\*.py). Put all your scripts in the [openhab]/scripts directory.
+* [Javascript](#javascript)
+* [Jython](JSR223-Jython.md) (separate page)
+* [Groovy](#groovy)
+
+<a name="javascript"></a>
+## Javascript Installation
+The package needs to be installed to addons like any other addon [openhab]/addons. By default it comes with build-in Nashorn-Engine for JavaScript (\*.js) as scripting language. **Put all your scripts in the [openhab]/scripts directory, not the rules directory.**
 
 - **ATTENTION**: The addon jsr223 jar of 1.7.0 is broken, please use a [1.8.0 build](https://openhab.ci.cloudbees.com/job/openHAB/)
 
@@ -14,77 +19,16 @@ The package needs to be installed to addons like any other addon [openhab]/addon
 - Use openHAB Version >= 1.8.0
 - For loading Java classes with *nashorn* you need to start openHAB with the for java 9 preferred class-loader. Therefore add the ````-Dorg.osgi.framework.bundle.parent=ext```` parameter to your start.sh or start.bat.
 
+<a name="groovy"/></a>
 
-### Jython-Installation
-- Download Jython 2.7.0 from http://www.jython.org/downloads.html as an installer package.
-- Install jython to /opt/jython
-- customize start.sh to reference to the JYTHON-PATH:
-    
-```
-#!/bin/sh
-
-cd `dirname $0`
-
-# set path to eclipse folder. If local folder, use '.'; otherwise, use /path/to/eclipse/
-eclipsehome="server";
-
-# set ports for HTTP(S) server
-HTTP_PORT=8080
-HTTPS_PORT=8443
-
-JYTHON_HOME="/opt/jython";
-
-# get path to equinox jar inside $eclipsehome folder
-cp=$(echo lib/*.jar | tr ' ' ':'):$(find $eclipsehome -name "org.eclipse.equinox.launcher_*.jar" | sort | tail -1);
-echo $cp
-echo Launching the openHAB runtime...
-java \
-    -Dpython.home="$JYTHON_HOME" \
-    -Dosgi.clean=true \
-    -Declipse.ignoreApp=true \
-    -Dosgi.noShutdown=true  \
-    -Djetty.port=$HTTP_PORT  \
-    -Djetty.port.ssl=$HTTPS_PORT \
-    -Djetty.home=.  \
-    -Dlogback.configurationFile=configurations/logback.xml \
-    -Dfelix.fileinstall.dir=addons -Dfelix.fileinstall.filter=.*\\.jar \
-    -Djava.library.path=lib \
-    -Djava.security.auth.login.config=./etc/login.conf \
-    -Dorg.quartz.properties=./etc/quartz.properties \
-    -Dequinox.ds.block_timeout=240000 \
-    -Dequinox.scr.waitTimeOnBlock=60000 \
-    -Dfelix.fileinstall.active.level=4 \
-    -Djava.awt.headless=true \
-    -cp $cp org.eclipse.equinox.launcher.Main $* \
-    -console
-```
-
-- symlink jython.jar into /opt/openhab/lib/ (mkdir /opt/openhab/lib; cd /opt/openhab/lib; ln -s /opt/jython/jython.jar .)  or add jython.jar to classpath in start-script
-
-- It is **recommended** that you add ``` -Dpython.path="configurations/scripts/lib" ``` to your startup arguments. You can than create library scripts in scripts/lib folder and then easily import them from you normal scripts. This makes creating library functions very easy!
-
-#### For package installations on Unix
-The apt-get packages run openhab as an executable jar file, so modifying classpath has no effect.  
-
-To use Jython, update JAVA_ARGS in  /etc/default/openhab to this
-```
-JAVA_ARGS="-Xbootclasspath/a:/opt/jython/jython.jar -Dpython.home=/opt/jython -Dpython.path=configurations/scripts/lib"
-```
-
-### Running jython scripts from within the IDE
-First install jython (in e.g. /opt/jython) as above, then:
-- In the IDE "Run Configurations" create your own custom runtime environment by right-clicking "openHAB Runtime" and copying it into "openHAB Runtime Custom"
-- In the "openHAB Runtime Custom", in the "Main" tab, add /opt/jython/jython.jar into the Boostrap entries.
-- In the "Arguments" tab, add -Dpython.home=/opt/jython at the beginning of the "VM arguments"
-- In the "Plug-ins" tab, verify that org.openhab.core.jsr223 has Auto-Start = true, and that "Start Level" is set larger than the default. So if the default Start Level is 4, you must set the Start Level of the jsr223 engine  to 5 to defer its start. **This step is crucially important to avoid null pointer exceptions and a broken system**.
-- Now you can start the customized runtime by clicking on the down arrow next to the green start button, and selecting "openHAB Runtime Custom"
-
-### Groovy-Installation
+## Groovy-Installation
 - Download groovy from http://www.groovy-lang.org/download.html and install it.
 - Create a new directory inside openhab, openhab/lib
 - Copy from groovy/lib all groovy*.lib to openhab/lib
 - You now need to modify your startup script (here is the windows one)
-start.bat
+
+**start.bat**
+
 ```
 @echo off
 
@@ -121,56 +65,24 @@ java -Dosgi.clean=true^
 ```
 
 ## Scripts
-Each Script needs to be located in configurations/scripts with a correct script ending (".py", ".jy" for jython interpreter). Each Script can contain multiple rules.
+Each Script needs to be located in configurations/scripts with a correct script ending (for example, ".py", ".jy" for jython interpreter). Each script file can contain multiple rules.
 
 ### Rule-Class
 Each rule is basically a class in the given scripting language. It needs to implement two functions:
+
 * getEventTrigger
     * returns an array of EventTrigger
 * execute
     * gets as first argument the reason why it was called
 
-Supported triggers: 
+Supported triggers:
+
 * ChangedEventTrigger (for updates and changed states)
 * UpdatedEventTrigger
 * CommandEventTrigger
 * ShutdownTrigger
 * StartUpTrigger
 * TimerTrigger
-
-```
-class TestRule(Rule):
-	def getEventTrigger(self):
-		return [
-			StartupTrigger(),
-			ChangedEventTrigger("Heating_FF_Child", None, None),
-			TimerTrigger("0/50 * * * * ?")
-		] 
-
-	def getName(self):
-		return type(self).__name__
-
-	def execute(self, event):
-		oh.logDebug(self.getName(), "event received " + str(event))
-		oh.logInfo(self.getName(), str(ItemRegistry.getItem("Heating_GF_Corridor")))
-		action = oh.getActions() 
-		oh.logInfo(self.getName(), "available actions: " + str(action.keySet()))
-		ping = oh.getAction("Ping")
-		oh.logInfo(self.getName(), "internet reachable: " + ("yes" if ping.checkVitality("google.com", 80, 100) else "no"))
-
-def getRules():
-    return RuleSet([
-        TestRule()
-    ])
-```
-
-#### Output
-```
-21:47:06.975 [DEBUG] [.openhab.model.jsr232.TestRule:60   ] - event received Event [triggerType=STARTUP, item=null, oldState=null, newState=null, command=null]
-21:47:06.977 [INFO ] [.openhab.model.jsr232.TestRule:75   ] - Heating_GF_Corridor (Type=SwitchItem, State=OFF)
-21:47:06.979 [INFO ] [.openhab.model.jsr232.TestRule:75   ] - available actions: [Exec, Transformation, Ping, HTTP, Audio]
-21:47:07.003 [INFO ] [.openhab.model.jsr232.TestRule:75   ] - internet reachable: yes
-```
 
 ## Interaction with Openhab
 In general all interaction is done through the oh object. It has support for the following:
@@ -269,88 +181,14 @@ ping.checkVitality("google.com", 80, 100)
 * FilenameUtils
 * File 
 
-# Script Collection
-On the [community board](https://community.openhab.org/t/jsr223-script-collection/5232) some useful commonly usable scripts can be found. At the time of this writing only Jython based scripts were available.
-
-The scripts themself can be found at the [Github Repository](https://github.com/smerschjohann/openhab-jsr223-scripts).
-
 # Examples
 
 ### Example in Jython
 
-See [[Jython Hints and Tips]] page for more examples and suggestions.
-
-Open-Window on temperature (uses string casts, item info can also directly be obtained by the member method (intValue() etc.)) :
-```
-    import datetime
-
-    class WintergartenRule(Rule):
-        def __init__(self):
-            item = ItemRegistry.getItem("Wintergarten_Automatik")
-            if item.state == None or str(item.state) == "Uninitialized":
-                oh.postUpdate("Wintergarten_Automatik", "ON")
-                oh.postUpdate("Wintergarten_Automatik_from", "8")
-                oh.postUpdate("Wintergarten_Automatik_to", "19")
-                oh.postUpdate("Wintergarten_Automatik_openTemp", "23")
-                oh.postUpdate("Wintergarten_Automatik_closeTemp", "20")
-
-            self.logger = oh.getLogger("WintergartenRule")
-
-        def getAutomatikInfo(self):
-            return {
-                "enabled": ItemRegistry.getItem("Wintergarten_Automatik").state == OnOffType.ON,
-                "from": int(str(ItemRegistry.getItem("Wintergarten_Automatik_from").state)),
-                "to": int(str(ItemRegistry.getItem("Wintergarten_Automatik_to").state)),
-                "openTemp": float(str(ItemRegistry.getItem("Wintergarten_Automatik_openTemp").state)),
-                "closeTemp": float(str(ItemRegistry.getItem("Wintergarten_Automatik_closeTemp").state))
-            }
-
-        def getEventTrigger(self):
-            return [
-                ChangedEventTrigger("Wintergarten_Temperatur")
-            ]
-
-        def execute(self, event):
-            self.logger.info("event {}", event)
-            if event.newState:
-                self.logger.info("Wintergarten_Temperatur changed to: {}", event.newState)
-				
-                //PersistenceExtensions
-                peExample = pe.historicState( ir.getItem("Wintergarten_Temperatur"), DateTime.now().minusDays(7))
-                self.logger.info("Wintergarten_Temperatur last Week: {}", peExample)
-
-                temp = float(str(event.newState))
-                self.checkConditions(temp)
-
-        def checkConditions(self, temp):
-            config = self.getAutomatikInfo()
-
-            t = datetime.datetime.now().time()
-
-            if config["enabled"] and t < datetime.time(config["to"]) and t >= datetime.time(config["from"]):
-
-                alleFenster = ItemRegistry.getItem("Wintergarten_Jalousie_Fenster_Alle")
-                state = int(str(alleFenster.state))
-
-                regen = str(ItemRegistry.getItem("Regensensor").state) == "1"
-                print "Regen=",regen
-
-                if not regen:
-                    if temp >= config["openTemp"] and state == 100:
-                        oh.sendCommand("Wintergarten_Jalousie_Fenster_Alle", "UP")
-                    elif temp <= config["closeTemp"] and state <= 50:
-                        oh.sendCommand("Wintergarten_Jalousie_Fenster_Alle", "DOWN")
-
-
-    def getRules():
-        return RuleSet([
-            WintergartenRule()
-        ])
-```
-
-
+See [Jython examples](Jsr223-Jython.md#user-content-jython-examples)
 
 ### Example in JavaScript
+
 ```
 'use strict';
 

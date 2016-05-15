@@ -25,6 +25,7 @@
 ## [[Automation|Automation]]
 * [[Scripts]]
     * [[JSR223 Script Engine|Jsr223-Script-Engine]]
+    	* [Jython Scripting](JSR223-Jython.md)
 * [[Rules]]
 * [[Actions]]
 
