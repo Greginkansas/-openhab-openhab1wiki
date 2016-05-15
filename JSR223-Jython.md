@@ -371,7 +371,7 @@ There is a Jython-related tutorial on the [community forum](https://community.op
  
 #### Tips
 
-See [Jython hints ant tips](Jython-Hints-and-Tips.md) page for information about improved error logging, reuseable classes and so on.
+See [[Jython hints and tips|Jython-Hints-and-Tips]] page for information about improved error logging, reuseable classes and so on.
 
 ### Jython Script Collection
 On the [community forum](https://community.openhab.org/t/jsr223-script-collection/5232) some useful commonly usable Jython scripts can be found. The scripts themself can be found at the [Github Repository](https://github.com/smerschjohann/openhab-jsr223-scripts).
