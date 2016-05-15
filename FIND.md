@@ -5,6 +5,8 @@
 
 [Main Page : FIND](https://www.internalpositioning.com/)
 
+[MQTT Documentation : FIND](https://doc.internalpositioning.com/mqtt/)
+
 ***
 Retrieve FIND client for Android through Play Store (search for "find hypercube")
 
