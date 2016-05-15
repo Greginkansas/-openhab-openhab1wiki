@@ -21,7 +21,7 @@ class TestRule(Rule):
         except:
             oh.logError("TestRule", traceback.format_exc())
 ```
-## Script file misses mandotary function: _getRules()_
+## Script file misses mandatory function: _getRules()_
 This error appears to be caused by the Java file reader reading the file faster than the code is written by the editor.  I have removed its occurrence by updating _openhab.cfg_ to not read the script files as quickly
 
 ```
