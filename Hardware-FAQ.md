@@ -36,7 +36,7 @@ ARM-based computers are a popular choice due to low cost, small size, low power 
 1. Install Raspbian Wheezy release 2014-01-07 or later. It includes Java 7 JRE that meets openHAB  JVM requirements.
 
 1. Install openHAB -  - as described in
-[[Linux---OS-X]]
+[[Linux-and-OS-X]]
 
 Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is available for download from Oracle or from [Apt Repository](https://github.com/openhab/openhab/wiki/Apt-Repository).
 
