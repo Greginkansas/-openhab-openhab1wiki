@@ -150,6 +150,7 @@ To do this you have to
 
 # Known Problems (or limitations)
 * If you are using multiple calendars you have to set the thread count for quartz to this calendar amount or higher otherwise some calendars will not be loaded.
+* You have to set the preloadInterval to a higher or equal value as the recurring events in the calendar exists.
 
 # Example configuration
 
