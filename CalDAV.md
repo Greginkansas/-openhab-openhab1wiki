@@ -138,7 +138,7 @@ This site may help to find the Calendar URL (i.e. Google Shared Calendars):
 http://www.ict4g.net/adolfo/notes/2015/07/04/determingurlofcaldav.html
 
 ## Google 2-factor authentication
-If 2-factor autheciation has been enabled, create an application password using https://support.google.com/accounts/answer/185833?hl=en Use this password instead of your account password.
+If 2-factor authentication has been enabled, create an application password using https://support.google.com/accounts/answer/185833?hl=en Use this password instead of your account password.
 
 # Persistence
     caldav-persistence:calendarId=history
