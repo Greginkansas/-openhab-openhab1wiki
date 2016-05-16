@@ -17,7 +17,7 @@ Though it does have a bit of a learning curve, it is worth the time and effort r
 * [Official openHAB install guide including all the downloads](http://www.openhab.org/getting-started/index.html)
 * [Homeautomationforgeeks.com Installation guide](http://www.homeautomationforgeeks.com/openhab.shtml)
 * From the wiki
- * [[Linux---OS-X]]
+ * [[Linux-and-OS-X]]
  * [[Ubuntu on x64]]
  * [[ARM based systems (Raspberry Pi, CubieBoard, ODroid, BeagleBone Black, Banana Pi (bPi))|Hardware-FAQ]]
  * [[Windows]]
