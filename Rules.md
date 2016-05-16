@@ -126,6 +126,8 @@ A cron expression takes the form of six or optionally seven fields:
 
 for more information see: http://www.quartz-scheduler.org/documentation/quartz-2.1.x/tutorials/tutorial-lesson-06
 
+You may also use [CronMaker](http://www.cronmaker.com/) to generate cron expressions. 
+
 ### System-based Triggers
 
 Currently, you schedule rules to be executed either at system startup or shutdown. Note that newly added or modified startup rules are executed once, even if openHAB is already up and running. They are simply executed once as soon as the system is aware of them. Here's the syntax for system triggers:
