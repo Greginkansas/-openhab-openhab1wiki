@@ -107,6 +107,11 @@ Valid slave parameters are
 
        <tr><td>length</td><td>mandatory</td><td>number of <i>data items</i> to read. <i>Data items</i> here refers to registers, coils or discrete inputs depending on the slave type. For example, if the goal is to read one item with `valuetype=int32`, one needs to read two registers (2 * 16bit = 32bit), thus `length = 2`. If three coils are of interest, one should specify `length = 3`</td>
               </tr>
+            </tr>
+
+       <tr><td>updateunchangeditems</td><td>optional</td><td><b>Since 1.9.0</b>. <i>true</i> or <i>false</i>. Controls whether the binding sends an update event on every successful poll (true) or only if the state of the item actually changes (false). Default is <i>false</i>. When polling many items with high poll frequency, setting this parameter to <i>true</i> may cause significant CPU usage.</td>
+              </tr>
+
 </table>
 </td>
 
