@@ -45,11 +45,7 @@ You can run your own find server like this:<br>
 
 then it'll connect to a MQTT server on `mymqttserver` port `1883` with a 'findPID' being the process ID of the mosquitto server process, using credentials 'finduser' and password 'findpasswd'.
 
-For usage in scripts, replace findPID above with `"`pgrep mosquitto"``.
-
-`` ``
-```` ````
-``` ```
+For usage in scripts, replace ``findPID`` above with `` `pgrep mosquitto` ``.
 
 If you're using mosquitto (probably everybody does, no?), you can add authentication using `curl -X PUT "http://YOURGROUP/mqtt?group=YOURGROUP` and then FIND will automatically manage the passwd file and restart mosquitto using a SIGHUP signal. Also, use `mosquitto_passwd <passwordfile> finduser` to add credentials. `mosquitto_passwd` ain't included in the Raspian mosquitto distribution, you need to g**gle where to find it.
 Find publishes to mqtt channel 'YOURGROUP/location/YOURUSER'.
