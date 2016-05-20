@@ -59,6 +59,6 @@ Examples, how to configure your items in your items file:
 	Number Insight_onToday       "On Today [%.0f]"       {wemo="Insight-1-0-87654321;onToday"}
 	Number Insight_onTotal       "On Total [%.0f]"       {wemo="Insight-1-0-87654321;onTotal"}
 	Number Insight_energyToday   "Energy Today [%.0fWh]" {wemo="Insight-1-0-87654321;energyToday"}
-	DateTime Insight_LastChange  "Last change [%1$tH:%1$tM]"  {wemo="Insight-1_0-87654321;lastChangedAt"
+	DateTime Insight_LastChange  "Last change [%1$tH:%1$tM]"  {wemo="Insight-1_0-87654321;lastChangedAt"}
 	Contact Motion1                                      {wemo="Sensor-1-0-56437891"}
 
