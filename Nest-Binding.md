@@ -1,5 +1,3 @@
-_**Note:** This Binding is available in 1.7 and later releases._
-
 ## Table of Contents
 
 * [Introduction](#introduction)
@@ -32,24 +30,24 @@ Edit the file `openhab.cfg` located in `${openhab_home}/configurations/`.  Paste
     ############################## Nest binding ########################################
     #
     # Data refresh interval in ms (optional, defaults to 60000)
-    # nest:refresh=60000
+    #nest:refresh=60000
 
     # HTTP request timeout in ms (as of 1.8, optional, defaults to 10000)
-    # nest:timeout=10000
+    #nest:timeout=10000
 
-    # the Product ID for the product you created (replace with your own)
+    # the Product ID for the product you created (required, replace with your own)
     nest:client_id=e5cc5558-ec55-4c55-8555-4b95555f4979
 
-    # the Product Secret for the product you created (replace with your own)
+    # the Product Secret for the product you created (required, replace with your own)
     nest:client_secret=ZZo28toiuoiurok4WjUya1Bnc
 
     # the PIN code that was generated when you authorized your account to allow
-    # this product
+    # this product (required, replace with your own)
     nest:pin_code=2JTXXXJL
 
 An optional _refresh interval_ setting may also be specified, via the `nest:refresh` parameter, and defaults to a polling rate of one call per every 60000ms (one minute).
 
-:warning: Setting the _refresh interval_ aggressively may cause you to hit [data rate limits](https://developer.nest.com/documentation/cloud/data-rate-limits).  Nest Documentation recommends the `nest:refresh` not be set lower than 60000.
+:warning: Setting the _refresh interval_ aggressively may cause you to hit [data rate limits](https://developer.nest.com/documentation/cloud/data-rate-limits).  Nest documentation recommends the `nest:refresh` not be set lower than 60000.
 
  > To avoid errors, we recommend you limit requests to one call per minute, maximum.
 
@@ -119,7 +117,7 @@ String   NestHome_structure_id "Structure Id [%s]" {nest="<[structures(Home).str
 
 Number   NestTStatUpstairs_humidity "Humidity [%d %%]"                                   {nest="<[thermostats(Upstairs).humidity]"}
 String   NestTStatUpstairs_locale "Locale [%s]"                                          {nest="<[thermostats(Upstairs).locale]"}
-String   NestTStatUpstairs_temperature_scale "Temperature Scale [%s]"                    {nest="<[thermostats(Upstairs).temperature_scale]"}
+String   NestTStatUpstairs_temperature_scale "Temperature Scale [%s]"                    {nest="<[thermostats(Upstairs).temperature_scale]"} // as of 1.9 with thermostat read/write v5 permission, can also be set (=)
 Switch   NestTStatUpstairs_is_using_emergency_heat "Is using emergency heat [%s]"        {nest="<[thermostats(Upstairs).is_using_emergency_heat]"}
 Switch   NestTStatUpstairs_has_fan "Has Fan [%s]"                                        {nest="<[thermostats(Upstairs).has_fan]"}
 String   NestTStatUpstairs_software_version "Software Version [%s]"                      {nest="<[thermostats(Upstairs).software_version]"}
@@ -143,12 +141,18 @@ Number   NestTStatUpstairs_away_temperature_low_c "Away Temperature Low [%.1f °
 Number   NestTStatUpstairs_away_temperature_low_f "Away Temperature Low [%.1f °F]"       {nest="<[thermostats(Upstairs).away_temperature_low_f]"}
 String   NestTStatUpstairs_structure_id "Structure Id [%s]"                              {nest="<[thermostats(Upstairs).structure_id]"}
 Switch   NestTStatUpstairs_fan_timer_active "Fan Timer Active [%s]"                      {nest="=[thermostats(Upstairs).fan_timer_active]"}
-DateTime NestTStatUpstairs_fan_timer_timeout "Fan Timer Timeout [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest="<[thermostats(Upstairs).fan_timer_timeout]"}
+DateTime NestTStatUpstairs_fan_timer_timeout "Fan Timer Timeout [%1$tm/%1$td %1$tH:%1$tM]" <calendar> {nest="<[thermostats(Upstairs).fan_timer_timeout]"}
 String   NestTStatUpstairs_name_long "Name Long [%s]"                                    {nest="<[thermostats(Upstairs).name_long]"}
 Switch   NestTStatUpstairs_is_online "Is Online [%s]"                                    {nest="<[thermostats(Upstairs).is_online]"}
-DateTime NestTStatUpstairs_last_connection "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest="<[thermostats(Upstairs).last_connection]"}
-/* Added in openHAB 1.7.1: */
-String   NestTStatUpstairs_hvac_state "HVAC State [%s]"                                  {nest="<[thermostats(Upstairs).hvac_state]"}
+DateTime NestTStatUpstairs_last_connection "Last Connection [%1$tm/%1$td %1$tH:%1$tM]" <calendar> {nest="<[thermostats(Upstairs).last_connection]"}
+String   NestTStatUpstairs_hvac_state "HVAC State [%s]"                                  {nest="<[thermostats(Upstairs).hvac_state]"} // as of 1.7.1
+String   NestTStatUpstairs_where_id "Where ID [%s]"                                      {nest="<[thermostats(Upstairs).where_id]"} // as of 1.9
+Switch   NestTStatUpstairs_is_locked "Is Locked [%s]"                                    {nest="<[thermostats(Upstairs).is_locked]"} // as of 1.9
+String   NestTStatUpstairs_locked_temp_min_f "Locked Temp Min [%s °F]"                   {nest="<[thermostats(Upstairs).locked_temp_min_f]"} // as of 1.9, yes it's a String
+String   NestTStatUpstairs_locked_temp_max_f "Locked Temp Max [%s °F]"                   {nest="<[thermostats(Upstairs).locked_temp_max_f]"} // as of 1.9, yes it's a String
+String   NestTStatUpstairs_locked_temp_min_c "Locked Temp Min [%s °C]"                   {nest="<[thermostats(Upstairs).locked_temp_min_c]"} // as of 1.9, yes it's a String
+String   NestTStatUpstairs_locked_temp_max_c "Locked Temp Max [%s °C]"                   {nest="<[thermostats(Upstairs).locked_temp_max_c]"} // as of 1.9, yes it's a String
+String   NestTStatUpstairs_label "Label [%s]"                                            {nest=">[thermostats(Upstairs).label]"} // as of 1.9
 
 /* Smoke+CO detectors - change Master Bedroom to your Smoke+CO detector's name */
 
@@ -180,6 +184,9 @@ DateTime NestCamLastIsOnlineChange "CamLastIsOnlineChange [%1$tm/%1$td %1$tH:%1$
 Switch NestCamIsVideoHistoryEnabled "CamIsVideoHistoryEnable [%s]"          {nest="<[cameras(Dining Room).is_video_history_enabled]"}
 String NestCamWebUrl "CamWebUrl [%s]"                                       {nest="<[cameras(Dining Room).web_url]"}
 String NestCamAppUrl "CamAppUrl [%s]"                                       {nest="<[cameras(Dining Room).app_url]"}
+Switch NestCamIsPublicShareEnabled "IsPublicShareEnabled [%s]"              {nest="<[cameras(Dining Room).is_public_share_enabled]"} // as of 1.9
+String NestCamPublicShareUrl "PublicShareUrl [%s]"                          {nest="<[cameras(Dining Room).public_share_url]"} // as of 1.9
+String NestCamSnapshotUrl "SnapshotUrl [%s]"                                {nest="<[cameras(Dining Room).snapshot_url]"} // as of 1.9
 /* All last_event.* binding config strings require a Nest Aware with Video History subscription */
 Switch NestCamLastEventHasSound "CamLastEventHasSound [%s]"                 {nest="<[cameras(Dining Room).last_event.has_sound]"}
 Switch NestCamLastEventHasMotion "CamLastEventHasMotion [%s]"               {nest="<[cameras(Dining Room).last_event.has_motion]"}
@@ -257,3 +264,7 @@ Number NestCondo_temp "Condo Temperature [%.1f °F]" {nest="=[thermostats(Dining
 ### openHAB 1.8.1
 
 * Allow setting setpoints with decimals ([#3950](https://github.com/openhab/openhab/pull/3950))
+
+### openHAB 1.x addons 1.9.0
+
+* May 2016 API updates ([#4383](https://github.com/openhab/openhab/pull/4383))
