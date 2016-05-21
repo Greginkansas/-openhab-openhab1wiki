@@ -22,9 +22,11 @@ _NOTE: Some boards may need additional pin configuration prior using them, for e
 
 This will install all required modules.
 
-Some manual configuration is needed: edit `/etc/default/openhab` and set following:
+Some manual configuration may be needed.  The following edit to `/etc/default/openhab` may be necessary (see discussion above in Prerequisites section).  If needed, set:
 
     JAVA_ARGS=-Djna.boot.library.path=/usr/lib/jni
+
+The `JAVA_ARGS` edit may not be necessary, and could cause OpenHAB to crash.  If it does, simply undo the edit and restart OpenHAB.
 
 If you chose above to add the openhab user to the gpio group, then you shouldn't make the changes below to run as root.  If you did not add openhab to the gpio group, make a further edit to `/etc/default/openhab`:
 
