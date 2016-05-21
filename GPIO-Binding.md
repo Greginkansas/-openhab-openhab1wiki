@@ -22,15 +22,18 @@ _NOTE: Some boards may need additional pin configuration prior using them, for e
 
 This will install all required modules.
 
-If you chose above to add the openhab user to the gpio group, then you shouldn't make the changes below to run as root.  If you did not add openhab to the gpio group, some manual configuration is needed: edit `/etc/default/openhab` and set following:
+Some manual configuration is needed: edit `/etc/default/openhab` and set following:
 
-    USER_AND_GROUP=root:root
     JAVA_ARGS=-Djna.boot.library.path=/usr/lib/jni
 
-Edit `/usr/lib/systemd/system/openhab.service` and set the following:
+If you chose above to add the openhab user to the gpio group, then you shouldn't make the changes below to run as root.  If you did not add openhab to the gpio group, make a further edit to `/etc/default/openhab`:
 
-User=root
-Group=root
+    USER_AND_GROUP=root:root
+
+And then edit `/usr/lib/systemd/system/openhab.service` and set the following:
+
+     User=root
+     Group=root
 
 **Manual installation without using `apt-repo`:**
 
