@@ -1,5 +1,7 @@
 
 # Introduction
+Panstamp are low-power wireless modules programmable from Arduino.
+
 The panStamp binding enables openHAB to connect to a network of panStamp devices. The binding requires you to have a panStamp running the 'modem' sketch connected to a serial port. 
 
 It is imperative that you understand the panStamp environment before trying to use this binding. If you do understand the panStamp ecosystem, this documentation should provide a straight forward guide to getting your panStamps to talk to openHAB. 
