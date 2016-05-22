@@ -2,7 +2,7 @@ Shell-scripts to update to a snapshot-build
 
 ## Introduction
 
-If you are experimenting with the latest openHAB-snapshots, it can be quit annoying to download all nightly-packages, extract them, update all files and addons and copy/replace the configuration files, every time.
+If you are experimenting with the latest openHAB-snapshots, it can be quite annoying to download all nightly-packages, extract them, update all files and addons and copy/replace the configuration files, every time.
 
 
 To automate this process there are two shell-scripts for Linux available.
