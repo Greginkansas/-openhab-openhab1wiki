@@ -28,7 +28,7 @@ The parameter `jsoncallback` is optional. If not provided, `callback` will be us
 ## Code Samples
 
 See the following for code samples:
-https://github.com/openhab/openhab/wiki/Samples-REST
+[[Samples-REST]]
 
 ## Logging In
 
@@ -349,7 +349,7 @@ in case the page label or icon changes you will also receive something like this
 ```
 That's all! The GreenT UI, the iOS client as well as HABDroid use this mechanism to update the pages.
 
-If you are accessing the REST interface from another client (such as a python script), you can use python requests as shown in the Examples Wiki (Note: the example shows long polling to get updates - I don't recommend this, streaming works better. I will try to update the examples), but this will block on responses, so each subscription should be run in it's own thread.
+If you are accessing the REST interface from another client (such as a python script), you can use python requests as shown in the [[Samples-REST]] (Note: the example shows long polling to get updates - I don't recommend this, streaming works better. I will try to update the examples), but this will block on responses, so each subscription should be run in it's own thread.
 
 Besides this, server-push can be very helpful for integration with other systems, if they are interested in state changes from openHAB - there is no need to do polling in such a case.
 
