@@ -4,7 +4,7 @@ Please find below the release notes of the 1.8 Release.
 
 ### Version 1.8.3
 
-This is the second bugfix release of the 1.8 release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.3).
+This is the third bugfix release of the 1.8 release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.3).
 
 ### Updating the openHAB runtime 1.8.2 to 1.8.3
 
