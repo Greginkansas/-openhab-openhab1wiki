@@ -6,7 +6,7 @@ Please find below the release notes of the 1.8 Release.
 
 This is the second bugfix release of the 1.8 release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.3).
 
-### Updating the openHAB runtime 1.8.2 to 1.8.3
+#### Updating the openHAB runtime 1.8.2 to 1.8.3
 
 Many of the fixes does not require to update the Runtime itself so it would suffice to simply replace the Binding jars in your Add-Ons folder. However, if you would like have one of these [issues in the runtime](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.3+label%3Aruntime) fixed you will have to update the Runtime as well.
 
@@ -36,11 +36,9 @@ Many of the fixes does not require to update the Runtime itself so it would suff
 
 This is the second bugfix release of the 1.8 release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.2).
 
-### Updating the openHAB runtime 1.8.1 to 1.8.2
+#### Updating the openHAB runtime 1.8.1 to 1.8.2
 
 Many of the fixes does not require to update the Runtime itself so it would suffice to simply replace the Binding jars in your Add-Ons folder. However, if you would like have one of these [issues in the runtime](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.2+label%3Aruntime) fixed you will have to update the Runtime as well.
-
-####Major Features:
 
 ####Enhancements:
 * [#4190](https://github.com/openhab/openhab/pull/4190) - ZWave Update database (@cdjackson)
@@ -86,11 +84,9 @@ Many of the fixes does not require to update the Runtime itself so it would suff
 
 This is the first bugfix release of the 1.8 release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.1).
 
-### Updating the openHAB runtime 1.8.0 to 1.8.1
+#### Updating the openHAB runtime 1.8.0 to 1.8.1
 
 Many of the fixes does not require to update the Runtime itself so it would suffice to simply replace the Binding jars in your Add-Ons folder. However, if you would like have one of these [issues in the runtime](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.1+label%3Aruntime) fixed you will have to update the Runtime as well.
-
-####Major Features:
 
 ####Enhancements:
 * [#3881](https://github.com/openhab/openhab/pull/3881) - Remove dependancy on database to determine if device supports class during config (@cdjackson)
