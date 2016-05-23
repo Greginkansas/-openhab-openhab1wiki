@@ -2,6 +2,36 @@
 
 Please find below the release notes of the 1.8 Release.
 
+### Version 1.8.3
+
+This is the second bugfix release of the 1.8 release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.3).
+
+### Updating the openHAB runtime 1.8.2 to 1.8.3
+
+Many of the fixes does not require to update the Runtime itself so it would suffice to simply replace the Binding jars in your Add-Ons folder. However, if you would like have one of these [issues in the runtime](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.3+label%3Aruntime) fixed you will have to update the Runtime as well.
+
+####Enhancements:
+* [#4311](https://github.com/openhab/openhab/pull/4311) - Update pairing mechanism of hue binding to be compatible with new firmware (@dominicdesu)
+* [#4309](https://github.com/openhab/openhab/pull/4309) - FritzBoxTR064 Binding: Update for network stability (@gitbock)
+* [#4231](https://github.com/openhab/openhab/pull/4231) - Log a warning if the Hue binding for an item is empty. (@9037568)
+
+####Bugfixes:
+* [#4397](https://github.com/openhab/openhab/pull/4397) - Updated notes and attributes for the weather binding. (@9037568)
+* [#4388](https://github.com/openhab/openhab/pull/4388) - Typo corrected (@ralle12345)
+* [#4356](https://github.com/openhab/openhab/pull/4356) - [ecobee] Remove leading spaces to avoid confusion (@watou)
+* [#4351](https://github.com/openhab/openhab/pull/4351) - Bugfix at binding EM. only Datapoint.CUMULATED items could be updated… (@svenschreier)
+* [#4292](https://github.com/openhab/openhab/pull/4292) - deb packaging: docker support (@theoweiss)
+* [#4290](https://github.com/openhab/openhab/pull/4290) - renamed netatmo binding v1 (@kaikreuzer)
+* [#4281](https://github.com/openhab/openhab/pull/4281) - Fix issue reported in #4239 (@kreutpet)
+* [#4278](https://github.com/openhab/openhab/pull/4278) - fix Classic-UI (@teichsta)
+* [#4263](https://github.com/openhab/openhab/pull/4263) - Issue-2863: Moved files to interal-package to be able to log properly. Reduced ti… (@steintore)
+* [#4258](https://github.com/openhab/openhab/pull/4258) - Onkyo Binding multiple devices status update fix (@vavaroutsos)
+* [#4246](https://github.com/openhab/openhab/issues/4246) - apt-get install openhab-runtime assumes dbus is installed (@marnikvde)
+* [#4237](https://github.com/openhab/openhab/pull/4237) - RFXCOM Add Average speed for all wind sensors (@Speederc)
+* [#4214](https://github.com/openhab/openhab/issues/4214) - No updates in Classic UI after 1.8.2 upgrade (@watou)
+* [#4208](https://github.com/openhab/openhab/pull/4208) - [DSC Alarm] Bug Fix - Could not handle 'deviceType' configuration parameter (@RSStephens)
+* [#3258](https://github.com/openhab/openhab/issues/3258) - Adjust hue binding for hue API whitelist changes (@dominicdesu)
+
 ### Version 1.8.2
 
 This is the second bugfix release of the 1.8 release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.8.2).
