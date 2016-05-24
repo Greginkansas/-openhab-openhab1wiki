@@ -16,6 +16,10 @@ The Local URL should be entered like this:
 ```
 https://192.x.x.x:8443
 ```
+The Remote URL should be entered like this:
+```
+https://yoursub.dynamicdnsprovider.com:8443
+```
 Adding `/openhab.app` or more is not necessary and will cause a failed connection.
 
 **Security**
