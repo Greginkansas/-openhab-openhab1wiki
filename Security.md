@@ -26,13 +26,20 @@ If you prefer to use your own X.509 certificates, you can. [Configure_SSL](http:
 
 ## Authentication
 
-In order to activate Authentication one has to add the following parameters to the openHAB start command line
+In order to activate Authentication one has to have the following parameters to the openHAB start command line.  This may already be done by default.  
 
 - `-Djava.security.auth.login.config=./etc/login.conf` - the configuration file of the JAAS !LoginModules
 
 By default the command line references the file `<openhabhome>/etc/login.conf` which in turn configures a PropertyFileLoginModule that references the user configuration file `login.properties`. One should use all available LoginModule implementation here as well (see http://wiki.eclipse.org/Jetty/Tutorial/JAAS for further information).
 
-The default configuration for login credentials for openHAB is the file  `<openhabhome>/configuration/users.cfg`. In this file, you can put a simple list of "user=pwd" pairs, which will then be used for the authentication.
+The default configuration for login credentials for openHAB is the file  `<openhabhome>/configuration/users.cfg`. In this file, you can put a simple list of "user=pwd" pairs, which will then be used for the authentication.  For example:
+
+```
+user=password,user,role
+joe=password1
+wendy=12345
+```
+
 Note that you could optionally add roles after a comma, but there is currently no support for different roles in openHAB.
 
 ## Security Options
