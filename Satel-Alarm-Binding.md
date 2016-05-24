@@ -228,5 +228,5 @@ Although this binding allows you to configure disarming a partition and clearing
 
 ## TO DO
 
-* troubles support
-* support for automatic updates available in the newest firmware for INT-RS Plus and ETHM-1 Plus
+* event log functions (already implemented, waiting for merge: https://github.com/openhab/openhab/pull/3290)
+* troubles support (detailed)
