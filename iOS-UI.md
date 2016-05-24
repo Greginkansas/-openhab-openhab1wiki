@@ -12,6 +12,12 @@ iOS app uses Bonjour/mDNS service discovery to find openHAB in local network. Du
 If iOS app is unable to discover openHAB on local network, it assumes this is not a home network and uses Remote URL from application settings to connect to openHAB. It goes the same way if mobile network connection is detected. All settings, including username, password and remote URL can be configured through 'Settings' menu which is available at any point by clicking 'Settings' on the top right corner of the screen. You can also configure a static URL (openHAB URL) in Settings and openHAB will never try to discover and will connect to this URL during startup. If local URL is not reachable app will failover to remote URL.
 When you connect to openHAB for the first time iOS app will ask you to select sitemap from the list of available sitemaps. It will remember your decision and open this sitemap automatically next time you launch the app. You can switch sitemap anytime using 'Select sitemap' from settings menu.
 
+The Local URL should be entered like this:
+```
+https://192.x.x.x:8443
+```
+Adding `openhab.app` or more is not necessary and will cause a failed connection.
+
 **Security**
 
 We strongly recommend to use HTTPS, though HTTP is also available.
