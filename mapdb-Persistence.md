@@ -23,6 +23,13 @@ Querying the mapdb persistence service for historic values other than the last v
 
 For installation of this persistence package please follow the same steps as if you would [install a binding](Bindings).
 
+On Debian/Raspbian, you can use the following:
+
+```
+sudo apt-get update
+sudo apt-get install openhab-addon-persistence-mapdb
+```
+
 ## Configuration
 
 Place a persistence file called mapdb.persist in the `${openhab_home}/configurations/persistence` folder.
