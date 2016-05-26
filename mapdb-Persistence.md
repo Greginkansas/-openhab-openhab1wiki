@@ -39,6 +39,12 @@ See [Persistence](Persistence) for details on configuring this file.
 This persistence service can be configured in the "MapDB Persistence Service" section in `openhab.cfg`.
 You can set the commit interval.
 
+If you would like MapDB to be the default persistence service, update `persistence:default` in `openhab.cfg` to the following:
+
+```
+persistence:default=mapdb
+```
+
 ## Troubleshooting
 
 Restore of items after startup is taking some time. Rules are already started in parallel. Especially in rules that are started via "System started" trigger, it may happen that the restore is not completed resulting in undefined items. In these cases the use of restored items has to be delayed by a couple of seconds. This delay has to be determined experimentally.
