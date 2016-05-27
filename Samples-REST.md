@@ -4,6 +4,7 @@ Examples for accessing REST API
 * [cURL](Samples-REST#curl)
 * [PHP](Samples-REST#php)
 * [Python](Samples-REST#python)
+* [wget](Samples-REST#wget)
 
 ## Introduction
 
