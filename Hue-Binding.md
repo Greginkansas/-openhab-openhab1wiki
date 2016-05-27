@@ -147,15 +147,15 @@ Switch Light_GF_Lounge_Ceiling      "Ceiling light"   (gLights) {hue="3"}
 
 Color  Light_GF_Lounge_BackCorner_C    "Back Color"     (gLights)  {hue="1"}
 Color  Light_GF_Lounge_FrontCorner_C   "Front Color"    (gLights)  {hue="2"}
-Color  Light_GF_Lounge_Ceiling_C       "Ceiling Color   (gLights)  {hue="3"}
+Color  Light_GF_Lounge_Ceiling_C       "Ceiling Color"   (gLights)  {hue="3"}
 
-Dimmer  Light_GF_Lounge_BackCorner_B    "Back Dimmer"     (gLights)  {hue="1";brightness;30}
-Dimmer  Light_GF_Lounge_FrontCorner_B   "Front Dimmer"    (gLights)  {hue="2";brightness;30}
-Dimmer  Light_GF_Lounge_Ceiling_B       "Ceiling Dimmer"  (gLights)  {hue="3";brightness;30}
+Dimmer  Light_GF_Lounge_BackCorner_B    "Back Dimmer"     (gLights)  {hue="1;brightness;30"}
+Dimmer  Light_GF_Lounge_FrontCorner_B   "Front Dimmer"    (gLights)  {hue="2;brightness;30"}
+Dimmer  Light_GF_Lounge_Ceiling_B       "Ceiling Dimmer"  (gLights)  {hue="3;brightness;30"}
 
-Dimmer  Light_GF_Lounge_BackCorner_T    "Back Temperature"      (gLights)  {hue="1";colorTemperature;30}
-Dimmer  Light_GF_Lounge_FrontCorner_T   "Front Temperature"     (gLights)  {hue="2";colorTemperature;30}
-Dimmer  Light_GF_Lounge_Ceiling_T       "Ceiling Temperature"   (gLights)  {hue="3";colorTemperature;30}
+Dimmer  Light_GF_Lounge_BackCorner_T    "Back Temperature"      (gLights)  {hue="1;colorTemperature;30"}
+Dimmer  Light_GF_Lounge_FrontCorner_T   "Front Temperature"     (gLights)  {hue="2;colorTemperature;30"}
+Dimmer  Light_GF_Lounge_Ceiling_T       "Ceiling Temperature"   (gLights)  {hue="3;colorTemperature;30"}
 ```
 
 ## Sitemap file example
