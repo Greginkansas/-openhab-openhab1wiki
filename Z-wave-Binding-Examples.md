@@ -226,7 +226,7 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Contact    KitchenDoor       "Kitchen Door [%s]"       (door)       { zwave="2:command=sensor_binary,sensor_type=10" }
     Number     KitchenTemp       "Kitchen Temp [%.1f]"     (temp)       { zwave="2:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
     Number     KitchenBrightness "Kitchen Brightness [%d]" (brightness) { zwave="2:command=sensor_multilevel,sensor_type=3" }
-    Contact    KitchenTamper     "Kitchen Tamper [%s]"       (alarm)      { zwave="2:command=alarm" }
+    Contact    KitchenTamper     "Kitchen Tamper [%s]"     (alarm)      { zwave="2:command=alarm" }
     Number     KitchenBattery    "Kitchen Battery [%d]"    (battery)    { zwave="2:command=battery" }
 
 ###Vision Security Door/Window Sensor  
