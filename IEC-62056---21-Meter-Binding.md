@@ -39,7 +39,7 @@ NOTE: the `<meter-id1>` will be used in both the binding item configs and the ac
 In order to bind an item to the data received from the meter device , you need to provide item configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax of the binding configuration strings accepted is the following:
 The syntax of an item configuration is shown in the following line in general:
 
-    iec6205621meter="<meter-id>:<OBIS>"
+    iec6205621meter="<meter-id>;<OBIS>"
 Where meter-id matches one of the ids defined in your openhab.cfg file.
 
 If you do not know the available OBIS on your meter device you propably find them on the local HMI of you meter device. Please review you manual of the meter device or read the instruction of your utility.
@@ -51,9 +51,9 @@ Below is an example of represent the current energy counter tarif values as nume
 
     /* IEC 62056-21 Meter data */
     Number Tarif_Period	"Chart Period"
-    Number Tarif1 "High price tarif [%d kwh]" (gEnergy) { iec6205621meter="meter1:1.8.1" }
-    Number Tarif2 "Low price tarif [%d kwh]" (gEnergy) { iec6205621meter="meter1:1.8.2" }
-    Number ActualEnergyConsumption "Actual energy consumption [%.2f KW]" <gEnergy> () { iec6205621meter="meter1:16.7" }
+    Number Tarif1 "High price tarif [%d kwh]" (gEnergy) { iec6205621meter="meter1;1.8.1" }
+    Number Tarif2 "Low price tarif [%d kwh]" (gEnergy) { iec6205621meter="meter1;1.8.2" }
+    Number ActualEnergyConsumption "Actual energy consumption [%.2f KW]" <gEnergy> () { iec6205621meter="meter1;16.7" }
 
 ### Rules
 
