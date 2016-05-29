@@ -221,6 +221,14 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Contact OfficeMotionTamper      "office motion tamper [MAP(tamper.map):%s]"                        (ALL,tamper)                 {zwave="2:command=ALARM"}
     Number  OfficeMotionTemp        "office temp [%.1f °F]"                            <temperature>   (ALL,temperature,ff)         {zwave="2:command=sensor_multilevel,sensor_type=1,sensor_scale=1" }
 
+###Philio 4in1 Multisensor (PST-02)
+    Contact    KitchenMotion     "Kitchen Motion [%s]"     (motion)     { zwave="2:command=sensor_binary,sensor_type=12" }
+    Contact    KitchenDoor       "Kitchen Door [%s]"       (door)       { zwave="2:command=sensor_binary,sensor_type=10" }
+    Number     KitchenTemp       "Kitchen Temp [%.1f]"     (temp)       { zwave="2:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+    Number     KitchenBrightness "Kitchen Brightness [%d]" (brightness) { zwave="2:command=sensor_multilevel,sensor_type=3" }
+    Contact    KitchenTamper     "Kitchen Tamper [%s]"       (alarm)      { zwave="2:command=alarm" }
+    Number     KitchenBattery    "Kitchen Battery [%d]"    (battery)    { zwave="2:command=battery" }
+
 ###Vision Security Door/Window Sensor  
     Contact	Contact_BackDoor	"Back Door [MAP(motion.map):%s]"	<frontdoor> (GF_Kitchen)	{zwave="5:command=basic,respond_to_basic=true"}
     Number	Battery_BackDoor	"Back Door Battery: [%d %%]"	<battery>	(GF_Kitchen,Battery)	{zwave="5:command=battery"}
