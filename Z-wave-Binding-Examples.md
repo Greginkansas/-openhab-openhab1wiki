@@ -348,8 +348,8 @@ OPEN=TAMPER
 #Thermostats
 
 ###Danfoss LC13 radiator thermostat:
-    Number          bedroom_thermostat_setpoint     "Bedroom Thermostat Setpoint [%.2f C]"  { zwave="3:0:command=THERMOSTAT_SETPOINT" }
-    Number          bedroom_thermostat_battery      "Bedroom Thermostat battery [%d %%]"    { zwave="3:0:command=BATTERY" }
+    Number          bedroom_thermostat_setpoint     "Bedroom Thermostat Setpoint [%.2f C]"  { zwave="3:command=THERMOSTAT_SETPOINT" }
+    Number          bedroom_thermostat_battery      "Bedroom Thermostat battery [%d %%]"    { zwave="3:command=BATTERY" }
 
 ###Eurotronic Stella Z thermostat:  
 
