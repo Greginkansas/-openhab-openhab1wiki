@@ -44,6 +44,10 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
     Dimmer Light { zwave="6:command=SWITCH_MULTILEVEL,respond_to_basic=true" }
 
+###Fibaro Relay 1x2.5kW
+
+    Switch      Fibaro_Relay    "Fibaro Relay"          <switch>                { zwave="2" }
+
 ###Fibaro RGBW Controller  
 
     Group	gWohnzimmer		"Wohnzimmer"			<sofa>	(gAlles)
