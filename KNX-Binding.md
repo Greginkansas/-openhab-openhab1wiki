@@ -20,7 +20,7 @@ For installation of the binding, please see Wiki page [[Bindings]].
 
 ## Binding Configuration
 
-You can find the configuration section for the KNX binding in file **configurations/openhab.cfg**, section "KNX Binding". 
+You can find the configuration section for the KNX binding in file **[configurations/openhab.cfg](https://github.com/openhab/openhab/blob/master/distribution/openhabhome/configurations/openhab_default.cfg)**, section "KNX Binding". 
 
 ##### For your convenience you can see the relevant section as follows:
 
@@ -85,6 +85,11 @@ You can find the configuration section for the KNX binding in file **configurati
     # Seconds to wait for an orderly shutdown of the auto refresher's 
     # ScheduledExecutorService. (optional, defaults to 5)
     #knx:scheduledExecutorServiceShutdownTimeoutString=
+
+    # The following setting is planned to be added in the 1.9.0 version of OpenHAB:
+    # Use NAT (Network Address Translation)
+    #  (optional; defaults to false)
+    #knx:useNAT=true
 
 ##### A sample configuration could look like:
 
