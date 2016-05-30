@@ -36,7 +36,14 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
 #Lighting and Bulbs
 
+###Aeotec Micro Smart Switch (2nd Gen) (MSS2E)
+
+    Switch     Bathroom_Switch       "Bathroom Switch"     <switch>        { zwave="4:command=binary_switch,respond_to_basic=true" }
+    Number     Bathroom_Switch_Power "Bathroom Switch Power"               { zwave="4:command=meter,meter_scale=E_W" }
+
+
 ###Domitech ZBULB  
+
     Switch  Light_Landing   "Landing Light" <whites>    (FF_Hall,Lights)   {zwave="37:respond_to_basic=true"}
     Dimmer  Light_LandingBrightness   "Landing Brightness" <whites>    (FF_Hall,Lights)   {zwave="37:command=switch_multilevel"}
 
