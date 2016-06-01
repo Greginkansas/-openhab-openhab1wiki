@@ -90,8 +90,13 @@ In order to configure logging for this binding to be generated in a separate fil
 
 1. Getting current power status from the amplifier fails because of a bug in the Sonance software version 2.31. This is fixed in the Sonance firmware version 2.39.
 2. The auto on method "music" doesn't work when using an digital input module. Sonance reports this is a hardware limitation which will never be fixed.
+3. Absolute commands to directly set a volume (so not relative like UP and DOWN) need firmware version v2.51 or higher. Most GUI's make the change directly (like the Android app and the web GUI).
 
 ## Change Log
 ### openHAB 1.8
 
 * Initial version
+
+### openHAB 1.8.4
+
+* Absolute command now use direct IP codes, were they with some unstable algoritme combining UP and DOWN before.
