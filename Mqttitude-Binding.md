@@ -14,7 +14,7 @@ NOTE: from openHAB v1.7 the Mqttitude binding will support both the old and new 
     iOS             < v8.0     >= v8.0
     Android         < v5.0     >= v5.0
 
-Where the 'new' versions will publish lat/lon values as floats (rather than strings) and region enter/leave events are published to a `/event` sub topic (see below for details).
+Where the 'new' versions will publish lat/lon values as floats (rather than strings) and region enter/leave events are published to a `/event` sub topic (see below for details).  As of 1 June 2016, the current version of the OwnTracks mobile app is 9.1.5 (iOS) and 0.6.14 (Android).
 
 Now it is time to configure the MQTT and the Mqttitude bindings...
 
