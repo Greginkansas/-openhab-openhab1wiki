@@ -37,7 +37,7 @@
 * [[GreenT UI|TouchUI]]
 * [[CometVisu|CometVisu]]
 * [[Kodi|https://github.com/enishoca/openhab-kodi]]
-* [[Slack|https://github.com/openhab/openhab/wiki/Slack-integration]]
+* [[Slack|Slack-integration]]
 * [[Chrome Extension|https://chrome.google.com/webstore/detail/mini-openhab-controller/lphilmckagfijcikbfoibgekcoodaobd]]
 
 ## [[Persistence]]
@@ -69,9 +69,9 @@
 * [[Projects using openHAB|Projects-using-openHAB]]
 
 ## Development
-* [[How to Contribute|https://github.com/openhab/openhab-distro/blob/master/CONTRIBUTING.md]]
-* [[IDE Setup|https://github.com/openhab/openhab-distro/blob/master/docs/sources/development/ide.md]]
-* [[How to Implement a Binding|https://github.com/openhab/openhab-distro/blob/master/docs/sources/development/bindings.md]]
+* [[How to Contribute|http://docs.openhab.org/developers/contributing/contributing]]
+* [[IDE Setup|http://docs.openhab.org/developers/development/ide.html]]
+* [[How to Implement an openHAB 2 Binding|http://docs.openhab.org/developers/development/bindings.html]]
 * [[How to Implement an Action|How-To-Implement-An-Action]]
 
 
