@@ -4,7 +4,7 @@ This is documentation of openHAB binding for Satel Integra Alarm System which al
 
 For installation of the binding, please see Wiki page [Bindings](Bindings).
 
-**NOTE:** INT-RS module is supported in version 1.8 of the binding.
+**NOTE:** INT-RS module is supported since version 1.8 of the binding.
 
 ## Binding Configuration
 
@@ -142,6 +142,33 @@ Number items can be used only if `object_number` is not given and the number spe
 <tr><td>invert_state</td><td>uses 0 as active state (zones and outputs only)</td></tr></table>
 
 
+## Satel Actions
+
+_Available as of openHAB 1.8_
+
+> NOTE: Satel Binding v1.9+ must be installed in order to use Satel Actions
+
+The Satel Action bundle provides actions to read event log of the connected alarm system and check current connection status.
+
+* `boolean satelIsConnected()` - returns `true` if connected to communication module and `false` otherwise
+* `Object[] satelReadEvent(int eventIndex)` - reads event log record for given index; records must be read one by one from most recent record under index `-1`; see record description below
+* `String satelReadDeviceName(String deviceType, int deviceNumber)` - reads description of a device
+
+**Event record fields:**
+<table><tr><th>Field</th><th>Type</th><th>Description</th></tr>
+<tr><td>timestamp</td><td>DateTimeType</td><td>time when the event happened</td></tr>
+<tr><td>partition</td><td>Integer</td><td>partition number</td></tr>
+<tr><td>event class</td><td>Enum</td><td>one of ZONE_ALARMS, PARTITION_ALARMS, ARMING, BYPASSES, ACCESS_CONTROL, TROUBLES, USER_FUNCTIONS, SYSTEM_EVENTS</td></tr>
+<tr><td>event code</td><td>Integer</td><td>code of the event</td></tr>
+<tr><td>restoration flag</td><td>Boolean</td><td></td></tr>
+<tr><td>event description</td><td>String</td><td></td></tr>
+<tr><td>kind of description</td><td>Integer</td><td></td></tr>
+<tr><td>source</td><td>Integer</td><td></td></tr>
+<tr><td>object</td><td>Integer</td><td></td></tr>
+<tr><td>user control number</td><td>Integer</td><td></td></tr>
+<tr><td>next event index</td><td>Integer</td><td>index that must be passed to read next record from the log</td></tr>
+<tr><td>current event index</td><td>Integer</td><td>index of the current record</td></tr></table>
+
 ## Examples
 
 Partition item with ability to arm and disarm:
@@ -212,6 +239,62 @@ Switch AlarmConnection "Connection status" <network> { satel="module:connected" 
 DateTime AlarmConnSince "Connected since [%1$tF %1$tR]" { satel="module:connected_since" }
 ```
 
+Rule to send email on each alarm with 10 most recent records from the event log:
+```
+rule "Satel Action test"
+when
+        AlarmPart1 changed to ON
+then
+        var Integer eventIdx = -1
+        var Object[] eventRec
+        var String details
+        var String msgBody = ""
+
+        if (satelIsConnected()) {
+            logInfo("EventLog", "Start")
+            (1..10).forEach[
+                    eventRec = satelReadEvent(eventIdx)
+    
+                    if (eventRec.get(6) == 0)
+                        details = ""
+                    else if (eventRec.get(6) == 1)
+                        details = ", partition: " + satelReadDeviceName("PARTITION", eventRec.get(1)) + ", zone: " + satelReadDeviceName("ZONE", eventRec.get(7))
+                    else if (eventRec.get(6) == 2)
+                        details = ", partition: " + satelReadDeviceName("PARTITION", eventRec.get(1)) + ", user: " + satelReadDeviceName("USER", eventRec.get(7))
+                    else if (eventRec.get(6) == 4)
+                        if (eventRec.get(7) == 0) {
+                            if (eventRec.get(1) == 17)
+                                details = " (main board)"
+                        } else if (eventRec.get(7) <= 128)
+                            details = ", zone: " + satelReadDeviceName("ZONE", eventRec.get(7))
+                        else if (eventRec.get(7) <= 192)
+                            details = ", expander: " + satelReadDeviceName("EXPANDER", eventRec.get(7))
+                        else:
+                            details = ", lcd: " + satelReadDeviceName("LCD", eventRec.get(7))
+                    else if (eventRec.get(6) == 5)
+                        details = ", partition: " + satelReadDeviceName("PARTITION", eventRec.get(1))
+                    else if (eventRec.get(6) == 6)
+                        details = ", keypad: " + satelReadDeviceName("LCD", eventRec.get(1)) + ", user: " + satelReadDeviceName("USER", eventRec.get(7))
+                    else if (eventRec.get(6) == 7)
+                        details = ", user: " + satelReadDeviceName("USER", eventRec.get(7))
+                    else if (eventRec.get(6) == 15)
+                        details = ", partition: " + satelReadDeviceName("PARTITION", eventRec.get(1)) + ", timer: " + satelReadDeviceName("TIMER", eventRec.get(7))
+                    else
+                        details = ", kind=" + eventRec.get(6) + ", partition=" + eventRec.get(1) + ", source=" + eventRec.get(7)
+                    msgBody = msgBody + "\n" + eventRec.get(0) + ": " + eventRec.get(5) + details
+                    eventIdx = eventRec.get(10)
+            ]
+            logInfo("EventLog", "End")
+            sendMail("you@email.net", "Even log", msgBody)
+	}
+end
+```
+
+Item definition for the above rule:
+```
+Switch AlarmPart1 "Alarm on partition #1" { satel="partition:alarm_memory:1" }
+```
+
 
 ## Security considerations
 
@@ -228,5 +311,4 @@ Although this binding allows you to configure disarming a partition and clearing
 
 ## TO DO
 
-* event log functions (already implemented, waiting for merge: https://github.com/openhab/openhab/pull/3290)
 * troubles support (detailed)
