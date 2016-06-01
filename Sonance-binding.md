@@ -97,6 +97,10 @@ In order to configure logging for this binding to be generated in a separate fil
 
 * Initial version
 
+### openHAB 1.8.1
+
+* Bug fixes
+
 ### openHAB 1.8.4
 
 * Absolute command now use direct IP codes, were they with some unstable algoritme combining UP and DOWN before.
