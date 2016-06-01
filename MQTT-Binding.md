@@ -4,7 +4,7 @@ Documentation of the MQTT binding Bundle
 
 The **MQTT binding bundle** is available as a separate (optional) download.
 This binding allows openHAB to act as an MQTT client, so that openHAB items can send and receive [MQTT](http://mqtt.org/) messages to/from an MQTT broker. It does not provide MQTT broker functionality, for this you may want to have a look at [Mosquitto](http://mosquitto.org/). There are test servers available at m2m.eclipse.org and test.mosquitto.org. 
-To install, place this bundle in the folder ${openhab_home}/addons and add binding information to your configuration. 
+To install, place this bundle in the folder ${openhab_home}/addons or  use `sudo apt-get install openhab-addon-binding-mqtt` and add binding information to your configuration. 
 See the following sections on how to do this.
 
 
