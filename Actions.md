@@ -27,6 +27,7 @@ Since openHAB 1.3.0, not all actions are part of the core runtime distribution a
   * [OpenWebIf](#openwebif-action)
   * [Prowl](#prowl-actions)
   * [Pushover](#pushover-actions)
+  * [[Satel|Satel-Alarm-Binding#satel-actions]]
   * [Squeezebox](#squeezebox-action)
   * [Telegram](#telegram-action)
   * [TinkerForge](#tinkerforge-actions)
