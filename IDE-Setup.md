@@ -2,7 +2,7 @@
 <td>
 <hr width="100%">
 <b>
-This page is out of date. Please check <a href="https://github.com/openhab/openhab-distro/blob/master/docs/sources/development/ide.md">here</a> for the latest info.
+This page is out of date. Please check <a href="http://docs.openhab.org/developers/development/ide.html">here</a> for the latest info.
 </b>
 <hr>
 </td>
