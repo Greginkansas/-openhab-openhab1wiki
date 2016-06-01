@@ -144,7 +144,7 @@ Number items can be used only if `object_number` is not given and the number spe
 
 ## Satel Actions
 
-_Available as of openHAB 1.8_
+_Available as of openHAB 1.9_
 
 > NOTE: Satel Binding v1.9+ must be installed in order to use Satel Actions
 
@@ -152,7 +152,7 @@ The Satel Action bundle provides actions to read event log of the connected alar
 
 * `boolean satelIsConnected()` - returns `true` if connected to communication module and `false` otherwise
 * `Object[] satelReadEvent(int eventIndex)` - reads event log record for given index; records must be read one by one from most recent record under index `-1`; see record description below
-* `String satelReadDeviceName(String deviceType, int deviceNumber)` - reads description of a device
+* `String satelReadDeviceName(String deviceType, int deviceNumber)` - reads description of a devicel; device type must be one of PARTITION, ZONE, USER, EXPANDER, LCD, OUTPUT, TIMER, TELEPHONE, OBJECT
 
 **Event record fields:**
 <table><tr><th>Field</th><th>Type</th><th>Description</th></tr>
@@ -168,6 +168,7 @@ The Satel Action bundle provides actions to read event log of the connected alar
 <tr><td>user control number</td><td>Integer</td><td></td></tr>
 <tr><td>next event index</td><td>Integer</td><td>index that must be passed to read next record from the log</td></tr>
 <tr><td>current event index</td><td>Integer</td><td>index of the current record</td></tr></table>
+
 
 ## Examples
 
