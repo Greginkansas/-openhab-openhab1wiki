@@ -41,7 +41,7 @@ The **hue:ip** value is optional. If it is not provided, the binding tries to fi
 
 The **hue:secret** value is a string that gets stored in the hue bridge when pairing it with openHAB. That way the bridge 'knows' openHAB and allows it to send commands. It is kind of a password. Be aware that it is not encrypted in the communication. You may change this value to anything you like using characters and numbers. It must be between 10 and 40 characters long.
 
-The **hue:refresh** defines the polling interval in msec to retrieve Philips bulb status.
+The **hue:refresh** defines the polling interval in milliseconds (1000 milliseconds = 1 second) to retrieve Philips bulb status. 
 
 Other apps can change Hue status or a physical switch can turn on / off lamp status. If this happens the status of hue lamps within OpenHAB won't reflect the real status.
 
