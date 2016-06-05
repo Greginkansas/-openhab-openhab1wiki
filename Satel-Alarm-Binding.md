@@ -247,42 +247,53 @@ when
         AlarmPart1 changed to ON
 then
         var Integer eventIdx = -1
-        var Object[] eventRec
         var String details
         var String msgBody = ""
 
         if (satelIsConnected()) {
             logInfo("EventLog", "Start")
             (1..10).forEach[
-                    eventRec = satelReadEvent(eventIdx)
+                    val Object[] eventRec = satelReadEvent(eventIdx)
+                    val kind = eventRec.get(6) as Integer
+                    val source = eventRec.get(7) as Integer
+                    val object = eventRec.get(8) as Integer
+                    val ucn = eventRec.get(9) as Integer
     
-                    if (eventRec.get(6) == 0)
+                    if (kind == 0) {
                         details = ""
-                    else if (eventRec.get(6) == 1)
-                        details = ", partition: " + satelReadDeviceName("PARTITION", eventRec.get(1)) + ", zone: " + satelReadDeviceName("ZONE", eventRec.get(7))
-                    else if (eventRec.get(6) == 2)
-                        details = ", partition: " + satelReadDeviceName("PARTITION", eventRec.get(1)) + ", user: " + satelReadDeviceName("USER", eventRec.get(7))
-                    else if (eventRec.get(6) == 4)
-                        if (eventRec.get(7) == 0) {
-                            if (eventRec.get(1) == 17)
-                                details = " (main board)"
-                        } else if (eventRec.get(7) <= 128)
-                            details = ", zone: " + satelReadDeviceName("ZONE", eventRec.get(7))
-                        else if (eventRec.get(7) <= 192)
-                            details = ", expander: " + satelReadDeviceName("EXPANDER", eventRec.get(7))
-                        else:
-                            details = ", lcd: " + satelReadDeviceName("LCD", eventRec.get(7))
-                    else if (eventRec.get(6) == 5)
+                    } else if (kind == 1) {
+                        details = ", partition: " + satelReadDeviceName("PARTITION", eventRec.get(1)) + ", zone: " + satelReadDeviceName("ZONE", source)
+                    } else if (kind == 2) {
+                        details = ", partition: " + satelReadDeviceName("PARTITION", eventRec.get(1)) + ", user: " + satelReadDeviceName("USER", source)
+                    } else if (kind == 4) {
+                        if (source == 0) {
+                            details = " (mainboard)"
+                        } else if (source <= 128) {
+                            details = ", zone: " + satelReadDeviceName("ZONE", source)
+                        } else if (source <= 192) {
+                            details = ", expander: " + satelReadDeviceName("EXPANDER", source)
+                        } else {
+                            details = ", lcd: " + satelReadDeviceName("LCD", source)
+                        }
+                    } else if (kind == 5) {
                         details = ", partition: " + satelReadDeviceName("PARTITION", eventRec.get(1))
-                    else if (eventRec.get(6) == 6)
-                        details = ", keypad: " + satelReadDeviceName("LCD", eventRec.get(1)) + ", user: " + satelReadDeviceName("USER", eventRec.get(7))
-                    else if (eventRec.get(6) == 7)
-                        details = ", user: " + satelReadDeviceName("USER", eventRec.get(7))
-                    else if (eventRec.get(6) == 15)
-                        details = ", partition: " + satelReadDeviceName("PARTITION", eventRec.get(1)) + ", timer: " + satelReadDeviceName("TIMER", eventRec.get(7))
-                    else
-                        details = ", kind=" + eventRec.get(6) + ", partition=" + eventRec.get(1) + ", source=" + eventRec.get(7)
-                    msgBody = msgBody + "\n" + eventRec.get(0) + ": " + eventRec.get(5) + details
+                    } else if (kind == 6) {
+                        details = ", keypad: " + satelReadDeviceName("LCD", eventRec.get(1)) + ", user: " + satelReadDeviceName("USER", source)
+                    } else if (kind == 7) {
+                        details = ", user: " + satelReadDeviceName("USER", source)
+                    } else if (kind == 15) {
+                        details = ", partition: " + satelReadDeviceName("PARTITION", eventRec.get(1)) + ", timer: " + satelReadDeviceName("TIMER", source)
+                    } else if (kind == 30) {
+                        details = ", keypad: " + satelReadDeviceName("LCD", eventRec.get(1)) + ", ip: " + source + "." + (object*32 + ucn) + details
+                    } else if (kind == 31) {
+                        details = "." + source + "." + (object*32 + ucn)
+                    } else {
+                        details = ", kind=" + kind + ", partition=" + eventRec.get(1) + ", source=" + source + ", object=" + object + ", ucn=" + ucn
+                    }
+
+                    if (kind != 31) {
+                        msgBody = msgBody + "\n" + eventRec.get(0) + ": " + eventRec.get(5) + details
+                    }
                     eventIdx = eventRec.get(10)
             ]
             logInfo("EventLog", "End")
