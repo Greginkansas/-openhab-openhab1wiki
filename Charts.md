@@ -36,4 +36,4 @@ The created chart will be automatically formatted with some sensible defaults. T
 
 # Alternative Solutions
 
-There are other potential ways to integrate charts in the UI: They could be created on the server and provided to the UI as PNG or SVG files. They could also be created as HTML5 through Javascript (see e.g. [Sencha Charts](http://www.sencha.com/products/touch/charts) or [Google Chart Tool](https://developers.google.com/chart/)), where the data would be retrieved from the openHAB server through a REST API.
+There are other potential ways to integrate charts in the UI: They could be created on the server and provided to the UI as PNG or SVG files. They could also be created as HTML5 through Javascript (see e.g. [Sencha Charts](http://www.sencha.com/products/touch/charts) or [Google Chart Tool](https://developers.google.com/chart/)) if your database supports external access.
