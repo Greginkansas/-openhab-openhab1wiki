@@ -46,7 +46,7 @@ The following elements can be used **optionally** in a sitemap definition file (
   <tr><td><a href="#element-frame">Frame</a></td><td>Area with either various other sitemap elements or further nested frames</td></tr>
   <tr><td><a href="#element-group">Group</a></td><td>Renders all elements of a given group defined in an items definiton file</td></tr>
   <tr><td><a href="#element-image">Image</a></td><td>Renders an image</td></tr>
-  <tr><td><a href="#element-list">List</a></td><td></td></tr>
+  <tr><td><a href="#element-list">List</a></td><td>Not supported by any user interface</td></tr>
   <tr><td><a href="#element-selection">Selection</a></td><td>Gives access to a new page where the user can choose among values defined in the mappings parameter.</td></tr>
   <tr><td><a href="#element-setpoint">Setpoint</a></td><td>Shows a value and allows the user to modify it. Optionally, it is possible to specify maximum and minimum allowed values, as well as a step.</td></tr>
   <tr><td><a href="#element-slider">Slider</a></td><td>Renders a slider</td></tr>
