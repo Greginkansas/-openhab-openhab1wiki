@@ -33,7 +33,7 @@ Miscellaneous Tips & Tricks
 * [How to use the LIFX beta API via executeCommandLine and curl](Samples-Tricks#how-to-use-the-lifx-beta-api-via-executecommandline-and-curl)
 * [How to turn ON and OFF a Philips Hue with HomeMatic pushbutton](Samples-Tricks#how-to-turn-on-and-off-a-philips-hue-with-homematic-pushbutton)
 * [How to create a simple Remote for controlling a Dune HD Player with Http and Denon Bindings](Samples-Tricks#how-to-create-a-simple-remote-for-controlling-a-dune-hd-player-with-http-and-denon-bindings)
-* [How to monitor a dynamic WAN IP address](how-to-monitor-a-dynamic-wan-ip-address)
+* [[How to monitor a dynamic WAN IP address|Samples Tricks#How to monitor a dynamic WAN IP address]]
 
 ### How to redirect your log entries to the syslog
 
@@ -2010,3 +2010,39 @@ then
 end
 ```
 ### How to monitor a dynamic WAN IP address
+
+Most Internet Service Providers (ISP) provide you with a dynamic WAN IP address. This address may change over time. If you rely on this address, for example for accessing a computer inside your home network, you might want to monitor changes to the address. Websites like [icanhazip](http://icanhazip.com) and [WhatIsMyIP](http://whatismyip.com/automation/n09230945.asp) return your public IP address as plain text. 
+
+This solution grabs that address and stores it in an item. A rule monitors changes to the item and acts on it.
+
+This solution requires that you have the [[HTTP Binding|Http-Binding]] installed.
+
+Note: Please be nice to the websites you ping. Don't increase the interval above once per minute.
+
+**demo.items**
+
+```
+// check for WAN IP address changes every 10 mins
+String Network_WAN_IP "WAN IP address [%s]" <network> (Network) { http="<[http://icanhazip.com:600000:REGEX((.*?))]"
+```
+
+**demo.rules**
+```
+rule "Monitor WAN IP"
+when
+	Item Network_WAN_IP changes
+then
+	// perform any action needed
+	logInfo("MonitorWANIP", "WAN IP changed to " + Network_WAN_IP.state)
+end
+```
+
+**demo.sitemap**
+
+```
+sitemap demo label="Demo" {
+	Frame {
+		Text item=Network_WAN_IP
+	}
+}
+```
