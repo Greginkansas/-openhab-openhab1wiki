@@ -36,3 +36,17 @@ You may find descriptions like:
 - The Volume item, shown as an Slider.
 
 For more info about other options have a look at the demo.sitemap file.
+
+###How to make a link
+
+First define the link somewhere in an items file:
+
+```
+String MY_LINK "<a href='http://link.example/'>Here is a link!</a>"
+```
+
+then add it in your sitemap:
+
+```
+Text item=MY_LINK
+```
