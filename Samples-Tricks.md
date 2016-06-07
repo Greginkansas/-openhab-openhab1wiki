@@ -33,7 +33,7 @@ Miscellaneous Tips & Tricks
 * [How to use the LIFX beta API via executeCommandLine and curl](Samples-Tricks#how-to-use-the-lifx-beta-api-via-executecommandline-and-curl)
 * [How to turn ON and OFF a Philips Hue with HomeMatic pushbutton](Samples-Tricks#how-to-turn-on-and-off-a-philips-hue-with-homematic-pushbutton)
 * [How to create a simple Remote for controlling a Dune HD Player with Http and Denon Bindings](Samples-Tricks#how-to-create-a-simple-remote-for-controlling-a-dune-hd-player-with-http-and-denon-bindings)
-* [[How to monitor a dynamic WAN IP address|Samples Tricks#How-to-monitor-a-dynamic-wan-ip-address]]
+* [[How to monitor a dynamic WAN IP address|Samples Tricks#how-to-monitor-a-dynamic-wan-ip-address]]
 
 ### How to redirect your log entries to the syslog
 
