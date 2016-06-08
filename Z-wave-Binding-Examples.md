@@ -284,11 +284,13 @@ OPEN=TAMPER
 
 #Shutters
 
-###Fibaro Rollershutter FGRM-222  
+###Fibaro Rollershutter FGRM-222 (v1 and v2 HW revisions)
 
     Rollershutter kdSHUTTER		"Roller shutter [%d %%]" 				(gkdSHUTTER)	{zwave="3:command=switch_multilevel,invert_state=false,invert_percent=true"}
-    Rollershutter VenetianSHUTTER	"Venetian blind (blind position) [%d %%]" 		(gkdSHUTTER)	{zwave="4:command=FIBARO_FGRM_222,type=shutter"}
-    Rollershutter VenetianLAMELLA	"Venetian blind (lamella tilt) [%d %%]" 		(gkdSHUTTER)	{zwave="4:command=FIBARO_FGRM_222,type=lamella"}
+    Rollershutter VenetianSHUTTERv1	"Venetian blind (blind position) [%d %%]" 		(gkdSHUTTER)	{zwave="4:command=FIBARO_FGRM_222,type=shutter"}
+    Rollershutter VenetianLAMELLAv1	"Venetian blind (lamella tilt) [%d %%]" 		(gkdSHUTTER)	{zwave="4:command=FIBARO_FGRM_222,type=lamella"}
+    Rollershutter VenetianSHUTTERv2	"Venetian blind (blind position) [%d %%]" 		(gkdSHUTTER)	{zwave="4:command=MANUFACTURER_PROPRIETARY,type=shutter"}
+    Rollershutter VenetianLAMELLAv2	"Venetian blind (lamella tilt) [%d %%]" 		(gkdSHUTTER)	{zwave="4:command=MANUFACTURER_PROPRIETARY,type=lamella"}
 
     Number kdSHUTTER_Power		"current power usage [%.1f W]"	<energy> 	(gkdSHUTTER)	{ zwave="3:command=sensor_multilevel"}
     Number kdSHUTTER_Energy		"power consumption [%.2f KWh]"	<energy> 	(gkdSHUTTER)	{ zwave="3:command=meter" }
