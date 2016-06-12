@@ -1,3 +1,6 @@
+### As there is no such binding like SmlReaderBinding and no documentation, can we delete this page?
+***
+
 As mentioned at the documentation of SmlReaderBinding, the binding is capable to use the transformation service provided by the openHAB runtime. To do so, you have to provide the type of service and the function to transform the value from your SML device in your binding configuration.
 
 ## Supported Transformation services
