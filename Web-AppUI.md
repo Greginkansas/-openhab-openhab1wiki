@@ -4,7 +4,7 @@ Technical description for the Classic UI
 
 The standard user interface for openHAB is based on the [WebApp.Net](http://webapp-net.com/) framework and can be accessed through any (webkit-based) web browser. 
 
-You can directly [try it out on our demo server](http://demo.openhab.org:8080/openhab.app?sitemap=demo)!
+You can directly [try it out on our demo server](http://demo.openhab.org:8080/classicui/app)!
 
 ## Details on WebApp.Net
 
