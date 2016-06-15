@@ -191,8 +191,8 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
 ###Everspring ST814 temperature and humidity sensor  
    
-    Number T_AZH  "Temperature [%.1f °C]" (AZH) {zwave="32:1:command=sensor_multilevel,sensor_type=1" }
-    Number RH_AZH "Humidity    [%.0f %%]" (AZH) { zwave="32:1:command=sensor_multilevel,sensor_type=5" }
+    Number T_AZH  "Temperature [%.1f °C]" (AZH) {zwave="32:command=sensor_multilevel,sensor_type=1" }
+    Number RH_AZH "Humidity    [%.0f %%]" (AZH) { zwave="32:command=sensor_multilevel,sensor_type=5" }
 
 ###Fortrez water/temperature sensor  
 
