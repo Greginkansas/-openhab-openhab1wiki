@@ -35,7 +35,7 @@ and where `<transformationrule>` that will be applied to the `<command>` receive
 
 ##Configuration Parameters
 
-Note: This is optional for the configuration and not necessary for receiving data. Item-defintions are enough for receiving date. (Developer confirm? 20150128)
+Note: This is optional for the configuration and not necessary for receiving data. Item-defintions are enough for receiving data. (Developer confirm? 20150128). There's a bug in the binding that requires at least one udp configuration to be defined or the binding will not send UDP messages.
 
 The TCP and UDP bindings are highly configurable through the openhab.cfg . 
 The following parameters can be set (substitute `"tcp:"` with `"udp:"` for the UDP binding):
