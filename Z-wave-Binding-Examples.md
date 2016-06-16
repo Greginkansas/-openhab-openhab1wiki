@@ -39,7 +39,7 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 ###Aeotec Micro Smart Switch (2nd Gen) (MSS2E)
 
     Switch     Bathroom_Switch       "Bathroom Switch"     <switch>        { zwave="4:command=switch_binary,respond_to_basic=true" }
-    Number     Bathroom_Switch_Power "Bathroom Switch Power"               { zwave="4:command=meter,meter_scale=E_W" }
+    Number     Bathroom_Switch_Power "Bathroom Switch Power [%.1f W]"               { zwave="4:command=meter,meter_scale=E_W" }
 
 
 ###Domitech ZBULB  
@@ -193,6 +193,7 @@ Here are some examples of valid z-wave binding configuration strings, as defined
    
     Number T_AZH  "Temperature [%.1f °C]" (AZH) {zwave="32:command=sensor_multilevel,sensor_type=1" }
     Number RH_AZH "Humidity    [%.0f %%]" (AZH) { zwave="32:command=sensor_multilevel,sensor_type=5" }
+    Number BAT_AZH "Battery    [%.0f %%]" (AZH) { zwave="32:command=battery" }
 
 ###Fortrez water/temperature sensor  
 
