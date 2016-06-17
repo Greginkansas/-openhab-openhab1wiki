@@ -1,12 +1,5 @@
-<table><tr><td>:warning:</td>
-<td>
-<hr width="100%">
-<b>
-This page is out of date. Please check [here](http://docs.openhab.org/developers/development/bindings.html) for the latest info.
-</b>
-<hr>
-</td>
-<td>:warning:</td></tr></table>
+> :warning:
+> This page is out of date. Please check [here](http://docs.openhab.org/developers/development/bindings.html) for the latest info.
 
 # Introduction
 
