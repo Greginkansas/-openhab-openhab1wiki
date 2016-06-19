@@ -1,6 +1,6 @@
 openHAB Android is an open-source application providing openHAB user interface on Android platform. It is an integral part of openHAB project.
 
-<img src="http://www.openhab.org/images/ui/android-screens.png">
+<img src="http://www.openhab.org/assets/images/ui/android-screens.png">
 
 # Basic information on Android app
 
