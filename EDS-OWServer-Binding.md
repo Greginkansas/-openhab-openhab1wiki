@@ -46,7 +46,7 @@ In order to bind an item to the device, you need to provide configuration settin
 
 The `<` in front of `<serverId1>` tells the binding to _read_ the following value.
 
-The `serverId1` corresponds to the device which is introduced in openhab.cfg.
+The `serverId1` corresponds to the device which is introduced in openhab.cfg. This value must match the value in openhab.cfg and must consist only of letters, numbers and periods.
 
 The `ROMId` corresponds to the ROM-ID of the OneWire-device you want to query.
 
