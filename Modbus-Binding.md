@@ -115,6 +115,25 @@ Valid slave parameters are
 </table>
 </td>
 
+### Advanced connection parameters (**since 1.9.0**)
+
+Since 1.9.0 `connection` parameter can take additional colon (:) separated parameters:
+
+- For TCP slave the new format for connection parameter is: <i>host_ip[:port[:interTransactionDelayMillis[:reconnectAfterMillis[:interConnectDelayMillis[:connectMaxTries]]]]]</i>. 
+- For the serial slaves the new format is: <i>port[:baud[:dataBits[:parity[:stopBits[:encoding[:interTransactionDelayMillis[:receiveTimeoutMillis[:flowControlIn[:flowControlOut]]]]]]]]</i>
+
+Explanation of these new parameters
+- `interTransactionDelayMillis`: : Time to wait between consecutive modbus transactions (to the same host or serial device), in milliseconds. Each modbus transaction corresponds to read or write operation. Default 35 for serial slaves and 60 for tcp slaves.
+- `reconnectAfterMillis`: Time after which connection is disconnected and re-established, in milliseconds. Default 0 (closes connection after every transaction).
+- `interConnectDelayMillis`: Time to wait between consecutive connection attempts (to the same host or ip), in milliseconds. Default 0.
+- `connectMaxTries`: Maximum tries when establishing connection. Default 3.
+- `receiveTimeoutMillis`: Maximum time to wait for a single read operation before giving up, in milliseconds. Default 1500.
+- `flowControlIn`: Flow control for the input data. Default `none`. Valid values: `none`, `xon/xoff in`, `rts/cts in`.
+- `flowControlOut`: Flow control for the output data. Default `none`. Valid values: `none`, `xon/xoff out`, `rts/cts out`.
+
+Most important of these is the `interTransactionDelayMillis` which ensures that Modbus RTU (serial) has enough "silent time" between the transactions, as required by the Modbus/RTU protocol. Furthermore it ensures that modbus slave is not spammed with too many transactions, for example some PLC devices might not be able to handle many requests coming in a short time window.
+
+These new parameters have conservative defaults, meaning that they should work for most users. In some cases when extreme performance is required (e.g. poll period below 10ms), one might want to decrease the delay parameters, especially `interTransactionDelayMillis`. With some slower devices on might need to increase the values.
 
 ## Item Configuration
 
