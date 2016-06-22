@@ -112,7 +112,7 @@ Timer then supports the following methods:
 - `cancel()`: Cancels the timer, returns true if successful
 - `isRunning()`: Returns true if the scheduled code is currently being executed
 - `hasTerminated()`: Returns true if the scheduled code has laready terminated
-- `reschedule(AbstractInstant newTime)`: Reschedules a new starting time. If called after termination, this will schedule another execution of the same code again.
+- `reschedule(AbstractInstant newTime)`: Reschedules a new starting time. If the timer has terminated, this method does nothing.
 
 
 [Table of Contents](#table-of-contents)
