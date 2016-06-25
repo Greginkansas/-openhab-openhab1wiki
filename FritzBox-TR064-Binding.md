@@ -49,6 +49,7 @@ Contact cFboxMacOnline      "Presence (WiFi) [%s]"      {fritzboxtr064="maconlin
 
 # only when using call monitor
 Switch  fboxRinging	 	  	"Phone ringing [%s]"                {fritzboxtr064="callmonitor_ringing" }
+Switch  fboxRinging_Out	 	  	"Phone ringing [%s]"                {fritzboxtr064="callmonitor_outgoing" }
 Call    fboxIncomingCall   	"Incoming call: [%1$s to %2$s]"     {fritzboxtr064="callmonitor_ringing" } 
 Call    fboxOutgoingCall    "Outgoing call: [%1$s to %2$s]"     {fritzboxtr064="callmonitor_outgoing" }
 
