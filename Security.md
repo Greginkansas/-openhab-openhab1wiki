@@ -24,6 +24,18 @@ If you prefer to use your own X.509 certificates, you can. [Configure_SSL](http:
 
 [Here is a guide] (https://gist.github.com/dfraser/e5710fb84c6d35aa0743) for using [Let's Encrypt] (https://letsencrypt.org) with openHAB.
 
+### Reverse Proxy
+
+If you place a reverse proxy adding SSL in front of OpenHAB, make sure to either connect it to the OpenHAB HTTPS URI or pass an additional `X-Forwarded-Proto` header. This makes sure Jetty is aware the user accesses OpenHAB through an secured connection. Failure to do so will result in broken API access.
+
+Add this next to the `proxy_pass` line for nginx:
+
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+For Apache, add this to your `<VirtualHost>` block:
+
+    RequestHeader set X-Forwarded-Proto "https" env=HTTPS
+
 ## Authentication
 
 In order to activate Authentication one has to have the following parameters to the openHAB start command line.  This may already be done by default.  
