@@ -377,6 +377,27 @@ OPEN=TAMPER
     Number          bedroom_thermostat_setpoint     "Bedroom Thermostat Setpoint [%.2f C]"  { zwave="3:command=THERMOSTAT_SETPOINT" }
     Number          bedroom_thermostat_battery      "Bedroom Thermostat battery [%d %%]"    { zwave="3:command=BATTERY" }
 
+###Danfoss RS Room Sensor (014G0160 DRS21) &  Devolo MT:2649:
+Items:
+```
+Number	EG_WoZi_Raumthermostat_Batteriestatus	"EG WoZi Raumthermostat [%d %%]"	<battery>	(Batt,gGraph)		{ zwave="81:command=battery" }
+Number	EG_WoZi_Raumthermostat_Temp	"EG WoZi Raumthermostat Temperatur [%.1f Â°C]"	<temperature>	(GaeZi,gGraph)		{ zwave="81:command=SENSOR_MULTILEVEL" }
+Number	EG_WoZi_Raumthermostat_Temp_Vorwahl	"EG WoZi Raumthermostat Temperatur Vorwahl [%.1f Â°C]"	<temperature>	{ zwave="81:command=THERMOSTAT_SETPOINT" }
+Number	EG_WoZi_Raumthermostat_Button	"EG WoZi Raumthermostat Button"	{ zwave="81:command=central_scene" }
+```
+
+Rule:
+```
+rule "OG Gaestezimmer Thermostat Button"
+when
+	/** Item OG_GaesteZimmer_Raumthermostat_Button changed or **/
+	Item OG_GaesteZimmer_Raumthermostat_Button received update
+then
+       /**the .state is every time "1" but the rule is triggered when button is pressed **/
+       /** in the log you will get an error: "Protocoll Error (CAN), resending" **/
+end
+```
+
 ###Eurotronic Stella Z thermostat:  
 
     Number Temp_Sensor_StellaZ_Bad "Badezimmer Temperatur: [%.1f C]" <temperature> (Heizung,Bad,Temperaturen) { zwave="28:command=sensor_multilevel,sensor_type=1" }
