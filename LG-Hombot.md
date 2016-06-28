@@ -1,9 +1,9 @@
 
-* [LG Hombots](LG-Hombots)
+* [LG Hombots](#LG-Hombots)
 * [WiFi hack](#wifi-hack)
 * [HTTP binding based control](#HTTP-binding-based-control)
 
-## LG Hombots
+## LG-Hombots
 
 LG offers a range of robot vacuum cleaners called e.g. VR6470.
 Unlike the probably more popular Roomba models, the Hombot firmware is Linux based, allowing for external control and integration in openHAB.
