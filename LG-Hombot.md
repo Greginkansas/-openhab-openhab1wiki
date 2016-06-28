@@ -1,0 +1,15 @@
+* [WiFi hack](#wifi-hack)
+* [HTTP binding based control](#HTTP-binding-based-control)
+
+## WiFi hack
+You need to equip your Hombot with a WiFi stick first.
+See [this install guide](http://www.roboter-forum.com/showthread.php?10009-LG-Hombot-3-0-%28VR6260-VR6270-VR6340%29-WLAN-Steuerung-per-Weboberfl%E4che&p=107354&viewfull=1#post107354)
+
+## HTTP binding based control
+in items:
+
+``String Hombot   "Luigi, der Hombot"                     <luigi>         (Status,Test)   { http=">[1:GET:http://192.168.178.52:6260/json.cgi?%%7b%%22COMMAND%%22:%%22CLEAN_START%%22%%7d] >[0:GET:http://192.168.178.52:6260/json.cgi?%%7b%%22COMMAND%%22:%%22PAUSE%%22%%7d] >[2:GET:http://192.168.178.52:6260/json.cgi?%%7b%%22COMMAND%%22:%%22HOMING%%22%%7d] <[http://192.168.178.52:6260/status.html:5000:REGEX(.*<b>Robot-state</b>: <status>(.+)</status>.*)]", autoupdate="false" }``
+
+in sitemap:
+
+``Switch item=Hombot label="Luigi, der Hombot [Status %s]" mappings=[1="Clean", 2="Charge", 0="Pause"]``
