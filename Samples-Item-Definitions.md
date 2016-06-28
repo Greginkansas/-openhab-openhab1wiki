@@ -43,7 +43,12 @@ Rule:
 
 LG Hombot robot cleaner:
 
-``String Hombot   "Luigi, der Hombot"                     <luigi>         (Status)   { http=">[1:GET:http://192.168.178.52:6260/json.cgi?%%7b%%22COMMAND%%22:%%22CLEAN_START%%22%%7d] >[0:GET:http://192.168.178.52:6260/json.cgi?%%7b%%22COMMAND%%22:%%22PAUSE%%22%%7d] >[2:GET:http://192.168.178.52:6260/json.cgi?%%7b%%22COMMAND%%22:%%22HOMING%%22%%7d] <[http://192.168.178.52:6260/status.html:5000:REGEX(.*<b>Robot-state</b>: <status>(.+)</status>.*)]", autoupdate="false" }``
+``String Hombot   "Luigi, Hombot [status %s]"                     <luigi>         (Status)   { http=">[1:GET:http://192.168.1.2:6260/json.cgi?%%7b%%22COMMAND%%22:%%22CLEAN_START%%22%%7d] >[0:GET:http://192.168.1.2:6260/json.cgi?%%7b%%22COMMAND%%22:%%22PAUSE%%22%%7d] >[2:GET:http://192.168.1.2:6260/json.cgi?%%7b%%22COMMAND%%22:%%22HOMING%%22%%7d] <[http://192.168.1.2:6260/status.html:5000:REGEX(.*<b>Robot-state</b>: <status>(.+)</status>.*)]", autoupdate="false" }``
+
+in sitemap:
+
+Switch item=Hombot label="Luigi, Hombot [status %s]" mappings=[1="Clean", 2="Charge", 0="Pause"]
+
 
 Dreambox satellite receiver:
 
