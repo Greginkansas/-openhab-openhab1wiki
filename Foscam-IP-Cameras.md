@@ -113,14 +113,14 @@ The Foscam HD camera API supports retrieval of the device state which includes t
 motion alarm status. This status is changed for a brief time after motion is detected
 and then it resets itself. Polling is required to detect the motion alarms.
 
-From [mstormi](https://community.openhab.org/users/mstormi):
+From [Markus Storm](https://community.openhab.org/users/mstormi):
 
 > I'm polling [with]:
 
 >     String Foscam_Motion "Motion detection [MAP(foscam.map):%s]" <camera> (Status,Test) { http="<[http://foscam:88/cgi-bin/CGIProxy.fcgi?cmd=getDevState&usr=USER&pwd=PASSWORD:4000:REGEX(.*?<motionDetectAlarm>(.*?)</motionDetectAlarm>.*)]" }
 >     String Foscam_Sound "Sound detection [MAP(foscam.map):%s]" <camera> (Status,Test) { http="<[http://foscam:88/cgi-bin/CGIProxy.fcgi?cmd=getDevState&usr=USER&pwd=PASSWORD:4000:REGEX(.*?<soundAlarm>(.*?)</soundAlarm>.*)]" }
 
-> Not the most elegant solution, and specific to Foscam, but it works and it's 
+> Maybe not the most elegant solution, and specific to Foscam, but it works and it's 
 > fast to react, almost as good as a PIR sensor.
 
 ## Poll Camera Log (H.264 camera API)
