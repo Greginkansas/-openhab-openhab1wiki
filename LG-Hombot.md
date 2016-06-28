@@ -7,7 +7,7 @@
 
 LG offers a range of robot vacuum cleaners called e.g. VR6470.
 Unlike the probably more popular iRobot Roomba models, the Hombot firmware is Linux based, allowing for external control and integration in openHAB.
-In principle, any model will do (some hints: prices vary greatly, but the different national versions are not different, almost all features are software only, and the last two or three digits refer to the color only (really!), so get a cheap one. My one's a VR64607 bought on amazon.es). Check out the forum mentioned below for details.
+In principle, any model will do (some hints: prices vary greatly, but the different national versions are not different, almost all features are software only, and the last two or three digits refer to the color only (really!), so get a cheap one. My one's a VR64607 bought on amazon.es). Check out the forum to host the install guide for more details.
 
 ## WiFi hack
 You need to equip your Hombot with a WiFi stick first .
