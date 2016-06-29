@@ -39,28 +39,29 @@ The binding supports both inbound and outbound bindings.
 
     // the temperature at the outdoor unit
     Number  DaikinTempOut     "Temp Outside [%.1f °C]"     { daikin="<name>:tempout" }
-
+ 
 #### Outbound (command) bindings
 
     // power
     Switch  DaikinPower  "Power"           { daikin="<name>:power" }
-
+ 
     // mode of operation - one of Auto/Dry/Cool/Heat/Fan/Night
     Number DaikinMode   "Mode [%.0f]"       { daikin="<name>:mode" }
-
+ 
     // temperature set point
     Number  DaikinTemp   "Temp [%.0f °C]"  { daikin="<name>:temp" }
-
+ 
     // fan mode - one of Auto/F1/F2/F3/F4/F5
     Number DaikinFan    "Fan [%.0f]"        { daikin="<name>:fan" }
-
+ 
     // swing mode - one of Off/UpDown
     Number DaikinSwing  "Swing [%.0f]"      { daikin="<name>:swing" }
-
+ 
     // timer mode - one of Off-Off/Off-On/On-Off/On-On (start/end timers)
     Number DaikinTimer  "Timer [%.0f]"      { daikin="<name>:timer" }
 
-Sitemap Examples are
+#### Sitemap Examples are
+
     Text item=DaikinTempOut
     Switch item=DaikinPower
     Text item=DaikinTemp
