@@ -22,7 +22,8 @@ The binding supports more than one KKRP01A if required.
     daikin:refresh=60000
 
     # where <name> is used in your item bindings
-    daikin:<name>.host=<ipaddress|host>
+    # where WIRELESS or WIRED is the type of your Daikin Remote Control Device (BRP069A42 is a WIRELESS Device)
+    daikin:<name>.host=<WIRELESS|WIRED>@<ipaddress|host>
     #daikin:<name>.username=<not used>
     #daikin:<name>.password=<not used>
 
@@ -45,18 +46,29 @@ The binding supports both inbound and outbound bindings.
     Switch  DaikinPower  "Power"           { daikin="<name>:power" }
 
     // mode of operation - one of Auto/Dry/Cool/Heat/Fan/Night
-    String  DaikinMode   "Mode [%s]"       { daikin="<name>:mode" }
+    Number DaikinMode   "Mode [%.0f]"       { daikin="<name>:mode" }
 
     // temperature set point
     Number  DaikinTemp   "Temp [%.0f °C]"  { daikin="<name>:temp" }
 
     // fan mode - one of Auto/F1/F2/F3/F4/F5
-    String  DaikinFan    "Fan [%s]"        { daikin="<name>:fan" }
+    Number DaikinFan    "Fan [%.0f]"        { daikin="<name>:fan" }
 
     // swing mode - one of Off/UpDown
-    String  DaikinSwing  "Swing [%s]"      { daikin="<name>:swing" }
+    Number DaikinSwing  "Swing [%.0f]"      { daikin="<name>:swing" }
 
     // timer mode - one of Off-Off/Off-On/On-Off/On-On (start/end timers)
-    String  DaikinTimer  "Timer [%s]"      { daikin="<name>:timer" }
+    Number DaikinTimer  "Timer [%.0f]"      { daikin="<name>:timer" }
+
+Sitemap Examples are
+    Text item=DaikinTempOut
+    Switch item=DaikinPower
+    Text item=DaikinTemp
+    Text item=DaikinHumidityIn
+    Switch item=DaikinMode mappings=[0="Auto", 2="Dry", 3="Cool", 4="Heat", 6="Fan"]
+    Setpoint item=DaikinTemp minValue="16" maxValue="30" step="1"
+    Switch item=DaikinFan mappings=[0="Auto", 1="F1", 2="F2", 3="F3", 4="F4", 5="F5"]
+    Switch item=DaikinSwing mappings=[0="Off", 1="Vertical", 2="Horizontal", 3="Hor/Vert"]
 
 The KKRP01A supports user authentication however this is not currently supported by the binding. 
+
