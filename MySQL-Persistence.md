@@ -38,6 +38,11 @@ mysql:password=<your password here>
 # optional tweaking of mysql datatypes
 # example as described in https://github.com/openhab/openhab/issues/710
 # mysql:sqltype.string=VARCHAR(20000)
+
+# Use MySQL Server time to store item values (=false) or use openHAB Server time (=true).
+# For new installations, its recommend to set "mysql:localtime=true".
+# (available since 1.9, optional, defaults to false)
+#mysql:localtime=true
 ```
 The database location, user and password need to be modified as per your database.
 
