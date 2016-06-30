@@ -27,8 +27,8 @@ in sitemap:
 Switch item=Landroid_Command mappings=[11="Start", 12="Stop"]`
 
 put up a rule:
-`
-rule "Landroid command"
+
+`rule "Landroid command"
 when
         Item Landroid_Command received command
 then
