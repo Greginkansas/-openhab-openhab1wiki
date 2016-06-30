@@ -73,6 +73,12 @@ The content of getValue.js is:
 
     JSON.parse(input).title;
 
+You can also use [JSONPATH](Transformations#jsonpath-transformation-service) which allows a direct query of JSON data:
+
+'Number Weather_OutTemp "Value: [%.1f °C]" { http="<[http://weewx/now.json:60000:JSONPATH($.stats.current.outTemp)]" }'
+
+[jsonpath.com](http://jsonpath.com/) is a handy tool to create the JSONPATH transformation.
+
 ## Configuration in openhab.cfg (optional)
 
 By default, the binding waits for HTTP responses for up to five seconds (5000 milliseconds).  If you need to change this timeout value, edit `openhab.cfg` and set `http:timeout` to the number of milliseconds to wait.  For example, to wait up to 20 seconds for responses, add or uncomment this line in `openhab.cfg`:
