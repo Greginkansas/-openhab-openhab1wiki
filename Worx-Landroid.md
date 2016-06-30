@@ -15,16 +15,16 @@ Use HTTP binding to directly query and control Landroids.
 
 in items: (replace IP and use your Landroid PIN instead of "1234")
 
-`String Landroid_status "Landroid Status [%s]" <garden> (Rasenmaeher) { http="<[http://admin:1234@10.0.0.1/jsondata.cgi:5000:REGEX(.*\"state\":\"(.*?)\",.*)]" }
-String Landroid_Command "Landroid action" <garden> (Rasenmaeher)`
+    String Landroid_status "Landroid Status [%s]" <garden> (Rasenmaeher) { http="<[http://admin:1234@10.0.0.1/jsondata.cgi:5000:REGEX(.*\"state\":\"(.*?)\",.*)]" }
+    String Landroid_Command "Landroid action" <garden> (Rasenmaeher)
 
 If you call the URL, output shows a number of parameters, state being just one of them.
 Feel free to pick those of interest and use a copy of the Landroid_Status item with a modifed regex.
 
 in sitemap:
 
-``Text item=Landroid_status label="Landroid status [%s]"
-Switch item=Landroid_Command mappings=[11="Start", 12="Stop"]``
+    Text item=Landroid_status label="Landroid status [%s]"
+    Switch item=Landroid_Command mappings=[11="Start", 12="Stop"]
 
 put up a rule:
 
