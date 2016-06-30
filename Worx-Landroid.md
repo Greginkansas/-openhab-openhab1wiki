@@ -23,21 +23,21 @@ Feel free to pick those of interest and use a copy of the Landroid_Status item w
 
 in sitemap:
 
-`Text item=Landroid_status label="Landroid status [%s]"
-Switch item=Landroid_Command mappings=[11="Start", 12="Stop"]`
+``Text item=Landroid_status label="Landroid status [%s]"
+Switch item=Landroid_Command mappings=[11="Start", 12="Stop"]``
 
 put up a rule:
 
-`rule "Landroid command"
+``rule "Landroid command"
 when
         Item Landroid_Command received command
 then
-        /* Commands:
-           11 = start
-           12 = stop (& return to base)
-           13 = charging complete
-           14 = manual stop
-           15 = going home */
+        // Commands:
+        // 11 = start
+        // 12 = stop (& return to base)
+        // 13 = charging complete
+        // 14 = manual stop
+        // 15 = going home
 
         val String URL = "http://admin:1234@10.0.0.1/jsondata.cgi"
 
@@ -48,4 +48,4 @@ then
 
         sendHttpPostRequest(URL, "application/x-www-form-urlencoded", jsondata)
 end
-`
+``
