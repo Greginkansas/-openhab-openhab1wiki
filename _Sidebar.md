@@ -239,6 +239,7 @@
 * [[FIND|FIND]]
 * [[Foscam IP Cameras|Foscam-IP-Cameras]]
 * [[LG Hombot|LG-Hombot]]
+* [[Worx Landroid|Worx-Landroid]]
 * [[Heatmiser PRT Thermostat]]
 * [[Google Calendar|GCal-Binding]]
 * [[Linux Media Players|Linux-Media-Players]]
