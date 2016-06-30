@@ -175,7 +175,7 @@ sudo nano ./openhab.cfg
 
 - Set default persistince to mysql
 - Set Mysql server username and password
-- Set MQTT Transport
+- Set [MQTT Transport](https://github.com/openhab/openhab/wiki/MQTT-Binding)
 - Set HTTP Binding cache item for weather
 - Set Z-Wave port
 - Set Astro binding latitude and longitude
