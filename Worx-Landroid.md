@@ -28,11 +28,11 @@ Switch item=Landroid_Command mappings=[11="Start", 12="Stop"]``
 
 put up a rule:
 
-``rule "Landroid command"
-when
+    rule "Landroid command"
+    when
         Item Landroid_Command received command
-then
-        // Commands:
+    then
+        // Commands
         // 11 = start
         // 12 = stop (& return to base)
         // 13 = charging complete
@@ -47,5 +47,4 @@ then
         logInfo("rules", "Sending command " + Landroid_Command.state + " to Landroid.")
 
         sendHttpPostRequest(URL, "application/x-www-form-urlencoded", jsondata)
-end
-``
+    end
