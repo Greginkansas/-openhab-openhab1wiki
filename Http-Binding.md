@@ -75,7 +75,7 @@ The content of getValue.js is:
 
 You can also use [JSONPATH](Transformations#jsonpath-transformation-service) which allows a direct query of JSON data:
 
-'Number Weather_OutTemp "Value: [%.1f °C]" { http="<[http://weewx/now.json:60000:JSONPATH($.stats.current.outTemp)]" }'
+    'Number Weather_OutTemp "Value: [%.1f °C]" { http="<[http://weewx/now.json:60000:JSONPATH($.stats.current.outTemp)]" }'
 
 [jsonpath.com](http://jsonpath.com/) is a handy tool to create the JSONPATH transformation.
 
