@@ -178,7 +178,7 @@ sudo nano ./openhab.cfg
 - Set [MQTT Transport](https://github.com/openhab/openhab/wiki/MQTT-Binding#transport-configuration)
 - Set [HTTP Binding cache item for weather](https://github.com/openhab/openhab/wiki/Http-Binding#caching)
 - Set Z-Wave port
-- Set Astro binding latitude and longitude
+- Set [Astro binding latitude and longitude](https://github.com/openhab/openhab/wiki/Astro-binding)
 
 ### Create items, sitemaps and rules
 
