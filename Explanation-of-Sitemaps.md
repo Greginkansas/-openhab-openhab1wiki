@@ -81,7 +81,7 @@ A few technical constraints and details to be aware of:
  * When using chart:provider=rrd4j, the `service=<service>` is ignored and only the persistence service rrd4j is used.
  * Despite the chart refresh option, charts do not appear to refresh properly according to this setting
  * The visibility of multiple chart objects can be toggled to simulate changing the chart period, and the non-visible chart widgets are NOT generated behind the scenes until it becomes visible.
- * When charting a group of items make sure every label is unique. Identical labels result in an empty chart (as of 1.7.0).
+ * When charting a group of items make sure every label is unique. If the label contains spaces, the first word of the label must be unique. Identical labels result in an empty chart (as of 1.7.0). 
 
 Charts from rrd4j can also be generated and shown as images. Visit [Charts](https://github.com/openhab/openhab/wiki/Charts) in the Wiki for examples.
 
