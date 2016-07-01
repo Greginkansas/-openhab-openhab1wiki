@@ -144,7 +144,7 @@ Another possibility in label texts is to use a transformation. They are used for
     key2=value2
     ...
 
-Let's make a small example to illustrate this function. If you have a sensor which returns you the number 0 for a closed window and 1 for an open window, you can transform these values into the words "open" or "closed". Create a map file named window.map for example and add the desired keys and values.
+Let's make a small example to illustrate this function. If you have a sensor which returns you the number 0 for a closed window and 1 for an open window, you can transform these values into the words "open" or "closed". Create a map file named window.map for example and add the desired keys and values. 
 
     0=closed
     1=opened
@@ -167,6 +167,11 @@ Transform file use ISO-8859-1 encoding. If you want your accent and special char
 see [UTF-8 encoding table](http://www.utf8-chartable.de/)
 
 example: é will be written ```\u00E9```
+
+If the key contains spaces, you have to escape them with a \
+
+    VALUE\ WITH\ SPACES=value with spaces
+
 
 ## Icon name
 
