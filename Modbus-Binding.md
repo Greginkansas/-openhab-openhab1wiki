@@ -328,17 +328,39 @@ Note that <i>first register</i> refers to register with address `start` (as defi
 - it is assumed that each register is encoded in most significant bit first order
 
 `valuetype=uint32`:
-- same as UINT32 except values are interpreted as unsigned integers
+- same as INT32 except values are interpreted as unsigned integers
 
 `valuetype=float32`:
 - registers (2 index) and ( 2 *index + 1) are interpreted as signed 32bit floating point number.
 - it assumed that the first register contains the most significant 16 bits
 - it is assumed that each register is encoded in most significant bit first order
 
+#### Word Swapped valuetypes (New since 1.9.0)
+The MODBUS specification defines each 16bit word to be encoded as Big Endian,
+but there is no specification on the order of those words within 32bit or larger data types.
+The net result is that when you have a master and slave that operate with the same
+Endian mode things work fine, but add a device with a different Endian mode and it is
+very hard to correct. To resolve this the binding supports a second set of valuetypes
+that have the words swapped.
+
+If you get strange values using the int32, uint32 or float32 valuetypes then just try the int32_swap, uint32_swap or float32_swap valuetype, depending upon what your data type is.
+
+`valuetype=int32_swap`:
+- registers (2 index) and ( 2 *index + 1) are interpreted as signed 32bit integer.
+- it assumed that the first register contains the least significant 16 bits
+- it is assumed that each register is encoded in most significant bit first order (Big Endian)
+
+`valuetype=uint32_swap`:
+- same as INT32_SWAP except values are interpreted as unsigned integers
+
+`valuetype=float32_swap`:
+- registers (2 index) and ( 2 *index + 1) are interpreted as signed 32bit floating point number.
+- it assumed that the first register contains the least significant 16 bits
+- it is assumed that each register is encoded in most significant bit first order (Big Endian)
+
 
 Extra notes
-- `valuetype`s smaller than one register (less than 16 bits) actually read the whole register, and finally extract single bit from the result.
-- work is ongoing (issue [#3558](https://github.com/openhab/openhab/issues/3558)) to support decoding 32bit `valuetype`s with little endian order.
+- `valuetypes` smaller than one register (less than 16 bits) actually read the whole register, and finally extract single bit from the result.
 
 ### Write
 
