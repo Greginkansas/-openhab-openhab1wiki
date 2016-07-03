@@ -72,6 +72,15 @@ Only **"activate"**, **"fan_level"** and **"target_temperature"** are writeable.
 - Either the ComfoAir binding or the CCEase Comfocontrol can be active
 - You must implement auto mode by yourself with rules. But it is more powerful
 
+## access rights to serial port
+
+- Take care that the user that runs openhab has access rights to use the serial port
+- On Ubuntu systems that usually means adding the user to the group "dialout", i.e. 
+
+         sudo usermod -a -G dialout openhab
+
+  if openhab is your user.
+
 **You can find more examples at**
 
 [https://github.com/openhab/openhab/wiki/Samples-Comfo-Air-Binding]
