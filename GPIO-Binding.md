@@ -47,7 +47,7 @@ Extract openhab-runtime archive to `/opt/openhab` (recommended) if not done yet,
     org.openhab.io.gpio
     org.openhab.binding.gpio
 
-Install native JNA library version 3.2.7, modify `/opt/openhab/start.sh` and append `-Djna.boot.library.path=/usr/lib/jni` right after `java` on the last line of the file as change `/usr/lib/jni` with the path to JNA library's parent directory.
+<del>Install native JNA library version 3.2.7, modify `/opt/openhab/start.sh` and append `-Djna.boot.library.path=/usr/lib/jni` right after `java` on the last line of the file as change `/usr/lib/jni` with the path to JNA library's parent directory.</del>
  
 ## Global Binding Configuration
 `gpio:sysfs` - optional directory path where `sysfs` pseudo file system is mounted. If isn't specified it will be determined automatically (if `procfs` is mounted under `/proc`).  
