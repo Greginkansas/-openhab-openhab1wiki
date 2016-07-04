@@ -8,7 +8,8 @@
 [MQTT Documentation : FIND](https://doc.internalpositioning.com/mqtt/)
 
 ***
-Retrieve FIND client for Android through Play Store (search for "find hypercube")
+FIND client is available for Android only.
+Retrieve FIND client through Play Store (search for "find hypercube")
 
 Retrieve FIND server from [Github](https://github.com/schollz/find/releases).
 For a Raspberry Pi, select the _arm_ binaries.
