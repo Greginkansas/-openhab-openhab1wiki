@@ -135,6 +135,11 @@ Most important of these is the `interTransactionDelayMillis` which ensures that 
 
 These new parameters have conservative defaults, meaning that they should work for most users. In some cases when extreme performance is required (e.g. poll period below 10ms), one might want to decrease the delay parameters, especially `interTransactionDelayMillis`. With some slower devices on might need to increase the values.
 
+Examples:
+
+- `modbus:serial.serialslave1.connection=/dev/ttyS0:38400:8:none:1:rtu:150` connect to serial slave using with `interTransactionDelayMillis` of 150ms
+- `modbus:tcp.tcpslave1.connection=192.168.1.100:502:0` connect to tcp slave with no `interTransactionDelayMillis`
+
 ## Item Configuration
 
 ModbusBindingProvider provides binding for openHAB Items.
