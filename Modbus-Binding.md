@@ -313,14 +313,14 @@ Note that <i>first register</i> refers to register with address `start` (as defi
 - it is assumed that each high and low byte is encoded in most significant bit first order
 
 `valuetype=uint8`:
-- same as INT8 except values are interpreted as unsigned integers
+- same as `int8` except values are interpreted as unsigned integers
 
 `valuetype=int16`:
 - register with index (counting from zero) is interpreted as 16 bit signed integer.
 - it is assumed that each register is encoded in most significant bit first order
 
 `valuetype=uint16`:
-- same as INT16 except values are interpreted as unsigned integers
+- same as `int16` except values are interpreted as unsigned integers
 
 `valuetype=int32`:
 - registers (2 index) and ( 2 *index + 1) are interpreted as signed 32bit integer.
@@ -328,7 +328,7 @@ Note that <i>first register</i> refers to register with address `start` (as defi
 - it is assumed that each register is encoded in most significant bit first order
 
 `valuetype=uint32`:
-- same as INT32 except values are interpreted as unsigned integers
+- same as `int32` except values are interpreted as unsigned integers
 
 `valuetype=float32`:
 - registers (2 index) and ( 2 *index + 1) are interpreted as signed 32bit floating point number.
@@ -351,7 +351,7 @@ If you get strange values using the int32, uint32 or float32 valuetypes then jus
 - it is assumed that each register is encoded in most significant bit first order (Big Endian)
 
 `valuetype=uint32_swap`:
-- same as INT32_SWAP except values are interpreted as unsigned integers
+- same as `int32_swap` except values are interpreted as unsigned integers
 
 `valuetype=float32_swap`:
 - registers (2 index) and ( 2 *index + 1) are interpreted as signed 32bit floating point number.
