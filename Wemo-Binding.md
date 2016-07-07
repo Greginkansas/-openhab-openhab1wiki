@@ -7,7 +7,7 @@ The integration happens either through the WeMo-Link bridge (feature still to co
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-####The new channels for energy measurement of WeMo Insight devices will be available with openHAB Version 1.8 !!!
+####The new channels for energy measurement of WeMo Insight devices are no available with openHAB Version 1.8
 
 Wemo Binding needs no configuration in openhab.cfg
 
