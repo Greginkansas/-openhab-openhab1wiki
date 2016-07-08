@@ -5,6 +5,8 @@
 ## Worx Landroid
 Worx - a company to manufacture garden and homeworking tools - is also offering a range of 'Landroid' robot lawn mowers.
 Some of the current models (M1000i a.k.a. WG796E.1 and M1500i a.k.a. WG797E) introduced end of 2014 feature onboard WiFi and app control. As the app is essentially just using HTTP and JavaScript, we can reuse this interface to integrate with openHAB.
+**NOTE**: there is no official API. This solution is based on reverse engineering the app's access to a WG796E.1 running software version 1.98 ("Hypericum 3.1"), and this interface may change without notice in future mower OS versions.
+
 
 ## MQTT based control
 For a MQTT and Python based solution, check out [this project](https://github.com/trieb/worx-landroid).
