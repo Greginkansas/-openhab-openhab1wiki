@@ -40,6 +40,12 @@ String   SpeedtestRunning    "Speedtest running ... [%s]"    <"new-icon">
 Switch   SpeedtestRerun      "Manuell starten"               <"reload-2-icon">
 DateTime SpeedtestResultDate "Zuletzt ausgeführt [%1$td.%1$tm.%1$tY, %1$tH:%1$tM Uhr]" <"problem-4-icon">
 ```
+
+### Icons
+All icons in one archive: [Download](https://raw.githubusercontent.com/ThomDietrich/openhab-config/master/additional-images/speedtest-icons.rar)
+
+Extract the archive and move all icons to the openHAB images folder under `${openhab_home}/webapps/images`.
+
 Icons source (free for non-commercial use): http://www.iconarchive.com/show/polygon-icons-by-graphicloads.html
 
 ### Sitemap
