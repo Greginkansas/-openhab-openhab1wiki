@@ -25,6 +25,7 @@ Please make sure the script is functioning before you continue.
 
 ### Windows
 You can find an unofficial speedtest-cli for Windows here: https://github.com/zpeters/speedtest
+
 Place the executable on your harddrive, e.g. "`C:\openHAB\speedtest.exe`"
 
 ## OpenHAB files
