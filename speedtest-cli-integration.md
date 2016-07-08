@@ -9,8 +9,7 @@ Below you'll find a complete solution on integrating the internet connection ban
 <img src="https://community-openhab-org.s3-eu-central-1.amazonaws.com/original/2X/2/2b3ee536c3026d68191802329246b3bca6a7dd3f.png" width="300">
 
 ## Installation and Test
-
-In your linux console (installation may differ from system to system):
+### Linux
 ```bash
 # You'll need the exec binding
 sudo apt-get install openhab-addon-binding-exec
@@ -23,6 +22,10 @@ speedtest-cli
 speedtest-cli --simple
 ```
 Please make sure the script is functioning before you continue.
+
+### Windows
+You can find an unofficial speedtest-cli for windows here: https://github.com/zpeters/speedtest
+Place the executable on your harddrive, e.g. "`C:\openHAB\speedtest.exe`"
 
 ## OpenHAB files
 
@@ -59,7 +62,7 @@ Text item=SpeedtestSummary {
 ...
 ```
 
-### Rule
+### Rule (Linux)
 ```Xtend
 import org.openhab.core.library.types.DateTimeType
   
@@ -118,6 +121,25 @@ then {
 end
 ```
 
-That's it. If you have a problem with the script, activate the logging lines and have a look in your `openhab.log`.
+That's it. If you have problems, just activate the logging lines and have a look in your `openhab.log` to get an idea of what's going on.
+
+
+### Rule (Windows)
+The following changes are needed compared to the Linux rule above:
+
+```Xtend
+...
+var String speedtestCliOutput = executeCommandLine("c:\\openHAB\\speedtest.exe@@--report", 120*1000)
+...
+if (speedtestCliOutput.startsWith("201")) {        
+    var String[] results = speedtestCliOutput.split("\\|")
+    var float ping = new java.lang.Float(results.get(3))
+    var float down = new java.lang.Float(results.get(4))
+    var float up   = new java.lang.Float(results.get(5))
+    SpeedtestResultPing.postUpdate(ping)
+    SpeedtestResultDown.postUpdate(down/1024)
+    SpeedtestResultUp.postUpdate(up/1024)
+...
+```
 
 This idea was originally discussed and questions should be asked at https://community.openhab.org/t/speedtest-cli-integration/7611
