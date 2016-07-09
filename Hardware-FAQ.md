@@ -51,8 +51,7 @@ Because the forum article is in german, here is a short summary:
 * The Apache Fileinstall Bundle is used to continuously check the _$OPENHAB_HOME/addons_ folder in openHAB
 * The bundle writes nearly continously to _/tmp/fileinstall-..._
 * When uncommenting/setting **RAMTMP=yes** in _/etc/default/tmpfs_ these I/O operations will be RAM access rather than slow SD card I/O
-
-(on Jessie, RAMTMP is ignored - set this with "systemctl enable tmp.mount")
+* (on Raspbian Jessie, RAMTMP is ignored - set this with "systemctl enable tmp.mount")
 
 ##### Change GPU memory usage
 For headless, reduce memory down to 16, this can be done by using **raspi-config**
