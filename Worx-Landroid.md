@@ -15,7 +15,7 @@ Currently it provides read-only values, but the author will add the start/stop a
 ## HTTP binding based control
 Use HTTP binding to directly query and control Landroids.
 
-in items: (replace IP and use your Landroid PIN instead of "1234")
+(replace IP and use your Landroid PIN instead of "1234")
 
     String Landroid_status "Landroid Status [%s]" <garden> (Rasenmaeher) { http="<[http://admin:1234@10.0.0.1/jsondata.cgi:5000:REGEX(.*\"state\":\"(.*?)\",.*)]" }
     String Landroid_Command "Landroid action" <garden> (Rasenmaeher)
@@ -41,6 +41,7 @@ put up a rule:
         // 14 = manual stop
         // 15 = going home
 
+        // NOTE: insert your PIN and IP here
         val String URL = "http://admin:1234@10.0.0.1/jsondata.cgi"
 
         var String jsondata = 'data=[[\"settaggi\",' + Landroid_Command.state.toString + ',1]]'
