@@ -3,7 +3,7 @@
 
 ## Introduction
 
-This service allows you to persist state updates using the Amazon DynamoDB database. Also query functionality is fully supported. Users are recommended to familiarize with AWS (Pricing)][#Pricing] before using this plugin.
+This service allows you to persist state updates using the Amazon DynamoDB database. Also query functionality is fully supported. Users are recommended to familiarize with AWS [Pricing](#Pricing) before using this plugin.
 
 ## Features
 
