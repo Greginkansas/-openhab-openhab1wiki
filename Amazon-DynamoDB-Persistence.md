@@ -95,7 +95,7 @@ Refer to amazon documentation on [provisioned throughput](https://docs.aws.amazo
 
 ### Tables created by the addon
 
-When item is persisted via this addon, a table is created if necessary. Currently the addon will create at most two tables for different item types. The tables will be named `PREFIX-ITEMTYPE`, where PREFIX matches the `tablePrefix` configuration; while the `ITEMTYPE` is either `bigdecimal` (numeric items) or `string` (string and complex items).
+When item is persisted via this addon, a table is created if necessary. Currently the addon will create at most two tables for different item types. The tables will be named `<PREFIX><ITEMTYPE>`, where `<PREFIX>` matches the `tablePrefix` configuration; while the `<ITEMTYPE>` is either `bigdecimal` (numeric items) or `string` (string and complex items).
 
 Each table will have three columns: `itemname` (item name), `timeutc` (in ISO 8601 format with millisecond accuracy), and `itemstate` (either number or string representing item state).
 
