@@ -13,6 +13,7 @@
 
 <!-- /MarkdownTOC -->
 
+**Please note that this plugin is still in development and not officially available.**
 
 ## Introduction
 
