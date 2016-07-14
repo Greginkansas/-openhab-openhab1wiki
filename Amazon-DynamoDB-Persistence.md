@@ -1,3 +1,5 @@
+**Please note that this plugin is still in development and not officially available.**
+
 <!-- Using MarkdownTOC plugin for Sublime Text to update the table of contents (TOC) -->
 <!-- MarkdownTOC depth=3 autolink=true bracket=round -->
 
@@ -12,8 +14,6 @@
 - [Disclaimer](#disclaimer)
 
 <!-- /MarkdownTOC -->
-
-**Please note that this plugin is still in development and not officially available.**
 
 ## Introduction
 
