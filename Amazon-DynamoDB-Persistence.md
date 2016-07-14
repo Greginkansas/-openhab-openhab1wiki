@@ -39,12 +39,12 @@ General:
 1. [Sign up](https://aws.amazon.com/) for Amazon AWS
 2. Select the AWS region in the [AWS console](https://console.aws.amazon.com/) using [these instructions](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region). Note the region identifier in the url (e.g. `https://eu-west-1.console.aws.amazon.com/console/home?region=eu-west-1` means that region id is `eu-west-1`)
 3. **Create user for openhab with IAM**
-3.1. Open Services -> IAM -> Users -> Create new Users. Enter `openhab` to _User names_, keep _Generate an access key for each user_ checked, and finally click _Create_.
-3.2. _Show User Security Credentials_ and record the keys displayed
+  1. Open Services -> IAM -> Users -> Create new Users. Enter `openhab` to _User names_, keep _Generate an access key for each user_ checked, and finally click _Create_.
+  2. _Show User Security Credentials_ and record the keys displayed
 4. **Configure user policy to have access for dynamodb**
-4.1. Open Services -> IAM -> Policies
-4.2. Check _AmazonDynamoDBFullAccess_ and click _Policy actions_ -> _Attach_
-4.3. Check the user created in step 2 and click _Attach policy_
+  1. Open Services -> IAM -> Policies
+  2. Check _AmazonDynamoDBFullAccess_ and click _Policy actions_ -> _Attach_
+  3. Check the user created in step 2 and click _Attach policy_
 
 ### Openhab configuration
 
