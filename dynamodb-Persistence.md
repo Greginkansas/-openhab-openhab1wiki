@@ -1,4 +1,17 @@
-# NOTE: this is documentation for addon still-in-development.
+<!-- Using MarkdownTOC plugin for Sublime Text to update the table of contents (TOC) -->
+<!-- MarkdownTOC depth=3 autolink=true bracket=round -->
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+	- [Setting up Amazon account](#setting-up-amazon-account)
+	- [Openhab configuration](#openhab-configuration)
+- [Details](#details)
+	- [Tables created by the addon](#tables-created-by-the-addon)
+	- [Pricing](#pricing)
+	- [Disclaimer](#disclaimer)
+
+<!-- /MarkdownTOC -->
 
 
 ## Introduction
@@ -76,6 +89,8 @@ Other configuration parameters for the dynamodb addon:
 
 Refer to amazon documentation on [provisioned throughput](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ProvisionedThroughput.html) on details on read/write capacity.
 
+
+## Details
 
 ### Tables created by the addon
 
