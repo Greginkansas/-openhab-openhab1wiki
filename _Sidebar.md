@@ -43,6 +43,7 @@
 ## [[Persistence]]
 * [[Cosm Persistence|Cosm-Persistence]]
 * [[db4o Persistence|db4o-Persistence]]
+* [[Amazon DynamoDB Persistence|dynamodb-Persistence]]
 * [[Exec Persistence|Exec-Persistence]]
 * [[InfluxDB Persistence|InfluxDB-Persistence]]
 * [[JDBC Persistence|JDBC-Persistence]]
