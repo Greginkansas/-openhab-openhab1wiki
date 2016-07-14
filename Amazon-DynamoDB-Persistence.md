@@ -9,7 +9,7 @@
 - [Details](#details)
 	- [Tables created by the addon](#tables-created-by-the-addon)
 	- [Pricing](#pricing)
-	- [Disclaimer](#disclaimer)
+- [Disclaimer](#disclaimer)
 
 <!-- /MarkdownTOC -->
 
@@ -102,6 +102,6 @@ Each table will have three columns: `itemname` (item name), `timeutc` (in ISO 86
 
 Please note that there might be charges from Amazon when using this addon to query/store data to DynamoDB. See [Amazon DynamoDB pricing pages](https://aws.amazon.com/dynamodb/pricing/) for more details. Please also note possible [Free Tier](https://aws.amazon.com/free/) benefits. 
 
-### Disclaimer
+## Disclaimer
 
 This addon is provided "AS IS", and the user takes full responsibility of any charges, damage to amazon data.
