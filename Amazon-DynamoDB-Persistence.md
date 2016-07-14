@@ -10,6 +10,7 @@
 	- [Openhab configuration](#openhab-configuration)
 - [Details](#details)
 	- [Tables created by the addon](#tables-created-by-the-addon)
+	- [Caveats](#caveats)
 	- [Pricing](#pricing)
 - [Disclaimer](#disclaimer)
 
@@ -98,6 +99,10 @@ Refer to amazon documentation on [provisioned throughput](https://docs.aws.amazo
 When item is persisted via this addon, a table is created if necessary. Currently the addon will create at most two tables for different item types. The tables will be named `<PREFIX><ITEMTYPE>`, where `<PREFIX>` matches the `tablePrefix` configuration; while the `<ITEMTYPE>` is either `bigdecimal` (numeric items) or `string` (string and complex items).
 
 Each table will have three columns: `itemname` (item name), `timeutc` (in ISO 8601 format with millisecond accuracy), and `itemstate` (either number or string representing item state).
+
+### Caveats
+
+- When the tables are created, the read/write capacity is configured according to configuration. However, the addon does not modify the capacity of existing tables. As a workaround you can modify the read/write capacity of existing tables using [Amazon console](https://aws.amazon.com/console/).
 
 ### Pricing
 
