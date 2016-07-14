@@ -29,7 +29,7 @@ General:
 
 ## Installation
 
-1. Set-up Amazon account as described below (see [Setting up Amazon account](#Setting up Amazon account))
+1. Set-up Amazon account as described below (see [Setting up Amazon account](#setting-up-Amazon-account))
 2. For installation of this persistence bundle, please follow the same steps as if you would [install a binding](https://github.com/openhab/openhab/wiki/Bindings).
 3. Place a persistence file called dynamodb.persist in the `${openhab.home}/configuration/persistence` folder. This has the standard format as described in [Persistence](https://github.com/openhab/openhab/wiki/Persistence).
 4. Configure openhab.cfg (see [Openhab configuration](#Openhab configuration) below)
