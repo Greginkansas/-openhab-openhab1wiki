@@ -425,14 +425,14 @@ tfServoSetposition("<your_uid>", "servo0", "-9000", "65535", "65535")
 
 ##### Brick:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | brick_servo |
 
 ##### Servo sub devices:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as brick |
 | subid | openHAB subid of the device | servo0, servo1, servo2, servo3, servo4, servo5, servo6 |
@@ -550,7 +550,7 @@ Decreasing data rate or full scale range will also decrease the noise on the dat
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_accelerometer |
@@ -560,7 +560,7 @@ Decreasing data rate or full scale range will also decrease the noise on the dat
 
 ##### Accelerometer Bricklet sub devices:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | subid | openHAB subid of the device | x, y, z, temperature, led |
@@ -639,7 +639,7 @@ An entry in openhab.cfg is only needed if you want to adjust [threshold and / or
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_ambient_light |
@@ -679,7 +679,7 @@ An entry in openhab.cfg is only needed if you want to adjust [threshold and / or
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_ambient_lightv2 |
@@ -724,7 +724,7 @@ If property $range is set to 0, the device switches between the measurement rang
 
 #### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_analogin |
@@ -769,7 +769,7 @@ Property $movingAverage sets the length of a moving averaging for the measured v
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_analoginv2 |
@@ -813,7 +813,7 @@ An entry in openhab.cfg is only needed if you want to adjust [threshold and / or
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_barometer |
@@ -825,7 +825,7 @@ An entry in openhab.cfg is only needed if you want to adjust [threshold and / or
 Subdevice property $barometer_temperature returns the temperature of the air pressure sensor which is internally used for temperature compensation of the air pressure measurement.
 The temperature sub device does not support callbackPeriod, it will be polled. The polling interval can be configured using tinkerforge:refresh property.
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | subid | openHAB subid of the device | temperature |
@@ -861,7 +861,7 @@ The integration time provides a trade-off between conversion time and accuracy. 
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_color |
@@ -870,7 +870,7 @@ The integration time provides a trade-off between conversion time and accuracy. 
 
 ##### Color Bricklet sub device:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as bricklet |
 | subid | openHAB subid of the device | color, temperature, illuminance |
@@ -934,7 +934,7 @@ An entry in openhab.cfg is only needed if you want to adjust [threshold and / or
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_distance_ir |
@@ -974,7 +974,7 @@ Moving average is a calculation to analyze data points by creating series of ave
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_distanceUS |
@@ -1035,7 +1035,7 @@ state back to OFF again.
 
 ##### Dual Button Bricklet sub devices:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as bricklet |
 | subid | openHAB subid of the device | dualbutton_leftled, dualbutton_rightled, dualbutton_leftbutton, dualbutton_rightbutton |
@@ -1119,14 +1119,14 @@ The subids are:
  * relay1
  * relay2
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_dual_relay |
 
 ##### Relay sub devices:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as bricklet |
 | subid | openHAB subid of the device | relay1, relay2 |
@@ -1187,7 +1187,7 @@ The measured dust density can be read out in µg/m³
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_dustdetector |
@@ -1229,7 +1229,7 @@ Bricklet can detect the presence of magnetic fields. It counts the (dis-)appeara
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_halleffect |
@@ -1272,7 +1272,7 @@ The measured humidity can be read out directly in percent, no conversions are ne
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_humidity |
@@ -1309,7 +1309,7 @@ Technical description see [Tinkerforge Website](http://www.tinkerforge.com/en/do
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | subid | openHAB subid of the device | in0, in2, in3, in4 |
@@ -1318,7 +1318,7 @@ Technical description see [Tinkerforge Website](http://www.tinkerforge.com/en/do
 
 ##### Input port sub devices:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as bricklet |
 | subid | openHAB subid of the device | in0, in2, in3, in4 |
@@ -1354,7 +1354,7 @@ Technical description see [Tinkerforge Website](http://www.tinkerforge.com/en/do
 
 ##### Output port sub devices:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as bricklet |
 | subid | openHAB subid of the device | out0, out2, out3, out4 |
@@ -1448,7 +1448,7 @@ The property $sampleRate can be between 1 sample per second (SPS) and 976 sample
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_industrial_dual_analogin |
@@ -1456,7 +1456,7 @@ The property $sampleRate can be between 1 sample per second (SPS) and 976 sample
 
 ##### Dual Analog In sub devices:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as bricklet |
 | subid | openHAB subid of the device | channel0, channel1 |
@@ -1516,14 +1516,14 @@ The subids are:
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_industrial_quad_relay|
 
 ##### Relay sub devices:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as bricklet |
 | subid | openHAB subid of the device | relay0, relay2, relay3, relay4 |
@@ -1581,7 +1581,7 @@ If you set the property $debouncePeriod to 100, you will get the interrupt maxim
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_io16 |
@@ -1589,7 +1589,7 @@ If you set the property $debouncePeriod to 100, you will get the interrupt maxim
 
 ##### IO-Sensor sub device:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as bricklet |
 | subid | openHAB subid of the device | ina0, ina1, ina2, ina3, ina4, ina5, ina6, ina7, inb0, inb1, inb2, inb3, inb4, inb5, inb6, inb7 |
@@ -1598,7 +1598,7 @@ If you set the property $debouncePeriod to 100, you will get the interrupt maxim
 
 ##### IO-Actor sub device:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as bricklet |
 | subid | openHAB subid of the device | outa0, outa1, outa2, outa3, outa4, outa5, outa6, outa7, outb1, outb2, outb3, outb4, outb5, outb6, outb7 |
@@ -1825,7 +1825,7 @@ Property $mode sets the mode for measurements, five modes are available, one mod
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_laser_range_finder |
@@ -1840,7 +1840,7 @@ Property $mode sets the mode for measurements, five modes are available, one mod
 
 ##### Laser Range Finder sub devices:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as bricklet |
 | subid | openHAB subid of the device | distance, velocity, laser |
@@ -1918,14 +1918,14 @@ position 14, with a fixed width of 4 (this is because of %4s).
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_LCD20x4 |
 
 ##### Backlight sub device:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as bricklet |
 | subid | openHAB subid of the device | backlight |
@@ -1933,7 +1933,7 @@ position 14, with a fixed width of 4 (this is because of %4s).
 
 ##### Button sub devices:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as bricklet |
 | subid | openHAB subid of the device | button0, button1, button2, button3 |
@@ -2053,7 +2053,7 @@ The colormapping of the LED chip types are not standardized, therefore the seque
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_ledstrip |
@@ -2065,7 +2065,7 @@ The colormapping of the LED chip types are not standardized, therefore the seque
 
 ##### LED Strip sub device (optional):
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as bricklet |
 | subid | openHAB subid of the device | ledgroup1 |
@@ -2123,7 +2123,7 @@ The default callback period is 10 millis, you can change this within openhab.cfg
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_linear_poti |
@@ -2178,7 +2178,7 @@ end
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_loadcell |
@@ -2186,7 +2186,7 @@ end
 
 ##### Load Cell sub device:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as bricklet |
 | subid | openHAB subid of the device | weight, led |
@@ -2257,7 +2257,7 @@ An entry in openhab.cfg is only needed if you want to use a [_symbolic name_](#s
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | motion_detector |
@@ -2298,7 +2298,7 @@ electrodes or use a [_symbolic name_](#sym_name).
 
 ##### Device configuration:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_multitouch |
@@ -2314,7 +2314,7 @@ tinkerforge:touch.recalibrate=true
 
 ##### Electrode sub device configuration:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | subid | openHAB subid of the device|electrode0 electrode1 electrode2 electrode3 electrode4 electrode5 electrode6 electrode7 electrode8 electrode9 electrode10 electrode11|
@@ -2331,7 +2331,7 @@ tinkerforge:e1.disableElectrode=true
 
 ##### Proximity sub device configuration:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | subid | openHAB subid of the device|proximity|
@@ -2393,7 +2393,7 @@ Moving average is a calculation to analyze data points by creating series of ave
 
 ##### openhab.cfg:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_moisture |
@@ -2451,7 +2451,7 @@ Wire mode of the sensor has to be set. Possible values are 2, 3 and 4 which corr
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_ptc |
@@ -2459,7 +2459,7 @@ Wire mode of the sensor has to be set. Possible values are 2, 3 and 4 which corr
 
 ##### PTC sub device:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as bricklet |
 | subid | openHAB subid of the device | ptc_temperature |
@@ -2513,7 +2513,7 @@ on the device type.
 
 * Device configuration
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_remote_switch |
@@ -2531,7 +2531,7 @@ tinkerforge:rs1.typeCDevices=floor
 
 * Sub device type A configuration:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | subid | must correspond to the device(A,B,C)Devices setting| e.b. kitchen|
@@ -2555,7 +2555,7 @@ tinkerforge:rs_living_room2.receiverCode=9
 
 * Sub device type B configuration:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | subid | must correspond to the device(A,B,C)Devices setting| e.b. kitchen|
@@ -2573,7 +2573,7 @@ tinkerforge:rs_kitchen.unit=9
 
 * Sub device type C configuration:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | subid | must correspond to the device(A,B,C)Devices setting| e.b. kitchen|
@@ -2797,7 +2797,7 @@ An entry in openhab.cfg is only needed if you want to adjust [threshold and / or
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_soundintensity |
@@ -2835,7 +2835,7 @@ http://www.tinkerforge.com/en/doc/Software/Bricklets/Temperature_Bricklet_Java.h
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_temperature |
@@ -2875,14 +2875,14 @@ if you want to use a [_symbolic name_](#sym_name) or adjust the emissivity of th
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_temperatureIR |
 
 ##### Object temperature sub device:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | subid | openHAB subid of the device | object_temperature |
@@ -2902,7 +2902,7 @@ tinkerforge:objIR.threshold=0
 
 ##### Ambient temperature sub device:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | subid | openHAB subid of the device | ambient_temperature |
@@ -2943,7 +2943,7 @@ An entry in openhab.cfg is only needed if you want to use a [_symbolic name_](#s
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_tilt |
@@ -2990,7 +2990,7 @@ current conversion time of the device.
 
 ##### Bricklet:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | type | openHAB type name | bricklet_voltageCurrent |
@@ -3007,7 +3007,7 @@ tinkerforge:voltageCurrent.currentConversionTime=4
 
 ##### Voltage sub device:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | subid | openHAB subid of the device | voltageCurrent_voltage |
@@ -3026,7 +3026,7 @@ tinkerforge:vc_voltage.callbackPeriod=100
 
 ##### Current sub device:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | subid | openHAB subid of the device | voltageCurrent_current |
@@ -3045,7 +3045,7 @@ tinkerforge:vc_current.callbackPeriod=100
 
 ##### Power sub device:
 
-| property | descripition | values |
+| property | description  | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | get value from brickv |
 | subid | openHAB subid of the device | voltageCurrent_power |
