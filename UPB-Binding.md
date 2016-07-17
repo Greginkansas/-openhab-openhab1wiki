@@ -21,3 +21,8 @@ The binding only supports Switches or Dimmers.
 To activate a link set the link property to true:
 
     Dimmer Light_Lamps              "Living Room Lamps"     (Lights) {upb="id=4 link=true"}
+
+# Other notes
+Binding not currently compatible with MS Windows.
+
+If you don't see this in the addons, you can find it here: https://github.com/openhab/openhab/pull/3883
