@@ -91,6 +91,7 @@ Valid slave parameters are
 <p>
 <i>port</i> refers to COM port name on Windows and serial device path in *nix. Optionally one can configure one or more of the serial parameters: baud (default <i>9600</i>), dataBits (default <i>8</i>), parity (default <i>none</i>), stopBits (default <i>1</i>), encoding (default <i>ascii</i>). <br/>Options for the optional serial parameters are as follows: parity={<i>even</i>, <i>odd</i>}; encoding={<i>ascii</i>, <i>rtu</i>, <i>bin</i>}.</p>
 
+See also below for additional connection parameters introduced in 1.9.0.
 </td>
      </tr>
   <tr><td>id</td><td>optional</td>
@@ -131,7 +132,7 @@ Explanation of these new parameters
 - `flowControlIn`: Flow control for the input data. Default `none`. Valid values: `none`, `xon/xoff in`, `rts/cts in`.
 - `flowControlOut`: Flow control for the output data. Default `none`. Valid values: `none`, `xon/xoff out`, `rts/cts out`.
 
-Most important of these is the `interTransactionDelayMillis` which ensures that Modbus RTU (serial) has enough "silent time" between the transactions, as required by the Modbus/RTU protocol. Furthermore it ensures that modbus slave is not spammed with too many transactions, for example some PLC devices might not be able to handle many requests coming in a short time window.
+Most important of these is the `interTransactionDelayMillis` which ensures that Modbus RTU (serial) has enough "silent time" between the transactions, as required by the Modbus/RTU protocol. Furthermore it ensures that modbus slave (applies to both tcp and serial slaves) is not spammed with too many transactions, for example some PLC devices might not be able to handle many requests coming in a short time window.
 
 These new parameters have conservative defaults, meaning that they should work for most users. In some cases when extreme performance is required (e.g. poll period below 10ms), one might want to decrease the delay parameters, especially `interTransactionDelayMillis`. With some slower devices on might need to increase the values.
 
