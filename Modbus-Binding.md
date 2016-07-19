@@ -275,6 +275,10 @@ modbus:serial.slave2.type=holding
 modbus:serial.slave2.length=5
 ```
 
+Please note that the binding requires that all slaves connecting to the same serial port share the same connection parameters. For additional information, see [this discussion](https://community.openhab.org/t/connection-pooling-in-modbus-binding/5246/161?u=ssalonen) in the community forums.
+
+Similarly, one must have identical connection parameters for all tcp slaves connecting to same host+port.
+
 ## Read and write functions (modbus slave type)
 Modbus read functions 
 - `type=coil` uses function 1 "Read Coil Status" 
