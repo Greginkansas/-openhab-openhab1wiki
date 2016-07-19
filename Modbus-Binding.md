@@ -258,7 +258,7 @@ The binding uses following function codes when communicating with the slaves:
 
 > This translates into [entity] addresses between 0 and 9,998 in data frames.
 
-The openhab modbus binding uses entity addresses when referring to modbus entities. That is, the entity address configured in modbus binding is passed to modbus protocol frame as-is. For example, modbus slave definition with `start=3`, `length=2` and `type=holding` will read modbus entities with the following numbers 40004 and 40005.
+The openhab modbus binding uses data frame entity addresses when referring to modbus entities. That is, the entity address configured in modbus binding is passed to modbus protocol frame as-is. For example, modbus slave definition with `start=3`, `length=2` and `type=holding` will read modbus entities with the following numbers 40004 and 40005.
 
 ## Many modbus binding slaves for single physical slave
 
