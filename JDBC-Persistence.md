@@ -147,7 +147,7 @@ jdbc:tableIdDigitCount=0
 # jdbc:url=jdbc:h2:./testH2
 # jdbc:url=jdbc:hsqldb:./testHsqlDb
 # jdbc:url=jdbc:mariadb://192.168.0.1:3306/testMariadb
-# jdbc:url=jdbc:mysql://192.168.0.1:3306/testMysql
+# jdbc:url=jdbc:mysql://192.168.0.1:3306/testMysql?serverTimezone=UTC
 # jdbc:url=jdbc:postgresql://192.168.0.1:5432/testPostgresql
 # jdbc:url=jdbc:sqlite:./testSqlite.db
 
