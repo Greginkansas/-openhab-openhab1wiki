@@ -186,6 +186,7 @@ Feel free to put your own icons into that directory. The images must be in png f
 You can dynamically change the icon depending on the item state. You have to provide a default file and one icon file per state with the states name append to the icons name.
 
 Example:
+
     present.png
     present-off.png
     present-on.png
