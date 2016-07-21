@@ -179,6 +179,8 @@ jdbc:password=test
 #jdbc:sqltype.ROLLERSHUTTER	=	TINYINT
 #jdbc:sqltype.STRING		=	VARCHAR(65500)
 #jdbc:sqltype.SWITCH		=	VARCHAR(6)
+#jdbc:sqltype.TABLEPRIMARYKEY   =	TIMESTAMP
+#jdbc:sqltype.TABLEPRIMARYVALUE =	NOW()
 
 # For Itemtype "Number" default decimal digit count (optional, default: 3) 
 #jdbc:numberDecimalcount=
