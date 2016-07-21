@@ -22,10 +22,10 @@ For easy editing, the openHAB Designer brings full IDE support for these files, 
 Sitemaps can be composed by grouping various user interface elements into areas, which will be rendered by openHAB.
 
 This element is **mandatory** in a sitemap definition file:
-<table>
-<tr><td><b>Element name</b></td><td><b>Description</b></td></tr>
-<tr><td>sitemap</td><td>This will be the first line. It is mandatory and it states the name of your sitemap (demo) and the title of the main screen.</td></tr>
-</table>
+
+| Element | Description |
+|---------|-------------|
+| sitemap | This will be the first line. It is mandatory and it states the name of your sitemap (demo) and the title of the main screen.
 
 #### <a name="sitemap"/>Element 'Sitemap'
 
@@ -39,22 +39,22 @@ Syntax:
 
 The following elements can be used **optionally** in a sitemap definition file (alphabetical order):
 
-<table>
-  <tr><td><b>Element name</b></td><td><b>Description</b></td></tr>
-  <tr><td><a href="#element-colorpicker">Colorpicker</a></td><td>Allows the user to choose a color from a color wheel.</td></tr>
-  <tr><td><a href="#element-chart">Chart</a></td><td>Adds a time-series chart object for displaying logged data.</td></tr>
-  <tr><td><a href="#element-frame">Frame</a></td><td>Area with either various other sitemap elements or further nested frames</td></tr>
-  <tr><td><a href="#element-group">Group</a></td><td>Renders all elements of a given group defined in an items definiton file</td></tr>
-  <tr><td><a href="#element-image">Image</a></td><td>Renders an image</td></tr>
-  <tr><td><a href="#element-list">List</a></td><td>Not supported by any user interface</td></tr>
-  <tr><td><a href="#element-selection">Selection</a></td><td>Gives access to a new page where the user can choose among values defined in the mappings parameter.</td></tr>
-  <tr><td><a href="#element-setpoint">Setpoint</a></td><td>Shows a value and allows the user to modify it. Optionally, it is possible to specify maximum and minimum allowed values, as well as a step.</td></tr>
-  <tr><td><a href="#element-slider">Slider</a></td><td>Renders a slider</td></tr>
-  <tr><td><a href="#element-switch">Switch</a></td><td>Renders a switch item</td></tr>
-  <tr><td><a href="#element-text">Text</a></td><td>Renders a text element</td></tr>
-  <tr><td><a href="#element-video">Video</a></td><td>Displays a video</td></tr>
-  <tr><td><a href="#element-webview">Webview</a></td><td></td></tr>
-</table>
+| Element | Description |
+|---------|-------------|
+| [Colorpicker](#element-colorpicker) | Allows the user to choose a color from a color wheel. 
+| [Chart](#element-chart) | Adds a time-series chart object for displaying logged data. 
+| [Frame](#element-frame) | Area with either various other sitemap elements or further nested frames 
+| [Group](#element-group) | Renders all elements of a given group defined in an items definiton file 
+| [Image](#element-image) | Renders an image 
+| [List](#element-list) | Not supported by any user interface 
+| [Selection](#element-selection) | Gives access to a new page where the user can choose among values defined in the mappings parameter. 
+| [Setpoint](#element-setpoint) | Shows a value and allows the user to modify it. Optionally, it is possible to specify maximum and minimum allowed values, as well as a step. 
+| [Slider](#element-slider) | Renders a slider 
+| [Switch](#element-switch) | Renders a switch item 
+| [Text](#element-text) | Renders a text element 
+| [Video](#element-video) | Displays a video 
+| [Webview](#element-webview) | Display a webpage
+
 
 #### <a name="colorpicker"/>Element 'Colorpicker'
 
