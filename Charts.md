@@ -34,6 +34,16 @@ A valid request hence could look like this:
 
 The created chart will be automatically formatted with some sensible defaults. There is currently no way to change e.g. the y-axis range, the line colors, the legend, etc. A flexible configuration solution that allows full control of all rrd tool features is planned for later.
 
+# Charts in Sitemap
+
+To use show multiple items in a chart, they must be in the same group:
+`Group gTemperatures
+Numer TEMP_1 "Temperatrue 1" (gTemperatures)
+Numer TEMP_2 "Temperatrue 2" (gTemperatures)`
+
+And in *.sitemap:
+`Chart item=gTemperatures period=h refresh=300`
+
 # Alternative Solutions
 
 There are other potential ways to integrate charts in the UI: They could be created on the server and provided to the UI as PNG or SVG files. They could also be created as HTML5 through Javascript (see e.g. [Sencha Charts](http://www.sencha.com/products/touch/charts) or [Google Chart Tool](https://developers.google.com/chart/)) if your database supports external access.
