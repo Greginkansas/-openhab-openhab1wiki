@@ -37,9 +37,9 @@ The created chart will be automatically formatted with some sensible defaults. T
 # Charts in Sitemap
 
 To use show multiple items in a chart, they must be in the same group:
-`Group gTemperatures
-Numer TEMP_1 "Temperatrue 1" (gTemperatures)
-Numer TEMP_2 "Temperatrue 2" (gTemperatures)`
+    Group gTemperatures
+    Numer TEMP_1 "Temperatrue 1" (gTemperatures)
+    Numer TEMP_2 "Temperatrue 2" (gTemperatures)
 
 And in *.sitemap:
 `Chart item=gTemperatures period=h refresh=300`
