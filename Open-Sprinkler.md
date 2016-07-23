@@ -11,6 +11,8 @@ For installation of the binding, please see Wiki page [[Bindings]].
 
 ## Binding Configuration
 
+This binding appears to require you to run openhab as root, otherwise you get the error `wiringPiSetup: Must be root.`
+
 !OpenSprinkler stations are numbered 0 through 7 for the default number of stations, but for some users of the !OpenSprinkler and !OpenSprinkler Pi, they will have extension boards in use. This requires that the openhab.cfg file be edited to specify how many stations are available (by default there are 8, so if you are not using an extension board then you don't need to do this step).
 
 Additionally, if you are wanting to connect via http to your !OpenSprinkler (most probably because you have the original version), you will need to specify the url and password to access the interval program server. Note that by connecting OpenHAB to the interval program, you will be disabling any timers and forcing it into manual mode. Refer to the example below to see what you need to include in your openhab.cfg file:
