@@ -145,7 +145,7 @@ TILTED=tilted
 undefined=unknown
 ```
 A documentation which device is proving which datapoint, please check the documentation from EQ3:
-[Datapoints for CCU1](http://www.eq-3.de/Downloads/PDFs/Dokumentation_und_Tutorials/HM_Script_Teil_4_Datenpunkte_1_503.pdf), [Datapoints for CCU2](http://www.eq-3.de/Downloads/Software/HM-CCU2-Firmware_Updates/Tutorials/hm_devices_Endkunden.pdf)
+[Datapoints for CCU1](http://www.eq-3.de/Downloads/eq3/download%20bereich/hm_web_ui_doku/HM_Script_Teil_4_Datenpunkte_1_503.pdf), [Datapoints for CCU2](http://www.eq-3.de/Downloads/eq3/download%20bereich/hm_web_ui_doku/hm_devices_Endkunden.pdf)
 
 To get the address from Homegear:
 
