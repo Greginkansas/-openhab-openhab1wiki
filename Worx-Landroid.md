@@ -10,18 +10,18 @@ Some of the current models (M1000i a.k.a. WG796E.1 and M1500i a.k.a. WG797E) int
 
 ## MQTT based control
 For a MQTT and Python based solution, check out [this project](https://github.com/trieb/worx-landroid).
-Currently it provides read-only values, but the author will add the start/stop actions soon, too.
+
 
 ## HTTP binding based control
-Use HTTP binding to directly query and control Landroids.
+Use the openHAB HTTP binding to directly query and control Landroids.
 
 (replace IP and use your Landroid PIN instead of "1234")
 
     String Landroid_status "Landroid Status [%s]" <garden> (Rasenmaeher) { http="<[http://admin:1234@10.0.0.1/jsondata.cgi:5000:REGEX(.*\"state\":\"(.*?)\",.*)]" }
     String Landroid_Command "Landroid action" <garden> (Rasenmaeher)
 
-If you call the URL, output shows a number of parameters, state being just one of them.
-Feel free to pick those of interest and use a copy of the Landroid_Status item with a modifed regex.
+If you call the URL, output shows a number of parameters, `state` being just one of them.
+Feel free to pick those of interest and use a copy of the `Landroid_status` item with an appropriately modifed regex.
 
 in sitemap:
 
