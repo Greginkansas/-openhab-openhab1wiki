@@ -13,7 +13,7 @@
   - [Many modbus binding slaves for single physical slave](#many-modbus-binding-slaves-for-single-physical-slave)
   - [Read and write functions \(modbus slave type\)](#read-and-write-functions-modbus-slave-type)
   - [Register interpretation \(valuetype\) on read & write](#register-interpretation-valuetype-on-read--write)
-  - [Modbus RTU over TCP](#Modbus RTU over TCP) 
+  - [Modbus RTU over TCP](#modbus-rtu-over-tcp) 
 - [Config Examples](#config-examples)
 - [Troubleshooting](#troubleshooting)
   - [Enable verbose \(debug\) logging](#enable-verbose-debug-logging)
@@ -400,7 +400,7 @@ You can use a Virtual Serial Port Server, to emulate a COM Port and Bind it with
 
 
 
-# Config Examples
+### Config Examples
 
 - Minimal construction in openhab.cfg for TCP connections will look like:
 
