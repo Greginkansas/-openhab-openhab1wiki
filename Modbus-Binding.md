@@ -395,8 +395,7 @@ Converting INCREASE and DECREASE commands to numbers is more complicated
 **Note: note that INCREASE and DECREASE ignore valuetype when using the previously polled value. Thus, it is not recommended to use INCREASE and DECREASE commands with other than `valuetype=uint16`**
 
 ### Modbus RTU over TCP 
-Some devices use modbus RTU Over Ethernet. This is usually Modbus RTU encapsulation in an Ethernet Packet. So, it does not work with Modbus TCP binding since it is Modbus with a special header and its not supported by Openhab Modbus Binding. 
-You can use a Virtual Serial Port Server, to emulate a COM Port and Bind it with OpenHab with Modbus Serial.
+Some devices uses modbus RTU over TCP. This is usually Modbus RTU encapsulation in an ethernet packet. So, those devices does not work with Modbus TCP binding since it is Modbus with a special header. Also Modbus RTU over TCP is not supported by Openhab Modbus Binding. But there is a workaround: you can use a Virtual Serial Port Server, to emulate a COM Port and Bind it with OpenHab unsing Modbus Serial.
 
 
 
