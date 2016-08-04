@@ -15,6 +15,9 @@ If you are upgrading from prior openHAB versions you have to either upgrade your
 (Upgrading docs: https://github.com/influxdata/influxdb/blob/master/importer/README.md) or if you want 
 keep your current InfluxDB installation switch to the influxdb08 persistence bundle.
 
+## 1.9.0 New & Noteworthy
+New configuration setting "retentionPolicy" was added.
+
 ## Features
 
 The InfluxDB persistence service persists item values using the the InfluxDB time series database.
@@ -48,18 +51,19 @@ Choose a password and remember it.
 After this the persistence service needs some configuration in the "InfluxDB Persistence Service" 
 respectively "InfluxDB 0.8 Persistence Service" section in openhab.cfg.
 
-The defaults for the database name, the database user and the database url are "openhab",
-"openhab" and "http://127.0.0.1:8086" respectively. If you took this defaults for the database setup 
+The defaults for the database name, the database user, the database url and the retentionPolicy are "openhab",
+"openhab", "http://127.0.0.1:8086" and "default" respectively. If you took this defaults for the database setup 
 you only have to add the password value to the influxdb:password=<password> variable.
 
-| variable            | description                   | default |
-|---------------------|-------------------------------|---------|
-|influxdb:url         | the database URL              | http://127.0.0.1:8086 |
-|influxdb:user        | the name of the database user | openhab |
-|influxdb:db          | the name of the database      | openhab |
-|influxdb:password   | the password of the database user | no default |
+| variable            | description                   | default |openhab version|
+|---------------------|-------------------------------|---------|---------------|
+|influxdb:url         | the database URL              | http://127.0.0.1:8086 | <= 1.8 | 
+|influxdb:user        | the name of the database user | openhab | <= 1.8 |
+|influxdb:db          | the name of the database      | openhab | <= 1.8 |
+|influxdb:password   | the password of the database user | no default | <= 1.8 |
+|influxdb:retentionPolicy | the retentionPolicy name | "default" | >= 1.9 |
 
-For __influxdb08__ users the variables are named influxdb08:url, influxdb08:user, influxdb08:db and influxdb08:password. If influxdb is your default persitence service, then change to persistence:default=influxdb08 as well. 
+For __influxdb08__ users the variables are named influxdb08:url, influxdb08:user, influxdb08:db and influxdb08:password. The retentionPolicy variable isn't available for influxdb08. If influxdb08 is your default persitence service, then change to persistence:default=influxdb08 as well. 
 
 ### Installation
 For installation of this persistence package please follow the same steps as if you would [install a binding](Bindings).
