@@ -207,6 +207,7 @@
 * [[Somfy URTSI II Binding|URTSI-Binding]]
 * [[Sonance Binding|Sonance-binding]]
 * [[Sonos Binding|Sonos-Binding]]
+* [[Souliss Binding|Souliss-Arduino-based-SmartHome-Binding]]
 * [[Squeezebox Binding|Squeezebox-Binding]]
 * [[Stiebel Eltron Heatpump|Stiebel-Eltron-Heatpump]]
 * [[Swegon ventilation Binding|Swegon-Ventilation-Binding]]
