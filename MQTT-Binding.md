@@ -97,7 +97,8 @@ Since 1.6 it is possible to add an optional 5th configuration like:
 
 ## Item Binding Configuration for Outbound Messages
 
-Below you can see the structure of the outbound mqtt configuration string.  Outbound configurations allow you to send an MQTT message when the an openHAB item receives a command or state update.
+Below you can see the structure of the outbound mqtt configuration string.  Outbound configurations allow you to send an MQTT message when the an openHAB item receives a command or state update. 
+For clarity this means when something is changed inside OpenHAB, outbound messages allow OpenHAB to send a message to an external device like an arduino or anything that is listening to the mosquitto server. 
 
     Item itemName {mqtt="<direction>[<broker>:<topic>:<type>:<trigger>:<transformation>]" }
 
