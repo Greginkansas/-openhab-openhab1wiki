@@ -5,6 +5,7 @@ Documentation of the SNMP binding Bundle
 For installation of the binding, please see Wiki page [[Bindings]].
 
 **NOTE:** This page is updated for the SNMP binding in V1.3. The binding strings are not compatible with the older binding since there is a lot more functionality.
+
 **NOTE:** The ability to specify the remote port has been added in V1.9.
 
 The SNMP binding allows SNMP GET (polling) and SNMP SET (commanding), and the reception of SNMP TRAPs (asynchronous events). SNMP is often found in network equipment, and the binding can be used to ensure your network is operating correctly. The out binding can be used to configure network settings.
