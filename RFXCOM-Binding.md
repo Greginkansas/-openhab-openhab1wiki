@@ -266,39 +266,40 @@ Number Owl_Amps { rfxcom="<35072:Channel2Amps" }
 `ValueSelector` specify ...
 
 <table>
-  <tr><td><b>Value selector</b></td><td><b>Valid OpenHAB data type</b></td><td><b>Information</b></td></tr>
-  <tr><td>RawData</td><td>StringItem</td><td></td></tr>
-  <tr><td>Command</td><td>SwitchItem</td><td>ON, OFF, GROUP_ON, GROUP_OFF</td></tr>
-  <tr><td>SignalLevel</td><td>NumberItem</td><td></td></tr>
-  <tr><td>DimmingLevel</td><td>DimmerItem</td><td>UP, DOWN, PERCENTAGE</td></tr>
-  <tr><td>Temperature</td><td>NumberItem</td><td></td></tr>
-  <tr><td>Humidity</td><td>NumberItem</td><td></td></tr>
-  <tr><td>HumidityStatus</td><td>StringItem</td><td></td></tr>
-  <tr><td>BatteryLevel</td><td>NumberItem</td><td></td></tr>
-  <tr><td>Shutter</td><td>RollershutterItem</td><td>OPEN, CLOSE, STOP</td></tr>
-  <tr><td>Motion</td><td>SwitchItem</td><td>MOTION, NO_MOTION</td></tr>
-  <tr><td>Voltage</td><td>NumberItem</td><td></td></tr>
-  <tr><td>SetPoint</td><td>NumberItem</td><td></td></tr>
-  <tr><td>Pressure</td><td>NumberItem</td><td></td></tr>
-  <tr><td>Forecast</td><td>NumberItem</td><td></td></tr>
-  <tr><td>RainRate</td><td>NumberItem</td><td></td></tr>
-  <tr><td>RainTotal</td><td>NumberItem</td><td></td></tr>
-  <tr><td>WindDirection</td><td>NumberItem</td><td></td></tr>
-  <tr><td>WindSpeed</td><td>NumberItem</td><td></td></tr>
-  <tr><td>Gust</td><td>NumberItem</td><td></td></tr>
-  <tr><td>ChillFactor</td><td>NumberItem</td><td></td></tr>
-  <tr><td>InstantPower</td><td>NumberItem</td><td></td></tr>
-  <tr><td>TotalUsage</td><td>NumberItem</td><td></td></tr>
-  <tr><td>Voltage</td><td>NumberItem</td><td></td></tr>
-  <tr><td>InstantAmps</td><td>NumberItem</td><td></td></tr>
-  <tr><td>TotalAmpHours</td><td>NumberItem</td><td></td></tr>
-  <tr><td>Channel1Amps</td><td>NumberItem</td><td></td></tr>
-  <tr><td>Channel2Amps</td><td>NumberItem</td><td></td></tr>
-  <tr><td>Channel3Amps</td><td>NumberItem</td><td></td></tr>
-  <tr><td>Status</td><td>StringItem</td><td></td></tr>
-  <tr><td>Mood</td><td>NumberItem</td><td></td></tr>
-  <tr><td>Contact</td><td>ContactItem</td><td></td></tr>
-  <tr><td>Contact1</td><td>ContactItem</td><td></td></tr>
-  <tr><td>Contact2</td><td>ContactItem</td><td></td></tr>
-  <tr><td>Contact3</td><td>ContactItem</td><td></td></tr>
+  <tr><td><b>Value selector</b></td><td><b>Valid OpenHAB data type</b></td><td><b>Values</b></td><td><b>Notes</b></td></tr>
+  <tr><td>RawData</td><td>StringItem</td><td></td><td>Full message in hex.</td></tr>
+  <tr><td>Data</td><td>StringItem</td><td></td><td>Message without header. Since 1.9.0.</td></tr>
+  <tr><td>Command</td><td>SwitchItem</td><td>ON, OFF, GROUP_ON, GROUP_OFF</td><td></td></tr>
+  <tr><td>SignalLevel</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>DimmingLevel</td><td>DimmerItem</td><td>UP, DOWN, PERCENTAGE</td><td></td></tr>
+  <tr><td>Temperature</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>Humidity</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>HumidityStatus</td><td>StringItem</td><td></td><td></td></tr>
+  <tr><td>BatteryLevel</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>Shutter</td><td>RollershutterItem</td><td>OPEN, CLOSE, STOP</td><td></td></tr>
+  <tr><td>Motion</td><td>SwitchItem</td><td>MOTION, NO_MOTION</td><td></td></tr>
+  <tr><td>Voltage</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>SetPoint</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>Pressure</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>Forecast</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>RainRate</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>RainTotal</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>WindDirection</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>WindSpeed</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>Gust</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>ChillFactor</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>InstantPower</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>TotalUsage</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>Voltage</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>InstantAmps</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>TotalAmpHours</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>Channel1Amps</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>Channel2Amps</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>Channel3Amps</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>Status</td><td>StringItem</td><td></td><td></td></tr>
+  <tr><td>Mood</td><td>NumberItem</td><td></td><td></td></tr>
+  <tr><td>Contact</td><td>ContactItem</td><td></td><td></td></tr>
+  <tr><td>Contact1</td><td>ContactItem</td><td></td><td></td></tr>
+  <tr><td>Contact2</td><td>ContactItem</td><td></td><td></td></tr>
+  <tr><td>Contact3</td><td>ContactItem</td><td></td><td></td></tr>
 </table>
