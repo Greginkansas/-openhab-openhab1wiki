@@ -357,6 +357,7 @@ These devices have been tested so far and confirmed as working:
 * HM-LC-Sw1-Ba-PCB (Switch 1 channel PCB Version, low voltage)
 * HM-LC-Sw1-Pl (Radio-controlled socket adapter switch actuator 1-channel trailing edge)
 * HM-LC-Sw1-FM (Switch-/blind actuators flush-mount)
+* HM-LC-Sw1-SM (Switch-/blind actuators flush-mount)
 * HM-LC-Sw2-FM (Switch-/blind actuators flush-mount)
 * HM-LC-Sw1PBU-FM (Radio-controlled switching actuator for brand switch systems, 1-channel flush-mount)
 * HM-LC-Sw4-Ba-PCB (Switch 4 channel PCB Version, low voltage)
