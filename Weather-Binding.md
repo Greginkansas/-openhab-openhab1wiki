@@ -9,6 +9,7 @@ Currently supported weather providers:
 - [WorldWeatherOnline](http://worldweatheronline.com)
 - [Hamweather](http://hamweather.com)
 - [Yahoo](https://weather.yahoo.com)
+- [MeteoBlue](https://www.meteoblue.com/) **new in 1.9**
 
 **Important changes in 1.8**: The item token for layouts has been removed to make the binding openHAB 2 compatible (see Example tokens) and new example weather-data file in [download section](#download).
 
@@ -27,6 +28,7 @@ Currently supported weather providers:
 #weather:apikey.Wunderground=
 #weather:apikey.Hamweather=
 #weather:apikey2.Hamweather=
+#weather:apikey.Meteoblue=
 
 # location configuration, you can specify multiple locations
 #weather:location.<locationId1>.name=
