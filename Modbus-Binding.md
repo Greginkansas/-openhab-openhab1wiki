@@ -114,6 +114,9 @@ See also below for additional connection parameters introduced in 1.9.0.
        <tr><td>updateunchangeditems</td><td>optional</td><td><b>Since 1.9.0</b>. <i>true</i> or <i>false</i>. Controls whether the binding sends an update event on every successful poll (true) or only if the state of the item actually changes (false). Default is <i>false</i>. When polling many items with high poll frequency, setting this parameter to <i>true</i> may cause significant CPU usage.</td>
               </tr>
 
+       <tr><td>postundefinedonreaderror</td><td>optional</td><td><b>Since 1.9.0</b>. <i>true</i> or <i>false</i>. Controls whether the binding sends `Undefined` to the items associated with this slave when read error occurs. Here read error refers to connection issues (cannot establish connection), IO error (e.g. uninterrupted connection, unexpected EOF), [modbus protocol exceptions](http://www.simplymodbus.ca/exceptions.htm) (e.g. "Illegal data address"), or response transaction id not matching the request.</td>
+              </tr>
+
 </table>
 </td>
 
