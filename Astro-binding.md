@@ -1,8 +1,24 @@
-### Introduction
+## Introduction
 
 The Astro binding is used for calculating many DateTime and positional values for sun and moon and for scheduling of events.
 
-### Installation
+## openHAB 2
+
+This wiki article is only valid for **openHAB 1.8**.
+For an updated documentation on the use with **openHAB 2**, please visit:
+
+http://docs.openhab.org/addons/bindings/astro/readme.html
+
+## openHAB 2
+
+This wiki article is only valid for **openHAB 1.8**.
+An updated **version for openHAB 2 is not yet available**.
+
+* If you were are looking for a documentation on openHAB 2, please visit: http://docs.openhab.org
+
+* If you are interested in a specific topic, not yet documented for openHAB 2, please handle the following information with care and refer to the community forum for any questions: https://community.openhab.org
+
+## Installation
 ```
 sudo apt-get update
 sudo apt-get install openhab-addon-binding-astro
@@ -22,7 +38,7 @@ astro:longitude=nn.nnnnnn
 astro:interval=nnn
 ```
 
-### Available Items
+## Available Items
 **Important:** type and property are case sensitive! So enter the values exactly as shown.
 
 * **planet** `sun`
@@ -61,7 +77,7 @@ You can bind a property to different item types, which has a special meaning in 
 
 The position items (azimuth, elevation) and moon items (phase, distance, perigee, apogee, zodiac) are updated at the configured refresh interval in openhab.cfg.
 
-###Sun examples
+## Sun examples
 ```
 // shows the sunrise
 DateTime Sunrise_Time  "Sunrise [%1$tH:%1$tM]"  {astro="planet=sun, type=rise, property=start"}
@@ -115,7 +131,7 @@ DateTime Sun_Eclipse_Partial "Sun partial eclipse [%1$td.%1$tm.%1$tY %1$tH:%1$tM
 DateTime Sun_Eclipse_Ring    "Sun ring eclipse [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"    {astro="planet=sun, type=eclipse, property=ring"}
 ```
 
-###Moon examples  
+## Moon examples  
 ```
 // rise, set
 DateTime Moonrise_Time   "Moonrise [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"  {astro="planet=moon, type=rise, property=start"}
@@ -213,7 +229,7 @@ Third\u0020Quarter=letztes Viertel
 Waning\u0020Crescent=abnehmender Halbmond
 ```
 
-### Example Rules
+## Example Rules
 Rule at sunrise:
 ```Xtend
 rule "Example Rule at sunrise"
@@ -255,7 +271,7 @@ then
 end
 ```
 
-### Troubleshooting
+## Troubleshooting
 I assume, the binding is in your addons folder. It populates the astro items at startup and with scheduled jobs.
 
 * In the openHab logfile there must be a entry like this: `AstroConfig[latitude=xx.xxxx,longitude=xx.xxxx,interval=...,systemTimezone=...,daylightSavings=...]`  
