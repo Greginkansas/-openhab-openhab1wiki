@@ -5,7 +5,7 @@ The Astro binding is used for calculating many DateTime and positional values fo
 ## openHAB 2
 
 This wiki article was written for **openHAB 1.x**.
-For **openHAB 2** documentation, please visit:
+For the **openHAB 2** specific documentation, please visit:
 
 http://docs.openhab.org/addons/bindings/astro/readme.html
 
