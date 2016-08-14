@@ -340,3 +340,15 @@ In order to configure logging for this binding to be generated in a separate fil
 </logger>
 ```
 It is highly recommended to turn on at least DEBUG logging whilst setting up and configuring your ZWave network for the first time. 
+
+
+## Refreshing a value manually
+In seldom cases it is useful to refresh values from the network manually in rules.
+
+To achieve this, use the refresh.REFRESH command on the corresponding item.
+e.g.
+
+````sendCommand("BEDROOM_TV", refresh.REFRESH)````
+
+Attention:
+This works only with OH2
