@@ -12,7 +12,7 @@ available. More about Insteon can be found on [Wikipedia](http://en.wikipedia.or
 This binding provides access to the Insteon network by means of either an
 Insteon PowerLinc Modem (PLM), a legacy Insteon Hub 2242-222 (pre-2014) or the new 2245-222 ("2014") Insteon Hub.
 The modem can be connected to the openHAB server either via a serial port (Model 2413S) or a USB port
-(Model 2413U). The binding translates openHAB commands into Insteon
+(Model 2413U). As of 1.9, the modem can also be connected via TCP (such as ser2net).  The binding translates openHAB commands into Insteon
 messages and sends them on the Insteon network. Relevant messages from
 the Insteon network (like notifications about switches being toggled)
 are picked up by the modem and converted to openHAB status updates by
