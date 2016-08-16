@@ -31,9 +31,8 @@ As a result, your lines in the items file might look like the following:
 
 
 
-## New features coming in [1.5](https://github.com/openhab/openhab/pull/888)
 
-Support for track names was added and also ability to set exact volume for dimmer items (previously only increase/decrease actions were available)
+Support for track names was added in 1.5 and also ability to set exact volume for dimmer items (previously only increase/decrease actions were available)
 
 Example items:
 
@@ -70,3 +69,30 @@ Switch item=Mpd_Bathroom_NextPrev  mappings=[OFF="Previous", ON="Next"]
 Slider item=Mpd_Bathroom_VolumeControl
 ```
 
+Find song in MPD database by title and play this song
+
+Example items:
+
+```
+Number PlayHappyBirthdays "Play Happy Birthday" <none> (All) { mpd="ON:playsong=HappyBirthdays" }
+```
+
+Example sitemap:
+```
+Switch item=PlayHappyBirthdays mappings=[ON="Play" ]
+```
+
+## New features coming in [1.9](https://github.com/openhab/openhab/pull/4593)
+
+Support for playing song from current list. It can be used to choose radio station (streaming URI) from playlist defined
+
+Example items:
+
+```
+Number CurrentRadioStation "Radio" <none> (All) { mpd="NUMBER:p1:playsongid" }
+```
+
+Example sitemap:
+```
+Selection item=CurrentRadioStation mappings=[1="ZET Chilli",2="Radio Kolor",3="Radio 7",4="Złote Przeboje",5="EskaROCK",6="RMF Classic",7="RMF Maxxx",11="ESKA",9="RMF",10="MUZO.FM",8="PR 3",12="TOK FM" ]
+```
