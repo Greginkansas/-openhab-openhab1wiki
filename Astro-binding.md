@@ -2,23 +2,6 @@
 
 The Astro binding is used for calculating many DateTime and positional values for sun and moon and for scheduling of events.
 
-## openHAB 2
-
-This wiki article was written for **openHAB 1.x**.
-
-For the **openHAB 2** specific documentation, please visit:
-http://docs.openhab.org/addons/bindings/astro/readme.html
-
-## openHAB 2
-
-This wiki article was written for **openHAB 1.x**.
-
-* If you were are looking for a documentation on openHAB 2, please visit: http://docs.openhab.org
-
-* If you are looking for documentation on compatible [openHAB 1.x bindings](http://docs.openhab.org/addons/1xaddons.html), the 1.x wiki is a valid source
-
-* If you are interested in a specific topic, not yet documented for openHAB 2, please handle the following information with care and refer to the community forum for any questions: https://community.openhab.org
-
 ## Installation
 ```
 sudo apt-get update
