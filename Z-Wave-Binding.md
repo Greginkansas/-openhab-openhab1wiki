@@ -105,6 +105,11 @@ Each node in the network provides functionality in the form of Command Classes. 
   <tr><td>BASIC</td><td>Provides basic SET and GET of the default node value</td><td></td></tr>
   <tr><td>HAIL</td><td>Used by nodes to indicate that they want to be polled. The binding handles this automatically</td><td></td></tr>
   <tr><td>METER</td><td>Used to get measurements from a node</td><td>**meter_scale=value** :  optional parameter to select the meter scale in case the meter supports multiple scales (and types). Value is one of the following **textual** values:<br/>E_KWh (0, MeterType.ELECTRIC, "kWh", "Energy") <br/>E_KVAh (1, MeterType.ELECTRIC, "kVAh", "Energy")<br/>E_W(2, MeterType.ELECTRIC, "W", "Power")<br/>E_Pulses (3, MeterType.ELECTRIC, "Pulses", "Count")<br/>E_V (4, MeterType.ELECTRIC, "V", "Voltage")<br/>E_A (5, MeterType.ELECTRIC, "A", "Current")<br/>E_Power_Factor (6, MeterType.ELECTRIC, "Power Factor", "Power Factor")<br/>G_Cubic_Meters (0, MeterType.GAS, "Cubic Meters", "Volume")<br/>G_Cubic_Feet (1, MeterType.GAS, "Cubic Feet", "Volume")<br/> G_Pulses(3, MeterType.GAS, "Pulses", "Count")<br/>W_Cubic_Meters (0, MeterType.WATER, "Cubic Meters", "Volume")<br/>W_Cubic_Feet (1, MeterType.WATER, "Cubic Feet", "Volume")<br/>W_Gallons (2, MeterType.WATER, "US gallons", "Volume")<br/>W_Pulses (3, MeterType.WATER, "Pulses", "Count")</td></tr>
+   <tr><td>METER_RESET</td><td>Used to reset a meter back to 0</td><td>To reset a meter use the "meter_rest=true" attribute on the meter. 
+   When moving the switch from off to on it will reset the meter.<br/>e.g.:<br/>
+Switch sReset { zwave="8:command=meter, meter_reset=true"}
+   </td>
+</tr>
   <tr><td>SWITCH_BINARY</td><td>Used to bind directly to a SWITCH</td><td></td></tr>
   <tr><td>SWITCH_MULTILEVEL</td><td>Used to bind directly to a DIMMER</td><td>restore_last_value=true : restores the dimmer to it's last value if an ON command is sent to the dimmer (as opposed to setting it's value to 100%)</td></tr>
   <tr><td>SENSOR_BINARY</td><td>Used to bind to a sensor.</td><td>**sensor_type=value** : optional parameter to select a sensor in case the node supports multiple sensors. Value is one of the following **numerical** values:<br/>
