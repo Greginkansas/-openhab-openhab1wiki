@@ -16,7 +16,7 @@ Item:
 Sitemap:
 
     Switch item=Garage_Gate label="Garage" mappings=[ON="Go!"]
-The magic happens with `autoupdate="false"` which keeps the state even an ON command has been received. This way, it's always off unless you explicitly post an update to this item.
+The magic happens with `autoupdate="false"` which keeps the current state, even if an ON command has been received. This way, it's always off unless you explicitly post an update to this item.
 
 
 ### How to set up voice control for use with HABDroid
