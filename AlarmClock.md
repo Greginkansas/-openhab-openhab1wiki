@@ -10,6 +10,11 @@ Below you'll find two examples on how to realize an alarm clock with openHAB. Ex
  * [Rules] (AlarmClock#rules-1)
  * [Sitemap] (AlarmClock#sitemap-1)
 
+*  [Example III] (AlarmClock#alarm-clock---example-iii)
+ * [Items] (AlarmClock#items-2)
+ * [Rules] (AlarmClock#rules-2)
+ * [Sitemap] (AlarmClock#sitemap-2)
+
 * [References] (AlarmClock#references)
 
 # Alarm Clock - Example I
@@ -237,6 +242,297 @@ end
             }
         }	
     }
+
+# Alarm Clock - Example III
+This example starts from the II one and adds the feature to execute different task after the alarm time with the possibility to change the task offset execution time. So we can set up for instance: play alarm sound, switch on light and switch on heating at 6:30 (alarm time), then after 15 minutes switch on the light in kitchen and switch on the radio, after 20 minutes (from alarm time, so 5 minutes after the previous task) switch off the light in bedroom, after 50 minutes from wake up time switch off light in kitchen and radio.
+Each step executes a script (alarm1, alarm2, alarm3, alarm4) where it is possible to write the actions to execute, this logic keep separated the main alarm rules and the actions. 
+
+
+
+## Items
+```
+Group gAlarmWeekdays
+Group gAlarmTime
+
+Switch	alarmEnabled	"Enabled"	<switch>	(gAlarmTime)
+Switch	radioEnabled	"Radio"		<switch>	(gAlarmTime)
+
+Switch  alarmMonday     "Monday"	<switch>	(gAlarmWeekdays) 
+Switch  alarmTuesday   	"Tuesday"	<switch>	(gAlarmWeekdays)
+Switch  alarmWensday   	"Wensday"	<switch>	(gAlarmWeekdays)
+Switch  alarmThursday 	"Thursday"	<switch>	(gAlarmWeekdays)
+Switch  alarmFriday    	"Friday"	<switch>	(gAlarmWeekdays)
+Switch  alarmSaturday	"Saturday"	<switch>	(gAlarmWeekdays)
+Switch  alarmSunday    	"Sunday "	<switch>	(gAlarmWeekdays)
+
+String alarmTimeMessage "%s"
+
+Number alarmTimeHour 		"Hours [%d]" 		<clock> (gAlarmTime)
+Number alarmTimeMinutes 	"Minutes [%d]" 		<clock> (gAlarmTime)
+Number alarmOffset1Minutes 	"Offset 1 Minutes [%d]" <clock> (gAlarmTime)
+Number alarmOffset2Minutes 	"Offset 2 Minutes [%d]" <clock> (gAlarmTime)
+Number alarmOffset3Minutes 	"Offset 3 Minutes [%d]" <clock> (gAlarmTime)
+```
+
+## Rules
+```
+/************** Alarm ***********/
+
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.*
+import org.openhab.model.script.actions.*
+import org.openhab.action.squeezebox.*
+
+import java.util.concurrent.locks.ReentrantLock
+
+var Timer timer0 = null
+var Timer timer1 = null
+var Timer timer2 = null
+var Timer timer3 = null
+
+var java.util.concurrent.locks.ReentrantLock lock1 = new java.util.concurrent.locks.ReentrantLock()
+
+rule "Alarm"
+when
+    Item alarmTimeHour changed or
+    Item alarmTimeMinutes changed or
+    Item alarmOffset1Minutes changed or
+    Item alarmOffset2Minutes changed or
+    Item alarmOffset3Minutes changed or
+then
+	if(alarmEnabled.state != Uninitialized && alarmTimeHour.state != Uninitialized && alarmTimeMinutes.state != Uninitialized && alarmOffset1Minutes.state != Uninitialized && alarmOffset2Minutes.state != Uninitialized && alarmOffset3Minutes.state != Uninitialized && alarmTuesday.state != Uninitialized && alarmWensday.state != Uninitialized && alarmThursday.state != Uninitialized && alarmFriday.state != Uninitialized && alarmSaturday.state != Uninitialized && alarmSunday.state != Uninitialized)
+	{
+	  // If the UI to change the Alarm time is clicked several times the code below
+	  // is subject to race conditions. Therefore we make sure that all events 
+	  // are processed one after the other.
+	  lock1.lock()
+	  try {
+		var String msg = ""
+		
+		logInfo("rules","Alarm has been changed.")
+
+		// Copy the Alarm-Time from the UI to local variables
+		var hour = alarmTimeHour.state as DecimalType
+		var minute = alarmTimeMinutes.state as DecimalType
+
+		// Combine the hour and minutes to one string to be displayed in the 
+		// user interface
+		if (hour < 10) { msg = "0" } 
+		msg = msg + alarmTimeHour.state.format("%d") + ":"
+
+		if (minute < 10) { msg = msg + "0" }
+		msg = msg + alarmTimeMinutes.state.format("%d")
+		postUpdate(alarmTimeMessage,msg)
+		logInfo("rules","New alarm time: "+msg)
+
+		// calculate the alarm time [min]
+		var int alarm1
+		alarm1 = (alarmTimeHour.state as DecimalType).intValue * 60 + 
+					(alarmTimeMinutes.state as DecimalType).intValue
+		alarm1 = alarm1.intValue
+
+		// calculate current time [min]
+		var int hour1
+		hour1 = now.getMinuteOfDay
+		hour1 = hour1.intValue
+
+		// calculate the difference between the requested alarm time and 
+		// current time (again in minutes)  
+		var int delta1
+		delta1 = (alarm1 - hour1)
+		delta1 = delta1.intValue
+
+		// add one day (1440 minutes) if alarm time for today already passed
+		if (hour1 > alarm1) { delta1 = delta1 + 1440 }
+		
+		// set the others timer based on the offsets
+		var int delta2
+		delta2 = delta1 + (alarmOffset1Minutes.state as DecimalType).intValue
+		
+		var int delta3
+		delta3 = delta1 + (alarmOffset2Minutes.state as DecimalType).intValue
+		
+		var int delta4
+		delta4 = delta1 + (alarmOffset3Minutes.state as DecimalType).intValue
+
+		// check if there is already an alarm timer0; cancel it if present
+		if (timer0 != null) {
+		   timer0.cancel
+		   timer0 = null
+		}
+
+		// create a new timer using the calculated delta [min]
+		timer0 = createTimer(now.plusMinutes(delta1)) [|
+			// This code will be executed if the timer triggers
+			// ************************************************
+			// check if alarm clock is enabled and armed for this weekday
+			
+			// Re-Arm the timer to trigger again tomorrow (same time) 
+			timer0.reschedule(now.plusHours(24))
+			
+			if(alarmEnabled.state == ON)
+			{
+				var Number day = now.getDayOfWeek
+				if (((day == 1) && (alarmMonday.state == ON))	||
+					((day == 2) && (alarmTuesday.state == ON))	||
+					((day == 3) && (alarmWensday.state == ON))	||
+					((day == 4) && (alarmThursday.state == ON))	||
+					((day == 5) && (alarmFriday.state == ON))	||
+					((day == 6) && (alarmSaturday.state == ON))	||
+					((day == 7) && (alarmSunday.state == ON))) {
+						// The things to do if the alarm clock is enabled for this day of week: 
+						callScript("alarm1")
+				}//if
+			}//if enabled			
+			]
+		logInfo("rules","Alarm, timer0 set.")
+		// check if there is already an alarm timer1; cancel it if present
+		if (timer1 != null) {
+		   timer1.cancel
+		   timer1 = null
+		}
+		
+		// create a new timer using the calculated delta [min]
+		timer1 = createTimer(now.plusMinutes(delta2)) [|
+			// This code will be executed if the timer triggers
+			// ************************************************
+			// check if alarm clock is enabled and armed for this weekday
+			
+			// Re-Arm the timer to trigger again tomorrow (same time) 
+			timer1.reschedule(now.plusHours(24))
+			
+			if(alarmEnabled.state == ON)
+			{
+				var Number day = now.getDayOfWeek
+				if (((day == 1) && (alarmMonday.state == ON))	||
+					((day == 2) && (alarmTuesday.state == ON))	||
+					((day == 3) && (alarmWensday.state == ON))	||
+					((day == 4) && (alarmThursday.state == ON))	||
+					((day == 5) && (alarmFriday.state == ON))	||
+					((day == 6) && (alarmSaturday.state == ON))	||
+					((day == 7) && (alarmSunday.state == ON))) {
+						// The things to do if the alarm clock is enabled for this day of week: 
+						callScript("alarm2")
+				   }
+			}			
+			]
+		logInfo("rules","Alarm, timer1 set.")
+		// check if there is already an alarm timer2; cancel it if present
+		if (timer2 != null) {
+		   timer2.cancel
+		   timer2 = null
+		}
+		
+		// create a new timer using the calculated delta [min]
+		timer2 = createTimer(now.plusMinutes(delta3)) [|
+			// This code will be executed if the timer triggers
+			// ************************************************
+			// check if alarm clock is enabled and armed for this weekday
+			
+			// Re-Arm the timer to trigger again tomorrow (same time) 
+			timer2.reschedule(now.plusHours(24))
+			
+			if(alarmEnabled.state == ON)
+			{
+				var Number day = now.getDayOfWeek
+				if (((day == 1) && (alarmMonday.state == ON))	||
+					((day == 2) && (alarmTuesday.state == ON))	||
+					((day == 3) && (alarmWensday.state == ON))	||
+					((day == 4) && (alarmThursday.state == ON))	||
+					((day == 5) && (alarmFriday.state == ON))	||
+					((day == 6) && (alarmSaturday.state == ON))	||
+					((day == 7) && (alarmSunday.state == ON))) {
+						// The things to do if the alarm clock is enabled for this day of week: 
+						callScript("alarm3")
+				   }
+			}			
+			]
+		logInfo("rules","Alarm, timer2 set.")
+		// check if there is already an alarm timer3; cancel it if present
+		if (timer3 != null) {
+		   timer3.cancel
+		   timer3 = null
+		}
+		
+		// create a new timer using the calculated delta [min]
+		timer3 = createTimer(now.plusMinutes(delta4)) [|
+			// This code will be executed if the timer triggers
+			// ************************************************
+			// check if alarm clock is enabled and armed for this weekday
+			
+			// Re-Arm the timer to trigger again tomorrow (same time) 
+			timer3.reschedule(now.plusHours(24))
+			
+			if(alarmEnabled.state == ON)
+			{
+				var Number day = now.getDayOfWeek
+				if (((day == 1) && (alarmMonday.state == ON))	||
+					((day == 2) && (alarmTuesday.state == ON))	||
+					((day == 3) && (alarmWensday.state == ON))	||
+					((day == 4) && (alarmThursday.state == ON))	||
+					((day == 5) && (alarmFriday.state == ON))	||
+					((day == 6) && (alarmSaturday.state == ON))	||
+					((day == 7) && (alarmSunday.state == ON))) {
+					// The things to do if the alarm clock is enabled for this day of week: 
+					callScript("alarm4")
+			   }
+			}			
+			]
+		logInfo("rules","Alarm, timer3 set.")
+	  } finally  {
+		 // release the lock - we are ready to process the next event
+		 lock1.unlock()
+		 }
+	 
+  }//IF
+end
+
+rule "Initialization"
+when 
+	System started
+then
+	 postUpdate(alarmEnabled, ON)
+	 postUpdate(radioEnabled, ON)
+	 postUpdate(alarmTimeHour,  6)
+	 postUpdate(alarmTimeMinutes, 30)
+	 postUpdate(alarmOffset1Minutes, 20)
+	 postUpdate(alarmOffset2Minutes, 15)
+	 postUpdate(alarmOffset3Minutes, 50)
+	 postUpdate(alarmMonday, ON)
+	 postUpdate(alarmTuesday, ON)
+	 postUpdate(alarmWensday, ON)
+	 postUpdate(alarmThursday, ON)
+	 postUpdate(alarmFriday, ON)
+	 postUpdate(alarmSaturday, OFF)
+	 postUpdate(alarmSunday, OFF)
+end
+```
+# Sitemap
+```
+Frame label="Alarms and Timers" {
+
+        Text label="Alarm [%s]" item=alarmTimeMessage icon="clock" {
+            Frame label="Time" {
+				Switch 	item=alarmEnabled
+				Switch	item=radioEnabled
+                Setpoint item=alarmTimeHour minValue=0 maxValue=23 step=1
+                Setpoint item=alarmTimeMinutes minValue=0 maxValue=55 step=5
+				Setpoint item=alarmOffset1Minutes minValue=0 maxValue=55 step=5
+				Setpoint item=alarmOffset2Minutes minValue=0 maxValue=55 step=5
+				Setpoint item=alarmOffset3Minutes minValue=0 maxValue=55 step=5				
+            }
+            Frame label="Weekdays" {
+                Switch item=alarmMonday
+                Switch item=alarmTuesday
+                Switch item=alarmWensday
+                Switch item=alarmThursday
+                Switch item=alarmFriday
+                Switch item=alarmSaturday
+                Switch item=alarmSunday
+            }
+        }
+    }
+```
 
 # References
  - [1]: [How to configure openHAB for setting alarm/schedule times thru the UI](https://groups.google.com/d/msg/openhab/F2hqVwjbRC0/b1s44_MWGygJ)
