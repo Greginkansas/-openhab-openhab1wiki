@@ -239,7 +239,7 @@ CommandEventTrigger(itemName, command)
 Triggers when the specified command is sent to an item. The command must be a `Command` object.
 
 ```
-StartUpTrigger()
+StartupTrigger()
 ```
 
 Triggers when the rule is created (or redefined by a script file reload).
