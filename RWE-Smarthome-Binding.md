@@ -1,3 +1,6 @@
+**IMPORTANT:** The following openHAB 1.x binding only works with the "old" RWE SmartHome software and will NOT WORK anymore with the RWE 2.0 Software (released on 01.09.2016). Do not update your RWE Software, if you still like to use this binding!
+A successor of the RWE SmartHome binding for openHAB 2.x is currently in the works and will be release sometime in autumn 2016.
+
 # Introduction
 This binding allows to integrate RWE Smarthome into OpenHAB. It uses an inofficial interface, which is limited in some cases, as explained below. As the interface has some delay and polling is needed to receive all changes from the RWE Smarthome Central (SHC), it may take one or two seconds, until a device finally responds. However, this is tolerable in most cases as time critical rules can be done in the RWE Smarthome Central itself.
 
