@@ -72,6 +72,8 @@ Number items can be used only if `object_number` is not given and the number spe
 
 
 **Valid `state_type` values for "zone" objects:**
+> NOTE: Sending commands to zones is available since v1.9 of the binding
+
 <table><tr><th>Type</th><th>Notes</th></tr>
 <tr><td>violation</td><td></td></tr>
 <tr><td>tamper</td><td></td></tr>
@@ -79,10 +81,10 @@ Number items can be used only if `object_number` is not given and the number spe
 <tr><td>tamper_alarm</td><td></td></tr>
 <tr><td>alarm_memory</td><td></td></tr>
 <tr><td>tamper_alarm_memory</td><td></td></tr>
-<tr><td>bypass</td><td></td></tr>
+<tr><td>bypass</td><td>ON command bypasses the zone, OFF unbypasses.</td></tr>
 <tr><td>no_violation_trouble</td><td></td></tr>
 <tr><td>long_violation_trouble</td><td></td></tr>
-<tr><td>isolate</td><td></td></tr>
+<tr><td>isolate</td><td>ON command isolates the zone.</td></tr>
 <tr><td>masked</td><td></td></tr>
 <tr><td>masked_memory</td><td></td></tr></table>
 
@@ -110,8 +112,10 @@ Number items can be used only if `object_number` is not given and the number spe
 
 
 **Valid `state_type` values for "doors" objects:**
+> NOTE: Sending commands to doors is available since v1.9 of the binding
+
 <table><tr><th>Type</th><th>Notes</th></tr>
-<tr><td>opened</td><td></td></tr>
+<tr><td>opened</td><td>ON command opens the doors.</td></tr>
 <tr><td>opened_long</td><td></td></tr></table>
 
 
@@ -124,8 +128,6 @@ Number items can be used only if `object_number` is not given and the number spe
 <tr><td>intrx_present</td><td></td></tr>
 <tr><td>grade23_set</td><td></td></tr>
 <tr><td>date_time</td><td>DateTimeType or StringType command changes Integra date and time</td></tr></table>
-
-**NOTE:** Some of the values, like 'troubles' and 'intrx_present' don't work on my ETHM-1 Plus module.
 
 
 **Valid `state_type` values for "module" objects:**
@@ -193,7 +195,12 @@ Simple contact item:
 Contact	Zone1 "Zone #1 violated" { satel="zone:violation:1" }
 ```
 
-Number of items violated:
+Zone bypass status with ability to change the state:
+```
+Switch	Zone1 "Zone #1 bypass" { satel="zone:bypass:1" }
+```
+
+Number of zones violated:
 ```
 Number	ZonesViolated "Zones violated [%d]" { satel="zone:violation" }
 ```
@@ -216,6 +223,11 @@ Switch TroublesMemory "Troubles in the system" { satel="status:troubles_memory" 
 Roller shutter item:
 ```
 Rollershutter KitchenBlinds "Kitchen blinds" { satel="output:10,11" }
+```
+
+Doors open/closed status with ability to open them:
+```
+Switch Doors1 "Doors #1" { satel="doors:opened:1" }
 ```
 
 Time synchronization using NTP binding:
