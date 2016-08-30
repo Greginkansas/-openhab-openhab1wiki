@@ -30,6 +30,9 @@ Currently the following databases are supported and tested:
  - [PostgreSQL](http://www.postgresql.org/)
  - [SQLite](https://www.sqlite.org/)
 
+**NOTE Sept. 2016:** 
+- The JDBC Persistence respects server's **LOCALTIME** now, it used **UTC** before. Through an update, there may be a time lag in the recorded data! See [Time zones are different...](https://github.com/openhab/openhab/issues/3905) and [JDBC now with high precision by fractional seconds](https://github.com/openhab/openhab/pull/4550#discussion_r75578302)
+
 ### Features
 
 *General:*
