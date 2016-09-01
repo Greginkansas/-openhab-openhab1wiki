@@ -101,7 +101,11 @@ The following actions are supported in rules:
 ##### Press button
 
 	harmonyPressButton(<device>, <command>)
-	harmonyPressButton(<qualifier>,<device>, <command>)
+	harmonyPressButton(<qualifier>, <device>, <command>)
+
+Note that all the parameters are strings, for example:
+
+	harmonyPressButton("Lounge", "8-Track", "PowerOn")
 
 ##### Start activity
 
