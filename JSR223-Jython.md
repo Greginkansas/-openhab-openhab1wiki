@@ -86,6 +86,15 @@ JAVA_ARGS="-Xbootclasspath/a:/opt/jython/jython.jar -Dpython.home=/opt/jython -D
 ## Scripts
 Each Script needs to be located in configurations/scripts with a correct script ending (".py", ".jy" for jython interpreter). Each Script can contain multiple rules.
 
+### Encoding
+For file encoding use ANSI. If there is the need for unicode strings or special characters escaping with unicode codes is easy:
+e.g.:
+```
+u'\u00B0C'
+```
+will become °C.
+(see http://unicode-table.com)
+
 ### Rules
 Rules are implemented using Jython subclasses of the `Rule` interface. The class must implement two required functions:
 
