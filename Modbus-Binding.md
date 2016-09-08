@@ -34,7 +34,7 @@ The binding can act as
 - Modbus TCP Client (that is, as modbus master), querying data from Modbus TCP servers (that is, modbus slaves).
 - Modbus serial master, querying data from modbus serial slaves
 
-The Modbus TCP binding polls the slaves in an configurable interval for a configurable length. openHAB commands are translated to write requests.
+The Modbus binding polls the slaves with an configurable poll period. openHAB commands are translated to write requests.
 
 
 # Installation
@@ -69,7 +69,9 @@ This is optional and default is `false`. For example, `modbus:writemultipleregis
 
 ## Configuration parameters specific to each slave
 
-The slaves are configured using key value pairs in openHAB config file using the following pattern:
+The slaves are configured using key value pairs in openHAB config file. Each slave (identified by the slave name) in the config corresponds to a single modbus read request. Note that it might be necessary to define many "slaves" in openhab configuration to read all data from a single physical modbus slave.
+
+The configuration parameters have the following pattern:
 
 ```ini
 modbus:<slave-type>.<slave-name>.<slave-parameter-name>=<slave-parameter-value>
