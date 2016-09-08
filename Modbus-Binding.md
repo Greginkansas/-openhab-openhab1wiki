@@ -541,3 +541,7 @@ Naturally this is not the same thing as the real thing but helps to identify sim
 ```ini
 modbus:tcp.slave1.connection=127.0.0.1:55502
 ```
+
+## Writing data
+
+See this [community post](https://community.openhab.org/t/something-is-rounding-my-float-values-in-sitemap/13704/32?u=ssalonen) explaining how `pollmb` and `diagslave` can be used to debug modbus communication.
