@@ -375,7 +375,7 @@ If you get strange values using the int32, uint32 or float32 valuetypes then jus
 - it is assumed that each register is encoded in most significant bit first order (Big Endian)
 
 
-Extra notes
+#### Extra notes
 - `valuetypes` smaller than one register (less than 16 bits) actually read the whole register, and finally extract single bit from the result.
 
 ### Write
