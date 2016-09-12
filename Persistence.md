@@ -149,7 +149,7 @@ Create `configurations/rules/refresh.rules` with following content. It runs a re
 
 Create according refresh script `configurations/rules_refresh.sh` and make runnable (`chmod +x rules_refresh.sh`):
 
-    # This script is called by openHAB after persistance service was started
+    # This script is called by openHAB after persistence service was started
     sleep 5
     cd [full_path_to_openhab]/configurations/rules/
     RULES=`find *.rules | grep -v refresh.rules`
