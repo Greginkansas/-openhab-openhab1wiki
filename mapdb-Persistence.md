@@ -32,7 +32,7 @@ sudo apt-get install openhab-addon-persistence-mapdb
 
 ## Configuration
 
-Place a persistence file called mapdb.persist in the `${openhab_home}/configurations/persistence` folder.
+Place a persistence file called `mapdb.persist` in the `${openhab_home}/configurations/persistence` folder.
 
 See [Persistence](Persistence) for details on configuring this file.
 
