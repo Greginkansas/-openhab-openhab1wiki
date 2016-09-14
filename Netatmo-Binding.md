@@ -1,7 +1,5 @@
 The Netatmo binding integrates the Netatmo Personal Weather Station into openHAB. Its different modules allow you to measure temperature, humidity, air pressure, carbon dioxide concentration in the air, as well as the ambient noise level.
-Since 1.9 the Netatmo Welcome Camera is also supported, it is a home camera with face recognition. It notifies you when it sees someone it knows, but also when it sees a stranger.
-
-See http://www.netatmo.com/ for details on their product.
+Since 1.9 the Netatmo Welcome Camera is also supported, it is a home camera with face recognition. It notifies you when it sees someone it knows, but also when it sees a stranger. See information below to obtain the necessary informations to setup your Netatmo Gear, also see http://www.netatmo.com/ for details on their product.
 
 # Configuration
 ## Pre setup
@@ -474,6 +472,38 @@ end
 ```
 
 # Welcome Camera (Since 1.9)
+## Setup
+First, create your developer Account and App, as described above. The Steps are all the same, but for Welcome, you will need some more informations (Home ID, Face ID etc) to get all the Input you need. There are two different ways to retrieve those infos: 
+
+## Option 1: Obtain the Home ID from the Netatmo Web Interface (will only work with a PC or Mac and a browser that is displaying links on mouse over)
+* Go to https://my.netatmo.com/app/camera
+* Log in with your Netatmo Credentials
+* Click on the Gear-Icon in the upper right corner
+* In the next window hover your mouse pointer over one of the Options as Localisation or Timezone and check the preview address for the page (in Chrome in the lower left corner)
+* Correct Addresses look like this: https://my.netatmo.com/settingscamera/localisation/000000000000000000000000
+* The 000000000000000000000000-Part is your Home ID. Write it down, you will need this in the next steps
+
+## Option 2: Obtain the Home ID from Shell
+* Download and install this small Node.JS-Tool from shell: https://www.npmjs.com/package/netatmo
+* After everything is set up, edit the test.js file and fill in the needed informations for the Module to run:
+```
+var auth = {
+  "client_id": "",
+  "client_secret": "",
+  "username": "",
+  "password": "",
+};
+```
+* Then give it a go (nodejs test.js) and check for the outputs, your Home ID should be right there
+
+## Obtain Face ID, Camera ID, Event ID etc.
+Now that you got your Home ID you can go to https://dev.netatmo.com/dev/resources/technical/reference/welcome/gethomedata and collect the other informations to setup your Netatmo items:
+
+* In the developer area, click on the arrow the says "Try this method by yourself with our TRY IT module." in the right pane
+* Fill in Home ID and size (300 for example) and click "Try IT"
+* Below you will get the result in XML-like structure
+* Click through the several subfolders to obtain everything you need
+
 ## Home
 Example item for the **home** (first id is the home id):
 ```
