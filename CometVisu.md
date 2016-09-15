@@ -9,7 +9,7 @@ This is just a short overview, more details will be added soon!
 ## Requirements
 
 * openHAB 1.4 or greater<br>
-Note: The latest version can be downloaded from [here](https://openhab.ci.cloudbees.com/job/openHAB/)
+Note: The latest version can be downloaded from [here](https://github.com/openhab/openhab/releases)
 * CometVisu 0.8.0 or greater (https://github.com/CometVisu/CometVisu/releases).<br>
 It might be useful (but not recommended!) to work with the latest Git version of CometVisu as well.<br>
 Please note that this is the development version of the CometVisu, which might be broken. It is not recommended to use this unless you know what you are doing!<br>
