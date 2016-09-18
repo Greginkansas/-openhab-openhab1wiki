@@ -129,6 +129,9 @@ The following devices have been tested and should work out of the box:
 <td>2477SA1</td><td>220V 30-amp Load Controller N/O</td><td>F00.00.1F</td><td>Shawn R.</td>
 </tr>
 <tr>
+<td>2342-222</td><td>Mini Remote (8 Button)</td><td>F00.00.20</td><td>Bernd Pfrommer</td>
+</tr>
+<tr>
 <td>2450</td><td>IO Link</td><td>0x00001A</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
