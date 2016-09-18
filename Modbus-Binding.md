@@ -113,6 +113,10 @@ See also below for additional connection parameters introduced in 1.9.0.
               </tr>
             </tr>
 
+       <tr><td>valuetype</td><td>optional</td><td>tells how interpret the register data. For details, consult <a href="#register-interpretation-valuetype-on-read--write">Register interpretation (valuetype) on read & write.</td>
+              </tr>
+            </tr>
+
        <tr><td>updateunchangeditems</td><td>optional</td><td><b>Since 1.9.0</b>. <i>true</i> or <i>false</i>. Controls whether the binding sends an update event on every successful poll (true) or only if the state of the item actually changes (false). Default is <i>false</i>. When polling many items with high poll frequency, setting this parameter to <i>true</i> may cause significant CPU usage.</td>
               </tr>
 
@@ -126,7 +130,7 @@ See also below for additional connection parameters introduced in 1.9.0.
 
 Since 1.9.0 `connection` parameter can take additional colon (:) separated parameters:
 
-- For TCP slave the new format for connection parameter is: <i>host_ip[:port[:interTransactionDelayMillis[:reconnectAfterMillis[:interConnectDelayMillis[:connectMaxTries]]]]]</i>. 
+- For TCP slave the new format for connection parameter is: <i>host_ip[:port[:interTransactionDelayMillis[:reconnectAfterMillis[:interConnectDelayMillis[:connectMaxTries[:connectTimeout]]]]]]</i>. 
 - For the serial slaves the new format is: <i>port[:baud[:dataBits[:parity[:stopBits[:encoding[:interTransactionDelayMillis[:receiveTimeoutMillis[:flowControlIn[:flowControlOut]]]]]]]]</i>
 
 Explanation of these new parameters
@@ -134,6 +138,7 @@ Explanation of these new parameters
 - `reconnectAfterMillis`: Time after which connection is disconnected and re-established, in milliseconds. Default 0 (closes connection after every transaction).
 - `interConnectDelayMillis`: Time to wait between consecutive connection attempts (to the same host or ip), in milliseconds. Default 0.
 - `connectMaxTries`: Maximum tries when establishing connection. Default 3.
+- `connectTimeout`: Maximum time to wait for connection establishment, in milliseconds. Default is zero which corresponds to infinite/OS default.
 - `receiveTimeoutMillis`: Maximum time to wait for a single read operation before giving up, in milliseconds. Default 1500.
 - `flowControlIn`: Flow control for the input data. Default `none`. Valid values: `none`, `xon/xoff in`, `rts/cts in`.
 - `flowControlOut`: Flow control for the output data. Default `none`. Valid values: `none`, `xon/xoff out`, `rts/cts out`.
