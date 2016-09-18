@@ -148,7 +148,7 @@ The syntax for items that store a device status variable is:
 
 #### Pushed state 
 
-Battery powered devices (Scan, Sense, Stealth, Switch) push their state to the binding. 
+Battery powered devices (Scan, Sense, Switch) push their state to the binding. 
 
 The syntax for items that have an `OnOff` state have is:
 
