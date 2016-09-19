@@ -268,3 +268,4 @@ Number NestCondo_temp "Condo Temperature [%.1f °F]" {nest="=[thermostats(Dining
 ### openHAB 1.x addons 1.9.0
 
 * May 2016 API updates ([#4383](https://github.com/openhab/openhab/pull/4383))
+* Silently skip referenced devices that weren't provided, presumably owing to incomplete Product permissions set at nest.com ([#4649](https://github.com/openhab/openhab/pull/4649))
