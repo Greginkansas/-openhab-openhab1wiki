@@ -351,11 +351,11 @@ OPEN=TAMPER
 
 Note: you may need to add ",refresh_interval=*&lt;secs&gt;*" at the end to get more than a single reading at startup.
 
-    Switch Smart6                   "Smart6 outlet"                                                (ff,ALL,outlet)              {zwave="6:command=switch_binary" }
-    Number Smart6_Power             "Smart6 power  [%.2f W]"                                       (ALL,power)                  {zwave="6:command=meter,meter_scale=E_W" }
-    Number Smart6_Energy            "Smart6 consumption  [%.2f KWh]"                               (ALL,power)                  {zwave="6:command=meter,meter_scale=E_KWh" }
-    Number Smart6_Volts             "Smart6 voltage [%.2f V]"                                      (ALL,power)                  {zwave="6:command=meter,meter_scale=E_V"}
-    Number Smart6_Amps              "Smart6 amperage [%.2f A]"                                     (ALL,power)                  {zwave="6:command=meter,meter_scale=E_A"}
+    Switch Smart6         "Smart6 outlet"                   (ff,ALL,outlet)  {zwave="6:command=switch_binary" }
+    Number Smart6_Power   "Smart6 power  [%.2f W]"          (ALL,power)     {zwave="6:command=meter,meter_scale=E_W" }
+    Number Smart6_Energy  "Smart6 consumption  [%.2f KWh]"  (ALL,power)     {zwave="6:command=meter,meter_scale=E_KWh" }
+    Number Smart6_Volts   "Smart6 voltage [%.2f V]"         (ALL,power)      {zwave="6:command=meter,meter_scale=E_V"}
+    Number Smart6_Amps    "Smart6 amperage [%.2f A]"        (ALL,power)      {zwave="6:command=meter,meter_scale=E_A"}
 
 ###TKB Home TZ68E Wall switches
     Switch	WallSwitch_Hall	"Hallway Wall switch"	(GF_Hall,MyOpenHAB)	{zwave="3"}
