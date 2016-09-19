@@ -349,7 +349,7 @@ OPEN=TAMPER
 
 ###Aeotec Smart Switch 6 (ZW096)  
 
-Note: you may need to add ",refresh_interval=*<secs>*" at the end to get more than a single reading at startup.
+Note: you may need to add ",refresh_interval=*&lt;secs&gt;*" at the end to get more than a single reading at startup.
 
     Switch Smart6                   "Smart6 outlet"                                                (ff,ALL,outlet)              {zwave="6:command=switch_binary" }
     Number Smart6_Power             "Smart6 power  [%.2f W]"                                       (ALL,power)                  {zwave="6:command=meter,meter_scale=E_W" }
