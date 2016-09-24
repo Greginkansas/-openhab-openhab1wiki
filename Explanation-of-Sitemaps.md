@@ -5,20 +5,36 @@
 * [Example](Explanation-of-Sitemaps/#example)
 
 ## Introduction
+This is a definition of "site map"  from  [WhatIs.com](http://searchsoa.techtarget.com/definition/site-map): 
+
+>A site map is a visual or textually organized model of a Web site's content that allows the users to navigate through the site to find the information they are looking for, just as a traditional geographical map helps people find places they are looking for in the real world. A site map is a kind of interactive table of contents, in which each listed item links directly to its counterpart sections of the Web site. Site maps perform the same service that the layout maps in large shopping malls perform: without them, it is possible to explore a complex site by trial and error, but if you want to be sure to find what you're looking for, the most efficient way to do that is to consult
+a model of the resources available. 
+
+By definition, a site map (or sitemap) is a list of pages of a web site accessible to users, a document that lists the pages on a website, typically organized in hierarchical fashion.
+
+In Open HAB, the term sitemap is used to refer to the document that lists the content of your automation system that will show on the user's screen.
 
 Sitemaps are used to create elements of a user interface for making openHAB items accessible to various frontends.
-
 Sitemaps are a declarative UI definition.
 With a few lines it is possible to define the structure and the content of your UI screens.
-Sitemap files are stored in `${openhab_home}/configurations/sitemaps` and have to have the `.sitemap` filename extension.
 
-If you create a sitemap with the name `default.sitemap` and the sitemap element 'default' then you do not need to specify a sitemap parameter in your URL.
+###Sitemap files####
+Sitemap files have the `.sitemap` filename extension and be stored in `${openhab_home}/configurations/sitemaps`.
+
+####Default sitemap####
+It is possible to have multiple sitemaps on one installation, each accessible through their URL by appending their name to the sitemap URL: "http://localhost:8080/openhab.app?sitemap=SitemapNameGoesHere"
+To load one by default, name it `default.sitemap` and the sitemap element 'default' so you do not need to specify a sitemap parameter in your URL.
 The URL "http://localhost:8080/openhab.app" has the same behaviour as "http://localhost:8080/openhab.app?sitemap=default".
 
+
+#### Demo ####
 The openHAB runtime comes with a [demo sitemap file](https://github.com/openhab/openhab-distro/blob/master/features/openhab-demo-resources/src/main/resources/sitemaps/demo.sitemap), which should let you easily understand its structure.
 
+
+### openHAB Designer file editor ###
 For easy editing, the openHAB Designer brings full IDE support for these files, so you can easily check the syntax and find out about the options you have.
 (Again, for the technically interested, this is also an [Xtext DSL](https://github.com/openhab/openhab/blob/master/bundles/model/org.openhab.model.sitemap/src/org/openhab/model/Sitemap.xtext).)
+
 
 ## Syntax
 
