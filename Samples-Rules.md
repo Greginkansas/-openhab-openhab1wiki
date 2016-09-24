@@ -19,6 +19,7 @@ Samples for Rules
 * [Create a timer that pauses the execution of the rule](Samples-Rules#create-a-timer-that-pauses-the-execution-of-the-rule)
 * [Monitor updates of the devices](Samples-Rules#monitor-updates-of-the-devices)
 * [Pulse light](Samples-Rules#pulse-light)
+* [Shutdown Rollershutter if warm and the time is between 8.30pm an 3.30am](Samples-Rules#Shutdown Rollershutter if warm and the time is between 8.30pm an 3.30am)
 
 ### How to turn on light when motion detected and is dark?
 
