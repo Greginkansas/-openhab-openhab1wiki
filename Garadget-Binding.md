@@ -74,7 +74,11 @@ Group Garadget
 Group UI
 
 String name               "Garage Door [%s]"              <rollershutter> (Garadget,UI) { garadget="<[270041234567343432313031#name]" }
-Contact doorStatus_status  "Status [%s]"                     <garagedoor> (Garadget,UI) { garadget="<[270041234567343432313031#doorStatus_status]" }
+
+// A Contact item supports open and closed, but a Garadget doorStatus_status can be: 
+// closed, open, closing, opening, stopped
+// (as documented here: https://github.com/Garadget/firmware#door-states-status)
+String doorStatus_status  "Status [%s]"                      <garagedoor> (Garadget,UI) { garadget="<[270041234567343432313031#doorStatus_status]" }
 String doorStatus_time    "Last Change [%s ago]"                  <clock> (Garadget,UI) { garadget="<[270041234567343432313031#doorStatus_time]" }
 
 // Send the doorState item commands like ZERO, HUNDRED, UP, DOWN, ON, OFF, STOP, or "open", "close" or "stop".
