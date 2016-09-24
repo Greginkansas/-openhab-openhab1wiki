@@ -19,7 +19,7 @@ Samples for Rules
 * [Create a timer that pauses the execution of the rule](Samples-Rules#create-a-timer-that-pauses-the-execution-of-the-rule)
 * [Monitor updates of the devices](Samples-Rules#monitor-updates-of-the-devices)
 * [Pulse light](Samples-Rules#pulse-light)
-* [Shutdown Rollershutter if warm and the time is between 8.30pm an 3.30am](Samples-Rules#Shutdown Rollershutter if warm and the time is between 8.30pm an 3.30am)
+* [Shutdown Rollershutter if warm and the time is between 8.30pm and 3.30am](Samples-Rules#Shutdown-Rollershutter-if-warm-and-the-time-is-between-8.30pm-and-3.30am)
 
 ### How to turn on light when motion detected and is dark?
 
@@ -1141,7 +1141,7 @@ then
 end
 ```
 
-### Shutdown Rollershutter if warm and the time is between 8.30pm an 3.30am
+### Shutdown Rollershutter if warm and the time is between 8.30pm and 3.30am
 This Rule combines a netatmo temperature sensor and a knx rollershuter group to close the rollershutter in a given timeslot and a rising temperature above 21 degree celsius. The netatmo controller is positions in the north side of the house.
 ```
 var boolean temphigh = false
