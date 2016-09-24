@@ -1139,3 +1139,37 @@ then
     sendCommand(Light_GF_Living_Ceiling,InitialState)	
 end
 ```
+
+### Shutdown Rollershutter if warm and the time is between 8.30pm an 3.30am
+This Rule combines a netatmo temperature sensor and a knx rollershuter group to close the rollershutter in a given timeslot and a rising temperature above 21 degree celsius. The netatmo controller is positions in the north side of the house.
+```
+var boolean temphigh = false
+rule "rollershutterdown-if-hot-and-between-9-and-3"
+	when
+		Item Netatmo_Aussen_Temperatur received update
+	then
+		if(Netatmo_Aussen_Temperatur.state <= 21)
+			{ 
+                           temphigh = false
+			}
+			
+		else
+		{
+			if (temphigh == false)
+			{
+// create timer - for a timecheck - 15.30 today.
+				var DateTime heiss_bis = new DateTime(now.getYear(), now.getMonthOfYear(), now.getDayOfMonth(), 15, 30, 0)
+// create timer - today 8.30pm
+				var DateTime heiss_von = new DateTime(now.getYear(), now.getMonthOfYear(), now.getDayOfMonth(), 8, 30, 0)
+// check if allready marked as hightemperature and in the time between 
+				if(now.isBefore(heiss_bis) && (now.isAfter(heiss_von)) && (temphigh == false))
+				{
+// Shutdown all rollershutter in the Group Jalousien_SONNE
+					Jalousien_Sonne?.members.forEach(item,i|createTimer(now.plusSeconds(i)) [|sendCommand(item, DOWN)])
+// set global variable 
+					temphigh = true
+				}
+			}
+		}
+end
+```
