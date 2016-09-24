@@ -144,3 +144,4 @@ To configure DEBUG or TRACE logging for the Garadget binding to be sent to a sep
 ### 1.9.0
 
 * Initial release.  Until then, consider using [this JAR file](https://openhab.ci.cloudbees.com/job/openHAB1-Addons/lastSuccessfulBuild/artifact/bundles/binding/org.openhab.binding.garadget/target/).
+* Removed misleading text on exception logs ([#4663](https://github.com/openhab/openhab/pull/4663))
