@@ -32,7 +32,10 @@ where `<command>` is the openHAB command. For String Items `<command>`: can be o
 
 where `<ip address>` is the hostname or ip address in dotted notation of the remote host
 
-and where `<transformationrule>` that will be applied to the `<command>` received, before the resulting string is to be sent to the remote host. For String Items the received value of the Item will be passed on to the `<transformationrule>`. When data is received from the remote host, then the Item will be updated with the `<command>` if the result of the  `<transformationrule>` applied to the incoming data is valid for the given Item. String items will be updated "as is" using the result of the  `<transformationrule>`. 
+and where `<transformationrule>` can be either:
+* empty or the string 'default' (without the quotes), and then it returns the State or the Command as a String;
+* a string in the form of 'TEXT1(TEXT2)' (without the quotes), and then it goes through the transformation 'TEXT1' with the argument 'TEXT2';
+* anything else and it sends back the <transformationrule> string itself.
 
 ##Configuration Parameters
 
