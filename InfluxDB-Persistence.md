@@ -9,14 +9,14 @@ There are two influxdb persistence bundles which support different InfluxDB vers
 The bundle named influxdb supports InfluxDB 0.9 and newer and the influxdb08 bundle supports 
 InfluxDB up to version 0.8.x.
 
+## 1.9.0 New & Noteworthy
+New configuration setting "retentionPolicy" was added.
+
 ## 1.8.0 New & Noteworthy
 As of openHAB 1.8.0 there are two influxdb persistence bundles which support different InfluxDB versions.
 If you are upgrading from prior openHAB versions you have to either upgrade your InfluxDB installation to 0.9.x or newer
 (Upgrading docs: https://github.com/influxdata/influxdb/blob/master/importer/README.md) or if you want 
 keep your current InfluxDB installation switch to the influxdb08 persistence bundle.
-
-## 1.9.0 New & Noteworthy
-New configuration setting "retentionPolicy" was added.
 
 ## Features
 
