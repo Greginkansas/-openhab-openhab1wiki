@@ -35,7 +35,7 @@ See RFXtrx User Guide for the complete list of supported sensors and devices [ht
 
 ## The RFXCOM Binding
 
-The binding should be compatible at least with RFXtrx433 USB 433.92MHz transceiver, which contains both receiver and transmitter functions.
+The binding should be compatible at least with RFXtrx433 USB 433.92MHz transceiver, which contains both receiver and transmitter functions. The RFXtrx433E is fully compatible with the RFXtrx433 and has in addition the possibility to transmit RFY (Somfy RTS) RF command at the frequency used by Somfy.
 
 ### RFXCOM binding currently supports:
 
