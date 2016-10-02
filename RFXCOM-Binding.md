@@ -4,7 +4,7 @@ The RFXtrx433 device is a very versatile transceiver that can send and receive i
 
 Supports RF 433 Mhz protocols like: HomeEasy, Cresta, X10, La Crosse, OWL, CoCo ([KlikAanKlikUit](http://www.klikaanklikuit.nl)), PT2262, Oregon e.o.
 
-**Suitable for receiving this example 433.92MHz sensors**
+**Suitable for receiving e.g. following 433.92MHz sensors:**
 
 * Cent-a-meter, Electrisave, OWL ampere and power meters,
 Alecto, Cresta, Fine Offset, Hideki, LaCrosse, Oregon, Rubicson, TFA, Viking weather sensors,
@@ -15,7 +15,7 @@ Alecto, Cresta, Fine Offset, Hideki, LaCrosse, Oregon, Rubicson, TFA, Viking wea
 * Keeloq, HCS301 based sensors (Security2 protocol)
 * Chacon, Home Easy, COCO, NEXA, X10 remote controls.
 
-**And suitable for controlling eg 433.92MHz these devices:**
+**And suitable for controlling e.g. following 433.92MHz devices:**
 
 * ANSLUT, BBSB, Blyss, Brennestuhl, Chacon, COCO, DI.O, ELRO, Energenie, Eurodomest, HomeEasy, Pulse, Inter Techno, K ambrook, COCO, LightwaveRF, Livolo, Mercury, NEXA, Phenix, Proove, risingsun, Sartano, Siemens , X10, XDOM dimmers / switches,
 * Byron SX, Select Plus doorbell,
@@ -27,6 +27,11 @@ Alecto, Cresta, Fine Offset, Hideki, LaCrosse, Oregon, Rubicson, TFA, Viking wea
 * Aoke relay,
 * TRC02 RGB, MDREMOTE LED strip controller,
 * Smartwares radiator valve.
+
+**And with the RFXtrx433E suitable for controlling e.g. following 433.42MHz devices:**
+
+* Somfy RTS,
+* ASA
 
 See RFXtrx User Guide for the complete list of supported sensors and devices [http://www.rfxcom.com](http://www.rfxcom.com) and firmware update announcements.
 
