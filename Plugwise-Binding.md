@@ -69,6 +69,8 @@ OH2: `conf/services/plugwise.cfg`
 > * In OH1 all Plugwise binding configuration keys are prefixed with `plugwise:`. In OH2 this prefix is optional.
 > * In OH2 you can also configure the Stick in Paper UI via `Configuration > Bindings > Plugwise Binding > Configure`.
 > * To determine the serial port in Linux, insert the Stick, then execute the `dmesg` command. The last few lines of the output will contain the USB port of the Stick (e.g. `ttyUSB0`). In Windows the Device Manager lists it in the `Ports (COM & LPT)` section.
+> * On some Linux distributions (e.g. Raspbian) an OS restart may be required before the Stick is properly configured.
+> * To access the serial port of the Stick on Linux, the user running openHAB needs to be part of the 'dialout' group. E.g. for the user 'openhab' issue the following command: `sudo adduser openhab dialout`
 
 ### Device configuration
 
@@ -351,3 +353,4 @@ Click on a thumbnail below to see how this sitemap is rendered in the various op
 * Add support for Scan, Sense, Stealth and Switch [#4565](https://github.com/openhab/openhab/issues/4565) ([#4586](https://github.com/openhab/openhab/pull/4586))
 * Add openHAB 2 feature addon ([#4644](https://github.com/openhab/openhab/pull/4644))
 * `NullPointerException` may occur when concurrent threads get `PlugwiseDevice` from `Stick` ([#4648](https://github.com/openhab/openhab/pull/4648))
+* Fix Circles not always calibrated ([#4669](https://github.com/openhab/openhab/pull/4669))
