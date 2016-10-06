@@ -71,8 +71,8 @@ The modifier name must be set in binding configuration:
 	onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;<modifier-name>"
 
 ### Example
-	
-onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;add=0.8;multiply=1.2;tukeyfilter"
+
+	onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;add=0.8;multiply=1.2;tukeyfilter"
 
 # AlarmSwitch
 
