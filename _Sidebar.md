@@ -78,8 +78,6 @@
 
 ***
 
-# [[Compatible Devices|Compatible-Devices]]
-
 # [[Bindings]]
 
 * [[AKM868 Binding|AKM868-Binding]]
