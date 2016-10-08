@@ -64,7 +64,15 @@ Tested on Ubuntu Server 13.04.
         except:
             print(connErr)
     
-    core = td.TelldusCore()
+    try:
+        import asyncio
+        loop = asyncio.get_event_loop()
+        dispatcher = td.AsyncioCallbackDispatcher(loop)
+    except ImportError:
+        loop = None
+        dispatcher = td.QueuedCallbackDispatcher()
+
+    core = td.TelldusCore(callback_dispatcher=dispatcher)
     callbacks = []
     
     callbacks.append(core.register_device_event(device_event))
@@ -73,7 +81,7 @@ Tested on Ubuntu Server 13.04.
     
     try:
         while True:
-            core.process_pending_callbacks()
+            core.callback_dispatcher.process_pending_callbacks()
             time.sleep(0.5)
     except KeyboardInterrupt:
         pass
