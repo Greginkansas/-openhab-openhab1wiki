@@ -131,7 +131,7 @@ The list of available {property} is:
 * Application
 * PVR
 
-#### Property = Player:
+#### Property = Player
 
 Command           | Direction | Description
 ----------------- |:---------:| ------------
@@ -156,23 +156,41 @@ Examples:
 
 Command           | Direction | Description
 ------------------- |:---------:| ------------
-ExecuteAction.Up    | >         | Moves cursor UP 
-ExecuteAction.Down  | >         | Moves cursor RIGHT
-ExecuteAction.Left  | >         | Moves cursor LEFT
-ExecuteAction.Right | >         | Moves cursor RIGHT
-ExecuteAction.Select | >         | Moves cursor RIGHT
-ExecuteAction.Back | >         | Moves cursor BACK
-ExecuteAction.Info | >         | Shows INFO screen 
+ExecuteAction.up    | >         | Moves cursor UP 
+ExecuteAction.down  | >         | Moves cursor RIGHT
+ExecuteAction.left  | >         | Moves cursor LEFT
+ExecuteAction.right | >         | Moves cursor RIGHT
+ExecuteAction.select | >         | Moves cursor RIGHT
+ExecuteAction.back | >         | Moves cursor BACK
+ExecuteAction.info | >         | Shows INFO screen 
 ExecuteAction.codecinfo | >         | Shows codec information
 ExecuteAction.osd | >         | Shows OSD
 ExecuteAction.aspectratio | >         | Changes Aspect ratio
 ExecuteAction.togglefullscreen | >         | Toggles full screen / Windowed screen
-ExecuteAction.ContextMenu | >         | Shows context menu
+ExecuteAction.contextmenu | >         | Shows context menu
+ExecuteAction.???? | >         | Any other command from the following list: http://kodi.wiki/view/JSON-RPC_API/v6#Input.Action (at present 172 commands available)
 
-
+```
 Examples: 
 * xbmc=">[livingRoom|Input.ExecuteAction.Up]"
-* xbmc="<[livingRoom|Input.ExecuteAction.Down]"
+* xbmc=">[livingRoom|Input.ExecuteAction.Down]"
+```
+
+#### Property = Property
+
+Command           | Direction | Description
+------------------- |:---------:| ------------
+Type                | <         | Gets the media type
+Percentage          | <         | Gets the elapsed percentage of the playing media 
+Time                | <         | Gets the elapsed time of the playing media
+TotalTime           | <         | Gets the total time of the playing media 
+CurrentSubtitle     | <         | Gets the current subtitle language of the playing media
+
+```
+Examples: 
+* xbmc="<[livingRoom|Property.Percentage]"
+* xbmc="<[livingRoom|Property.TotalTime]"
+```
 
 Incoming properties that are not part of any XBMC notification, will be refreshed with each refresh interval of the binding (default 60 seconds). 
 
