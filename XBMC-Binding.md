@@ -199,6 +199,22 @@ Examples:
 * xbmc="<[livingRoom|Property.TotalTime]"
 ```
 
+#### Property = Label
+
+Command           | Direction | Description
+------------------- |:---------:| ------------
+Player.Time    | >         | Moves cursor UP 
+System.Uptime  | >         | Moves cursor RIGHT
+VideoPlayer.VideoCodec  | >         | Moves cursor LEFT
+????.???? | >         | Any other command from the following list: 
+
+```
+Examples: 
+* xbmc=">[livingRoom|Label.Player.Time]"
+* xbmc=">[livingRoom|Label.System.Uptime]"
+* xbmc=">[livingRoom|Label.VideoPlayer.VideoCodec]"
+```
+
 Incoming properties that are not part of any XBMC notification, will be refreshed with each refresh interval of the binding (default 60 seconds). 
 
 ## Example use case
