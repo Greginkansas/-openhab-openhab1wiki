@@ -240,16 +240,16 @@ Examples:
 
 Command           | Direction | Description
 ------------------- |:---------:| ------------
-Player.Time    | >         | Moves cursor UP 
-System.Uptime  | >         | Moves cursor RIGHT
-VideoPlayer.VideoCodec  | >         | Moves cursor LEFT
-????.???? | >         | Any other command from the following list: http://kodi.wiki/view/InfoLabels
+Player.Time    | <         | Moves cursor UP 
+System.Uptime  | <         | Moves cursor RIGHT
+VideoPlayer.VideoCodec  | <         | Moves cursor LEFT
+????.???? | <         | Any other command from the following list: http://kodi.wiki/view/InfoLabels
 
 ```
 Examples: 
-* xbmc=">[livingRoom|Label.Player.Time]"
-* xbmc=">[livingRoom|Label.System.Uptime]"
-* xbmc=">[livingRoom|Label.VideoPlayer.VideoCodec]"
+* xbmc="<[livingRoom|Label.Player.Time]"
+* xbmc="<[livingRoom|Label.System.Uptime]"
+* xbmc="<[livingRoom|Label.VideoPlayer.VideoCodec]"
 ```
 
 #### Property = Refresh
