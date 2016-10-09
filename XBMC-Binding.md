@@ -131,7 +131,7 @@ The list of available {property} is:
 * Application
 * PVR
 
-Property = Player:
+#### Property = Player:
 
 Command           | Direction | Description
 ----------------- |:---------:| ------------
@@ -146,14 +146,31 @@ PlayPause  | >         | Play/pause playback
 Stop       | >         | Stop playback
 Open       | >         | Open a URL for playback
 
-Property = Input
+Examples: 
+* xbmc=">[livingRoom|Player.PlayStop]"
+* xbmc="<[livingRoom|Player.Title]"
+
+#### Property = Input
 
 Command           | Direction | Description
------------------ |:---------:| ------------
-ExecuteAction.Up  | >         | Moves cursor UP 
+------------------- |:---------:| ------------
+ExecuteAction.Up    | >         | Moves cursor UP 
 ExecuteAction.Down  | >         | Moves cursor RIGHT
 ExecuteAction.Left  | >         | Moves cursor LEFT
-ExecuteAction.Right  | >         | Moves cursor RIGHT
+ExecuteAction.Right | >         | Moves cursor RIGHT
+ExecuteAction.Select | >         | Moves cursor RIGHT
+ExecuteAction.Back | >         | Moves cursor BACK
+ExecuteAction.Info | >         | Shows INFO screen 
+ExecuteAction.codecinfo | >         | Shows codec information
+ExecuteAction.osd | >         | Shows OSD
+ExecuteAction.aspectratio | >         | Changes Aspect ratio
+ExecuteAction.togglefullscreen | >         | Toggles full screen / Windowed screen
+ExecuteAction.ContextMenu | >         | Shows context menu
+
+
+Examples: 
+* xbmc=">[livingRoom|Input.ExecuteAction.Up]"
+* xbmc="<[livingRoom|Input.ExecuteAction.Down]"
 
 Incoming properties that are not part of any XBMC notification, will be refreshed with each refresh interval of the binding (default 60 seconds). 
 
