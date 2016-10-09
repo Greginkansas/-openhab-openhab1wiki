@@ -146,9 +146,11 @@ PlayPause  | >         | Play/pause playback
 Stop       | >         | Stop playback
 Open       | >         | Open a URL for playback
 
+```
 Examples: 
 * xbmc=">[livingRoom|Player.PlayStop]"
 * xbmc="<[livingRoom|Player.Title]"
+```
 
 #### Property = Input
 
