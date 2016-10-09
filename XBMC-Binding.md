@@ -131,7 +131,7 @@ The list of available {property} is:
 * Application
 * PVR
 
-Property {PLAYER}:
+Property = Player:
 
 Command           | Direction | Description
 ----------------- |:---------:| ------------
@@ -142,11 +142,18 @@ ShowTitle  | <         | Currently playing show title: TV show name, empty for o
 Artist     | <         | Currently playing artist (music only)
 Album      | <         | Currently playing album (music only)
 Label      | <         | Currently playing title (in case of radio streams) 
-????       | <         | Any other player property supported by the XBMC JSON RPC API
 PlayPause  | >         | Play/pause playback
 Stop       | >         | Stop playback
 Open       | >         | Open a URL for playback
 
+Property = Input
+
+Command           | Direction | Description
+----------------- |:---------:| ------------
+ExecuteAction.Up  | >         | Moves cursor UP 
+ExecuteAction.Down  | >         | Moves cursor RIGHT
+ExecuteAction.Left  | >         | Moves cursor LEFT
+ExecuteAction.Right  | >         | Moves cursor RIGHT
 
 Incoming properties that are not part of any XBMC notification, will be refreshed with each refresh interval of the binding (default 60 seconds). 
 
