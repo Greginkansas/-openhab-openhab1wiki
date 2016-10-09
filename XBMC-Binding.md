@@ -59,7 +59,7 @@ Where `instanceName` is the name by which you can refer to this instance in your
     # Refresh interval. Global setting. (optional, defaults to 60000ms = 1 minute)
     xbmc:refreshInterval=60000
 
-### Example OpenHAB v2: xbmc.cfg
+### Example OpenHAB v2: (in conf/services/xbmc.cfg)
 
     ######################## XBMC Configuration ###########################
     
@@ -199,6 +199,9 @@ Examples:
 * xbmc=">[livingRoom|Input.ExecuteAction.up]"
 * xbmc=">[livingRoom|Input.ExecuteAction.down]"
 * xbmc=">[livingRoom|Input.ExecuteAction.togglewatched]"
+* xbmc=">[livingRoom|Input.ExecuteAction.zoomin]"
+* xbmc=">[livingRoom|Input.ExecuteAction.zoomout]"
+* xbmc=">[livingRoom|Input.ExecuteAction.rotate]"
 ```
 
 #### Property = Property
