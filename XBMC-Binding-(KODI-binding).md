@@ -1,4 +1,4 @@
-Documentation of the XBMC binding
+Documentation of the XBMC binding (for KODI)
 
 ## Introduction
 
