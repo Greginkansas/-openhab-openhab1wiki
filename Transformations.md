@@ -97,23 +97,28 @@ tbd ...
 
 For samples see [here](https://github.com/openhab/openhab/wiki/Samples-XSLT-Transformations).
 
-### JSonPath transformation service
-As with XPath on XML data, [JSONPath](http://goessner.net/articles/JsonPath/) allows direct query of JSON data.
+### JSONPath transformation service
+As with XPath, for XML data, [JSONPath](http://goessner.net/articles/JsonPath/) allows direct query of JSON data.
 
+To test your JSON Transformations, here are some interactive JSONPath tools:
+* http://jsonpath.com/
+* http://www.jsonquerytool.com/
+
+#### JSONPath Examples
 ```
 // Test JSONPath
 rule "Test JSONPath"
 when Time cron "0 * * * * ?"
 then
-   var String json = '{"store":{"book":[{"category":"reference","author":"Nigel Rees","title": "Sayings of the Century", "price": 8.95  } ],  "bicycle": { "color": "red",  "price": 19.95} }}' 
-    var test = transform("JSONPATH","$.store.book[0].author",json)
-    println(test)
+  var String json = '{"store":{"book":[{"category":"reference","author":"Nigel Rees","title": "Sayings of the Century", "price": 8.95  } ],  "bicycle": { "color": "red",  "price": 19.95} }}' 
+  var test = transform("JSONPATH","$.store.book[0].author", json)
+  println(test)
 end
 ```
 
 As an example [Outback](http://www.outbackpower.com/) MATE3 Solar controller produces the following JSON:
 
-```
+```json
 {"devstatus": {
 "Sys_Time": 1423858028,
 "Sys_Batt_V": 50.5,
