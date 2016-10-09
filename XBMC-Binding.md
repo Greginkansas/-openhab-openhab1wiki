@@ -121,15 +121,15 @@ Screensaver.State    | <         | Current screensaver state: (ON if screensaver
     xbmc="{direction}[{host}|{property}.{command}]"
 
 The list of available {property} is:
-* Player
-* Input
-* Property
-* Label
-* Refresh 
-* System
-* GUI
-* Application
-* PVR
+* Player (new in V1.9. See below)
+* Input (new in V1.9. See below)
+* Property (new in V1.9. See below)
+* Label (new in V1.9. See below)
+* Refresh (new in V1.9. See below)
+* System (same as V1.8. See above)
+* GUI (same as V1.8. See above)
+* Application (same as V1.8. See above)
+* PVR (same as V1.8. See above)
 
 #### Property = Player
 
@@ -206,13 +206,19 @@ Command           | Direction | Description
 Player.Time    | >         | Moves cursor UP 
 System.Uptime  | >         | Moves cursor RIGHT
 VideoPlayer.VideoCodec  | >         | Moves cursor LEFT
-????.???? | >         | Any other command from the following list: 
+????.???? | >         | Any other command from the following list: http://kodi.wiki/view/InfoLabels
 
 ```
 Examples: 
 * xbmc=">[livingRoom|Label.Player.Time]"
 * xbmc=">[livingRoom|Label.System.Uptime]"
 * xbmc=">[livingRoom|Label.VideoPlayer.VideoCodec]"
+```
+
+#### Property = Refresh
+```
+Example: 
+* xbmc=">[livingRoom|Refresh]" => Force refresh of incoming properties
 ```
 
 Incoming properties that are not part of any XBMC notification, will be refreshed with each refresh interval of the binding (default 60 seconds). 
