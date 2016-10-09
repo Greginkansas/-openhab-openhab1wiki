@@ -206,17 +206,32 @@ Examples:
 
 Command             | Direction | Description
 ------------------- |:---------:| ------------
-Type                | <         | Gets the media type
-Percentage          | <         | Gets the elapsed percentage of the playing media 
-Time                | <         | Gets the elapsed time of the playing media
-TotalTime           | <         | Gets the total time of the playing media 
-CurrentSubtitle     | <         | Gets the current subtitle language of the playing media
-????       | <         | Any property from this list: http://kodi.wiki/view/JSON-RPC_API/v6#Player.Property.Name
+type                | <         | Gets the media type
+percentage          | <         | Gets the elapsed percentage of the playing media 
+time                | <         | Gets the elapsed time of the playing media
+totalTime           | <         | Gets the total time of the playing media 
+currentsubtitle     | <         | Gets the current subtitle language of the playing media
+canrepeat    | <         | Returns true if the media can be repeated
+canmove    | <         | Returns true if the media can be mobed
+canshuffle    | <         | Returns true if the playlist can be shuffled
+speed    | <         | Returns speed multiplier of the current playing media (1x, 2x, etc.)
+audiostreams    | <         | Returns the list of all audiostreams of the media
+position    | <         | Returns the current position
+repeat    | <         | Returns true if the media can be repeated
+canrotate    | <         | Returns true if the media can be rotated
+canzoom    | <         | Returns true if the media can be zoomed
+canchangespeed    | <         | Returns true if the media speed can be changed
+subtitles   | <         | Return the current subtitle
+canseek    | <         | Returns true if the media can be seeked
+shuffled    | <         | Returns true if the playlist is shuffled
+currentaudiostream    | <         | Returns the current audio stream
+subtitleenabled   | <         | Returns true if the subtitles are enabled
+????       | <         | Any other property from this list: http://kodi.wiki/view/JSON-RPC_API/v6#Player.Property.Name
 
 ```
 Examples: 
-* xbmc="<[livingRoom|Property.Percentage]"
-* xbmc="<[livingRoom|Property.TotalTime]"
+* xbmc="<[livingRoom|Property.percentage]"
+* xbmc="<[livingRoom|Property.totaltime]"
 ```
 
 #### Property = Label
