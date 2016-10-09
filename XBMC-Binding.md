@@ -59,6 +59,7 @@ xbmc:refresh={value}
     # Password to connect to XBMC. (optional, defaults to xbmc)
     xbmc:livingRoom.password=xbmc
 
+(ONLY FROM V1.9 onwards)
     # Refresh rate. Global setting. (optional, defaults to 60000ms = 1 minute)
     xbmc:refresh=60000
 
@@ -130,9 +131,21 @@ The list of available {property} is:
 * Application
 * PVR
 
-Property          |  Command  | Direction | Description
------------------ |:---------:|:---------:| ------------
-Player            |State      | <         | Current player state: 'Play', 'Pause', 'End' (Stopped due to end of content), 'Stop' (Stopped by user). An 'End' state is immediately followed by a 'Stop' state.
+Property {PLAYER}:
+Command           | Direction | Description
+----------------- |:---------:| ------------
+State             | <         | Current player state: 'Play', 'Pause', 'End' (Stopped due to end of content), 'Stop' 
+Type       | <         | Currently playing type: 'movie', 'episode', 'channel', or 'unknown' for a PVR recording
+Title      | <         | Currently playing title: movie name, TV episode name, music track name
+ShowTitle  | <         | Currently playing show title: TV show name, empty for other types
+Artist     | <         | Currently playing artist (music only)
+Album      | <         | Currently playing album (music only)
+Label      | <         | Currently playing title (in case of radio streams) 
+????       | <         | Any other player property supported by the XBMC JSON RPC API
+PlayPause  | >         | Play/pause playback
+Stop       | >         | Stop playback
+Open       | >         | Open a URL for playback
+
 
 Incoming properties that are not part of any XBMC notification, will be refreshed with each refresh interval of the binding (default 60 seconds). 
 
