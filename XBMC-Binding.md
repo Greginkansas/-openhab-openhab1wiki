@@ -35,6 +35,11 @@ Where `instanceName` is the name by which you can refer to this instance in your
 * username
 * password 
 
+(from 1.9)
+There is global configuration parameter:
+xbmc:refresh={value}
+
+
 ### Example
 
     ######################## XBMC Binding ###########################
@@ -48,14 +53,16 @@ Where `instanceName` is the name by which you can refer to this instance in your
     # Port number for the web socket service (optional, defaults to 9090)
     xbmc:livingRoom.wsPort=9090
     
-    # Username to connect to XBMC. (optional, defaults to none)
+    # Username to connect to XBMC. (optional, defaults to xbmc)
     xbmc:livingRoom.username=xbmc
     
-    # Password to connect to XBMC. (optional, defaults to none)
+    # Password to connect to XBMC. (optional, defaults to xbmc)
     xbmc:livingRoom.password=xbmc
 
+    # Refresh rate. Global setting. (optional, defaults to 60000ms = 1 minute)
+    xbmc:refresh=60000
 
-Although you *can* configure one or more instances, it is not strictly necessary to do so. As long as you dont intend to use ports or login data different from the default, you could just as well use this by directly refering to hostnames or ip adresses in you item binding configuration.
+Although you *can* configure one or more instances, it is not strictly necessary to do so. As long as you don't intend to use ports or login data different from the default, you could just as well use this by directly referring to hostnames or IP addresses in you item binding configuration.
 
 ## Item binding configuration
 
@@ -80,7 +87,7 @@ Some examples:
 
     xbmc="=[#livingRoom|Application.Volume]" 
 
-### Available properties
+### Available properties (until V1.8)
 
 Currently, the list of properties you can use in your binding configuration is very limited:
 
@@ -108,7 +115,26 @@ PVR.OpenTV       | >         | Open a PVR TV Channel by name for playback
 PVR.OpenRadio       | >         | Open a PVR Radio Channel for playback
 Screensaver.State    | <         | Current screensaver state: (ON if screensaver active)
 
-Incoming properties that are not part of any XBMC notification, will be refreshed with each refresh interval of the binding (default 60 seconds). Currently this applies to the 'Player.Label' and 'Player.Title'  properties. 
+### Starting from V1.9 the configuration format is enhanced maintaining full backwards compatibility:
+
+    xbmc="{direction}[{host}|{property}.{command}]"
+
+The list of available {property} is:
+* Player
+* Input
+* Property
+* Label
+* Refresh 
+* System
+* GUI
+* Application
+* PVR
+
+Property          |  Command  | Direction | Description
+----------------- |:---------:|:---------:| ------------
+Player            |State      | <         | Current player state: 'Play', 'Pause', 'End' (Stopped due to end of content), 'Stop' (Stopped by user). An 'End' state is immediately followed by a 'Stop' state.
+
+Incoming properties that are not part of any XBMC notification, will be refreshed with each refresh interval of the binding (default 60 seconds). 
 
 ## Example use case
 
