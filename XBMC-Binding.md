@@ -34,11 +34,7 @@ Where `instanceName` is the name by which you can refer to this instance in your
 * wsPort
 * username
 * password 
-
-(from 1.9)
-There is global configuration parameter:
-xbmc:refresh={value}
-
+* refresh (available from 1.9)
 
 ### Example
 
