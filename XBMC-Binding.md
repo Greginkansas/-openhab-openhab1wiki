@@ -59,7 +59,7 @@ xbmc:refresh={value}
     # Password to connect to XBMC. (optional, defaults to xbmc)
     xbmc:livingRoom.password=xbmc
 
-(ONLY FROM V1.9 onwards)
+    (ONLY FROM V1.9 onwards)
     # Refresh rate. Global setting. (optional, defaults to 60000ms = 1 minute)
     xbmc:refresh=60000
 
@@ -142,9 +142,14 @@ ShowTitle  | <         | Currently playing show title: TV show name, empty for o
 Artist     | <         | Currently playing artist (music only)
 Album      | <         | Currently playing album (music only)
 Label      | <         | Currently playing title (in case of radio streams) 
+
+Command           | Direction | Description
+----------------- |:---------:| ------------
 PlayPause  | >         | Play/pause playback
 Stop       | >         | Stop playback
 Open       | >         | Open a URL for playback
+Zoom       | >         | Zoom screen
+Rotate     | >         | Rotate photo
 
 ```
 Examples: 
@@ -172,19 +177,21 @@ ExecuteAction.???? | >         | Any other command from the following list: http
 
 ```
 Examples: 
-* xbmc=">[livingRoom|Input.ExecuteAction.Up]"
-* xbmc=">[livingRoom|Input.ExecuteAction.Down]"
+* xbmc=">[livingRoom|Input.ExecuteAction.up]"
+* xbmc=">[livingRoom|Input.ExecuteAction.down]"
+* xbmc=">[livingRoom|Input.ExecuteAction.togglewatched]"
 ```
 
 #### Property = Property
 
-Command           | Direction | Description
+Command             | Direction | Description
 ------------------- |:---------:| ------------
 Type                | <         | Gets the media type
 Percentage          | <         | Gets the elapsed percentage of the playing media 
 Time                | <         | Gets the elapsed time of the playing media
 TotalTime           | <         | Gets the total time of the playing media 
 CurrentSubtitle     | <         | Gets the current subtitle language of the playing media
+????       | <         | Any property from this list: http://kodi.wiki/view/JSON-RPC_API/v6#Player.Property.Name
 
 ```
 Examples: 
