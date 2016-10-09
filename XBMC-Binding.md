@@ -132,6 +132,7 @@ The list of available {property} is:
 * PVR
 
 Property {PLAYER}:
+
 Command           | Direction | Description
 ----------------- |:---------:| ------------
 State             | <         | Current player state: 'Play', 'Pause', 'End' (Stopped due to end of content), 'Stop' 
