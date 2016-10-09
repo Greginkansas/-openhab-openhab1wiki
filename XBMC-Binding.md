@@ -12,8 +12,8 @@ For installation of the binding, please see Wiki page Bindings.
 
 ### System requirements
 
-This binding has been developed and tested on XBMC Frodo (v12) and Gotham (v13).
-The binding uses XBMCs JSON-RPC API, both the HTTP and the websocket transports. These therefore need to be enabled and need to be reachable from your openHAB host (think firewall, routing etc.)
+This binding has been developed and tested from XBMC Frodo (v12) to Kodi Jarvis (v16.1).
+The binding uses XBMCs JSON-RPC API v6, both the HTTP and the websocket transports. These therefore need to be enabled and need to be reachable from your openHAB host (think firewall, routing etc.)
 
 ### Support
 
@@ -34,9 +34,9 @@ Where `instanceName` is the name by which you can refer to this instance in your
 * wsPort
 * username
 * password 
-* refresh (available from 1.9)
+* refreshInterval (available ONLY from 1.9)
 
-### Example
+### Example OpenHAB v1
 
     ######################## XBMC Binding ###########################
     
@@ -56,8 +56,32 @@ Where `instanceName` is the name by which you can refer to this instance in your
     xbmc:livingRoom.password=xbmc
 
     (ONLY FROM V1.9 onwards)
-    # Refresh rate. Global setting. (optional, defaults to 60000ms = 1 minute)
-    xbmc:refresh=60000
+    # Refresh interval. Global setting. (optional, defaults to 60000ms = 1 minute)
+    xbmc:refreshInterval=60000
+
+### Example OpenHAB v2: xbmc.cfg
+
+    ######################## XBMC Configuration ###########################
+    
+    # Hostname / IP address of your XBMC host
+    livingRoom.host=192.168.1.6
+    
+    # Port number for the json rpc service (optional, defaults to 8080)
+    livingRoom.rsPort=8080
+    
+    # Port number for the web socket service (optional, defaults to 9090)
+    livingRoom.wsPort=9090
+    
+    # Username to connect to XBMC. (optional, defaults to xbmc)
+    livingRoom.username=xbmc
+    
+    # Password to connect to XBMC. (optional, defaults to xbmc)
+    livingRoom.password=xbmc
+
+    (ONLY FROM V1.9 onwards)
+    # Refresh interval. Global setting. (optional, defaults to 60000ms = 1 minute)
+    refreshInterval=60000
+
 
 Although you *can* configure one or more instances, it is not strictly necessary to do so. As long as you don't intend to use ports or login data different from the default, you could just as well use this by directly referring to hostnames or IP addresses in you item binding configuration.
 
