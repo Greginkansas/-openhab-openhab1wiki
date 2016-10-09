@@ -168,8 +168,7 @@ Command           | Direction | Description
 PlayPause  | >         | Play/pause playback
 Stop       | >         | Stop playback
 Open       | >         | Open a URL for playback
-Zoom       | >         | Zoom screen
-Rotate     | >         | Rotate photo
+
 
 ```
 Examples: 
