@@ -240,9 +240,9 @@ Examples:
 
 Command           | Direction | Description
 ------------------- |:---------:| ------------
-Player.Time    | <         | Moves cursor UP 
-System.Uptime  | <         | Moves cursor RIGHT
-VideoPlayer.VideoCodec  | <         | Moves cursor LEFT
+Player.Time    | <         | Display media time 
+System.Uptime  | <         | Display system uptime
+VideoPlayer.VideoCodec  | <         | Display video codec
 ????.???? | <         | Any other command from the following list: http://kodi.wiki/view/InfoLabels
 
 ```
