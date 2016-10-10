@@ -27,6 +27,7 @@ Since openHAB 1.3.0, not all actions are part of the core runtime distribution a
   * [OpenWebIf](#openwebif-action)
   * [Prowl](#prowl-actions)
   * [Pushover](#pushover-actions)
+  * [Pushsafer](#pushsafer-actions)
   * [[Satel|Satel-Alarm-Binding#satel-actions]]
   * [Squeezebox](#squeezebox-action)
   * [Telegram](#telegram-action)
@@ -314,6 +315,18 @@ The following are valid action calls that can be made when the plugin is loaded.
 - `pushover(String apiToken, String userKey, String message, int priority)`
 - `pushover(String apiToken, String userKey, String message, String device, int priority)`
 - `pushover(String apiToken, String userKey, String message, String device, String title, String url, String urlTitle, int priority, String soundFile)`
+
+[Table of Contents](#table-of-contents)
+
+### Pushsafer Actions
+
+The Pushsafer action allows you to notify iOS, Android & Windows 10 Phone & Desktop devices of a message using the Pushsafer API web service. [Added 1.9+]
+
+You must at least provide an API Token (Private or Alias Key from Pushsafer.com) and a Message in some manner before a message can be pushed. All other parameters are optional. If you use an alias key, the parameters (device, icon, sound, vibration) are overwritten by the alias setting on pushsafer.
+
+The following is a valid action call that can be made when the plugin is loaded. For specific information on each item, see the [Pushsafer API](https://www.pushsafer.com/en/pushapi).
+
+- `pushsafer(String apiToken, String message, String title, String device, String icon, String vibration, String sound)`
 
 [Table of Contents](#table-of-contents)
 
