@@ -228,7 +228,7 @@ canseek    | <         | Returns true if the media can be seeked
 shuffled    | <         | Returns true if the playlist is shuffled
 currentaudiostream    | <         | Returns the current audio stream
 subtitleenabled   | <         | Returns true if the subtitles are enabled
-????       | <         | Any other property from this list: http://kodi.wiki/view/JSON-RPC_API/v6#Player.Property.Name (Several hundreds of commands available)
+????       | <         | Any other property from this list: http://kodi.wiki/view/JSON-RPC_API/v6#Player.Property.Name 
 
 ```
 Examples: 
@@ -243,7 +243,7 @@ Command           | Direction | Description
 Player.Time    | <         | Display media time 
 System.Uptime  | <         | Display system uptime
 VideoPlayer.VideoCodec  | <         | Display video codec
-????.???? | <         | Any other command from the following list: http://kodi.wiki/view/InfoLabels
+????.???? | <         | Any other command from the following list: http://kodi.wiki/view/InfoLabels (Several hundreds of commands available)
 
 ```
 Examples: 
