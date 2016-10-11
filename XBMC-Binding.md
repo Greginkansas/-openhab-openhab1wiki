@@ -98,15 +98,15 @@ Where
 
 Some examples:
 
-    xbmc="<[#livingRoom|Player.State]"
-    xbmc="<[#livingRoom|Player.Title]"
+    String XBMC_String "XBMC String" {xbmc="<[#livingRoom|Player.State]"}
+    String XBMC_String "XBMC String" {xbmc="<[#livingRoom|Player.Title]"}
 
-    xbmc="<[#bedroom|Player.State]"
+    String XBMC_String "XBMC String" {xbmc="<[#bedroom|Player.State]"}
 
-    xbmc="<[192.168.1.6|Player.State]"
-    xbmc="<[xbmc.local|Player.Title]"
+    String XBMC_String "XBMC String" {xbmc="<[192.168.1.6|Player.State]"}
+    String XBMC_String "XBMC String" {xbmc="<[xbmc.local|Player.Title]"}
 
-    xbmc="=[#livingRoom|Application.Volume]" 
+    Number XBMC_Number "XBMC Number" {xbmc="=[#livingRoom|Application.Volume]"} 
 
 ### Available properties (until V1.8)
 
