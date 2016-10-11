@@ -183,21 +183,21 @@ Property.percentage          | <         | Gets the elapsed percentage of the pl
 Property.time                | <         | Gets the elapsed time of the playing media
 Property.totalTime           | <         | Gets the total time of the playing media 
 Property.currentsubtitle     | <         | Gets the current subtitle language of the playing media
-Property.canrepeat    | <         | Returns true if the media can be repeated
-Property.canmove    | <         | Returns true if the media can be moved
-Property.canshuffle    | <         | Returns true if the playlist can be shuffled
+Property.canrepeat    | <         | Returns "true" if the media can be repeated
+Property.canmove    | <         | Returns "true" if the media can be moved
+Property.canshuffle    | <         | Returns "true" if the playlist can be shuffled
 Property.speed    | <         | Returns speed multiplier of the current playing media (1x, 2x, etc.)
 Property.audiostreams    | <         | Returns the list of all audiostreams of the media
 Property.position    | <         | Returns the current position
-Property.repeat    | <         | Returns true if the media can be repeated
-Property.canrotate    | <         | Returns true if the media can be rotated
-Property.canzoom    | <         | Returns true if the media can be zoomed
-Property.canchangespeed    | <         | Returns true if the media speed can be changed
+Property.repeat    | <         | Returns "true" if the media can be repeated
+Property.canrotate    | <         | Returns "true" if the media can be rotated
+Property.canzoom    | <         | Returns "true" if the media can be zoomed
+Property.canchangespeed    | <         | Returns "true" if the media speed can be changed
 Property.subtitles   | <         | Return the current subtitle
-Property.canseek    | <         | Returns true if the media can be seeked
-Property.shuffled    | <         | Returns true if the playlist is shuffled
+Property.canseek    | <         | Returns "true" if the media can be seeked
+Property.shuffled    | <         | Returns "true" if the playlist is shuffled
 Property.currentaudiostream    | <         | Returns the current audio stream
-Property.subtitleenabled   | <         | Returns true if the subtitles are enabled
+Property.subtitleenabled   | <         | Returns "true" if the subtitles are enabled
 Property.????       | <         | Any other property from this list: http://kodi.wiki/view/JSON-RPC_API/v6#Player.Property.Name 
 
 ```
