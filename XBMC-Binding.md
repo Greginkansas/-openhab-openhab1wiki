@@ -140,59 +140,29 @@ Screensaver.State    | <         | Current screensaver state: (ON if screensaver
 
     xbmc="{direction}[{host}|{property}.{command}]"
 
-The list of available {property} is:
-* Player (new in V1.9. See below)
+The list of new available {property} is:
 * Input (new in V1.9. See below)
 * Property (new in V1.9. See below)
 * Label (new in V1.9. See below)
 * Refresh (new in V1.9. See below)
-* System (same as V1.8. See above)
-* GUI (same as V1.8. See above)
-* Application (same as V1.8. See above)
-* PVR (same as V1.8. See above)
-
-#### Property = Player
-
-Command           | Direction | Description
------------------ |:---------:| ------------
-State             | <         | Current player state: 'Play', 'Pause', 'End' (Stopped due to end of content), 'Stop' 
-Type       | <         | Currently playing type: 'movie', 'episode', 'channel', or 'unknown' for a PVR recording
-Title      | <         | Currently playing title: movie name, TV episode name, music track name
-ShowTitle  | <         | Currently playing show title: TV show name, empty for other types
-Artist     | <         | Currently playing artist (music only)
-Album      | <         | Currently playing album (music only)
-Label      | <         | Currently playing title (in case of radio streams) 
-
-Command           | Direction | Description
------------------ |:---------:| ------------
-PlayPause  | >         | Play/pause playback
-Stop       | >         | Stop playback
-Open       | >         | Open a URL for playback
-
-
-```
-Examples: 
-* xbmc=">[livingRoom|Player.PlayStop]"
-* xbmc="<[livingRoom|Player.Title]"
-```
 
 #### Property = Input
 
 Command           | Direction | Description
 ------------------- |:---------:| ------------
-ExecuteAction.up    | >         | Moves cursor UP 
-ExecuteAction.down  | >         | Moves cursor RIGHT
-ExecuteAction.left  | >         | Moves cursor LEFT
-ExecuteAction.right | >         | Moves cursor RIGHT
-ExecuteAction.select | >         | Moves cursor RIGHT
-ExecuteAction.back | >         | Moves cursor BACK
-ExecuteAction.info | >         | Shows INFO screen 
-ExecuteAction.codecinfo | >         | Shows codec information
-ExecuteAction.osd | >         | Shows OSD
-ExecuteAction.aspectratio | >         | Changes Aspect ratio
-ExecuteAction.togglefullscreen | >         | Toggles full screen / Windowed screen
-ExecuteAction.contextmenu | >         | Shows context menu
-ExecuteAction.???? | >         | Any other command from the following list: http://kodi.wiki/view/JSON-RPC_API/v6#Input.Action (at present 172 commands available)
+Input.ExecuteAction.up    | >         | Moves cursor UP 
+Input.ExecuteAction.down  | >         | Moves cursor RIGHT
+Input.ExecuteAction.left  | >         | Moves cursor LEFT
+Input.ExecuteAction.right | >         | Moves cursor RIGHT
+Input.ExecuteAction.select | >         | Moves cursor RIGHT
+Input.ExecuteAction.back | >         | Moves cursor BACK
+Input.ExecuteAction.info | >         | Shows INFO screen 
+Input.ExecuteAction.codecinfo | >         | Shows codec information
+Input.ExecuteAction.osd | >         | Shows OSD
+Input.ExecuteAction.aspectratio | >         | Changes Aspect ratio
+Input.ExecuteAction.togglefullscreen | >         | Toggles full screen / Windowed screen
+Input.ExecuteAction.contextmenu | >         | Shows context menu
+Input.ExecuteAction.???? | >         | Any other command from the following list: http://kodi.wiki/view/JSON-RPC_API/v6#Input.Action (at present 172 commands available)
 
 ```
 Examples: 
@@ -208,27 +178,27 @@ Examples:
 
 Command             | Direction | Description
 ------------------- |:---------:| ------------
-type                | <         | Gets the media type
-percentage          | <         | Gets the elapsed percentage of the playing media 
-time                | <         | Gets the elapsed time of the playing media
-totalTime           | <         | Gets the total time of the playing media 
-currentsubtitle     | <         | Gets the current subtitle language of the playing media
-canrepeat    | <         | Returns true if the media can be repeated
-canmove    | <         | Returns true if the media can be mobed
-canshuffle    | <         | Returns true if the playlist can be shuffled
-speed    | <         | Returns speed multiplier of the current playing media (1x, 2x, etc.)
-audiostreams    | <         | Returns the list of all audiostreams of the media
-position    | <         | Returns the current position
-repeat    | <         | Returns true if the media can be repeated
-canrotate    | <         | Returns true if the media can be rotated
-canzoom    | <         | Returns true if the media can be zoomed
-canchangespeed    | <         | Returns true if the media speed can be changed
-subtitles   | <         | Return the current subtitle
-canseek    | <         | Returns true if the media can be seeked
-shuffled    | <         | Returns true if the playlist is shuffled
-currentaudiostream    | <         | Returns the current audio stream
-subtitleenabled   | <         | Returns true if the subtitles are enabled
-????       | <         | Any other property from this list: http://kodi.wiki/view/JSON-RPC_API/v6#Player.Property.Name 
+Property.type                | <         | Gets the media type
+Property.percentage          | <         | Gets the elapsed percentage of the playing media 
+Property.time                | <         | Gets the elapsed time of the playing media
+Property.totalTime           | <         | Gets the total time of the playing media 
+Property.currentsubtitle     | <         | Gets the current subtitle language of the playing media
+Property.canrepeat    | <         | Returns true if the media can be repeated
+Property.canmove    | <         | Returns true if the media can be moved
+Property.canshuffle    | <         | Returns true if the playlist can be shuffled
+Property.speed    | <         | Returns speed multiplier of the current playing media (1x, 2x, etc.)
+Property.audiostreams    | <         | Returns the list of all audiostreams of the media
+Property.position    | <         | Returns the current position
+Property.repeat    | <         | Returns true if the media can be repeated
+Property.canrotate    | <         | Returns true if the media can be rotated
+Property.canzoom    | <         | Returns true if the media can be zoomed
+Property.canchangespeed    | <         | Returns true if the media speed can be changed
+Property.subtitles   | <         | Return the current subtitle
+Property.canseek    | <         | Returns true if the media can be seeked
+Property.shuffled    | <         | Returns true if the playlist is shuffled
+Property.currentaudiostream    | <         | Returns the current audio stream
+Property.subtitleenabled   | <         | Returns true if the subtitles are enabled
+Property.????       | <         | Any other property from this list: http://kodi.wiki/view/JSON-RPC_API/v6#Player.Property.Name 
 
 ```
 Examples: 
@@ -238,12 +208,14 @@ Examples:
 
 #### Property = Label
 
+Just some examples as there are hundreds of available commands:
+
 Command           | Direction | Description
 ------------------- |:---------:| ------------
-Player.Time    | <         | Display media time 
-System.Uptime  | <         | Display system uptime
-VideoPlayer.VideoCodec  | <         | Display video codec
-????.???? | <         | Any other command from the following list: http://kodi.wiki/view/InfoLabels (Several hundreds of commands available)
+Label.Player.Time    | <         | Display media time 
+Label.System.Uptime  | <         | Display system uptime
+Label.VideoPlayer.VideoCodec  | <         | Display video codec
+Label.????.???? | <         | Any other command from the following list: http://kodi.wiki/view/InfoLabels (Several hundreds of commands available)
 
 ```
 Examples: 
