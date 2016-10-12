@@ -106,7 +106,7 @@ Dimmer items enable you to do two different things:
 
 #### Brightness dimmer items
 
-    Color <Item_Name> hue="<bulb number>;brightness[;<step size>]"
+    Dimmer <Item_Name> hue="<bulb number>;brightness[;<step size>]"
 
 where the part in `[]` is optional.
 
