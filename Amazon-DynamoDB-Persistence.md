@@ -18,7 +18,7 @@
 
 This service allows you to persist state updates using the Amazon DynamoDB database. Also query functionality is fully supported. Users are recommended to familiarize with AWS [Pricing](#Pricing) before using this plugin.
 
-This plugin was first introduced introduced in openHAB 1.9.0.
+This plugin was first introduced in openHAB 1.9.0.
 
 ## Features
 
