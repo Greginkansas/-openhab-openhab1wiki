@@ -13,6 +13,7 @@ Name | Queryable | Link | Notes
 -----|:---------:|------|------
 [[Cosm|Cosm-Persistence]] | | [cosm.com](http://cosm.com/) | write item states to Cosm/Xively site
 [[db4o|db4o-Persistence]] | X | [db4o.com](http://www.db4o.com/) | a lightweight, 100% pure Java object database
+[[Amazon DynamoDB|Amazon-DynamoDB-Persistence]] | X | [amazon.com](https://aws.amazon.com/documentation/dynamodb/) | fully managed NoSQL database service from Amazon
 [[Exec|Exec-Persistence]] | | | persist by executing commands in the underlying OS
 IFTTT |  | [IFTTT](https://ifttt.com/recipes) | if-this-then-that cloud service. See [[my.openHAB|my.openHAB-Persistence]]
 [[InfluxDB|InfluxDB-Persistence]] | X | [influxdata.com](https://influxdata.com/) | open-source distributed time series database with no external dependencies
