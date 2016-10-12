@@ -1,5 +1,3 @@
-**Please note that this plugin is still in development and not officially available.**
-
 <!-- Using MarkdownTOC plugin for Sublime Text to update the table of contents (TOC) -->
 <!-- MarkdownTOC depth=3 autolink=true bracket=round -->
 
@@ -19,6 +17,8 @@
 ## Introduction
 
 This service allows you to persist state updates using the Amazon DynamoDB database. Also query functionality is fully supported. Users are recommended to familiarize with AWS [Pricing](#Pricing) before using this plugin.
+
+This plugin was first introduced introduced in openHAB 1.9.0.
 
 ## Features
 
