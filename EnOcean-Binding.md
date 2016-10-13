@@ -39,8 +39,6 @@ If your device is not listed, please add an issue for it at openhab.
     - F6:02:01 (Light and Blind Control - Application Style 1)
 - Environment Sensors
     - A5:02:05 (Temperature Range from 0° to 40°)
-
-Soon supported: 
 - Contact Sensors
     - D5:00:01 (Single Input Contact)
  
@@ -107,8 +105,6 @@ See [Example of roller shutter controlling](Samples-Item-Definitions#how-to-cont
 - channel = none
 - parameter =
     - CONTACT_STATE: Contact Open / Closed (OpenClosedType)
-
-Will work in 1.4.0
 
 #### Examples
 
