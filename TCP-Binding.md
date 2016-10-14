@@ -34,11 +34,11 @@ where `<ip address>` is the hostname or ip address in dotted notation of the rem
 
 and where `<transformationrule>` can be one of:
 
-* (1.9) empty or the string `default`, and then it returns the State or the Command as a String;
 * a string in the form of `TEXT1(TEXT2)`, and then it goes through the transformation `TEXT1` with the argument `TEXT2`;
-* anything else and it sends back the `<transformationrule>` string itself.
+* **(1.9)** empty or the string `default`, and then it returns the State or the Command as a String;
+* **(1.9)** anything else and it sends back the `<transformationrule>` string itself.
 
-Note: the `<transformationrule>` field will be stripped of its single quotes if they are present; this means that in any case, `'TEXT'` is treated the same way as `TEXT`.
+> :warning: The `<transformationrule>` field will be stripped of its single quotes if they are present; this means that in any case, `'TEXT'` is treated the same way as `TEXT`.
 
 ##Configuration Parameters
 
