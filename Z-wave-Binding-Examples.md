@@ -423,6 +423,13 @@ end
     Number Mode {zwave="4:0:command=THERMOSTAT_MODE" }
     DateTime LastUpdated { zwave="4:command=info,item=LAST_UPDATE"}
 
+###Secure SRT321 thermostat
+    Number Temperature_FF_Living "SRT Temperature [%.1f °C]" (ALL,FF_Living) <temperature> {zwave="4:command=SENSOR_MULTILEVEL,sensor_type=1"}
+    Number SRT_Temperature_Setpoint "SRT Temperature set point" (ALL,FF_Living {zwave="4:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0"}
+    Number SRT_Mode {zwave="4:0:command=THERMOSTAT_MODE"}
+    Number SRT_Battery "Thermostat battery [%d %%]" (ALL,power,batteries,FF_Living) <battery> {zwave="4:0:command=BATTERY"}
+    DateTime SRT_LastUpdated "SRT last updated" (ALL,temperatures,FF_Living) {zwave="4:command=INFO,item=LAST_UPDATE"}
+
 ###CT100 Thermostat  
 
     Number HVAC_HeatSetPoint        "Heat Set [%.1f F]"                            <thermostat>    (ALL,HVAC)                   {zwave="5:command=thermostat_setpoint,setpoint_type=1,setpoint_scale=1" }
