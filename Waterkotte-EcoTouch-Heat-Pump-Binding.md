@@ -9,10 +9,12 @@ For installation of the binding, please see Wiki page [[Bindings]].
 This bundle connects to your heat pump via network. Make sure the display unit of your heat pump is connected to your network and that the network settings are configured. By default, the heat pump uses DHCP.
 
 login data for openhab.cfg:  
-(until Display-Software 1.5.xx):
+(cuurent / since Display-Software 1.6.xx):
+ecotouch:ip=<ip or DNS name od the heat pump>
+ecotouch:username=waterkotte
+ecotouch:password=waterkotte
+(previous, until Display-Software 1.5.xx):
 ecotouch:username=admin, ecotouch:password=wtkadmin  
-(since Display-Software 1.6.xx):
-ecotouch:username=waterkotte, ecotouch:password=waterkotte
 
 ## Generic Item Binding Configuration
 
@@ -49,7 +51,7 @@ elektrische Leistung Verdichter | power_compressor | number |  |
 abgegebene thermische Heizleistung der Wärmepumpe | power_heating | number |  | 
 abgegebene thermische KälteLeistung der Wärmepumpe | power_cooling | number |  | 
 COP Heizleistung | cop_heating | number |  | 
-COP Kälteleistungleistung | cop_cooling | number |  | 
+COP Kälteleistung | cop_cooling | number |  | 
 Aktuelle Heizkreistemperatur | temperature_heating_return | number |  | 
 Geforderte Temperatur im Heizbetrieb | temperature_heating_set | number |  | 
 Sollwertvorgabe Heizkreistemperatur | temperature_heating_set2 | number | yes | 
