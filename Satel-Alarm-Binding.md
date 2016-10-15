@@ -4,7 +4,7 @@ This is documentation of openHAB binding for Satel Integra Alarm System which al
 
 For installation of the binding, please see Wiki page [Bindings](Bindings).
 
-**NOTE:** INT-RS module is supported since version 1.8 of the binding.
+> NOTE: INT-RS module is supported since version 1.8 of the binding.
 
 ## Binding Configuration
 
@@ -45,8 +45,9 @@ The only required parameter is _satel:host_ for the ETHM-1 module and _satel:por
 <tr><td>satel:user_code</td><td>Security code (password) of the user used for control operations, like arming, changing state of outputs, etc. It is recommended to use dedicated user for openHAB integration.</td></tr>
 <tr><td>satel:encryption_key</td><td>Key use for encrypting communication between openHAB and ETHM-1 module. To disable encrytpion leave it empty. See also the note below.</td></tr></table>
 
-**NOTE:** Encryption requires support for 192 bit AES keys. Oracle Java by default supports only 128 bit keys, therefore "[Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files](http://www.oracle.com/technetwork/java/javase/downloads/index.html)" must be installed. OpenJDK supports unlimited AES keys by default.
-**NOTE:** As of version 2.03 ETHM-1 Plus firmware the module disconnects after 25 seconds of inactivity. Setting `satel:refresh` to value greater than 25000 will cause inability to correctly communicate with the module.
+> NOTE: Encryption requires support for 192 bit AES keys. Oracle Java by default supports only 128 bit keys, therefore "[Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files](http://www.oracle.com/technetwork/java/javase/downloads/index.html)" must be installed. OpenJDK supports unlimited AES keys by default.
+
+> NOTE: As of version 2.03 ETHM-1 Plus firmware the module disconnects after 25 seconds of inactivity. Setting `satel:refresh` to value greater than 25000 will cause inability to correctly communicate with the module.
 
 ## Item Binding
 
