@@ -12,7 +12,7 @@ a model of the resources available.
 
 By definition, a site map (or sitemap) is a list of pages of a web site accessible to users, a document that lists the pages on a website, typically organized in hierarchical fashion.
 
-In Open HAB, the term sitemap is used to refer to the document that lists the content of your automation system that will show on the user's screen.
+In openHAB, the term sitemap is used to refer to the document that lists the content of your automation system that will show on the user's screen.
 
 Sitemaps are used to create elements of a user interface for making openHAB items accessible to various frontends.
 Sitemaps are a declarative UI definition.
