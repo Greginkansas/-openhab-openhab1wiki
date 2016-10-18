@@ -355,3 +355,4 @@ Click on a thumbnail below to see how this sitemap is rendered in the various op
 * `NullPointerException` may occur when concurrent threads get `PlugwiseDevice` from `Stick` ([#4648](https://github.com/openhab/openhab/pull/4648))
 * Fix Circles not always calibrated ([#4669](https://github.com/openhab/openhab/pull/4669))
 * Improve power state switching, fix ObjectAlreadyExistsException when (re)starting binding ([#4700](https://github.com/openhab/openhab/pull/4700))
+* FindBugs issues fix ([#4704](https://github.com/openhab/openhab/pull/4704))
