@@ -93,7 +93,7 @@ You can find the configuration section for the KNX binding in file **[configurat
 
 ##### A sample configuration could look like:
 
-    knx:ip=192.168.1.10
+    knx:ip=224.0.23.12
     knx:type=ROUTER
     
 ##### Specific sample configuration for KNX communication between two openHAB installations:
@@ -112,9 +112,8 @@ KNX Configuration second openHAB:
     
 The multicast IP address 224.0.23.12 is reserved for KNXnet/IP at the IANA (Internet Assigned Numbers Authority) for this purpose. 
 If a different multicast IP address is required, it must lie within the range of 239.0.0.0 to 239.255.255.255. 
-For alternative multicast IP adress for example, add in both KNX configurations:
+For alternative multicast IP adress for example, add in KNX configuration:
 
-    knx:localIp=239.0.0.1
     knx:ip=239.0.0.1
 
 ## Bind Items to KNX
