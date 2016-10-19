@@ -123,7 +123,7 @@ Formatting is done applying [Java formatter class syntax](http://docs.oracle.com
 Only the leading '%' and the trailing 'conversion' are mandatory. The **argument_index$** must be used if you want to convert the value of the item several times within the label text or if the item has more than one value. Look at the DateTime and Call item in the following example.
 
 ```java
-Number    MyTemperature  "Temperature [%.1f] °C"          { someBinding:somevalue }
+Number    MyTemperature  "Temperature [%.1f °C]"          { someBinding:somevalue }
 String    MyString       "Value: [%s]"                    { someBinding:somevalue }
 DateTime  MyLastUpdate   "Last Update: [%1$ta %1$tR]"     { someBinding:somevalue }
 Call      IncomingCall   "Incoming call: [%1$s to %2$s]"  { someBinding:somevalue }
