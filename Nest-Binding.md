@@ -117,7 +117,7 @@ String   NestHome_structure_id "Structure Id [%s]" {nest="<[structures(Home).str
 
 Number   NestTStatUpstairs_humidity "Humidity [%d %%]"                                   {nest="<[thermostats(Upstairs).humidity]"}
 String   NestTStatUpstairs_locale "Locale [%s]"                                          {nest="<[thermostats(Upstairs).locale]"}
-String   NestTStatUpstairs_temperature_scale "Temperature Scale [%s]"                    {nest="<[thermostats(Upstairs).temperature_scale]"} // as of 1.9 with thermostat read/write v5 permission, can also be set (=)
+String   NestTStatUpstairs_temperature_scale "Temperature Scale [%s]"                    {nest="=[thermostats(Upstairs).temperature_scale]"} // in only when binding < 1.9 or Thermostat read/write < v5
 Switch   NestTStatUpstairs_is_using_emergency_heat "Is using emergency heat [%s]"        {nest="<[thermostats(Upstairs).is_using_emergency_heat]"}
 Switch   NestTStatUpstairs_has_fan "Has Fan [%s]"                                        {nest="<[thermostats(Upstairs).has_fan]"}
 String   NestTStatUpstairs_software_version "Software Version [%s]"                      {nest="<[thermostats(Upstairs).software_version]"}
@@ -135,10 +135,14 @@ Number   NestTStatUpstairs_target_temperature_low_c "Target Temperature Low [%.1
 Number   NestTStatUpstairs_target_temperature_low_f "Target Temperature Low [%.1f °F]"   {nest="=[thermostats(Upstairs).target_temperature_low_f]"}
 Number   NestTStatUpstairs_ambient_temperature_c "Ambient Temperature [%.1f °C]"         {nest="<[thermostats(Upstairs).ambient_temperature_c]"}
 Number   NestTStatUpstairs_ambient_temperature_f "Ambient Temperature [%.1f °F]"         {nest="<[thermostats(Upstairs).ambient_temperature_f]"}
-Number   NestTStatUpstairs_away_temperature_high_c "Away Temperature High [%.1f °C]"     {nest="<[thermostats(Upstairs).away_temperature_high_c]"}
-Number   NestTStatUpstairs_away_temperature_high_f "Away Temperature High [%.1f °F]"     {nest="<[thermostats(Upstairs).away_temperature_high_f]"}
-Number   NestTStatUpstairs_away_temperature_low_c "Away Temperature Low [%.1f °C]"       {nest="<[thermostats(Upstairs).away_temperature_low_c]"}
-Number   NestTStatUpstairs_away_temperature_low_f "Away Temperature Low [%.1f °F]"       {nest="<[thermostats(Upstairs).away_temperature_low_f]"}
+Number   NestTStatUpstairs_eco_temperature_high_c "Eco Temperature High [%.1f °C]"       {nest="<[thermostats(Upstairs).eco_temperature_high_c]"}  // as of 1.9
+Number   NestTStatUpstairs_eco_temperature_high_f "Eco Temperature High [%.1f °F]"       {nest="<[thermostats(Upstairs).eco_temperature_high_f]"}  // as of 1.9
+Number   NestTStatUpstairs_eco_temperature_low_c "Eco Temperature Low [%.1f °C]"         {nest="<[thermostats(Upstairs).eco_temperature_low_c]"}  // as of 1.9
+Number   NestTStatUpstairs_eco_temperature_low_f "Eco Temperature Low [%.1f °F]"         {nest="<[thermostats(Upstairs).eco_temperature_low_f]"}  // as of 1.9
+Number   NestTStatUpstairs_away_temperature_high_c "Away Temperature High [%.1f °C]"     {nest="<[thermostats(Upstairs).away_temperature_high_c]"} // deprecated
+Number   NestTStatUpstairs_away_temperature_high_f "Away Temperature High [%.1f °F]"     {nest="<[thermostats(Upstairs).away_temperature_high_f]"} // deprecated
+Number   NestTStatUpstairs_away_temperature_low_c "Away Temperature Low [%.1f °C]"       {nest="<[thermostats(Upstairs).away_temperature_low_c]"} // deprecated
+Number   NestTStatUpstairs_away_temperature_low_f "Away Temperature Low [%.1f °F]"       {nest="<[thermostats(Upstairs).away_temperature_low_f]"} // deprecated
 String   NestTStatUpstairs_structure_id "Structure Id [%s]"                              {nest="<[thermostats(Upstairs).structure_id]"}
 Switch   NestTStatUpstairs_fan_timer_active "Fan Timer Active [%s]"                      {nest="=[thermostats(Upstairs).fan_timer_active]"}
 DateTime NestTStatUpstairs_fan_timer_timeout "Fan Timer Timeout [%1$tm/%1$td %1$tH:%1$tM]" <calendar> {nest="<[thermostats(Upstairs).fan_timer_timeout]"}
@@ -152,7 +156,14 @@ String   NestTStatUpstairs_locked_temp_min_f "Locked Temp Min [%s °F]"         
 String   NestTStatUpstairs_locked_temp_max_f "Locked Temp Max [%s °F]"                   {nest="<[thermostats(Upstairs).locked_temp_max_f]"} // as of 1.9, yes it's a String
 String   NestTStatUpstairs_locked_temp_min_c "Locked Temp Min [%s °C]"                   {nest="<[thermostats(Upstairs).locked_temp_min_c]"} // as of 1.9, yes it's a String
 String   NestTStatUpstairs_locked_temp_max_c "Locked Temp Max [%s °C]"                   {nest="<[thermostats(Upstairs).locked_temp_max_c]"} // as of 1.9, yes it's a String
-String   NestTStatUpstairs_label "Label [%s]"                                            {nest=">[thermostats(Upstairs).label]"} // as of 1.9
+String   NestTStatUpstairs_label "Label [%s]"                                            {nest="=[thermostats(Upstairs).label]"} // as of 1.9
+Switch   NestTStatUpstairs_sunlight_correction_enabled "Sunlight Correction Enabled"     {nest="<[thermostats(Upstairs).sunlight_correction_enabled]"} // as of 1.9
+Switch   NestTStatUpstairs_sunlight_correction_active "Sunlight Correction Active"       {nest="<[thermostats(Upstairs).sunlight_correction_active]"} // as of 1.9
+String   NestTStatUpstairs_where_name "Where Name [%s]"                                  {nest="<[thermostats(Upstairs).where_name]"} // as of 1.9
+Number   NestTStatUpstairs_fan_timer_duration "Fan Timer Duration [%d]"                  {nest="=[thermostats(Upstairs).fan_timer_duration]"} // as of 1.9
+Number   NestTStatUpstairs_time_to_target "Time to target temp. [%d min]"                {nest="<[thermostats(Upstairs).time_to_target]"} // as of 1.9
+String   NestTStatUpstairs_time_to_target_training "Time to target training [%s]"        {nest="<[thermostats(Upstairs).time_to_target_training]"} // as of 1.9
+String   NestTStatUpstairs_previous_hvac_mode "Previous HVAC Mode [%s]"                  {nest="<[thermostats(Upstairs).previous_hvac_mode]"} // as of 1.9
 
 /* Smoke+CO detectors - change Master Bedroom to your Smoke+CO detector's name */
 
