@@ -45,5 +45,7 @@ Some bindings (e.g. [EnOcean](https://github.com/openhab/openhab/wiki/EnOcean-Bi
 
 ## QNAP Turbo Station
 
+QPKG for QNAP on GitHub can be found here -> https://github.com/openhab/openhab-qnap-qpkg
+
 There is a QPGK package to install openHAB v1.7 on a QNAP Turbo Station NAS.
 http://forum.qnap.com/viewtopic.php?f=320&t=95315&p=423268
