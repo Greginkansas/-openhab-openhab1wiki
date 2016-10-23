@@ -138,6 +138,7 @@ Number P1_Meter_DeliveryNormal "Meter reading normal tariff[%.3f kWh]" {dsmr="eD
 Meter | DSMR version | Electricity | Gas | Water | Heating | Cooling | General | Slave electricity
 ----- |:------------:|:-----------:|:---:|:-----:|:-------:|:-------:|:-------:|:----------------:
 ISKRA MT382|3.0|OK|OK|Not tested|Not tested|Not tested|Not tested|N/A
+ISKRA AM550|5.0|OK|OK|Not tested|Not tested|Not tested|Not tested|Unknown
 Itron ACE4000 GTMM Mk3|NTA8130|OK|Not tested|Not tested|Not tested|Not tested|N/A|N/A
 Kaifa E0003|4.04|OK|OK|Not tested|Not tested|Not tested|N/A|Not tested
 Kaifa MA304|4.04|OK|Not tested|Not tested|Not tested|Not tested|N/A|Not tested
