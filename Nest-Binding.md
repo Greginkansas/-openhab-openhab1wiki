@@ -161,7 +161,7 @@ Switch   NestTStatUpstairs_sunlight_correction_enabled "Sunlight Correction Enab
 Switch   NestTStatUpstairs_sunlight_correction_active "Sunlight Correction Active"       {nest="<[thermostats(Upstairs).sunlight_correction_active]"} // as of 1.9
 String   NestTStatUpstairs_where_name "Where Name [%s]"                                  {nest="<[thermostats(Upstairs).where_name]"} // as of 1.9
 Number   NestTStatUpstairs_fan_timer_duration "Fan Timer Duration [%d]"                  {nest="=[thermostats(Upstairs).fan_timer_duration]"} // as of 1.9
-Number   NestTStatUpstairs_time_to_target "Time to target temp. [%d min]"                {nest="<[thermostats(Upstairs).time_to_target]"} // as of 1.9
+String   NestTStatUpstairs_time_to_target "Time to target temp. [%s min]"                {nest="<[thermostats(Upstairs).time_to_target]"} // as of 1.9
 String   NestTStatUpstairs_time_to_target_training "Time to target training [%s]"        {nest="<[thermostats(Upstairs).time_to_target_training]"} // as of 1.9
 String   NestTStatUpstairs_previous_hvac_mode "Previous HVAC Mode [%s]"                  {nest="<[thermostats(Upstairs).previous_hvac_mode]"} // as of 1.9
 
