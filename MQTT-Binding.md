@@ -48,7 +48,6 @@ The properties indicated by `<...>` need to be replaced with an actual value.  T
   <tr><td>retain</td><td>Optional. True or false. Defines if the broker should retain the messages sent to it. Defaults to false.</td></tr>
   <tr><td>async</td><td>Optional. True or false. Defines if messages are published asynchronously or synchronously. Defaults to true.</td></tr>
   <tr><td>keepAlive</td><td>Optional. Integer. Defines the keep alive interval in seconds. Defaults to 60.</td></tr>
-keepAlive
 </table>
 
 
