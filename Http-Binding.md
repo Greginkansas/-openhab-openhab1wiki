@@ -19,10 +19,10 @@ For the Out binding there are two special commands available:
 
 Here are some examples of valid binding configuration strings:
 
-    http=">[ON:POST:http://www.domain.org/home/lights/23871/?status=on&type=\"text\"] >[OFF:POST:http://www.domain.org/home/lights/23871/?status=off]"
+    http=">[ON:POST:http://www.domain.org/home/lights/23871/?status=on&type=text] >[OFF:POST:http://www.domain.org/home/lights/23871/?status=off]"
     http="<[http://www.domain.org/weather/openhabcity/daily:60000:REGEX(.*?<title>(.*?)</title>.*)]"
-    http=">[ON:POST:http://www.domain.org/home/lights/23871/?status=on&type=\"text\"] >[OFF:POST:http://www.domain.org/home/lights/23871/?status=off]"
-    http=">[*:POST:http://www.domain.org/home/lights/23871/?status=%2$s&type=\"text\"] <[http://www.domain.org/weather/openhabcity/daily:60000:REGEX(.*?<title>(.*?)</title>.*)]"
+    http=">[ON:POST:http://www.domain.org/home/lights/23871/?status=on&type=text] >[OFF:POST:http://www.domain.org/home/lights/23871/?status=off]"
+    http=">[*:POST:http://www.domain.org/home/lights/23871/?status=%2$s&type=text] <[http://www.domain.org/weather/openhabcity/daily:60000:REGEX(.*?<title>(.*?)</title>.*)]"
     http=">[CHANGED:POST:http://www.domain.org/home/lights/23871/?status=%2$s&date=%1$tY-%1$tm-%1$td]"
 
 
