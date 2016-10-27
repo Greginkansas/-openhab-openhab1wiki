@@ -15,6 +15,11 @@ Below you'll find two examples on how to realize an alarm clock with openHAB. Ex
  * [Rules] (AlarmClock#rules-2)
  * [Sitemap] (AlarmClock#sitemap-2)
 
+*  [Example IV] (AlarmClock#alarm-clock---example-IV)
+ * [Items] (AlarmClock#items-3)
+ * [Rules] (AlarmClock#rules-3)
+ * [Sitemap] (AlarmClock#sitemap-3)
+
 * [References] (AlarmClock#references)
 
 # Alarm Clock - Example I
@@ -1225,6 +1230,7 @@ end
 
 ## Screenshot 
 ```
+![](http://imgur.com/qlkaNI0)
 ```
 
 # References
