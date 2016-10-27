@@ -26,7 +26,7 @@ In order to use the Ecobee API, you must specify the `appkey` and `scope` that w
 
 ![app](https://watou.github.io/images/ecobee-pin.jpg)
 
-Typically, `scope` will be set to `smartWrite`, but if you have an EMS thermostat, set `scope` to `ems`.  These values must be set in the openhab.cfg file (in the folder '${openhab_home}/configurations'). The refresh interval can also be specified, and defaults to 180000ms (three minutes).
+Typically, `scope` will be set to `smartWrite`, but if you have an EMS thermostat, set `scope` to `ems`.  Under openHAB 1.x, these values must be set in the `configurations/openhab.cfg` file, or in the `conf/ecobee.cfg` file under openHAB 2.x (minus the `ecobee:` prefixes). The refresh interval can also be specified, and defaults to 180000 milliseconds (three minutes).
 
 >In OpenHAB 1.7, `ecobee:refresh` defaulted to 60000ms (one minute).
 
@@ -66,7 +66,7 @@ You would then include `condo.` in item references (see below) for those thermos
 
 ## Item configuration
 
-In order to bind an item to a thermostat's properties, you need to provide configuration settings. To do this, you will add some binding information in your item file (in the folder `configurations/items`). The syntax for the Ecobee binding configuration string is explained below.
+In order to bind an item to a thermostat's properties, you need to provide configuration settings. To do this, you will add some binding information in your item file (in the `items` folder). The syntax for the Ecobee binding configuration string is explained below.
 
 Ecobee bindings start with a `<`, `>` or `=`, to indicate if the item receives values from the API (in binding), sends values to the API (out binding), or both (bidirectional binding), respectively.
 
@@ -396,7 +396,7 @@ Here are some examples of valid binding configuration strings, as you would defi
 	String runningEvent_name "Running event name [%s]"                            (gEvents)       { ecobee="<[123456789012#runningEvent.name]" }
 	String runningEvent_climate "Running event climate [%s]"                      (gEvents)       { ecobee="<[123456789012#runningEvent.holdClimateRef]" }
 
-The mapping of [weather symbol numbers](https://www.ecobee.com/home/developer/api/documentation/v1/objects/WeatherForecast.shtml) to their meanings can be specified if you place the following in the file `configurations/transform/ecobeeWeatherSymbol.map`:
+The mapping of [weather symbol numbers](https://www.ecobee.com/home/developer/api/documentation/v1/objects/WeatherForecast.shtml) to their meanings can be specified if you place the following in the file `transform/ecobeeWeatherSymbol.map`:
 
 ```
 -2=no_symbol
@@ -425,7 +425,7 @@ The mapping of [weather symbol numbers](https://www.ecobee.com/home/developer/ap
 -=unknown
 ```
 
-The mapping of the [sky numbers](https://www.ecobee.com/home/developer/api/documentation/v1/objects/WeatherForecast.shtml) to their meanings can be specified if you place the following in the file `configurations/transform/ecobeeSky.map`:
+The mapping of the [sky numbers](https://www.ecobee.com/home/developer/api/documentation/v1/objects/WeatherForecast.shtml) to their meanings can be specified if you place the following in the file `transform/ecobeeSky.map`:
 
 ```
 1=SUNNY 
