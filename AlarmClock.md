@@ -15,7 +15,7 @@ Below you'll find two examples on how to realize an alarm clock with openHAB. Ex
  * [Rules] (AlarmClock#rules-2)
  * [Sitemap] (AlarmClock#sitemap-2)
 
-*  [Example IV] (AlarmClock#alarm-clock---example-IV)
+*  [Example IV] (AlarmClock#7-day-three-zone-scheduler-with-boost-buttons---example-iv)
  * [Items] (AlarmClock#items-3)
  * [Rules] (AlarmClock#rules-3)
  * [Sitemap] (AlarmClock#sitemap-3)
@@ -1229,9 +1229,7 @@ end
 ```
 
 ## Screenshot 
-```
-![](http://imgur.com/qlkaNI0)
-```
+![UI (greenT)](http://i.imgur.com/qlkaNI0.png)
 
 # References
  - [1]: [How to configure openHAB for setting alarm/schedule times thru the UI](https://groups.google.com/d/msg/openhab/F2hqVwjbRC0/b1s44_MWGygJ)
