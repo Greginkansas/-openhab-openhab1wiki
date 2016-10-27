@@ -541,6 +541,8 @@ Frame label="Alarms and Timers" {
 # 7 Day Three Zone Scheduler with Boost Buttons - Example IV
 I based this on the previous examples. I'm working on a smart thermostat for my house, but openhab doesn't supply a 7 day 3 zone widget out of the box. The code probably needs a tidy up and there is possibly a better way to approach the issue but this solves a lot of problems. Mainly, due to the number of timers involved I needed to use java 8 lambdas to supply a method for scheduling, boosting and managing the relays which could be reused in order to keep the size of the rules file down. One bug i've noticed is that it doesn't deal well with DST on the first day of the time switch, but then resolves to the correct time on the subsequent days. 
 
+Also instead of using up and down arrows, the time selectors use selectable preset values which i think makes it easier and quicker to navigate
+
 ## Items 
 ```
 Group gTimerButtons
