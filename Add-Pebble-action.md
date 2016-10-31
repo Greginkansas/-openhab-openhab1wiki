@@ -25,6 +25,7 @@ Since openHAB 1.3.0, not all actions are part of the core runtime distribution a
   * [my.openHAB](https://my.openhab.org/docs/notifications)
   * [NotifyMyAndroid](#notifymyandroid-actions)
   * [OpenWebIf](#openwebif-action)
+  * [Pebble](#pebble-actions)
   * [Prowl](#prowl-actions)
   * [Pushover](#pushover-actions)
   * [Pushsafer](#pushsafer-actions)
@@ -271,6 +272,39 @@ Example:
 `sendOpenWebIfNotification("main", "Hello World!\n\nThis is a message sent from openHab!", "WARNING", 10);`
 
 ![](https://farm4.staticflickr.com/3882/15284270826_8cf0e637d8_z.jpg)
+
+[Table of Contents](#table-of-contents)
+
+### Pebble Actions
+
+This action enables you to send pins and notifications directly to your Pebble watch. 
+
+You'll need to install the openHAB app on your Pebble and look up the Timeline token. This token is displayed at the bottom of the configuration page when you configure the app on your phone. 
+
+You can use this token in each action call, or define an instance from openhab.cfg, like this:
+
+```
+pebble:dave.token=88889999aaaabbbbccccddddeeeeffff
+```
+
+The following methods are available:
+
+- `pebblePin(String instanceOrToken, Date time, String title, String body)`
+   Insert a pin at a given time with a title and body. 
+
+- `pebblePin(String instanceOrToken, Date time, String pinTitle, String actionTitle, String url)`
+   Insert a pin at a given time with a title and add an action. This action is a simple HTTP GET on the given url. 
+
+- `pebbleNotification(String instanceOrToken, String title, String body)`
+   Push a notification directly, with given title and body. 
+
+All actions accept an instance name OR the timeline token as the first parameter.
+
+Examples:
+
+- `pebblePin("88889999aaaabbbbccccddddeeeeffff", now.toDate, "Dave left", "Dave is on his way")`
+- `pebblePin("dave", new DateTime().withHourOfDay(23).withMinuteOfHour(30).toDate, "Bed time", "Shutdown", "http://192.168.1.15:8090/CMD?Lights_All=OFF")`
+- `pebbleNotification("dave", "Dave left", "Dave left the house")`
 
 [Table of Contents](#table-of-contents)
 
