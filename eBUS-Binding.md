@@ -92,7 +92,7 @@ ID Part           | Description
 
 ID's                                                     | Description
 ---                                                      | ---
-[Common](./docs/json-files/common.md)                    | Standard eBUS commands, Vendor independent
+[Common](https://github.com/openhab/openhab/blob/1.8/bundles/binding/org.openhab.binding.ebus/docs/json-files/common.md)                    | Standard eBUS commands, Vendor independent
 [Vaillant BAI00](https://github.com/openhab/openhab/blob/1.8/bundles/binding/org.openhab.binding.ebus/docs/json-files/vaillant-bai00.md)    | Vaillant BAI00
 [Vaillant VRC430](https://github.com/openhab/openhab/blob/1.8/bundles/binding/org.openhab.binding.ebus/docs/json-files/vaillant-vrc430.md)  | Vaillant VRC430 controller
 [Vaillant VRC470](https://github.com/openhab/openhab/blob/1.8/bundles/binding/org.openhab.binding.ebus/docs/json-files/vaillant-vrc470.md)  | Vaillant VRC470 controller
