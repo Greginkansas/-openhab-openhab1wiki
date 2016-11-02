@@ -63,6 +63,8 @@ you only have to add the password value to the influxdb:password=<password> vari
 |influxdb:password   | the password of the database user | no default | <= 1.8 |
 |influxdb:retentionPolicy | the retentionPolicy name | "default" | >= 1.9 |
 
+Please note starting with InfluxDB >= 1.0, default retention policy name is no longer "default" but "autogen". Don't forget to specify it in your configuration file. 
+
 For __influxdb08__ users the variables are named influxdb08:url, influxdb08:user, influxdb08:db and influxdb08:password. The retentionPolicy variable isn't available for influxdb08. If influxdb08 is your default persitence service, then change to persistence:default=influxdb08 as well. 
 
 ### Installation
