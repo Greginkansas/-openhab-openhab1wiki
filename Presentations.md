@@ -7,11 +7,17 @@ A couple of talks and other publications have been done about openHAB. Find the 
 
 ## Talks
 
+- October 26, 2016 - Kai presented openHAB on a Mars rover at [EclipseCon Europe](https://www.eclipsecon.org/europe2016/session/colonization-mars-meet-eclipse-smarthome-powered-mars-rover) in Ludwigsburg.
+
+- September 22, 2016 - Kai presented openHAB at the [Women in IoT Meetup](http://www.meetup.com/de-DE/womeniniot/events/232933863/?eventId=232933863) in San Francisco.
+
+- September 20, 2016 - Kai presented Eclipse SmartHome and openHAB 2 at [JavaOne](https://twitter.com/kaikreuzer/status/752760497418690560) in San Francisco.
+
 - April 14, 2016 - Presentation of openHAB 2 at the [IoT Tech Day NL](http://www.iottechday.nl/) in Utrecht.
 
 - April 12, 2016 - Presentation of openHAB 2 at the [Dutch Eclipse Day](http://eclipseday.nl/) in Eindhoven.
 
-- Sept 16, 2015 [Linux Home Automation using OpenHAB with Eli Ben-Shoshan](http://www.youtube.com/watch?v=GDfEO7vZy1g)
+- Sept 16, 2015 [Linux Home Automation using openHAB with Eli Ben-Shoshan](http://www.youtube.com/watch?v=GDfEO7vZy1g)
 
 - July 9, 2015 - 'Mach mit Eclipse SmartHome dein Zuhause intelligent!' and 'IoT und SmartHome: Ein Überblick' at [Java Forum Stuttgart](http://www.java-forum-stuttgart.de/de).
 
