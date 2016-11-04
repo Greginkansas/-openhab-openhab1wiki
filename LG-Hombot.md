@@ -10,7 +10,7 @@ Unlike the probably more popular iRobot Roomba models, the Hombot firmware is Li
 In principle, any model will do (some hints: prices vary greatly, but the different national versions are not different, almost all features are software only, and the last two or three digits refer to the color only (really!), so get a cheap one. My one's a VR64607 bought on amazon.es). Check out the forum to host the install guide for more details.
 
 ## WiFi hack
-You need to equip your Hombot with a WiFi stick first .
+You need to equip your Hombot with a WiFi stick first and upload a web server mod.
 See [this install guide](http://www.roboter-forum.com/showthread.php?10009-LG-Hombot-3-0-%28VR6260-VR6270-VR6340%29-WLAN-Steuerung-per-Weboberfl%E4che&p=107354&viewfull=1#post107354) (registration required).
 
 ## HTTP binding based control
