@@ -10,6 +10,7 @@ Tested Receivers:
 * V475
 * V477
 * V479
+* V481
 * V575
 * V671
 * V675
@@ -27,7 +28,7 @@ Tested Receivers:
 * RX-V677
 * RX-V771
 * HTR-4065
-
+* HTP-4069
 
 Please add successfully tested receivers!
 
