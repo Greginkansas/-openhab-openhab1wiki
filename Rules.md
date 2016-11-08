@@ -141,6 +141,7 @@ Besides the implicitly available variables for items and commands/states (see th
 
 - Every rule that has at least one command event trigger, will have the variable `receivedCommand` available, which can be used inside the execution block.
 - Every rule that has at least one status change event trigger, will have the variable `previousState` available, which can be used inside the execution block.
+- The variable `now`, which is a DateTime object that represents the current time
 
 ## Using the same Variable name across separate rule files
 
