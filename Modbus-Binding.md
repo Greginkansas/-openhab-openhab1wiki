@@ -102,7 +102,7 @@ See also below for additional connection parameters introduced in 1.9.0.
       </tr>
 
        <tr><td>type</td><td>mandatory</td>
-              <td>object type. Dictates the function codes used for read & write. See below for more information. Can be either <i>coil</i>, <i>discrete</i>, <i>holding</i>, <i>input</i> or <i>register</i>.</td>
+              <td>object type. Dictates the function codes used for read & write. See below for more information. Can be either <i>coil</i>, <i>discrete</i>, <i>holding</i>, or <i>input</i>.</td>
             </tr>
        
        <tr><td>start</td><td>optional</td>
