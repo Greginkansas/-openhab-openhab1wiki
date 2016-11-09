@@ -84,7 +84,7 @@ Since 1.6 it is possible to add an optional 5th configuration like:
   <tr><td>topic</td><td>The MQTT Topic to subscribe to.</td></tr>
   <tr><td>type</td><td>Describes what the message content contains: a status update or command. Allowed values are 'state' or 'command'.</td></tr>
   <tr><td>transformation</td><td>Rule defining how to transform the received message content into something openHab recognizes. Transformations are defined in the format of TRANSFORMATION_NAME(transformation_function).  Allowed values are 'default' or any of the transformers provided in the org.openhab.core.transform bundle. Custom transformations can be contributed directly to the transform bundle by making the Transformation available through Declarative Services. Any other value than the above types will be interpreted as static text, in which case the actual content of the message is ignored.</td></tr>
-  <tr><td> regex_filter(optional, since 1.6) </td><td>A string representing a regular expression. Only messages that match this expression will be further processed. All other messages will be dropped. Use Case: If multiple different data is sent over one topic (for example multiple sensors of one device), it is possible to distinguish the messages for different items. Example ".*" will match every message, ".*\"type\"=2\n.*" will match every message including type=2.</td></tr>
+  <tr><td> regex_filter(optional, since 1.6) </td><td>A string representing a regular expression. Only messages that match this expression will be further processed. All other messages will be dropped. Use Case: If multiple different data is sent over one topic (for example multiple sensors of one device), it is possible to distinguish the messages for different items. Example ".*" (excluding the quotes) will match every message, ".*\"type\"=2\n.*" (excluding the quotes) will match every message including type=2.</td></tr>
 </table>
 
 ### Example Inbound Configurations
@@ -93,6 +93,7 @@ Since 1.6 it is possible to add an optional 5th configuration like:
     Number waterConsumption "consum [%d]" {mqtt="<[mybroker:myHome/watermeter:state:XSLT(parse_water_message.xslt)]"} 
     Switch doorbell "bell [%s]" {mqtt="<[mybroker:myHome/doorbell:command:ON]"}
     Number mfase1 "mfase1 [%.3f]" {mqtt="<[flukso:sensor/9cf3d75543fa82a4662fe70df5bf4fde/gauge:state:REGEX(.*,(.*),.*)]"}
+    Number humidity "humidity [%.1f%%] {mqtt="<[broker:weatherstation/readings:state:JS(convertPercent.js):humidity=.*]"}
 
 ## Item Binding Configuration for Outbound Messages
 
