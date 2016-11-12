@@ -316,3 +316,8 @@ Supported TV commands:
 - KEY_ZOOM_IN
 - KEY_ZOOM_MOVE
 - KEY_ZOOM_OUT
+
+## Limitations
+The Binding can sent commands from openhab to Samsung TV but it does not signal any state changes issued by the Samsung TV remote. So creating a rule that triggers an action when the TV is switch on or off by the TV remote is not possible.
+
+Additionally the KEY_POWERON does not switch the TV on. Tested on Samsung UE40ES5700, maybe other models are working.
