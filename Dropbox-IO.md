@@ -1,6 +1,7 @@
 Documentation of the Dropbox IO Bundle
 
 ## Introduction
+NOTE: The OpenHAB Dropbox app is disabled, making Dropbox IO currently unusable. This is being tracked in [#4588](https://github.com/openhab/openhab/issues/4588).
 
 The Dropbox IO bundle is available as a separate (optional) download.
 If you want to enhance openHAB with an integration to your personal Dropbox, please place this bundle in the folder `${openhab_home}/addons` and configure it to your needs. See the following sections on how to do this.
