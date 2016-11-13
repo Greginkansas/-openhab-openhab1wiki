@@ -245,6 +245,7 @@
 * [[Heatmiser PRT Thermostat]]
 * [[Google Calendar|GCal-Binding]]
 * [[Linux Media Players|Linux-Media-Players]]
+* [[Osram Lightify|Osram-Lightify]]
 * [[Rainforest EAGLE Energy Access Gateway|Rainforest-EAGLE]]
 * [[Roku Integration|Roku Integration]]
 * [[ROS Robot Operating System|ROS-Robot-Operating-System]]
