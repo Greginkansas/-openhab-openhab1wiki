@@ -107,7 +107,7 @@ Assuming there are the following item definition:
     Dimmer Lightify1_Dimmer
 
 ###Rules###
-Assuming there is a rule doing somethin like this:
+Assuming there is a rule doing something like this:
 
     var DecimalType hue = new DecimalType(240)
     var PercentType sat = new PercentType(100)
@@ -179,4 +179,4 @@ You can then easily add rules for the individual bulbs:
             Item Lightify1_Colour changed
         then
             updateLightifyDevice.apply(Lightify1_OnOff, Lightify1_Colour, 'Room1')
-end
+    end
