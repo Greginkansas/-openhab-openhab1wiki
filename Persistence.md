@@ -1,9 +1,9 @@
 ## Introduction
 
-The persistence support stores item states over time (a time series). openHAB is not restricted to a single data store. Different stores can co-exist and be configured independently.
+Persistence support stores item states over time (a time series). openHAB is not restricted to a single data store. Different stores can co-exist and be configured independently.
 
 When persisting states, there are many different possibilities one might think of: relational databases, NoSQL databases, round-robin databases, Internet-of-Things (IoT) cloud services, simple log files etc.
-openHAB tries to make all of these options possible and configurable in the same way. Note that some options might only be good for exporting data (e.g. IoT services or log files), while others can be easily queried as well and hence be used for providing historical data for openHAB functionality.
+openHAB tries to make all of these options possible and configurable in the same way. Note that some options might only be good for exporting data (e.g. IoT services or log files), while others can be easily queried as well, and hence, may be used for providing historical data for openHAB functionality.
 
 ## Persistence Services
 
@@ -35,11 +35,11 @@ Xively | | [cosm.com](http://cosm.com/) | See [[Cosm|Cosm-Persistence]]
 For every persistence service that you have installed and want to use, you have to put a configuration file named `<persistenceservice>.persist` (e.g. `db4o.persist`) in the folder `${openhab.home}/configurations/persistence`. These files should be edited with the openHAB Designer, which provides syntax checks, auto-completion and more.
 
 Before going into the details of the syntax of these files, let us discuss the concept behind it first:
-The basic idea is to provide a simple way to tell openHAB, which items should be persisted when. The persistence configuration defines so called "strategies" for this. These are very similar to the triggers of [[Rules|rules]] as you will most likely also either persist a value when some bus event occurred (i.e. an item state has been updated or changed) or with a fixed schedule as the [cron expressions](http://www.quartz-scheduler.org/documentation/quartz-2.1.x/tutorials/crontrigger) allow to define. 
+The basic idea is to provide a simple way to tell openHAB, which items should be persisted and when. The persistence configuration defines so called "strategies" for this. These are very similar to the triggers of [[Rules|rules]] as you will most likely also either persist a value when some bus event occurred (i.e. an item state has been updated or changed) or with a fixed schedule as the [cron expressions](http://www.quartz-scheduler.org/documentation/quartz-2.1.x/tutorials/crontrigger) allow to define. 
 
-The persistence configuration files hence consist out of several sections:
+Persistence configuration files consist of several sections:
 
-**Strategies section**: This allows to define strategies and to declare a set of default strategies to use (for this persistence service). The syntax is the following:
+**Strategies section**: This section allows you to define strategies and to declare a set of default strategies to use (for this persistence service). The syntax is as follows:
 ```
 Strategies {
     <strategyName1> : "<cronexpression1>"
@@ -52,7 +52,7 @@ Strategies {
 The following strategies are already statically defined (and thus do not need to be listed here, but can be declared as a default):
 * everyChange: persist the state whenever its state has changed
 * everyUpdate: persist the state whenever its state has been updated, even if it did not change
-* restoreOnStartup:If the state is undefined at startup, the last persisted value is loaded and the item is initialized with this state. This is very handy for all "virtual" items that do not have any binding to real hardware, like "Presence" or similar.
+* restoreOnStartup:If the state is undefined at startup, the last persisted value is loaded and the item is initialized with this state. This is very handy for "virtual" items that do not have any binding to real hardware, like "Presence" or similar.
 
 **Items section**: This defines, which items should be persisted with which strategy. The syntax is:
 ```
@@ -67,9 +67,9 @@ where `<itemlist>` is a comma-separated list of the following options:
 - `<itemName>` - a single item identified by its name. This item can be a group item, but note that only its own (group) value will be persisted, not the states of its members.
 - `<groupName>*` - all members of this group will be persisted, but not the group itself.
   If no strategies are provided, the default strategies that are declared in the first section are used.
-  An alias can be optionally provided, if the persistence service requires special names (e.g. a table to use in a database, a feed id for an IoT-service etc.) 
+  Optionally, an alias can be provided, if the persistence service requires special names (e.g. a table to use in a database, a feed id for an IoT-service etc.) 
 
-As a result, a valid persistence configuration file might look like this:
+A valid persistence configuration file might look like this:
 
     // persistence strategies have a name and a definition and are referred to in the "Items" section
     Strategies {
@@ -127,11 +127,11 @@ For all kinds of time and date calculations, [Jodatime](http://joda-time.sourcef
 The "now" variable can be used for relative time expressions, while "parse()" can define absolute dates and times. See the [Jodatime documentation](http://joda-time.sourceforge.net/api-release/org/joda/time/format/ISODateTimeFormat.html#dateTimeParser()) on what string formats are supported for parsing.
 
 ## Startup Behavior
-Persistence services and rule engine are started in parallel. It may happen that rules are already executed using items that have not been persisted yet having an "undefined" state. Therefore, rules that rely on persisted information break during this time.
+Persistence services and the rule engine are started in parallel. It is possible that rules may execute using items that have not had their persisted state restored yet (In this case, these items have an "undefined" state at the time the rule is executed). Therefore, rules that rely on persisted information may break during startup.
 
 ####Workaround 1####
 
-A workaround which helped some cases is to introduce an item e.g. "delayed_start" that is set to "OFF" at startup and to "ON" some time later (when it can be assumed that persistence has restored all items. The time needs to be determined empirically. It is influenced by the size of your home automation project and the performance of your platform).
+A workaround which helps in some cases is to introduce an item e.g. "delayed_start" that is set to "OFF" at startup and to "ON" some time later (when it can be assumed that persistence has restored all items. The time needs to be determined empirically. It is influenced by the size of your home automation project and the performance of your platform).
 The affected rules then have to be masked by using "delayed_start".
 
 ####Workaround 2####
@@ -148,9 +148,9 @@ Create `configurations/rules/refresh.rules` with following content. It runs a re
       reloadOnce = false
     end
 
-Create according refresh script `configurations/rules_refresh.sh` and make runnable (`chmod +x rules_refresh.sh`):
+Create a refresh script `configurations/rules_refresh.sh` and make it executable (`chmod +x rules_refresh.sh`):
 
-    # This script is called by openHAB after persistence service was started
+    # This script is called by openHAB after the persistence service has started
     sleep 5
     cd [full_path_to_openhab]/configurations/rules/
     RULES=`find *.rules | grep -v refresh.rules`
@@ -159,4 +159,4 @@ Create according refresh script `configurations/rules_refresh.sh` and make runna
       touch $f
     done 
 
-The script waits for 5 seconds, then touches all `*.rules` files (except `refresh.rules`) which causes openHAB to reload these files. Other rules-files may be added on new lines.
+The script waits for 5 seconds, then touches all `*.rules` files (except `refresh.rules`) which causes openHAB to reload these files. Other rules-files may be added on new lines.  (As noted above, you will have to experiment to find the appropriate sleep value for your specific system.)
