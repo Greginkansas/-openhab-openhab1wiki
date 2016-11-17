@@ -91,12 +91,6 @@ You can configure the persistence service in **JDBC Persistence Service** sectio
 # required database url like 'jdbc:<service>:<host>[:<port>;<attributes>]'
 jdbc:url=jdbc:postgresql://192.168.0.1:5432/testPostgresql
 #
-# required database user
-jdbc:user=test
-#
-# required database password
-jdbc:password=test
-#
 ```
 
 #### Migration from MYSQL Bundle to JDBC Bundle
@@ -106,10 +100,10 @@ jdbc:password=test
 # required database url like 'jdbc:<service>:<host>[:<port>;<attributes>]'
 jdbc:url=jdbc:mysql://192.168.0.1:3306/testMysql
 #
-# required database user
+# optional database user
 jdbc:user=test
 #
-# required database password
+# optional database password
 jdbc:password=test
 #
 # for Migration from MYSQL-Bundle set to 'Item'.
@@ -152,11 +146,11 @@ jdbc:tableIdDigitCount=0
 # jdbc:url=jdbc:postgresql://192.168.0.1:5432/testPostgresql
 # jdbc:url=jdbc:sqlite:./testSqlite.db
 
-# required database user
+# optional database user
 #jdbc:user=
 jdbc:user=test
 
-# required database password
+# optional database password
 #jdbc:password=
 jdbc:password=test
 
