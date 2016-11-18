@@ -1,9 +1,5 @@
 
-> Note that the current state of the binding in unclear. The documentation at the end refers to the Google API change in November 2014 and also links to repo describing how to implement a temp fix. However the binding included in the main distribution has not been updated.
-
-> There is an alternative binding using [CalDAV](https://github.com/openhab/openhab/wiki/CalDAV). 
-
-> An alternative method to schedule events is to setup the my.openHAB binding and use the openHAB/Google Calendar channels on IFTTT to trigger openHAB.
+> Starting from version **1.9.0** binding has been refreshed to support Google OAuth2 and Google calendar API v3. Only this version is currently supported by Google. Older version does not work.
 
 # Documentation of the Google Calendar IO-Bundle
 
@@ -28,6 +24,10 @@ or just
 
     send|update <item> <state>
 
+or
+
+    > script
+
 The commands in the `start` section will be executed at the event start time and the `end` section at the event end time. If these sections are not present, the commands will be executed at the event start time.
 
 As a result, your lines in a Calendar event might look like this:
@@ -46,37 +46,39 @@ or just
     send Light_Garden ON
     send Pump_Garden ON
 
-## Obtain the calendar URL
+or
 
-openHAB must be configured with your google calendar of choice. The URL has to be configured in your openhab.cfg. The following cases are supported:
+    > Light_Garden.sendCommand(ON)
 
-1. URL, username, password (Calendar Address)
-2. URL (Private Address)
+## Obtain the credentials
 
+Before you can integrate OpenHAB with Google calendar you must have a Google API Console project.
+* Login to [https://console.developers.google.com](https://console.developers.google.com)
+* From the project drop-down, select an existing project  , or create a new one by selecting **Create a new project**.
+* In the sidebar under "API Manager", select Credentials, then select the OAuth consent screen tab.
+* Choose an **Email Address**, specify a **Product Name**, and press Save.
+* In the Credentials tab, select the Create credentials drop-down list, and choose **OAuth client ID**.
+* Under **Application type**, select **Other**. 
+* Put **Name** and press the **Create** button.
+* Copy **client id** and **client secret**
 
-**Alternative 1:** To obtain the google calendar URL using username/password
-- fill in gcal:url gcal:username, gcal:password in openhab.cfg
+The client id, client secret and calendar name has to be configured in your openhab.cfg. 
+
+- fill in gcal:client_id, gcal:client_secret in openhab.cfg
 - login in to https://www.google.com/calendar/
-- click "Settings" (under "My calendars") -> \<your calendar\>
-- find the calendar URL in in heading "Calendar Address" -> "XML". The URL for will be something like this:
-`https://www.google.com/calendar/feeds/user@gmail.com/public/basic` 
-- copy the given url and replace "basic" with "full". Note: if you want to write entries to your calendar (via gcal persistence for example), "public" must also be replaced with "private".
+- find calendar name you want to use (under "My calendars")
+- fill in gcal:calendar_name in openhab.cfg. If you want to use your primary calendar just put keyword "primary"
 
-The final URL should be similar to:
-`https://www.google.com/calendar/feeds/user@gmail.com/private/full`
+After first start you need to authorize openHAB to allow use your calendar. Follow openHAB console for instruction:
 
-Google added a new security feature which needs to be disabled for this method to work. Go to https://www.google.com/settings/security/lesssecureapps and allow access for less secure apps.
-
-**Alternative 2:** To obtain the google calendar URL without password (only for reading !!):
-- only gcal:url should be used in openhab.cfg
-- login in to https://www.google.com/calendar/
-- click "Settings" (under "My calendars") -> \<your calendar\>
-- find the calendar URL in in heading "Private Address" -> "XML". The URL for will be something like this:
-`https://www.google.com/calendar/feeds/user@gmail.com/private-da2412ef24124f151214deedbeef1234/basic`
-- copy the given url and replace "basic" with "full". 
-
-The final URL should be similar to:
-`https://www.google.com/calendar/feeds/user@gmail.com/private-da2412ef24124f151214deedbeef1234/full`
+     [INFO ] [g.internal.GCalEventDownloader] -################################################################################################
+     [INFO ] [g.internal.GCalEventDownloader] - # Google-Integration: U S E R   I N T E R A C T I O N   R E Q U I R E D !!
+     [INFO ] [g.internal.GCalEventDownloader] - # 1. Open URL 'https://www.google.com/device'
+     [INFO ] [g.internal.GCalEventDownloader] - # 2. Type provided code ZPWT-UVXXS 
+     [INFO ] [g.internal.GCalEventDownloader] - # 3. Grant openHAB access to your Google calendar
+     [INFO ] [g.internal.GCalEventDownloader] - # 4. openHAB will automatically detect the permiossions and complete the authentication process
+     [INFO ] [g.internal.GCalEventDownloader] - # NOTE: You will only have 1800 mins before openHAB gives up waiting for the access!!!
+     [INFO ] [g.internal.GCalEventDownloader] -################################################################################################
 
 
 # Presence Simulation
@@ -88,8 +90,8 @@ The GCal persistence bundle can be used to realize a simple but effective Presen
 
 To make use of the Presence Simulation you have to walk through these configuration steps:
 
-- make sure that you are using the correct openHAB release (at least 1.0.0-SNAPSHOT)
-- configure the gcal-persistence bundle by adding the appropriate configuration in your `openhab.cfg`. All entries start with `gcal-persistence`. You must at least add the username, password and url. Get the url using the 'alternative 1' method. The url must end with "/private/full".
+- make sure that you are using the correct openHAB release (at least 1.9.0-SNAPSHOT)
+- configure the gcal-persistence bundle by adding the appropriate configuration in your `openhab.cfg`. All entries start with `gcal-persistence`. You must add only calendar_name. All other credentials are shared from gcal.
 - make sure your items file contains items that belong to the group `PresenceSimulationGroup` - if you would like to change the group name change it at `gcal.persist`.
 - make sure your items file contains an item called `PresenceSimulation` which is referred by the scripts executed at a certain point in time - if you would like to change the group name please change the parameter `gcal-persistence:executescript` in your openhab.cfg`.
 - make sure the referenced gcal calendar is writeable by the given user (google calendar website)
@@ -122,15 +124,8 @@ To solve any issues with any binding, increase the logging. For gcal, add these 
 * "creating a new calendar entry throws an exception: Forbidden"
 
     This can have several causes:
-    * The username/password might not be correct
+    * The client_id/client_secret might not be correct
 
-    * The url is not correct. Get the url from your calendar settings, in the 'calendar details' at the 'Calendar Address'. Get the XML url. Always use 'https'. Make sure the url ends with "/private/full".
+    * The calendar name is not correct.
 
     * If your not using your own calendar, make sure the sharing settings are correct and the user has sufficient rights to create calendar entries.
-
-## Restrictions
-Since the 17th of November Google has introduced API 3.0 which needs a modified authentication procedure.
-If you want to use this binding, use the instruction given in the google groups thread: https://groups.google.com/forum/#!searchin/openhab/google/openhab/LbqKLEdlDCk/FUy-Q1oNTEEJ
-
-Also, see here for a step-by-step list to enable the Calendar again: 
-https://github.com/fmoor/gcal-fix-openhab#gcal-fix-openhab
