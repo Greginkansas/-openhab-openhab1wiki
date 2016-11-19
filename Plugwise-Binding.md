@@ -356,3 +356,4 @@ Click on a thumbnail below to see how this sitemap is rendered in the various op
 * Fix Circles not always calibrated ([#4669](https://github.com/openhab/openhab/pull/4669))
 * Improve power state switching, fix ObjectAlreadyExistsException when (re)starting binding ([#4700](https://github.com/openhab/openhab/pull/4700))
 * FindBugs issues fix ([#4704](https://github.com/openhab/openhab/pull/4704))
+* Reliability improvements ([#4797](https://github.com/openhab/openhab/pull/4797))
