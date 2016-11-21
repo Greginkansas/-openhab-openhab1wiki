@@ -39,6 +39,7 @@
 * [[Kodi|https://github.com/enishoca/openhab-kodi]]
 * [[Slack|Slack-integration]]
 * [[Chrome Extension|https://chrome.google.com/webstore/detail/mini-openhab-controller/lphilmckagfijcikbfoibgekcoodaobd]]
+* [[Alfred Workflow|https://github.com/digitalbirdo/alfred-openhab-workflow]]
 
 ## [[Persistence]]
 * [[Cosm Persistence|Cosm-Persistence]]
