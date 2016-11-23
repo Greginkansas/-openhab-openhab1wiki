@@ -6,6 +6,7 @@ To make this more effectiv there are some files to enable syntax highlighting fo
 * [Notepad++](Syntax-Highlighting-for-external-editors#notepad)
 * [vi](Syntax-Highlighting-for-external-editors#vi)
 * [nano](Syntax-Highlighting-for-external-editors#nano)
+* [Textwrangler](Syntax-Highlighting-for-external-editors#textwrangler)
 
 ## mcedit
 
@@ -129,3 +130,11 @@ Nano is a common editor in linux systems
 ## Openhab
 include /usr/share/nano/openhab.nanorc
 ````
+
+## Textwrangler
+Textwrangler is a text and code editor for MAC OS X.
+
+### Manual installation
+
+- Download the syntax file from https://github.com/GrisoMG/openhab-syntax-textwrangler/blob/master/openhab.plist
+- Copy the file openhab.plist into ~/Library/Application Support/TextWrangler/Language Modules
