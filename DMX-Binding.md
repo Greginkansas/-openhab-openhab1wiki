@@ -24,6 +24,10 @@ To use the DMX binding, install the CORE bundle and ONE device interface bundle 
 <tr><td>Lib485</td><td>dmx:connection=localhost:9020</td><td></td></tr>
 </table>
 
+Starting with 1.9.0 you can configure how often the output will be refreshed. Every 35ms the binding checks whether one of the channels has changed. If this is the case, the new values will be send to the configured output. If none of the channels have changed, prior versions of the binding did never send updates. This works in most cases, however it is not compliant with the underlying standards (not sending updates for 1s is considered as DATA LOST in the E1.11 standard, the receiver behaviour for this case is not defined). There is a new configuration option
+     `repeatMode = <value>`
+where `always` is the default value and will send every update, regardless of a change. Other options are `never` which is the behaviour of pre-1.9.0 versions and `reduced` which sends three updates if nothing has changed and then suppresses the output for approx. 800 ms. If you have a directly connected interface (e.g. RS485) you should stay with the default. If you use ArtNet you can use the reduced option and minimize network load.
+ 
 If you use the OLA interface, you will also need to configure OLA.  
 More information on configuring the binding and installing OLA is available in the next sections.
 
