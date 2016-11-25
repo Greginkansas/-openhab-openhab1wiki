@@ -12,20 +12,25 @@ Add the org.openhab.binding.harmonyhub<version>.jar, org.openhab.io.harmonyhub<v
 
 #### Configuration
 
+**Novemeber 2016:  Logitech changed their authentication rendering the host/username/password configuration broken.  Please use the new discoveryName to connect to your hub(s)**
+
 The following configuration items are required to be set in openhab.cfg:
 
-	harmonyhub:host=<local ip address of your hub>
-	harmonyhub:username=<your logitech username>
-	harmonyhub:password=<your logitech password>
+        harmonyhub:discoveryName=<Name given to your hub when setup>
+
+Example:
+
+        harmonyhub:discoveryName=Great Room
+
 
 Optionally you may add a unique qualifier to your configuration to support multiple hubs
 
 
-	harmonyhub:qualifier.host=<local ip address of your hub>
-	harmonyhub:qualifier.username=<your logitech username>
-	harmonyhub:qualifier.password=<your logitech password>
+        harmonyhub:qualifier.discoveryName=<Name given to your hub when setup>
 
-replace 'qualifier' with a string that describes the hub (ex: familyroom )
+Example:
+
+        harmonyhub:greatroom.discoveryName=Great Room
 
 #### Bindings
 
