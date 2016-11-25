@@ -24,9 +24,6 @@ or just
 
     send|update <item> <state>
 
-or
-
-    > script
 
 The commands in the `start` section will be executed at the event start time and the `end` section at the event end time. If these sections are not present, the commands will be executed at the event start time.
 
@@ -46,9 +43,6 @@ or just
     send Light_Garden ON
     send Pump_Garden ON
 
-or
-
-    > Light_Garden.sendCommand(ON)
 
 ## Obtain the credentials
 
@@ -86,7 +80,7 @@ After first start you need to authorize openHAB to allow use your calendar. Foll
 The GCal persistence bundle can be used to realize a simple but effective Presence Simulation feature (thanks Ralf for providing the concept). Every single change of an item that belongs to a certain group is posted as new calendar entry in the future. By default each entry is posted with an offset of 14 days (If you'd like to change the offset please change the parameter `gcal-persistence:offset` in your `openhab.cfg`). Each calendar entry looks like the following:
 
 - title: `[PresenceSimulation] <itemname>`
-- content: `> if (PresenceSimulation.state == ON) sendCommand(<itemname>,<value>)`
+- content: `send <itemname> <value>`
 
 To make use of the Presence Simulation you have to walk through these configuration steps:
 
