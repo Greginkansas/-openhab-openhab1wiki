@@ -328,6 +328,7 @@ Note that <i>first register</i> refers to register with address `start` (as defi
 - indices between 16...31 (inclusive) represent bits of the second register, etc.
 - index 0 refers to the least significant bit of the first register
 - index 1 refers to the second least significant bit of the first register, etc.
+(Note that updating a bit in a holding type register will NOT work as expected across Modbus, the whole register gets rewritten. Best to use a read-only mode, such as Contact item.  Input type registers are by definition read-only.)
 
 `valuetype=int8`:
 - a byte (8 bits) from the registers is interpreted as signed integer
