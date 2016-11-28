@@ -25,19 +25,7 @@ Binding will download project file from the controller. Binding also listening c
     # Timeout for controller communication
     ihc:timeout=5000
 
-IHC / ELKO LS controller communication interface is SOAP (Simple Object Access Protocol) based limited to HTTPS transport protocol. **Controller TLS certificate is self signed, so by default OpenHAB (precisely Java) will not allow TLS connection to controller for security reason.** You need to import controller TLS certificate to trusted list by using java keytool. 
-
-You can download controller TLS certificate e.g. by Firefox browser; just open HTTPS connection to your controller IP address (https://192.168.1.2), click "lock" icon (just before URL box) -> more information -> security tab -> view certificate -> details tab -> export.
-
-Keytool usage:
-
-    $JAVA_HOME/bin/keytool -importcert -alias <some descriptive name> -keystore <path to keystore> -file <certificate file>
-
-See more information about the keytool from [here](http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/keytool.html).
-
-Keytool usage example (OS X):
-
-    sudo keytool -importcert -alias ELKO -keystore /System/Library/Java/Support/CoreDeploy.bundle/Contents/Home/lib/security/cacerts -file ELKOLivingSystemController.pem
+IHC / ELKO LS controller communication interface is SOAP (Simple Object Access Protocol) based limited to HTTPS transport protocol. **Since version 1.7 binding, there is no need to add certificate manually to trust store anymore as binding trust all certificates automatically**
 
 ## Item Binding Configuration
 
@@ -130,3 +118,21 @@ Binding listens all state changes from controller's resource id 9953290 and upda
 Such as previous example, but resource value will additionally asked from controller ones per every minute.
 
     Number Temperature_Kitchen "Temperature [%.1f °C]" <temperature> (Temperature, FF_Kitchen) { ihc="0x97E00A:60" }
+
+## Binding version before 1.7.0
+
+If you are still using old IHC binding version (before 1.7.0), you need to follow instructions below.
+  
+Controller TLS certificate is self signed, so by default OpenHAB (precisely Java) will not allow TLS connection to controller for security reason. You need to import controller TLS certificate to trusted list by using java keytool. 
+
+You can download controller TLS certificate e.g. by Firefox browser; just open HTTPS connection to your controller IP address (https://192.168.1.2), click "lock" icon (just before URL box) -> more information -> security tab -> view certificate -> details tab -> export.
+
+Keytool usage:
+
+    $JAVA_HOME/bin/keytool -importcert -alias <some descriptive name> -keystore <path to keystore> -file <certificate file>
+
+See more information about the keytool from [here](http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/keytool.html).
+
+Keytool usage example (OS X):
+
+    sudo keytool -importcert -alias ELKO -keystore /System/Library/Java/Support/CoreDeploy.bundle/Contents/Home/lib/security/cacerts -file ELKOLivingSystemController.pem
