@@ -83,14 +83,17 @@ Binding file: org.openhab.binding.caldav-personal-version.jar
 ## filtering
 You've got the option to show just specific events.
 * `filter-name:'<regular expression>'`
-* `filter-category:'<categories, comma separated>'`
+* `filter-category:'<categories, comma separated>'`  (your caldav event must contain at least ALL the categories you specify here)
+* `filter-category-any:'<categories, comma separated>'` (your caldav event must at least contain one of the categories you specify here)
 
 ### Example for filtering
 * just showing upcoming free days
 `caldavPersonal="calendar:'robert,common' type:'EVENT' eventNr:'1' value:'START' filter-name:'Gleittag|Urlaub|Frei'"`
 * just showing events for the next garbage pick-up
 `caldavPersonal="calendar:'common' type:'EVENT' eventNr:'1' value:'START' filter-category:'Müllabholung'"`
-
+* item config showing the next event in which we are sending a heat event to the bathroom :  
+`DateTime bathroom_NextEventDate "bathriil next evt. [%1$tT, %1$td.%1$tm.%1$tY]" <calendar> { caldavPersonal="calendar:chauffagecmd type:UPCOMING eventNr:1 value:'START' filter-category-any:'bathroom,wholefloor'"}`  
+==> if you have one event at 8pm with 1 category "bathroom" (setting heater on), and another event at 9pm with category "wholefloor" (setting heaterS on), then this item will match both events. 
 
 ## Description of type
 * UPCOMING: the next upcoming events, not the active ones
