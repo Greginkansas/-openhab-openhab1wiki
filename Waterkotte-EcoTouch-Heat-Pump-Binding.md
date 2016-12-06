@@ -9,7 +9,7 @@ For installation of the binding, please see Wiki page [[Bindings]].
 This bundle connects to your heat pump via network. Make sure the display unit of your heat pump is connected to your network and that the network settings are configured. By default, the heat pump uses DHCP.
 
 login data for openhab.cfg:  
-(cuurent / since Display-Software 1.6.xx):
+(current / since Display-Software 1.6.xx):
 ecotouch:ip=<ip or DNS name od the heat pump>
 ecotouch:username=waterkotte
 ecotouch:password=waterkotte
