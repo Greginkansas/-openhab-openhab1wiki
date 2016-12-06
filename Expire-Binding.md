@@ -31,24 +31,9 @@ Mark a motion sensor as CLOSED 30 seconds after it was opened:
 Contact MotionSensor "MotionSensor [%s]" { expire="30s,state=CLOSED" }
 ```
 
-Boil an egg for seven minutes:
+Boil an egg for seven minutes using a Z-Wave-controlled cooker:
 ```
-Switch EggTimer "Egg Timer [%s]" { expire="7m,command=OFF" }
-
-rule StartEggTimer
-when
-  Item EggTimer received command ON
-then
-  Cooker.sendCommand(ON)
-end
-
-rule EggTimerExpired
-when
-  Item EggTimer received command OFF
-then
-  Cooker.sendCommand(OFF)
-  logInfo("EggTimer", "Go eat your egg.")
-end
+Switch EggCooker "Egg Cooker [%s]" { zwave="12", expire="7m,command=OFF" }
 ```
 
 ## Item Configuration
