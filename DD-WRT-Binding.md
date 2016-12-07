@@ -31,7 +31,7 @@ Adapt your openhab.cfg to your configuration:<BR>
 
 In order to bind an item to the ddwrt device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). 
 
-## Switching WIFI and DECT
+## Switching WIFI
 
 The following items switch WIFI, GUEST_WIFI, and the NAME of the device as string:
 
