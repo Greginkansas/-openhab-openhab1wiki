@@ -101,6 +101,7 @@
 * [[CUPS Binding|CUPS-Binding]]
 * [[DAIKIN Binding|Daikin-Binding]]
 * [[Davis Binding|Davis-Binding]]
+* [[DD-WRT Binding|DD-Wrt-Binding]]
 * [[Denon Binding|Denon-Binding]]
 * [[digitalSTROM Binding|digitalSTROM-Binding]]
 * [[DMX512 Binding|DMX-Binding]]
