@@ -7,20 +7,20 @@ Documentation of the DD-WRT binding bundle
 For installation of the binding, please see Wiki page [[Bindings]].
 
 Adapt your openhab.cfg to your configuration:<BR>
-IP address of ddwrt to connect to
-    ddwrt:ip=192.168.1.1
-    ddwrt:port=23 
+IP address of ddwrt to connect to<BR>
+    ddwrt:ip=192.168.1.1<BR>
+    ddwrt:port=23<BR>
 
-You need to configure the user and password of your ddwrt
-    ddwrt:username=root
-    ddwrt:password=xxxxxxx
+You need to configure the user and password of your ddwrt<BR>
+    ddwrt:username=root<BR>
+    ddwrt:password=xxxxxxx<BR>
 
-Interface for the 2.4 GHz wifi
-    ddwrt:interface_24=ath0
-Interface for the 5 GHz wifi
-    ddwrt:interface_50=ath1
-Virtuall-Interface for the guest wifi
-    ddwrt:interface_guest=ath0.1
+Interface for the 2.4 GHz wifi<BR>
+    ddwrt:interface_24=ath0<BR>
+Interface for the 5 GHz wifi<BR>
+    ddwrt:interface_50=ath1<BR>
+Virtuall-Interface for the guest wifi<BR>
+    ddwrt:interface_guest=ath0.1<BR>
 
 
 ## Prepare your ddwrt device
