@@ -6,10 +6,10 @@ Documentation of the DD-WRT binding bundle
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-Adapt your openhab.cfg to your configuration:<BR>
-*IP address of ddwrt to connect to<BR>
-    ddwrt:ip=192.168.1.1<BR>
-    ddwrt:port=23<BR>
+Adapt your openhab.cfg to your configuration:
+*IP address of ddwrt to connect to
+    ddwrt:ip=192.168.1.1
+    ddwrt:port=23
 
 *You need to configure the user and password of your ddwrt<BR>
     ddwrt:username=root<BR>
