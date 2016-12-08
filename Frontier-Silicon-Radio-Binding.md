@@ -9,7 +9,7 @@ The [MEDION® P85040 (MD 86988)](http://medion.scene7.com/is/image/Medion/500468
 [<img src="https://de.hama.com/bilder/00054/abb/00054823abb.jpg" alt="Hama Internetradio IR110" height="180">](https://de.hama.com/00054823/hama-internetradio-ir110)
 [<img src="http://internetradio.medion.com/images/md86988_small.jpg" alt="MEDION LIFE P85040 (MD 86988)" height="160">](http://internetradio.medion.com/)
 [<img src="http://www.pinell.no/sitefiles/site8/shop/pinell-supersound-ii-white3.jpg" alt="Pinell Supersound II" height="100">](http://pinell.no/en/)
-[<img src="http://www.lidl.de/media/product/0/2/0/8/3/1/0/silvercrest-stereo-internetradio-sird-14-c1.jpg" alt="Silvercrest SIRD 14 C1" height="180">](http://www.lidl.de/de/dab-/-internetradios/c15246)
+[<img src="https://www.lidl.de/media/product/0/2/3/3/5/4/5/silvercrest-stereo-internetradio-sird-14-c2-regular--6.jpg" alt="Silvercrest SIRD 14 C1" height="180">](http://www.lidl.de/de/dab-/-internetradios/c15246)
 [<img src="https://assets25.technisat.com/assets/derivates/25/666/149/$v3/DV025_ppic_0000+4963_020300_001.jpg" alt="Technisat DigitRadio 450" height="120">](https://www.technisat.com/en_XX/DigitRadio-450/352-10996-9589/)
 [<img src="http://revo.co.uk/assets/2013/10/H2_WNT_BLK_SUPERHERO2-486x395.jpg" alt="Revo Superconnect" height="180">](http://revo.co.uk/shop/superconnect/)
 
