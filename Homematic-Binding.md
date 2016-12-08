@@ -126,6 +126,7 @@ Available parameters:
 - action: (datapoint, variable, program) execute a action, RELOAD_VARIABLES, RELOAD_DATAPOINTS or RELOAD_RSSI
 - [delay](#delay): (datapoint, variable) delays transmission of a command to the Homematic server (in seconds), eg. 3.5
 
+
 ### Datapoint examples
 ```
 Dimmer Light_Livingroom "Livingroom [%d %%]" <slider> {homematic="address=JEQ0123456, channel=1, parameter=LEVEL"}
@@ -162,6 +163,7 @@ The result should be a table similar to this one, the address needed for OpenHAB
 	          1 │ Hutschiene                │   3840A6 │    MEQ0023488 │ 0061 │              HM-LC-Sw4-DR │      2.4 │             No │      No
 	────────────┴───────────────────────────┴──────────┴───────────────┴──────┴───────────────────────────┴──────────┴────────────────┴────────
 
+Suitable combinations of channel and parameter name for your device connected via Homegear can be found at [device reference page](https://www.homegear.eu/index.php/XML_RPC_Device_Reference).
 
 
 ### Program examples
