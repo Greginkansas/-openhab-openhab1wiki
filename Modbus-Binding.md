@@ -20,7 +20,7 @@
 - [For developers](#for-developers)
   - [Testing serial implementation](#testing-serial-implementation)
   - [Testing TCP implementation](#testing-tcp-implementation)
-
+  - [Troubleshooting](#troubleshooting)
 <!-- /MarkdownTOC -->
 
 
@@ -553,3 +553,25 @@ modbus:tcp.slave1.connection=127.0.0.1:55502
 ## Writing data
 
 See this [community post](https://community.openhab.org/t/something-is-rounding-my-float-values-in-sitemap/13704/32?u=ssalonen) explaining how `pollmb` and `diagslave` can be used to debug modbus communication.
+
+## Troubleshooting
+
+To troubleshoot, you might be asked to update to latest development version. You can find the "snapshot" or development version from [Cloudbees CI](https://openhab.ci.cloudbees.com/job/openHAB1-Addons/lastSuccessfulBuild/artifact/bundles/binding/org.openhab.binding.modbus/target/).
+
+With modbus binding before 1.9.0, it strongly recommended to try out with the latest development version since many bugs were fixed in 1.9.0. Furthermore, error logging is enhanced in this new version.
+
+If the problem persists in the new version, it is recommended to try to isolate to issue using minimal configuration. Easiest would be to have a fresh openhab installation, and configure it minimally (if possible, single modbus slave in `openhab.cfg`, single item, no rules etc.). This helps the developers and community to debug the issue.
+
+Problems can be communicated via [community.openhab.org](https://community.openhab.org). Please use the search function to find out existing reports of the same issue. 
+
+It helps greatly to document the issue in detail (especially how to reproduce the issue), and attach the related [verbose logs](#enable-verbose-debug-logging). Try to keep interaction minimal during this test; for example, if the problem occurs with modbus read alone, do not touch the the switch items in openhab sitemap (would trigger write). 
+
+For attaching the logs to a community post, [pastebin.com](http://pastebin.com/) service is strongly recommended to keep the thread readable. It is useful to store the logs from openhab startup, and let it run for a while.
+
+Remember to attach ``modbus``  configuration lines from openhab.cfg, item definitions related to modbus binding, and any relevant rules (if any). You can use [pastebin.com](http://pastebin.com/) for this purpose as well.
+
+To summarize, here are the recommended steps in case of errors
+
+1. Update to latest development version; especially if you are using modbus binding version before 1.9.0
+2. isolate the issue using minimal configuration, and enable verbose logging (see above)
+3. record and configuration to [pastebin.com](http://pastebin.com/)
