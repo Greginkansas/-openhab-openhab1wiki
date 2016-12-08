@@ -575,4 +575,4 @@ To summarize, here are the recommended steps in case of errors
 
 1. Update to latest development version; especially if you are using modbus binding version before 1.9.0
 2. isolate the issue using minimal configuration, and enable verbose logging (see above)
-3. record and configuration to [pastebin.com](http://pastebin.com/)
+3. record logs and configuration to [pastebin.com](http://pastebin.com/)
