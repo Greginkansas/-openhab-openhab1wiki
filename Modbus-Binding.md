@@ -20,6 +20,7 @@
 - [For developers](#for-developers)
   - [Testing serial implementation](#testing-serial-implementation)
   - [Testing TCP implementation](#testing-tcp-implementation)
+  - [Writing data](#writing-data)
   - [Troubleshooting](#troubleshooting-1)
 <!-- /MarkdownTOC -->
 
