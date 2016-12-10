@@ -10,7 +10,7 @@ Since MCP23017 is digital IO expander on I2C bus, only two types of items are su
 example below.
 
 # Binding Configuration in openhab.cfg
-No special cofiguration within openhab.cfg is need.
+No special configuration within openhab.cfg is needed.
 
 # Item Configuration
 `Contact Test1 "Test 1" (Tests) { mcp23017="{ address:20, pin:'A0', mode:'DIGITAL_INPUT'}" }`
