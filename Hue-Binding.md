@@ -79,6 +79,9 @@ hue:secret=y9vSIEglT3JeBFQpDXqPYwvm-6Q-juiVdzjMxXuC
 Then, in Android, uninstall the app, or goto settings -> applications -> HUE2 -> "clear data" & "clear cache"
 This ensures a new secret will be generated for the android app so there are not two devices sharing the same "secret" on the same network.
 
+For more information on this issue please see: https://github.com/openhab/openhab/pull/4311
+This issue is/will be fixed in Openhab 1.8.4 or 1.9-SNAPSHOT.
+
 ## Generic Item Binding Configuration
 
 In order to bind an item to a Philips Hue bulb, you need to provide configuration settings. The easiest way to do so is to add some binding information in your items file. The syntax for the Philips Hue binding configuration string is explained in the following sections.
