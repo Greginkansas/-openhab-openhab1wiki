@@ -5,13 +5,15 @@ The OneWire bus system is a lightweight and cheap bus system mostly used for sen
 
 For installation of the binding, please see the Wiki page [[Bindings]].
 
-# Configuration (OneWire binding openhab Version >= 1.7.0)
+# Configuration
 
 If your 1-Wire Bus System is physically connected to your server and working properly please follow the steps:
 
 1. Install and configure the ow-server and ow-shell packages on your 1-Wire server
 1. Copy the binding (e.g. openhab.binding.onewire-<version>.jar into the openhab/addons folder
 1. Edit the relevant section in the openhab configuration file (openhab/configurations/openhab.cfg). If you are running the 1-Wire server on the same machine, please insert the local IP address of the server (127.0.0.1) and not localhost in the line onewire:ip. In this case on every onewire update you will have a file system access to the /etc/hosts file.
+
+See the "Configuration settings" section below for more information on the settings.
 
 # Generic Item Binding Configuration
 
@@ -225,22 +227,27 @@ As a result, your lines in the items file might look like the following:
 
     Number Temperature_FF_Office 	"Temperature [%.1f ¬∞C]"	<temperature>	(FF_Office)		{ onewire="26.AF9C32000000#temperature" }
 
-# Configuration (OneWire binding Version <= 1.6.2)
+# Configuration settings
+This section describes the configuration settings for the OneWire binding found in openhab.cfg.
 
-If your 1-Wire Bus System is physically connected to your server and working properly please follow the steps:
+## List of configuration settings
+    onewire:ip
+    onewire:port
+    onewire:retry
+    onewire:server_retries (in version 1.9.0 or later)
+    onewire:server_retryInterval (in version 1.9.0 or later)
+    onewire:tempscale
+    onewire:post_only_changed_values
 
-1. Install and configure the ow-server and ow-shell packages on your 1-wire server
-1. Copy the binding (e.g. openhab.binding.onewire-1.1.0.jar into the openhab/addons folder
-1. Edit the relevant section in the openhab configuration file (openhab/configurations/openhab.cfg). If you are running the 1-wire server on the same machine please insert the local IP address of the server (127.0.0.1) and not localhost in the line onewire:ip. In this case on every onewire update you will have a file system access to the /etc/hosts file.
+## Configuration setting descriptions
 
-# Configuration (OneWire binding version > 1.8.3)
+    onewire:ip - The IP address of the owserver (required)
+    onewire:port - The port to connect to on the owserver (optional; defaults to 4304)
+    onewire:retry - The number of times a failed read will be retried (optional; defaults to 3)
+    onewire:tempscale - defines which temperature scale owserver should return temperatures in. Valid values are CELSIUS, FAHRENHEIT, KELVIN, and RANKINE (optional; defaults to CELSIUS).
+    onewire:post_only_changed_values - only changed values are posted to the event-bus (optional; defaults to true)
 
 The following settings are planned to be added in the 1.9.0 version of the binding.
 
-    #onewire:server_retries=3
-
-This is the number of attempts that will be made to connect to the owserver after a failed connection attempt.  This is an optional setting; if not specified, the default value is 3. May be set to 0 to require OH to not make any retry attempts.
-
-    #onewire:server_retryInterval=60
-
-This is the amount of time that will elapse between reconnection attempts.  This is an optional setting; if not specified, the default value is 60 (seconds).  It may not be set to less than 5.
+    onewire:server_retries - The number of attempts that will be made to connect to the owserver after a failed connection attempt (optional; defaults to 3). If set to 0, no retry attempts will be made.
+    onewire:server_retryInterval - The amount of time, in seconds, that will elapse between reconnection attempts (optional; defaults to 60).  May not be set to less than 5.
