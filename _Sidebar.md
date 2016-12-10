@@ -154,6 +154,7 @@
 * [[MailControl Binding|MailControl-Binding]]
 * [[MAX!Cube-Binding]]
 * [[MAX! CUL Binding|MAX!-CUL-Binding]]
+* [[MCP23017 I/O Expander Binding|MCP23017-Binding]]
 * [[MiLight Binding|Milight-Binding]]
 * [[MiOS Binding|MiOS-Binding]]
     * [[MiOS Binding Examples|MiOS-Binding-Example]]
