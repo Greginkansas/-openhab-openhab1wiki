@@ -108,7 +108,8 @@ See [Example of roller shutter controlling](Samples-Item-Definitions#how-to-cont
 
 #### Examples
 
-    {enocean="{id=00:00:00:00, eep=D5:00:01, parameter=CONTACT_STATE:closed}"}
+    In the .items file:
+    Number mySwitch "Test Switch" <contact> {enocean="{id=00:00:00:00, eep=D5:00:01, parameter=CONTACT_STATE:closed}"}
 
 ## Controller Hardware
 
