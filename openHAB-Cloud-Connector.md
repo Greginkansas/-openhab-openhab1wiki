@@ -20,6 +20,12 @@ Location of UUID and Secret:
 |UUID | ${openhab.home}/webapps/static/uuid        | /usr/share/openhab/webapps/static/uuid |
 |Secret | ${openhab.home}/webapps/static/secret | /usr/share/openhab/webapps/static/secret |
 
+## Installation
+
+_Note:_ This bundle will be part of the upcoming openHAB 1.9 add-ons release. For the time being, it is [available for download on Bintray](https://bintray.com/openhab/bin/download_file?file_path=org.openhab.io.openhabcloud_1.9.0.201612102136.jar). It can be used on any openHAB 1.8 runtime by putting it in the addons folder. 
+
+_Note:_ You require at least Java 1.8.0_101 for the bundle to work properly, if you are using a server with Let's Encrypt certificates (which is the case for myopenhab.org).
+
 ## Configuration
 
 You can configure the connector by adding these entries to your `configuration/openhab.cfg`:
