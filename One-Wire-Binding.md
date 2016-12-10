@@ -206,14 +206,6 @@ I use this with a simple rule. Every item (with binding to a onewire-device), wh
 	end
 
 
-# Configuration (OneWire binding openhab Version <= 1.6.2)
-
-If your 1-Wire Bus System is physically connected to your server and working properly please follow the steps:
-
-1. Install and configure the ow-server and ow-shell packages on your 1-wire server
-1. Copy the binding (e.g. openhab.binding.onewire-1.1.0.jar into the openhab/addons folder
-1. Edit the relevant section in the openhab configuration file (openhab/configurations/openhab.cfg). If you are running the 1-wire server on the same machine please insert the local IP address of the server (127.0.0.1) and not localhost in the line onewire:ip. In this case on every onewire update you will have a file system access to the /etc/hosts file.
-
 # Generic Item Binding Configuration (OneWire binding openhab Version <= 1.6.2)
 
 In order to bind an item to a OneWire device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder `configurations/items`). The syntax for the OneWire binding configuration string is explained here:
@@ -232,3 +224,23 @@ The sensorId can be either the hex address or an alias if one is configured ( ht
 As a result, your lines in the items file might look like the following:
 
     Number Temperature_FF_Office 	"Temperature [%.1f ¬∞C]"	<temperature>	(FF_Office)		{ onewire="26.AF9C32000000#temperature" }
+
+# Configuration (OneWire binding Version <= 1.6.2)
+
+If your 1-Wire Bus System is physically connected to your server and working properly please follow the steps:
+
+1. Install and configure the ow-server and ow-shell packages on your 1-wire server
+1. Copy the binding (e.g. openhab.binding.onewire-1.1.0.jar into the openhab/addons folder
+1. Edit the relevant section in the openhab configuration file (openhab/configurations/openhab.cfg). If you are running the 1-wire server on the same machine please insert the local IP address of the server (127.0.0.1) and not localhost in the line onewire:ip. In this case on every onewire update you will have a file system access to the /etc/hosts file.
+
+# Configuration (OneWire binding version > 1.8.3)
+
+The following settings are planned to be added in the 1.9.0 version of the binding.
+
+    #onewire:server_retries=3
+
+This is the number of attempts that will be made to connect to the owserver after a failed connection attempt.  This is an optional setting; if not specified, the default value is 3. May be set to 0 to require OH to not make any retry attempts.
+
+    #onewire:server_retryInterval=60
+
+This is the amount of time that will elapse between reconnection attempts.  This is an optional setting; if not specified, the default value is 60 (seconds).  It may not be set to less than 5.
