@@ -264,6 +264,7 @@
 
 ## Misc
 
+* [[openHAB Cloud]]
 * [[Transformations]]
 * [[XSLT|Samples-XSLT-Transformations]]
 * [[JSON|JSON-Transformations]]
