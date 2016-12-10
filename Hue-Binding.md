@@ -63,6 +63,19 @@ If you see this you should press the button on the bridge. You should see the fo
 
 This procedure has only to be done once. Now you are ready to go.
 
+Additional note for Philips HUE gen1 (the round shaped HUE):
+With the most recent firmware applied (Dec. 10, 2016) the Automatic pairing no longer works in openhab 1.8.3.
+Pressing the connect button does nothing during the "Waiting for pairing.." phase of openhab startup.
+To workaround this issue: Install the HUE2 app from the Android store onto a phone or tablet or Android emulator. 
+Launch the app, it will ask you to press the Pair button on the HUE, press it, the phone is now paired.
+Now use a tool like Wireshark to monitor traffic from your Phone to the HUE. You'll see your phone makes GET requests to the HUE with a URL like this: 
+GET /api/y9vSIEglT3JeBFQpDXqPYwvm-6Q-juiVdzjMxXuC/config HTTP/1.1
+
+Take the portion between the (api/ /config) to steal this connections "secret" to be used on the gen1 that
+can't pair on its own. Set the hue:secret value to the data found while spying on the connection from the android app:
+
+hue:secret=y9vSIEglT3JeBFQpDXqPYwvm-6Q-juiVdzjMxXuC
+
 ## Generic Item Binding Configuration
 
 In order to bind an item to a Philips Hue bulb, you need to provide configuration settings. The easiest way to do so is to add some binding information in your items file. The syntax for the Philips Hue binding configuration string is explained in the following sections.
