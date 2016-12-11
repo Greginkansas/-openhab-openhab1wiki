@@ -283,8 +283,21 @@ You can force a device to work with the basic command set (or any specific comma
 To find out which command classes are supported by your Z-Wave device, you can look in the manual or use the list at http://www.pepper1.net/zwavedb/ or http://products.z-wavealliance.org/. In case your command class is supported by the device and binding, but you have a problem, you can create an issue at: https://github.com/openhab/openhab/issues. In case you want a command class implemented by the binding, please create an issue.
 
 ## Known Issues
-
+ARM Compatibility issue (fixed - updated Dec. 11, 2016 see below):
 There seems to be an issue with the binding running on the latest oracle VM Beta, on ARM based architectures (e.g. raspberry PI). It manifests itself as messages being received multiple times and causes considerable problems with the operation of the binding. In large networks, the queue can get extremely long, which can delay initialisation considerably and cause potentially long delays in sending messages. Some time has been spent investigating this issue and a solution has not been found - the issue doesn't appear to be with the binding itself as the problem doesn't manifest itself on an other platform. If anyone with the hardware and programming experience can help with this it would be useful (add information to https://github.com/openhab/openhab/issues/1564).
+
+(Update Dec. 11, 2016): This issue is no longer affecting "all" ARM processors. The above issue report has been closed as the problem has vanished in newer Java JRE versions.  
+I recently built a successful setup with no duplication problems with these versions of software and hardware:  
+Raspberry Pi 3 (ARM v7l)
+Aeon Zstick Gen5
+Raspbian - November 2016 - Kernel 4.4 
+Openhab 1.8.3 
+Z-wave binding version 1.8.3
+Java Runtime SE: build 1.8.0_65-b17
+ 
+The original issue (1564) has been closed and the symptoms have vanished since an update to Java JRE's serial library that is now standard in the new versions of Raspbian. I have not tested with original Raspberry pi (ARM v5) nor a Raspberry pi 2 (ARM v6). Assuming it was fixed in Java those should work now too. But maybe it is only fixed based on Raspberry pi 3 being ARM v7l.
+
+You should no longer fear using OpenHAB with raspberry pi 3 and Z-wave! For my install it is very successful and zero errors.
 
 ## Examples
 
