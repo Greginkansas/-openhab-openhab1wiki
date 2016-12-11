@@ -49,6 +49,9 @@ Strategies {
     default = <strategyNameX>, <strategyNameY>
 }
 ```
+
+Note that a strategies section must be included (with a default defined), or the persistence services will not work.
+
 The following strategies are already statically defined (and thus do not need to be listed here, but can be declared as a default):
 * everyChange: persist the state whenever its state has changed
 * everyUpdate: persist the state whenever its state has been updated, even if it did not change
