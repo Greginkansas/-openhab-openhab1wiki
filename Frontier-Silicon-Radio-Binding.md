@@ -121,7 +121,7 @@ Sitemap (presets and mode are radio-specific, this is why their mapping is speci
 
 ## Developer Info
 
-If you would like to extend this binding and contribute further functionality, here is some technical information about it. The communication with the radio is realized via simple HTTP requests. Unfortunately, there is no official documentation of the API for the frontier silicon chipset, but there are some sources around the internet ([flammy/fsapi on github](https://github.com/flammy/fsapi/blob/master/classes/fsapi.php), for example). Until now, only the following requests are implemented:
+If you would like to extend this binding and contribute further functionality, here is some technical information about it. The communication with the radio is realized via simple HTTP requests. Unfortunately, there is no official documentation of the API for the frontier silicon chipset, but there are some sources around the internet ([flammy/fsapi on github](https://github.com/flammy/fsapi/blob/master/FSAPI.md), for example). Until now, only the following requests are implemented:
 * netRemote.sys.power
 * netRemote.sys.mode
 * netRemote.sys.audio.volume
