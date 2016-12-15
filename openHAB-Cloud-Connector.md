@@ -38,6 +38,10 @@ You can configure the connector by adding these entries to your `configuration/o
 # (https://myopenhab.org/)
 #openhabcloud:baseURL=
 
+# Local port that the openHAB runtime is available through HTTP.
+# Optional, default is 8080
+#openhabcloud:localPort=
+
 # Defines the mode in which you want to operate the connector.
 # Possible values are:
 # - notification: Only push notifications are enabled, no remote access is allowed.
