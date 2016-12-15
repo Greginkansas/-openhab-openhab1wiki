@@ -14,7 +14,11 @@ Percent value is calculated dependent on set resolution. Find the example below.
 No special configuration within openhab.cfg is needed.
 
 # Item Configuration
-`Number Test1 "Test 1" (Tests) { mcp3424="{address:6C, pin:'CH0', gain:1, resolution:12"} }`
+```
+Number Test1 "Test 1" (Tests) { mcp3424="{address:6C, pin:'CH0', gain:1, resolution:12}" }
+```
 returns the raw conversion result on channel 0 (CH1 on datasheet) of the IC on address 0x6C
-`Dimmer Test2 "Test 2" (Tests) { mcp3424="{address:6C, pin:'CH1', gain:1, resolution:12"} }`
+```
+Dimmer Test2 "Test 2" (Tests) { mcp3424="{address:6C, pin:'CH1', gain:1, resolution:12}" }
+```
 returns the conversion result in percent on channel 1 (CH2 on datasheet) of the IC on address 0x6C
