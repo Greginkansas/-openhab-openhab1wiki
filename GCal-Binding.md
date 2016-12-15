@@ -61,7 +61,7 @@ The client id, client secret and calendar name has to be configured in your open
 - fill in gcal:client_id, gcal:client_secret in openhab.cfg
 - login in to https://www.google.com/calendar/
 - find calendar name you want to use (under "My calendars")
-- fill in gcal:calendar_name in openhab.cfg. If you want to use your primary calendar just put keyword "primary"
+- fill in gcal:calendar_name in openhab.cfg. If you want to use your primary calendar just put keyword "primary" (without quotes)
 
 After first start you need to authorize openHAB to allow use your calendar. Follow openHAB console for instruction:
 
@@ -85,8 +85,8 @@ The GCal persistence bundle can be used to realize a simple but effective Presen
 To make use of the Presence Simulation you have to walk through these configuration steps:
 
 - make sure that you are using the correct openHAB release (at least 1.9.0-SNAPSHOT)
-- configure the gcal-persistence bundle by adding the appropriate configuration in your `openhab.cfg`. All entries start with `gcal-persistence`. You must add only calendar_name. All other credentials are shared from gcal.
-- make sure your items file contains items that belong to the group `PresenceSimulationGroup` - if you would like to change the group name change it at `gcal.persist`.
+- configure the gcal-persistence bundle by adding the appropriate configuration in your `openhab.cfg`. All entries start with `gcal-persistence`. You must add only calendar_name. If you want to use your primary calendar just put the keyword "primary" (without quotes). All other credentials are shared from gcal.
+- make sure your items file contains items that belong to the group `G_PresenceSimulation` - if you would like to change the group name change it at `gcal.persist`.
 - make sure your items file contains an item called `PresenceSimulation` which is referred by the scripts executed at a certain point in time - if you would like to change the group name please change the parameter `gcal-persistence:executescript` in your openhab.cfg`.
 - make sure the referenced gcal calendar is writeable by the given user (google calendar website)
 
@@ -101,7 +101,7 @@ A sample `gcal.persist` file looks like this:
     }
     
     Items {
-    	PresenceSimulationGroup* : strategy = everyChange
+    	G_PresenceSimulation* : strategy = everyChange
     }
 
 ## Solving gcal persistence errors:
@@ -112,7 +112,7 @@ To solve any issues with any binding, increase the logging. For gcal, add these 
 
 * "GCal PresenceSimulation Service isn't initialized properly! No entries will be uploaded to your Google Calendar"
 
-    The persistence configuration is not correct; username, password and url are required.
+    The persistence configuration is not correct; check that the client_id and client_secret are correct in the gcal configuration.
     Configuration entries must be prefixed by `gcal-persistence:`.
 
 * "creating a new calendar entry throws an exception: Forbidden"
