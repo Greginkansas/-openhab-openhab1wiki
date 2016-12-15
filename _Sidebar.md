@@ -155,6 +155,7 @@
 * [[MAX!Cube-Binding]]
 * [[MAX! CUL Binding|MAX!-CUL-Binding]]
 * [[MCP23017 I/O Expander Binding|MCP23017-Binding]]
+* [[MCP3424 ADC Binding|MCP3424-Binding]]
 * [[MiLight Binding|Milight-Binding]]
 * [[MiOS Binding|MiOS-Binding]]
     * [[MiOS Binding Examples|MiOS-Binding-Example]]
