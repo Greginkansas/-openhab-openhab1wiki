@@ -36,20 +36,20 @@ You can configure the connector by adding these entries to your `configuration/o
 # The URL of the openHAB Cloud service to connect to.
 # Optional, default is set to the service offered by the openHAB Foundation
 # (https://myopenhab.org/)
-#baseURL=
+#openhabcloud:baseURL=
 
 # Defines the mode in which you want to operate the connector.
 # Possible values are:
 # - notification: Only push notifications are enabled, no remote access is allowed.
 # - remote: Push notifications and remote access are enabled.
 # Optional, default is 'remote'.
-#mode=
+#openhabcloud:mode=
 
 # A comma-separated list of items to be exposed to external services like IFTTT. 
 # Events of those items are pushed to the openHAB Cloud and commands received for
 # these items from the openHAB Cloud service are accepted and sent to the local bus.
 # Optional, default is an empty list.
-#expose=
+#openhabcloud:expose=
 ```
 
 Note that in contrast to the old my.openHAB bundle, there is no support for persistence configurations. The "expose" configuration is the replacement for that.
