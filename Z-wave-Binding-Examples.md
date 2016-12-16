@@ -97,7 +97,7 @@ Here are some examples of valid z-wave binding configuration strings, as defined
 
 ###Qubino Flush Dimmer Plus (ZMNHDD)
 
-    Dimmer     Qubino_Dimmer     "Qubino Dimmer [%d %%]                         { zwave="3:command=switch_multilevel" }
+    Dimmer     Qubino_Dimmer     "Qubino Dimmer [%d %%]"                        { zwave="3:command=switch_multilevel" }
     Number     Qubino_Power      "Qubino Power [%.2f W]"                        { zwave="3:command=meter,meter_scale=E_W" }
     Number     Qubino_Energy     "Qubino Energy [%.2f kWh]"                     { zwave="3:command=meter,meter_scale=E_KWh,refresh_interval=900" }   
 
