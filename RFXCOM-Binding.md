@@ -197,12 +197,13 @@ Switch pCoffeeMachine { rfxcom=">1285.315:LIGHTING4.PT2262:Command" } // control
 
 **LIGHTING5.IT** (Flamingo FA500, Flamingo FA500S/2, Flamingo FA500S/3)
 ```java
-Switch fa500_remote_A { rfxcom="<2622466.1:Command" } // Note: receives remote via another protocol
+Switch fa500_remote_A { rfxcom="<2622466.1:Command" } 
 Switch fa500_remote_B { rfxcom="<2622466.2:Command" }
 Switch fa500_remote_C { rfxcom="<2622466.3:Command" }
 Switch fa500_remote_D { rfxcom="<2622466.4:Command" }
 
-// Note does not mimic the remote but uses another messages which should be learned to the socket separately 
+// Note: does not mimic the remote but uses another subtype and code which 
+// should be learned to the socket separately 
 Switch virtual_fa500s_switch_1 { rfxcom=">2061.1:LIGHTING5.IT:Command" } 
 Switch virtual_fa500s_switch_2 { rfxcom=">2061.2:LIGHTING5.IT:Command" }
 ```
