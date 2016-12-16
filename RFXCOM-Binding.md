@@ -13,11 +13,11 @@ Alecto, Cresta, Fine Offset, Hideki, LaCrosse, Oregon, Rubicson, TFA, Viking wea
 * Oregon scales,
 * Maverick BBQ Rubicson sensors
 * Keeloq, HCS301 based sensors (Security2 protocol)
-* Chacon, Home Easy, COCO, NEXA, X10 remote controls.
+* Chacon, Home Easy, COCO, NEXA, X10, Flamingo FA500R remote controls.
 
 **And suitable for controlling e.g. following 433.92MHz devices:**
 
-* ANSLUT, BBSB, Blyss, Brennestuhl, Chacon, COCO, DI.O, ELRO, Energenie, Eurodomest, HomeEasy, Pulse, Inter Techno, K ambrook, COCO, LightwaveRF, Livolo, Mercury, NEXA, Phenix, Proove, risingsun, Sartano, Siemens , X10, XDOM dimmers / switches,
+* ANSLUT, BBSB, Blyss, Brennestuhl, Chacon, COCO, DI.O, ELRO, Energenie, Eurodomest, Flamingo, HomeEasy, Pulse, Inter Techno, K ambrook, COCO, LightwaveRF, Livolo, Mercury, NEXA, Phenix, Proove, risingsun, Sartano, Siemens, X10, XDOM dimmers / switches,
 * Byron SX, Select Plus doorbell,
 * A-OK, Bofu, Ematronic, Hasta, RAEX, Rohrmotor24,  Roller Trol, Somfy (RFY), Yooda shutter / awning motors,
 * Harrison, Forest curtain motors,
@@ -195,9 +195,21 @@ Switch swWallController { rfxcom="<1285:Command" } // receive wireless wall swit
 Switch pCoffeeMachine { rfxcom=">1285.315:LIGHTING4.PT2262:Command" } // control wireless outlet
 ```
 
+**LIGHTING5.IT** (Flamingo FA500, Flamingo FA500S/2, Flamingo FA500S/3)
+```java
+Switch fa500_remote_A { rfxcom="<2622466.1:Command" } // Note: receives remote via another protocol
+Switch fa500_remote_B { rfxcom="<2622466.2:Command" }
+Switch fa500_remote_C { rfxcom="<2622466.3:Command" }
+Switch fa500_remote_D { rfxcom="<2622466.4:Command" }
+
+// Note does not mimic the remote but uses another messages which should be learned to the socket separately 
+Switch virtual_fa500s_switch_1 { rfxcom=">2061.1:LIGHTING5.IT:Command" } 
+Switch virtual_fa500s_switch_2 { rfxcom=">2061.2:LIGHTING5.IT:Command" }
+```
+
 **THERMOSTAT1**
 ```java
-Number RFXTemp_Living { rfxcom="<30515:Temperature" }
+Number RFXTemp_Living { rfxcom="<30515:Temperature" } 
 Number RFXTemp_LivingSP { rfxcom="<30515:SetPoint" }
 Contact RFXTemp_LivingRoom_Stat { rfxcom="<30515:Contact" }
 ```
@@ -246,6 +258,7 @@ Number Owl_Amps { rfxcom="<35072:Channel2Amps" }
   <tr><td>LIGHTING2.ANSLUT</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING4.PT2262</td><td>working</td><td>Command</td></tr>
   <tr><td>LIGHTING5.LIGHTWAVERF</td><td>working</td><td>Command, DimmingLevel</td></tr>
+  <tr><td>LIGHTING5.IT</td><td>working</td><td>Command</td></tr>
   <tr><td>LIGHTING6.BLYSS</td><td>working</td><td>Command</td></tr>
   <tr><td>CURTAIN1.HARRISON</td><td>Harrison curtain rail, e.g. Neta 12</td><td>Shutter</td></tr>
    <tr><td>TEMPERATURE.La Crosse TX17</td><td>working</td><td></td></tr>
