@@ -10,6 +10,8 @@ In contrast to a "normal" database such as db4o, a round-robin database does not
 
 The rrd4j Persistence Service cannot be directly queried, because of the data compression. You could not provide precise answers for all questions. 
 
+NOTE: rrd4j is for storing numbers only. Attempting to use rrd4j to store complex datatypes (eg. for restore-on-startup) will not work.
+ 
 ## Installation
 
 For installation of this persistence package please follow the same steps as if you would [install a binding](Bindings).
