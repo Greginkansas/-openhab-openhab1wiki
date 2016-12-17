@@ -17,7 +17,7 @@ ARM-based computers are a popular choice due to low cost, small size, low power 
 | BananaPi | $40  | 2     | 1.0 | A7    | 1.0    | GPIO SATA |Bananian |
 | BeagleBlk | $50  | 2     | 1.0 | A8   | 0.5    | GPIO | Ubuntu |
 | RaspPi B | $30  | 1     | 0.7 | A5    | 0.5    | GPIO |Raspbian |
-
+| BananaPi M3 | $70  | 4     | 1.8 | A7    | 2.0    | GPIO SATA |Bananian |
 
 
 ### Raspberry Pi2
