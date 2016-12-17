@@ -4,6 +4,8 @@ Documentation of the MCP23017 binding Bundle
 This binding provides native access for MCP23017 16 bit bidirectional I/O expander
 on I2C bus. Please consider datasheet for IC for future information.
 
+**_This binding will be available from 1.9.0 onwards or is available from corresponding snapshot_**
+
 ## Generic Item Binding Configuration
 Since MCP23017 is digital IO expander on I2C bus, only two types of items are supported:
 `Contact` for pins that used as digital input and `Switch` for digital output. Find the
