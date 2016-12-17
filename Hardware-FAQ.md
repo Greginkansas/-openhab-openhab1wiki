@@ -14,8 +14,8 @@ ARM-based computers are a popular choice due to low cost, small size, low power 
 | -------- | ---- | ------|-----|-------| ------ | --- |----|
 | ODROID C1 | $36  | 4     | 1.5 | A7    | 1.0    | GPIO | Ubuntu |
 | RaspPi 2 | $36  | 4     | 0.9 | A7    | 1.0    | GPIO |Raspbian |
-| BananaPi | $40  | 2     | 1.0 |       | 1.0    | GPIO SATA |Bananian |
-| BeagleBlk | $50  | 2     | 1.0 | A8    | 0.5    | GPIO | Ubuntu |
+| BananaPi | $40  | 2     | 1.0 | A7    | 1.0    | GPIO SATA |Bananian |
+| BeagleBlk | $50  | 2     | 1.0 | A8   | 0.5    | GPIO | Ubuntu |
 | RaspPi B | $30  | 1     | 0.7 | A5    | 0.5    | GPIO |Raspbian |
 
 
