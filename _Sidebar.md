@@ -193,6 +193,7 @@
 * [[Plex Binding|Plex-Binding]]
 * [[Plugwise Binding|Plugwise-Binding]]
 * [[PLCBus Binding|PLC-Bus-Binding]]
+* [[PowerDog Local API Binding|PowerDog-Local-API-binding]]
 * [[Powermax alarm Binding|Powermax-alarm-binding]]
 * [[Primare Binding|Primare-binding]]
 * [[Pulseaudio Binding|Pulseaudio-Binding]]
