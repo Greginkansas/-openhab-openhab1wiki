@@ -5,7 +5,7 @@ This binding supports multiple clients connected to a [Plex Media Server](http:/
 ## Configuration
 
 ```
-# IP address of the Plex server
+# IP address or hostname of the Plex server
 plex:host=192.168.1.15
 
 # Optional, port that the Plex server is running on. Default = 32400
