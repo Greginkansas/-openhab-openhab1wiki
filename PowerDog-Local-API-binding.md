@@ -6,6 +6,8 @@ This is an OpenHAB binding for an [eco-data PowerDog](http://www.eco-data.de/pro
 The binding allows to query multiple PowerDogs if they are reachable in your network via TCP/IP. For querying, it is expected that your PowerDog is already set up.
 The binding supports reading of all PowerDog variables available via PowerDog Local API. It also supports writing of PowerAPI sensors. The binding uses the [Redstone XML-RPC Library](http://xmlrpc.sourceforge.net/) which can be downloaded [here from Sourceforge](http://sourceforge.net/projects/xmlrpc/) for accessing the PowerAPI.
 
+**_This binding will be available from 1.9.0 onwards or is available from corresponding snapshot_**
+
 
 ## Binding Configuration
 
