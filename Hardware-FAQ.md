@@ -16,11 +16,11 @@ ARM-based computers are a popular choice due to low cost, small size, low power 
 | RaspPi 2  | 4     | 0.9 | A7    | 1.0    | GPIO | SD |Raspbian |
 | RaspPi 3  | 2     | 1.0 | A7    | 1.0    | GPIO | SD |Raspbian |
 | BeagleBlk | 2     | 1.0 | A8   | 0.5    | GPIO | SD | Ubuntu |
-| BananaPi  | 2     | 1.0 | A20/A7 | 1.0    | GPIO | µSD SATA eMMC |Bananian |
-| BananaPi M3 | 8    | 1.8 | A83T  | 1.2-1.8 | GPIO | µSD SATA eMMC |Bananian |
-| BananaPi M64 | 4     | 1.2 | A53    | 1.2    | GPIO | eMMC |Bananian |
-| ODROID C1 | 4     | 1.5 | A7    | 1.0    | GPIO | ? | Ubuntu |
-| ODROID C2 | 4     | 1.5 | A53    | 1.5    | GPIO | eMMC |Ubuntu |
+| BananaPi  | 2     | 1.0 | A20/A7 | 1.0    | GPIO | µSD SATA |Bananian |
+| BananaPi M3 | 8    | 1.2-1.8 | A83T  | 2.0 | GPIO | µSD SATA eMMC |Bananian |
+| BananaPi M64 64Bit | 4   | 1.2 | A53    | 2.0    | GPIO | eMMC |Bananian |
+| ODROID C1+ | 4     | 1.5 | A5  | 1.0    | GPIO | µSD, eMMC Slot| Ubuntu |
+| ODROID C2 64Bit| 4     | 2.0 | A53 | 2.0    | GPIO | µSD, eMMC Slot |Ubuntu |
 
 ### Raspberry Pi2
 
