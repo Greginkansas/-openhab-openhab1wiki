@@ -20,7 +20,7 @@ ARM-based computers are a popular choice due to low cost, small size, low power 
 | BananaPi M3 | 8    | 1.2-1.8 | A83T  | 2.0 | GPIO | µSD SATA eMMC |Bananian |
 | BananaPi M64 64Bit | 4   | 1.2 | A53    | 2.0    | GPIO | eMMC |Bananian |
 | ODROID C1+ | 4     | 1.5 | A5  | 1.0    | GPIO | µSD, eMMC Slot| Ubuntu |
-| ODROID C2 64Bit| 4     | 2.0 | A53 | 2.0    | GPIO | µSD, eMMC Slot |Ubuntu |
+| ODROID C2 64Bit| 4     | 1.5 | A53 | 2.0    | GPIO | µSD, eMMC Slot |Ubuntu |
 
 ### Raspberry Pi2
 
