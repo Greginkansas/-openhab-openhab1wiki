@@ -10,17 +10,17 @@ ARM-based computers are a popular choice due to low cost, small size, low power 
 **ONLY use the vendor forums recommended Wifi, SD card and power supply.**  These systems have little headroom in  their specs and may be flaky with other devices.  A lot of power supplies don't actually deliver what they claim, so again, go with a recommended model or you will get random flakiness and reboots.  If you experience dropped or duplicated packets from a USB device (keyboard, wifi, Z-Wave), search the vendor's forums for "keyboard not working".  You may need to upgrade firmware or use specific ports and settings for the USB devices.
 
 
-| System   | Cost | Cores | Ghz | Soc/CPU | Gb RAM | IO  | Storage | Primary OS  |
-| -------- | ---- | ------|-----|-------| ------ | --- |---|---|
-| RaspPi 1/B | $30  | 1     | 0.7 | A5    | 0.5    | GPIO | SD |Raspbian |
-| RaspPi 2 | $36  | 4     | 0.9 | A7    | 1.0    | GPIO | SD |Raspbian |
-| RaspPi 3 | $40  | 2     | 1.0 | A7    | 1.0    | GPIO | SD |Raspbian |
-| BeagleBlk | $50 | 2     | 1.0 | A8   | 0.5    | GPIO | SD | Ubuntu |
-| BananaPi | $40  | 2     | 1.0 | A20/A7 | 1.0    | GPIO | µSD SATA eMMC |Bananian |
-| BananaPi M3 | $90 | 8    | 1.8 | A83T  | 1.2-1.8 | GPIO | µSD SATA eMMC |Bananian |
-| BananaPi M64 | $60  | 4     | 1.2 | A53    | 1.2    | GPIO | eMMC |Bananian |
-| ODROID C1 | $36  | 4     | 1.5 | A7    | 1.0    | GPIO | ? | Ubuntu |
-| ODROID C2 | $60  | 4     | 1.5 | A53    | 1.5    | GPIO | eMMC |Ubuntu |
+| System   | Cores | Ghz | Soc/CPU | Gb RAM | IO  | Storage | Primary OS  |
+| -------- | ------|-----|-------| ------ | --- |---|---|
+| RaspPi 1/B | 1     | 0.7 | A5    | 0.5    | GPIO | SD |Raspbian |
+| RaspPi 2  | 4     | 0.9 | A7    | 1.0    | GPIO | SD |Raspbian |
+| RaspPi 3  | 2     | 1.0 | A7    | 1.0    | GPIO | SD |Raspbian |
+| BeagleBlk | 2     | 1.0 | A8   | 0.5    | GPIO | SD | Ubuntu |
+| BananaPi  | 2     | 1.0 | A20/A7 | 1.0    | GPIO | µSD SATA eMMC |Bananian |
+| BananaPi M3 | 8    | 1.8 | A83T  | 1.2-1.8 | GPIO | µSD SATA eMMC |Bananian |
+| BananaPi M64 | 4     | 1.2 | A53    | 1.2    | GPIO | eMMC |Bananian |
+| ODROID C1 | 4     | 1.5 | A7    | 1.0    | GPIO | ? | Ubuntu |
+| ODROID C2 | 4     | 1.5 | A53    | 1.5    | GPIO | eMMC |Ubuntu |
 
 ### Raspberry Pi2
 
