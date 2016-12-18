@@ -16,14 +16,14 @@ ARM-based computers are a popular choice due to low cost, small size, low power 
 | RaspPi 2/B  | 4     | 0.9 | A7    | 1.0    | GPIO | µSD |Raspbian |
 | RaspPi 3 64 Bit | 4     | 1.2 | A53    | 1.0    | GPIO | µSD |Raspbian |
 | Beagle Blk | 2     | 1.0 | A8   | 0.5    | GPIO | µSD, eMMC Slot | Ubuntu |
-| BananaPi  | 2     | 1.0 | A20/A7 | 1.0    | GPIO | µSD SATA |Bananian |
-| BananaPi M3 | 8    | 1.2-1.8 | A83T  | 2.0 | GPIO | µSD SATA eMMC |Bananian |
-| BananaPi M64 64Bit | 4   | 1.2 | A53    | 2.0    | GPIO | eMMC |Bananian |
+| BananaPi /Pro  | 2     | 1.0 | A20/A7 | 1.0    | GPIO | µ/SD SATA |Bananian |
+| BananaPi M3 | 8    | 1.2-1.8 | A83T/A7  | 2.0 | GPIO | µSD, eMMC, SATA via USB |Bananian |
+| BananaPi M64 64Bit | 4   | 1.2 | A64/A53    | 2.0    | GPIO | eMMC |Bananian |
 | ODROID C1+ | 4     | 1.5 | A5  | 1.0    | GPIO | µSD, eMMC Slot| Ubuntu |
 | ODROID C2 64Bit| 4     | 1.5 | A53 | 2.0    | GPIO | µSD, eMMC Slot |Ubuntu |
 | Cubieboard 3 CT | 2     | 1.0 | A20/A7 | 2.0    | GPIO | µSD, eMMC Slot, SATA 2.0|Ubuntu |
 | Cubieboard 4 | 4     | 1.3 | A80/A7 | 2.0    | GPIO | µSD, eMMC Slot, USB3.0 |Ubuntu |
-| Cubieboard 5 CT+| 8     | 1.3 | A80/A7 | 2.0    | GPIO | µSD, eMMC Slot, SATA 2.0|Ubuntu |
+| Cubieboard 5 CT+| 8     | 1.3 | A80/A7 | 2.0    | GPIO | µSD, eMMC Slot, SATA via USB | Ubuntu |
 
 ### Raspberry Pi2
 
