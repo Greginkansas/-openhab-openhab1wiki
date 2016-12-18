@@ -10,11 +10,11 @@ ARM-based computers are a popular choice due to low cost, small size, low power 
 **ONLY use the vendor forums recommended Wifi, SD card and power supply.**  These systems have little headroom in  their specs and may be flaky with other devices.  A lot of power supplies don't actually deliver what they claim, so again, go with a recommended model or you will get random flakiness and reboots.  If you experience dropped or duplicated packets from a USB device (keyboard, wifi, Z-Wave), search the vendor's forums for "keyboard not working".  You may need to upgrade firmware or use specific ports and settings for the USB devices.
 
 
-| System   | Cores | Ghz | Soc/CPU | Gb RAM | IO  | Storage | Primary OS  |
+| System   | Cores | Ghz | SoC/CPU | Gb RAM | IO  | Storage | Primary OS  |
 | -------- | ------|-----|-------| ------ | --- |---|---|
-| RaspPi 1/B | 1     | 0.7 | A5    | 0.5    | GPIO | SD |Raspbian |
-| RaspPi 2  | 4     | 0.9 | A7    | 1.0    | GPIO | SD |Raspbian |
-| RaspPi 3  | 2     | 1.0 | A7    | 1.0    | GPIO | SD |Raspbian |
+| RaspPi 1/A | 1     | 0.7 | A5    | 0.5    | GPIO | SD |Raspbian |
+| RaspPi 2/B  | 4     | 0.9 | A7    | 1.0    | GPIO | µSD |Raspbian |
+| RaspPi 3  | 4     | 1.2 | A53    | 1.0    | GPIO | µSD |Raspbian |
 | BeagleBlk | 2     | 1.0 | A8   | 0.5    | GPIO | SD | Ubuntu |
 | BananaPi  | 2     | 1.0 | A20/A7 | 1.0    | GPIO | µSD SATA |Bananian |
 | BananaPi M3 | 8    | 1.2-1.8 | A83T  | 2.0 | GPIO | µSD SATA eMMC |Bananian |
