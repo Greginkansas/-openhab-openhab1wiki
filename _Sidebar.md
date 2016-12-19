@@ -206,6 +206,7 @@
 * [[Serial Binding|Serial-Binding]]
 * [[Sallegra Binding|Sallegra-Binding]]
 * [[Satel Alarm Binding|Satel-Alarm-Binding]]
+* [[Siemens Logo! Binding|PLCLogo-Binding]]
 * [[SimpleBinary Binding|SimpleBinary Binding]]
 * [[Sinthesi Sapp Binding|Picnet-Sapp-Binding]]
 * [[Smarthomatic Binding|Smarthomatic-Binding]]
