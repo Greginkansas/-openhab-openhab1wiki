@@ -17,10 +17,10 @@ And configuration pattern of `Number` items will be `plclogo=”<instancename>:<
 Find examples below.  
 
 # Binding Configuration in openhab.cfg
-plclogo:<plcname>.host= ip of the LOGO! PLC  
-plclogo:<plcname>.remoteTSAP – the TSAP (in hex) of the remote LOGO! PLC, as configured by LogoSoft Comfort. Common used value is 0x0200.  
-plclogo:<plcname>:localTSAP – the TSAP (in hex) to be used by the local instance. Common used value is 0x0300.  
-plclogo:refresh – the polling interval in milliseconds to be used when querying the LOGO!. Default is 5000mS
+plclogo:<plcname>.host= `IP` address of the LOGO! PLC  
+plclogo:<plcname>.remoteTSAP= the `TSAP` (in hex) of the `remote` LOGO! PLC, as configured by LogoSoft Comfort. Common used value is 0x0200.  
+plclogo:<plcname>:localTSAP= the `TSAP` (in hex) to be used by the `local` instance. Common used value is 0x0300.  
+plclogo:refresh= `polling interval` in milliseconds to be used when querying the LOGO!. Default is 5000mS
 
 # Item Configuration
 ```
