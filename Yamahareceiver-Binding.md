@@ -24,6 +24,7 @@ Tested Receivers:
 * RX-A3000
 * RX-A810
 * RX-S601D
+* RX-V581
 * RX-V673
 * RX-V677
 * RX-V771
