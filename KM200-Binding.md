@@ -29,13 +29,13 @@ Adapt your openhab.cfg to your configuration:
 
 In order to bind an item to the DD-WRT device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder `configurations/items`). 
 There are two different ways to configure the items.<BR>
-1. Direct access wir defined key. In the first version there is only one defined.<BR>
+- Direct access wir defined key. In the first version there is only one defined.<BR>
     DateTime  budDate	  "Buderus Date Time[%1$tA, %1$td.%1$tm.%1$tY]"	{km200="date_time"}<BR>
 
-2. The second way is the definition of user-defined items with direct path to the services. Here you need to know which kind of services is you device supporting. This information you will get from this binding.<BR>
-- Set the right configuration to the openhab.cfg file.<BR>
-- Now you have to start openhab and take a look to the openhab log file. (/var/log/openhub/openhab.log)<BR>
-- Here you will see after 1-2 Minutes after start a table with all supported services and capabilities. It is looking like this:<BR>
+- The second way is the definition of user-defined items with direct path to the services. Here you need to know which kind of services is you device supporting. This information you will get from this binding.<BR>
+* Set the right configuration to the openhab.cfg file.<BR>
+* Now you have to start openhab and take a look to the openhab log file. (/var/log/openhub/openhab.log)<BR>
+* Here you will see after 1-2 Minutes after start a table with all supported services and capabilities. It is looking like this:<BR>
 <BR>
 ##################################################################<BR>
 List of avalible services<BR>
