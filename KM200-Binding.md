@@ -30,9 +30,9 @@ There are two different ways to configure the items.<BR>
 - Direct access wir defined key:<BR>
     `DateTime  budDate	  "Buderus Date Time[%1$tA, %1$td.%1$tm.%1$tY]"	{km200="date_time"}`<BR>
     `DateTime  budDate		    "Buderus Datum  [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	(gHeating)	{km200="date_time"}`<BR>
-    `String  budBrand            	"Status der Heizung [%s]"     			     (gHeating) 	{km200="sys_brand"}`<BR>
-    `String  budType              	"Typ der Heizung [%s]"     			     (gHeating) 	{km200="sys_type"}`<BR>
-    `String  budStatus            	"Status der Heizung [%s]"     			     (gHeating) 	{km200="sys_state"}`<BR>
+    `String  budBrand            	"Brand of the heater [%s]"     			     (gHeating) 	{km200="sys_brand"}`<BR>
+    `String  budType              	"Type of the heater [%s]"     			     (gHeating) 	{km200="sys_type"}`<BR>
+    `String  budStatus            	"State of the heater [%s]"    			     (gHeating) 	{km200="sys_state"}`<BR>
     `String  budFirmware        	"Firmwareversion [%s]"     			     (gHeating) 	{km200="ver_firmware"}`<BR>
     `String  budHardware         "Hardwareversion [%s]"     			     (gHeating) 	{km200="ver_hardware"}`<BR>
 
