@@ -48,6 +48,17 @@ readable;writeable;recordable;type;service;value;allowed;min;max<BR>
 .....<BR>
 ##################################################################<BR>
 You can copy this table in excel. It is ';' seperated.<BR>
+The colums are: <BR>
+    readable -> Service is readable, if not then you cannot use it.<BR>
+    writable -> It is possible to set values.<BR>
+    recordable -> It is possible to create recordings. Not directly supported yet.<BR>
+    type -> floatValue, stringValue, switchProgram (not supported), refEnum ( not relevant), yRecording (not supported). <BR>
+    service -> This is the path fopr the configuration.<BR>
+    value -> value of the service in the time of the init.<BR>
+    allowed -> if existing then only this values are possible.<BR>
+    min -> the min value for a float.<BR>
+    max -> the max value for a float.<BR>
+    
 Now you can look what is intresting fo you. Samples:<BR>
 `String  budState "State of the heating [%s]"  {km200="service:/system/healthStatus"}
 Number	budTemp  "Temperature heating night [%.1f °C]" {km200="service:/heatingCircuits/hc3/temperatureLevels/night"}`<BR>
