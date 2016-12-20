@@ -29,7 +29,7 @@ Adapt your openhab.cfg to your configuration:
 In order to bind an item to the Km200 device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder `configurations/items`). 
 There are two different ways to configure the items.<BR>
 - Direct access wir defined key. In the first version there is only one defined.<BR>
-    DateTime  budDate	  "Buderus Date Time[%1$tA, %1$td.%1$tm.%1$tY]"	{km200="date_time"}<BR>
+    `DateTime  budDate	  "Buderus Date Time[%1$tA, %1$td.%1$tm.%1$tY]"	{km200="date_time"}`<BR>
 
 - The second way is the definition of user-defined items with direct path to the services. Here you need to know which kind of services is you device supporting. This information you will get from this binding.<BR>
 * Set the right configuration to the openhab.cfg file.<BR>
@@ -51,8 +51,8 @@ readable;writeable;recordable;type;service;value;allowed;min;max<BR>
 You can copy this table in excel. It is ';' seperated.<BR>
 Now you can look what is intresting fo you. Samples:<BR>
 `String  budState "State of the heating [%s]"  {km200="service:/system/healthStatus"}
-Number	budTemp  "Temperature heating night [%.1f °C]" {km200="service:/heatingCircuits/hc3/temperatureLevels/night"}`
+Number	budTemp  "Temperature heating night [%.1f °C]" {km200="service:/heatingCircuits/hc3/temperatureLevels/night"}`<BR>
 For switches you can define which of the allowed values is the one for 'on' and 'off'.<BR>
-`Switch  bodMode  "Mode [%s]" {km200="service:/heatingCircuits/hc3/operationMode on:auto off:night"}`
+`Switch  bodMode  "Mode [%s]" {km200="service:/heatingCircuits/hc3/operationMode on:auto off:night"}`<BR>
 
 
