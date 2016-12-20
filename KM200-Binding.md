@@ -37,12 +37,13 @@ There are two different ways to configure the items.<BR>
     `String  budHardware  "Hardwareversion [%s]" {km200="ver_hardware"}`<BR>
 
 
+
+## List of avalible services
+
 - The second way is the definition of user-defined items with direct path to the services. Here you need to know which kind of services is you device supporting. This information you will get from this binding.<BR>
 * Set the right configuration to the openhab.cfg file.<BR>
 * Now you have to start openhab and take a look to the openhab log file. (/var/log/openhub/openhab.log)<BR>
 * Here you will see after 1-2 Minutes after start a table with all supported services and capabilities. It is looking like this:<BR>
-
-## List of avalible services
 
 ##################################################################<BR>
 List of avalible services<BR>
