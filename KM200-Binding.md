@@ -53,6 +53,6 @@ Now you can look what is intresting fo you. Samples:<BR>
 `String  budState "State of the heating [%s]"  {km200="service:/system/healthStatus"}
 Number	budTemp  "Temperature heating night [%.1f °C]" {km200="service:/heatingCircuits/hc3/temperatureLevels/night"}`<BR>
 For switches you can define which of the allowed values is the one for 'on' and 'off'.<BR>
-`Switch  bodMode  "Mode [%s]" {km200="service:/heatingCircuits/hc3/operationMode on:auto off:night"}`<BR>
+`Switch  budMode  "Mode [%s]" {km200="service:/heatingCircuits/hc3/operationMode on:auto off:night"}`<BR>
 
 
