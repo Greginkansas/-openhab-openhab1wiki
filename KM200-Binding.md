@@ -36,6 +36,7 @@ There are two different ways to configure the items.<BR>
 - Set the right configuration to the openhab.cfg file.<BR>
 - Now you have to start openhab and take a look to the openhab log file. (/var/log/openhub/openhab.log)<BR>
 - Here you will see after 1-2 Minutes after start a table with all supported services and capabilities. It is looking like this:<BR>
+<BR>
 ##################################################################<BR>
 List of avalible services<BR>
 readable;writeable;recordable;type;service;value;allowed;min;max<BR>
