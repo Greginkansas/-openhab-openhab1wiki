@@ -28,13 +28,13 @@ Adapt your openhab.cfg to your configuration:
 In order to bind an item to the KM200 device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder `configurations/items`). 
 There are two different ways to configure the items.<BR>
 - Direct access wir defined key:<BR>
-    `DateTime  budDate	  "Buderus Date Time[%1$tA, %1$td.%1$tm.%1$tY]"	{km200="date_time"}`<BR>
-    `DateTime  budDate		    "Buderus Datum  [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	(gHeating)	{km200="date_time"}`<BR>
-    `String  budBrand            	"Brand of the heater [%s]"     			     (gHeating) 	{km200="sys_brand"}`<BR>
-    `String  budType              	"Type of the heater [%s]"     			     (gHeating) 	{km200="sys_type"}`<BR>
-    `String  budStatus            	"State of the heater [%s]"    			     (gHeating) 	{km200="sys_state"}`<BR>
-    `String  budFirmware        	"Firmwareversion [%s]"     			     (gHeating) 	{km200="ver_firmware"}`<BR>
-    `String  budHardware         "Hardwareversion [%s]"     			     (gHeating) 	{km200="ver_hardware"}`<BR>
+    `DateTime  budDate	"Buderus Date Time[%1$tA, %1$td.%1$tm.%1$tY]"	{km200="date_time"}`<BR>
+    `DateTime  budDate	"Buderus Datum  [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	(gHeating)	{km200="date_time"}`<BR>
+    `String  budBrand "Brand of the heater [%s]" {km200="sys_brand"}`<BR>
+    `String  budType "Type of the heater [%s]" {km200="sys_type"}`<BR>
+    `String  budStatus "State of the heater [%s]" {km200="sys_state"}`<BR>
+    `String  budFirmware "Firmwareversion [%s]" {km200="ver_firmware"}`<BR>
+    `String  budHardware  "Hardwareversion [%s]" {km200="ver_hardware"}`<BR>
 
 
 - The second way is the definition of user-defined items with direct path to the services. Here you need to know which kind of services is you device supporting. This information you will get from this binding.<BR>
