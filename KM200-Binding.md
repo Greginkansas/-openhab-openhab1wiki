@@ -53,5 +53,6 @@ Now you can look what is intresting fo you. Samples:<BR>
 Number	budTemp  "Temperature heating night [%.1f °C]" {km200="service:/heatingCircuits/hc3/temperatureLevels/night"}`<BR>
 For switches you can define which of the allowed values is the one for 'on' and 'off'.<BR>
 `Switch  budMode  "Mode [%s]" {km200="service:/heatingCircuits/hc3/operationMode on:auto off:night"}`<BR>
-The supported item types are: Number (For string and float), String (for string and float), DateTime (for string) and Switch (for string).
+The supported item types are: Number (for string and float), String (for string and float), DateTime (for string) and Switch (for string). <BR>
+This binding is automaticly blocking the values to the allowed and limiting them to the min and max capabilities.
 
