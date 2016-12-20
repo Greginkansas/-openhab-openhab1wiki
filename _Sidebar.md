@@ -144,6 +144,7 @@
 * [[IPX800 Binding|IPX800-Binding]]
 * [[IRtrans Binding|Ir-Trans-Binding]]
 * [[jointSPACE-Binding|jointSPACE-Binding]]
+* [[KM200 Binding|KM200-Binding]]
 * [[KNX Binding|KNX-Binding]]
 * [[Koubachi Binding|Koubachi-Binding]]
 * [[LCN Binding|LCN-Binding]]
