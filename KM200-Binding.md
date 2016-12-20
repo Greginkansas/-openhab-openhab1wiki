@@ -28,16 +28,29 @@ Adapt your openhab.cfg to your configuration:
 ## Generic Item Binding Configuration
 
 In order to bind an item to the DD-WRT device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder `configurations/items`). 
+There are two different ways to configure the items.
+1. Direct access wir defined key. In the first version there is only one defined.
+    DateTime  budDate	  "Buderus Date Time[%1$tA, %1$td.%1$tm.%1$tY]"	{km200="date_time"}
 
-## Switching WIFI
+2. The second way is the definition of user-defined items with direct path to the services. Here you need to know which kind of services is you device supporting. This information you will get from this binding.
+- Set the right configuration to the openhab.cfg file.
+- Now you have to start openhab and take a look to the openhab log file. (/var/log/openhub/openhab.log)
+- Here you will see after 1-2 Minutes after start a table with all supported services and capabilities. It is looking like this:
+##################################################################
+List of avalible services
+readable;writeable;recordable;type;service;value;allowed;min;max
+1;0;1;floatValue;/heatSources/nominalDHWPower;15.0;;;
+1;1;1;floatValue;/dhwCircuits/dhw1/setTemperature;60.0;;30.0;80.0
+1;0;0;switchProgram;/heatingCircuits/hc1/switchPrograms/Nachmittag;;;
+1;0;1;floatValue;/heatingCircuits/hc2/pumpModulation;0.0;;0.0;100.0
+1;0;0;stringValue;/heatingCircuits/hc4/status;INACTIVE;INACTIVE|ACTIVE;;
+.....
+##################################################################
+You can copy this table in excel. It is ';' seperated.
+Now you can look what is intresting fo you. Samples:
+String  budState "State of the heating [%s]"  {km200="service:/system/healthStatus"}
+Number	budTemp  "Temperature heating night [%.1f °C]" {km200="service:/heatingCircuits/hc3/temperatureLevels/night"}
 
-The following items switch WIFI, GUEST_WIFI, and the NAME of the device as string:
+For switches you can define which of the allowed values is the one for 'on' and 'off'.
+Switch  bodMode  "Mode [%s]" {km200="service:/heatingCircuits/hc3/operationMode on:auto off:night"}
 
-    String DEVICE_NAME {ddwrt="routertype"}
-    Switch WIFI_24     {ddwrt="wlan24"}
-    Switch WIFI_50     {ddwrt="wlan50"}
-    Switch WIFI_GUEST  {ddwrt="wlanguest"}
-
-The guest network is usually a virtual network device. There is a bug in the DD-WRT firmware. The activation of this interface needs a workaround so it takes some seconds more as the native devices.
-
-Tested with Archer V2 and DD-WRT v3.0-r30880 std (11/14/16)
