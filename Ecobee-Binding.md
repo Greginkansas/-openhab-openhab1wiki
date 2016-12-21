@@ -125,7 +125,7 @@ See the Example Binding Strings section below for more examples.
 
 ## Authorization
 
-After you have installed the binding JAR in your `addons` directory, configured your `openhab.cfg` file, added items to your .items file and started OpenHAB (if not previously started), when the binding performs its first poll, it will discover that is has not yet been authorized by the Ecobee servers, and will retrieve a four-character PIN from the Ecobee server.  This PIN will appear prominently in your `openhab.log` file:
+After you have installed the binding JAR in your `addons` directory, configured your `openhab.cfg` file, added items to your .items file and started OpenHAB (if not previously started), when the binding performs its first poll, it will discover that is has not yet been authorized by the Ecobee servers, and will retrieve a four-character PIN from the Ecobee server.  This PIN will appear prominently in your `openhab.log` file (See [Logging](#Logging) for setup):
 
 	#########################################################################################
 	# Ecobee-Integration: U S E R   I N T E R A C T I O N   R E Q U I R E D !!
@@ -135,6 +135,13 @@ After you have installed the binding JAR in your `addons` directory, configured 
 	#########################################################################################
 
 When it does, enter it into your Apps settings in your account at ecobee.com.  This will authorize your instance of the binding to work with your Ecobee account.  On the next poll of the API, it will retrieve access and refresh tokens and continue.
+
+### Troubleshooting Authorization
+If you happen to miss the window the ecobee.com website will still accept the PIN but OpenHAb will be unable to get authorization. If this happens the following may help
+1 Stop the openHAB server,
+1 Delete the Java Preferences storage where the tokens are kept. On Linux, this is done by deleting the specific obfuscated directory name under ~/.java/.userPrefs. If you only have one garbled directory name there, you can just rm -rf ~/.java/.userPrefs (so as to not delete something else's storage). On Windows, the Java Preferences are kept in the Windows Registry,
+1 Restart the openHAB server, and
+1 Register a new PIN like above
 
 ## Example Binding Strings
 
