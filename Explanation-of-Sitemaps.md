@@ -355,8 +355,8 @@ sitemap demo label="Main Menu" {
 }
 ```
 
-Explaination:
-- The sitemap "demo" with the shown title "Main Manu" is defined.
+Explanation:
+- The sitemap "demo" with the shown title "Main Menu" is defined.
 - One first frame with a datestamp is shown.
 - You want a frame with a visual label "Demo". Then, inside the frame you want two elements:
   - An item called Group Demo with 1stfloor icon that contains 4 items.
