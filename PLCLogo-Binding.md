@@ -14,9 +14,11 @@ Writing to the PLC can be done via `VB` (byte values) and `VW` (word values) for
 
 The configuration pattern for `Contact` and `Switch` items is  
 `plclogo=”<instancename>:<memorylocation>.<maskbit>”`  
-And configuration pattern of `Number` items will be  
+
+Configuration pattern of `Number` items will be  
 `plclogo=”<instancename>:<memorylocation>”`  
-Find examples below.  
+
+Some examples are listed below.  
 
 # Binding Configuration in openhab.cfg
 plclogo:<plcname>.host= `IP` address of the LOGO! PLC  
