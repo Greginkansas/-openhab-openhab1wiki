@@ -12,8 +12,10 @@ Follow blocks can be read from on both device types: `I`, `Q`, `M`, `AI`, `AQ` a
 
 Writing to the PLC can be done via `VB` (byte values) and `VW` (word values) for both device types. Use `Switch` items for writing of digital and `Number` of analog values.  
 
-The configuration pattern for `Contact` and `Switch` items is `plclogo=”<instancename>:<memorylocation>.<maskbit>”`  
-And configuration pattern of `Number` items will be `plclogo=”<instancename>:<memorylocation>”`  
+The configuration pattern for `Contact` and `Switch` items is  
+`plclogo=”<instancename>:<memorylocation>.<maskbit>”`  
+And configuration pattern of `Number` items will be  
+`plclogo=”<instancename>:<memorylocation>”`  
 Find examples below.  
 
 # Binding Configuration in openhab.cfg
