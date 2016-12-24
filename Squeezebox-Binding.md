@@ -32,6 +32,13 @@ Please refer to the following example configuration (options included in the fil
 # Host (IP address) of your Logitech Media Server
 #squeeze:server.host=
 
+# Number of retries to allow for a failed connection. (optional; defaults to 3)
+#squeeze:server.retries=
+
+# Timeout (in seconds) between retries of a failed connection to the
+# Logitech Media Server. (optional; defaults to 60)
+#squeeze:server.retryTimeout=
+
 # Port of CLI interface of your Logitech Media Server (optional, defaults to 9090)
 #squeeze:server.cliport=
 
