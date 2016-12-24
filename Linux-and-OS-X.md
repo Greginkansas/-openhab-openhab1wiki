@@ -12,13 +12,13 @@
 * [Synology and QNAP servers] (https://github.com/openhab/openhab/wiki/Synology-and-QNAP)
 
 # Overview
-openHAB is a Java application and is expected to run on all platforms where JVM 1.6 or later is available. This includes Windows, Mac OS X, and Linux on x86, x86_64, and ARM architectures.  openHAB can be run on laptops, desktop computers, or  ARM based single-board computers.
+openHAB is a Java application and is expected to run on all platforms where JVM 1.8 or later is available. This includes Windows, Mac OS X, and Linux on x86, x86_64, and ARM architectures.  openHAB can be run on laptops, desktop computers, or  ARM based single-board computers.
 
 # apt-get
 * Note: As of the release of openHAB 1.7.1 on 26. Juli 2015 the deb-repository is digitally signed! Therefore you will have to add the "openHAB Bintray Repositories" gpg key to your apt keyring if you want to use the repo. This is also necessary for the installation of releases prior to 1.7.1.. The key installation is described below.
 
 ## Installation
-1. Install Java if 1.6 or higher is not already installed.  The following will display your current Java version.
+1. Install Java if 1.8 or higher is not already installed.  The following will display your current Java version.
 
   ```
   java -version
