@@ -1,11 +1,10 @@
+# Google Calendar IO-Bundle
 
-> Starting from version **1.9.0** binding has been refreshed to support Google OAuth2 and Google calendar API v3. Only this version is currently supported by Google. Older version does not work.
-
-# Documentation of the Google Calendar IO-Bundle
+> Starting from version **1.9.0** binding has been refreshed to support Google OAuth2 and Google Calendar API v3. Only this version is currently supported by Google; the older versions do not work.
 
 ## Introduction
 
-If you want to administer events in Google Calendar that will be executed by openHAB this bundle will do the job. See the following sections on how to configure the necessary data and how to obtain the GCal URL. 
+If you want to defined events in Google Calendar that will be executed by openHAB this bundle will do the job. See the following sections on how to configure the necessary data and how to obtain the GCal URL. 
 
 ## Calendar Event Configuration
 
@@ -23,7 +22,6 @@ The format of Calendar event description is simple and looks like this:
 or just
 
     send|update <item> <state>
-
 
 The commands in the `start` section will be executed at the event start time and the `end` section at the event end time. If these sections are not present, the commands will be executed at the event start time.
 
@@ -44,9 +42,10 @@ or just
     send Pump_Garden ON
 
 
-## Obtain the credentials
+## Obtain the Credentials
 
-Before you can integrate OpenHAB with Google calendar you must have a Google API Console project.
+Before you can integrate OpenHAB with Google Calendar you must have a Google API Console project.
+
 * Login to [https://console.developers.google.com](https://console.developers.google.com)
 * From the project drop-down, select an existing project  , or create a new one by selecting **Create a new project**.
 * In the sidebar under "API Manager", select Credentials, then select the OAuth consent screen tab.
@@ -56,14 +55,78 @@ Before you can integrate OpenHAB with Google calendar you must have a Google API
 * Put **Name** and press the **Create** button.
 * Copy **client id** and **client secret**
 
-The client id, client secret and calendar name has to be configured in your openhab.cfg. 
+### Service Configuration
 
-- fill in gcal:client_id, gcal:client_secret in openhab.cfg
-- login in to https://www.google.com/calendar/
-- find calendar name you want to use (under "My calendars")
-- fill in gcal:calendar_name in openhab.cfg. If you want to use your primary calendar just put keyword "primary" (without quotes)
+gcal.cfg (openHAB 2+)
+```
+############################### GCal configuration ################################
+#
+# Before using GCal, you need to have a Google API
+# Console project. The Wiki describes in detail the steps necessary to set 
+# up your Google API Console project, as well as how to obtain the credentials 
+# necessary to complete the information in this file. Once the project is created, 
+# and you've completed the steps described in the Wiki, you need to copy 
+# the "Client ID" and "Client secret" from the Credentials page on 
+# console.developers.google.com
+#
+#
+# Copied from the "Client ID" field on the Credentials page. (required)
+#client_id=
 
-After first start you need to authorize openHAB to allow use your calendar. Follow openHAB console for instruction:
+# Copied from the "Client secret" field on the Credentials page (required)
+#client_secret=
+
+# This is the name you gave to your Google Calendar, or the word 'primary' if you
+# want to use your default Google calendar.  GCal will download calendar events 
+# from this calendar (required)
+#calendar_name=
+
+# The filter criteria by which calendar events are searched. The Google Calendar 
+# API will do a text search to find calendar events that match the supplied terms. 
+# All calendar event fields are searched, except for extended properties (optional)
+#filter=
+
+# Refresh interval (in milliseconds) is the frequency with which the
+# Google calendar will be checked for calendar events (optional, defaults 
+# to 900000 [15 minutes], requires restart)
+#refresh=
+```
+
+openhab.cfg fragment (openHAB 1.x):
+```
+####################### Google Calendar (GCal) configuration ##########################
+#
+# Before using GCal, you need to have a Google API
+# Console project. The Wiki describes in detail the steps necessary to set 
+# up your Google API Console project, as well as how to obtain the credentials 
+# necessary to complete the information in this file. Once the project is created, 
+# and you've completed the steps described in the Wiki, you need to copy 
+# the "Client ID" and "Client secret" from the Credentials page on 
+# console.developers.google.com
+#
+# Copied from the "Client ID" field on the Credentials page (required)
+#gcal:client_id=
+
+# Copied from the "Client secret" field on the Credentials page (required)
+#gcal:client_secret=
+
+# This is the name you gave to your Google Calendar, or the word 'primary' (without
+# quotes) if you want to use your default Google calendar.  GCal will download 
+# calendar events from this calendar (required)
+#gcal:calendar_name=
+
+# The filter criteria by which calendar events are searched. The Google Calendar 
+# API will do a text search to find calendar events that match the supplied terms. 
+# All calendar event fields are searched, except for extended properties (optional)
+#gcal:filter=
+
+# Refresh interval (in milliseconds) is the frequency with which the
+# Google calendar will be checked for calendar events (optional, defaults 
+# to 900000 [15 minutes])
+#gcal:refresh=
+```
+
+After first start you need to authorize openHAB to allow use your calendar. Follow openHAB log for instructions.  At the `openhab>` prompt, enter `log:tail` (openHAB 2+).  At the shell prompt enter `tail -f /path/to/your/openhab.log`.
 
      [INFO ] [g.internal.GCalEventDownloader] -################################################################################################
      [INFO ] [g.internal.GCalEventDownloader] - # Google-Integration: U S E R   I N T E R A C T I O N   R E Q U I R E D !!
@@ -104,11 +167,21 @@ A sample `gcal.persist` file looks like this:
     	G_PresenceSimulation* : strategy = everyChange
     }
 
-## Solving gcal persistence errors:
-To solve any issues with any binding, increase the logging. For gcal, add these lines to your 'logback.xml'
+## Solving gcal persistence errors
+
+To solve any issues with any binding, increase the logging. For gcal, add these lines to your 'logback.xml' (openHAB 1.x):
 
     <logger name="org.openhab.persistence.gcal" level="TRACE" />
     <logger name="org.openhab.io.gcal" level="TRACE" />
+
+Under openHAB 2+, at the `openhab>` prompt you can enter:
+
+```
+log:set TRACE org.openhab.persistence.gcal
+log:set TRACE org.openhab.io.gcal
+```
+
+You can later return them to `DEFAULT` level.
 
 * "GCal PresenceSimulation Service isn't initialized properly! No entries will be uploaded to your Google Calendar"
 
