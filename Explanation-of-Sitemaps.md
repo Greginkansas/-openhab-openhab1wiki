@@ -181,7 +181,7 @@ If you prefer a list of buttons in the same page, then use Switch with an associ
 #### Element 'Setpoint'
 
 ```php
-Setpoint item=<itemname> [label="<labelname>"] [icon="<iconname>"] minValue="<min value>" maxValue="<max value>" step="<step value>"
+Setpoint item=<itemname> [label="<labelname>"] [icon="<iconname>"] minValue=<min value> maxValue=<max value> step=<step value>
 ```
 
 #### Element 'Slider'
