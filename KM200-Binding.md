@@ -1,10 +1,9 @@
-_**Note:** This Binding is now in pulling state 
-
 Documentation of the KM200 binding bundle
+**Note:** This Binding will be available starting with version 1.9.0 of the OH1 bindings.
 
 ## Introduction
 
-For installation of the binding, please see Wiki page [[Bindings]], or you can add [this JAR](https://openhab.ci.cloudbees.com/job/openHAB1-Addons/lastSuccessfulBuild/artifact/bundles/binding/org.openhab.binding.ddwrt/target/org.openhab.binding.ddwrt-1.9.0-SNAPSHOT.jar) to your `addons` folder.
+For installation of the binding, please see Wiki page [[Bindings]], or you can add [this JAR](https://openhab.ci.cloudbees.com/job/openHAB1-Addons/lastSuccessfulBuild/artifact/bundles/binding/org.openhab.binding.km200/target/org.openhab.binding.km200-1.9.0-SNAPSHOT.jar) to your `addons` folder.
 
 The KM200 Binding is communicating with a [Buderus Logamatic web KM200 / KM100 / KM50](https://www.buderus.de/de/produkte/catalogue/alle-produkte/7719_gateway-logamatic-web-km200-km100-km50).
 It is possible to recive and send parameters like string or float values.
