@@ -12,7 +12,7 @@ Add the org.openhab.binding.harmonyhub<version>.jar, org.openhab.io.harmonyhub<v
 
 #### Configuration
 
-**Novemeber 2016:  Logitech changed their authentication rendering the host/username/password configuration broken.  Please use the new discoveryName to connect to your hub(s)**
+**November 2016:  Logitech changed their authentication rendering the host/username/password configuration broken.  Please use the new discoveryName to connect to your hub(s)**
 
 The following configuration items are required to be set in openhab.cfg:
 
