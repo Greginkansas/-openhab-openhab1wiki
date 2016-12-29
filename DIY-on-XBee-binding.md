@@ -1,3 +1,11 @@
+since 1.9
+
+#Introduction
+This binding is to interact with self built (DIY) hardware that all communicate via XBee modules.
+
+#Hardware setup
+The XBee connected to openhab has to be configured to run in API mode for this plugin to work.
+
 # Binding configuration
 _Example to add in openhab.cfg:_
 
