@@ -162,6 +162,7 @@
     * [[MiOS Binding Examples|MiOS-Binding-Example]]
 * [[Mochad X10 Binding|Mochad-X10-Binding]]
 * [[Modbus Binding|Modbus-Binding]]
+    *  [[Modbus Examples|Modbus-Examples]]
 * [[MPD Binding|Mpd-Binding]]
 * [[MQTT Binding|MQTT-Binding]]
 * [[MQTTitude binding|Mqttitude-Binding]]
