@@ -31,3 +31,4 @@ For the pure sensors, the Arduino has to send lines conaining key=value, e.g fro
 For the actors, the Arduino has to send the received command back to the sender, this ensures that the openhab item state is only updated when the command was correctly understood. Currently, RGB led stripes (openhab type Color), switches and Dimmers are supported.
 
 # Sample Arduino Sketch
+Find a Arduino library with example [here](https://github.com/juri8/diyonxbee-library)
