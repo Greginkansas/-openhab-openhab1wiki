@@ -158,6 +158,7 @@ The Satel Action bundle provides actions to read event log of the connected alar
 * `Object[] satelReadEvent(int eventIndex)` - reads event log record for given index; records must be read one by one from most recent record under index `-1`; see record description below
 * `String satelReadDeviceName(String deviceType, int deviceNumber)` - reads description of a device; device type must be one of PARTITION, ZONE, USER, EXPANDER, LCD, OUTPUT, TIMER, TELEPHONE, OBJECT
 * `void satelSetUserCode(String newUserCode)` - overrides configured user code to a given one; allows to execute commands not available for default user configured in the settings
+* `void satelResetUserCode()` - reverts user code set by `satelSetUserCode(String newUserCode)` to the value configured in openhab.cfg/satel.cfg.
 
 **Event record fields:**
 <table><tr><th>Field</th><th>Type</th><th>Description</th></tr>
