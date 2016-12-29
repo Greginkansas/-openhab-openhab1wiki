@@ -104,6 +104,7 @@
 * [[DD-WRT Binding|DD-Wrt-Binding]]
 * [[Denon Binding|Denon-Binding]]
 * [[digitalSTROM Binding|digitalSTROM-Binding]]
+* [[DIY on XBee Binding|DIY-on-XBee-Binding]]
 * [[DMX512 Binding|DMX-Binding]]
 * [[DSC Alarm Binding|DSC-Alarm-Binding]]
 * [[DSMR Binding|DSMR-binding]]
