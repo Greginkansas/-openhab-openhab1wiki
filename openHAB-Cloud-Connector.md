@@ -57,3 +57,9 @@ You can configure the connector by adding these entries to your `configuration/o
 ```
 
 Note that in contrast to the old my.openHAB bundle, there is no support for persistence configurations. The "expose" configuration is the replacement for that.
+
+E.g.:
+```
+openhabcloud:expose=Window_Livingroom, Window_Sleepingroom
+```
+Wildcards an goups are not supported.
