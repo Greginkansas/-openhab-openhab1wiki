@@ -81,7 +81,7 @@ String name               "Garage Door [%s]"              <rollershutter> (Garad
 String doorStatus_status  "Status [%s]"                      <garagedoor> (Garadget,UI) { garadget="<[270041234567343432313031#doorStatus_status]" }
 String doorStatus_time    "Last Change [%s ago]"                  <clock> (Garadget,UI) { garadget="<[270041234567343432313031#doorStatus_time]" }
 
-// Send the doorState item commands like ZERO, HUNDRED, UP, DOWN, ON, OFF, STOP, or "open", "close" or "stop".
+// Send the doorState item commands like ZERO, HUNDRED, UP, DOWN, ON, OFF, STOP, or "open", "closed" or "stop".
 Rollershutter doorState   "Control"                       <rollershutter> (Garadget,UI) { garadget=">[270041234567343432313031#setState],<[270041234567343432313031#doorStatus_status]" }
 Number doorStatus_sensor  "Reflection [%d %%]"                      <sun> (Garadget,UI) { garadget="<[270041234567343432313031#doorStatus_sensor]" }
 Number doorConfig_srt     "Threshold [%d %%]"                   <battery> (Garadget,UI) { garadget="<[270041234567343432313031#doorConfig_srt]" }
