@@ -23,7 +23,8 @@ IFTTT |  | [IFTTT](https://ifttt.com/recipes) | if-this-then-that cloud service.
 [[MapDB|mapdb-Persistence]] | X | [mapdb.org](http://www.mapdb.org/) | only saves the last item state; useful for restoreOnStartup strategy 
 [[MongoDB|MongoDB-Persistence]] | | [mongodb.com](https://www.mongodb.com/) | NoSQL document-oriented database
 [[MQTT|MQTT-Persistence]] | | [wikipedia](https://en.wikipedia.org/wiki/MQTT) | stores item states to an MQTT broker
-[[my.openHAB|my.openHAB-Persistence]] | | [my.openHAB.org](https://my.openhab.org/) | send item states to openHAB's cloud service, and use openHAB items in [IFTTT recipes](https://ifttt.com/recipes)
+[[my.openHAB|my.openHAB-Persistence]] | | [my.openHAB.org](https://my.openhab.org/) | send item states to openHAB's cloud service, and use openHAB items in [IFTTT recipes](https://ifttt.com/recipes) -> outdated as of 31st Jan 2017
+[[openHAB Cloud Connector|openHAB-Cloud-Connector]] | | [myopenHAB.org](https://myopenhab.org/) | send item states to openHAB's cloud service, and use openHAB items in [IFTTT recipes](https://ifttt.com/recipes)
 [[MySQL|MySQL-Persistence]] | X | [mysql.com](https://www.mysql.com/) | one SQL table per item
 [[RRD4J|rrd4j-Persistence]] | X | [RRD4J](https://github.com/rrd4j/rrd4j) | Java version of the powerful round-robin database [RRDtool](http://oss.oetiker.ch/rrdtool/).  Numeric states only.
 [[Sen.se|Sense-Persistence]] | | [open.sen.se](http://open.sen.se/) | send item states to the Sen.Se web site
