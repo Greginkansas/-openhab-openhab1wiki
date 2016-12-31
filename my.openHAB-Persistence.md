@@ -1,4 +1,6 @@
 <!-- MarkdownTOC -->
+**Note: Service will be shut down on 31st Jan 2017.**
+New openHAB cloud connector service: [openHAB Cloud Connector|openHAB-Cloud-Connector]
 
 - [What is my.openHAB?](#what-is-myopenhab)
 - [Getting started](#getting-started)
