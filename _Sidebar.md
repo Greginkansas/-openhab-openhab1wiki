@@ -46,6 +46,7 @@
 * [[db4o Persistence|db4o-Persistence]]
 * [[Amazon DynamoDB Persistence|Amazon-DynamoDB-Persistence]]
 * [[Exec Persistence|Exec-Persistence]]
+* [[Google Calendar Presence Simulator|Google-Calendar-Scheduler]]
 * [[InfluxDB Persistence|InfluxDB-Persistence]]
 * [[JDBC Persistence|JDBC-Persistence]]
 * [[JPA Persistence|JPA-Persistence]]
@@ -128,7 +129,6 @@
 * [[FritzBox-TR064-Binding]]
 * [[FS20 Binding|FS20-Binding]]
 * [[Garadget Binding|Garadget-Binding]]
-* [[GCal Binding|GCal-Binding]]
 * [[Global Caché IR Binding|Global-Cache-IR-Binding]]
 * [[GPIO Binding|GPIO-Binding]]
 * [[HAI/Leviton OmniLink Binding|OmniLink-Binding]]
@@ -271,6 +271,7 @@
 ## Misc
 
 * [[openHAB Cloud Connector]]
+* [[Google Calendar Scheduler]]
 * [[Transformations]]
 * [[XSLT|Samples-XSLT-Transformations]]
 * [[JSON|JSON-Transformations]]
