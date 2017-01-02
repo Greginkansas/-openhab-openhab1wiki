@@ -82,7 +82,7 @@ Now you can look what is intresting for you. Samples:<BR>
 Number	budTemp  "Temperature heating night [%.1f °C]" {km200="service:/heatingCircuits/hc3/temperatureLevels/night"}`<BR>
 For switches you can define which of the allowed values is the one for 'on' and 'off'.<BR>
 `Switch  budMode  "Mode [%s]" {km200="service:/heatingCircuits/hc3/operationMode on:auto off:night"}`<BR>
-Switching programs:<BR> (you have to select as first the day, the cycle and then read/write on/day or off/night).
+Switching programs:<BR> (you have to select as first the day, das second the cycle and then read/write on/day or off/night).
     `String actBudDayHC1 "Day HC1 [%s]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/weekday" }`<BR>
     `Number nbrBudNbrCyclesHC1 "Cycles HC1 [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/nbrCycles" }`<BR>
     `Number actBudCycleHC1 "Selected cycle HC1 [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/cycle" }`<BR>
