@@ -47,12 +47,12 @@ There are two different ways to configure the items.<BR>
 
 ##################################################################<BR>
 List of avalible services<BR>
-readable;writeable;recordable;type;service;value;allowed;min;max<BR>
-1;0;1;floatValue;/heatSources/nominalDHWPower;15.0;;;<BR>
-1;1;1;floatValue;/dhwCircuits/dhw1/setTemperature;60.0;;30.0;80.0<BR>
-1;0;0;switchProgram;/heatingCircuits/hc1/switchPrograms/Nachmittag;;;<BR>
-1;0;1;floatValue;/heatingCircuits/hc2/pumpModulation;0.0;;0.0;100.0<BR>
-1;0;0;stringValue;/heatingCircuits/hc4/status;INACTIVE;INACTIVE|ACTIVE;;<BR>
+readable;writeable;recordable;virtual;type;service;value;allowed;min;max<BR>
+1;0;1;0;floatValue;/heatSources/nominalDHWPower;15.0;;;<BR>
+1;1;1;0;floatValue;/dhwCircuits/dhw1/setTemperature;60.0;;30.0;80.0<BR>
+1;0;0;0;switchProgram;/heatingCircuits/hc1/switchPrograms/Nachmittag;;;<BR>
+1;0;1;0;floatValue;/heatingCircuits/hc2/pumpModulation;0.0;;0.0;100.0<BR>
+1;0;0;0;stringValue;/heatingCircuits/hc4/status;INACTIVE;INACTIVE|ACTIVE;;<BR>
 .....<BR>
 ##################################################################<BR>
 You can copy this table in excel. It is ';' seperated.<BR>
@@ -60,6 +60,7 @@ The colums are: <BR>
     readable -> Service is readable, if not then you cannot use it.<BR>
     writable -> It is possible to set values.<BR>
     recordable -> It is possible to create recordings. Not directly supported yet.<BR>
+    virtual -> This service is only virtual and not existing of the device. The binding is translating the message to the parent. <BR>
     type -> FloatValue, stringValue, switchProgram (not supported), refEnum ( not relevant), yRecording (not supported). <BR>
     service -> This is the path for the configuration.<BR>
     value -> Value of the service in the time of the init.<BR>
