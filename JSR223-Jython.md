@@ -243,9 +243,10 @@ Triggers when an item's state is set (could be same or different values than pre
 
 ```
 CommandEventTrigger(itemName, command)
+CommandEventTrigger(itemName, None)
 ```
 
-Triggers when the specified command is sent to an item. The command must be a `Command` object.
+Triggers when the specified command is sent to an item. The command must be a `Command` object or None. Second argument is Mandatory!!
 
 ```
 StartupTrigger()
