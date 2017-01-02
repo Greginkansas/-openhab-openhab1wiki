@@ -1,6 +1,9 @@
 ## Introduction
 
-The Google Calendar Scheduler will send commands to items, or update the state of items in openHAB when defined on one of your Google Calendars, using the following instructions.  You can also optionally use the Google Calendar Presence Simulator to write future events onto the calendar, to simulate your presence at home when on vacation.
+The Google Calendar Scheduler allows you to control items in openHAB at scheduled times in the future.  It will send commands to items or update the state of items when defined on one of your Google Calendars, using the instructions below.  
+
+An additional persistence service, the Google Calendar Presence Simulator, writes item state changes as events on the calendar that will occur again some days in the future, to simulate your activity at home (such as turning lights on and off) when on vacation.
+
 
 ## Calendar Event Configuration
 
@@ -37,7 +40,7 @@ or just
 
 If the event description is entirely blank, then the event's start and end times are used to exclude that time period from processing.
 
-> :warning: The calendar must not contain any events that do not conform to the above description, including public holidays, birthdays, any all-day events at all, personal calendar entries, etc.  It is recommended that you create a Google Calendar that is dedicated to the use of the Google Calendar Scheduler service.
+> :warning: The calendar must not contain any events that do not conform to the above description, including public holidays, birthdays, any all-day events at all, personal calendar entries, etc.  It is recommended that you create a Google Calendar that is dedicated to the use of the Google Calendar Scheduler service.  Alternatively, careful use of the `filter` configuration parameter can be used to select only a subset of matching events on the calendar.
 
 ## Obtain the Credentials
 
@@ -145,14 +148,14 @@ The Google Calendar Presence Simulator is an openHAB Persistence service can be 
 To make use of the Presence Simulation you have to walk through these configuration steps:
 
 - make sure that you are using the 1.9.0-SNAPSHOT or later versions of the `org.openhab.io.gcal` and `org.openhab.persistence.gcal` bundles.
-- configure the gcal-persistence bundle by adding the appropriate configuration in your `openhab.cfg`. All entries start with `gcal-persistence`. You must add only calendar_name. If you want to use your primary calendar just put the keyword `primary`. All other credentials are shared from Google Calendar Scheduler configuration.
+- configure the gcal-persistence bundle by adding the appropriate configuration in your `openhab.cfg`. All entries start with `gcal-persistence`. You must add only calendar_name. If you want to use your primary calendar just use the keyword `primary`. All other credentials are shared from Google Calendar Scheduler configuration.
 - make sure your items file contains items that belong to the group `G_PresenceSimulation` - if you would like to change the group name, change it in `gcal.persist`.
-- make sure your items file contains an item called `PresenceSimulation`.  If you would like to change the group name please change the parameter `gcal-persistence:executescript` in your openhab.cfg`.
+- make sure your items file contains an item called `PresenceSimulation`.  If you would like to change the group name please change the parameter `gcal-persistence:executescript` in your `openhab.cfg` (openHAB 1.x) or `executescript` in your `gcal-persistence.cfg` file (openHAB 2+).
 - make sure the referenced Google Calendar is writeable by the given user at google.com.
 
-Note: you also need to configure the gcal-io binding (Google Calendar Configuration in 'openhab.cfg') to be able to read the entries from the calendar and act on it!
+Note: you also need to configure the Google Calendar Scheduler to be able to read the entries from the calendar and act on them.
 
-To activate the Presence Simulation simply set `PresenceSimulation` to `ON` and the already downloaded events are being executed. Your smart home will then behave like it did 14 days ago.
+To activate the Presence Simulation simply set `PresenceSimulation` to `ON` and the already downloaded events are being executed. Items in your smart home will then behave like they did 14 days earlier.
 
 A sample `gcal.persist` file looks like this:
 
