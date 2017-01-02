@@ -77,7 +77,8 @@ The communication between the binding and the user is done over virtual services
     off/night -> The selected switch time for the off/night type of the selected cycle. <BR>
 
     
-Now you can look what is intresting for you. Samples:<BR>
+## Samples
+
 `String  budState "State of the heating [%s]"  {km200="service:/system/healthStatus"}
 Number	budTemp  "Temperature heating night [%.1f °C]" {km200="service:/heatingCircuits/hc3/temperatureLevels/night"}`<BR>
 For switches you can define which of the allowed values is the one for 'on' and 'off'.<BR>
