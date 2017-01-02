@@ -34,7 +34,11 @@ There are two different ways to configure the items.<BR>
     `String  budStatus "State of the heater [%s]" {km200="sys_state"}`<BR>
     `String  budFirmware "Firmwareversion [%s]" {km200="ver_firmware"}`<BR>
     `String  budHardware  "Hardwareversion [%s]" {km200="ver_hardware"}`<BR>
-
+    `String actBudDayHC1 "Day HC1 [%s]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/weekday" }`<BR>
+    `Number nbrBudNbrCyclesHC1 "Cycles HC1 [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/nbrCycles" }`<BR>
+    `Number actBudCycleHC1 "Selected cycle HC1 [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/cycle" }`<BR>
+    `Number actBudPosHC1 "Day  HC1  [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/day" }`<BR>
+    `Number actBudNegHC1"Night HC1  [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/night" }`<BR>
 
 
 ## List of avalible services
@@ -67,8 +71,19 @@ The colums are: <BR>
     allowed -> If existing then only this values are possible.<BR>
     min -> The min value for a float.<BR>
     max -> The max value for a float.<BR>
+
+## Switching Programs
+
+With the last commit the binding is now supporting the reading and changing of switching programs.
+The communication between the binding and the user is done over virtual services. In the service list are now virtual services included. Every switch program service has now five virtual subservices. They are: <BR>
+    weekday -> With this value it'S possible to select a weekday. <BR>
+    nbrCycles -> The number of cycles (on+off or day+night) on the selected day. <BR>
+    cycle -> With this value it'S possible to select one of the cycle. <BR>
+    on/day -> The selected switch time for the on/day type of the selected cycle. <BR>
+    off/night -> The selected switch time for the off/night type of the selected cycle. <BR>
+
     
-Now you can look what is intresting fo you. Samples:<BR>
+Now you can look what is intresting for you. Samples:<BR>
 `String  budState "State of the heating [%s]"  {km200="service:/system/healthStatus"}
 Number	budTemp  "Temperature heating night [%.1f °C]" {km200="service:/heatingCircuits/hc3/temperatureLevels/night"}`<BR>
 For switches you can define which of the allowed values is the one for 'on' and 'off'.<BR>
