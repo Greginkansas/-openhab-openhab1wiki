@@ -34,12 +34,6 @@ There are two different ways to configure the items.<BR>
     `String  budStatus "State of the heater [%s]" {km200="sys_state"}`<BR>
     `String  budFirmware "Firmwareversion [%s]" {km200="ver_firmware"}`<BR>
     `String  budHardware  "Hardwareversion [%s]" {km200="ver_hardware"}`<BR>
-    `String actBudDayHC1 "Day HC1 [%s]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/weekday" }`<BR>
-    `Number nbrBudNbrCyclesHC1 "Cycles HC1 [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/nbrCycles" }`<BR>
-    `Number actBudCycleHC1 "Selected cycle HC1 [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/cycle" }`<BR>
-    `Number actBudPosHC1 "Day  HC1  [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/day" }`<BR>
-    `Number actBudNegHC1"Night HC1  [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/night" }`<BR>
-
 
 ## List of avalible services
 
@@ -88,6 +82,13 @@ Now you can look what is intresting for you. Samples:<BR>
 Number	budTemp  "Temperature heating night [%.1f °C]" {km200="service:/heatingCircuits/hc3/temperatureLevels/night"}`<BR>
 For switches you can define which of the allowed values is the one for 'on' and 'off'.<BR>
 `Switch  budMode  "Mode [%s]" {km200="service:/heatingCircuits/hc3/operationMode on:auto off:night"}`<BR>
+    `String actBudDayHC1 "Day HC1 [%s]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/weekday" }`<BR>
+    `Number nbrBudNbrCyclesHC1 "Cycles HC1 [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/nbrCycles" }`<BR>
+    `Number actBudCycleHC1 "Selected cycle HC1 [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/cycle" }`<BR>
+    `Number actBudPosHC1 "Day  HC1  [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/day" }`<BR>
+    `Number actBudNegHC1"Night HC1  [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/night" }`<BR><BR>
+
 The supported item types are: Number (for string, float and switching program (cycle, nbrCycles, on/day, off/night), String (for string, float and switching program (weekday)), DateTime (for string and switching program (on/day, off/night) and Switch (for string). <BR>
+
 This binding is automaticly blocking the values to the allowed and limiting them to the min and max capabilities.
 
