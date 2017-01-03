@@ -28,8 +28,8 @@ In order to bind an item to the KM200 device, you need to provide configuration 
 There are two different ways to configure the items.
 ### Direct access wir defined key:
 
-    DateTime  budDate	"Buderus Date Time[%1$tA, %1$td.%1$tm.%1$tY]" {km200="date_time"}`
-    DateTime  budDate	"Buderus Datum  [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" {km200="date_time"}`
+    DateTime  budDate	"Buderus Date Time[%1$tA, %1$td.%1$tm.%1$tY]" {km200="date_time"}
+    DateTime  budDate	"Buderus Datum  [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" {km200="date_time"}
     String  budBrand "Brand of the heater [%s]" {km200="sys_brand"}
     String  budType "Type of the heater [%s]" {km200="sys_type"}
     String  budStatus "State of the heater [%s]" {km200="sys_state"}
@@ -38,11 +38,12 @@ There are two different ways to configure the items.
 
 ### List of avalible services:
 
-The second way is the definition of user-defined items with direct path to the services. Here you need to know which kind of services is you device supporting. This information you will get from this binding.<BR>
-* Set the right configuration to the openhab.cfg file.<BR>
-* Now you have to start openhab and take a look to the openhab log file. (/var/log/openhub/openhab.log)<BR>
-* Here you will see after 1-2 Minutes after start a table with all supported services and capabilities. It is looking like this:<BR>
-* syntax: service:servicepath
+The second way is the definition of user-defined items with direct path to the services. Here you need to know which kind of services is you device supporting. This information you will get from this binding. <BR>
+
+* Set the right configuration to the openhab.cfg file.
+* Now you have to start openhab and take a look to the openhab log file. (/var/log/openhub/openhab.log)
+* Here you will see after 1-2 Minutes after start a table with all supported services and capabilities. It is looking like this:
+
 
 ##################################################################<BR>
 List of avalible services<BR>
