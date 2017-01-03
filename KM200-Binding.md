@@ -66,16 +66,20 @@ readable;writeable;recordable;virtual;type;service;value;allowed;min;max<BR>
 ##################################################################<BR>
 You can copy this table in excel. It is ';' seperated.<BR>
 The colums are: <BR>
-    readable  Service is readable, if not then you cannot use it.
-    writable  It is possible to set values.|
-    recordable -> It is possible to create recordings. Not directly supported yet.<BR>
-    virtual -> This service is only virtual and not existing of the device. The binding is translating the message to the parent. <BR>
-    type -> FloatValue, stringValue, switchProgram (not supported), refEnum ( not relevant), yRecording (not supported). <BR>
-    service -> This is the path for the configuration.<BR>
-    value -> Value of the service in the time of the init.<BR>
-    allowed -> If existing then only this values are possible.<BR>
-    min -> The min value for a float.<BR>
-    max -> The max value for a float.<BR>
+
+ Property     |  Description     |
+| ------------- |  --------------- |
+| readable | Service is readable, if not then you cannot use it |
+| writable | It is possible to set values |
+| recordable | It is possible to create recordings. Not directly supported yet |
+| virtual | This service is only virtual and not existing of the device. The binding is translating the message to the parent |
+| type | FloatValue, stringValue, switchProgram (not supported), refEnum ( not relevant), yRecording (not supported) |
+| service | This is the path for the configuration |
+| value | Value of the service in the time of the init |
+| allowed | If existing then only this values are possible |
+| min | The min value for a float |
+| max | The max value for a float |
+| ------------- |  --------------- |
 
 ## Switching Programs
 
