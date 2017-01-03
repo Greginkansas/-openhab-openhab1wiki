@@ -15,9 +15,13 @@ Adapt your openhab.cfg to your configuration:
     km200:ip4_address=192.168.XXX.XXX<BR>
 
 * There a two ways of de-/encryption password handling:
+
 1.  With the finished private key, here is this one required<BR>
-    km200:PrivKey=0000FFFFEEEEDDDDCCCCBBBBAAAA999988887777666655554444333322221111<BR>
+
+    km200:PrivKey=0000FFFFEEEEDDDDCCCCBBBBAAAA999988887777666655554444333322221111
+
 2.  --OR-- the binding is creating the key from the md5salt, the device and the private password. Here are all three required
+
     km200:MD5Salt=111122223333444455556666777788889999aaaabbbbccccddddeeeeffff0000<BR>
     km200:GatewayPassword=AAAABBBBCCCCDDDD<BR>
     km200:PrivatePassword=MYPASSWORD<BR>
