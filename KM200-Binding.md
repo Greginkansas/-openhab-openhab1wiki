@@ -66,7 +66,7 @@ List of availible services:
 You can copy this table in excel. It is ';' seperated.<BR>
 The colums are: <BR>
 
- Property     |  Description     |
+| Property     |  Description     |
 | ------------- |  --------------- |
 | readable | Service is readable, if not then you cannot use it |
 | writable | It is possible to set values |
@@ -78,33 +78,48 @@ The colums are: <BR>
 | allowed | If existing then only this values are possible |
 | min | The min value for a float |
 | max | The max value for a float |
-| ------------- |  --------------- |
+
+You can select this services in the config with the syntax: service:<fullPathToService>  
 
 ## Switching Programs
 
 With the last commit the binding is now supporting the reading and changing of switching programs.
 The communication between the binding and the user is done over virtual services. In the service list are now virtual services included. Every switch program service has now five virtual subservices. They are: <BR>
-    weekday -> With this value it'S possible to select a weekday. <BR>
-    nbrCycles -> The number of cycles (on+off or day+night) on the selected day. <BR>
-    cycle -> With this value it'S possible to select one of the cycle. <BR>
-    on/day -> The selected switch time for the on/day type of the selected cycle. <BR>
-    off/night -> The selected switch time for the off/night type of the selected cycle. <BR>
 
+| Subservice|  Description     |
+| ------------- |  --------------- |
+| weekday | Selection of a weekday, possible: Mo/Tu/We/Th/Fr/Sa/Su |
+| nbrCycles | The number of cycles (on+off or day+night, depends on the parent service) on the selected day |
+| cycle | Selection of a cycle on the selected day |
+| on/day | The selected switch time for the on/day type of the selected cycle |
+| off/night | The selected switch time for the off/night type of the selected cycle |
     
-## Samples
+## Examples
 
-`String  budState "State of the heating [%s]"  {km200="service:/system/healthStatus"}
-Number	budTemp  "Temperature heating night [%.1f °C]" {km200="service:/heatingCircuits/hc3/temperatureLevels/night"}`<BR>
-For switches you can define which of the allowed values is the one for 'on' and 'off'.<BR>
-`Switch  budMode  "Mode [%s]" {km200="service:/heatingCircuits/hc3/operationMode on:auto off:night"}`<BR>
-Switching programs:<BR> (you have to select as first the day, second the cycle and then read/write on/day or off/night).
-    `String actBudDayHC1 "Day HC1 [%s]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/weekday" }`<BR>
-    `Number nbrBudNbrCyclesHC1 "Cycles HC1 [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/nbrCycles" }`<BR>
-    `Number actBudCycleHC1 "Selected cycle HC1 [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/cycle" }`<BR>
-    `Number actBudPosHC1 "Day  HC1  [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/day" }`<BR>
-    `Number actBudNegHC1"Night HC1  [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/night" }`<BR><BR>
+    String  budState "State of the heating [%s]"  {km200="service:/system/healthStatus"}
+    Number	budTemp  "Temperature heating night [%.1f °C]" {km200="service:/heatingCircuits/hc3/temperatureLevels/night"}
 
-The supported item types are: Number (for string, float and switching program (cycle, nbrCycles, on/day, off/night), String (for string, float and switching program (weekday)), DateTime (for string and switching program (on/day, off/night) and Switch (for string). <BR>
+For switches you can define which of the allowed values is the one for 'on' and 'off'.
+
+`Switch  budMode  "Mode [%s]" {km200="service:/heatingCircuits/hc3/operationMode on:auto off:night"}`
+
+Switching programs: (you have to select as first the day, second the cycle and then read/write on/day or off/night).
+
+    String actBudDayHC1 "Day HC1 [%s]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/weekday" }
+    Number nbrBudNbrCyclesHC1 "Cycles HC1 [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/nbrCycles" }
+    Number actBudCycleHC1 "Selected cycle HC1 [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/cycle" }
+    Number actBudPosHC1 "Day  HC1  [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/day" }
+    Number actBudNegHC1"Night HC1  [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/night" }
+
+The supported item types are: 
+
+| Item Type|  KM200 service type|
+| ------------- |  --------------- |
+| Number |  For string, float and switching program (cycle, nbrCycles, on/day, off/night) | 
+| String |  For string, float and switching program (weekday)) | 
+| DateTime | For string and switching program (on/day, off/night) |
+| Switch | For string |
+
 
 This binding is automaticly blocking the values to the allowed and limiting them to the min and max capabilities.
 
