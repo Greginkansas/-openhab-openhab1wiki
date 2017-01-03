@@ -12,20 +12,24 @@ It is possible to recive and send parameters like string or float values.
 
 Adapt your openhab.cfg to your configuration:
 * IP address of KN200 to connect to
-
+<BR>`
     km200:ip4_address=192.168.XXX.XXX
-
+`
 * There a two ways of de-/encryption password handling:
 
-1.  With the finished private key, here is this one required
-
+1.  With the finished private key, here is this one required:
+<BR>`
     km200:PrivKey=0000FFFFEEEEDDDDCCCCBBBBAAAA999988887777666655554444333322221111
+`
 
-2.  --OR-- the binding is creating the key from the md5salt, the device and the private password. Here are all three required
-
+2.  --OR-- the binding is creating the key from the md5salt, the device and the private password. Here are all three required:
+<BR>`
     km200:MD5Salt=111122223333444455556666777788889999aaaabbbbccccddddeeeeffff0000
+`<BR>`
     km200:GatewayPassword=AAAABBBBCCCCDDDD
+`<BR>`
     km200:PrivatePassword=MYPASSWORD
+`
 
 ## Generic Item Binding Configuration
 
@@ -62,8 +66,8 @@ readable;writeable;recordable;virtual;type;service;value;allowed;min;max<BR>
 ##################################################################<BR>
 You can copy this table in excel. It is ';' seperated.<BR>
 The colums are: <BR>
-    readable -> Service is readable, if not then you cannot use it.<BR>
-    writable -> It is possible to set values.<BR>
+    readable  Service is readable, if not then you cannot use it.
+    writable  It is possible to set values.|
     recordable -> It is possible to create recordings. Not directly supported yet.<BR>
     virtual -> This service is only virtual and not existing of the device. The binding is translating the message to the parent. <BR>
     type -> FloatValue, stringValue, switchProgram (not supported), refEnum ( not relevant), yRecording (not supported). <BR>
