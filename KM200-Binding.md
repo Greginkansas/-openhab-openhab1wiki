@@ -53,17 +53,17 @@ The second way is the definition of user-defined items with direct path to the s
 * Now you have to start openhab and take a look to the openhab log file. (/var/log/openhub/openhab.log)
 * Here you will see after 1-2 Minutes after start a table with all supported services and capabilities. It is looking like this:
 
+    ##################################################################
+    List of avalible services
+    readable;writeable;recordable;virtual;type;service;value;allowed;min;max
+    1;0;1;0;floatValue;/heatSources/nominalDHWPower;15.0;;;
+    1;1;1;0;floatValue;/dhwCircuits/dhw1/setTemperature;60.0;;30.0;80.0
+    1;0;0;0;switchProgram;/heatingCircuits/hc1/switchPrograms/Nachmittag;;;
+    1;0;1;0;floatValue;/heatingCircuits/hc2/pumpModulation;0.0;;0.0;100.0
+    1;0;0;0;stringValue;/heatingCircuits/hc4/status;INACTIVE;INACTIVE|ACTIVE;;
+    .....
+    ##################################################################
 
-##################################################################<BR>
-List of avalible services<BR>
-readable;writeable;recordable;virtual;type;service;value;allowed;min;max<BR>
-1;0;1;0;floatValue;/heatSources/nominalDHWPower;15.0;;;<BR>
-1;1;1;0;floatValue;/dhwCircuits/dhw1/setTemperature;60.0;;30.0;80.0<BR>
-1;0;0;0;switchProgram;/heatingCircuits/hc1/switchPrograms/Nachmittag;;;<BR>
-1;0;1;0;floatValue;/heatingCircuits/hc2/pumpModulation;0.0;;0.0;100.0<BR>
-1;0;0;0;stringValue;/heatingCircuits/hc4/status;INACTIVE;INACTIVE|ACTIVE;;<BR>
-.....<BR>
-##################################################################<BR>
 You can copy this table in excel. It is ';' seperated.<BR>
 The colums are: <BR>
 
