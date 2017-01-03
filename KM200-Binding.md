@@ -26,7 +26,6 @@ Adapt your openhab.cfg to your configuration:
 
 In order to bind an item to the KM200 device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder `configurations/items`). 
 There are two different ways to configure the items.
-- Direct access wir defined key:<BR>
 
     DateTime  budDate	"Buderus Date Time[%1$tA, %1$td.%1$tm.%1$tY]" {km200="date_time"}`
     DateTime  budDate	"Buderus Datum  [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" {km200="date_time"}`
