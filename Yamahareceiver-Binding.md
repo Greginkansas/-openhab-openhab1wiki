@@ -1,9 +1,7 @@
-# Yamahareceiver Binding
+Documentation of the Yamaha receiver binding bundle
 
-Documentation of the Yamahareceiver binding Bundle
-
-## Details
-This binding connects openhab with various Yamaha Receivers.
+# Details
+This binding connects openHAB with various Yamaha Receivers.
 
 Tested Receivers:
 * V473
@@ -33,60 +31,81 @@ Tested Receivers:
 
 Please add successfully tested receivers!
 
-## Configuration
+# Configuration
 
-inside openhab.cfg you need only the host definition:
+Inside `openhab.cfg` you need only the host definition:
 
-     yamahareceiver:<uid>.host=192.168.1.1 
+```
+############################# Yamaha Receiver Binding #################################
 
-<uid> represent your instance name inside your items list
-right from the equal sign you must define the ip address from your receiver.
+# The IP address of the Yamaha Receiver (required)
+yamahareceiver:<uid>.host=<ip-address>
+````
 
-items:
+The `<uid>` represents your instance name inside your items list, while `<ip-address>` defines the ip address from your receiver.
 
-     {yamahareceiver="uid=living, zone=main, bindingType=power"}
+For example:
+```
+yamahareceiver:mySoundSystem.host=192.168.1.1 
+```
 
-allowed zone entries:
+## Item Binding Syntax
+The binding syntax for the receiver follows the following schema:
 
-* `main`: Main Zone
-* `zone2`: Zone 2
-* `zone3`: Zone 3
-* `zone4`: Zone 4
+```
+{ yamahareceiver="uid=<uid>, zone=<zone>, bindingType=<type>" }
+```
 
-depends on the real zones implemented on your receiver.
+The `<uid>` gets replaced with the one you defined in the `openhab.cfg`file. The `<type>` defines what should be bound (see list of possible binding types below and `<zone>` is the zone you might have defined in your receiver.
 
-allowed bindingTypes:
+Allowed zone entries are:
 
-* `power`: Openhab Type `Switch`, Switches The Receiver ON or OFF (ON only works if the Receiver's settings are configured to react on this signal while in the OFF state!  This setting is sometimes labeled "Network Standby" and must be enabled.)
+| Entry   | Zone      |
+|---------|-----------|
+| `main`  | Main Zone |
+| `zone2` | Zone 2    |
+| `zone3` | Zone 3    |
+| `zone4` | Zone 4    |
 
-* `mute`: Openhab Type `Switch`, Mute or Unmute the receiver
-* `volume`: Openhab Type `Dimmer`, Set's the receivers Volume percent Value.
-* `input`: Openhab Type `String`, Set's the input selection, depends on your receiver's real inputs
-examples: HDMI1, HDMI2, AV4, TUNER, NET RADIO, etc.
-* `surroundProgram`: Openhab Type `String`, Set's the surround Mode
-examples: 2ch Stereo, 7ch Stereo, Hall in Munic, Straight, Surround Decoder
+
+For example:
+
+```
+{ yamahareceiver="uid=mySoundSystem, zone=main, bindingType=power" }
+```
+
+## Binding Types
+
+| Binding           | openHAB Type | Description                                                                                                           |
+|-------------------|--------------|-----------------------------------------------------------------------------------------------------------------------|
+| `power`           | `Switch`     | Switch the receiver ON or OFF (ON only works if the receiver's "Network Standby" setting is enabled)                 |
+| `mute`            | `Switch`     | Mute or unmute the receiver                                                                                           |
+| `volume`          | `Dimmer`     | Sets the receiver's volume (percentage)                                                                               |
+| `input`           | `String`     | Set the input selection, depends on your receiver's real inputs (Examples: HDMI1, HDMI2, AV4, TUNER, NET RADIO, etc.) |
+| `surroundProgram` | `String`     | Set the surround mode (Examples: 2ch Stereo, 7ch Stereo, Hall in Munich, Straight, Surround Decoder)                  |
  
-## Example
+# Examples
+**openhab.cfg**
+```
+#Yamaha Receiver 
+yamahareceiver:living.host=192.168.1.1
+```
 
-     openhab.cfg
+**.items**
+```
+Switch Yamaha_Power "Power [%s]" <television> { yamahareceiver="uid=living, zone=main,  bindingType=power" }
+Dimmer Yamaha_Volume "Volume [%.1f %%]" { yamahareceiver="uid=living, zone=main, bindingType=volumePercent" }
+Switch Yamaha_Mute "Mute [%s]" { yamahareceiver="uid=living, zone=main, bindingType=mute" }
+String Yamaha_Input "Input [%s]" { yamahareceiver="uid=living, zone=main, bindingType=input" } 
+String Yamaha_Surround "Surround [%s]" { yamahareceiver="uid=living, zone=main, bindingType=surroundProgram" } 
+Number Yamaha_NetRadio "Net Radio" { yamahareceiver="uid=living, zone=main, bindingType=netRadio" }
+````
 
-     #Yamaha Receiver 
-     yamahareceiver:living.host=192.168.1.1
- 
-     .items
+**.sitemap**
+```
+Selection item=Yamaha_NetRadio label="Sender" mappings=[1="N Joy", 2="Radio Sport", 3="RDU", 4="91ZM", 5="Hauraki"]
+Selection item=Yamaha_Input mappings=[HDMI1="BlueRay",HDMI2="Satellite","NET RADIO"="NetRadio",TUNER="Tuner"]
+Selection item=Yamaha_Surround label="Surround Mode" mappings=["2ch Stereo"="2ch","7ch Stereo"="7ch"]
+```
 
-     Switch Yamaha_Power         "Power [%s]"         <tv>    { yamahareceiver="uid=living, zone=main,  bindingType=power" }
-     Dimmer Yamaha_Volume         "Volume [%.1f %%]"             { yamahareceiver="uid=living, zone=main, bindingType=volumePercent" }
-     Switch Yamaha_Mute             "Mute [%s]"                 { yamahareceiver="uid=living, zone=main, bindingType=mute" }
-     String Yamaha_Input         "Input [%s]"                 { yamahareceiver="uid=living, zone=main, bindingType=input" } 
-     String Yamaha_Surround         "surround [%s]"             { yamahareceiver="uid=living, zone=main, bindingType=surroundProgram" } 
-     Number Yamaha_NetRadio  "Net Radio" <netRadio> { yamahareceiver="uid=living, zone=main, bindingType=netRadio" }
- 
-     .sitemap
-
-     Selection item=Yamaha_NetRadio label="Sender" mappings=[1="N Joy", 2="Radio Sport", 3="RDU", 4="91ZM", 5="Hauraki"]
-     Selection item=Yamaha_Input mappings=[HDMI1="BlueRay",HDMI2="Satellite","NET RADIO"="NetRadio",TUNER="Tuner"]
-     Selection item=Yamaha_Surround label="Surround Mode" mappings=["2ch Stereo"="2ch","7ch Stereo"="7ch"]
-
-the tricky thing are the `"` around `NET RADIO`, this Key (left from the equal sign) is a value that must be send to the receiver **with** the space inside. If you omit the `"` the binding sends only the `NET` and the receiver do's nothing. 
-Same are in surround definition!
+> Warning: The `"` around `NET RADIO` is mandatory. This key (left from the equal sign) is a value that must be send to the receiver **with** the space inside. If you omit the `"` the binding would only send the `NET` and the receiver won't react. Same are in surround definition!
