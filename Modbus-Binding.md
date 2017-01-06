@@ -289,7 +289,7 @@ modbus:serial.slave2.type=holding
 modbus:serial.slave2.length=5
 ```
 
-Please note that the binding requires that all slaves connecting to the same serial port share the same connection parameters. For additional information, see [this discussion](https://community.openhab.org/t/connection-pooling-in-modbus-binding/5246/161?u=ssalonen) in the community forums.
+Please note that the binding requires that all slaves connecting to the same serial port share the same connection parameters (e.g. baud-rate, parity, ..). In particular are different parameter settings considered bad practice, because they can confuse the instances (slaves) on the modbus.  For additional information, see [this discussion](https://community.openhab.org/t/connection-pooling-in-modbus-binding/5246/161?u=ssalonen) in the community forums.
 
 Similarly, one must have identical connection parameters for all tcp slaves connecting to same host+port.
 
@@ -414,6 +414,8 @@ Some devices uses modbus RTU over TCP. This is usually Modbus RTU encapsulation 
 
 
 ### Config Examples
+
+Please take a look at [Samples-Binding-Config page](https://github.com/openhab/openhab/wiki/Samples-Binding-Config) or examine to the following examples.
 
 - Minimal construction in openhab.cfg for TCP connections will look like:
 
