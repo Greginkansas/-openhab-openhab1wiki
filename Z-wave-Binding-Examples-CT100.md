@@ -128,3 +128,29 @@ So far I only have a rule that turns on the Fan if the system has been idle for 
             timerFanCirculate = null
           }
         }
+
+A second set of rules which simply turns on the heat in the morning (to 63F), lowers it to 60F for mid day, and sets it to 59F at night.
+
+    rule "climate_morning"                                                 
+    when                                                                   
+      Time cron "0 40 6 1/1 * ? *"                                         
+    then                                                                   
+      logInfo("climate", "Temp: " + HVAC_Temperature.state + "; Target: 63")  
+      sendCommand(HVAC_HeatSetPoint, 63)                                   
+    end                                                                    
+                                                                           
+    rule "climate_day"                                                     
+    when                                                                   
+      Time cron "0 0 11 1/1 * ? *"                                         
+    then                                                                   
+      logInfo("climate", "Temp: " + HVAC_Temperature.state + "; Target: 60")  
+      sendCommand(HVAC_HeatSetPoint, 60)                                   
+    end                                                                    
+                                                                           
+    rule "climate_night"                                                   
+    when                                                                   
+      Time cron "0 30 22 1/1 * ? *"                                        
+    then                                                                   
+      logInfo("climate", "Temp: " + HVAC_Temperature.state + "; Target: 59")  
+      sendCommand(HVAC_HeatSetPoint, 59)                                   
+    end
