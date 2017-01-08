@@ -107,7 +107,7 @@ With the last commit it's possible to remove a switch cycle from the end of the 
 * Set the cycle to the last one.
 * Set the time for the off/night type to max time (1430 Minutes).
 * Set the time for the on/day type to max time (1430 Minutes).
-* Some seconds late it will be removed.
+* Some seconds later it will be removed.
  
 ## Examples
 
