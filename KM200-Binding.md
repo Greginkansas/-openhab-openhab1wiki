@@ -83,7 +83,7 @@ You can select this services in the config with the syntax: service:<fullPathToS
 
 ## Switching Programs
 
-With the last commit the binding is now supporting the reading and changing of switching programs.
+The binding is now supporting the reading and changing of switching programs.
 The communication between the binding and the user is done over virtual services. In the service list are now virtual services included. Every switch program service has now five virtual subservices. They are: <BR>
 
 | Subservice|  Description     |
@@ -93,7 +93,22 @@ The communication between the binding and the user is done over virtual services
 | cycle | Selection of a cycle on the selected day |
 | on/day | The selected switch time for the on/day type of the selected cycle |
 | off/night | The selected switch time for the off/night type of the selected cycle |
-    
+
+### Add a new switch cycle
+With the last commit it's possible to add a switch cycle to the end of the cycle list. 
+* Set a weekday. 
+* Set the cycle to the one after the number of actual cycles.
+* Set the time for the new on/day type, it will by automaticly moved to the first possible time.
+* Set the time for the new off/night type, it will by automaticly moved to the first possible time.
+
+### Remove a switch cycle
+With the last commit it's possible to remove a switch cycle from the end of the cycle list. 
+* Set a weekday. 
+* Set the cycle to the last one.
+* Set the time for the off/night type to max time (1430 Minutes).
+* Set the time for the on/day type to max time (1430 Minutes).
+* Some seconds late it will be removed.
+ 
 ## Examples
 
     String  budState "State of the heating [%s]"  {km200="service:/system/healthStatus"}
