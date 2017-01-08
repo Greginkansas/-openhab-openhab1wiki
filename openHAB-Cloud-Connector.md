@@ -62,4 +62,4 @@ E.g.:
 ```
 openhabcloud:expose=Window_Livingroom, Window_Sleepingroom
 ```
-Wildcards an goups are not supported.
+Wildcards and groups are not supported.
