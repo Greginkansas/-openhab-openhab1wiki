@@ -10,6 +10,7 @@ Tested Receivers:
 * V479
 * V481
 * V575
+* V579
 * V671
 * V675
 * V679
