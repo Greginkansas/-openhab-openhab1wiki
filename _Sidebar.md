@@ -136,6 +136,7 @@
 * [[Heatmiser Binding|Heatmiser-Binding]]
 * [[Homematic / Homegear Binding|Homematic-Binding]]
     * [[Homematic Examples|Homematic-Binding-Examples]]
+* [[Horizon Mediabox Binding|Horizon-mediabox-binding]]
 * [[HTTP Binding|Http-Binding]]
 * [[IEC 62056-21 Binding|IEC-62056---21-Meter-Binding]]
 * [[IHC / ELKO Binding|IHC-Binding]]
