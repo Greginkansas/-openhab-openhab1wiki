@@ -83,7 +83,7 @@ For example:
 | `power`           | `Switch`     | Switch the receiver ON or OFF (ON only works if the receiver's "Network Standby" setting is enabled)                 |
 | `mute`            | `Switch`     | Mute or unmute the receiver                                                                                           |
 | `volume`          | `Dimmer`     | Sets the receiver's volume (percentage)                                                                               |
-| `input`           | `String`     | Set the input selection, depends on your receiver's real inputs (Examples: HDMI1, HDMI2, AV4, TUNER, NET RADIO, etc.) |
+| `input`           | `String`     | Set the input selection, depends on your receiver's real inputs (Examples: HDMI1, HDMI2, AV4, TUNER, "NET RADIO", Spotify, etc.) |
 | `surroundProgram` | `String`     | Set the surround mode (Examples: 2ch Stereo, 7ch Stereo, Hall in Munich, Straight, Surround Decoder)                  |
  
 # Examples
