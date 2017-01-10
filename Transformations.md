@@ -134,5 +134,5 @@ As an example [Outback](http://www.outbackpower.com/) MATE3 Solar controller pro
 To pull the battery State of Charge (SOC) using JsonPath:
 
 ```
-Number	Battery_Charge	"Battery Charge"	(Solar)	{http="<[http://{ip}/Dev_status.cgi&Port=0:30000:JSONPATH($.devstatus.ports[?(@.Port==6)][0].SOC)]"}
+Number	Battery_Charge	"Battery Charge"	(Solar)	{http="<[http://{ip}/Dev_status.cgi&Port=0:30000:JSONPATH($.devstatus.ports[?(@.Port==6)].SOC)]"}
 ```
