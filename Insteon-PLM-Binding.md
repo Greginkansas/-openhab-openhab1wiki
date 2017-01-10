@@ -341,6 +341,8 @@ To make it visible in the GUI, put this into your sitemap file:
 
 For safety reasons, only close the garage door if you have visual contact to make sure there is no obstruction! The use of automated rules for closing garage doors is dangerous.
 
+>NOTE: If the I/O Linc returns the wrong value when the device is polled (For example you open the garage door and the state correctly shows OPEN, but during polling it shows CLOSED), you probably linked the device with the PLM or hub when the door was in the wrong position. You need unlink and then link again with the door in the opposite position. Please see the Insteon I/O Linc documentation for further details.
+
 ### Keypads
 
 Before you attempt to configure the keypads, please familiarize yourself with the concept of an Insteon group.
