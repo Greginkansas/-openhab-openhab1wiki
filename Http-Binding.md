@@ -118,3 +118,23 @@ Examples of how to configure your HTTP cache item:
 
     Number temperature { http="<[weatherCache:10000:XSLT(demo_yahoo_weather_temperature.xsl)]" }
     Number windSpeed { http="<[weatherCache:10000:XSLT(demo_yahoo_weather_wind_speed.xsl)]" }
+
+##Post with body content
+
+**_This feature will be available starting with the 1.9.0 release_**
+
+To send an HTTP POST containing body content:
+
+Syntax:
+
+```
+http:">[<command>:POST:<url>[:postcontent]]"
+```
+
+Examples:
+
+```
+Switch MyItem1 { http=">[ON:POST:http://sample.com/myitem1:on] >[OFF:POST:http://sample.com/myitem1:off]" }
+Switch MyItem2 { http=">[*:POST:http://sample.com/myitem2:default]" }
+Switch MyItem3 { http=">[*:POST:http://sample.com/myitem3:MAP(onoff.map)]" }
+```
