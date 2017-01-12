@@ -94,6 +94,16 @@ The communication between the binding and the user is done over virtual services
 | on/day | The selected switch time for the on/day type of the selected cycle |
 | off/night | The selected switch time for the off/night type of the selected cycle |
 
+##Error Lists
+The binding is supporting the parsing of the device error list. This list list usally readably from the /notification service. This has now new subservices:
+| Subservice|  Description     |
+| ------------- |  --------------- |
+| nbrErrors | The number of errors |
+| error| Selection of the error for generation of the errorString 
+| errorString | String with all informations about this error
+
+
+
 ### Add a new switch cycle
 With the last commit it's possible to add a switch cycle to the end of the cycle list. 
 * Set a weekday. 
