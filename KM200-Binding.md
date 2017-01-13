@@ -117,7 +117,15 @@ The binding is supporting the parsing of the device error list. This list is usa
 | nbrErrors | The number of errors |
 | error| Selection of the error for generation of the errorString 
 | errorString | String with all informations about this error
- 
+
+## Dynamic servie path
+Sometime is the path to the service not static. It depends on sometking else like another service. One example for this are switching programs. It is nice to see switch points parameters from the current selected program.
+This binding is supporting parameter replacements. It meens that's possible to replace a part of the service path with a values from another service. 
+
+| Parameter|  Replacement|
+| ------------- |  --------------- |
+| __current__ | current:<path> |
+
 ## Examples
 
     String  budState "State of the heating [%s]"  {km200="service:/system/healthStatus"}
@@ -134,6 +142,9 @@ Switching programs: (you have to select as first the day, second the cycle and t
     Number actBudCycleHC1 "Selected cycle HC1 [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/cycle" }
     Number actBudPosHC1 "Day  HC1  [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/day" }
     Number actBudNegHC1"Night HC1  [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/Eigen1/night" }
+
+    Number nbrBudNbrCyclesHCT1Curr "Current HC1 [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/__current__/nbrCycles current:/heatingCircuits/hc1/actualSwitchingProgram" 
+
 
 The supported item types are: 
 
