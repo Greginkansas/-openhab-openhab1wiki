@@ -119,7 +119,7 @@ The binding is supporting the parsing of the device error list. This list is usa
 | errorString | String with all informations about this error
 
 ## Dynamic service path (Parameter replacement)
-Sometime is the path to the service not static. It depends on sometking else like another service. One example for this are switching programs. It is nice to see switch points parameters from the current selected program.
+Sometime is the path to the service not static. It depends on something else like another service. One example for this are switching programs. It is nice to see switch points parameters from the current selected program.
 This binding is supporting parameter replacements. It meens that's possible to replace a part of the service path with a values from another service. 
 
 | Parameter|  Replacement|
