@@ -124,7 +124,7 @@ This binding is supporting parameter replacements. It meens that's possible to r
 
 | Parameter|  Replacement|
 | ------------- |  --------------- |
-| __current__ | current:<path> |
+| "__current__" | "current:<path>" |
 
 ## Examples
 
