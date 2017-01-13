@@ -63,6 +63,7 @@ Type-Modifiers can be optionally configured for the items. They will be applied 
 
 ### Switch Items
 * "invert" - the InvertModifier inverts the given Value to the opposite
+* "pushbutton=<ms>" - this option makes it possible to use a relay like a pushbutton. It is possible to do that with a rule and timer, but then you have no control of the real time a button is pushed on slow systems.  
 
 ### Contact Items
 * "invert" - the InvertModifier inverts the given Value to the opposite
@@ -125,7 +126,11 @@ Switch turns on when value of device property is less then minWarning (5).
 	Switch OneWireTempWarnMin "TempWarnMin [%s]" onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;maxWarning=30;minWarning=5"}
 
 Switch turns on when value of device property is greater then maxWarning (30) or is less then minWarning (5).
-    
+
+### PushButton
+
+	Switch OneWirePushButton onewire="deviceId=29.66C30E000000;propertyName=sensed.0;refreshinterval=10";pushbutton=500;invert",autoupdate="false"
+
 ### iButton (OneWire binding openhab Version >= 1.8.0)
 
 	String OneWireKeyBlack "Key black [%s]" <key> {onewire="deviceId=uncached/01.234567790000;propertyName=r_id;refreshinterval=2"}
