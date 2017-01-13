@@ -57,13 +57,13 @@ Ignores the power-on reset value (+85°C) of DS18B20 devices.
 Type-Modifiers can be optionally configured for the items. They will be applied in the same order as the one in the description of the item. The binding provides the following modifiers. For example: by using modifiers you can calibrate onewire temperature devices or invert the value of contacts and switches.
 
 ### Number Items
-* "add=<value>" - the AddModifier adds a given value to a read-value on read. On write, the given value is subtracted of the value to write.
-* "multiply=<value>" - the MultiplyModifier multiplies a given value with the read-value on read. On write, value to write is divided by given value.
+* "add=-value-" - the AddModifier adds a given value to a read-value on read. On write, the given value is subtracted of the value to write.
+* "multiply=-value-" - the MultiplyModifier multiplies a given value with the read-value on read. On write, value to write is divided by given value.
 * "tukeyfilter" -  Modifier to filter sensor data. Restricts the data point value to be between lowerbound = qbottom - alpha * r and upperbound = qtop + alpha * r where qtop = top n-tile, qbottom = bottom ntile, and the range r = qtop - qbottom. The original Tukey filter drops points if they are outside of 1.5 * range, i.e. alpha = 1.5, and takes quartiles. Another implementation wrinkle: for slow changing data such as temperature, the binding may pick up the same data point over and over again. This compresses the range artificially, and will lead to spurious filtering. For that reason a point is added to the sample set only if it is not present there.
 
 ### Switch Items
 * "invert" - the InvertModifier inverts the given Value to the opposite
-* "pushbutton=<ms>" - this option makes it possible to use a relay like a pushbutton. It is possible to do that with a rule and timer, but then you have no control of the real time a button is pushed on slow systems.  
+* "pushbutton=-millis-" - this option makes it possible to use a relay like a pushbutton. It is possible to do that with a rule and timer, but then you have no control of the real time a button is pushed on slow systems.  
 
 ### Contact Items
 * "invert" - the InvertModifier inverts the given Value to the opposite
