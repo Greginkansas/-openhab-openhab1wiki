@@ -110,7 +110,7 @@ With the last commit it's possible to remove a switch cycle from the end of the 
 * Some seconds later it will be removed.
 
 ##Error Lists
-The binding is supporting the parsing of the device error list. This list list usally readably from the /notification service. This has now new subservices
+The binding is supporting the parsing of the device error list. This list is usally readable from the /notification service. This has now new subservices
 
 | Subservice|  Description     |
 | ------------- |  --------------- |
