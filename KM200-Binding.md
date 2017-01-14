@@ -151,6 +151,7 @@ Items:<BR>
 [Heizung.items](http://www.markinus.de/Heizung.items)<BR>
 Cometvisu:<BR>
 [visu_config.xml](http://www.markinus.de/visu_config.xml)<BR>
+![KM200 Binding with CometVisu](http://www.markinus.de/Cometvisu_Buderus.PNG)<BR>
 
 
 ## Supported item types 
