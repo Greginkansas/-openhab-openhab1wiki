@@ -22,17 +22,17 @@ For installation of the binding, please see the Wiki page [Bindings](Bindings), 
 
 Return a temperature sensor's state to Undefined if five minutes pass since the last numerical update:
 ```
-Number Temperature "Temp [%.1f °C]" { expire="5m" }
+Number Temperature "Temp [%.1f °C]" { mysensors="24;1;V_TEMP", expire="5m,-999" }
 ```
 
-Turn off a light one and a half hours after it was turned on:
+Turn off a light (Z-Wave node 3) one and a half hours after it was turned on:
 ```
-Switch HallLight "HallLight [%s]" { expire="1h30m,command=OFF" }
+Switch HallLight "HallLight [%s]" { zwave="3", expire="1h30m,command=OFF" }
 ```
 
 Mark a motion sensor as CLOSED 30 seconds after it was opened:
 ```
-Contact MotionSensor "MotionSensor [%s]" { expire="30s,state=CLOSED" }
+Contact MotionSensor "MotionSensor [%s]" { http="<[http://motion/sensor:60000:JSONPATH($.state)]", expire="30s,state=CLOSED" }
 ```
 
 Boil an egg for seven minutes using a Z-Wave-controlled cooker:
