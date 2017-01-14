@@ -26,3 +26,63 @@ As a result your lines in the items file might look like follows:
     Switch Incoming_Call	"Ringing"			(Phone)    { asterisk=active }
     Call Active_Call	"Connected [to %1$s from %2$s]"	(Phone)    { asterisk=active }
     Call Active_Call	"Connected to [%s]"		(Phone)    { asterisk=active }
+
+## Examples
+
+###Active call examples
+
+* Switch on a light when there is at least an active call (when there are no active calls the light will turn off)
+
+````
+Switch light (lights) {asterisk="active"}
+````
+
+or
+
+````
+Switch light (lights) {asterisk="active:*:*"}
+````
+
+* Switch on a light when '215' calls '101' and turn it off when the call ends
+
+````
+Switch light (lights) {asterisk="active:215:101"}
+````
+
+* Switch on a light on every call to '101' and turn it off when the call ends
+
+````
+Switch light (lights) {asterisk="active:*:101"}
+````
+
+* Switch on a light on every call originated from '215' and turn it off when the call ends
+
+````
+Switch light (lights) {asterisk="active:215:*"}
+````
+
+###DTMF Digit examples
+
+* Switch on a light when '1' digit is sent from '215' to '101' during an active call
+
+````
+Switch light (lights) {asterisk="digit:215:101:1"}
+````
+
+* Switch on a light whenever a '1' digit is sent to '101' during an active call
+
+````
+Switch light (lights) {asterisk="digit:*:101:1"}
+````
+
+* Switch on a light whenever a '1' digit is sent from '215' during an active call
+
+````
+Switch light (lights) {asterisk="digit:215:*:1"}
+````
+
+* Switch on a light whenever a '1' digit is sent during an active call
+
+````
+Switch light (lights) {asterisk="digit:*:*:1"}
+````
