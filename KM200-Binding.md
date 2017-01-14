@@ -145,8 +145,15 @@ Switching programs: (you have to select as first the day, second the cycle and t
 
     Number nbrBudNbrCyclesHCT1Curr "Current HC1 [%d]" {km200="service:/heatingCircuits/hc1/switchPrograms/__current__/nbrCycles current:/heatingCircuits/hc1/actualSwitchingProgram" 
 
+###Example files:
 
-The supported item types are: 
+Items:<BR>
+[Heizung.items](http://www.markinus.de/Heizung.items)
+Cometvisu:<BR>
+[visu_config.xml](http://www.markinus.de/visu_config.xml)
+
+
+## Supported item types 
 
 | Item Type|  KM200 service type|
 | ------------- |  --------------- |
