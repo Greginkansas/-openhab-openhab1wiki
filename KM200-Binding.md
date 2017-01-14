@@ -148,9 +148,9 @@ Switching programs: (you have to select as first the day, second the cycle and t
 ###Example files:
 
 Items:<BR>
-[Heizung.items](http://www.markinus.de/Heizung.items)
+[Heizung.items](http://www.markinus.de/Heizung.items)<BR>
 Cometvisu:<BR>
-[visu_config.xml](http://www.markinus.de/visu_config.xml)
+[visu_config.xml](http://www.markinus.de/visu_config.xml)<BR>
 
 
 ## Supported item types 
