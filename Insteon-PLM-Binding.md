@@ -206,7 +206,10 @@ binding.
 2. Edit the relevant section in the openhab configuration file
    (`openhab/configurations/openhab.cfg`). Note that while multiple
    modems and/or hubs can be configured, the binding has never been tested for more
-   than *one* port!
+   than *one* port! More details about how to connect to the different supported devices are in the `openhab.cfg` file, but in short:
+   - plain plm modem on a usb serial port on Linux OS: `insteonplm:port_0=/dev/ttyUSB0`
+   - 2242-222 hub: use `insteonplm:port_0=/hub/your_hub_ip_address:9761`
+   - 2245-222 hub (2014-): use `/hub2/my_user_name:my_password@myinsteonhub.mydomain:25105,poll_time=1000`
 3. Add configuration information to the `.items` file (see below)
 4. Optional: configure for debug logging into a separate file (see
 trouble shooting section)
