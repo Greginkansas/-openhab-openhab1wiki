@@ -6,22 +6,57 @@ The Asterisk binding is used to enable communication between openhab and the fre
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-## Generic Item Binding Configuration
+## Binding Configuration
 
-In order to bind an item to the Asterisk PBX you need to provide configuration settings. The easiest way to do this is to add binding information in your item file (in the folder configurations/items`). 
+Under openHAB 2+, edit or create the file `services/asterisk.cfg`:
+
+```
+############################### Asterisk Binding ######################################
+#
+# Please note: The Asterisk Management Interface (AMI) has to be activated in the
+# manager.conf file of your Asterisk PBX.
+
+# hostname of the AMI
+#host=
+
+# the username and password to login to the AMI
+#username=
+#password=
+```
+
+Under openHAB 1.x, edit the file `configurations/openhab.cfg` to include:
+
+```
+############################### Asterisk Binding ######################################
+#
+# Please note: The Asterisk Management Interface (AMI) has to be activated in the
+# manager.conf file of your Asterisk PBX.
+
+# hostname of the AMI
+#asterisk:host=
+
+# the username and password to login to the AMI
+#asterisk:username=
+#asterisk:password=
+```
+
+## Item Configuration
+
+In order to bind an item to the Asterisk PBX you need to provide configuration settings for each item to which you want to bind in your `.items` file (in the `items` folder). 
 
 The format of the binding configuration is simple and looks like this:
 
     asterisk=<eventType>
+
 where `<eventType>` is of the value *active* for currently active calls. Currently there are no other valid values.
 
-Asterisk binding configurations are valid on Switch and String items.
+Asterisk binding configurations are valid on `Switch` and `String` items.
 
-Switch items with this binding will receive an ON update event at the start and an OFF update event at the end.
+`Switch` items with this binding will receive an `ON` update event at the start and an `OFF` update event at the end.
 
-String items will receive the external phone number in form of a string value as a status update. At the end of an event an empty string is sent as a status update.
+`String` items will receive the external phone number in the form of a string value as a status update. At the end of an event, an empty string is sent as a status update.
 
-As a result your lines in the items file might look like follows:
+As a result, your lines in your items file might look like follows:
 
     Switch Incoming_Call	"Ringing"			(Phone)    { asterisk=active }
     Call Active_Call	"Connected [to %1$s from %2$s]"	(Phone)    { asterisk=active }
@@ -29,60 +64,60 @@ As a result your lines in the items file might look like follows:
 
 ## Examples
 
-###Active call examples
+### Active call examples
 
 * Switch on a light when there is at least an active call (when there are no active calls the light will turn off)
 
-````
-Switch light (lights) {asterisk="active"}
-````
+```
+Switch light (lights) { asterisk="active" }
+```
 
 or
 
-````
-Switch light (lights) {asterisk="active:*:*"}
-````
+```
+Switch light (lights) { asterisk="active:*:*" }
+```
 
 * Switch on a light when '215' calls '101' and turn it off when the call ends
 
-````
-Switch light (lights) {asterisk="active:215:101"}
-````
+```
+Switch light (lights) { asterisk="active:215:101" }
+```
 
 * Switch on a light on every call to '101' and turn it off when the call ends
 
-````
-Switch light (lights) {asterisk="active:*:101"}
-````
+```
+Switch light (lights) { asterisk="active:*:101" }
+```
 
 * Switch on a light on every call originated from '215' and turn it off when the call ends
 
-````
-Switch light (lights) {asterisk="active:215:*"}
-````
+```
+Switch light (lights) { asterisk="active:215:*" }
+```
 
-###DTMF Digit examples
+### DTMF Digit examples
 
 * Switch on a light when '1' digit is sent from '215' to '101' during an active call
 
-````
-Switch light (lights) {asterisk="digit:215:101:1"}
-````
+```
+Switch light (lights) { asterisk="digit:215:101:1" }
+```
 
 * Switch on a light whenever a '1' digit is sent to '101' during an active call
 
-````
-Switch light (lights) {asterisk="digit:*:101:1"}
-````
+```
+Switch light (lights) { asterisk="digit:*:101:1" }
+```
 
 * Switch on a light whenever a '1' digit is sent from '215' during an active call
 
-````
-Switch light (lights) {asterisk="digit:215:*:1"}
-````
+```
+Switch light (lights) { asterisk="digit:215:*:1" }
+```
 
 * Switch on a light whenever a '1' digit is sent during an active call
 
-````
-Switch light (lights) {asterisk="digit:*:*:1"}
-````
+```
+Switch light (lights) { asterisk="digit:*:*:1" }
+```
