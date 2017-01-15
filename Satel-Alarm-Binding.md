@@ -189,51 +189,61 @@ Switch item=PartitionArmed
 Switch item=PartitionArmed mappings=[ON="Arm"]
 ```
 
+***
 Partition item with ability to force arming:
 ```
 Switch Partition1 "Partition armed" { satel="partition:armed:1:force_arm" }
 ```
 
+***
 Simple contact item:
 ```
 Contact	Zone1 "Zone #1 violated" { satel="zone:violation:1" }
 ```
 
+***
 Zone bypass status with ability to change the state:
 ```
 Switch	Zone1 "Zone #1 bypass" { satel="zone:bypass:1" }
 ```
 
+***
 Number of zones violated:
 ```
 Number	ZonesViolated "Zones violated [%d]" { satel="zone:violation" }
 ```
 
+***
 Simple output item with ability to change its state:
 ```
 Switch	Output1 "Output #1" { satel="output:1" }
 ```
 
+***
 Number of partitions with "alarm" state:
 ```
 Number PartitionsInAlarm "Partitions alarmed [%d]" { satel="partition:alarm" }
 ```
 
+***
 Troubles memory item with clear ability:
 ```
 Switch TroublesMemory "Troubles in the system" { satel="status:troubles_memory" }
 ```
 
+***
 Roller shutter item:
 ```
 Rollershutter KitchenBlinds "Kitchen blinds" { satel="output:10,11" }
 ```
 
+***
 Doors open/closed status with ability to open them:
 ```
 Switch Doors1 "Doors #1" { satel="doors:opened:1" }
 ```
 
+***
 Time synchronization using NTP binding:
 ```
 DateTime AlarmDateTime "Current time [%1$tF %1$tR]" { satel="status:date_time" }
@@ -250,12 +260,14 @@ then
 end
 ```
 
+***
 Connection status, item definition:
 ```
 Switch AlarmConnection "Connection status" <network> { satel="module:connected" }
 DateTime AlarmConnSince "Connected since [%1$tF %1$tR]" { satel="module:connected_since" }
 ```
 
+***
 Rule to send email on each alarm with 10 most recent records from the event log:
 ```
 rule "Satel Action test"
@@ -323,6 +335,7 @@ Item definition for the above rule:
 Switch AlarmPart1 "Alarm on partition #1" { satel="partition:alarm_memory:1" }
 ```
 
+***
 Rule that changes user code for 10 minutes. After that time user code is reverted to the one configured in `openhab.cfg`.
 ```
 var String userCode = ""
@@ -358,11 +371,13 @@ then
 		Keypad_Char.postUpdate("")
 	]
 end
+
 ```
 Item definition for above rule:
 ```
 String Keypad_Char ">"
 ```
+
 Sitemap keypad to enter user code for above rule:
 ```
 Text label="Enter user code" icon="settings" {
@@ -381,7 +396,7 @@ To control Integra partitions and outputs you need to provide security code of u
 
 **Disarming and clearing alarms**
 
-Although this binding allows you to configure disarming a partition and clearing alarms for a partion, this should be used only in cases when security is not the priority. Don't forget both these operations can be executed in openHAB without specifying user code, which is required to disarm or clear alarms using Integra panel. Consider adding a keypad in your sitemap to temporarily change user code to execute sensitive operations. You can find such keypad in exanples section.
+Although this binding allows you to configure disarming a partition and clearing alarms for a partion, this should be used only in cases when security is not the priority. Don't forget both these operations can be executed in openHAB without specifying user code, which is required to disarm or clear alarms using Integra panel. Consider adding a keypad in your sitemap to temporarily change user code to execute sensitive operations. You can find such keypad in [examples](#examples) section.
 Also don't forget to secure your openHAB installation by using HTTPS protocol and setting a user with password. Here is a page about security in openHAB: [Security](Security)
 
 ## Media
