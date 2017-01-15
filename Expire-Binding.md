@@ -20,7 +20,7 @@ For installation of the binding, please see the Wiki page [Bindings](Bindings), 
 
 ## Examples
 
-Return a temperature sensor's state to Undefined if five minutes pass since the last numerical update:
+Set a temperature sensor's state to -999 if five minutes pass since the last numerical update:
 ```
 Number Temperature "Temp [%.1f °C]" { mysensors="24;1;V_TEMP", expire="5m,-999" }
 ```
