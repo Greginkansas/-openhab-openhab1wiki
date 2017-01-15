@@ -152,7 +152,7 @@ _Available as of openHAB 1.9_
 
 > NOTE: Satel Binding v1.9+ must be installed in order to use Satel Actions
 
-The Satel Action bundle provides actions to read event log of the connected alarm system and check current connection status.
+The Satel Action bundle provides actions to read event log of the connected alarm system, check current connection status and override configured user code.
 
 * `boolean satelIsConnected()` - returns `true` if connected to communication module and `false` otherwise
 * `Object[] satelReadEvent(int eventIndex)` - reads event log record for given index; records must be read one by one from most recent record under index `-1`; see record description below
@@ -323,6 +323,55 @@ Item definition for the above rule:
 Switch AlarmPart1 "Alarm on partition #1" { satel="partition:alarm_memory:1" }
 ```
 
+Rule that changes user code for 10 minutes. After that time user code is reverted to the one configured in `openhab.cfg`.
+```
+var String userCode = ""
+var Timer keypadTimer = null
+var Timer userCodeTimer = null
+
+rule "Keypad char entered"
+when
+	Item Keypad_Char changed
+then
+	if (Keypad_Char.state == "-") {
+		satelSetUserCode(userCode)
+		userCode = ""
+		if (userCodeTimer != null) {
+			userCodeTime.cancel
+		}
+		userCodeTimer = createTimer(now.plusMinutes(10)) [|
+			logInfo("Keypad", "Reverting user code")
+			satelResetUserCode()
+		]
+	} else if (Keypad_Char.state == "*") {
+		satelResetUserCode()
+		userCode = ""
+	} else {
+		userCode = userCode + Keypad_Char.state
+	}
+
+	if (keypadTimer != null) {
+		keypadTimer.cancel
+	}
+	keypadTimer = createTimer(now.plusSeconds(5)) [|
+		userCode = ""
+		Keypad_Char.postUpdate("")
+	]
+end
+```
+Item definition for above rule:
+```
+String Keypad_Char ">"
+```
+Sitemap keypad to enter user code for above rule:
+```
+Text label="Enter user code" icon="settings" {
+	Switch item=Keypad_Char mappings=[ "1"="1", "2"="2", "3"="3" ]
+	Switch item=Keypad_Char mappings=[ "4"="4", "5"="5", "6"="6" ]
+	Switch item=Keypad_Char mappings=[ "7"="7", "8"="8", "9"="9" ]
+	Switch item=Keypad_Char mappings=[ "*"="*", "0"="0", "-"="#" ]
+}
+```
 
 ## Security considerations
 
@@ -332,7 +381,8 @@ To control Integra partitions and outputs you need to provide security code of u
 
 **Disarming and clearing alarms**
 
-Although this binding allows you to configure disarming a partition and clearing alarms for a partion, this should be used only in cases when security is not the priority. Don't forget both these operations can be executed in openHAB without specifying user code, which is required to disarm or clear alarms using Integra panel. Also don't forget to secure your openHAB installation by using HTTPS protocol and setting a user with password. Here is a page about security in openHAB: [Security](Security)
+Although this binding allows you to configure disarming a partition and clearing alarms for a partion, this should be used only in cases when security is not the priority. Don't forget both these operations can be executed in openHAB without specifying user code, which is required to disarm or clear alarms using Integra panel. Consider adding a keypad in your sitemap to temporarily change user code to execute sensitive operations. You can find such keypad in exanples section.
+Also don't forget to secure your openHAB installation by using HTTPS protocol and setting a user with password. Here is a page about security in openHAB: [Security](Security)
 
 ## Media
 * [Arming and clearing troubles](https://www.youtube.com/watch?v=ogdgn0Dk1G8)
