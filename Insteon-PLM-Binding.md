@@ -596,7 +596,7 @@ If all else fails there are the Java sources, in particular the classes MessageH
 
 1. Devices cannot be linked to the modem while the binding is
 running. If new devices are linked, the binding must be restarted.
-2. Setting up Insteon groups and linking devices cannot be done from within openHAB. Use the [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) for that.
+2. Setting up Insteon groups and linking devices cannot be done from within openHAB. Use the [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) for that. If using Insteon Terminal (especially as root), ensure any stale lock files (For example, /var/lock/LCK..ttyUSB0) are removed before starting OpenHAB runtime. Failure to do so may result in "found no ports".
 3. Very rarely during binding startup, a message arrives at the modem while the initial read of the modem
 database happens. Somehow the modem then stops sending the remaining link records and the binding no longer is able to address the missing devices. The fix is to simply restart the binding.
 4. The Insteon PLM device is know to break after about 2-3 years due to poorly sized capacitors of the power supply. With a bit of soldering skill you can repair it yourself, see http://pfrommer.us/home-automation or the original thread: http://forum.universal-devices.com/topic/13866-repair-of-2413s-plm-when-the-power-supply-fails/.
