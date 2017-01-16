@@ -22,7 +22,7 @@ For windows the binding is hardcoded to look for Telldus Center in Programs File
 If you have trouble getting the telldus core library to work you can modify the library path using
 
     tellstick:library_path="FOLDER OF tellduscore dll/so"
-If you don't have a Tellstick Duo or the number of device events is less than 1 every 10 minutes you should increate the max_idle:
+If you don't have a Tellstick Duo or the number of device events is less than 1 every 10 minutes you should increase the `max_idle` option in the Tellstick settings file:
 
     tellstick:max_idle=600000
 
