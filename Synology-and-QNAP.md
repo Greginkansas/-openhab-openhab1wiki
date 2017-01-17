@@ -5,12 +5,20 @@ A package of openHAB 1.8.1 and 2.0.x for [Synology Diskstations](http://www.syno
 
 [Synology discussions on the openHAB Community](https://community.openhab.org/t/synology-diskstation/1446)
 
+**Quick Install OpenHAB V2 until it's in the official docs:**
 
-Deprecated builds and older information can be found here:
+Current releases of OpenHAB2 require Oracle Java due to the generation of certificates based on [EC](https://en.wikipedia.org/wiki/Elliptic_curve_cryptography) which is not available in free Java implementations. If you see the following error you are likely using OpenJDK:
+    java.security.NoSuchAlgorithmException: EC KeyPairGenerator not available
+
+The easiest way to install Java is to include the [PC-Loadletter Repo](http://packages.pcloadletter.co.uk/). Download [Java8 SE](http://www.oracle.com/technetwork/java/embedded/index.html) [(latest ARMv6)](http://www.oracle.com/technetwork/java/embedded/embedded-se/downloads/javase-embedded-downloads-2209751.html) [(Java Cryptography Extension if required)](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html) and put them in the public folder of your NAS. Then start the installation of Java8 SE.
+
+Now download and install the [github](https://github.com/cniweb/openhab-syno-spk/releases) package.
+
+**Deprecated builds and older information can be found here:**
+
 A package of OpenHAB 1.5.0 for [Synology Diskstations](http://www.synology.com/en-us/products/index) is stored at [OpenHAB google groups](https://groups.google.com/d/msg/openhab/lrzcZDYI3Ug/hLJF-sUUjgMJ) and on the package server [https://www.hofrichter.at/sspks](https://www.hofrichter.at/sspks/index.php?fulllist=true).
 
-
-## Synology Information below is old and should be updated
+## Synology Information below is for older versions
 
 This packages can be installed in DSM via the package manager -> manual installation or by adding https://www.hofrichter.at/sspks/ as package source - there is a [tutorial on the Synology support pages](http://www.synology.com/en-us/support/tutorials/500) about how to do that.
 This package is tested on DS213+ with oracle's java 7 from [PC load letter](http://pcloadletter.co.uk/2011/08/23/java-package-for-synology/).  
