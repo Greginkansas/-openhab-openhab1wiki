@@ -5,7 +5,8 @@ This binding provides native access for MCP3424 18-bit delta sigma ADC
 on I2C bus. Please consider datasheet for IC for future information.
 Binding should work with MCP3422 and MCP3423 also, but was not tested due to lack of hardware.
 
-**_This binding will be available from 1.9.0 onwards or is available from corresponding snapshot_**
+**_This binding will be available from 1.9.0 onwards or is available from corresponding snapshot.
+Attention: This binding is not available on early versions of Openhab as 1.9.0._**
 
 ## Generic Item Binding Configuration
 Since MCP3424 is ADC converter on I2C bus, only two types of items are supported:
