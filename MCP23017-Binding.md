@@ -5,7 +5,9 @@ This binding provides native access for MCP23017 16 bit bidirectional I/O expand
 on I2C bus. Please consider datasheet for IC for future information.
 
 **_This binding will be available from 1.9.0 onwards or is available from corresponding snapshot.
-Attention: This binding is not available on early versions of Openhab as 1.9.0._**
+Attention: This binding is not available in download packages earlier than 1.9.0._**
+Anyhow it works nicely with OpenHab 1.8.3. Simply copy jar file found on Openhab cloudbees server into
+addons subdirectory and restart Openhab service.
 
 ## Generic Item Binding Configuration
 Since MCP23017 is digital IO expander on I2C bus, only two types of items are supported:
