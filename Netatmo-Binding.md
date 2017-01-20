@@ -572,6 +572,7 @@ String Welcome_Camera_AlimStatus "Camera Power Status [%s]" {netatmo="camera=000
 # Common problems
 
 ## Missing Certificate Authority
+NOTE: Netatmo switched from SmartCom to Go Daddy for its certificate authority. With this change, you should not encounter the below error anymore. 
 ```
 javax.net.ssl.SSLHandshakeException:
 sun.security.validator.ValidatorException:
