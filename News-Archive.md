@@ -2,6 +2,24 @@
 
 # News Archive
 
+December 08, 2015 - We are partnering with <a href="http://pine64.com/product">PINE64</a> for providing a cheap, but powerful hardware for openHAB to make it even easier to get started.
+
+August 12, 2015 - A powerful new <a href="https://community.openhab.org">platform for community discussions</a> has been launched as a replacement for the mailing lists.
+
+July 31, 2015 - The bugfix release 1.7.1 is now available! Read the <a href="https://github.com/openhab/openhab/wiki/Release-Notes-1.7">Release Notes</a> for all included fixes.
+
+July 2, 2015 - openHAB now <a href="/ifttt.html">integrates with IFTTT</a> - try out the <a href="https://ifttt.com/openhab">openHAB channel</a> in your IFTTT recipes!
+
+July 1, 2015 - <a href="https://my.openhab.org/">my.openHAB</a> has left the close beta phase and is now publicly available to all openHAB users.
+
+June 13, 2015 - A first version of the <a href="http://apps.getpebble.com/en_US/application/5542604d45bf334314000098">Pebble app</a> has been released!
+
+May 25, 2015 - A <a href="https://github.com/openhab/openhab2/releases/tag/2.0.0-alpha2">second alpha release of openHAB 2</a> has been published as an early preview of the next major openHAB version!
+
+May 25, 2015 - openHAB 1.7.0 has been released! Read the <a href="https://github.com/openhab/openhab/wiki/Release-Notes-1.7">Release Notes</a> to learn more about the new features, enhancements and fixes!
+
+March 27, 2015 - openHAB is now available as a pre-installed service on the <a href="http://www.tinkerforge.com/en/blog/2015/3/11/red-brick-now-with-openhab-and-nagios">Tinkerforge RED Brick</a> - see the <a href="http://www.heise.de/newsticker/meldung/Herstelleruebergreifendes-Smart-Home-mit-Tinkerforge-und-openHAB-2586396.html">press release</a> (in german)
+
 January 29, 2015 - The bugfix release 1.6.2 is now available! Read the [Release Notes](https://github.com/openhab/openhab/wiki/Release-Notes-1.6) for all included fixes.
 
 January 24, 2015 - openHAB is a People's Choice Winner at the [Postscapes IoT Awards 2014/15](http://postscapes.com/internet-of-things-award/2014/winners)!
