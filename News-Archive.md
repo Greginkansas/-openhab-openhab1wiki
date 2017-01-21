@@ -2,6 +2,10 @@
 
 # News Archive
 
+September 14, 2016 - <a href="https://community.openhab.org/t/openhab-2-0-beta4-has-been-released/14110">openHAB 2.0 beta4</a> has been released, with much improved startup behavior and reliability!
+
+May 23, 2016 - <a href="http://www.openhabfoundation.org/2016/openhab-releases">openHAB 2.0 beta3</a> has been released - yet another major milestone towards a final release!
+
 March 22, 2016 - The bugfix release 1.8.2 is now available! Read the <a href="https://github.com/openhab/openhab/wiki/Release-Notes-1.8">Release Notes</a> for all included fixes.
 
 February 01, 2016 - openHAB 2.0 beta2 <a href="https://github.com/openhab/openhab-distro/releases/tag/2.0.0.b2">has been released</a>, fixing many openHAB 1 add-on issues.
