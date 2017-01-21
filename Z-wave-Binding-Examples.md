@@ -166,12 +166,14 @@ Here are some examples of valid z-wave binding configuration strings, as defined
     Number Lumin_GFToilet "Luminance: [%.0f Lux]" (GF_Toilet) { zwave="8:command=sensor_multilevel,sensor_type=3" }
     Number UV_GFToilet "Luminance: [UV index %d]" (GF_Toilet) { zwave="8:command=sensor_multilevel,sensor_type=27" }
     Number Battery_GFToilet "Battery: [%d %%]" (GF_Toilet) { zwave="8:command=battery" }
+    DateTime LastUpdated_GFToilet "Last update [%1$tH:%1$tM]" (GF_Toilet) { zwave="8:command=info,item=LAST_UPDATE" }
 
 ###D-Link DCH-Z110  
 
     Contact	C	"Movement [%s]"	(gf)	{ zwave="10:command=SENSOR_BINARY,respond_to_basic=TRUE" }
     Number	T	"Temperature [%.1f °C]"	(gf)	{ zwave="10:command=sensor_multilevel,sensor_type=1" }
     Number	H	"Luminance [%.0f Lux]"	(gf)	{ zwave="10:command=sensor_multilevel,sensor_type=3" }
+    DateTime    L	"Last update [%1$tH:%1$tM]"	(gf)	{ zwave="10:command=info,item=LAST_UPDATE" }
 
 ###Ecolink tiltzwave1 garage door sensor:  
 
