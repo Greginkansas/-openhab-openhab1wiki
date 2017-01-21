@@ -2,6 +2,15 @@
 
 # News Archive
 
+March 22, 2016 - The bugfix release 1.8.2 is now available! Read the <a href="https://github.com/openhab/openhab/wiki/Release-Notes-1.8">Release Notes</a> for all included fixes.
+
+February 01, 2016 - openHAB 2.0 beta2 <a href="https://github.com/openhab/openhab-distro/releases/tag/2.0.0.b2">has been released</a>, fixing many openHAB 1 add-on issues.
+
+February 01, 2016 - The bugfix release 1.8.1 is now available! Read the <a href="https://github.com/openhab/openhab/wiki/Release-Notes-1.8">Release Notes</a> for all included fixes.
+
+January 11, 2016 - openHAB 2.0 beta1 is now available to developers! Read this <a href="http://kaikreuzer.blogspot.de/2016/01/openhab-18-and-20-beta1-release.html">blog post</a> for details.
+January 11, 2016 - openHAB 1.8 has been released! Read the <a href="https://github.com/openhab/openhab/wiki/Release-Notes-1.8">Release Notes</a> to learn more about the new features, enhancements and fixes!
+
 December 08, 2015 - We are partnering with <a href="http://pine64.com/product">PINE64</a> for providing a cheap, but powerful hardware for openHAB to make it even easier to get started.
 
 August 12, 2015 - A powerful new <a href="https://community.openhab.org">platform for community discussions</a> has been launched as a replacement for the mailing lists.
