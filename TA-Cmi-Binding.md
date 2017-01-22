@@ -1,6 +1,6 @@
 ## Introduction
 
-This binding makes use of the CAN over Ethernet feature of the CMI from Technische Alternative. Since I only have the new UVR16x2, it has only been tested with this controller.
+This binding makes use of the CAN over Ethernet feature of the CMI from Technische Alternative. It was originally developed for an UVR16x2, then enhanced and tested with an UVR1611. We would be glad to hear if and how it works with other controller types.
 
 The binding currently supports the following functions:
 * Receive data from analog outputs defined in TAPPS2
@@ -33,7 +33,7 @@ tacmi:refresh=20
 tacmi:cmiAddress=10.10.10.10
 ```
 
-The refresh interval should be very small. The execute method of the binding blocks for new messages coming in for 10 seconds. If nothing has been received then the method is being restarted after the refresh interval has passed. If new data has been received then the first message is processed and the method is being restarted after the interval has passed. Messages are being processed one by one. Therefore, if you receive multiple message from the CMI, which is most likely the case, it always waits for the time configured in the refresh interval, before it processes the next one.
+The refresh interval should be very small. The execute method of the binding blocks for new messages coming in for 10 seconds (1.9.0: 120 seconds). If nothing has been received then the method is being restarted after the refresh interval has passed. If new data has been received then the first message is processed and the method is being restarted after the interval has passed. Messages are being processed one by one. Therefore, if you receive multiple message from the CMI, which is most likely the case, it always waits for the time configured in the refresh interval, before it processes the next one.
 The CMI uses port 5441 for sending and receiving UDP packets.
 
 ## Configure CAN outputs in TAPPS2
@@ -55,11 +55,44 @@ The syntax is as follows:
 * 50 = Target CAN Node as configured in the coe.csv file before
 * a = analog output
 * 10 = Number of the output as configured in TAPPS2
-* Temperature = Measure Type of the analog value, currently only Temperature ans Seconds are supported
+* Temperature = Measure Type of the analog value (see below)
+
+Until 1.8.0, the only supported measure types are Temperature and Seconds.
+Starting with 1.9.0, the binding supports all 21 measure types that exist according to the TA documentation. Unfortunately, the documentation is not consistent here, so most of the types are supported only by generic names. The known measure types are:
+
+* Temperature 
+* Seconds
+* Kilowatt
+* Kilowatthours
+* Megawatthours
+
+For all other types, the generic names are
+
+* Unknown2
+* Unknown3
+* Unknown5 to Unknown9
+* Unknown13 to Unknown21
+
+For the known measure types the binding also deals with the necessary scaling factors. All other measure types would be read "as is", so you might need to scale them accordingly. If you are able to figure out one of them, please update the binding or drop a note to @Wolfgang1966
 
 Example item:
 ```
 Number TOelKessel "Kessel Temperatur [%.1f]" <heating> (Temperature, Heating_Chart) {tacmi="50#a#10#Temperature"}
+```
+
+The total energy collected is split up into two measures (KWh and MWh) due to the limited range of analog values. To convert them, use a rule like this (UVRKwh and UVRMwh contain the received measures):
+
+```
+rule "UVR Total"
+when Item UVRKwh received update
+then
+        var Number kwh = UVRKwh.state as DecimalType
+        var Number mwh = UVRMwh.state as DecimalType
+        if (kwh < 999.9 && kwh > 0 )
+        {
+                UVRTotal.postUpdate(kwh + 1000 * mwh)
+        }
+end
 ```
 
 ### Digital Outputs
