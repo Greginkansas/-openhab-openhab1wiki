@@ -4,7 +4,7 @@
 
 The wiki page here contains (outdated) documentation for the older openHAB 1.x version. Please be aware that a lot of core details changed with openHAB 2.0 and this wiki as well as all tutorials found for openHAB 1.x might be misleading. Check http://docs.openhab.org for more details and consult the [community forum](http://community.openhab.org) for all remaining questions.
 
-This page is still a valid source for information regarding the "[Legacy 1.x Add-ons/Bindings](http://docs.openhab.org/addons/index.html)".
+This page is still a valid source for information regarding the "[1.x Add-ons/Bindings](http://docs.openhab.org/addons/index.html)".
 
 # openHAB 1.x documentation wiki
 
