@@ -182,6 +182,102 @@ For the GUI to show the keypad, the following lines need to be added to the site
     Switch item=alarmPanelLine4 label="line4" mappings=[10="*__(READY)",  0="___0___", 11="____#____"]
     Text item=sAlarmPanelDisplay
 
+## Long Range Radio (LRR) Messages (since Release 1.10.0)
+Starting from Release 1.10.0, Long Range Radio (LRR) Messages are also supported.
+LRR must be enabled in your Alarm Panel. For Vista series (or other Honeywell/Ademco) panels, this can be configured in field *29
+
+Overview of LRR Support : http://www.alarmdecoder.com/wiki/index.php/LRR_Support
+
+Alarm Decoder LRR Protocol : http://www.alarmdecoder.com/wiki/index.php/Protocol#LRR
+
+LRR format from Alarm Decoder is:
+
+```
+!LRR:<data>,<partition>,<event>
+```
+
+Because ```<data>``` could be anything, it cannot be tied to a particular item as opposed to item bindings such as Contacts mentioned above. Instead, the entire message is sent to the binding.
+
+```
+!LRR:<entiremessage>
+```
+
+Example usage for LRR:
+
+**ITEMS:**
+```
+String sAlarmLRR "LLR Msg: [%s]" (gAlarmPanel) {alarmdecoder="LRR:00#text"}
+String sAlarmLRR_lastUser "Last User: [%s]" (gAlarmPanel)
+String sAlarmLRR_lastEvent "Last Event: [%s]" (gAlarmPanel)
+DateTime sAlarmLRR_lastEventDateTime ""  (gAlarmPanel)
+String sAlarmLRR_lastPartition "Last Partition: [%s]" (gAlarmPanel)
+```
+
+**RULE (parsing the message):**
+```
+import java.util.Map;
+import java.util.HashMap;
+import com.google.common.collect.ImmutableMap
+
+val Map<String, String> UserList = ImmutableMap.<String, String>builder()
+    .put("001", "Installer")
+    .put("002", "Master")
+    .put("003", "User1")
+    .put("004", "User2")
+    .build()
+
+rule "LRR Parser"
+when
+	Item sAlarmLRR received update
+then
+	var String msg = sAlarmLRR.state.toString();
+	var String[] parts = msg.split(",");
+	if (parts.length != 3) {
+		logError("rules", "sAlarmLRR rule parsing error.");
+	} else {
+		logInfo("rules", "Parsing sAlarmLRR==> " + msg);
+		var String user = UserList.get(parts.get(0));	
+		var String partition = parts.get(1);
+		var String event = transform("MAP", "alarm_LRR_eventmap.map", parts.get(2).toString);
+		
+		postUpdate(sAlarmLRR_lastUser, user);
+		postUpdate(sAlarmLRR_lastPartition, partition);
+		postUpdate(sAlarmLRR_lastEvent, event);
+		postUpdate(sAlarmLRR_lastEventDateTime, new DateTimeType());
+	}
+end
+```
+
+**Transformation (alarm_LRR_eventmap.map):**
+```
+ALARM_EXIT_ERROR=Zone not closed during arming
+TROUBLE=Tamper or failure
+BYPASS=Zone was bypassed
+ACLOSS=AC power was lost
+LOWBAT=Low battery indication
+TEST_CALL=Testing mode
+OPEN=Alarm disarmed
+ARM_AWAY=Armed AWAY
+ARM_STAY=Armed STAY
+RFLOWBAT=RF Low battery
+CANCEL=Alarm canceled second disarm
+RESTORE=Alarm restored
+TROUBLE_RESTORE=Trouble event cleared
+BYPASS_RESTORE=Bypassed zone cleared
+AC_RESTORE=AC power restored
+LOWBAT_RESTORE=Low battery restored
+RFLOWBAT_RESTORE=RF Low battery cleared
+TEST_RESTORE=Testing Mode cleared
+ALARM_PANIC=There was a panic
+ALARM_FIRE=There was a fire
+ALARM_ENTRY=There was an entry alarm
+ALARM_AUX=Auxiliary alarm triggered
+ALARM_AUDIBLE=Audible alarm
+ALARM_SILENT=Silent alarm
+ALARM_PERIMETER=Perimeter alarm
+NULL=Unknown
+
+```
 
 ## Trouble shooting and debugging
 
