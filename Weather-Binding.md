@@ -38,6 +38,7 @@ Currently supported weather providers:
 #weather:location.<locationId1>.provider=
 #weather:location.<locationId1>.language=
 #weather:location.<locationId1>.updateInterval=
+#weather:location.<locationId1>.units=      (new in 1.10.0)
 
 #weather:location.<locationId2>.name=
 #weather:location.<locationId2>.latitude=   (not required for Yahoo)
@@ -46,6 +47,7 @@ Currently supported weather providers:
 #weather:location.<locationId2>.provider=
 #weather:location.<locationId2>.language=
 #weather:location.<locationId2>.updateInterval=
+#weather:location.<locationId2>.units=      (new in 1.10.0)
 ```
 Before you can use a weather provider, you need to register a free apikey on the website of the provider.  
 **Note:** Hamweather has two apikeys (client_id, secret_id), Yahoo does not need an apikey.
@@ -56,6 +58,7 @@ Now you can specify locations. Each location has a locationId that can be refere
 - **provider:** a reference to a provider name
 - **language:** the language of the weather condition text (see provider homepage for supported languages)
 - **updateInterval:** the interval in minutes the weather is retrieved
+- **units:** whether to use metric (SI) or imperial (US) values; may not be supported by all providers
 - **name:** (optional), the name of the location, useful for displaying in html layouts
 
 **Important:** Each weather provider has a daily request limit for the free weather api. Also the weather does not change quickly, so please choose a moderate updateInterval. The request limit can be found on the weather provider website. 
