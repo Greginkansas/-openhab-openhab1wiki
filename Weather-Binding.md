@@ -148,6 +148,20 @@ String   Temperatur_MinMax   "Min/Max [%s °C]"   {weather="locationId=home, for
 > Temperatur_MinMax state updated to 8/17
 ```
 
+### Units
+
+Some providers (eg. ForecastIO) allow passing a units parameter in method calls in order to specify which units (metric (SI) or imperial (US)) should be used by returned data.  Not all providers support this, however.
+
+Starting with the 1.10.0 release of the binding, the configuration contains a new setting to allow this to be user configurable:
+
+    #weather:location.<locationId1>.units=
+
+The values used for this setting will depend on the provider being used. As an example, for ForecastIO, this allows retrieving the current conditions in either `si` (metric) or `us` (imperial) units:
+
+    Light rain on Sunday through Wednesday, with temperatures bottoming out at 29°C on Monday.
+    Light rain on Sunday through Wednesday, with temperatures bottoming out at 84°F on Monday.
+
+
 ### Unit conversion
 
 The default units are:
