@@ -1,26 +1,42 @@
 ## Introduction
 
-SimpleBinary is openHAB binding that lest you easily connect small devices like Arduino via serial port. Binding uses own binary protocol which is easy to implement. The protocol is described below. Implementation example for Arduino is part of my repository: https://github.com/docbender/openHAB-SimpleBinary. Latest release can be found also there in release section: https://github.com/docbender/openHAB-SimpleBinary/releases.
+This binding for openHAB has ability to connect DIY devices (based on Arduino or whatever else). Binding uses serial communication or network communication over implemented TCP server. 
 
+Used protocol is easy to implement. Implementation examples for [Arduino](https://github.com/docbender/openHAB-SimpleBinary/tree/master/arduino/SimpleBinary/examples/ControlLED_Serial)(serial), [STM8](https://github.com/docbender/openHAB-SimpleBinary/tree/master/STM8/ExampleLED), [ESP8266](https://github.com/docbender/openHAB-SimpleBinary/tree/master/arduino/SimpleBinary/examples/ControlLED_TCP)(TCP) is part of repository. [Arduino IDE library](https://github.com/docbender/openHAB-SimpleBinary/tree/master/arduino) is also available.
+
+Compiled binding is in release branch of my repository: https://github.com/docbender/openHAB-SimpleBinary/releases
+
+Binding is working with openHAB 1.8 as well as with openHAB2 in 1.x compatibility mode.
+
+## Serial port
 It is possible to configure several ports not only one. At one line it is possible to connect several devices (ready for RS422/RS485).
 
-Each port has separated configuration (speed, mode). Communication can operate in 2 data read modes - OnScan and OnChange. 
+Binding sets the serial port speed according to user configuration. Other parameters are set as follows: 8 data bits, 1 stop bit, without parity and without flow control. 
+
+Flow control (especially for RS-485 converters) can be provided through RTS pin. This can be turned on by adding _forceRTS_ parameter in binding port configuration. If it is required inverted function of RTS pin, _forceRTSInv_ parameter should be added in configuration instead _forceRTS_.
+
+Communication can operate in 2 data read modes - OnScan and OnChange. 
+
+## TCP server
+At binding startup TCP server start listening on user defined port. In basic 256 clients are supported. Every connected client gets actual items states after device ID verification.
+
+Known limitations: keep-alive missing, client ID must be explicitly specified -> max.256 clients(protocol limitation).
 
 ## Operating modes
-Communication can operate it 2 modes reading data from connected devices - OnScan and OnChange. In OnScan mode all data are reading cyclically. In OnChange mode only new data are sent to openHAB. Each device is polled whether has new data and then sends new data to openHAB.
+Communication can operate it 2 modes reading data from connected devices - OnScan and OnChange. In OnScan mode all data are reading cyclically. In OnChange mode only new data are sent to openHAB. Each device is polled whether has new data and then sends new data to openHAB. One of his modes must be choose in serial port connection. TCP server connection not use any of these modes as default. Because TCP connection is full-duplex, spontaneous states send is preferred and expected.
 
 ## Supported data types
-Binding support openHAB data types listed in the table. Individual item type are converted to simple data types such as byte, word, double word, float, array, rgb. For same types may be converted type defined, others has it strictly defined. Supported data types
+Binding support openHAB data types listed in the table. Individual item types are converted to simple data types such as byte, word, double word, float, array, rgb. For same types may be converted type defined, others has it strictly defined. Supported data types
  
 <table>
   <tr><td><b>Item type</b></td><td><b>Supported data type</b></td><td><b>Notes</b></td></tr>
-  <tr><td>Number</td><td>byte, word, dword, float</td><td>Numbers are represent in signed form. Their maximum value depends on the used type.<br>Floating point number is represented by float type. Float is stored in 4 bytes formatted according to IEEE 754.</td></tr>
+  <tr><td>Number</td><td>byte, word, dword, float</td><td>Numbers are represented in signed form. Their maximum value depends on the used type.<br>Floating point number is represented by float type. Float is stored in 4 bytes formatted according to IEEE 754.</td></tr>
   <tr><td>Color</td><td>hsb, rgb, rgbw</td><td>All color parts are transferred in one double word. Each color component corresponds to one byte. Assignment of bytes depending on the chosen data type is following:<br><br>HSB - byte 0 - Hue, 1 - Saturation , 2 - Brightness, 3 - Not used<br>RGB - byte 0 - Red, 1 - Green, 2 - Blue, 3 - Not used<br>RGBW - byte 0 - Red, 1 - Green, 2 - Blue, 3 - White</td></tr>
   <tr><td>String</td><td>array</td><td>Array of bytes. Length of array is specified in square brackets behind type definition (e.g. array[32] defines byte array with length 32 bytes)</td></tr>
   <tr><td>Contact</td><td>byte</td><td>0 - off, 1 - on</td></tr>
   <tr><td>Switch</td><td>byte</td><td>0 - off, 1 - on</td></tr>
   <tr><td>Dimmer</td><td>byte</td><td></td></tr>
-  <tr><td>Rollershutter</td><td>word</td><td>Lower byte for position, upper byte for StopMove/UpDown command - 1-Stop,2-Move,4-Up,8-Down</td></tr>
+  <tr><td>Rollershutter</td><td>word</td><td>Lower byte for position, upper byte for StopMove/UpDown command - 1-Move,2-Stop,4-Up,8-Down</td></tr>
 </table>
 
 
@@ -29,15 +45,26 @@ In openhab.cfg is binding configured this way:
 
     ################################### SimpleBinary Binding ######################################
     #
-    # Select port (ex.: COM1:115000;onscan;forceRTSInv or /dev/ttyUSB1:9600). It is possible defined 
+    # Select port (ex.: COM1:115200;onscan;forceRTSInv or /dev/ttyUSB1:9600). It is possible defined 
     # more ports ex. port1, port2,port145,... Behind semicolon you can specify data pool control (optional).    
     # Options for reach slave data are onchange(ask configured devices for new data - default) 
     # or onscan(read all data every scan). Option forceRTS or forceRTSInv are for trigger RTS signal
     # during data send (useful for RS485 converter). 
+    # TCP server is defined by tcpserver key. As value server port must be defined.
     # 
+    # serial port configuration
     simplebinary:port=COM4:9600;onchange
+    # TCP server configuration
+    simplebinary:tcpserver=43243
     #refresh - check for new data interval - default 10000ms 
     simplebinary:refresh=2000
+
+<table>
+  <tr><td><b>Configuration parameter</b></td><td><b>Description</b></td></tr>
+  <tr><td>port</td><td>Serial port definition. Configuration value consist from port name and bitrate (COM1:9600, /dev/ttyS2:57600). Behind semicolon optional parameters can be specified. <br>  Pool control (<b>onchange</b>, <b>onscan</b>) <br>  Enable RTS signal handling (<b>forceRTS</b> or <b>forceRTSInv</b> for signal inversion)<br>Multiple port can be specified. Must be deviate by number behind key (ex.: port, port1, port123,...) </td></tr>
+  <tr><td>tcpserver</td><td>TCP server definition. As value listening port must be specified.</td></tr>
+  <tr><td>refresh</td><td>Execution period [ms] between reading cycles. Default 10000ms.</td></tr>
+</table>
 
 ## Item configuration
 
@@ -49,11 +76,11 @@ Configuration format:
 
 <table>
   <tr><td><b>Configuration parameter</b></td><td><b>Description</b></td></tr>
-  <tr><td>port name</td><td>Port name that is specified in binding configuration in openhab.cfg. For <i>simplebinary:port=</i> port name is <b>port</b>. For <i>simplebinary:port1=</i> port name is <b>port1</b>.</td></tr>
-  <tr><td>device address</td><td>The device address is number that device is indicated on the bus (for RS485)</td></tr>
+  <tr><td>port name</td><td>Port name that is specified in binding configuration in openhab.cfg. For <i>simplebinary:port=</i> port name is <b>port</b>. For <i>simplebinary:port1=</i> port name is <b>port1</b>. For <i>simplebinary:tcpserver=</i> port name is <b>tcpserver</b>.</td></tr>
+  <tr><td>device address</td><td>The device address is number that device is indicated on the bus (for RS485 and ethernet)</td></tr>
   <tr><td>item address</td><td>It is the address under which the data is stored in the target device.</td></tr>
   <tr><td>used data type</td><td>Optional. Allow define data type. See table <i>Supported data types</i></td></tr>
-  <tr><td>direction</td><td>Optional. Can be <b>I</b> - input, <b>O</b> - output or <b>IO</b> - both (default). It is used only for request data from connected devices. So if all device items are outputs only, there would be no requesting for data from device.</td></tr>
+  <tr><td>direction</td><td>Optional. Can be <b>I</b> - input, <b>O</b> - output or <b>IO</b> - both (default). It is used only for request data from connected devices. So if all device items are outputs only, there would be no requesting for data from device. It is also good to define data direction for inter-device communication items.</td></tr>
 </table>
 
 Example of binding configuration:
@@ -63,7 +90,13 @@ Example of binding configuration:
     Number    Item03    "Value[%f]"    { simplebinary="port:1:4:float:O" }
     Number    Item04    "Value[%f]"    { simplebinary="port:1:14:float:I" }
     String    Item05    "Value[%s]"    { simplebinary="port:2:1:array[32]:O" }
-    Color     TestColor01              { simplebinary="port:2:2:rgb:O" }
+    Color     TestColor01              { simplebinary="tcpserver:2:2:rgb:O" }
+    
+### Inter-device communication
+Binding support inter-device communication. To configure this another device/binding can be specified separated by comma in item configuration. In examples values from first device are written into openHAB (input-I direction) and same value is immediately written into second device (output-O direction):
+
+    Number    Temperature    "Value[%f]"    { simplebinary="port:1:1:float:I", simplebinary="tcpserver:1:1:float:O" }
+    Number    TemperatureCPU "Value[%f]"    { exec="<[/bin/cat /sys/class/thermal/thermal_zone0/temp:30000:JS(divideTemp.js)]", simplebinary="tcpserver:1:2:float:O" }    
 
 ### Diagnostic item configuration
 Binding itself offers some diagnostic states. There are available statuses for communication port itself and also statuses for connected devices. These statuses can be provided into openHAB if they are properly configured (by use configuration parameter _info_ behind port name or device address). 
@@ -87,7 +120,7 @@ Device diagnostic info configuration format:
 Device statuses:
 <table>
   <tr><td><b>Status</b></td><td><b>Description</b></td><td><b>Returned values</b></td></tr>
-  <tr><td>state</td><td>Return current device status.</td><td>0 - Unknown<br>1 - Connected and answering<br>2 - Not responding<br>3 - Response error (device still wants repeat query - received message had bad CRC)<br>4 - Data error (device report unknown item address, unknown data, unsupported message or error while saving delivered data)</td></tr>
+  <tr><td>state</td><td>Return current device status.</td><td>0 - Unknown<br>1 - Connected and answering<br>2 - Not responding / disconnected<br>3 - Response error (device still wants repeat query - received message had bad CRC)<br>4 - Data error (device report unknown item address, unknown data, unsupported message or error while saving delivered data)</td></tr>
   <tr><td>previous_state</td><td>Return previous device status</td><td>Same as state</td></tr>
   <tr><td>state_change_time</td><td>Return time when status was changed</td><td>DateTime value</td></tr>
   <tr><td>packet_lost</td><td>Return percentage of packet lost (not delivered, bad CRC, ...) within last 5 minutes</td><td>0-100%</td></tr>
@@ -109,18 +142,12 @@ Example of diagnostic item configuration:
     DateTime  Dev02StateChangeTime "Device 2 changed [%1$tA, %1$td.%1$tm.%1$tY %1$tT]" { simplebinary="port:2:info:state_change_time" }
     Number    Dev02PacketLost      "Device 2 packet lost rate [%s]"  { simplebinary="port:2:info:packet_lost" }
 
-
-## UART setting
-Binding sets the serial port speed according to user configuration. Other parameters are set as follows: 8 data bits, 1 stop bit, without parity and without flow control. 
-
-Flow control (especially for RS-485 converters) can be provided through RTS pin. This can be turned on by adding _forceRTS_ parameter in binding port configuration. If it is required inverted function of RTS pin, _forceRTSInv_ parameter should be added in configuration instead _forceRTS_.
-
 ## Protocol
-Binding implements master/slave communication model. OpenHAB binding is master and connected devices are slaves. Master sends command and waits for response from slave. Answer should arrived in order tens of milliseconds. However bindings has 2000ms timeout to receive answer.
+Binding implements master/slave communication model for serial communication. OpenHAB binding is master and connected devices are slaves. Master sends command and waits for response from slave. Answer should arrived in order tens of milliseconds. However bindings has 2000ms timeout to receive answer. Communication protocol itself depends on requested operating mode of the device (OnScan / OnChange). Of course device can support both operating modes.
 
-Communication protocol itself depends on requested operating mode of the device (OnScan / OnChange). Of course device can support both operating modes.
+Network TCP connection use same protocol as serial communication but in producer/consumer communication model. When client is connected, "Hi" message must be send. Then server can verify and register device ID.
 
-Every packet start with slave address and is followed by message type. Minimum packet length is 4 bytes. Packets are secured with CRC8 which should be enough for short packets.
+Every packet start with device address and is followed by message type. Minimum packet length is 4 bytes. Packets are secured with CRC8 which should be enough for short packets.
 
 ###Master query for new data - OnChange mode
 On this packet master expecting as answer "data" packet or "no data" packet (message type 0xE2).
@@ -281,13 +308,23 @@ Slave send this packet when he could not save received data from master.
   <tr><td>3</td><td>CRC8</td><td></td></tr>
 </table>
 
+###Hi packet
+This packet is for connection model producer/consumer (TCP client/server connection). Client sends this packet after he is connected to server.
+<table>
+  <tr><td><b>Byte</b></td><td><b>Value</b></td><td><b>Description</b></td></tr>
+  <tr><td>0</td><td>0xXX</td><td>Device address</td></tr>
+  <tr><td>1</td><td>0xE6</td><td>Message type</td></tr>
+  <tr><td>2</td><td>0x00</td><td></td></tr>
+  <tr><td>3</td><td>CRC8</td><td></td></tr>
+</table>
+
 ##Implementation
 The extent of implementation depends on the required features and data types (see chapter Protocol).
 
 At first device should check if message is correctly received (CRC check). Secondly device should check if message is for him by compare message address and his own assigned address. **If the address is different device must not respond!** Otherwise device must response in corresponding way (see chapter Protocol).
 
 ##Implementation example
-Implementation example for Arduino can be found in repo folder [arduino/SimpleBinaryExample](https://github.com/docbender/openHAB-SimpleBinary/tree/master/arduino/SimpleBinaryExample).
+Implementation example for Arduino can be found in [Arduino library repo folder](https://github.com/docbender/openHAB-SimpleBinary/tree/master/arduino).
 
 It consists of two main classes. Class _simpleBinary_ which contains protocol implementation itself and class _itemData_ which provides item data storage and handling with item.
 
@@ -295,7 +332,7 @@ It consists of two main classes. Class _simpleBinary_ which contains protocol im
 <b>Class simpleBinary</b> - public methods
 <table>
   <tr><td> </td><td><b>simpleBinary</b>(int uartAddress, int size)<br>Constructor. <br>Parameters: <b>uartAddress</b> - device address at communication line, <b>size</b> - number of exchanged items</td></tr>
-  <tr><td>void</td><td><b>initItem</b>(int idx, int address, itemType type, void (*pFce)(itemData*))<br>Initilize item. <br>Parameters: <b>idx</b> - item index in array, <b>address</b> - item address used during communication, <b>type</b> - item data type, last parameter is pointer to function that is executed on data receive(NULL for no action).</td></tr>
+  <tr><td>void</td><td><b>initItem</b>(int indexAndAddress, itemType type, void (*pFce)(itemData*))<br>Initilize item. <br>Parameters: <b>indexAndAddress</b> - item index in configuration array and also item address used during communication, <b>type</b> - item data type, last parameter is pointer to function that is executed on data receive(NULL for no action).</td></tr>
   <tr><td>void</td><td><b>processSerial</b>()<br>Process data received by UART.</td></tr>
   <tr><td>bool</td><td><b>checkAddress</b>(int address)<br>Check if address exist in items array.<br>Parameters: <b>address</b> - item address used during communication
 </td></tr>
