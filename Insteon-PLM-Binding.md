@@ -131,7 +131,16 @@ The following devices have been tested and should work out of the box:
 <tr>
 <td>2342-222</td><td>Mini Remote (8 Button)</td><td>F00.00.20</td><td>Bernd Pfrommer</td>
 </tr>
+
 <tr>
+<td>2441V</td><td>Insteon Thermostat Adaptor for Venstar</td><td>F00.00.21</td><td>Bernd Pfrommer</td>
+</tr>
+
+<tr>
+<td>2982-222</td><td>Insteon Smoke Bridge</td><td>F00.00.22</td><td>Bernd Pfrommer</td>
+</tr>
+
+
 <td>2450</td><td>IO Link</td><td>0x00001A</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
