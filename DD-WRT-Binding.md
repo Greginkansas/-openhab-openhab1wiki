@@ -2,64 +2,25 @@ _**Note:** This Binding is available in 1.9.0 and later releases._
 
 Documentation of the DD-WRT binding bundle
 
-## Introduction
+# Introduction
 
-For installation of the binding, please see Wiki page [[Bindings]], or you can add [this JAR] (https://openhab.ci.cloudbees.com/job/openHAB1-Addons/lastSuccessfulBuild/artifact/bundles/binding/org.openhab.binding.ddwrt/target/org.openhab.binding.ddwrt-1.10.0-SNAPSHOT.jar) to your `addons` folder.
+The DD-WRT Binding can be used for both openHAB1 and openHAB2 instllations thanks to the Compatibility Layer.  The steps needed to install and configure this buinding are diffrent, so please pay attention and follow the instructions that apply to your version of openHAB.
 
-Adapt your openhab.cfg to your configuration:
-* IP address of DD-WRT to connect to<BR>
-    ddwrt:ip=192.168.1.1<BR>
-    ddwrt:port=23<BR>
-
-* You need to configure the user and password of your DD-WRT<BR>
-    ddwrt:username=root<BR>
-    ddwrt:password=xxxxxxx<BR>
-
-* Interface for the 2.4 GHz wifi<BR>
-    ddwrt:interface_24=ath0<BR>
-* Interface for the 5 GHz wifi<BR>
-    ddwrt:interface_50=ath1<BR>
-* Virtuall-Interface for the guest wifi<BR>
-    ddwrt:interface_guest=ath0.1<BR>
-
-
-## Prepare your DD-WRT device
-* You have to activate the telnet connection in the DD-WRT web interface.
-* The changing of the telnet port in the DD-WRT web interface is not always working. Test it with a telnet command shell.
-
-## Generic Item Binding Configuration
-
-In order to bind an item to the DD-WRT device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder `configurations/items`). 
-
-## Switching WIFI
-
-The following items switch WIFI, GUEST_WIFI, and the NAME of the device as string:
-
-    String DEVICE_NAME {ddwrt="routertype"}
-    Switch WIFI_24     {ddwrt="wlan24"}
-    Switch WIFI_50     {ddwrt="wlan50"}
-    Switch WIFI_GUEST  {ddwrt="wlanguest"}
-
-The guest network is usually a virtual network device. There is a bug in the DD-WRT firmware. The activation of this interface needs a workaround so it takes some seconds more as the native devices.
-
-Tested with Archer V2 and DD-WRT v3.0-r30880 std (11/14/16)
-
-## Introduction - openHAB v2.x
-The current version of this binding is not yet converted to openHAB 2.x formatting but it does work if you follow the instructions below.  For those that want to help make it 2.x compliant, please feel free to edit these instructions.
-
-### Step 1 - Prepare Router
-* Activate the telnet interface via the web interface (Services -> Services Telnet Section -> Enable).
-* Make note of the port number (Services -> Services Secure Shell -> Port).
+## Step 1 - Prepare Router
+* Activate the telnet interface via the dd-wrt web interface (Services -> Services --- Telnet Section -> Enable).
+* Make note of the port number (Services -> Services --- Secure Shell Section -> Port).
 * Connect to the router's command line using Telnet (using your favorite telnet client).
 * Get a list of active interfaces using the `ifconfig` command.
 * Make note of the different interface names. (ath0, br0, eth2, wl0.1 etc).
 
-### Step 2 - Install the dd-WRT binding JAR files
+## Step 2 - Install the dd-wrt binding JAR files
 * Download the current [binding JAR] (https://openhab.ci.cloudbees.com/job/openHAB1-Addons/lastSuccessfulBuild/artifact/bundles/binding/org.openhab.binding.ddwrt/target/org.openhab.binding.ddwrt-1.10.0-SNAPSHOT.jar) file from openhab cloudbees.
-* Save the file to the /sys/addons folder
+* For openHAB1 insalations save the file to ${openhab_home}/addons.
+* For openHAB2 installation save the file to the /sys/addons folder.
 
-### Step 3 - Create your ddwrt.cfg file
-* In your preferred text editor copy and past the following:
+## Step 3 - Create your ddwrt.cfg file
+* For openHAB1 isntallations, copy/paste the following text into your openhab.cfg file and save the changes.
+* For openHAB2 installation, open your preferred text editor and copy/paste the following test into it.
 
 `############################### DD-WRT Binding ####################################`  
 `#`  
@@ -99,10 +60,11 @@ The current version of this binding is not yet converted to openHAB 2.x formatti
 `#`  
 `#####################################################################################`
 
-* Save the file as ddwrt.cfg to the /conf/Services folder.
+* For openHAB2 installation save the file as ddwrt.cfg to the /conf/Services folder.
 
-### Step 4 - Add dd-WRT Items to openHAB
-* In your preferred text editor copy and past the following:
+## Step 4 - Add dd-wrt Items to openHAB
+* Option 1 - Copy/paste the follwoing text into your existing items (*.items) file.
+* Option 2 - Launch your preferred text editor and copy/past the following into a new file.
 
 `// DD-WRT Binding //`  
 `String  DEVICE_NAME  "NAME OF ROUTER"  <signal>  (GROUP1, GROUP2)  {ddwrt="routertype"}`  
@@ -111,23 +73,22 @@ The current version of this binding is not yet converted to openHAB 2.x formatti
 `Switch  INTERFACE3_NAME  "INTERFACE3 NAME" <signal>  (GROUP1, GROUP2)  {ddwrt="wlanguest"}`  
 
 #### Customize the Item Names
-* Replace DEVICE_NAME, INTERFACE1_NAME, INTERFACE2_NAME and INTERFACE3_NAME 
-* Ensure they are unique througout your openHAB instalation
+* Replace DEVICE_NAME, INTERFACE1_NAME, INTERFACE2_NAME and INTERFACE3_NAME.
+* Ensure they are unique througout your openHAB installation.
 
 #### Customize the Item Descriptions
-* Replace "NAME OF ROUTER", "INTERFACE1 NAME", "INTERFACE2 NAME" and "INTERFACE3 NAME"
+* Replace "NAME OF ROUTER", "INTERFACE1 NAME", "INTERFACE2 NAME" and "INTERFACE3 NAME".
 
 #### Customize the Item Icons
-* Replace or Delete the "<signal>" fields
+* Replace or Delete the "<signal>" fields.
 
 #### Customize the Item Group Membership
-* Replace or Delete the "(GROUP1, GROUP2)" fields
+* Replace or Delete the "(GROUP1, GROUP2)" fields.
 
-#### Save the file to openHAB
-* Save the file as ddwrt.cfg in the /conf/Items folder
+#### Save your changes
+* Option 1 - Save your edited Items file.
+* Option 2 - Save the file as ddwrt.itmes in the appropriate Items folder based on your openHAB version.  
 
-### Step 5 - Follow-up
+## Step 5 - Follow-up
 * Please remember to backup your router before activating and using this binding.  Turning off the wrong interface may result in the loss of network access, therfore preventing openHAB from turining them back on.
 * Your routers chipset and configuration will determin the interfaces you can control.  Any of the interfaces listed when the ifcomand was run can be attached to the binding.  
-
-
