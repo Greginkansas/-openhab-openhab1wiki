@@ -9,12 +9,13 @@ The KM200 Binding is communicating with a [Buderus Logamatic web KM200 / KM100 /
 It is possible to recive and send parameters like string or float values.
 
 **Important**: If the communication is not working and you see in the logfile errors like "illegal key size" then you have to change the [Java Cryptography Extension to the Unlimited Strength Jurisdiction](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html). 
-<br>For Linux Systems:
-<br>cd $JAVA_HOME/jre/lib/security<br>
+<br><br>
+For Linux Systems:<br>
+cd $JAVA_HOME/jre/lib/security<br>
 Check if these two files local_policy.jar and US_export_policy.jar already exsist. If so, delete them and extract the ones from the zip file to this folder.<br>
-Also, if this doesn't work, restart openhab service 
-<br>
-<br>Adapt your openhab.cfg to your configuration:
+Also, if this doesn't work, please try restart openhab service. 
+<br><br>
+Adapt your openhab.cfg to your configuration:
 * IP address of KN200 to connect to
 <BR>`
     km200:ip4_address=192.168.XXX.XXX
@@ -25,11 +26,12 @@ Also, if this doesn't work, restart openhab service
 <BR>`
     km200:PrivKey=0000FFFFEEEEDDDDCCCCBBBBAAAA999988887777666655554444333322221111
 `
-<br>
+<br><br>
+Note:<br>
 You could generate this key here f.e. https://ssl-account.com/km200.andreashahn.info/
 <br>Geräte-Passwort = gateway password <br>
 Benutzer-Passwort = user password (the one you set the first time you connected with the EasyControl App to the box)
-
+<br><br>
 2.  --OR-- the binding is creating the key from the md5salt, the device and the private password. Here are all three required:
 <BR>`
     km200:MD5Salt=111122223333444455556666777788889999aaaabbbbccccddddeeeeffff0000
