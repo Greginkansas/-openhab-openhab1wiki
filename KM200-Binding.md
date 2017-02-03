@@ -14,7 +14,7 @@ It is possible to recive and send parameters like string or float values.
 Check if these two files local_policy.jar and US_export_policy.jar already exsist. If so, delete them and extract the ones from the zip file to this folder.<br>
 Also, if this doesn't work, restart openhab service 
 <br>
-Adapt your openhab.cfg to your configuration:
+<br>Adapt your openhab.cfg to your configuration:
 * IP address of KN200 to connect to
 <BR>`
     km200:ip4_address=192.168.XXX.XXX
