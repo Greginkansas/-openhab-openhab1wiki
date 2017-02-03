@@ -11,8 +11,9 @@ It is possible to recive and send parameters like string or float values.
 **Important**: If the communication is not working and you see in the logfile errors like "illegal key size" then you have to change the [Java Cryptography Extension to the Unlimited Strength Jurisdiction](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html). 
 <br>For Linux Systems:
 <br>cd $JAVA_HOME/jre/lib/security<br>
-Check if these two files local_policy.jar and US_export_policy.jar already exsist. If so, delete them and extract the ones from the zip file to this folder.
-
+Check if these two files local_policy.jar and US_export_policy.jar already exsist. If so, delete them and extract the ones from the zip file to this folder.<br>
+Also, if this doesn't work, restart openhab service 
+<br>
 Adapt your openhab.cfg to your configuration:
 * IP address of KN200 to connect to
 <BR>`
@@ -26,7 +27,7 @@ Adapt your openhab.cfg to your configuration:
 `
 <br>
 You could generate this key here f.e. https://ssl-account.com/km200.andreashahn.info/
-Geräte-Passwort = gateway password
+<br>Geräte-Passwort = gateway password <br>
 Benutzer-Passwort = user password (the one you set the first time you connected with the EasyControl App to the box)
 
 2.  --OR-- the binding is creating the key from the md5salt, the device and the private password. Here are all three required:
