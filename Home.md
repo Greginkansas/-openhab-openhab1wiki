@@ -4,13 +4,11 @@
 
 The wiki page here contains (outdated) documentation for the older openHAB 1.x version. Please be aware that a lot of core details changed with openHAB 2.0 and this wiki as well as all tutorials found for openHAB 1.x might be misleading. Check http://docs.openhab.org for more details and consult the [community forum](http://community.openhab.org) for all remaining questions.
 
-This page is still a valid source for information regarding the "[1.x Add-ons/Bindings](http://docs.openhab.org/addons/index.html)".
-
 # openHAB 1.x documentation wiki
 
 If you are completely new to openHAB 1.x and you prefer listening over reading, you can [start with our webinar](http://www.element14.com/community/videos/12763/l/home-automation-at-your-fingertips-with-eclipse-smarthome-and-openhab), which was organized by element14.
 
-If you speak german, you can find an openHAB 1.x manual in german language at (http://openhabdoc.readthedocs.org/de/latest/).
+If you speak German, you can find an openHAB 1.x manual in german language at (http://openhabdoc.readthedocs.org/de/latest/).
 
 ## Overview
 
