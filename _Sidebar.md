@@ -22,7 +22,7 @@
 * [[Sitemaps|Explanation-of-Sitemaps]]
 * [[Performance Tuning|Performance]]
 
-## [[Automation|Automation]]
+## [[Automation|Automation]]*
 * [[Scripts]]
     * [[JSR223 Script Engine|Jsr223-Script-Engine]]
     	* [[Jython Scripting|JSR223-Jython]]
@@ -37,7 +37,6 @@
 * [[GreenT UI|TouchUI]]
 * [[CometVisu|CometVisu]]
 * [[Kodi|https://github.com/enishoca/openhab-kodi]]
-* [[Slack|Slack-integration]]
 * [[Chrome Extension|https://chrome.google.com/webstore/detail/mini-openhab-controller/lphilmckagfijcikbfoibgekcoodaobd]]
 * [[Alfred Workflow|https://github.com/digitalbirdo/alfred-openhab-workflow]]
 
@@ -261,6 +260,7 @@
 * [[Rainforest EAGLE Energy Access Gateway|Rainforest-EAGLE]]
 * [[Roku Integration|Roku Integration]]
 * [[ROS Robot Operating System|ROS-Robot-Operating-System]]
+* [[Slack|Slack-integration]]
 * [[Telldus Tellstick|Telldus-Tellstick]]
 * [[Twitter|Twitter-Action]]
 * [[Zoneminder|Zoneminder]]
