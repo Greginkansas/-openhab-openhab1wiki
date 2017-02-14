@@ -53,7 +53,22 @@ Like:
 ```
 ### How to do a proper ICMP ping on Linux
 
-Java is not capable to open a raw socket to do a ICMP ping (see https://code.google.com/p/openhab/issues/detail?id=134). As a workaround, you can use the exec binding on Linux:
+Java is not capable to open a raw socket to do a ICMP ping (see https://code.google.com/p/openhab/issues/detail?id=134).
+Install setcap, find the java binary you're using, and apply libpcap permissions:
+
+    pi@rpi-openhab ~ $ sudo apt-get install libcap2-bin
+    pi@rpi-openhab ~ $ which java
+    /usr/bin/java
+    pi@rpi-openhab ~ $ ls -l /usr/bin/java
+    lrwxrwxrwx 1 root root 22 jan 31 2015 /usr/bin/java -> /etc/alternatives/java
+    pi@rpi-openhab ~ $ ls -l /etc/alternatives/java
+    lrwxrwxrwx 1 root root 51 jan 31 2015 /etc/alternatives/java -> /usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/jre/bin/java
+    pi@rpi-openhab ~ $ sudo setcap cap_net_raw=ep /usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/jre/bin/java
+
+Finally, restart openhab.
+
+
+As a alternative workaround, you can use the exec binding on Linux:
 
     Switch PingedItem { exec="<[/bin/sh@@-c@@ping -c 1 192.168.0.1 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
 
