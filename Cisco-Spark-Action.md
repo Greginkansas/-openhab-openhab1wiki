@@ -2,7 +2,7 @@ Documentation of the Cisco Spark Action
 
 ## Introduction
 
-[Cisco Spark](https://www.ciscospark.com) is a simple and secure way for collaborating with individuals and groups across the cloud.  This Action plugin allows you to send messages to _rooms_ and individuals when certain events take place in openHAB.
+[Cisco Spark](https://www.ciscospark.com) is a simple and secure way for collaborating with individuals and groups across the cloud.  This Action plugin allows you to send messages to _rooms_ and individuals when certain events take place in openHAB. Messages in the Cisco Spark action plugin support Markdown text.
 
 ## Configuration
 
