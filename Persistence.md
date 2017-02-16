@@ -109,15 +109,15 @@ Here is the full list of available persistence extensions:
 
     <item>.persist - Persists the current state
     <item>.lastUpdate - Query for the last update timestamp of a given item.
-    <item>.historicState(AbstractInstant) - Retrieves the state of the item at a certain point in time
+    <item>.historicState(AbstractInstant) - Retrieves the historic item at a certain point in time
     <item>.changedSince(AbstractInstant) - Checks if the state of the item has (ever) changed since a certain point in time
     <item>.updatedSince(AbstractInstant) - Checks if the state of the item has been updated since a certain point in time
-    <item>.maximumSince(AbstractInstant) - Gets the maximum value of the state of the item since a certain point in time
-    <item>.minimumSince(AbstractInstant) - Gets the minimum value of the state of the item since a certain point in time
+    <item>.maximumSince(AbstractInstant) - Gets the Item with the maximum value (state) since a certain point in time
+    <item>.minimumSince(AbstractInstant) - Gets the Item with the minimum value (state) since a certain point in time
     <item>.averageSince(AbstractInstant) - Gets the average value of the state of a given item since a certain point in time.
     <item>.deltaSince(AbstractInstant) - Gets the difference value of the state of a given item since a certain point in time.
-    <item>.previousState() - Retrieves the previous state of the item (returns HistoricItem).
-    <item>.previousState(true) - Retrieves the previous state of the item, skips equal state values and searches the first state not equal the current state (returns HistoricItem).
+    <item>.previousState() - Retrieves the previous item (returns HistoricItem).
+    <item>.previousState(true) - Retrieves the previous item, skips items with equal state values and searches the first item with state not equal the current state (returns HistoricItem).
     <item>.sumSince(AbstractInstant) - Retrieves the sum of the previous states since a certain point in time. (OpenHab 1.8)
 
 These extensions use the default persistence service that is configured in openhab.cfg. If the default service should not be used, all extensions accept a String as a further parameter for the persistence service to use (e.g. "rrd4j" or "sense").
