@@ -165,7 +165,7 @@ end
 
 ### Cisco Spark Actions
 
-Cisco Spark can be used to message individuals are _rooms_ when certain events take place in openHAB.
+Cisco Spark can be used to message individuals and _rooms_ when certain events take place in openHAB.
 
 Send a message to a specific room
 
