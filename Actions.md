@@ -179,7 +179,7 @@ Send a direct message to a person
 
     sparkPerson('message', 'personEmail')
 
-For configuration details see [Cisco Spark Action]() page.
+For configuration details see [[Cisco Spark Action]] page.
 
 [Table of Contents](#table-of-contents)
 
