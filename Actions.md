@@ -15,6 +15,7 @@ Since openHAB 1.3.0, not all actions are part of the core runtime distribution a
   * [Other](#other-actions)
 * [Add-on Actions](#add-on-actions)
   * [Astro](#astro-actions)
+  * [Cisco Spark](#cisco-spark-actions)
   * [[DSC Alarm|DSC-Alarm-Action]]
   * [Ecobee](#ecobee-actions)
   * [[Harmony Hub|Logitech-Harmony-Hub-Binding#actions]]
@@ -159,6 +160,26 @@ then
 	logInfo("sunSetEnd: ", new DateTimeType(getAstroSunsetEnd(current, lat, lon)).toString)
 end
 ```
+
+[Table of Contents](#table-of-contents)
+
+### Cisco Spark Actions
+
+Cisco Spark can be used to message individuals are _rooms_ when certain events take place in openHAB.
+
+Send a message to a specific room
+
+    sparkMessage('message', 'roomId') 
+
+Send a message to the default room (from config)
+
+    sparkMessage('message')
+
+Send a direct message to a person
+
+    sparkPerson('message', 'personEmail')
+
+For configuration details see [Cisco Spark Action]() page.
 
 [Table of Contents](#table-of-contents)
 
