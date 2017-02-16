@@ -177,7 +177,7 @@ If the key contains spaces, you have to escape them with a \
 
 The icon name is used to reference a png image file from folder ```${openhab_home}/webapps/images/```. These icons are used in the openHAB frontends. OpenHAB provides you a set of basic icons. To use on of the images just write the file name without it's ending (".png") between a '<' and '>'.
 
-Feel free to put your own icons into that directory. The images must be in png format, having a size of 32x32 pixel and a name with only small letters and the underscore. There was a thread in the community board where some icon source was provide:
+Feel free to put your own icons into that directory. The images must be in png format, having a size of 32x32 pixel and a name with only small letters and the underscore. A hyphen "-" in a name has a special meaning, see Dynamic Icons.  There was a thread in the community board where some icon source was provide:
 
 * [[http://www.intranet-of-things.com/software/downloads]]
 * [[https://github.com/OpenAutomationProject/knx-uf-iconset]]
@@ -191,11 +191,18 @@ Example:
     present-off.png
     present-on.png
 
-If you want to use the dynamically items just use the image name without the added states.
+If you want to use these dynamically items just use the image name without the added states.
 
     Switch  MeAtHome  "I'm at home!"  <present>  { somebinding:someconfig }
 
-A file among files having such additions that has no addition represents an uninitialized state.
+A file among files having such additions that has no addition ( e.g. present.png) represents an uninitialized state.
+
+If you have a number item like
+    Number dice "facet [%d]" <dice>
+You could have icons like
+    dice.png
+    dice-1.png
+    dice-2.png
 
 ## Groups
 Items can be linked to specific groups by referencing these in a comma separated list embraced by round brackets. An item defined like
