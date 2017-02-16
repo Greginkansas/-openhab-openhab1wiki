@@ -139,7 +139,14 @@ As far as i know are these
     caldavio:openhab_tasks:password=password
     caldavio:openhab_tasks:reloadInterval=10
     caldavio:openhab_tasks:preloadTime=20000
-## (zarafa?)
+## zarafa
+    caldavio:<calendar-id>:url=https://server_ip:8443/caldav/FLDPRFX_<zarafa-user>/<zarafa-folder-id>
+    caldavio:<calendar-id>:username=<zarafa-user>  
+    caldavio:<calendar-id>:password=<zarafa-password>
+    caldavio:<calendar-id>:reloadInterval=10  
+    caldavio:<calendar-id>:preloadTime=20000
+
+How to find the <zarafa-folder-id>: I found it by adding the calendar to Gnome Evolution and then copying the URL shown in the properties of the calendar in Evolution. Don't know, if there is an easier way...
 
 ## Locate URL
 This site may help to find the Calendar URL (i.e. Google Shared Calendars):
