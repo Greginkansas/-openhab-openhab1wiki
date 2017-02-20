@@ -24,10 +24,10 @@ The former file `rrd4j.persist` should include timers and strategies for items a
 
 Setup of the latter file depends on openHAB version - see below.
 
-To sum up: `rrd4j.persist` defines how often data should be obtained and `openhab.cfg` defines how they should be stored in RRD. 
+To sum up: `rrd4j.persist` defines how often data should be obtained and `openhab.cfg` defines how they should be stored in RRD.
 
 ### From 1.7
-As of Openhab 1.7 it is possible to configure the later described values. Example:
+As of Openhab 1.7 it is **possible** to configure the later described values. Example:
 
     # rrd4j:<dsname>.def=<dstype>,<heartbeat>,[<min>|U],[<max>|U],<step>
     # rrd4j:<dsname>.archives=<consolidationfunction>,<xff>,<steps>,<rows>
@@ -35,6 +35,7 @@ As of Openhab 1.7 it is possible to configure the later described values. Exampl
     rrd4j:ctr5min.def=COUNTER,900,0,U,300
     rrd4j:ctr5min.archives=AVERAGE,0.5,1,365:AVERAGE,0.5,7,300
     rrd4j:ctr5min.items=Item1,Item2
+However, to achieve a basic setup one has to equip the file `rrd4j.persist` (as described here: [Persistence](https://github.com/openhab/openhab1-addons/wiki/Persistence#configuration))  and leave the `openhab.cfg` as is.
 
 ### Till 1.6
 There are many possibilities in rrd4j to define how the data compression should work in detail. openHAB comes at the moment (till 1.6) with a fixed setting which looks like this, see the [rrd4j tutorial for details](https://github.com/rrd4j/rrd4j/wiki/Tutorial):
