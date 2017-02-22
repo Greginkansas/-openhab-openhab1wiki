@@ -198,11 +198,23 @@ If you want to use these dynamically items just use the image name without the a
 A file among files having such additions that has no addition ( e.g. present.png) represents an uninitialized state.
 
 If you have a number item like
+```java
     Number dice "facet [%d]" <dice>
+```
 You could have icons like
+```java 
     dice.png
     dice-1.png
-    dice-2.png
+    dice-2.png   etc.
+```
+
+The icon provider will use the equal or next lowest number icon that it finds. For a dimmer for example (0 - 100%), you might use something like
+```java 
+icon    a question mark for a null state
+icon-0 for an off symbol
+icon-1 for a dimmed symbol
+icon-75 for an on symbol
+```
 
 ## Groups
 Items can be linked to specific groups by referencing these in a comma separated list embraced by round brackets. An item defined like
