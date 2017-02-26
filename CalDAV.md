@@ -33,9 +33,9 @@ For more details see the [discussion here](https://github.com/openhab/openhab/is
 Binding file: org.openhab.binding.caldav-command-version.jar
 
 Used to execute commands through an event, triggered at the start or the end of an event.
-The event summary is free selectable. The event description must fullfill special syntax.
+The event summary is free selectable. The event description must fulfill special syntax.
 Syntax is `<BEGIN|END>:<Item-Name>:<Command>`.
-Each item trigger must be a single line without linebreaks. Every line which starts with "BEGIN" will be executed at the begin of the event. Each line with an "END" will be executed at the end of the event. You can define multiple lines, which must not be ordered. For example:
+Each item trigger must be a single line without line breaks. Every line which starts with "BEGIN" will be executed at the begin of the event. Each line with an "END" will be executed at the end of the event. You can define multiple lines, which must not be ordered. For example:
 <pre>BEGIN:Heater_Livingroom:22
 BEGIN:Heater_Corridor:22
 END:Heater_Livingroom:16
@@ -65,7 +65,7 @@ This is really nice to use in combination with a rule such as used for [voice co
 Then you can use the very same logic of your voice commands also in your calendar events (which should also improve the [WAF](https://en.wikipedia.org/wiki/Wife_acceptance_factor) ;-)).
 Depending on your rule implementation, it is possible to use event entries like these:
 
-* "Swtich on light in kitchen"
+* "Switch on light in kitchen"
 * "Switch off radio"
 * "Close roller shutter on first floor" etc.
 
@@ -75,11 +75,11 @@ Depending on your rule implementation, it is possible to use event entries like 
 Binding file: org.openhab.binding.caldav-personal-version.jar
 
 * Used to detect presence through calendar events.
-* Used to show upcoming/active events in openhab.
+* Used to show upcoming/active events in openHAB.
 
 ### openhab.cfg
-* `caldavPersonal:usedCalendars=<calendar-id>` (multiple calendars can be seperated by commas)
-* `caldavPersonal:homeIdentifiers=<values seperated by commans>` (if one of these identifiers can be found inside the place of the event, this event will not be used for presence)
+* `caldavPersonal:usedCalendars=<calendar-id>` (multiple calendars can be separated by commas)
+* `caldavPersonal:homeIdentifiers=<values separated by commas>` (if one of these identifiers can be found inside the place of the event, this event will not be used for presence)
 
 ### items
 * `caldavPersonal="calendar:'<calendar-ids, comma separated>' type:'<UPCOMING|ACTIVE|EVENT>' eventNr:'<event-nr, first one is 1>' value:'<NAME|DESCRIPTION|PLACE|START|END|TIME>"'`
@@ -88,8 +88,8 @@ Binding file: org.openhab.binding.caldav-personal-version.jar
 ## filtering
 You've got the option to show just specific events.
 * `filter-name:'<regular expression>'`
-* `filter-category:'<categories, comma separated>'`  (your caldav event must contain at least ALL the categories you specify here)
-* `filter-category-any:'<categories, comma separated>'` (your caldav event must at least contain one of the categories you specify here)
+* `filter-category:'<categories, comma separated>'`  (your CalDAV event must contain at least ALL the categories you specify here)
+* `filter-category-any:'<categories, comma separated>'` (your CalDAV event must at least contain one of the categories you specify here)
 
 ### Example for filtering
 * just showing upcoming free days
@@ -98,7 +98,7 @@ You've got the option to show just specific events.
 `caldavPersonal="calendar:'common' type:'EVENT' eventNr:'1' value:'START' filter-category:'Müllabholung'"`
 * item config showing the next event in which we are sending a heat event to the bathroom :  
 `DateTime bathroom_NextEventDate "bathriil next evt. [%1$tT, %1$td.%1$tm.%1$tY]" <calendar> { caldavPersonal="calendar:chauffagecmd type:UPCOMING eventNr:1 value:'START' filter-category-any:'bathroom,wholefloor'"}`  
-==> if you have one event at 8pm with 1 category "bathroom" (setting heater on), and another event at 9pm with category "wholefloor" (setting heaterS on), then this item will match both events. 
+==> if you have one event at 8pm with 1 category "bathroom" (setting heater on), and another event at 9pm with category "wholefloor" (setting heaters on), then this item will match both events. 
 
 ## Description of type
 * UPCOMING: the next upcoming events, not the active ones
@@ -119,7 +119,7 @@ You've got the option to show just specific events.
 * `<logger name="org.openhab.binding.caldav_command" level="TRACE"/>`
 * `<logger name="org.openhab.io.caldav" level="TRACE"/>`
 
-# Tested calDAV Servers with examples
+# Tested CalDAV Servers with examples
 As far as i know are these
 ## ownCloud (my reference implementation)
     caldavio:openhab_tasks:url=http://server.de/owncloud/remote.php/caldav/calendars/openHAB/tasks
@@ -176,8 +176,8 @@ To do this you have to
 
 # Example configuration
 
-There are three calendars defined. One of them is used just for executing commands in openhab (Command-kalender). The others are used to show the upcoming events (Müllkalender, Dienstlicher/privater Kalender).
-In every case, the binding org.openhab.io.caldav-<version>.jar is needed. For executing commands the additional binding org.openhab.binding.caldav-command-<version>.jar is needed. For upcoming events or presence simulation the binding org.openhab.binding.caldav-personal-<version>.jar needs to be included.
+There are three calendars defined. One of them is used just for executing commands in openHAB (Command-kalender). The others are used to show the upcoming events (Müllkalender, Dienstlicher/privater Kalender).
+In every case, the binding org.openhab.io.caldav-&lt;version>.jar is needed. For executing commands the additional binding org.openhab.binding.caldav-command-&lt;version>.jar is needed. For upcoming events or presence simulation the binding org.openhab.binding.caldav-personal-&lt;version>.jar needs to be included.
 
 openhab.cfg
 
