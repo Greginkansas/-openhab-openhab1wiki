@@ -315,7 +315,7 @@ OPEN=TAMPER
 
 #Switches
 
-###Fibaro Wall Plug (FGWPF-101 & FGWPF-102 & FGWPE)  
+###Fibaro Wall Plug (FGWPF-101 & FGWPF-102 & FGWPE & FGWPE102)  
 
     Switch Wall_Plug           "Wall Plug"                             { zwave="3:command=switch_binary"} 
     Number Wall_Plug_Power     "Wall Plug - current energy [%.1f W]"   { zwave="3:command=sensor_multilevel"}
