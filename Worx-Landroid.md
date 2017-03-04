@@ -8,7 +8,7 @@ Some of the current models (M1000i a.k.a. WG796E.1 and M1500i a.k.a. WG797E) int
 **NOTE**: there is no official API. This solution is based on reverse engineering the app's access to a WG796E.1 running software versions 1.98 ("Hypericum 3.1"). Latest version it was verified to work with currently is 2.21.
 But keep in mind it may change without notice in future mower OS versions.
 
-Here's a [overview of the 2017 models](http://www.roboter-forum.com/showthread.php?18592-Spezifikationen-der-WORX-Landroid-2017-Modelle). Seems they now all have WiFi, but that's preliminary information.
+Here's an [overview of the 2017 models](http://www.roboter-forum.com/showthread.php?18592-Spezifikationen-der-WORX-Landroid-2017-Modelle). Seems they now all have WiFi, but that's preliminary information.
 
 
 ## MQTT based control
