@@ -470,6 +470,27 @@ For the thermostat to display in the GUI, add this to the sitemap file:
     Setpoint item=thermostatHumidityLow   minValue=0 maxValue=100 step=1
     Setpoint item=thermostatStage1  minValue=1 maxValue=60 step=1
 
+### Smoke Bridge
+
+The smoke bridge device does not accept any commands, but will send notifications in the form of broadcast group messages. Depending on the notification, the message is send to different broadcast groups. For the binding to receive these messages, the modem must be configured as a responder to the smoke bridge, as [described here, using the Insteon Terminal](https://github.com/pfrommerd/insteon-terminal#smoke-bridge-2982-222).
+
+The following entry in your items file should then generate a number item to be updated whenever the smoke bridge issues a notification (replace xx.xx.xx with your device's insteon address):
+
+    Number smokeBridgeNotification "smoke bridge" {insteonplm="xx.xx.xx:F00.00.22#notification"}
+
+Note: you definitely don't want to rely on openHAB as a means to alert you in case of a fire. This should be the backup to the backup solution, at most, but never a replacement for a professional fire alarm system. Having that said, there is a way to trigger test notifications on the smoke bridge device so you can see if your setup actually works.
+
+Here is a list of notifications and the corresponding numbers that will be posted on the openHAB bus:
+
+* smoke: 1
+* CO: 2
+* test: 3
+* unknown: 4
+* clear: 5
+* low battery: 6
+* error: 7
+* heartbeat: 10
+
 ### Power Meters
 
 The iMeter Solo reports both wattage and kilowatt hours, and is updated during the normal polling process of the devices. You can also manually update the current values from the device and reset the device. See the example below:
