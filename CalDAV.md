@@ -1,8 +1,7 @@
 This binding can be used to connect through the CalDAV Interface to calendars.
 First of all you need to add the org.openhab.io.caldav-version.jar to the addons folder.
 
-**Newest**
-Newest Version can be downloaded from the build-agent
+Newest version can be downloaded from the build-agent.
 
 
 openhab.cfg
@@ -11,6 +10,7 @@ openhab.cfg
 * `caldavio:<calendar-id>:password=`
 * `caldavio:<calendar-id>:reloadInterval=<minutes>`
 * `caldavio:<calendar-id>:preloadTime=<minutes>`
+* `caldavio:<calendar-id>:lastModifiedFileTimeStampValid=<true|false>`
 * `caldavio:<calendar-id>:historicLoadTime=<minutes>`
 * `caldavio:<calendar-id>:disableCertificateVerification=<true|false>`
 * `caldavio:<calendar-id>:charset=<well formed charset name>`
@@ -42,7 +42,7 @@ END:Heater_Livingroom:16
 END:Heater_Corridor:16
 END:Notification_Dummy:Heizung heruntergefahren</pre>
 
-Additionaly you can define an item to listen to upcoming changes of an item (which will be triggered through an event). Two types are available the command which will be set and the trigger time.
+Additionally you can define an item to listen to upcoming changes of an item (which will be triggered through an event). Two types are available the command which will be set and the trigger time.
 Syntax is `caldavCommand="itemName:<Item-Name to listen to> type:<VALUE|DATE>"`
 Furthermore a switch can be defined to disable the automatic execution (through calendar) of an item. 
 Syntax is `caldavCommand="itemName:<Item-Name to listen to> type:<DISABLE>"`
@@ -68,6 +68,10 @@ Depending on your rule implementation, it is possible to use event entries like 
 * "Switch on light in kitchen"
 * "Switch off radio"
 * "Close roller shutter on first floor" etc.
+
+## Troubleshooting
+
+If multiple events are firing within the duration of a calendar entry, it may be necessary to set the `lastModifiedFileTimeStampValid` setting to false. (see [#4694](https://github.com/openhab/openhab1-addons/issues/4694))
 
 ***
 
