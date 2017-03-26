@@ -321,10 +321,10 @@ This will give you a contact and the battery level. Note that battery level is o
 Water leak sensors send their "wet" command on group "02" and their "dry" command on group "01".  Link such that the modem is a responder to the motion sensor for both groups "01", and "02". When I tried linking with just pushing button on the sensor then the button on the PLM, I only got a link in for the "02" group.  I had to use the intsteon-terminal application discussed above to create the link to group "01". (I used the command "modem.addResponder("3F.A0.8F", 01)" to do this, where "modem" is my PLM device and "3F.A0.8F" is my leak sensor's address)
 
 After the proper linking is complete, you should have the following in your PLM's DB:
-'
-0000 leakSensor                     3F.A0.8F  RESP  10100010 group: 01 data: 00 00 01
-0000 leakSensor                     3F.A0.8F  RESP  10100010 group: 02 data: 00 00 00
-'
+
+    0000 leakSensor                     3F.A0.8F  RESP  10100010 group: 01 data: 00 00 01
+    0000 leakSensor                     3F.A0.8F  RESP  10100010 group: 02 data: 00 00 00
+
 
 After linking is complete, create a leak.map file in the transforms directory like the following:
 
