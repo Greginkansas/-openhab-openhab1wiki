@@ -322,8 +322,8 @@ Water leak sensors send their "wet" command on group "02" and their "dry" comman
 
 After the proper linking is complete, you should have the following in your PLM's DB:
 
-    0000 leakSensor                     3F.A0.8F  RESP  10100010 group: 01 data: 00 00 01
-    0000 leakSensor                     3F.A0.8F  RESP  10100010 group: 02 data: 00 00 00
+    0000 leakSensor  3F.A0.8F  RESP  10100010 group: 01 data: 00 00 01
+    0000 leakSensor  3F.A0.8F  RESP  10100010 group: 02 data: 00 00 00
 
 
 After linking is complete, create a leak.map file in the transforms directory like the following:
