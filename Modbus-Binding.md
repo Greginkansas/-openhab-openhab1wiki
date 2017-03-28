@@ -101,31 +101,24 @@ See also below for additional connection parameters introduced in 1.9.0.
   <tr><td>id</td><td>optional</td>
        <td>slave id, default 1. Also known as <i>Address</i>, <i>Station address</i>, or <i>Unit identifier</i>, see <a href="https://en.wikipedia.org/wiki/Modbus">wikipedia</a> and <a href="http://www.simplymodbus.ca/index.html">simplymodbus</a> articles for more information</td>
       </tr>
-
        <tr><td>type</td><td>mandatory</td>
               <td>object type. Dictates the function codes used for read & write. See below for more information. Can be either <i>coil</i>, <i>discrete</i>, <i>holding</i>, or <i>input</i>.</td>
             </tr>
-       
-       <tr><td>start</td><td>optional</td>
+              <tr><td>start</td><td>optional</td>
               <td>address of first coil/discrete input/register to read. Default is 0. The address is directly passed to the corresponding Modbus request, and thus is zero-based. See below for more information on the addressing. </td>
             </tr>
-
        <tr><td>length</td><td>mandatory</td><td>number of <i>data items</i> to read. <i>Data items</i> here refers to registers, coils or discrete inputs depending on the slave type. For example, if the goal is to read one item with <code>valuetype=int32</code>, one needs to read two registers (2 * 16bit = 32bit), thus <code>length = 2</code>. If three coils are of interest, one should specify <code>length = 3</code></td>
               </tr>
             </tr>
-
        <tr><td>valuetype</td><td>optional</td><td>tells how interpret the register data. For details, consult <a href="#register-interpretation-valuetype-on-read--write">Register interpretation (valuetype) on read & write.</td>
               </tr>
             </tr>
-
        <tr><td>updateunchangeditems</td><td>optional</td><td><b>Since 1.9.0</b>. <i>true</i> or <i>false</i>. Controls whether the binding sends an update event on every successful poll (true) or only if the state of the item actually changes (false). Default is <i>false</i>. When polling many items with high poll frequency, setting this parameter to <i>true</i> may cause significant CPU usage.</td>
               </tr>
-
        <tr><td>postundefinedonreaderror</td><td>optional</td><td><b>Since 1.9.0</b>. <i>true</i> or <i>false</i>. Controls whether the binding sends <code>Undefined</code> to the items associated with this slave when read error occurs. Here read error refers to connection issues (cannot establish connection), IO error (e.g. uninterrupted connection, unexpected EOF), <a href="http://www.simplymodbus.ca/exceptions.htm">modbus protocol exceptions</a> (e.g. "Illegal data address"), or response transaction id not matching the request. Note that when <code>updateunchangeditems</code> is enabled, the <code>Undefined</code> is sent only once on errors, unless the slave recovers from the error.</td>
               </tr>
-
 </table>
-</td>
+
 
 ### Advanced connection parameters (**since 1.9.0**)
 
