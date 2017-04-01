@@ -4,19 +4,19 @@
 
 ### [[Setup intro|Quick-Setup-an-openHAB-Server]]
 
-###[[Linux and OS X]]
+### [[Linux and OS X]]
 * [[Ubuntu on x64]]
 * [[ARM based systems|Hardware-FAQ]]
 * [[Multiple USB ports and symlinks|symlinks]]
 * [[Synology and QNAP servers|Synology and QNAP]]
 
-###[[Windows|Windows]]
+### [[Windows|Windows]]
 
-###[[FreeBSD|FreeBSD]]
+### [[FreeBSD|FreeBSD]]
 
 ***
 
-##[[Configuration|Configuring-the-openHAB-runtime]]
+## [[Configuration|Configuring-the-openHAB-runtime]]
 
 * [[Items|Explanation-of-items]]
 * [[Sitemaps|Explanation-of-Sitemaps]]
