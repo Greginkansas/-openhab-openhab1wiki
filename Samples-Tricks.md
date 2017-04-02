@@ -10,7 +10,7 @@ Miscellaneous Tips & Tricks
 * [How start openHAB automatically on Linux using systemd](Samples-Tricks#how-start-openhab-automatically-on-linux-using-systemd)
 * [How to configure openHAB to start automatically on MacOSX](Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-macosx)
 * [Use cheap bluetooth dongles on remote PCs to detect your phone/watch](Samples-Tricks#use-cheap-bluetooth-dongles-on-remote-pcs-to-detect-your-phonewatch)
-* [Check presence by detecting WiFi phones/tablets] (Samples-Tricks#check-presence-by-detecting-wifi-phonestablets)
+* [Check presence by detecting WiFi phones/tablets](Samples-Tricks#check-presence-by-detecting-wifi-phonestablets)
 * [Get connection status of all network devices from Fritz!Box, eg for presence detection](Samples-Tricks#get-connection-status-of-all-network-devices-from-fritzbox-eg-for-presence-detection)
 * [Use Fritzbox SIP Feature to make a call in case of an event](Samples-Tricks#use-fritzbox-sip-feature-to-make-a-call-in-case-of-an-event)
 * [How to configure openHAB to connect to device symlinks (on Linux)](Samples-Tricks#how-to-configure-openhab-to-connect-to-device-symlinks-on-linux)
