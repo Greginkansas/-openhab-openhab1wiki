@@ -399,7 +399,7 @@ When e.g. the "A" button is pressed (that's button #3 internally) a broadcast me
 While capturing the messages that the buttons emit is pretty straight forward, controlling the buttons is  another matter. They cannot be simply toggled with a direct command to the device, but instead a broadcast message must be sent on a group number that the button has been programmed to listen to. This means you need to pick a set of unused groups that is globally unique (if you have multiple keypads, each one of them has to use different groups), one group for each button. The example configuration below uses groups 0xf3, 0xf4, 0xf5, and 0xf6. Then link the buttons such that they respond to those groups, and link the modem as a controller for them (see [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) documentation). In your items file you specify these groups with the "group=" parameters such that the binding knows what group number to put on the outgoing message.
 
 
-###Keypad switches
+### Keypad switches
 
 **Items**
 
@@ -430,7 +430,7 @@ The following sitemap will bring the items to life in the GUI:
 	      Switch item=keypadSwitchD label="button D"
 	}
 
-###Keypad dimmers
+### Keypad dimmers
 
 The keypad dimmers are like keypad switches, except that the main load is dimmable.
 
