@@ -1,6 +1,8 @@
-### Note: this documentation is for OpenHAB v1.8. Documentation for OpenHAB 1.7 [can be found here](https://github.com/berndpfrommer/openhab/blob/insteonplm/bundles/binding/org.openhab.binding.insteonplm/src/main/docs/insteoplm_v1.7.md). Please install the InsteonPLM v1.8 jar file from cloudbees before asking questions on the forum, as the 1.7 version is way outdated.
+### Note: this documentation is for OpenHAB v1.8.x Documentation for OpenHAB 1.7 [can be found here](https://github.com/berndpfrommer/openhab/blob/insteonplm/bundles/binding/org.openhab.binding.insteonplm/src/main/docs/insteoplm_v1.7.md). Please install the InsteonPLM latest version of the jar file the forum.
 
-## Introduction
+### Also note that OpenHAB v1.8.x is likely the last version to be released in the 1.x series as version 2 is now released, however there was a later version of the addons created during the OpenHAB V2 beta development cycle.  It was called v1.9.0 and works with OpenHAB V1.8.x.
+
+# Introduction
 
 Insteon is a home area networking technology developed primarily for
 connecting light switches and loads. Insteon devices send messages
@@ -20,7 +22,7 @@ the binding. The binding also supports sending and receiving of legacy X10 messa
 
 OpenHAB is not a configuration tool! To configure and set up your devices, link the devices manually via the set buttons, or use the free [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) software. The free HouseLinc software from Insteon can also be used for configuration, but it wipes the modem link database clean on its initial use, requiring to re-link the modem to all devices.
 
-## Insteon devices
+# Insteon devices
 
 Every Insteon device *type* is uniquely identified by its Insteon
 *product key*, a six digit hex number. For some of the older device
@@ -175,12 +177,12 @@ The following devices have been tested and should work out of the box:
 </tr>
 </table>
 
-## Insteon Groups and Scenes
+# Insteon Groups and Scenes
 How do Insteon devices tell other devices on the network that their state has changed? They send out a broadcast message, labeled with a specific *group* number. All devices (called *responders*) that are configured to listen to this message will then go into a pre-defined state. For instance when light switch A is switched to "ON", it will send out a message to group #1, and all responders will react to it, e.g they may go into the "ON" position as well. Since more than one device can participate, the sending out of the broadcast message and the subsequent state change of the responders is referred to as "triggering a scene". At the device and PLM level, the concept of a "scene" does not exist, so you will find it notably absent in the binding code and this document. A scene is strictly a higher level concept, introduced to shield the user from the details of how the communication is implemented.
 
 Many Insteon devices send out messages on different group numbers, depending on what happens to them. A leak sensor may send out a message on group #1 when dry, and on group #2 when wet. The default group used for e.g. linking two light switches is usually group #1.
 
-## Insteon binding process
+# Insteon binding process
 
 Before Insteon devices communicate with one another, they must be
 linked. During the linking process, one of the devices
@@ -205,7 +207,7 @@ beeps, and the light of the remote device (switch) goes off. Done.
 
 For some of the more sophisticated devices the complete linking process can no longer be done with the set buttons, but requires software like e.g. [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal).
 
-## Installation and Configuration
+# Installation and Configuration
 
 The binding does not support linking new devices on the fly, i.e. all
 devices must be linked with the modem *before* starting the InsteonPLM
@@ -223,7 +225,7 @@ binding.
 4. Optional: configure for debug logging into a separate file (see
 trouble shooting section)
 
-## Item Binding Configuration
+# Item Binding Configuration
 
 Since Insteon devices can have multiple features (for instance a
 switchable relay and a contact sensor) under a single Insteon address,
@@ -238,14 +240,14 @@ For instance, the following lines would create two Number items referring to the
     Number  thermostatHeatPoint "heat point [%.1f °F]" { insteonplm="32.f4.22:F00.00.18#heatsetpoint" }
 
 
-### Simple light switches
+## Simple light switches
 
 The following example shows how to configure a simple light switch (2477S) in the .items file:
 
     Switch officeLight "office light" {insteonplm="xx.xx.xx:F00.00.02#switch"}
 
 
-### Simple dimmers
+## Simple dimmers
 
 Here is how to configure a simple dimmer (2477D) in the .items file:
 
@@ -258,7 +260,7 @@ Dimmers can be configured with a maximum level when turning a device on or setti
 
 Setting a maximum level does not affect manual turning on or dimming a switch.
 
-### On/Off Outlets
+## On/Off Outlets
 Here's how to configure the top and bottom outlet of the in-wall 2 outlet controller:
 
     Switch fOutTop "Front Outlet Top" <socket> {insteonplm="xx.xx.xx:0x000039#topoutlet"}
@@ -266,7 +268,7 @@ Here's how to configure the top and bottom outlet of the in-wall 2 outlet contro
 
 This will give you individual control of each outlet.
     
-### Mini remotes
+## Mini remotes
 
 Link the mini remote to be a controller of the modem by using the set button. Link all buttons, one after the other. The 4-button mini remote sends out messages on groups 0x01 - 0x04, each corresponding to one button. The modem's link database (see [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal)) should look like this:
 
@@ -291,7 +293,7 @@ This goes into the sitemap file:
 
 The switches in the GUI just display the mini remote's most recent button presses. They are not operable because the PLM cannot trigger the mini remotes scenes.
 
-### Motion sensors
+## Motion sensors
 
 Link such that the modem is a responder to the motion sensor. Create a contact.map file in the transforms directory as described elsewhere in this document. Then create entries in the .items file like this:
 
@@ -301,7 +303,7 @@ Link such that the modem is a responder to the motion sensor. Create a contact.m
 
 This will give you a contact, the battery level, and the light level. Note that battery and light level are only updated when either there is motion, or the sensor battery runs low.
 
-### Hidden door sensors
+## Hidden door sensors
 
 Similar in operation to the motion sensor above.  Link such that the modem is a responder to the motion sensor. Create a contact.map file in the transforms directory like the following:
 
@@ -316,14 +318,14 @@ Then create entries in the .items file like this:
 
 This will give you a contact and the battery level. Note that battery level is only updated when either there is motion, or the sensor battery runs low.
 
-### Water Leak Sensors
+## Water Leak Sensors
 
-Water leak sensors send their "wet" command on group "02" and their "dry" command on group "01".  Link such that the modem is a responder to the motion sensor for both groups "01", and "02". When I tried linking with just pushing button on the sensor then the button on the PLM, I only got a link in for the "02" group.  I had to use the intsteon-terminal application discussed above to create the link to group "01". (I used the command "modem.addResponder("3F.A0.8F", 01)" to do this, where "modem" is my PLM device and "3F.A0.8F" is my leak sensor's address)
+Water leak sensors send their "wet" command on group "02" and their "dry" command on group "01".  Link such that the modem is a responder to the motion sensor for both groups "01", and "02". When I tried linking with just pushing button on the sensor then the button on the PLM, I only got a link in for the "02" group.  I had to use the intsteon-terminal application discussed above to create the link to group "01". (I used the command "modem.addResponder("xx.xx.xx", 01)" to do this, where "modem" is my PLM device where xx.xx.xx is my leak sensor's address)
 
 After the proper linking is complete, you should have the following in your PLM's DB:
 
-    0000 leakSensor  3F.A0.8F  RESP  10100010 group: 01 data: 00 00 01
-    0000 leakSensor  3F.A0.8F  RESP  10100010 group: 02 data: 00 00 00
+    0000 leakSensor  xx.xx.xx  RESP  10100010 group: 01 data: 00 00 01
+    0000 leakSensor  xx.xx.xx  RESP  10100010 group: 02 data: 00 00 00
 
 
 After linking is complete, create a leak.map file in the transforms directory like the following:
@@ -338,7 +340,7 @@ Then create entries in the .items file like this:
 
 This will give you a contact that you can put into your sitemap and use in rules
 
-### Locks
+## Locks
 
 Read the instructions very carefully: sync with lock within 5 feet to avoid bad connection, link twice for both ON and OFF functionality.
 
@@ -352,7 +354,7 @@ and create a file "lock.map" in the transforms directory with these entries:
     OFF=Unlock
     -=unknown
 
-### I/O Linc (garage door openers)
+## I/O Linc (garage door openers)
 
 The I/O Linc devices are really two devices in one: a relay and a contact. Link the modem both ways, as responder and controller using the set buttons as described in the instructions.
 
@@ -376,7 +378,7 @@ For safety reasons, only close the garage door if you have visual contact to mak
 
 >NOTE: If the I/O Linc returns the wrong value when the device is polled (For example you open the garage door and the state correctly shows OPEN, but during polling it shows CLOSED), you probably linked the device with the PLM or hub when the door was in the wrong position. You need unlink and then link again with the door in the opposite position. Please see the Insteon I/O Linc documentation for further details.
 
-### Keypads
+## Keypads
 
 Before you attempt to configure the keypads, please familiarize yourself with the concept of an Insteon group.
 
@@ -397,7 +399,7 @@ When e.g. the "A" button is pressed (that's button #3 internally) a broadcast me
 While capturing the messages that the buttons emit is pretty straight forward, controlling the buttons is  another matter. They cannot be simply toggled with a direct command to the device, but instead a broadcast message must be sent on a group number that the button has been programmed to listen to. This means you need to pick a set of unused groups that is globally unique (if you have multiple keypads, each one of them has to use different groups), one group for each button. The example configuration below uses groups 0xf3, 0xf4, 0xf5, and 0xf6. Then link the buttons such that they respond to those groups, and link the modem as a controller for them (see [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) documentation). In your items file you specify these groups with the "group=" parameters such that the binding knows what group number to put on the outgoing message.
 
 
-####Keypad switches
+###Keypad switches
 
 **Items**
 
@@ -428,7 +430,7 @@ The following sitemap will bring the items to life in the GUI:
 	      Switch item=keypadSwitchD label="button D"
 	}
 
-####Keypad dimmers
+###Keypad dimmers
 
 The keypad dimmers are like keypad switches, except that the main load is dimmable.
 
@@ -443,7 +445,7 @@ The keypad dimmers are like keypad switches, except that the main load is dimmab
     Switch item=keypadDimmerButtonA label="buttonA"
 
 
-### Thermostats
+## Thermostats
 
 The thermostat (2441TH) is one of the most complex Insteon devices available. It must first be properly linked to the modem using configuration software like [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal). The Insteon Terminal wiki describes in detail how to link the thermostat, and how to make it publish status update reports.
 
@@ -491,7 +493,7 @@ For the thermostat to display in the GUI, add this to the sitemap file:
     Setpoint item=thermostatHumidityLow   minValue=0 maxValue=100 step=1
     Setpoint item=thermostatStage1  minValue=1 maxValue=60 step=1
 
-### Smoke Bridge
+## Smoke Bridge
 
 The smoke bridge device does not accept any commands, but will send notifications in the form of broadcast group messages. Depending on the notification, the message is send to different broadcast groups. For the binding to receive these messages, the modem must be configured as a responder to the smoke bridge, as [described here, using the Insteon Terminal](https://github.com/pfrommerd/insteon-terminal#smoke-bridge-2982-222).
 
@@ -512,7 +514,7 @@ Here is a list of notifications and the corresponding numbers that will be poste
 * error: 7
 * heartbeat: 10
 
-### Power Meters
+## Power Meters
 
 The iMeter Solo reports both wattage and kilowatt hours, and is updated during the normal polling process of the devices. You can also manually update the current values from the device and reset the device. See the example below:
  
@@ -521,7 +523,7 @@ The iMeter Solo reports both wattage and kilowatt hours, and is updated during t
     Switch iMeterUpdate  "iMeter Update"      {insteonplm="xx.xx.xx:F00.00.17#meter,cmd=update"}
     Switch iMeterReset   "iMeter Reset"       {insteonplm="xx.xx.xx:F00.00.17#meter,cmd=reset"}
 
-### Fan Controllers
+## Fan Controllers
 
 Here is an example configuration for a FanLinc module, which has a dimmable light and a variable speed fan:
 
@@ -536,7 +538,7 @@ Here is an example configuration for a FanLinc module, which has a dimmable ligh
     Switch item=fanLincFan label="fan speed" mappings=[ 0="OFF",  1="LOW", 2="MEDIUM", 3="HIGH"]
 
 
-### X10 devices
+## X10 devices
 
 It is worth noting that both the Inseon PLM and the 2014 Hub can both command X10 devices over the powerline, and also set switch stats based on X10 signals received over the powerline.  This allows openHAB not only control X10 devices without the need for other hardwaare, but it can also have rules that react to incoming X10 powerline commands.  While you cannot bind the the X10 devices to the Insteon PLM/HUB, here are some examples for configuring X10 devices. Be aware that most X10 switches/dimmers send no status updates, i.e. openHAB will not learn about switches that are toggled manually. Further note that
 X10 devices are addressed with `houseCode.unitCode`, e.g. `A.2`.
@@ -545,7 +547,7 @@ X10 devices are addressed with `houseCode.unitCode`, e.g. `A.2`.
     Dimmer x10Dimmer	"X10 dimmer" {insteonplm="A.5:X00.00.02#dimmer"}
     Contact x10Motion	"X10 motion" {insteonplm="A.3:X00.00.03#contact"}
 
-## Direct sending of group broadcasts (triggering scenes)
+# Direct sending of group broadcasts (triggering scenes)
 
 The binding can command the modem to send broadcasts to a given Insteon group. Since it is a broadcast message, the corresponding item does *not* take the address of any device, but of the modem itself:
 
@@ -553,7 +555,7 @@ The binding can command the modem to send broadcasts to a given Insteon group. S
 
 where "xx.xx.xx" stands for the modem's insteon address. Flipping this switch to "ON" will cause the modem to send a broadcast message with group=2, and all devices that are configured to respond to it should react.
 
-## 3-way switch configurations and the "related" keyword
+# 3-way switch configurations and the "related" keyword
 
 When an Insteon device changes its state because it is directly operated (for example by flipping a switch manually), it sends out a broadcast message to announce the state change, and the binding (if the PLM modem is properly linked as a responder) should update the corresponding openHAB items. Other linked devices however may also change their state in response, but those devices will *not* send out a broadcast message, and so openHAB will not learn about their state change until the next poll. One common scenario is e.g. a switch in a 3-way configuration, with one switch controlling the load, and the other switch being linked as a controller. In this scenario, the "related" keyword can be used to cause the binding to poll a related device whenever a state change occurs for another device. A typical example would be two dimmers (A and B) in a 3-way configuration:
 
@@ -562,7 +564,7 @@ When an Insteon device changes its state because it is directly operated (for ex
 
 More than one device can be polled by separating them with "+" sign, e.g. "related=aa.bb.cc+xx.yy.zz" would poll both of these devices. The implemenation of the *related* keyword is simple: if you add it to a feature, and that feature changes its state, then the *related* device will be polled to see if its state has updated.
 
-## Trouble shooting
+# Trouble shooting
 
 To get additional debugging information, insert the following into
 your `logback.xml` file:
@@ -601,7 +603,7 @@ Insert the following into your `org.ops4j.pax.logging.cfg` file:
     log4j.appender.insteonplm.maxFileSize=10MB
     log4j.appender.insteonplm.maxBackupIndex=10
 
-### Device Permissions / Linux Device Locks
+## Device Permissions / Linux Device Locks
 
 When OpenHAB is running as a non-root user (Linux/OSX) it is important to ensure it has write access not just to the PLM device, but to the os lock directory. Under openSUSE this is `/run/lock` and is managed by the **lock** group. 
 
@@ -613,7 +615,7 @@ usermod -a -G lock openhab
 
 Insufficient access to the lock directory will result in OpenHAB failing to access the device, even if the device itself is writable.
 
-### Adding new device types (using existing device features)
+# Adding new device types (using existing device features)
 
 Device types are defined in the file `device_types.xml`, which is inside the InsteonPLM bundle and thus not visible to the user. You can however load your own device_types.xml by referencing it in the openhab.cfg file like so:
 
@@ -632,7 +634,7 @@ Where the `my_own_devices.xml` file defines a new device like this:
 
 Finding the Insteon product key can be tricky since Insteon has not updated the product key table (http://www.insteon.com/pdf/insteon_devcats_and_product_keys_20081008.pdf) since 2008. If a web search does not turn up the product key, make one up, starting with "F", like: F00.00.99. Avoid duplicate keys by finding the highest fake product key in the `device_types.xml` file, and incrementing by one.
 
-### Adding new device features
+# Adding new device features
 
 If you can't can't build a new device out of the existing device features (for a complete list see `device_features.xml`) you can add new features by specifying a file (let's call it `my_own_features.xml`) with the "more_devices" option in the `openhab.cfg` file:
 
@@ -655,11 +657,11 @@ If you can't can't build a new device out of the existing device features (for a
 
 If you cannot cobble together a suitable device feature out of existing handlers you will have to define new ones by editing the corresponding Java classes in the source tree (see below).
 
-### Adding new handlers (for developers experienced with Eclipse IDE)
+# Adding new handlers (for developers experienced with Eclipse IDE)
 
 If all else fails there are the Java sources, in particular the classes MessageHandler.java (what to do with messages coming in from the Insteon network), PollHandler.java (how to form outbound messages for device polling), and CommandHandler.java (how to translate openhab commands to Insteon network messages). To that end you'll need to become a bonafide openHAB developer, and set up an openHAB Eclipse build environment, following the online instructions. Before you write new handlers have a good look at the existing ones, they are quite flexible and configurable via parameters in `device_features.xml`.
 
-## Known Limitations and Issues
+# Known Limitations and Issues
 
 1. Devices cannot be linked to the modem while the binding is
 running. If new devices are linked, the binding must be restarted.
