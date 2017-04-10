@@ -396,6 +396,6 @@ _Get state updates of an item/page (using websockets) you can decode the data in
             print(" **** Program Ended ****")
 
 ```
-###wget
+### wget
 
 `wget --user=myusername --password=mypassword http://192.168.1.1:8080/CMD?My_Switch=OFF`
