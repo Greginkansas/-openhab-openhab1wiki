@@ -320,7 +320,9 @@ This will give you a contact and the battery level. Note that battery level is o
 
 ## Water Leak Sensors
 
-Water leak sensors send their "wet" command on group "02" and their "dry" command on group "01" and their heartbeat command to group "04".  Link such that the modem is a responder to the motion sensor for groups "01", "02" and "04". When I tried linking with just pushing button on the sensor then the button on the PLM, I only got a link in for the "02" group.  I had to use the intsteon-terminal application discussed above to create the link to group "01" and "04". (I used the command "modem.addResponder("xx.xx.xx", 01)" and then "modem.addresponder("xx.xx.xx", 04)" to do this, where "modem" is my PLM device where xx.xx.xx is my leak sensor's address)
+Water leak sensors like the Insteon  2852-xxx send rf signals to your system when they sense water.  Some hardware versions of these sensors will send a dry signal when they return to dry and other (typically te newer) hardware versions will not send the dry signal until their button is manually pressed.  They do not send battery level info, but instead send a heartbeat signal once every 24 hours.  Since this is the only way to know if the sensor is still alive, you may want to write a rule that detects if the sensors heartbeat hasn't been heard in > 24 hours.
+
+These leak sensors send their their "dry" command on group "01", their "wet" command on group "02" and their heartbeat command to group "04".  Link such that the modem is a responder to the sensor for groups "01", "02" and "04". When I tried linking with just pushing button on the sensor then the button on the PLM, I only got a link in for the "02" group.  I had to use the intsteon-terminal application discussed above to create the link to group "01" and "04". (I used the command "modem.addResponder("xx.xx.xx", 01)" and then "modem.addresponder("xx.xx.xx", 04)" to do this, where "modem" is my PLM device where xx.xx.xx is my leak sensor's address)
 
 After the proper linking is complete, you should have the following in your PLM's DB:
 
