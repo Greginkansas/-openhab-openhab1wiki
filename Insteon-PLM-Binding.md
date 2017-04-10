@@ -320,12 +320,13 @@ This will give you a contact and the battery level. Note that battery level is o
 
 ## Water Leak Sensors
 
-Water leak sensors send their "wet" command on group "02" and their "dry" command on group "01".  Link such that the modem is a responder to the motion sensor for both groups "01", and "02". When I tried linking with just pushing button on the sensor then the button on the PLM, I only got a link in for the "02" group.  I had to use the intsteon-terminal application discussed above to create the link to group "01". (I used the command "modem.addResponder("xx.xx.xx", 01)" to do this, where "modem" is my PLM device where xx.xx.xx is my leak sensor's address)
+Water leak sensors send their "wet" command on group "02" and their "dry" command on group "01" and their heartbeat command to group "04".  Link such that the modem is a responder to the motion sensor for groups "01", "02" and "04". When I tried linking with just pushing button on the sensor then the button on the PLM, I only got a link in for the "02" group.  I had to use the intsteon-terminal application discussed above to create the link to group "01" and "04". (I used the command "modem.addResponder("xx.xx.xx", 01)" and then "modem.addresponder("xx.xx.xx", 04)" to do this, where "modem" is my PLM device where xx.xx.xx is my leak sensor's address)
 
 After the proper linking is complete, you should have the following in your PLM's DB:
 
     0000 leakSensor  xx.xx.xx  RESP  10100010 group: 01 data: 00 00 01
     0000 leakSensor  xx.xx.xx  RESP  10100010 group: 02 data: 00 00 00
+    0000 leakSensor  xx.xx.xx  RESP  10100010 group: 04 data: 00 00 04
 
 
 After linking is complete, create a leak.map file in the transforms directory like the following:
@@ -336,7 +337,7 @@ After linking is complete, create a leak.map file in the transforms directory li
 
 Then create entries in the .items file like this:
 
-    Contact basementLeak  "Basement Leak Sensor [MAP(leak.map):%s]"  <water> insteonplm="3F.A0.8F:F00.00.0A#contact"}
+    Contact basementLeak  "Basement Leak Sensor [MAP(leak.map):%s]"  <water> insteonplm="xx.xx.xx:F00.00.0A#contact"}
 
 This will give you a contact that you can put into your sitemap and use in rules
 
