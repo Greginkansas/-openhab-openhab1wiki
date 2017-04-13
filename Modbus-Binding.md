@@ -1,3 +1,11 @@
+
+
+h2. These docs are out-of-date. Please consult http://docs.openhab.org/addons/bindings/modbus1/readme.html .
+
+***
+
+
+
 <!-- Using MarkdownTOC plugin for Sublime Text to update the table of contents (TOC) -->
 <!-- MarkdownTOC depth=2 autolink=true bracket=round -->
 
