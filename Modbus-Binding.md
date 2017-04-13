@@ -1,6 +1,6 @@
 
 
-h2. These docs are out-of-date. Please consult http://docs.openhab.org/addons/bindings/modbus1/readme.html .
+# These docs are out-of-date. Please consult the new docs as [docs.openhab.org](http://docs.openhab.org/addons/bindings/modbus1/readme.html)
 
 ***
 
