@@ -681,5 +681,7 @@ database happens. Somehow the modem then stops sending the remaining link record
 
 [Insteon Command Table](http://cache.insteon.com/pdf/INSTEON_Command_Tables_20070925a.pdf)
 
+[Developers Guide V2 - Circa 2009](http://cache.insteon.com/developer/developer-guide-022009-en.pdf)
+
 
 
