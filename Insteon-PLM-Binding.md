@@ -71,7 +71,7 @@ The following devices have been tested and should work out of the box:
 <td>2852-222</td><td><a href="https://cache.insteon.com/developer/2852-222dev-102013-en.pdf">Leak Sensor</a></td><td>F00.00.0A</td><td>Kirk McCann</td>
 </tr>
 <tr>
-<td>2672-422</td><td>LED Dimmer</td><td>F00.00.0B</td><td>???</td>
+<td><a href="http://cache.insteon.com/developer/2672-222dev-052014-en.pdf">2672-422</a></td><td>LED Bulb</td><td>F00.00.0B</td><td>???</td>
 </tr>
 <tr>
 <td>2476D</td><td>SwitchLinc Dimmer</td><td>F00.00.0C</td><td>LiberatorUSA</td>
@@ -83,7 +83,7 @@ The following devices have been tested and should work out of the box:
 <td>2342-2</td><td>Mini Remote</td><td>F00.00.10</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2663-222</td><td>On/Off Outlet</td><td>0x000039</td><td>SwissKid</td>
+<td><a href="http://cache.insteon.com/developer/2663-222dev-062014-en.pdf">2663-222</a></td><td>On/Off Outlet</td><td>0x000039</td><td>SwissKid</td>
 </tr>
 <tr>
 <td>2466D</td><td>ToggleLinc Dimmer</td><td>F00.00.11</td><td>Rob Nielsen</td>
@@ -95,19 +95,19 @@ The following devices have been tested and should work out of the box:
 <td>2672-222</td><td>LED Bulb</td><td>F00.00.13</td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2487S</td><td>KeypadLinc On/Off 6-Button</td><td>F00.00.14</td><td>Bernd Pfrommer</td>
+<td>2487S</td><td><a href="http://cache.insteon.com/developer/2334-xxx2486xdev-042013-en.pdf">KeypadLinc On/Off 6-Button</a></td><td>F00.00.14</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2334-232</td><td>KeypadLink Dimmer 6-Button</td><td>F00.00.15</td><td>Rob Nielsen</td>
+<td>2334-232</td><td><a href="http://cache.insteon.com/developer/2334-xxx2486xdev-042013-en.pdf">KeypadLink Dimmer 6-Button</a></td><td>F00.00.15</td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2334-232</td><td>KeypadLink Dimmer 8-Button</td><td>F00.00.16</td><td>Rob Nielsen</td>
+<td>2334-232</td><td><a href="http://cache.insteon.com/developer/2334-xxx2486xdev-042013-en.pdf">KeypadLink Dimmer 8-Button</a></td><td>F00.00.16</td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2423A1</td><td>iMeter Solo Power Meter</td><td>F00.00.17</td><td>Rob Nielsen</td>
+<td>2423A1</td><td><a href="http://cache.insteon.com/developer/2423A5dev-112010-en.pdf">iMeter Solo Power Meter</a></td><td>F00.00.17</td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2423A1</td><td>Thermostat 2441TH</td><td>F00.00.18</td><td>Daniel Campbell, Bernd Pfrommer</td>
+<td>2441TH</td><td>Thermostat</td><td>F00.00.18</td><td>Daniel Campbell, Bernd Pfrommer</td>
 </tr>
 <tr>
 <td>2457D2</td><td>LampLinc Dimmer</td><td>F00.00.19</td><td>Jonathan Huizingh</td>
@@ -146,7 +146,7 @@ The following devices have been tested and should work out of the box:
 <td>2450</td><td>IO Link</td><td>0x00001A</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2486D</td><td>KeypadLinc Dimmer</td><td>0x000037</td><td>Patrick Giasson, Joe Barnum</td>
+<td>2486D</td><td><a href="http://cache.insteon.com/developer/2334-xxx2486xdev-042013-en.pdf">KeypadLinc Dimmer</a></td><td>0x000037</td><td>Patrick Giasson, Joe Barnum</td>
 </tr>
 <tr>
 <td>2484DWH8</td><td>KeypadLinc Countdown Timer</td><td>0x000041</td><td>Rob Nielsen</td>
@@ -155,7 +155,7 @@ The following devices have been tested and should work out of the box:
 <td>2413U</td><td>PowerLinc 2413U USB modem</td><td>0x000045</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2843-222</td><td>Wireless Open/Close Sensor</td><td>0x000049</td><td>Josenivaldo Benito</td>
+<td><a href="http://cache.insteon.com/developer/2843-222dev-102013-en.pdf">2843-222</a></td><td>Wireless Open/Close Sensor</td><td>0x000049</td><td>Josenivaldo Benito</td>
 </tr>
 <tr>
 <td>2842-222</td><td>Motion Sensor</td><td>0x00004A</td><td>Bernd Pfrommer</td>
