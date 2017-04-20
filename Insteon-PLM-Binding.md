@@ -68,7 +68,7 @@ The following devices have been tested and should work out of the box:
 <td>2458-A1</td><td>MorningLinc RF Lock Controller</td><td>F00.00.09</td><td>cdeadlock</td>
 </tr>
 <tr>
-<td>2852-222</td><td> [Leak Sensor] (https://cache.insteon.com/developer/2852-222dev-102013-en.pdf) </td><td>F00.00.0A</td><td>Kirk McCann</td>
+<td>2852-222</td><td><a href="(https://cache.insteon.com/developer/2852-222dev-102013-en.pdf)">Leak Sensor</a></td><td>F00.00.0A</td><td>Kirk McCann</td>
 </tr>
 <tr>
 <td>2672-422</td><td>LED Dimmer</td><td>F00.00.0B</td><td>???</td>
@@ -675,10 +675,10 @@ database happens. Somehow the modem then stops sending the remaining link record
 5. Using the Insteon Hub 2014 in conjunction with other applications (such as the InsteonApp) is not supported. Concretely, OpenHab will not learn when a switch is flipped via the Insteon App until the next poll, which could take minutes.
 
 # Background info for developers:
-[Outdated, but nice background guide on the insteon protocal](https://web.archive.org/web/20110718043402/http://www.insteon.net/pdf/insteonwtpaper.pdf)
+[Nice background guide on the insteon protocal - circa 2005](https://web.archive.org/web/20110718043402/http://www.insteon.net/pdf/insteonwtpaper.pdf)
 
-[Insteon compared to other technology - circa 2005]
-(http://web.archive.org/web/20070202160820/http://www.insteon.net:80/pdf/insteoncompared.pdf)
+Insteon compared to other technology - circa 2005
+http://web.archive.org/web/20070202160820/http://www.insteon.net:80/pdf/insteoncompared.pdf
 
 
 
