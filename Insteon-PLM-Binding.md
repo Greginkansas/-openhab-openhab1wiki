@@ -139,7 +139,7 @@ The following devices have been tested and should work out of the box:
 </tr>
 
 <tr>
-<td>2982-222</td><td>Insteon Smoke Bridge</td><td>F00.00.22</td><td>Bernd Pfrommer</td>
+<td>2982-222</td><td><a href="http://cache.insteon.com/developer/2982-222dev-022014-en.pdf">Insteon Smoke Bridge</a></td><td>F00.00.22</td><td>Bernd Pfrommer</td>
 </tr>
 
 
