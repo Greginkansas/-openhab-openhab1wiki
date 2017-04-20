@@ -675,9 +675,9 @@ database happens. Somehow the modem then stops sending the remaining link record
 5. Using the Insteon Hub 2014 in conjunction with other applications (such as the InsteonApp) is not supported. Concretely, OpenHab will not learn when a switch is flipped via the Insteon App until the next poll, which could take minutes.
 
 # Background info for developers:
-[Nice background guide on the insteon protocal - circa 2005](https://web.archive.org/web/20110718043402/http://www.insteon.net/pdf/insteonwtpaper.pdf)
+[Nice background guide on the insteon protocol - circa 2005](https://web.archive.org/web/20110718043402/http://www.insteon.net/pdf/insteonwtpaper.pdf)
 
-(Insteon compared to other technology - circa 2005)[http://web.archive.org/web/20070202160820/http://www.insteon.net:80/pdf/insteoncompared.pdf]
+[Insteon compared to other technology - circa 2005](http://web.archive.org/web/20070202160820/http://www.insteon.net:80/pdf/insteoncompared.pdf)
 
 
 
