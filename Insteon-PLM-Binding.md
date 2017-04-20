@@ -47,7 +47,7 @@ The following devices have been tested and should work out of the box:
 <td>2477S</td><td>SwitchLinc Switch</td><td>F00.00.02</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2845-222</td><td>Hidden Door Sensor</td><td>F00.00.03</td><td>Josenivaldo Benito</td>
+<td>2845-222</td><td><a href="http://cache.insteon.com/developer/2845-222dev-102013-en.pdf">Hidden Door Sensor</a></td><td>F00.00.03</td><td>Josenivaldo Benito</td>
 </tr>
 <tr>
 <td>2876S</td><td>ICON Switch</td><td>F00.00.04</td><td>Patrick Giasson</td>
