@@ -68,7 +68,7 @@ The following devices have been tested and should work out of the box:
 <td>2458-A1</td><td>MorningLinc RF Lock Controller</td><td>F00.00.09</td><td>cdeadlock</td>
 </tr>
 <tr>
-<td>2852-222</td><td>Leak Sensor</td><td>F00.00.0A</td><td>Kirk McCann</td>
+<td>2852-222</td><td>[Leak Sensor](https://cache.insteon.com/developer/2852-222dev-102013-en.pdf)</td><td>F00.00.0A</td><td>Kirk McCann</td>
 </tr>
 <tr>
 <td>2672-422</td><td>LED Dimmer</td><td>F00.00.0B</td><td>???</td>
@@ -673,3 +673,12 @@ running. If new devices are linked, the binding must be restarted.
 database happens. Somehow the modem then stops sending the remaining link records and the binding no longer is able to address the missing devices. The fix is to simply restart the binding.
 4. The Insteon PLM device is know to break after about 2-3 years due to poorly sized capacitors of the power supply. With a bit of soldering skill you can repair it yourself, see http://pfrommer.us/home-automation or the original thread: http://forum.universal-devices.com/topic/13866-repair-of-2413s-plm-when-the-power-supply-fails/.
 5. Using the Insteon Hub 2014 in conjunction with other applications (such as the InsteonApp) is not supported. Concretely, OpenHab will not learn when a switch is flipped via the Insteon App until the next poll, which could take minutes.
+
+# Background info for developers:
+[Outdated, but nice background guide on the insteon protocal:](https://web.archive.org/web/20110718043402/http://www.insteon.net/pdf/insteonwtpaper.pdf)
+
+[Insteon compared to other technology - circa 2005]
+(http://web.archive.org/web/20070202160820/http://www.insteon.net:80/pdf/insteoncompared.pdf)
+
+
+
