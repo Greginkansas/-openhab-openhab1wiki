@@ -56,13 +56,13 @@ The following devices have been tested and should work out of the box:
 <td>2456D3</td><td>LampLinc V2</td><td>F00.00.05</td><td>Patrick Giasson</td>
 </tr>
 <tr>
-<td>2442-222</td><td>Micro Dimmer</td><td>F00.00.06</td><td>Josenivaldo Benito</td>
+<td>2442-222</td><td><a href="http://cache.insteon.com/developer/2442dev2443dev2452dev2453dev2632dev2633dev-102012-en.pdf">Micro Dimmer</a></td><td>F00.00.06</td><td>Josenivaldo Benito</td>
 </tr>
 <tr>
-<td>2453-222</td><td>DIN Rail On/Off</td><td>F00.00.07</td><td>Josenivaldo Benito</td>
+<td>2453-222</td><td><a href="http://cache.insteon.com/developer/2442dev2443dev2452dev2453dev2632dev2633dev-102012-en.pdf">DIN Rail On/Off</a></td><td>F00.00.07</td><td>Josenivaldo Benito</td>
 </tr>
 <tr>
-<td>2452-222</td><td>DIN Rail Dimmer</td><td>F00.00.08</td><td>Josenivaldo Benito</td>
+<td>2452-222</td><td><a href="http://cache.insteon.com/developer/2442dev2443dev2452dev2453dev2632dev2633dev-102012-en.pdf">DIN Rail Dimmer</a></td><td>F00.00.08</td><td>Josenivaldo Benito</td>
 </tr>
 <tr>
 <td>2458-A1</td><td>MorningLinc RF Lock Controller</td><td>F00.00.09</td><td>cdeadlock</td>
@@ -119,7 +119,7 @@ The following devices have been tested and should work out of the box:
 <td>2635-222</td><td>On/Off Module</td><td>F00.00.1B</td><td>Jonathan Huizingh</td>
 </tr>
 <tr>
-<td>2475F</td><td>FanLinc Module</td><td>F00.00.1C</td><td>Brian Tillman</td>
+<td>2475F</td><td><a href="http://cache.insteon.com/developer/2475Fdev-022012-en.pdf">FanLinc Module</a></td><td>F00.00.1C</td><td>Brian Tillman</td>
 </tr>
 <tr>
 <td>2456S3</td><td>ApplianceLinc</td><td>F00.00.1D</td><td>???</td>
