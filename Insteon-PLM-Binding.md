@@ -107,7 +107,7 @@ The following devices have been tested and should work out of the box:
 <td>2423A1</td><td><a href="http://cache.insteon.com/developer/2423A5dev-112010-en.pdf">iMeter Solo Power Meter</a></td><td>F00.00.17</td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2441TH</td><td><a href="http://cache.insteon.com/developer/2441THdev-062012-en.pdf"Thermostat</a></td><td>F00.00.18</td><td>Daniel Campbell, Bernd Pfrommer</td>
+<td>2441TH</td><td><a href="http://cache.insteon.com/developer/2441THdev-062012-en.pdf">Thermostat</a></td><td>F00.00.18</td><td>Daniel Campbell, Bernd Pfrommer</td>
 </tr>
 <tr>
 <td>2457D2</td><td>LampLinc Dimmer</td><td>F00.00.19</td><td>Jonathan Huizingh</td>
