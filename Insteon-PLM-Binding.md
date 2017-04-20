@@ -68,7 +68,7 @@ The following devices have been tested and should work out of the box:
 <td>2458-A1</td><td>MorningLinc RF Lock Controller</td><td>F00.00.09</td><td>cdeadlock</td>
 </tr>
 <tr>
-<td>2852-222</td><td><a href="(https://cache.insteon.com/developer/2852-222dev-102013-en.pdf)">Leak Sensor</a></td><td>F00.00.0A</td><td>Kirk McCann</td>
+<td>2852-222</td><td><a href="https://cache.insteon.com/developer/2852-222dev-102013-en.pdf">Leak Sensor</a></td><td>F00.00.0A</td><td>Kirk McCann</td>
 </tr>
 <tr>
 <td>2672-422</td><td>LED Dimmer</td><td>F00.00.0B</td><td>???</td>
@@ -677,8 +677,7 @@ database happens. Somehow the modem then stops sending the remaining link record
 # Background info for developers:
 [Nice background guide on the insteon protocal - circa 2005](https://web.archive.org/web/20110718043402/http://www.insteon.net/pdf/insteonwtpaper.pdf)
 
-Insteon compared to other technology - circa 2005
-http://web.archive.org/web/20070202160820/http://www.insteon.net:80/pdf/insteoncompared.pdf
+(Insteon compared to other technology - circa 2005)[http://web.archive.org/web/20070202160820/http://www.insteon.net:80/pdf/insteoncompared.pdf]
 
 
 
