@@ -140,13 +140,8 @@ Rules:
 import org.eclipse.xtext.xbase.lib.*
 
 val Functions$Function1 dimLiving = [ int dimlevel | 
-	var boolean scene = (Scene_Living.state == 11); 
-	
-	 // Only dim lights when a certain scene is selected
-    if(scene) {
-		sendCommand(Lamp_Living_Small, dimlevel)
-		sendCommand(Lamp_Living_Floor, dimlevel)
-	}
+    sendCommand(Lamp_Living_Small, dimlevel)
+    sendCommand(Lamp_Living_Floor, dimlevel)
 ]
 
 rule "Lights on when paused or stopped"
