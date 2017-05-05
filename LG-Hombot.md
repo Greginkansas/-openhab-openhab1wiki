@@ -16,7 +16,7 @@ See [this install guide](http://www.roboter-forum.com/showthread.php?10009-LG-Ho
 ## HTTP binding based control
 in items:
 
-``String Hombot   "Luigi, der Hombot"                     <luigi>         (Status,Test)   { http=">[1:GET:http://192.168.1.2:6260/json.cgi?%%7b%%22COMMAND%%22:%%22CLEAN_START%%22%%7d] >[0:GET:http://192.168.1.2:6260/json.cgi?%%7b%%22COMMAND%%22:%%22PAUSE%%22%%7d] >[2:GET:http://192.168.1.2:6260/json.cgi?%%7b%%22COMMAND%%22:%%22HOMING%%22%%7d] <[http://192.168.1.2:6260/status.html:5000:REGEX(.*<b>Robot-state</b>: <status>(.+)</status>.*)]", autoupdate="false" }``
+``String Hombot   "Luigi, der Hombot"                     <luigi>         (Status,Test)   { http=">[1:GET:http://192.168.1.2:6260/json.cgi?%%7b%%22COMMAND%%22%%3A%%22CLEAN_START%%22%%7d] >[0:GET:http://192.168.1.2:6260/json.cgi?%%7b%%22COMMAND%%22%%3A%%22PAUSE%%22%%7d] >[2:GET:http://192.168.1.2:6260/json.cgi?%%7b%%22COMMAND%%22%%3A%%22HOMING%%22%%7d] <[http://192.168.1.2:6260/status.html:5000:REGEX(.*<b>Robot-state</b>: <status>(.+)</status>.*)]", autoupdate="false" }``
 
 in sitemap:
 
