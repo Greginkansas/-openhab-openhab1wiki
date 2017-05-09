@@ -385,7 +385,8 @@ Note: you may need to add ",refresh_interval=*&lt;secs&gt;*" at the end to get m
 
 #Thermostats
 
-###Danfoss LC13 radiator thermostat:
+###Danfoss LC13 Living Connect radiator thermostat
+
     Number          bedroom_thermostat_setpoint     "Bedroom Thermostat Setpoint [%.2f C]"  { zwave="3:command=THERMOSTAT_SETPOINT" }
     Number          bedroom_thermostat_battery      "Bedroom Thermostat battery [%d %%]"    { zwave="3:command=BATTERY" }
 
