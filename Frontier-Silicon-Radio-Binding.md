@@ -3,7 +3,7 @@ Documentation of the Frontier Silicon Radio binding for Internet Radios based on
 ## Introduction
 
 This binding has been developed and tested with the [Hama IR110](https://de.hama.com/00054823/hama-internetradio-ir110) and [Medion MD87180](https://www.medion.com/de/service/start/_product.php?msn=50047825&gid=00) internet radios. 
-The [MEDION® P85040 (MD 86988)](http://medion.scene7.com/is/image/Medion/50046868_PIC-Q?$m$), [MEDION® P85035 (MD 87090)](https://medion.scene7.com/is/image/Medion/50048568_PIC-Q?$m$), [Pinell Supersound II](http://www.pinell.no/en/products/pinell-supersound-ii-white//), [Silvercrest SIRD 14 C1](http://www.lidl.de/de/silvercrest-stereo-internetradio-sird-14-c1/p208310), [Revo Superconnect] (http://revo.co.uk/shop/superconnect/), [Ruark R2] (http://www.ruarkaudio.com/products/r2-overview), [Technisat DigiRadio 450] (https://www.technisat.com/en_XX/DigitRadio-450/352-10996-9589/) and the [Hama DIR3110](https://de.hama.com/00054824/hama-digitalradio-dir3110-internetradio-dab+-fm-app-steuerung) are also supported.
+The [MEDION® P85040 (MD 86988)](http://medion.scene7.com/is/image/Medion/50046868_PIC-Q?$m$), [MEDION® P85035 (MD 87090)](https://medion.scene7.com/is/image/Medion/50048568_PIC-Q?$m$), [Pinell Supersound II](http://www.pinell.no/en/products/pinell-supersound-ii-white//), [Silvercrest SIRD 14 C1](http://www.lidl.de/de/silvercrest-stereo-internetradio-sird-14-c1/p208310), [Revo Superconnect] (http://revo.co.uk/shop/superconnect/), [Ruark R2] (http://www.ruarkaudio.com/products/r2-overview), [Technisat DigiRadio 450] (https://www.technisat.com/en_XX/DigitRadio-450/352-10996-9589/) and the [Hama DIR3110](https://de.hama.com/00054824/hama-digitalradio-dir3110-internetradio-dab+-fm-app-steuerung) / [Hama DIT2000M](https://ch.hama.com/00054821/hama-hifi-digitaltuner-dit2000m-internetradio-dab+-fm-app-steuerung-multiroom) are also supported.
 
 [<img src="http://internetradio.medion.com/images/md87180_small.jpg" alt="MEDION LIFE P85044 (MD 87180)" height="160">](http://internetradio.medion.com/)
 [<img src="https://de.hama.com/bilder/00054/abb/00054823abb.jpg" alt="Hama Internetradio IR110" height="180">](https://de.hama.com/00054823/hama-internetradio-ir110)
@@ -83,7 +83,7 @@ A list of all properties and their possible item types is given below:
 
 The *radio mode* property is just a number that specifies the radio mode which may differ for each radio. This is why there is no fixed mapping implemented. For radios listed above, the mapping is as follows (please [add your radio mapping](Frontier-Silicon-Radio-Binding/_edit), if it differs!):
 
-| radio mode | Hama IR110 | Medion MD 87180/87090  | Medion MD 86988| Pinell Supersound II| Silvercrest SIRD 14 C1 | Revo Superconnect | Hama DIR3110 | Hama DIT2000 
+| radio mode | Hama IR110 | Medion MD 87180/87090  | Medion MD 86988| Pinell Supersound II| Silvercrest SIRD 14 C1 | Revo Superconnect | Hama DIR3110 | Hama DIT2000M 
 | --- | --- | --- | --- | --- | --- | --- | ---| ---
 | 0 | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio| Internet Radio
 | 1 | Spotify | Music Player (USB, LAN) | Music Player | Spotify | Spotify | Spotify | Spotify| Spotify
