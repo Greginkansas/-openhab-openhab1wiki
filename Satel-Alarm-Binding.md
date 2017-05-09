@@ -221,6 +221,35 @@ Number items can be used only if `object_number` is not given and the number spe
 <tr><td>zone_tamper1</td><td>for Integra 256 Plus - zones 129..256, object number range: 1-128</td></tr></table>
 
 
+**System troubles:**
+<table><tr><th>Number</th><th>Description</th></tr>
+<tr><td>1</td><td>OUT1 trouble</td></tr>
+<tr><td>2</td><td>OUT2 trouble</td></tr>
+<tr><td>3</td><td>OUT3 trouble</td></tr>
+<tr><td>4</td><td>OUT4 trouble</td></tr>
+<tr><td>5</td><td>+KPD trouble</td></tr>
+<tr><td>6</td><td>+EX1 or +EX2 trouble</td></tr>
+<tr><td>7</td><td>BATT trouble</td></tr>
+<tr><td>8</td><td>AC trouble</td></tr>
+<tr><td>9</td><td>DT1 trouble</td></tr>
+<tr><td>10</td><td>DT2 trouble</td></tr>
+<tr><td>11</td><td>DTM trouble</td></tr>
+<tr><td>12</td><td>RTC trouble</td></tr>
+<tr><td>13</td><td>no DTR signal</td></tr>
+<tr><td>14</td><td>no BATT present</td></tr>
+<tr><td>15</td><td>external modem initialization trouble</td></tr>
+<tr><td>16</td><td>external model command (ATE0V1Q0H0S0=0) trouble</td></tr>
+<tr><td>17</td><td>no voltage on telephone line (INTEGRA 24, 32, 64 and 128)</td></tr>
+<tr><td>17</td><td>auxiliary ST processor trouble (INTEGRA 128-WRL)</td></tr>
+<tr><td>18</td><td>bad signal on telephone line</td></tr>
+<tr><td>19</td><td>no signal on telephone line</td></tr>
+<tr><td>20</td><td>monitoring to station 1 trouble</td></tr>
+<tr><td>21</td><td>monitoring to station 2 trouble</td></tr>
+<tr><td>22</td><td>EEPROM or access to RTC trouble</td></tr>
+<tr><td>23</td><td>RAM memory trouble</td></tr>
+<tr><td>24</td><td>INTEGRA main panel restart memory</td></tr></table>
+
+
 **Valid options:**
 <table><tr><th>Name</th><th>Description</th></tr>
 <tr><td>force_arm</td><td>forces arming for arming commands</td></tr>
