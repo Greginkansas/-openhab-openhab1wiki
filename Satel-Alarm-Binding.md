@@ -70,7 +70,9 @@ Number items can be used only if `object_number` is not given and the number spe
 <tr><td>output</td><td>defines an output</td></tr>
 <tr><td>doors</td><td>defines doors</td></tr>
 <tr><td>status</td><td>defines a status item</td></tr>
-<tr><td>module</td><td>defines connection status item</td></tr></table>
+<tr><td>module</td><td>defines connection status item</td></tr>
+<tr><td>trouble</td><td>defines a trouble</td></tr>
+<tr><td>trouble_memory</td><td>defines memory of a trouble</td></tr></table>
 
 
 **Valid `state_type` values for "zone" objects:**
@@ -137,6 +139,86 @@ Number items can be used only if `object_number` is not given and the number spe
 <tr><td>connected</td><td>status of connection to the module</td></tr>
 <tr><td>connected_since</td><td>date and time when current connection has been established</td></tr>
 <tr><td>connection_errors</td><td>number of consecutive connection errors; clears on successful connection</td></tr></table>
+
+
+**Valid `state_type` values for "trouble" objects:**
+> NOTE: Available since v1.10
+
+<table><tr><th>Type</th><th>Notes</th></tr>
+<tr><td>technical_zone</td><td>object number range: 1-128</td></tr>
+<tr><td>expander_ac</td><td>object number range: 1-64</td></tr>
+<tr><td>expander_batt</td><td>object number range: 1-64</td></tr>
+<tr><td>expander_nobatt</td><td>object number range: 1-64</td></tr>
+<tr><td>system</td><td>object number range: 1-24, see table below</td></tr>
+<tr><td>ptsa_ac</td><td>AC trouble of CA-64 PTSA modules, object number range: 1-8</td></tr>
+<tr><td>ptsa_batt</td><td>BATT trouble of CA-64 PTSA modules, object number range: 1-8</td></tr>
+<tr><td>ptsa_nobatt</td><td>NO BATT trouble of CA-64 PTSA modules, object number range: 1-8</td></tr>
+<tr><td>ethm1</td><td>object number range: 1-8</td></tr>
+<tr><td>proximity_a</td><td>object number range: 1-64</td></tr>
+<tr><td>proximity_b</td><td>object number range: 1-64</td></tr>
+<tr><td>expander_overload</td><td>object number range: 1-64</td></tr>
+<tr><td>jammed_acu100</td><td>object number range: 1-16</td></tr>
+<tr><td>device_lobatt</td><td>object number range: 1-120</td></tr>
+<tr><td>device_nocomm</td><td>object number range: 1-120</td></tr>
+<tr><td>output_nocomm</td><td>object number range: 1-120</td></tr>
+<tr><td>expander_nocomm</td><td>object number range: 1-64</td></tr>
+<tr><td>expander_switcherooed</td><td>object number range: 1-64</td></tr>
+<tr><td>keypad_nocomm</td><td>object number range: 1-8</td></tr>
+<tr><td>keypad_switcherooed</td><td>object number range: 1-8</td></tr>
+<tr><td>ethm1_nolan</td><td>object number range: 1-8</td></tr>
+<tr><td>expander_tamper</td><td>object number range: 1-64</td></tr>
+<tr><td>keypad_tamper</td><td>object number range: 1-8</td></tr>
+<tr><td>keypad_init</td><td>object number range: 1-8</td></tr>
+<tr><td>auxiliary_stm</td><td>object number range: 1-8</td></tr>
+<tr><td>master_keyfob</td><td>object number range: 1-8</td></tr>
+<tr><td>user_keyfob</td><td>object number range: 1-240</td></tr>
+<tr><td>device_lobatt1</td><td>for Integra 256 Plus - last 120 devices, object number range: 1-120</td></tr>
+<tr><td>device_nocomm1</td><td>for Integra 256 Plus - last 120 devices, object number range: 1-120</td></tr>
+<tr><td>output_nocomm1</td><td>for Integra 256 Plus - last 120 devices, object number range: 1-120</td></tr>
+<tr><td>technical_zone1</td><td>for Integra 256 Plus - zones 129..256, object number range: 1-128</td></tr></table>
+
+**Valid `state_type` values for "trouble_memory" objects:**
+> NOTE: Available since v1.10
+
+<table><tr><th>Type</th><th>Notes</th></tr>
+<tr><td>technical_zone</td><td>object number range: 1-128</td></tr>
+<tr><td>expander_ac</td><td>object number range: 1-64</td></tr>
+<tr><td>expander_batt</td><td>object number range: 1-64</td></tr>
+<tr><td>expander_nobatt</td><td>object number range: 1-64</td></tr>
+<tr><td>system</td><td>object number range: 1-24, see table below </td></tr>
+<tr><td>ptsa_ac</td><td>AC trouble of CA-64 PTSA modules, object number range: 1-8</td></tr>
+<tr><td>ptsa_batt</td><td>BATT trouble of CA-64 PTSA modules, object number range: 1-8</td></tr>
+<tr><td>ptsa_nobatt</td><td>NO BATT trouble of CA-64 PTSA modules, object number range: 1-8</td></tr>
+<tr><td>ethm1</td><td>object number range: 1-8</td></tr>
+<tr><td>proximity_a</td><td>object number range: 1-64</td></tr>
+<tr><td>proximity_b</td><td>object number range: 1-64</td></tr>
+<tr><td>expander_overload</td><td>object number range: 1-64</td></tr>
+<tr><td>jammed_acu100</td><td>object number range: 1-16</td></tr>
+<tr><td>lcd_restart</td><td>object number range: 1-8</td></tr>
+<tr><td>expander_restart</td><td>object number range: 1-64</td></tr>
+<tr><td>device_lobatt</td><td>object number range: 1-120</td></tr>
+<tr><td>device_nocomm</td><td>object number range: 1-120</td></tr>
+<tr><td>output_nocomm</td><td>object number range: 1-120</td></tr>
+<tr><td>expander_nocomm</td><td>object number range: 1-64</td></tr>
+<tr><td>expander_switcherooed</td><td>object number range: 1-64</td></tr>
+<tr><td>keypad_nocomm</td><td>object number range: 1-8</td></tr>
+<tr><td>keypad_switcherooed</td><td>object number range: 1-8</td></tr>
+<tr><td>ethm1_nolan</td><td>object number range: 1-8</td></tr>
+<tr><td>expander_tamper</td><td>object number range: 1-64</td></tr>
+<tr><td>keypad_tamper</td><td>object number range: 1-8</td></tr>
+<tr><td>keypad_init</td><td>object number range: 1-8</td></tr>
+<tr><td>auxiliary_stm</td><td>object number range: 1-8</td></tr>
+<tr><td>long_violation</td><td>object number range: 1-128</td></tr>
+<tr><td>no_violation</td><td>object number range: 1-128</td></tr>
+<tr><td>zone_tamper</td><td>object number range: 1-128</td></tr>
+<tr><td>technical_zone1</td><td>for Integra 256 Plus - zones 129..256, object number range: 1-128</td></tr>
+<tr><td>user_keyf</td><td>| object number range: 1-240</td></tr>
+<tr><td>device_lobatt1</td><td>for Integra 256 Plus - last 120 devices, object number range: 1-120</td></tr>
+<tr><td>device_nocomm1</td><td>for Integra 256 Plus - last 120 devices, object number range: 1-120</td></tr>
+<tr><td>output_nocomm1</td><td>for Integra 256 Plus - last 120 devices, object number range: 1-120</td></tr>
+<tr><td>long_violation1</td><td>for Integra 256 Plus - zones 129..256, object number range: 1-128</td></tr>
+<tr><td>no_violation1</td><td>for Integra 256 Plus - zones 129..256, object number range: 1-128</td></tr>
+<tr><td>zone_tamper1</td><td>for Integra 256 Plus - zones 129..256, object number range: 1-128</td></tr></table>
 
 
 **Valid options:**
