@@ -143,26 +143,23 @@ Project's mailing list: <smartcampus2014@googlegroups.com>
 
 ***
 
-###IDEAAL Home Lab
+### IDEAAL Home Lab
 
 OFFIS e.V., Oldenburg
 
-####Abstract
+#### Abstract
 OFFIS is an independent institute of computer science closely tied to the University of Oldenburg, Germany. A large part of our health-related research revolves around Ambient Assisted Living (AAL) -- developing and integrating technical concepts which improve home care and support for elderly and those in need.
 
 The IDEAAL Home Lab is a laboratory built to showcase some of our research results, as well as allowing realistic evaluations and demonstrations. Over the years, we have developed and used a vast amount of different platforms, sensors and technologies to implement our ideas. OpenHAB helps us to bring together these technologies and to further utilize the information we collect.
 
-####Screenshots
-
-
-####How did OpenHAB help
+#### How did OpenHAB help
 OpenHAB acts as a data collection and distribution node, facilitating access to all sensor data and allowing combined processing. Using rules and the various UIs, it also simplified the implementation of and access to different home automation scenarios.
 
 
-####External, Press, Video links
+#### External, Press, Video links
 [IDEAAL](http://www.ideaal.de) - Ambient Assisted Living at OFFIS
 
 
-####Contact
+#### Contact
 [Dr. Marco Eichelberg](mailto:eichelberg@offis.de)
 
