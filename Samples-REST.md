@@ -399,3 +399,7 @@ _Get state updates of an item/page (using websockets) you can decode the data in
 ### wget
 
 `wget --user=myusername --password=mypassword http://192.168.1.1:8080/CMD?My_Switch=OFF`
+
+When running OH2, the CMD path is now classicui/CMD and requires the Classic UI to be installed:
+
+`wget --user=myusername --password=mypassword http://192.168.1.1:8080/classicui/CMD?My_Switch=OFF`
