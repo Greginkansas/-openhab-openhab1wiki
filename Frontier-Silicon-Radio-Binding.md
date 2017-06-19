@@ -83,16 +83,19 @@ A list of all properties and their possible item types is given below:
 
 The *radio mode* property is just a number that specifies the radio mode which may differ for each radio. This is why there is no fixed mapping implemented. For radios listed above, the mapping is as follows (please [add your radio mapping](Frontier-Silicon-Radio-Binding/_edit), if it differs!):
 
-| radio mode | Hama IR110 | Medion MD 87180/87090  | Medion MD 86988| Pinell Supersound II| Silvercrest SIRD 14 C1 | Revo Superconnect | Hama DIR3110 | Hama DIT2000M | TinyAudio M7+
-| --- | --- | --- | --- | --- | --- | --- | ---| --- | ---
-| 0 | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio| Internet Radio| Internet Radio
-| 1 | Spotify | Music Player (USB, LAN) | Music Player | Spotify | Spotify | Spotify | Spotify| Spotify| Spotify
-| 2 | Player | DAB Radio | FM Radio | Player | --- | --- | Player | --- | Player
-| 3 | AUX in | FM Radio | AUX in | DAB Radio | Music Player | Music Player | DAB Radio | Music Player | DAB Radio
-| 4 | - | AUX in | - | FM Radio | DAB Radio | DAB Radio | FM Radio | DAB Radio | FM Radio
-| 5 | - | - | - | AUX in | FM Radio | FM Radio | AUX in | FM Radio | - 
-| 6 | - | - | - | - | AUX in | AUX in | - | AUX in | - 
-| 7 | - | - | - | - | - | Bluetooth | - | - | - 
+| radio mode | Hama IR110 | Medion MD 87180/87090  | Medion MD 86988| Pinell Supersound II| Silvercrest SIRD 14 C1 | Revo Superconnect | Hama DIR3110 | Hama DIT2000M | TinyAudio M7+ | Silvercrest SMRS 35 A1 (WLAN box) | Silvercrest SMRB 40 A1 (WLAN Soundbar)
+| --- | --- | --- | --- | --- | --- | --- | ---| --- | --- | --- | ---
+| 0 | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio
+| 1 | Spotify | Music Player (USB, LAN) | Music Player | Spotify | Spotify | Spotify | Spotify | Spotify | - | TIDAL | TIDAL 
+| 2 | Player | DAB Radio | FM Radio | Player | --- | --- | Player | --- | Player | Napster | Napster
+| 3 | AUX in | FM Radio | AUX in | DAB Radio | Music Player | Music Player | DAB Radio | Music Player | DAB Radio | Deezer | Deezer
+| 4 | - | AUX in | - | FM Radio | DAB Radio | DAB Radio | FM Radio | DAB Radio | FM Radio | Qobuz | Qobuz
+| 5 | - | - | - | AUX in | FM Radio | FM Radio | AUX in | FM Radio | - | Spotify | Spotify
+| 6 | - | - | - | - | AUX in | AUX in | - | AUX in | - | Local Music | Local Music 
+| 7 | - | - | - | - | - | Bluetooth | - | - | - | Music Player | Music Player
+| 8 | - | - | - | - | - | - | - | - | - | AUX in | Bluetooth
+| 9 | - | - | - | - | - | - | - | - | - | - | AUX in
+| 10 | - | - | - | - | - | - | - | - | - | - | Optical in
 
 ## Example
 
