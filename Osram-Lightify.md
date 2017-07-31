@@ -1,4 +1,4 @@
-#Osram Lightify Integration#
+# Osram Lightify Integration - Updated for openHAB 2
 
 Usually Osram Lightify bulbs work nicely when connected to a Hue bridge which allows using the corresponding binding.
 However, if for some reason somebody is as unfortunate as me, i.e. the mix of bulbs in the house is located in a way that prevents that the (apparently proprietary) range extension functionality between devices doesn't ensure the bulbs can be reached (directly or indirectly) by the bridge, this approach might be useful.
@@ -8,12 +8,12 @@ Osram has published an API which could be used to control the bulbs. However, as
 Instead, I came across a Python implementation using the binary protocol of the Lightify Gateway, which works very fast.
 My solution is based on the following components / code:
 
-##Python Script##
+## Python Script
 
-###Installation/Preparation###
+### Installation/Preparation
     pip install lightify
 
-Run a simple Python script (changing the IP address to that of the Lightify Gateway
+Run a simple Python script (changing the IP address to that of the Lightify Gateway)
     from lightify import Lightify
     
     lightify = Lightify("<IP ADDRESS>")
@@ -27,7 +27,7 @@ You then get a list of indexes in a format 'XXXXXXXXXXXXXXXXXXXL' (X being a dig
 
 to identify which index corresponds to which bulb.
 
-###mylightify.py###
+### mylightify.py
     from lightify import Lightify
     import argparse
     
@@ -95,18 +95,18 @@ to identify which index corresponds to which bulb.
                     if args.temperature != None:
                         light.set_temperature(args.temperature, time)
 
-I placed the script into */home/openhab*.
+I placed the script into */openhab/scripts*.
 
-##openHAB Integration##
+## openHAB Integration
 
-###Items###
+### Items
 Assuming there are the following item definition:
 
     Switch Lightify1_OnOff
     Color  Lightify1_Colour
     Dimmer Lightify1_Dimmer
 
-###Rules###
+### Rules
 Assuming there is a rule doing something like this:
 
     var DecimalType hue = new DecimalType(240)
@@ -117,57 +117,57 @@ Assuming there is a rule doing something like this:
 
 In order to make the Lightify bulb behave like there was a binding I've added an additional Rules file:
 
-###lightify.rules###
-    import org.openhab.core.library.types.*
-    import org.openhab.model.script.actions.*
-    import org.eclipse.xtext.xbase.lib.*
-    import org.openhab.core.items.*
+### lightify.rules
+    import org.eclipse.xtext.xbase.lib.Procedures$Procedure1
+    import org.eclipse.xtext.xbase.lib.Procedures$Procedure3
+
+    val String LIGHTIFY_SCRIPT = "python /openhab/scripts/mylightify.py --bridge <IP ADDRESS> "
     
-    
-    val Functions$Function3 dimLightifyDevice = [
-        org.openhab.core.library.items.SwitchItem s,
-        org.openhab.core.library.items.DimmerItem d,
+    val Procedures$Procedure3<SwitchItem, DimmerItem, String> dimLightifyDevice = [
+        SwitchItem s,
+        DimmerItem d,
         String device |
     
-        var cmd = 'python@@/home/openhab/mylightify.py@@--bridge@@<IP ADDRESS>@@--device@@' + device
+        var cmd = LIGHTIFY_SCRIPT + '--device ' + device
         if (s.state == OFF) {
-            cmd = cmd + '@@--onoff@@0'
+            cmd = cmd + ' --onoff 0'
         } else {
-            var b = (d.state as DecimalType).doubleValue
-            cmd = cmd + '@@--onoff@@1@@--brightness@@' + b
+            if (d.state != NULL) {
+                var b = (d.state as DecimalType).doubleValue
+                cmd = cmd + ' --onoff 1 --brightness ' + b
+            } else {
+                cmd = cmd + ' --onoff 1'
+            }
         }
         executeCommandLine(cmd)
-        return 1
     ]
     
-    val Functions$Function1 switchOffLightifyDevice = [
+    val Procedures$Procedure1<String> switchOffLightifyDevice = [
         String device |
     
-            executeCommandLine('python@@/home/openhab/mylightify.py@@--bridge@@<IP ADDRESS>@@--device@@' + device + '@@--onoff@@0')
-            return 1
+            executeCommandLine(LIGHTIFY_SCRIPT + '--device ' + device + ' --onoff 0')
     ]
     
-    val Functions$Function3 updateLightifyDevice = [ 
-        org.openhab.core.library.items.SwitchItem s,
-        org.openhab.core.library.items.ColorItem c,
+    val Procedures$Procedure3<SwitchItem, ColorItem, String> updateLightifyDevice = [ 
+        SwitchItem s,
+        ColorItem c,
         String device |
     
-            var cmd = 'python@@/home/openhab/mylightify.py@@--bridge@@<IP ADDRESS>@@--device@@' + device
+            var cmd = LIGHTIFY_SCRIPT + '--device ' + device
             if (s.state == OFF) {
-                cmd = cmd + '@@--onoff@@0'
+                cmd = cmd + ' --onoff 0'
             } else {
-                if (c.state != Uninitialized) {
+                if (c.state != NULL) {
                     var light = c.state as HSBType
                     var red = light.red / 100 * 255
                     var green = light.green / 100 * 255
                     var blue = light.blue / 100 * 255
-                    cmd = cmd + '@@--onoff@@1@@--brightness@@' + light.brightness + '@@--red@@' + red + '@@--green@@' + green + '@@--blue@@' + blue
+                    cmd = cmd + ' --onoff 1 --brightness ' + light.brightness + ' --red ' + red + ' --green ' + green + ' --blue ' + blue
                 } else {
-                    cmd = cmd + '@@--onoff@@1'
+                    cmd = cmd + ' --onoff 1'
                 }
             }
             executeCommandLine(cmd)
-            return 1
     ]
 
 Note: You have to set the IP Address for your Lightify Gateway accordingly.
