@@ -18,10 +18,10 @@ Sitemaps are used to create elements of a user interface for making openHAB item
 Sitemaps are a declarative UI definition.
 With a few lines it is possible to define the structure and the content of your UI screens.
 
-###Sitemap files####
+### Sitemap files
 Sitemap files have the `.sitemap` filename extension and be stored in `${openhab_home}/configurations/sitemaps`.
 
-####Default sitemap####
+#### Default sitemap
 It is possible to have multiple sitemaps on one installation, each accessible through their URL by appending their name to the sitemap URL: "http://localhost:8080/openhab.app?sitemap=SitemapNameGoesHere"
 To load one by default, name it `default.sitemap` and the sitemap element 'default' so you do not need to specify a sitemap parameter in your URL.
 The URL "http://localhost:8080/openhab.app" has the same behaviour as "http://localhost:8080/openhab.app?sitemap=default".
