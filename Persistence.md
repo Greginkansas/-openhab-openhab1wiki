@@ -133,12 +133,12 @@ The "now" variable can be used for relative time expressions, while "parse()" ca
 ## Startup Behavior
 Persistence services and the rule engine are started in parallel. It is possible that rules may execute using items that have not had their persisted state restored yet (In this case, these items have an "undefined" state at the time the rule is executed). Therefore, rules that rely on persisted information may break during startup.
 
-####Workaround 1####
+#### Workaround 1
 
 A workaround which helps in some cases is to introduce an item e.g. "delayed_start" that is set to "OFF" at startup and to "ON" some time later (when it can be assumed that persistence has restored all items. The time needs to be determined empirically. It is influenced by the size of your home automation project and the performance of your platform).
 The affected rules then have to be masked by using "delayed_start".
 
-####Workaround 2####
+#### Workaround 2
 Create `configurations/rules/refresh.rules` with following content. It runs a refresh script when openHAB is started.
 
     var boolean reloadOnce = true
