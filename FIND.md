@@ -54,15 +54,8 @@ CAVEAT2: this working directory needs to be writable to the user you start it as
 
 If you're using mosquitto (probably everybody does, no?), you can add authentication using `curl -X PUT "http://YOURGROUP/mqtt?group=YOURGROUP` and then FIND will automatically manage the passwd file and restart mosquitto using a SIGHUP signal. Also, use `mosquitto_passwd <passwordfile> finduser` to add credentials. `mosquitto_passwd` ain't included in the Raspian mosquitto distribution, you need to g**gle where to find it.
 Find publishes to mqtt channel 'YOURGROUP/location/YOURUSER'.
-You can watch mqtt events like this: `mosquitto_sub -v -h mymqttserver -p 1883 -t 'YOURGROUP/#'`
+You can watch mqtt events like this: `mosquitto_sub -v -h mymqttserver -p 1883 -t 'YOURGROUP/location/#'`
 
-Reflect the server in openhab.cfg:
-```java
-mqtt:find.url=tcp://localhost:1883
-mqtt:find.clientId=OpenHAB
-mqtt:find.user=YOUR-OPENHAB-MOSQUITTO-USER
-mqtt:find.pwd=YOUR-OPENHAB-MOSQUITTO-PASSWORD
-```
 
 ###openHAB items
 You need to add the username of the person to track to get the information in.
@@ -71,6 +64,6 @@ the JSONPATH will pull the current location.
 
 location.items file
 ```java
-String	mqqtfind_david				"David FIND [%s]"	(All)	{mqtt="<[find:YOURGROUP/location/USERNAME:state:JSONPATH($.location)]"}
+String	mqqtfind_markus				"Markus is @ [%s]"	(All)	{mqtt="<[find:YOURGROUP/location/USERNAME:state:JSONPATH($.location)]"}
 ```
 
