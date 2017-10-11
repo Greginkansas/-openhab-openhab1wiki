@@ -22,11 +22,6 @@ openhab.cfg
 * timeZone must just be used if the local timezone of the pc is not the correct one. E. g. if you are living in Berlin and your calendar timezone is Berlin and your local pc timezone is Berlin you must not define this setting
 * '' for item configurations are optional (eventNr:1 and eventNr:'1' is the same). I prefer to use ''
 
-### Note for openHAB 2
-
-The CalDAV binding is compatible with openHAB 2 just like any other openHAB 1.x binding. There is currently just one bug in the way the configuration file is parsed. Create the configuration file `caldavio.cfg` with the additional prefix `caldavio:`. Do the same for `caldavCommand.cfg` and `caldavCommandPersonal.cfg`.
-For more details see the [discussion here](https://github.com/openhab/openhab/issues/4074#issuecomment-202737544). 
-
 ***
 
 # CalDAV Command
