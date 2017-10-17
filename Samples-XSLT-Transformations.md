@@ -1,6 +1,6 @@
 openHAB allows you to post [HTTP](Http-Binding) queries over the internet, and to put the received data in items that you can use in your rules.
 In most cases, you will get the information you need into a XML structured document, and you need a way to extract only the value you want: here is where XSLT transformations come in our help.
-XSLT is a standard method to transform an XML structure into a document with the structure you want. You can find a very good tutorial here: [XSLT tutorial at W3Schools](http://www.w3schools.com/xsl/default.asp)
+XSLT is a standard method to transform an XML structure into a document with the structure you want. You can find a very good tutorial here: [XSLT tutorial at W3Schools](https://www.w3schools.com/xml/xsl_intro.asp)
 
 In the following examples:
 *  the directive **xsl:output** says that the incoming document must be transformed into another XML-like document, without XML header (the _<?xml...?>_ part)
