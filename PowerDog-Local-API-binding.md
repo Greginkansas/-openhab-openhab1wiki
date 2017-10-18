@@ -8,10 +8,17 @@ The binding supports reading of all PowerDog variables available via PowerDog Lo
 
 **_This binding will be available from 1.9.0 onwards or is available from corresponding snapshot_**
 
+**_The binding was tested successfully using the OpenHAB 2.1 release_**
+
+
+## Installation
+
+The current OpenHAB distributions (1.x or 2.x) do not include the redstone RPC library needed. You can find it e.g. [here](https://github.com/wuellueb/openhab/blob/powerdoglocalapi_based_on_current_OH_master/bundles/binding/org.openhab.binding.powerdoglocalapi/lib/xmlrpc-client-1.1.1.jar) - please copy it to the same (addons-) folder as the org.openhab.binding.powerdoglocalapi-1.x.x.jar.
+
 
 ## Binding Configuration
 
-You will normally need some basic configuration for accessing a PowerDog. The following settings can be made for one or several PowerDogs in openhab.cfg.
+You will normally need some basic configuration for accessing a PowerDog. The following settings can be made for one or several PowerDogs in openhab.cfg. If you are using OpenHAB 2.x, please copy the following sections to a file powerdoglocalapi.cfg and remove the prefix `powerdoglocalapi:` of all parameters.
 
     ############################### eco-data PowerDog LocalAPI Binding #####################
     #
