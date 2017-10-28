@@ -113,7 +113,7 @@ For ease of reading and extending this table, I start a **transposed version of 
 | Medion MD 86988 | Internet Radio | Spotify | Player | AUX |  |  | | 
 | Pinell Supersound II| Internet Radio | Spotify | Music Player | DAB   | FM  | AUX |  |
 | Silvercrest SIRD 14 C1 | Internet Radio | Spotify | | Music Player | DAB   | FM  | AUX | 
-| Silvercrest SIRD 14 C2 | Internet Radio | TIDAL   | Napster | Deezer | Qobuz | Spotify | Local Music | Music Player | DAB | FM | AUX | 
+| Silvercrest SIRD 14 C2 | Internet Radio | TIDAL   | Napster | Deezer | Qobuz | Spotify | Local Music | Music Player | DAB | FM | AUX | Network
 | Silvercrest SMRS 35 A1 (WLAN box) | Internet Radio | TIDAL   | Napster | Deezer | Qobuz | Spotify | Local Music | Music Player | AUX | 
 | Silvercrest SMRB 40 A1 (WLAN soundbar) | Internet Radio | TIDAL   | Napster | Deezer | Qobuz | Spotify | Local Music | Music Player | Bluetooth | AUX | Optical
 | Revo Superconnect | Internet Radio | Spotify | | Music Player | DAB   | FM  | AUX | Bluetooth |
