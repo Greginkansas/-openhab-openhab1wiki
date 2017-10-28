@@ -84,6 +84,8 @@ A list of all properties and their possible item types is given below:
 
 The *radio mode* property is just a number that specifies the radio mode which may differ for each radio. This is why there is no fixed mapping implemented. For radios listed above, the mapping is as follows (please [add your radio mapping](Frontier-Silicon-Radio-Binding/_edit), if it differs!):
 
+**Please use the second, transposed table, it is easier to extend and maintain**
+
 | radio mode | Hama IR110 | Medion MD 87180/87090  | Medion MD 86988| Pinell Supersound II| Silvercrest SIRD 14 C1 | Revo Superconnect | Hama DIR3110 | Hama DIT2000M | TinyAudio M7+ | Silvercrest SMRS 35 A1 (WLAN box) | Silvercrest SMRB 40 A1 (WLAN Soundbar)
 | --- | --- | --- | --- | --- | --- | --- | ---| --- | --- | --- | ---
 | 0 | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio | Internet Radio
@@ -98,7 +100,7 @@ The *radio mode* property is just a number that specifies the radio mode which m
 | 9 | - | - | - | - | - | - | - | - | - | - | AUX in
 | 10 | - | - | - | - | - | - | - | - | - | - | Optical in
 
-For ease of reading and extending this table, I start a transposed version of this table:
+For ease of reading and extending this table, I start a **transposed version of this table**:
 
 
 | device\ radio mode | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 
