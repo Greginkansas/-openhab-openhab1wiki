@@ -98,6 +98,23 @@ The *radio mode* property is just a number that specifies the radio mode which m
 | 9 | - | - | - | - | - | - | - | - | - | - | AUX in
 | 10 | - | - | - | - | - | - | - | - | - | - | Optical in
 
+For ease of reading and extending this table, I start a transposed version of this table:
+
+
+| device\ radio mode | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 
+| --- | --- | --- | --- | --- | --- | --- | ---| --- | --- | --- | --- | ---
+| HAMA IR110 | Internet Radio | Spotify | Player | AUX |  |  | | 
+| Medion MD 87180/97090 | Internet Radio | Music Player | DAB | FM | AUX |  | | 
+| Medion MD 86988 | Internet Radio | Spotify | Player | AUX |  |  | | 
+| Pinell Supersound II| Internet Radio | Spotify | Music Player | DAB   | FM  | AUX |  |
+| Silvercrest SIRD 14 C1 | Internet Radio | Spotify | | Music Player | DAB   | FM  | AUX | 
+| Silvercrest SIRD 14 C2 | Internet Radio | TIDAL   | Napster | Deezer | Qobuz | Spotify |  | Local Music | DAB | FM | AUX | 
+| Revo Superconnect | Internet Radio | Spotify | | Music Player | DAB   | FM  | AUX | Bluetooth |
+
+
+
+
+
 ## Example
 
 Items:
