@@ -119,7 +119,7 @@ For ease of reading and extending this table, I start a **transposed version of 
 | Revo Superconnect | Internet Radio | Spotify | | Music Player | DAB   | FM  | AUX | Bluetooth |
 | TinyAudio M7+ | Internet Radio | | Music Player | DAB   | FM  |  | 
 
-
+If your radio is not listed, try [http://<IP>/fsapi/LIST_GET_NEXT/netRemote.sys.caps.validModes/-1?pin=1234&maxItems=65536](http://<IP>/fsapi/LIST_GET_NEXT/netRemote.sys.caps.validModes/-1?pin=1234&maxItems=65536)
 
 
 
