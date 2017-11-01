@@ -4,7 +4,9 @@
 Find is a  software that each time a WiFi-enabled device conducts a scan of nearby access points, it will recieve a unique identifier of the access point and a signal strength that correlates with the distance to the access point. A compilation of these different signals can be compiled into a fingerprint which can be used to uniquely classify the current location of that device.
 
 [Github : FIND](https://github.com/schollz/find)
+
 [Main Page : FIND](https://www.internalpositioning.com/faq)
+
 [MQTT Documentation : FIND](https://doc.internalpositioning.com/mqtt/)
 
 
