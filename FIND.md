@@ -4,8 +4,11 @@
 Find is a  software that each time a WiFi-enabled device conducts a scan of nearby access points, it will recieve a unique identifier of the access point and a signal strength that correlates with the distance to the access point. A compilation of these different signals can be compiled into a fingerprint which can be used to uniquely classify the current location of that device.
 
 To get it to work with openHAB, you need both, clients and a FIND server.
+Find will become available as an installation option in openHABian.
+
 FIND client is available for Android only (sorry folks with Iphones).
 Retrieve FIND client app through Play Store (search for “find hypercube”).
+
 
 ***
 Retrieve FIND server from [Github](https://github.com/schollz/find/releases).
