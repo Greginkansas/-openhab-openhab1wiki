@@ -27,7 +27,7 @@ then try  `sudo ./fingerprint -iwlist`.
 
 ""NOTE"" this is a start to help with integration please feel free to edit and add more information.
 
-###MQTT binding
+### MQTT binding
 How to use [MQTT Binding](http://docs.openhab.org/addons/bindings/mqtt1/readme.html) to get the data from FIND's mqtt server to OpenHAB
 
 
@@ -39,7 +39,7 @@ broker.user=YOURGROUP
 broker.pwd=YOURPASSWORD
 ```
 
-###Running your own FIND server
+### Running your own FIND server
 See also
 You can run your own find server like this:<br>
 `pi@tvpi:~/find $ ./find-2.1-linux-arm -mosquitto mosquittoPID -mqtt mymqttserver:1883/ -mqttadmin finduser -mqttadminpass findpasswd tvpi:8003`
@@ -57,7 +57,7 @@ Find publishes to mqtt channel 'YOURGROUP/location/YOURUSER'.
 You can watch mqtt events like this: `mosquitto_sub -v -h mymqttserver -p 1883 -t 'YOURGROUP/location/#'`
 
 
-###openHAB items
+### openHAB items
 You need to add the username of the person to track to get the information in.
 the JSONPATH will pull the current location.
 
