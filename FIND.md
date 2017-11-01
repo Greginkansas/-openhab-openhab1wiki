@@ -40,10 +40,10 @@ broker.pwd=YOURPASSWORD
 ```
 
 ### Running your own FIND server
-See also
 You can run your own find server like this:<br>
-`pi@tvpi:~/find $ ./find-2.1-linux-arm -mosquitto mosquittoPID -mqtt mymqttserver:1883/ -mqttadmin finduser -mqttadminpass findpasswd tvpi:8003`
-
+```
+pi@tvpi:~/find $ ./find-2.1-linux-arm -mosquitto mosquittoPID -mqtt mymqttserver:1883/ -mqttadmin finduser -mqttadminpass findpasswd tvpi:8003
+```
 then it'll connect to a MQTT server on `mymqttserver` port `1883` with a 'mosquittoPID' being the process ID of the mosquitto server process, using credentials 'finduser' and password 'findpasswd'.
 
 For usage in scripts, replace ``mosquittoPID`` above with `` `pgrep mosquitto` ``.
