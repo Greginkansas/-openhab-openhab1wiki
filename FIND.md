@@ -6,11 +6,12 @@ Find is a  software that each time a WiFi-enabled device conducts a scan of near
 To get it to work with openHAB, you need both, clients and a FIND server.
 Find will become available as an installation option in openHABian.
 
-FIND client is available for Android only (sorry folks with Iphones).
+FIND client is available for Android only (sorry to IPhone users).
 Retrieve FIND client app through Play Store (search for “find hypercube”).
 
-
 ***
+Have a look at the install instructions at https://www.internalpositioning.com/server/ .
+
 Retrieve FIND server from [Github](https://github.com/schollz/find/releases).
 For a Raspberry Pi, select the _arm_ binaries.
 If your Pi has WiFi and you want to use it as a client for learning, too, then also retrieve and install the `fingerprint `client from this page.
