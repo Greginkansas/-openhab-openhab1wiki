@@ -64,6 +64,5 @@ the JSONPATH will pull the current location.
 
 location.items file
 ```java
-String	mqqtfind_markus				"Markus is @ [%s]"	(All)	{mqtt="<[find:YOURGROUP/location/USERNAME:state:JSONPATH($.location)]"}
+String	mqttfind_johndoe			"John Doe is @ [%s]"	(All)	{mqtt="<[find:YOURGROUP/location/USERNAME:state:JSONPATH($.location)]"}
 ```
-
