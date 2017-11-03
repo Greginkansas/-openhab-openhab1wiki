@@ -17,8 +17,8 @@ For a Raspberry Pi, select the _arm_ binaries.
 If your Pi has WiFi and you want to use it as a client for learning, too, then also retrieve and install the `fingerprint `client from this page.
 
 A note on using a Pi as a learning client:<br>
-In order to 'train' the FIND server (i.e. to 'learn your house')  it usually does not make much sense to use a Pi because usually you actually don't _move_ a Pi that's connected to mains power, meaning you can just learn a single 'location' (one room). To use a phone is easier.
-If you still want to use a Pi for this, always remember to use `sudo`.<br>
+In order to 'train' the FIND server (i.e. to 'learn your house')  it usually does not make much sense to use a Pi because usually you actually don't _move_ a Pi that's connected to mains power, meaning you can just learn a single 'location' (the room it is installed in). To use a phone is easier.
+If you still want to use a Pi for this, remember to always use `sudo`.<br>
 If you encounter problems such as
 `14:27:35.615 scanWifi - INFO 008 Gathering fingerprint with '/sbin/iw dev wlan0 scan -u'`
 `14:27:35.625 main - WARN 009 Scan failed, will continue after a rest`
