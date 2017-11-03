@@ -53,7 +53,7 @@ CAVEAT1: you need to start the findserver in the working directory where you hav
 (or you need to move the data, too, to from where you want to start it)
 CAVEAT2: this working directory needs to be writable to the user you start it as and you also need another **writable** directory `data` inside.
 
-If you're using mosquitto (probably everybody does, no?), you can add authentication using `curl -X PUT "http://YOURGROUP/mqtt?group=YOURGROUP` and then FIND will automatically manage the passwd file and restart mosquitto using a SIGHUP signal. Also, use `mosquitto_passwd <passwordfile> finduser` to add credentials. `mosquitto_passwd` ain't included in the Raspian mosquitto distribution, you need to g**gle where to find it.
+If you're using mosquitto (probably everybody does, no?), you can add authentication using `curl -X PUT "http://<yourfindserverip>/mqtt?group=YOURGROUP` and then FIND will automatically manage the passwd file and restart mosquitto using a SIGHUP signal. Also, use `mosquitto_passwd <passwordfile> finduser` to add credentials. `mosquitto_passwd` ain't included in the Raspian mosquitto distribution, you need to g**gle where to find it.
 Find publishes to mqtt channel 'YOURGROUP/location/YOURUSER'.
 You can watch mqtt events like this: `mosquitto_sub -v -h mymqttserver -p 1883 -t 'YOURGROUP/location/#'`
 
