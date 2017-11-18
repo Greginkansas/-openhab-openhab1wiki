@@ -123,6 +123,7 @@ For the "Call" items use "Text" in your sitemap
 Use a map for presence detection item:
 Create file $openhab_home/configurations/transform/presence.map and add
 ```
+-=unknown
 1=present
 0=not present
 ```
