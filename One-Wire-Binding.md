@@ -119,17 +119,17 @@ This example uses a sensed property of an DS2406 as Contact, which is inverted b
 
 Switch turns on when value of device property is greater then maxWarning (30).
 
-	Switch OneWireTempWarnMin "TempWarnMin [%s]" onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;minWarning=5"}
+	Switch OneWireTempWarnMin "TempWarnMin [%s]" {onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;minWarning=5"}
 
 Switch turns on when value of device property is less then minWarning (5).
 
-	Switch OneWireTempWarnMin "TempWarnMin [%s]" onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;maxWarning=30;minWarning=5"}
+	Switch OneWireTempWarnMin "TempWarnMin [%s]" {onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;maxWarning=30;minWarning=5"}
 
 Switch turns on when value of device property is greater then maxWarning (30) or is less then minWarning (5).
 
 ### PushButton
 
-	Switch OneWirePushButton onewire="deviceId=29.66C30E000000;propertyName=sensed.0;refreshinterval=10";pushbutton=500;invert",autoupdate="false"
+	Switch OneWirePushButton {onewire="deviceId=29.66C30E000000;propertyName=sensed.0;refreshinterval=10";pushbutton=500;invert",autoupdate="false"
 
 ### iButton (OneWire binding openhab Version >= 1.8.0)
 
