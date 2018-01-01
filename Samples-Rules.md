@@ -236,6 +236,19 @@ Script (holiday.script):
         holidayName = "holy_trinity"// Heilige 3 Könige
         holiday = false 
     }
+
+    // Dutch kingsday
+    else if (dayOfYear==parse(year+"-04-27").getDayOfYear) {
+        holidayName = "kings_day"
+        holiday = true
+    }
+   
+   // Dutch liberation day, once every 5 year a holiday
+    else if (dayOfYear==parse(year+"-05-05").getDayOfYear) {
+        holidayName = "liberation_day"
+        holiday = year % 5==0 
+    }
+
     // Carnival ;-)
     else if (dayOfYear==easterSunday.getDayOfYear-48) {
         holidayName = "carnival_monday" // Rosenmontag
@@ -336,7 +349,7 @@ Script (holiday.script):
         holidayName = "new_years_eve" // Silvester
         holiday = false
     }
-    if (holidayName!=null) {
+    if (holidayName!==null) {
         postUpdate(SpecialDay,holidayName)
     }
     if (holiday) {
