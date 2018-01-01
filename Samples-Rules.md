@@ -69,7 +69,7 @@ Light is turned on when there is motion detected (corMotion) and brightness is b
     			// do something! 
     		]
     	} else {
-    		if(timer!=null) {
+    		if(timer!==null) {
     			timer.cancel
     			timer = null
     		}
@@ -336,7 +336,7 @@ Script (holiday.script):
         holidayName = "new_years_eve" // Silvester
         holiday = false
     }
-    if (holidayName!=null) {
+    if (holidayName!==null) {
         postUpdate(SpecialDay,holidayName)
     }
     if (holiday) {
@@ -391,7 +391,7 @@ Replace <api_code> with your own API code (sign up for a developers account). Fi
          * Indoor Lights
          */
          // Cancel timer to avoid reschedule
-        if(tIndoorLights!=null) {
+        if(tIndoorLights!==null) {
     	logInfo("Sunset","Timer tIndoorLights cancelled") 
     	tIndoorLights.cancel()
         }
@@ -678,7 +678,7 @@ Rules
     	// default to the current rain value in case there is nothing in our history
     	var rain = Weather_Rain.state
     	
-        if (rainInLast24Hours != null)
+        if (rainInLast24Hours !== null)
         	rain = rainInLast24Hours.state
         	
         // check if any rain is forecast
