@@ -9,18 +9,18 @@ First you need to configure the following values in the openhab.cfg file (in the
     ################################### LightwaveRf Binding #####################################
     #
     # The IP Address of the LightwaveRf Wifi Link you can use the broadcast address (required)
-    lightwaveRf:ip=255.255.255.255
+    lightwaverf:ip=255.255.255.255
     # The port to monitor for messages you shouldn't need to change this
-    lightwaveRf:receiveport=9760
+    lightwaverf:receiveport=9761
     # The port to send messages on, it will also be monitored for incoming messages 
     # you shouldn't need to change this
-    lightwaveRf:sendport=9761
+    lightwaverf:sendport=9760
     # For a new computer you will need to register it with the wifi link to be allowed to send messages
     # setting this to true we will send a registration message on startup. You will need to confirm
     # registration on the wifi link. There is no harm leaving this as true but you can set to false
-    # once you have registerd for the first time.
+    # once you have registered for the first time.
     lightwaverf:registeronstartup=true
-    # Delay between sending messages in ms to avoid swapming Wifi Link
+    # Delay between sending messages in ms to avoid swamping Wifi Link
     lightwaverf:senddelay=2000
     # Timeout for OK Messages in ms, we will retry messages we don't receive an ok for in the timeout
     lightwaverf:okTimeout=1000
@@ -103,7 +103,6 @@ This binding will receive updates from the Radiator Valves whenever they are sen
 See below for a typical example configuration. Note the poll_time is in seconds 1800 seconds = 30 minutes in the example below. You only need to set the poll time on one item per radiator (I recommend the current temperature as per below). A poll will actually update all values.
 
 Examples, configure for your items:
-================
 
     Dimmer  Dimmer1 "Dimmer1 [%d %%]" (ALL) { lightwaverf="room=3,device=2,type=DIMMER" }
     Switch  Switch2 "Switch2" (ALL)         { lightwaverf="room=3,device=3,type=SWITCH" }
@@ -113,5 +112,3 @@ Examples, configure for your items:
     Number RadiatorBatt "Radiator Battery [%.2f]"     { lightwaverf="room=4,serial=BF3B01,type=HEATING_BATTERY" }
     String RadiatorMode "Radiator [%s]"     { lightwaverf="room=4,serial=BF3B01,type=HEATING_MODE" }
     DateTime RadiatorUpdated "Radiator Updated [%1$tT, %1$tF]"  { lightwaverf="room=4,serial=AF4A02,type=HEATING_UPDATETIME" }
-
-================
