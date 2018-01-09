@@ -1,16 +1,17 @@
 
 ## Introduction
 
-The primary goal of the [Network UPS Tools](http://www.networkupstools.org/) (NUT) project is to provide support for Power Devices, such as Uninterruptible Power Supplies (UPS), Power Distribution Units and Solar Controllers.
+The primary goal of the [Network UPS Tools](http://www.networkupstools.org/) (NUT) project is to provide support for Power Devices such as Uninterruptible Power Supplies (UPS), Power Distribution Units, and Solar Controllers.
 NUT provides many control and monitoring features, with a uniform control and management interface.
-More than 100 different manufacturers, and several thousands models are compatible.
+More than 100 different manufacturers and several thousand models are compatible.
 
-This binding let's you integrate NUT servers with openHAB.
+This binding lets you integrate NUT servers with openHAB.
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
 ## Configuration
 ### openhab.cfg
+
 ```
 ############################### NetworkUpsTools Binding ###############################
 #
@@ -36,11 +37,11 @@ networkupstools:ups1.port=3493
 #networkupstools:ups1.pass= 
 ```
 
-In the openhab.cfg you can configure any number of UPS devices managed by NUT servers. Every UPS is identified by instance name ("ups1" in the example above). You use instance name in the item definitions.
+In the configuration you can configure any number of UPS devices managed by NUT servers. Every UPS is identified by an instance name ("ups1" in the example above). The instance name is used in the item definitions.
 
 ### Generic Item Binding Configuration
 
-In order to bind an item to a NetworkUpsTools property, you need to provide configuration settings. The syntax for the binding configuration string is explained here:
+In order to bind an item to a NetworkUpsTools property, configuration settings must be provided. The syntax for the binding configuration string is explained here. The general form is:
 
     networkupstools="<instance name>:<property name>"
 
@@ -51,14 +52,15 @@ Here are some examples of valid binding configuration strings:
     networkupstools="ups1:ups.status"
 
 
-As a result, your lines in the items file might look like the following:
+As a result, lines in the items file might look like the following:
 
     Number Ups_Output_Voltage "UPS output voltage [%.1f V]" (Ups) {networkupstools="ups1:output.voltage"}
     String Ups_Status "UPS status [%s]" (Ups) {networkupstools="ups1:ups.status"}
 
 Supported item types are Number and String.
 
-Supported property names differs between UPSes. You can use upsc command to get a list of properties for your ups:
+Supported property names differ between UPSes. You can use the `upsc` command to get a list of properties for your ups:
+
 ```
 jarek@nas ~ $ upsc ups1
 battery.charge: 100
