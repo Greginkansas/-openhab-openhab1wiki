@@ -30,7 +30,8 @@ while True:
         #print(resp)
         #print("Matches")
         matchObj = re.match(r'.*USN: uuid:roku:ecp:([\w\d]{12}).*LOCATION: (http://.*/).*', resp, re.S)
-        print (matchObj.group(1) + " " + matchObj.group(2))
+        if matchObj is not None:
+            print (matchObj.group(1) + " " + matchObj.group(2))
     except socket.timeout:
         break
 ```
