@@ -249,15 +249,6 @@ _Available as of openHAB 1.8_
 
 [Table of Contents](#table-of-contents)
 
-### NotifyMyAndroid Actions
-
-Sends push messages to your Android devices. All configuration in openhab.cfg is optional
-- `notifyMyAndroid(String event, String description)`: Send a message to a the pre configured api key (account) and use the configured or default values for the other parameters
-- `notifyMyAndroid(String apiKey, String event, String description)`: Send a message to another api key than the configured or use this method if you have not configured a default api key
-- `notifyMyAndroid(String apiKey, String event, String description, int priority, String url, boolean html)`: Send a message overwriting all configured parameters and using the specified values.
-
-[Table of Contents](#table-of-contents)
-
 ### OpenWebIf Action
 
 The openwebif action allows you to send a message to enigma2 based linux sat receivers (Dreambox, VU+, Clarke-Tech, ...) with installed OpenWebIf plugin.
