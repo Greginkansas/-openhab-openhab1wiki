@@ -24,7 +24,6 @@ Since openHAB 1.3.0, not all actions are part of the core runtime distribution a
   * [[MiOS (Vera)|MiOS-Action]]
   * [MQTT](#mqtt-action)
   * [my.openHAB](https://my.openhab.org/docs/notifications)
-  * [NotifyMyAndroid](#notifymyandroid-actions)
   * [OpenWebIf](#openwebif-action)
   * [Pebble](#pebble-actions)
   * [Prowl](#prowl-actions)
