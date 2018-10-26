@@ -1,8 +1,8 @@
-# Attention: openHAB 2.0 documentation page
+# Attention: openHAB 2.x documentation page
 
-ℹ Please find all documentation for **openHAB 2** under http://docs.openhab.org.
+ℹ Please find all documentation for **openHAB 2** under http://www.openhab.org/docs!
 
-The wiki page here contains (outdated) documentation for the older openHAB 1.x version. Please be aware that a lot of core details changed with openHAB 2.0 and this wiki as well as all tutorials found for openHAB 1.x might be misleading. Check http://docs.openhab.org for more details and consult the [community forum](http://community.openhab.org) for all remaining questions.
+The wiki page here contains (outdated) documentation for the older openHAB 1.x version. Please be aware that a lot of core details changed with openHAB 2 and this wiki as well as all tutorials found for openHAB 1.x might be misleading. Check http://docs.openhab.org for more details and consult the [community forum](http://community.openhab.org) for all remaining questions.
 
 # openHAB 1.x documentation wiki
 
