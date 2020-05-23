@@ -1,6 +1,5 @@
-```
-WIP to be completed - WIP to be completed - WIP to be completed
-```
+> For integrating Heatmiser PRT Wi-Fi thermostats in openHAB 2.x, see also this [community topic](https://community.openhab.org/t/heatmiser-prt-wifi-thermostats-rules-sitemap-scripts-etc/99290).
+
 
 This Section describes how to use AT Heatmiser Wifi Project together with JSONPath and execute commands and actions to completely control an Heatmiser Thermostat.
 
